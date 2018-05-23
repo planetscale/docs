@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="660px" height="571px" viewBox="0 0 660 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Why Training Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="297.026536%" gradientTransform="translate(0.028450,1.236161),scale(0.358491,1.000000),rotate(-24.158841),translate(-0.028450,-1.236161)" id="radialGradient-1">
+            <stop stop-color="#EFAD2D" offset="0%"></stop>
+            <stop stop-color="#D82425" offset="100%"></stop>
+        </radialGradient>
+        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="253.339343%" gradientTransform="translate(0.028450,1.236161),scale(0.437107,1.000000),rotate(-28.675214),translate(-0.028450,-1.236161)" id="radialGradient-2">
+            <stop stop-color="#EFAD2D" offset="0%"></stop>
+            <stop stop-color="#D82425" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Why-Training-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="database" transform="translate(171.000000, 113.000000)" fill-rule="nonzero">
+            <path d="M159,0 C82.9071429,0 0,18.24 0,57 C0,95.76 82.9071429,114 159,114 C235.092857,114 318,95.76 318,57 C318,18.24 235.092857,0 159,0 Z" id="Shape" fill="url(#radialGradient-1)"></path>
+            <path d="M159,136.459016 C97.6714286,136.459016 32.9357143,126.204918 0,100 L0,182.032787 C0,220.770492 82.9071429,239 159,239 C235.092857,239 318,220.770492 318,182.032787 L318,100 C285.064286,126.204918 220.328571,136.459016 159,136.459016 Z" id="Shape" fill="url(#radialGradient-2)"></path>
+            <path d="M159,261.459016 C97.6714286,261.459016 32.9357143,251.204918 0,225 L0,307.032787 C0,345.770492 82.9071429,364 159,364 C235.092857,364 318,345.770492 318,307.032787 L318,225 C285.064286,251.204918 220.328571,261.459016 159,261.459016 Z" id="Shape" fill="url(#radialGradient-2)"></path>
+        </g>
+    </g>
+</svg>

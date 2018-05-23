@@ -1,0 +1,53 @@
+{
+  "name": "planetscale.com",
+  "description": "PlanetScale Website",
+  "version": "1.0.0",
+  "author": "Pierre Reimertz <pierre@reimertz.co>",
+  "dependencies": {
+    "babel-plugin-styled-components": "^1.5.1",
+    "gatsby": "^1.9.166",
+    "gatsby-link": "^1.6.34",
+    "gatsby-plugin-google-fonts": "^0.0.4",
+    "gatsby-plugin-netlify": "^1.0.15",
+    "gatsby-plugin-netlify-cms": "^2.0.1",
+    "gatsby-plugin-nprogress": "^1.0.14",
+    "gatsby-plugin-react-helmet": "^2.0.4",
+    "gatsby-plugin-styled-components": "^2.0.11",
+    "gatsby-source-filesystem": "^1.5.14",
+    "gatsby-source-greenhouse": "^1.1.0",
+    "gatsby-transformer-json": "^1.0.14",
+    "gatsby-transformer-remark": "^1.7.29",
+    "gatsby-transformer-yaml": "^1.5.16",
+    "netlify-cms": "^1.7.0",
+    "polished": "^1.9.2",
+    "query-string": "^6.1.0",
+    "react-disqus-comments": "^1.2.0",
+    "react-ga": "^2.4.1",
+    "react-helmet": "^5.2.0",
+    "react-load-script": "^0.0.6",
+    "react-share": "^2.1.1",
+    "react-typist": "^2.0.4",
+    "react-visibility-sensor": "^3.11.0",
+    "rodal": "^1.6.3",
+    "save": "^2.3.2",
+    "slug": "^0.9.1",
+    "styled-components": "^3.2.6",
+    "styled-normalize": "^4.0.0"
+  },
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "rm -rf .cache && gatsby develop",
+    "diff": "prettier --config .prettierrc --list-different \"src/**/*.js\"",
+    "format": "prettier --config .prettierrc --write \"src/**/*.js\"",
+    "precommit": "pretty-quick --staged"
+  },
+  "lint-staged": {
+    "*.{js,jsx}": ["prettier --config .prettierrc --write", "git add"]
+  },
+  "devDependencies": {
+    "husky": "^0.14.3",
+    "prettier": "1.12.1",
+    "pretty-quick": "^1.6.0"
+  }
+}

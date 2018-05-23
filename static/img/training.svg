@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="660px" height="571px" viewBox="0 0 660 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Why Training</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="169.871973%" gradientTransform="translate(0.028450,1.236161),scale(0.818807,1.000000),rotate(-45.693833),translate(-0.028450,-1.236161)" id="radialGradient-1">
+            <stop stop-color="#EFAD2D" offset="0%"></stop>
+            <stop stop-color="#D82425" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Why-Training" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="training" transform="translate(112.000000, 107.000000)" fill="url(#radialGradient-1)" fill-rule="nonzero">
+            <path d="M79.2727273,201.903333 L79.2727273,281.236667 L218,357 L356.727273,281.236667 L356.727273,201.903333 L218,277.666667 L79.2727273,201.903333 Z M218,0 L0,119 L218,238 L396.363636,140.618333 L396.363636,277.666667 L436,277.666667 L436,119 L218,0 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>

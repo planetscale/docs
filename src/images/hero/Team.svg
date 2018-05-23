@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="772px" height="571px" viewBox="0 0 772 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Team</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="0%" cy="127.175885%" fx="0%" fy="127.175885%" r="212.337251%" gradientTransform="translate(0.000000,1.271759),scale(0.582902,1.000000),rotate(-36.104944),translate(-0.000000,-1.271759)" id="radialGradient-1">
+            <stop stop-color="#EF542D" offset="0%"></stop>
+            <stop stop-color="#D82425" offset="100%"></stop>
+            <stop stop-color="#24A1D8" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Team" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-2" fill="url(#radialGradient-1)" x="0" y="0" width="772" height="450"></rect>
+    </g>
+</svg>

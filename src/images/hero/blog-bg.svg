@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="772px" height="571px" viewBox="0 0 772 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Blog</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="100%" cy="2.05274764%" fx="100%" fy="2.05274764%" r="178.974194%" gradientTransform="translate(1.000000,0.020527),scale(0.739637,1.000000),rotate(137.217055),translate(-1.000000,-0.020527)" id="radialGradient-1">
+            <stop stop-color="#9124D8" offset="0%"></stop>
+            <stop stop-color="#482DEF" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Blog" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-2" fill="url(#radialGradient-1)" x="0" y="0" width="772" height="571"></rect>
+    </g>
+</svg>

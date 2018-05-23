@@ -1,0 +1,147 @@
+backend:
+  name: git-gateway
+  branch: master
+
+publish_mode: editorial_workflow
+
+media_folder: static/img
+public_folder: /img
+
+collections:
+  - name: "team"
+    label: "Team"
+    folder: "content/team"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Image", name: "image", widget: "image"}
+      - {label: "Name", name: "name", widget: "string"}
+      - {label: "Role", name: "role", widget: "string"}      
+      - {label: "LinkedIn", name: "linkedin", widget: "string"}
+      - {label: "Introduction", name: "body", widget: "markdown"}
+  - name: "careers"
+    label: "Careers"
+    folder: "content/careers"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Body", name: "body", widget: "markdown"}
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Title", name: "title", widget: "string"} 
+      - {label: "Date", name: "date", widget: "datetime"}
+      - {label: "Description", name: "description", widget: "text"}
+      - {label: "Comments", name: "comments", widget: "boolean"}
+      - {label: "Social Sharing", name: "share", widget: "boolean"}
+      - {label: "Body", name: "body", widget: "markdown"}
+
+  - label: "Pages"
+    name: "pages"
+    files:
+      - label: "Home Page"
+        name: "home"
+        file: "content/pages/index.yml"
+        fields:
+          - {label: Hero Title, name: title, widget: string}
+          - {label: Hero Subtitle, name: subtitle, widget: string}
+          - {label: Hero Content, name: content, widget: string}
+          - label: Writer Words
+            name: writer
+            widget: list
+            fields:
+              - {label: Word, name: word, widget: string}
+          - label: "Offerings"
+            name: "offerings"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: Offering
+                name: list
+                widget: list
+                fields:
+                  - {label: Icon, name: icon, widget: image}
+                  - {label: Title, name: title, widget: string}
+                  - {label: content, name: content, widget: markdown}
+          - label: "Why Us"
+            name: "whyUs"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: Reason
+                name: list
+                widget: list
+                fields:
+                  - {label: Title, name: title, widget: string}
+                  - {label: content, name: content, widget: markdown}
+      - label: "Team Page"
+        name: "team"
+        file: "content/pages/team.yml"
+        fields:
+          - {label: Hero Title, name: title, widget: string}
+          - {label: Hero Subtitle, name: subtitle, widget: string}
+          - {label: Hero Content, name: content, widget: string}
+          - label: "Team"
+            name: "team"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+      - label: "Careers Page"
+        name: "careers"
+        file: "content/pages/careers.yml"
+        fields:
+          - {label: Hero Title, name: title, widget: string}
+          - {label: Hero Subtitle, name: subtitle, widget: string}
+          - {label: Hero Content, name: content, widget: string}
+          - {label: About Us, name: aboutUs, widget: markdown}
+          - label: "Perks"
+            name: "perks"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: Perk
+                name: list
+                widget: list
+                fields:
+                  - {label: Perk, name: perk, widget: markdown}
+          - label: "Helps You"
+            name: "helpsYou"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: Help
+                name: list
+                widget: list
+                fields:
+                  - {label: Perk, name: help, widget: markdown}
+          - label: "What You’ll Be Doing"
+            name: "doing"
+            widget: "object"
+            fields:
+              - {label: "Title", name: "title", widget: "string"}
+              - label: Help
+                name: list
+                widget: list
+                fields:
+                  - {label: Doing, name: doing, widget: markdown}
+      - label: "Blog Page"
+        name: "blog"
+        file: "content/pages/blog.yml"
+        fields:
+          - {label: Hero Title, name: title, widget: string}
+          - {label: Hero Subtitle, name: subtitle, widget: string}
+          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Blog Button, name: blogButton, widget: string}
+          - {label: More Blog Posts Title, name: moreBlogPostsTitle, widget: string}
+      - label: "Thanks Page"
+        name: "thanks"
+        file: "content/pages/thanks.yml"
+        fields:
+          - {label: Hero Title, name: title, widget: string}
+          - {label: Hero Subtitle, name: subtitle, widget: string}
+          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Back Button, name: backButton, widget: string}

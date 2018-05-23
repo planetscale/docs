@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="354px" height="416px" viewBox="0 0 354 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Home Copy 2</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="155.617297%" id="radialGradient-1">
+            <stop stop-color="#EFAD2D" offset="0%"></stop>
+            <stop stop-color="#D82425" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Home-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Rectangle-2" fill="url(#radialGradient-1)" transform="translate(176.669008, 238.669008) rotate(227.000000) translate(-176.669008, -238.669008) " x="51.6690077" y="113.669008" width="250" height="250"></rect>
+        <rect id="Rectangle-2" fill="url(#radialGradient-1)" transform="translate(62.154156, 62.154156) rotate(150.000000) translate(-62.154156, -62.154156) " x="16.6541559" y="16.6541559" width="91" height="91"></rect>
+        <rect id="Rectangle-2" fill="url(#radialGradient-1)" transform="translate(250.676384, 61.676384) rotate(145.000000) translate(-250.676384, -61.676384) " x="233.676384" y="44.6763842" width="34" height="34"></rect>
+    </g>
+</svg>

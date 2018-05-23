@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="373px" height="435px" viewBox="0 0 373 435" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
+    <title>Blog Overlay</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <radialGradient cx="100%" cy="2.05274764%" fx="100%" fy="2.05274764%" r="155.617297%" id="radialGradient-1">
+            <stop stop-color="#9124D8" offset="0%"></stop>
+            <stop stop-color="#482DEF" offset="100%"></stop>
+        </radialGradient>
+    </defs>
+    <g id="Blog-Overlay" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <polygon id="Triangle" fill="url(#radialGradient-1)" transform="translate(152.089448, 319.089448) rotate(163.000000) translate(-152.089448, -319.089448) " points="152.089448 197.869446 273.309449 440.309449 30.8694464 440.309449"></polygon>
+        <polygon id="Triangle" fill="url(#radialGradient-1)" transform="translate(242.467980, 277.467980) rotate(247.000000) translate(-242.467980, -277.467980) " points="242.46798 177.96798 341.96798 376.96798 142.96798 376.96798"></polygon>
+        <polygon id="Triangle" fill="url(#radialGradient-1)" transform="translate(182.842281, 103.842281) rotate(205.000000) translate(-182.842281, -103.842281) " points="182.842281 25.7022813 260.98228 181.98228 104.702281 181.98228"></polygon>
+    </g>
+</svg>

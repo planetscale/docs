@@ -1,0 +1,44 @@
+title: PlanetScale
+subtitle: Operationalizes Vitess
+content: >-
+  Solve relational data scaling problems by deploying and operationalizing
+  Vitess clusters.
+writer:
+  - word: Enterprises
+  - word: Entreprenaurs
+  - word: The Next Big Thing
+offerings:
+  list:
+    - icon: /img/deploy.svg
+      title: Data Deployment Platform
+      content: >-
+        A set of tools and processes to automate the deployment and operation of
+        new Vitess Clusters. Managed or self-serve options available
+    - icon: /img/training.svg
+      title: Training
+      content: >-
+        Custom-designed Vitess deployment and management curriculum and training
+        for your DBAs and engineers.
+    - icon: /img/sla.svg
+      title: Support
+      content: >-
+        24-hour SLA support by the creators of Vitess for your deployment with
+        the option to escalate critical issues.
+  title: Our Offerings
+whyUs:
+  list:
+    - title: Vitess Expertise
+      content: >-
+        Our team are the creators and maintainers of the Vitess open source
+        project, which is a database clustering system for horizontal scaling of
+        MySQL.
+    - title: Multi-Cloud Support
+      content: >-
+        The PlanetScale offering is platform agnostic, whether you want to run
+        in one or multiples cloud or have on an premise deployment.
+    - title: Operational Experience
+      content: >-
+        Vitess is used as the canonical storage for Youtube’s video metadata.
+        Our team developed and operationalized Vitess for Youtube where it
+        manages tens of thousands of MySQL nodes.
+  title: Why Us

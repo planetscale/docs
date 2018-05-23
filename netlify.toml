@@ -1,0 +1,18 @@
+# Global settings applied to the whole site.  
+[build]
+  publish = "public"
+  command = "rm -rf .cache public && gatsby build"
+
+# Production context: All deploys to the main
+# repository branch will inherit these settings.
+[context.production]
+  [context.production.environment]
+
+# Deploy Preview context: All Deploy Previews
+# will inherit these settings.
+[context.deploy-preview]
+  [context.deploy-preview.environment]
+
+# Branch Deploy context: All deploys that are not in
+# an active Deploy Preview will inherit these settings.
+[context.branch-deploy]
