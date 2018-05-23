@@ -11,10 +11,6 @@ export const Wrapper = styled.section`
   max-width: ${(props) => props.theme.sizes.maxWidth};
   padding: 2em 1.5em 2em;
 
-  ${media.desktop`
-    padding: 5em 1.5em 2em 1.5em;
-  `}
-
   ${media.largePhone`
     padding: 5em 1.5em 2em 1.5em;
   `}
