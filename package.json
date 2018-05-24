@@ -18,7 +18,7 @@
     "gatsby-transformer-json": "^1.0.14",
     "gatsby-transformer-remark": "^1.7.29",
     "gatsby-transformer-yaml": "^1.5.16",
-    "netlify-cms": "^1.7.0",
+    "netlify-cms": "1.8.2",
     "polished": "^1.9.2",
     "query-string": "^6.1.0",
     "react-disqus-comments": "^1.2.0",
