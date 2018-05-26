@@ -1,5 +1,5 @@
 import React from 'react'
 
 export default ({ data }) => {
-  /* noop */
+  return null /* noop */
 }

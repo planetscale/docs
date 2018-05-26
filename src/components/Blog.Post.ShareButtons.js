@@ -61,7 +61,9 @@ export const BlogPostShareButtons = ({ title, shareUrl }) => {
           <EmailShareButton url={shareUrl} subject={title}>
             <EmailIcon size={32} round />
           </EmailShareButton>,
-        ].map((shareButton) => <PlatformContainer children={shareButton} />)}
+        ].map((shareButton, index) => (
+          <PlatformContainer key={index} children={shareButton} />
+        ))}
       </BlogPostShareButtonsContainer>
     </React.Fragment>
   )
