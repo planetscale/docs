@@ -145,3 +145,11 @@ collections:
           - {label: Hero Subtitle, name: subtitle, widget: string}
           - {label: Hero Content, name: content, widget: string}
           - {label: Hero Back Button, name: backButton, widget: string}
+      - label: "Page not Found Page"
+        name: "pageNotFound"
+        file: "content/pages/pageNotFound.yml"
+        fields:
+          - {label: Hero Title, name: title, widget: string}
+          - {label: Hero Subtitle, name: subtitle, widget: string}
+          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Back Button, name: homeButton, widget: string}

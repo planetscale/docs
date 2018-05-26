@@ -47,7 +47,7 @@ export default function ThanksPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query thanksuery {
+  query thanksQuery {
     allPagesYaml(filter: { id: { regex: "/pages/thanks/" } }) {
       edges {
         node {
