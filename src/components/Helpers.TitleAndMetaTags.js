@@ -1,19 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-const favIcons = new Map()
-
-favIcons.set('home', 'favicon-home')
-favIcons.set('team', 'favicon-team')
-favIcons.set('careers', 'favicon-careers')
-favIcons.set('blog', 'favicon-blog')
+import { pages } from '../site'
 
 export function TitleAndMetaTags({ url, pathname, title, description }) {
-  const favIconName = favIcons.has(pathname)
-    ? favIcons.get(pathname)
-    : title === 'Home'
-      ? favIcons.get('home')
-      : 'favicon'
+  const pageConfig =
+    pages[pages.findIndex((p) => p.id === pathname.split('/')[0])]
+  const favIconName = !!pageConfig ? `favicon-${pageConfig.id}` : 'favicon'
+
   return (
     <Helmet>
       <title>

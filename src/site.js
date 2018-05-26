@@ -19,8 +19,24 @@ export const theme = {
 export const sizes = theme.sizes
 
 export const pages = [
-  { name: 'Home', to: '/' },
-  { name: 'Team', to: '/team' },
-  { name: 'Careers', to: '/careers' },
-  { name: 'Blog', to: '/blog' },
+  {
+    id: 'home',
+    name: 'Home',
+    to: '/',
+  },
+  {
+    id: 'team',
+    name: 'Team',
+    to: '/team',
+  },
+  {
+    id: 'careers',
+    name: 'Careers',
+    to: '/careers',
+  },
+  {
+    id: 'blog',
+    name: 'Blog',
+    to: '/blog',
+  },
 ]

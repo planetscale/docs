@@ -21,7 +21,10 @@ export default function BlogPage({ data }) {
 
   return (
     <React.Fragment>
-      <TitleAndMetaTags title={frontmatter.title} pathname={fields.slug} />
+      <TitleAndMetaTags
+        title={frontmatter.title}
+        pathname={`blog/${fields.slug}`}
+      />
       <Hero backgroundImage={background} backgroundColor={'#9124D8'}>
         <Wrapper>
           <HeroTitle>
