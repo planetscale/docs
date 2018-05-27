@@ -2,5 +2,5 @@
 title: Page Not Found
 subtitle: Sadly, that page does not exist or hase moved.
 content: >-
-homeButton: Explore our blog 
-homeButtonUrl: blog
+homeButton: Go back home 
+homeButtonUrl: ''

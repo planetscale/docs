@@ -54,11 +54,17 @@ function encode(data) {
 }
 
 export class EmailForm extends Component {
+  state = {
+    isSending: false,
+  }
+
   handleChange = (e) => {
     this.setState({ [e.target.name]: e.target.value })
   }
 
   handleSubmit = (e) => {
+    if (this.state.isSending) return
+    else this.setState({ isSending: true })
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -66,14 +72,19 @@ export class EmailForm extends Component {
     })
       .then(() => {
         this.props.onDone && this.props.onDone()
+        this.setState({ isSending: false })
         navigateTo('/thanks/')
       })
-      .catch((error) => alert(error))
-
+      .catch((error) => {
+        this.setState({ isSending: false })
+        alert(error)
+      })
     e.preventDefault()
   }
 
   render() {
+    const { isSending } = this.state
+
     return (
       <FormContainer
         name="contact"
@@ -89,7 +100,10 @@ export class EmailForm extends Component {
           placeholder="Your email address"
           onChange={this.handleChange}
         />
-        <InputButton type="submit" value="Reach out to learn more" />
+        <InputButton
+          type="submit"
+          value={isSending ? 'Sending' : 'Reach out to learn more'}
+        />
       </FormContainer>
     )
   }
