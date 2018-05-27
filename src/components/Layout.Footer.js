@@ -13,7 +13,7 @@ import logo from '../../static/img/logo.png'
 
 import { pages } from '../site'
 
-const _Footer = styled.section`
+const _Footer = styled.footer`
   display: flex;
   justify-content: center;
   position: relative;

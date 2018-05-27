@@ -5,6 +5,7 @@ import VisibilitySensor from 'react-visibility-sensor'
 const _SmartImage = styled.div`
   width: 100%;
   height: 100%;
+  left: 0;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center bottom;
