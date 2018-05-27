@@ -13,6 +13,7 @@ const _Hero = styled.section`
   justify-content: center;
   position: relative;
   padding-bottom: 15em;
+  width: 100%;
 
   overflow: hidden;
 

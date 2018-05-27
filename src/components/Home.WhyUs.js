@@ -30,6 +30,7 @@ const _WhyUs = styled.li`
   flex-direction: column;
   align-items: center;
   max-width: 250px;
+  width: 100%; //ie11 bug
   text-align: center;
   counter-increment: li;
   margin-top: 2.5em;
@@ -76,6 +77,7 @@ const Content = styled.h2`
   font-weight: 100;
   font-size: 1em;
   line-height: 1.5em;
+  width: 100%; //ie11 bug
 `
 
 export function WhyUs({ title, icon, content }) {
