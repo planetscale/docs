@@ -29,9 +29,8 @@ whyUs:
   list:
     - title: Vitess Expertise
       content: >-
-        Our team are the creators and maintainers of the Vitess open source
-        project, which is a database clustering system for horizontal scaling of
-        MySQL.
+        Our team created and maintains the Vitess open source project, which is
+        a database clustering system for horizontal scaling of MySQL.
     - title: Multi-Cloud Support
       content: >-
         The PlanetScale offering is platform agnostic, whether you want to run
