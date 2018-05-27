@@ -1,6 +1,4 @@
-# Hero
 title: Page Not Found
-subtitle: Sadly, that page does not exist or hase moved.
-content: >-
-homeButton: Explore our blog 
-homeButtonUrl: blog
+subtitle: 'Sadly, this page does not exist or has been moved.'
+content: '404'
+homeButton: Explore our blog
