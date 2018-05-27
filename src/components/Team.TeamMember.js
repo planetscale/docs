@@ -24,6 +24,7 @@ const _TeamMember = styled.li`
   align-items: center;
   margin: 2em;
   max-width: 325px;
+  width: 100%; //ie11 bug
 `
 
 const Name = styled.h2`

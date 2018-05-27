@@ -37,7 +37,13 @@ const _CareersPost = styled.details`
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
 
   summary {
-    padding: 0.75em 2em;
+    padding: 0.75em 3em;
+    width: 100%;
+    box-sizing: border-box;
+
+    :before {
+      display: none;
+    }
 
     &:after {
       content: ' ';
@@ -98,6 +104,8 @@ const ButtonLink = styled.a`
 
 const Content = styled.div`
   padding: 0em 3em;
+  width: 100%;
+  box-sizing: border-box;
 `
 export function CareersPost({ node, open = false }) {
   const { title, id, content } = node

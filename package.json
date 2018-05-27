@@ -6,6 +6,7 @@
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
     "core-js": "^2.5.7",
+    "details-element-polyfill": "^2.0.1",
     "gatsby": "^1.9.261",
     "gatsby-link": "^1.6.44",
     "gatsby-plugin-google-fonts": "^0.0.4",
