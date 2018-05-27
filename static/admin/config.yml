@@ -47,9 +47,9 @@ collections:
         name: "home"
         file: "content/pages/index.yml"
         fields:
-          - {label: Hero Title, name: title, widget: string}
-          - {label: Hero Subtitle, name: subtitle, widget: string}
-          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Title, name: title, widget: string, required: false}
+          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Hero Content, name: content, widget: string, required: false}
           - label: Writer Words
             name: writer
             widget: list
@@ -82,9 +82,9 @@ collections:
         name: "team"
         file: "content/pages/team.yml"
         fields:
-          - {label: Hero Title, name: title, widget: string}
-          - {label: Hero Subtitle, name: subtitle, widget: string}
-          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Title, name: title, widget: string, required: false}
+          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Hero Content, name: content, widget: string, required: false}
           - label: "Team"
             name: "team"
             widget: "object"
@@ -94,9 +94,9 @@ collections:
         name: "careers"
         file: "content/pages/careers.yml"
         fields:
-          - {label: Hero Title, name: title, widget: string}
-          - {label: Hero Subtitle, name: subtitle, widget: string}
-          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Title, name: title, widget: string, required: false}
+          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Hero Content, name: content, widget: string, required: false}
           - {label: About Us, name: aboutUs, widget: markdown}
           - label: "Perks"
             name: "perks"
@@ -132,24 +132,25 @@ collections:
         name: "blog"
         file: "content/pages/blog.yml"
         fields:
-          - {label: Hero Title, name: title, widget: string}
-          - {label: Hero Subtitle, name: subtitle, widget: string}
-          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Title, name: title, widget: string, required: false}
+          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Hero Content, name: content, widget: string, required: false}
           - {label: Hero Blog Button, name: blogButton, widget: string}
-          - {label: More Blog Posts Title, name: moreBlogPostsTitle, widget: string}
+          - {label: More Blog Posts Title, name: moreBlogPostsTitle, widget: string, required: false}
       - label: "Thanks Page"
         name: "thanks"
         file: "content/pages/thanks.yml"
         fields:
-          - {label: Hero Title, name: title, widget: string}
-          - {label: Hero Subtitle, name: subtitle, widget: string}
-          - {label: Hero Content, name: content, widget: string}
+          - {label: Hero Title, name: title, widget: string, required: false}
+          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Hero Content, name: content, widget: string, required: false}
           - {label: Hero Back Button, name: backButton, widget: string}
       - label: "Page not Found Page"
         name: "pageNotFound"
         file: "content/pages/pageNotFound.yml"
         fields:
-          - {label: Hero Title, name: title, widget: string}
-          - {label: Hero Subtitle, name: subtitle, widget: string}
-          - {label: Hero Content, name: content, widget: string}
-          - {label: Hero Back Button, name: homeButton, widget: string}
+          - {label: Hero Title, name: title, widget: string, required: false}
+          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
+          - {label: Hero Content, name: content, widget: string, required: false}
+          - {label: Hero Back Button, name: homeButton, widget: string, required: false}
+          - {label: Hero Back Button Url, name: homeButtonUrl, widget: string, required: false}

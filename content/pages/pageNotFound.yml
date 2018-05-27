@@ -1,4 +1,5 @@
 title: Page Not Found
-subtitle: 'Sadly, this page does not exist or has been moved.'
-content: '404'
-homeButton: Explore our blog
+subtitle: Sadly, that page does not exist or hase moved.
+content: >-
+homeButton: Go back home 
+homeButtonUrl: ''
