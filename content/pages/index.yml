@@ -35,7 +35,7 @@ whyUs:
     - title: Multi-Cloud Support
       content: >-
         The PlanetScale offering is platform agnostic, whether you want to run
-        in one or multiples cloud or have on an premise deployment.
+        in one or multiple cloud deployments or have an on-premise deployment.
     - title: Operational Experience
       content: >-
         Our team built and ran Vitess - the canonical storage for video metadata
