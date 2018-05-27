@@ -1,5 +1,7 @@
 title: Driven by change
-subtitle: We are systems engineers with a passion for the Vitess project and a love for transactional databases in the cloud.
-content: >-
+subtitle: >-
+  Our mission is to build horizontally scalable systems that are also
+  transactional in nature.
+content: Team page
 team:
-  title: Founders
+  title: Team
