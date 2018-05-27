@@ -1,10 +1,7 @@
 ---
 image: /img/sugu.jpg
 name: Sugu Sougoumarane
-position: Cofounder & CTO
-linkedin: https://www.linkedin.com/in/sugu-sougoumarane-b9bb25/
+role: Cofounder & CTO
+linkedin: 'https://www.linkedin.com/in/sugu-sougoumarane-b9bb25/'
 ---
-
-Sugu is the brain behind Vitess. He was also responsible for scaling YouTube’s Vitess traffic to millions of QPS. His database experience goes back to PayPal, X.com and Informix and he is well-known in the distributed storage community and DBA circles. 
-
-Fun fact: one of his blog posts on flexible paxos was credited in a related Ph. D. thesis
+Sugu is the co-creator of Vitess, and has been working on it since 2010. Prior to Vitess, Sugu worked on scalability at YouTube and was also part of PayPal in the early days. His recent interest is in distributed systems and consensus algorithms. He occasionally shares his thoughts on his blog, [ssougou.blogspot.com](ssougou.blogspot.com).

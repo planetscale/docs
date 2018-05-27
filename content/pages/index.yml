@@ -1,5 +1,5 @@
 title: PlanetScale
-subtitle: Operationalizes Vitess
+subtitle: Operationalize Vitess
 content: >-
   Solve relational data scaling problems by deploying and operationalizing
   Vitess clusters.
@@ -29,16 +29,14 @@ whyUs:
   list:
     - title: Vitess Expertise
       content: >-
-        Our team are the creators and maintainers of the Vitess open source
-        project, which is a database clustering system for horizontal scaling of
-        MySQL.
+        Our team created and maintains the Vitess open source project, which is
+        a database clustering system for horizontal scaling of MySQL.
     - title: Multi-Cloud Support
       content: >-
         The PlanetScale offering is platform agnostic, whether you want to run
-        in one or multiples cloud or have on an premise deployment.
+        in one or multiple cloud deployments or have an on-premise deployment.
     - title: Operational Experience
       content: >-
-        Vitess is used as the canonical storage for Youtube’s video metadata.
-        Our team developed and operationalized Vitess for Youtube where it
-        manages tens of thousands of MySQL nodes.
+        Our team built and ran Vitess - the canonical storage for video metadata
+        - at YouTube, where it manages tens of thousands of MySQL nodes.
   title: Why Us
