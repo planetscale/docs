@@ -1,5 +1,5 @@
 title: PlanetScale
-subtitle: Operationalizes Vitess
+subtitle: Operationalize Vitess
 content: >-
   Solve relational data scaling problems by deploying and operationalizing
   Vitess clusters.
@@ -38,7 +38,6 @@ whyUs:
         in one or multiples cloud or have on an premise deployment.
     - title: Operational Experience
       content: >-
-        Vitess is used as the canonical storage for Youtube’s video metadata.
-        Our team developed and operationalized Vitess for Youtube where it
-        manages tens of thousands of MySQL nodes.
+        Our team built and ran Vitess - the canonical storage for video metadata
+        - at YouTube, where it manages tens of thousands of MySQL nodes.
   title: Why Us
