@@ -10,12 +10,11 @@ export const Wrapper = styled.section`
   width: 100%;
   max-width: ${(props) => props.theme.sizes.maxWidth};
   padding: 2em 1.5em 2em;
+  z-index: 1;
 
   ${media.largePhone`
     padding: 5em 1.5em 2em 1.5em;
-  `}
-
- ${fadeInAnimation}
+  `} ${fadeInAnimation};
 `
 
 export const SmallWrapper = Wrapper.extend`
