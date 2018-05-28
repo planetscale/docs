@@ -1,7 +1,3 @@
-if (typeof window !== `undefined`) {
-  require('details-element-polyfill') //IE11 <details> polyfill
-}
-
 import React from 'react'
 import Link from 'gatsby-link'
 

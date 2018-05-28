@@ -1,5 +1,5 @@
-const slug = require(`slug`);
-const path = require(`path`);
+const slug = require(`slug`)
+const path = require(`path`)
 // Implement the Gatsby API `createPages`. This is called once the
 // data layer is bootstrapped to let plugins create pages from data.
 // exports.createPages = ({ boundActionCreators }) => {
@@ -18,27 +18,26 @@ const path = require(`path`);
 // 	// });
 // };
 
-
 exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
   if (node.internal.type === `MarkdownRemark`) {
-    const { createNodeField, deleteNode } = boundActionCreators;
-    const parent = getNode(node.parent);
+    const { createNodeField, deleteNode } = boundActionCreators
+    const parent = getNode(node.parent)
 
     createNodeField({
       node,
       name: `slug`,
       value: slug(parent.name),
-    });
+    })
     createNodeField({
       node,
       name: `collection`,
       value: parent.name === 'noop' ? 'noop' : parent.sourceInstanceName,
     })
   }
-};
+}
 
 exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators;
+  const { createPage } = boundActionCreators
   return new Promise((resolve, reject) => {
     graphql(`
       {
@@ -53,21 +52,33 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
           }
         }
       }
-    `).then(result => {
+    `).then((result) => {
       result.data.allMarkdownRemark.edges.forEach((edge) => {
-        const { node } = edge;
+        const { node } = edge
         if (node.fields.collection !== 'noop') {
           createPage({
             path: `${node.fields.collection}/${node.fields.slug}`,
-            component: path.resolve(`./src/templates/${node.fields.collection}.js`),
+            component: path.resolve(
+              `./src/templates/${node.fields.collection}.js`
+            ),
             context: {
               // Data passed to context is available in page queries as GraphQL variables.
               slug: node.fields.slug,
             },
-          });
+          })
         }
-      });
+      })
       resolve()
     })
   })
-};
+}
+
+exports.modifyWebpackConfig = ({ config, stage }) => {
+  // fixes issues statically building sites when dependencies asuming window/document
+  if (stage === 'build-html') {
+    config.loader('null', {
+      test: /details-element-polyfill/,
+      loader: 'null-loader',
+    })
+  }
+}

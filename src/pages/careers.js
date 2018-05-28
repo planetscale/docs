@@ -33,6 +33,11 @@ const PerksContent = Content.extend`
   font-weight: 300;
 `
 
+//IE11 <details> polyfill
+if (typeof window !== `undefined`) {
+  require('details-element-polyfill')
+}
+
 export default function CareersPage({ data }) {
   const { allPagesYaml, allGreenhouseJob } = data
   const pageData = allPagesYaml.edges[0].node
