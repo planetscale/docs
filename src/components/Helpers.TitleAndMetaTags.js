@@ -35,14 +35,14 @@ export function TitleAndMetaTags({ url, pathname, title, description }) {
       />
 
       <meta property="og:url" content={`${url}/${pathname}`} />
-      <meta property="og:image" content={`${url}/img/social/1.png`} />
-      <meta property="og:image" content={`${url}/img/social/2.png`} />
-      <meta property="og:image" content={`${url}/img/social/3.png`} />
+      <meta property="og:image" content={`${url}/img/social-1.png`} />
+      <meta property="og:image" content={`${url}/img/social-2.png`} />
+      <meta property="og:image" content={`${url}/img/social-3.png`} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
 
       <meta name="twitter:url" content={`${url}/${pathname}`} />
-      <meta name="twitter:image" content={`${url}/img/social/1.png`} />
+      <meta name="twitter:image" content={`${url}/img/social-1.png`} />
       <meta name="twitter:title" content={title} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:site" content="@planetsclae" />

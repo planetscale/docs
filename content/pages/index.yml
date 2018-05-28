@@ -9,17 +9,17 @@ writer:
   - word: The Next Big Thing
 offerings:
   list:
-    - icon: /img/home-offerings/deploy.svg
+    - icon: /img/home-offerings-deploy.svg
       title: Data Deployment Platform
       content: >-
         A set of tools and processes to automate the deployment and operation of
         new Vitess Clusters. Managed or self-serve options available
-    - icon: /img/home-offerings/training.svg
+    - icon: /img/home-offerings-training.svg
       title: Training
       content: >-
         Custom-designed Vitess deployment and management curriculum and training
         for your DBAs and engineers.
-    - icon: /img/home-offerings/sla.svg
+    - icon: /img/home-offerings-sla.svg
       title: Support
       content: >-
         24-hour SLA support by the creators of Vitess for your deployment with
