@@ -10,7 +10,6 @@ import { media } from '../styles/media'
 
 import chevron from '../images/chevron.png'
 import background from '../images/hero/careers-bg.svg'
-import linkedinLogo from '../images/social/linkedin.png'
 
 import { OutboundLink } from 'gatsby-plugin-google-analytics'
 

@@ -5,7 +5,6 @@ import styled from 'styled-components'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 import background from '../images/hero/team-bg.svg'
-import linkedin from '../images/social/linkedin.png'
 
 export const InvestorContainer = styled.ul`
   display: flex;

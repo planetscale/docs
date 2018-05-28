@@ -7,7 +7,6 @@ import MarkdownContent from '../components/Common.MarkdownContent'
 import { media } from '../styles/media'
 
 import background from '../images/hero/home-bg.svg'
-import linkedin from '../images/social/linkedin.png'
 
 export const OfferingsContainer = styled.ul`
   display: flex;

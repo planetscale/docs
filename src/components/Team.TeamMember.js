@@ -5,7 +5,8 @@ import styled from 'styled-components'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 import background from '../images/hero/team-bg.svg'
-import linkedinLogo from '../images/social/linkedin.png'
+
+import { LinkedinIcon } from 'react-share'
 
 export const TeamMemberContainer = styled.ul`
   display: flex;
@@ -38,11 +39,6 @@ const Image = styled.img`
   width: 200px;
   margin: 3em 0;
 `
-
-const LinkedIn = styled.img`
-  width: 75px;
-`
-
 export function TeamMember({ name, image, bio, linkedin }) {
   return (
     <_TeamMember key={name}>
@@ -50,7 +46,7 @@ export function TeamMember({ name, image, bio, linkedin }) {
       <Image src={image} />
       <MarkdownContent html={bio} />
       <OutboundLink href={linkedin} target="_blank" rel="nofollow">
-        <LinkedIn src={linkedinLogo} />
+        <LinkedinIcon size={32} round={true} />
       </OutboundLink>
     </_TeamMember>
   )

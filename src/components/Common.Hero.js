@@ -6,7 +6,7 @@ import { SmartImage } from './Common.SmartImage'
 import { fadeInAndRotateAnimation } from '../styles/animations'
 import { media } from '../styles/media'
 
-import bottomOverlay from '../images/hero/bg-lower-thing-8-flipped.png'
+import bottomOverlay from '../images/waves.png'
 
 const _Hero = styled.section`
   display: flex;

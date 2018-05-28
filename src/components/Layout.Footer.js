@@ -8,7 +8,7 @@ import { Wrapper } from './Layout.Wrapper'
 
 import { media } from '../styles/media'
 
-import bottomOverlay from '../images/hero/bg-lower-thing-8-flipped-vertical.png'
+import bottomOverlay from '../images/waves-flipped-vertical.png'
 import logo from '../../static/img/logo.png'
 
 import { pages } from '../site'
