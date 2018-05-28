@@ -14,7 +14,7 @@ export const Wrapper = styled.section`
 
   ${media.largePhone`
     padding: 5em 1.5em 2em 1.5em;
-  `} ${fadeInAnimation};
+  `};
 `
 
 export const SmallWrapper = Wrapper.extend`
