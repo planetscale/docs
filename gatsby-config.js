@@ -1,31 +1,24 @@
 module.exports = {
-	siteMetadata: {
-		title: 'Dona Rita'
-	},
-	plugins: [
-		'gatsby-plugin-react-helmet',
-		{
-			resolve: 'gatsby-plugin-nprogress',
-			options: {
-				color: '#ffffff',
-				showSpinner: false
-			}
-		},
+  siteMetadata: {
+    title: 'Dona Rita',
+  },
+  plugins: [
+    'gatsby-plugin-react-helmet',
+    {
+      resolve: 'gatsby-plugin-nprogress',
+      options: {
+        color: '#ffffff',
+        showSpinner: false,
+      },
+    },
     'gatsby-plugin-styled-components',
-		'gatsby-transformer-json',
-		'gatsby-transformer-remark',
+    'gatsby-transformer-json',
+    'gatsby-transformer-remark',
     {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `blog`,
         path: `${__dirname}/content/blog/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `careers`,
-        path: `${__dirname}/content/careers/`,
       },
     },
     {
@@ -57,6 +50,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-netlify' 
-	]
-};
+    'gatsby-plugin-netlify',
+  ],
+}
