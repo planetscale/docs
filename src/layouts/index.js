@@ -19,7 +19,7 @@ export default class TemplateWrapper extends React.Component {
 
   componentDidMount() {
     const { location } = this.props
-    ReactGA.initialize('')
+    ReactGA.initialize('UA-119876285-1')
     ReactGA.pageview(location.pathname + location.search)
   }
 
