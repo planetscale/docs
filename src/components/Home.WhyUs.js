@@ -74,7 +74,7 @@ const Title = styled.h2`
 const Content = styled.h2`
   margin-top: 0;
   color: gray;
-  font-weight: 100;
+  font-weight: 300;
   font-size: 1em;
   line-height: 1.5em;
   width: 100%; //ie11 bug
