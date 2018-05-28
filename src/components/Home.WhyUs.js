@@ -29,8 +29,8 @@ const _WhyUs = styled.li`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 250px;
   width: 100%; //ie11 bug
+  max-width: 250px;
   text-align: center;
   counter-increment: li;
   margin-top: 2.5em;

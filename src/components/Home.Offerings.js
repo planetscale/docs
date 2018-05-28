@@ -30,12 +30,6 @@ const _Offering = styled.li`
   max-width: 600px;
 
   ${media.largePhone`
-    &:nth-child(odd) {
-      flex-direction: row-reverse;
-      padding-left: 60px;
-      
-    }
-  `} ${media.largePhone`
     flex-direction: column;
   `};
 `
