@@ -19,14 +19,6 @@ collections:
       - {label: "Role", name: "role", widget: "string"}      
       - {label: "LinkedIn", name: "linkedin", widget: "string"}
       - {label: "Introduction", name: "body", widget: "markdown"}
-  - name: "careers"
-    label: "Careers"
-    folder: "content/careers"
-    create: true
-    slug: "{{slug}}"
-    fields:
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Body", name: "body", widget: "markdown"}
   - name: "blog"
     label: "Blog"
     folder: "content/blog"
@@ -58,6 +50,7 @@ collections:
           - label: "Offerings"
             name: "offerings"
             widget: "object"
+            required: false
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - label: Offering
@@ -70,6 +63,7 @@ collections:
           - label: "Why Us"
             name: "whyUs"
             widget: "object"
+            required: false
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - label: Reason
@@ -89,7 +83,7 @@ collections:
             name: "team"
             widget: "object"
             fields:
-              - {label: "Title", name: "title", widget: "string"}
+              - {label: "Title", name: "title", widget: "string", required: false}
       - label: "Careers Page"
         name: "careers"
         file: "content/pages/careers.yml"
@@ -97,10 +91,11 @@ collections:
           - {label: Hero Title, name: title, widget: string, required: false}
           - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
           - {label: Hero Content, name: content, widget: string, required: false}
-          - {label: About Us, name: aboutUs, widget: markdown}
+          - {label: About Us, name: aboutUs, widget: markdown, required: false}
           - label: "Perks"
             name: "perks"
             widget: "object"
+            required: false
             fields:
               - {label: "Title", name: "title", widget: "string"}
               - label: Perk
@@ -108,26 +103,6 @@ collections:
                 widget: list
                 fields:
                   - {label: Perk, name: perk, widget: markdown}
-          - label: "Helps You"
-            name: "helpsYou"
-            widget: "object"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - label: Help
-                name: list
-                widget: list
-                fields:
-                  - {label: Perk, name: help, widget: markdown}
-          - label: "What You’ll Be Doing"
-            name: "doing"
-            widget: "object"
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - label: Help
-                name: list
-                widget: list
-                fields:
-                  - {label: Doing, name: doing, widget: markdown}
       - label: "Blog Page"
         name: "blog"
         file: "content/pages/blog.yml"
