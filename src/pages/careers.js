@@ -29,6 +29,10 @@ const Content = styled.div`
   line-height: 1.75em;
 `
 
+const PerksContent = Content.extend`
+  font-weight: 300;
+`
+
 export default function CareersPage({ data }) {
   const { allPagesYaml, allGreenhouseJob } = data
   const pageData = allPagesYaml.edges[0].node
@@ -66,9 +70,9 @@ export default function CareersPage({ data }) {
       </SmallWrapper>
       <SmallWrapper>
         <H1>{pageData.perks.title}</H1>
-        <Content>
+        <PerksContent>
           <ul>{pageData.perks.list.map((p) => <li>{p.perk}</li>)}</ul>
-        </Content>
+        </PerksContent>
       </SmallWrapper>
       <Spacing />
       <Footer
