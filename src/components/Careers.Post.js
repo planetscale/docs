@@ -12,6 +12,8 @@ import chevron from '../images/chevron.png'
 import background from '../images/hero/careers-bg.svg'
 import linkedinLogo from '../images/social/linkedin.png'
 
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
+
 export const CareersPostContainer = styled.ul`
   display: flex;
   list-style: none;
@@ -95,8 +97,7 @@ const Title = styled.h1`
     font-size: 1.25em;
   `};
 `
-
-const ButtonLink = styled.a`
+const ButtonLink = styled(OutboundLink)`
   display: inline-block;
   margin: 3em 0 1em;
   width: 100%;

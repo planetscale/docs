@@ -4,7 +4,6 @@ import React, { Fragment } from 'react'
 import Helmet from 'react-helmet'
 
 import { ThemeProvider } from 'styled-components'
-import ReactGA from 'react-ga'
 
 import { Header } from '../components/Layout.Header'
 
@@ -19,13 +18,10 @@ export default class TemplateWrapper extends React.Component {
 
   componentDidMount() {
     const { location } = this.props
-    ReactGA.initialize('UA-119876285-1')
-    ReactGA.pageview(location.pathname + location.search)
   }
 
   componentDidUpdate() {
     const { location } = this.props
-    ReactGA.pageview(location.pathname + location.search)
   }
 
   render() {

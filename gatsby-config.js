@@ -11,6 +11,14 @@ module.exports = {
         showSpinner: false,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-analytics`,
+      options: {
+        trackingId: 'UA-119876285-1',
+        anonymize: true,
+        respectDNT: true,
+      },
+    },
     'gatsby-plugin-styled-components',
     'gatsby-transformer-json',
     'gatsby-transformer-remark',

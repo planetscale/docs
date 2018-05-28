@@ -1,5 +1,5 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import styled from 'styled-components'
 
 import MarkdownContent from '../components/Common.MarkdownContent'
@@ -49,9 +49,9 @@ export function TeamMember({ name, image, bio, linkedin }) {
       <Name>{name}</Name>
       <Image src={image} />
       <MarkdownContent html={bio} />
-      <a href={linkedin} target="_blank" rel="no-follow">
+      <OutboundLink href={linkedin} target="_blank" rel="nofollow">
         <LinkedIn src={linkedinLogo} />
-      </a>
+      </OutboundLink>
     </_TeamMember>
   )
 }

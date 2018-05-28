@@ -52,6 +52,7 @@ export default function TeamPage({ data }) {
 
             return (
               <TeamMember
+                key={name}
                 name={name}
                 image={image}
                 linkedin={linkedin}
