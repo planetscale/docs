@@ -1,6 +1,6 @@
 ---
 image: ''
 name: ''
-position: ''
+role: ''
 linkedin: ''
 ---
