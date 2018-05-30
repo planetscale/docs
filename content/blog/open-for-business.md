@@ -21,4 +21,4 @@ We’re also working on new products and processes to help you easily deploy, au
 
 Stay tuned as we roll out changes to our website, product lineup, training and support services. We’re also available on various social media properties — [tweet us](https://twitter.com/planetscaledata), and don’t forget to follow us on [LinkedIn](https://www.linkedin.com/company/planetscale) and [Facebook](https://www.linkedin.com/company/planetscale)! 
 
-P.S. If you’re looking for work, or know someone who is, we’re looking for backend engineers to join our growing team. We’d appreciate it if you can pass it on to someone who’d be a great fit.
+P.S. If you’re looking for work, or know someone who is, we’re looking for [backend engineers](http://planetscale.com/careers) to join our growing team. We’d appreciate it if you can pass it on to someone who’d be a great fit.
