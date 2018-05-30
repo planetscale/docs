@@ -36,8 +36,8 @@ export const pages = [
   },
   // Uncomment this to re-enable the blog
   // {
-  //   id: 'blog',
-  //   name: 'Blog',
-  //   to: '/blog',
-  // },
+     id: 'blog',
+     name: 'Blog',
+     to: '/blog',
+  },
 ]
