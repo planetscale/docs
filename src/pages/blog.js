@@ -41,7 +41,7 @@ export default function BlogPage({ data }) {
           </HeroTitle>
           <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
           <HeroContent align={'left'}>
-            <Link to={`blog/${fields.slug}`}>
+            <Link to={`/blog/${fields.slug}`}>
               <Button>
                 {pageData.blogButton} {frontmatter.title}
               </Button>
