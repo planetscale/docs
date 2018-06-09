@@ -19,6 +19,7 @@ collections:
       - {label: "Role", name: "role", widget: "string"}      
       - {label: "LinkedIn", name: "linkedin", widget: "string"}
       - {label: "Introduction", name: "body", widget: "markdown"}
+      - {label: "Order", name: "order", widget: "number",  required: false}
   - name: "blog"
     label: "Blog"
     folder: "content/blog"

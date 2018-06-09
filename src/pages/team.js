@@ -31,7 +31,7 @@ export default function TeamPage({ data }) {
       <TitleAndMetaTags title="Team" pathname="team" />
       <Hero
         backgroundImage={background}
-        backgroundColor={'#24D855'}
+        backgroundColor={'#24C8D8'}
         overlay={overlay}
       >
         <Wrapper>
@@ -45,7 +45,7 @@ export default function TeamPage({ data }) {
       <Wrapper>
         <H1>{pageData.team.title}</H1>
         <TeamMemberContainer>
-          {data.team.edges.reverse().map((edge) => {
+          {data.team.edges.map((edge) => {
             const { node } = edge
             const { html, frontmatter } = node
             const { name, image, linkedin } = frontmatter
@@ -67,26 +67,9 @@ export default function TeamPage({ data }) {
           </InvestorContainer>
         )}
       </Wrapper>
-      {/*
-      <Section backgroundImage={careersBackground} backgroundColor={'#302DEF'} >
-        <Wrapper>
-          <SectionTitle>
-            <span style={{fontWeight: 100}}>Join us!</span>
-          </SectionTitle>
-          <SectionSubTitle>
-            We always looking for new team members.
-          </SectionSubTitle>
-          <SectionContent>
-            <Link to='/careers'>
-              <Button.div>Open Positions</Button.div>
-            </Link>
-          </SectionContent>
-        </Wrapper>
-      </Section>
-      */}
       <Footer
         backgroundImage={background}
-        backgroundColor={'#24D855'}
+        backgroundColor={'#24C8D8'}
         overlay={overlay}
       />
     </div>
@@ -96,6 +79,7 @@ export default function TeamPage({ data }) {
 export const pageQuery = graphql`
   query teamQuery {
     team: allMarkdownRemark(
+      sort: { order: ASC, fields: [frontmatter___order] }
       filter: { fields: { collection: { eq: "team" } } }
     ) {
       edges {
@@ -104,6 +88,7 @@ export const pageQuery = graphql`
           frontmatter {
             image
             name
+            order
             position
             linkedin
           }
