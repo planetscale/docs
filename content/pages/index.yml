@@ -1,7 +1,7 @@
 title: PlanetScale
 subtitle: Solve Relational Scaling Problems
 content: >-
-  We run the world's most scalable database clusters with Vitess.
+  We run the world's most scalable database clusters with <a href="http://vitess.io">Vitess</a>.
 writer:
   - word: Enterprise
   - word: Startups
