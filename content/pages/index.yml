@@ -3,9 +3,9 @@ subtitle: Solve Relational Scaling Problems
 content: >-
   We run the world's most scalable database clusters with Vitess.
 writer:
-  - word: Enterprises
-  - word: Startups
-  - word: Everyone
+  - Enterprises
+  - Startups
+  - Everyone
 offerings:
   list:
     - icon: /img/home-offerings-deploy.svg
