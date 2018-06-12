@@ -80,7 +80,7 @@ export default function IndexPage({ data, location }) {
             <span style={{ fontWeight: 700 }}>
 	    	  <Writer
 			texts={pageData.writer}
-		   /></span>
+		   ></Writer></span>
           </HeroTitle>
           <HeroSubTitle>{pageData.content}</HeroSubTitle>
           <EmailForm />
