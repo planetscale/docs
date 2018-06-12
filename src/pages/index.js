@@ -78,9 +78,8 @@ export default function IndexPage({ data, location }) {
           <HeroTitle>
             {pageData.subtitle} for{' '}
             <span style={{ fontWeight: 700 }}>
-	    	  <Writer
-			texts={pageData.writer}
-		   ></Writer></span>
+              <Writer texts={pageData.writer} />
+            </span>
           </HeroTitle>
           <HeroSubTitle>{pageData.content}</HeroSubTitle>
           <EmailForm />
@@ -115,9 +114,7 @@ export const pageQuery = graphql`
           title
           subtitle
           content
-          writer {
-            word
-          }
+          writer
           offerings {
             title
             list {
