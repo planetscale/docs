@@ -76,7 +76,7 @@ export default function IndexPage({ data, location }) {
       >
         <Wrapper>
           <HeroTitle>
-            {pageData.subtitle} <Breaker /> for{' '}
+            {pageData.subtitle} for{' '}
             <span style={{ fontWeight: 700 }}>{pageData.writer[0].word}</span>
           </HeroTitle>
           <HeroSubTitle>{pageData.content}</HeroSubTitle>
