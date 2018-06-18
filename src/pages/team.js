@@ -48,12 +48,13 @@ export default function TeamPage({ data }) {
           {data.team.edges.map((edge) => {
             const { node } = edge
             const { html, frontmatter } = node
-            const { name, image, linkedin } = frontmatter
+            const { name, role, image, linkedin } = frontmatter
 
             return (
               <TeamMember
                 key={name}
                 name={name}
+                role={role}
                 image={image}
                 linkedin={linkedin}
                 bio={html}
@@ -88,6 +89,7 @@ export const pageQuery = graphql`
           frontmatter {
             image
             name
+            role
             order
             position
             linkedin

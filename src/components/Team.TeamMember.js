@@ -30,7 +30,7 @@ const _TeamMember = styled.li`
 
 const Name = styled.h2`
   font-size: 1.5em;
-  font-weight: 100;
+  font-weight: 150;
   margin: 0;
 `
 
@@ -39,10 +39,18 @@ const Image = styled.img`
   width: 200px;
   margin: 3em 0;
 `
-export function TeamMember({ name, image, bio, linkedin }) {
+
+const Role = styled.h3`
+      font-size: 1.5em;
+      font-weight 100;
+      margin: 0;
+`
+
+export function TeamMember({ name, role, image, bio, linkedin }) {
   return (
     <_TeamMember key={name}>
       <Name>{name}</Name>
+      <Role>{role}</Role>
       <Image src={image} />
       <MarkdownContent html={bio} />
       <OutboundLink href={linkedin} target="_blank" rel="nofollow">
