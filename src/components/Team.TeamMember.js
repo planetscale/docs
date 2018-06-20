@@ -30,7 +30,7 @@ const _TeamMember = styled.li`
 
 const Name = styled.h2`
   font-size: 1.5em;
-  font-weight: 200;
+  font-weight: bold;
   margin: 0;
 `
 
