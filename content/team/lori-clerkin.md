@@ -1,5 +1,5 @@
 ---
-image: /static/img/lori-profilepic.jpg
+image: /img/team-member-lori.jpg
 name: Lori Clerkin
 role: Executive Assistant
 linkedin: 'https://www.linkedin.com/in/lori-clerkin-073038164/'
