@@ -34,10 +34,9 @@ export const pages = [
     name: 'Careers',
     to: '/careers',
   },
-  // Uncomment this to re-enable the blog
   {
-     id: 'blog',
-     name: 'Blog',
-     to: '/blog',
+    id: 'blog',
+    name: 'News',
+    to: '/blog',
   },
 ]
