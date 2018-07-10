@@ -1,0 +1,8 @@
+---
+image: /img/img-intern.jpg
+name: Isaac Anastasoff
+role: Intern at PlanetScale
+linkedin: 'www.linkedin.com/in/isaac-anastasoff'
+order: 7
+---
+Isaac takes pride in keeping a clean and organized office and making sure operations are running smoothly. Through the daily routine, Isaac has garnered the skills of working in an office space. Isaac has been working as an Intern at PlanetScale for two weeks. Isaac plans to major in Computer Science in college and pursue a career in the Tech Industry. Isaac’s favorite pastimes are surfing at Half Moon Bay and going on long bike rides on the Hills of Palo Alto.
