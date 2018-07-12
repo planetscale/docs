@@ -8,7 +8,7 @@ import { media } from '../styles/media'
 const FormContainer = styled.form`
   margin-top: 40px;
   display: flex;
-  max-width: 525px;
+  flex-direction: column;
   width: 100%;
   position: relative;
 
@@ -20,7 +20,7 @@ const FormContainer = styled.form`
 const InputField = styled.input`
   outline: none;
   border: 0;
-  margin: 0;
+  margin: 0 0 10px;
   width: 100%;
   height: 40px;
   line-height: 40px;
@@ -28,19 +28,7 @@ const InputField = styled.input`
   z-index: 2;
   color: rgba(35, 97, 109, 0.8);
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
-`
-
-const AbsoluteButton = styled.input`
-  outline: none;
-  position: absolute;
-  right: 4px;
-  top: 4px;
-  bottom: 4px;
-  box-shadow: none;
-  border: none;
-  background-color: #efad2d;
-  color: white;
-  border-radius: 4px;
+  box-sizing: border-box;
 `
 
 const HoneyPot = styled.p`
@@ -100,10 +88,21 @@ export class EmailForm extends Component {
           placeholder="Your email address"
           onChange={this.handleChange}
         />
-        <InputButton
-          type="submit"
-          value={isSending ? 'Sending' : 'Reach out to learn more'}
+
+        <InputField
+          name="name"
+          type="text"
+          placeholder="Your Name"
+          onChange={this.handleChange}
         />
+
+        <InputField
+          name="organization"
+          type="text"
+          placeholder="Your Organization"
+          onChange={this.handleChange}
+        />
+        <InputButton type="submit" value={isSending ? 'Sending' : 'Submit'} />
       </FormContainer>
     )
   }

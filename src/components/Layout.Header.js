@@ -27,7 +27,7 @@ const Nav = styled.nav`
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   padding-bottom: 10px;
@@ -47,6 +47,8 @@ const Nav = styled.nav`
 
 const NavList = styled.ol`
   padding: 0;
+  flex-grow: 2;
+  text-align: right;
 
   ${media.tablet`
     flex-wrap: wrap;

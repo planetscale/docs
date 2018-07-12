@@ -15,17 +15,16 @@ import {
 } from '../components/Common.Hero'
 
 import { Footer } from '../components/Layout.Footer'
-
-import { EmailForm } from '../components/Home.EmailForm'
-import { Writer } from '../components/Home.Writer'
 import { Offering, OfferingsContainer } from '../components/Home.Offerings'
-import { WhyUs, WhyUsContainer } from '../components/Home.WhyUs'
+import { VitessSection } from '../components/Home.VitessSection'
+import { ContactSalesCard } from '../components/Home.ContactSalesCard'
 
 import { media } from '../styles/media'
 
 import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
 import logo from '../../static/img/logo.png'
+import { Button } from '../components/Common.Button'
 
 const Logo = styled.img`
   max-height: 100px;
@@ -34,14 +33,6 @@ const Logo = styled.img`
   ${media.largePhone`
     max-height: 50px;
     margin-left: -15px;
-  `};
-`
-
-const Breaker = styled.div`
-  display: block;
-
-  ${media.largePhone`
-    display: none;  
   `};
 `
 
@@ -75,28 +66,26 @@ export default function IndexPage({ data, location }) {
         overlay={overlay}
       >
         <Wrapper>
-          <HeroTitle>
-            {pageData.subtitle} <Breaker /> for{' '}
-            <span style={{ fontWeight: 700 }}>
-              <Writer texts={pageData.writer} />
-            </span>
-          </HeroTitle>
+          <HeroTitle>{pageData.subtitle}</HeroTitle>
           <HeroSubTitle>{pageData.content}</HeroSubTitle>
-          <EmailForm />
         </Wrapper>
       </Hero>
+
+      <VitessSection
+        title={pageData.vitess.title}
+        logo={pageData.vitess.logo}
+        content={pageData.vitess.content}
+        overlay={overlay}
+      />
 
       <Wrapper>
         <OfferingsContainer>
           <H1>{pageData.offerings.title}</H1>
           {pageData.offerings.list.map(Offering)}
         </OfferingsContainer>
-
-        <Spacing />
-
-        <H1>{pageData.whyUs.title}</H1>
-        <WhyUsContainer>{pageData.whyUs.list.map(WhyUs)}</WhyUsContainer>
       </Wrapper>
+
+      <ContactSalesCard />
       <Footer
         backgroundImage={background}
         backgroundColor={'#EFAD2D'}
@@ -114,18 +103,15 @@ export const pageQuery = graphql`
           title
           subtitle
           content
-          writer
+          vitess {
+            title
+            logo
+            content
+          }
           offerings {
             title
             list {
               icon
-              title
-              content
-            }
-          }
-          whyUs {
-            title
-            list {
               title
               content
             }

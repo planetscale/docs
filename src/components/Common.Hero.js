@@ -44,7 +44,6 @@ export const HeroSubTitle = styled.h2`
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.175);
   margin: 0;
   padding: 0.5em 0;
-  max-width: 650px;
   font-size: 1.75em;
   line-height: 1.25em;
   font-weight: 300;
@@ -68,7 +67,7 @@ export const HeroContent = styled.h3`
 const BottomRightImage = styled.img`
   position: absolute;
   right: 7vw;
-  bottom: 5vh;
+  bottom: -25vh;
   width: 40vw;
   min-width: 400px;
   max-width: 600px;
