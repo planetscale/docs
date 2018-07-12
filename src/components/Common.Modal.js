@@ -24,8 +24,7 @@ export class Modal extends React.PureComponent {
         closeOnEsc={true}
         animation={'slideUp'}
       >
-        <H3>Get in touch to see how we can help you operationalize Vitess.</H3>
-        <EmailForm onDone={() => this.toggleModal(false)} />
+        {this.props.children}
       </Rodal>
     )
   }

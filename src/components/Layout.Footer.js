@@ -191,19 +191,19 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
                 href="https://twitter.com/planetscaledata"
                 target="_blank"
               >
-                <i class="fab fa-twitter-square" />
+                <i className="fab fa-twitter-square" />
               </Social>
               <Social
                 href="https://www.facebook.com/planetscaledata/"
                 target="_blank"
               >
-                <i class="fab fa-facebook-square" />
+                <i className="fab fa-facebook-square" />
               </Social>
               <Social
                 href="https://www.linkedin.com/company/planetscale"
                 target="_blank"
               >
-                <i class="fab fa-linkedin" />
+                <i className="fab fa-linkedin" />
               </Social>
             </SocialLinks>
           </LeftContainer>
