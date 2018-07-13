@@ -67,18 +67,6 @@ export default function CareersPage({ data }) {
         <H1>Open Positions</H1>
         <CareerPosts posts={data.allGreenhouseJob.edges} />
       </Wrapper>
-      <SmallWrapper>
-        <H1>About Us</H1>
-        <Content style={{ textAlign: 'center' }}>
-          <MarkdownContent html={pageData.aboutUs} />
-        </Content>
-      </SmallWrapper>
-      <SmallWrapper>
-        <H1>{pageData.perks.title}</H1>
-        <PerksContent>
-          <ul>{pageData.perks.list.map((p) => <li>{p.perk}</li>)}</ul>
-        </PerksContent>
-      </SmallWrapper>
       <Spacing />
       <Footer
         backgroundImage={background}
