@@ -23,7 +23,7 @@ export const TeamMemberContainer = styled.ul`
 const _TeamMember = styled.li`
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
+  align-items: center;
   margin: 2em;
   width: 100%;
 
@@ -35,7 +35,7 @@ const _TeamMember = styled.li`
 `
 
 const Content = styled.div`
-  // margin: 0 3em;
+  margin: 0 3em;
 
   ${media.largePhone`
     margin: 0 0 3em;
@@ -65,15 +65,15 @@ const Role = styled.h3`
   `}
 `
 
+const ImageContainer = styled.div``
+
 const Image = styled.img`
   border-radius: 300px;
-  width: 200px !important;
+  width: 200px;
   height: 200px;
   object-fit: cover;
-  margin-right: 3em;
 
   ${media.largePhone`
-    margin-right: 0;
     margin-bottom: 1em;
   `};
 `
@@ -86,7 +86,9 @@ const iconStyle = {
 export function TeamMember({ name, role, image, bio, linkedin }) {
   return (
     <_TeamMember key={name}>
-      <Image src={image} />
+      <ImageContainer>
+        <Image src={image} />
+      </ImageContainer>
       <Content>
         <Name>{name}</Name>
         <Role>{role}</Role>
