@@ -110,14 +110,6 @@ export const pageQuery = graphql`
           title
           subtitle
           content
-
-          aboutUs
-          perks {
-            title
-            list {
-              perk
-            }
-          }
         }
       }
     }

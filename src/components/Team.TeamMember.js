@@ -35,7 +35,7 @@ const _TeamMember = styled.li`
 `
 
 const Content = styled.div`
-  margin: 0 3em;
+  // margin: 0 3em;
 
   ${media.largePhone`
     margin: 0 0 3em;
@@ -67,11 +67,13 @@ const Role = styled.h3`
 
 const Image = styled.img`
   border-radius: 300px;
-  width: 200px;
+  width: 200px !important;
   height: 200px;
   object-fit: cover;
+  margin-right: 3em;
 
   ${media.largePhone`
+    margin-right: 0;
     margin-bottom: 1em;
   `};
 `
@@ -94,7 +96,7 @@ export function TeamMember({ name, role, image, bio, linkedin }) {
           target="_blank"
           rel="nofollow"
         >
-          <i class="fab fa-linkedin" style={iconStyle} />
+          <i className="fab fa-linkedin" style={iconStyle} />
         </OutboundLink>
       </Content>
     </_TeamMember>
