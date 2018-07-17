@@ -1,41 +1,29 @@
 title: PlanetScale
-subtitle: Solve Relational Scaling Problems
+subtitle: Scaling Done Right. Scaling Done Fast.
 content: >-
   We run the world's most scalable database clusters with Vitess.
-writer:
-  - Enterprises
-  - Startups
-  - Everyone
+vitess:
+  title: Powered By Vitess
+  logo: /img/vitess-logo.svg
+  content: >-
+    We created Vitess, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps such businesses scale their new and existing infrastrucutre faster.
 offerings:
+  title: Our Offerings
   list:
     - icon: /img/home-offerings-deploy.svg
-      title: Data Deployment Platform
+      title: Database As A Service
       content: >-
         A set of tools and processes to automate the deployment and operation of
         new Vitess Clusters. Managed or self-serve options available
+    - icon: /img/home-offerings-multicloud.svg
+      title: Multi-Cloud Support
+      content: >-
+        The PlanetScale offering is platform agnostic, whether you want to run in one or multiple cloud deployments or have an on-premise deployment.
     - icon: /img/home-offerings-training.svg
-      title: Training
+      title: Expert Training
       content: >-
-        Custom-designed Vitess deployment and management curriculum and training
-        for your DBAs and engineers.
+        We provide custom-designed Vitess deployment and management curriculum and training for your DBAs and engineers.
     - icon: /img/home-offerings-sla.svg
-      title: Support
+      title: 24/7 Support
       content: >-
-        24-hour SLA support by the creators of Vitess for your deployment with
-        the option to escalate critical issues.
-  title: Our Offerings
-whyUs:
-  list:
-    - title: Vitess Expertise
-      content: >-
-        Our team created and maintains the Vitess open source project, which is
-        a database clustering system for horizontal scaling of MySQL.
-    - title: Multi-Cloud Support
-      content: >-
-        The PlanetScale offering is platform agnostic, whether you want to run
-        in one or multiple cloud deployments or have an on-premise deployment.
-    - title: Operational Experience
-      content: >-
-        Our team built and ran Vitess - the canonical storage for video metadata
-        - at YouTube, where it manages tens of thousands of MySQL nodes.
-  title: Why Us
+        Around-the-clock SLA support by the creators of Vitess for your deployment with the option to escalate critical issues. Reach us over the web or phone anytime.  

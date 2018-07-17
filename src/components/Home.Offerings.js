@@ -30,11 +30,18 @@ const _Offering = styled.li`
 
   ${media.largePhone`
     flex-direction: column;
+    border-bottom: 1px solid #eee;
+    padding: 0 0 50px;
   `};
 `
 
 const Icon = styled.img`
-  height: 125px;
+  height: 100px;
+
+  ${media.largePhone`
+    height: 80px;
+    margin-bottom: 30px;
+  `};
 `
 
 const ContentContainer = styled.div`
@@ -51,6 +58,10 @@ const Title = styled.h2`
   font-size: 1.5em;
   font-weight: 500;
   margin: 0;
+
+  ${media.largePhone`
+    font-size: 1.2em;
+  `};
 `
 
 const Content = styled.div`

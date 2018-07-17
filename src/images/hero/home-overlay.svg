@@ -1,17 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="354px" height="416px" viewBox="0 0 354 416" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
-    <title>Home Copy 2</title>
+<svg width="417px" height="511px" viewBox="0 0 417 511" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>Group</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="155.617297%" id="radialGradient-1">
-            <stop stop-color="#EFAD2D" offset="0%"></stop>
-            <stop stop-color="#D82425" offset="100%"></stop>
-        </radialGradient>
+        <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#E77E2A" offset="0%"></stop>
+            <stop stop-color="#E05528" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-2">
+            <stop stop-color="#E77E2A" offset="0%"></stop>
+            <stop stop-color="#DE4827" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-3">
+            <stop stop-color="#E77E2A" offset="0%"></stop>
+            <stop stop-color="#DF4F28" offset="100%"></stop>
+        </linearGradient>
     </defs>
-    <g id="Home-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle-2" fill="url(#radialGradient-1)" transform="translate(176.669008, 238.669008) rotate(227.000000) translate(-176.669008, -238.669008) " x="51.6690077" y="113.669008" width="250" height="250"></rect>
-        <rect id="Rectangle-2" fill="url(#radialGradient-1)" transform="translate(62.154156, 62.154156) rotate(150.000000) translate(-62.154156, -62.154156) " x="16.6541559" y="16.6541559" width="91" height="91"></rect>
-        <rect id="Rectangle-2" fill="url(#radialGradient-1)" transform="translate(250.676384, 61.676384) rotate(145.000000) translate(-250.676384, -61.676384) " x="233.676384" y="44.6763842" width="34" height="34"></rect>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" opacity="0.746875">
+        <g id="homepage" transform="translate(-941.000000, -109.000000)">
+            <g id="Group" transform="translate(941.000000, 109.000000)">
+                <polygon id="Polygon" fill="url(#linearGradient-1)" points="154.5 154 309 243.25 309 421.75 154.5 511 1.20792265e-13 421.75 2.13162821e-14 243.25"></polygon>
+                <polygon id="Polygon-Copy" fill="url(#linearGradient-2)" points="350.5 67 417 105.5 417 182.5 350.5 221 284 182.5 284 105.5"></polygon>
+                <polygon id="Polygon-Copy-2" fill="url(#linearGradient-3)" points="195.5 0 236 23.25 236 69.75 195.5 93 155 69.75 155 23.25"></polygon>
+            </g>
+        </g>
     </g>
 </svg>

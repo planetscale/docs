@@ -1,23 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg width="660px" height="571px" viewBox="0 0 660 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
-    <title>Why Training Copy 2</title>
+<svg width="88px" height="100px" viewBox="0 0 88 100" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50.2 (55047) - http://www.bohemiancoding.com/sketch -->
+    <title>database</title>
     <desc>Created with Sketch.</desc>
     <defs>
-        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="297.026536%" gradientTransform="translate(0.028450,1.236161),scale(0.358491,1.000000),rotate(-24.158841),translate(-0.028450,-1.236161)" id="radialGradient-1">
-            <stop stop-color="#EFAD2D" offset="0%"></stop>
-            <stop stop-color="#D82425" offset="100%"></stop>
-        </radialGradient>
-        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="253.339343%" gradientTransform="translate(0.028450,1.236161),scale(0.437107,1.000000),rotate(-28.675214),translate(-0.028450,-1.236161)" id="radialGradient-2">
-            <stop stop-color="#EFAD2D" offset="0%"></stop>
-            <stop stop-color="#D82425" offset="100%"></stop>
-        </radialGradient>
+        <linearGradient x1="100%" y1="50%" x2="-2.22044605e-14%" y2="50%" id="linearGradient-1">
+            <stop stop-color="#E77E2A" offset="0%"></stop>
+            <stop stop-color="#E05528" offset="100%"></stop>
+        </linearGradient>
     </defs>
-    <g id="Why-Training-Copy-2" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="database" transform="translate(171.000000, 113.000000)" fill-rule="nonzero">
-            <path d="M159,0 C82.9071429,0 0,18.24 0,57 C0,95.76 82.9071429,114 159,114 C235.092857,114 318,95.76 318,57 C318,18.24 235.092857,0 159,0 Z" id="Shape" fill="url(#radialGradient-1)"></path>
-            <path d="M159,136.459016 C97.6714286,136.459016 32.9357143,126.204918 0,100 L0,182.032787 C0,220.770492 82.9071429,239 159,239 C235.092857,239 318,220.770492 318,182.032787 L318,100 C285.064286,126.204918 220.328571,136.459016 159,136.459016 Z" id="Shape" fill="url(#radialGradient-2)"></path>
-            <path d="M159,261.459016 C97.6714286,261.459016 32.9357143,251.204918 0,225 L0,307.032787 C0,345.770492 82.9071429,364 159,364 C235.092857,364 318,345.770492 318,307.032787 L318,225 C285.064286,251.204918 220.328571,261.459016 159,261.459016 Z" id="Shape" fill="url(#radialGradient-2)"></path>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="homepage" transform="translate(-364.000000, -1316.000000)" fill="url(#linearGradient-1)" fill-rule="nonzero">
+            <g id="database" transform="translate(364.000000, 1316.000000)">
+                <path d="M88,14.2857422 L88,23.2142578 C88,31.0826172 68.2917321,37.5 44,37.5 C19.7082679,37.5 0,31.0826172 0,23.2142578 L0,14.2857422 C0,6.41738281 19.7082679,0 44,0 C68.2917321,0 88,6.41738281 88,14.2857422 Z M88,34.375 L88,54.4642578 C88,62.3326172 68.2917321,68.75 44,68.75 C19.7082679,68.75 0,62.3326172 0,54.4642578 L0,34.375 C9.453125,40.8482422 26.7551429,43.8617188 44,43.8617188 C61.2448571,43.8617188 78.5466786,40.8482422 88,34.375 Z M88,65.625 L88,85.7142578 C88,93.5826172 68.2917321,100 44,100 C19.7082679,100 0,93.5826172 0,85.7142578 L0,65.625 C9.453125,72.0982422 26.7551429,75.1117187 44,75.1117187 C61.2448571,75.1117187 78.5466786,72.0982422 88,65.625 Z" id="Shape"></path>
+            </g>
         </g>
     </g>
 </svg>

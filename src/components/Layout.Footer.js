@@ -9,7 +9,7 @@ import { Wrapper } from './Layout.Wrapper'
 import { media } from '../styles/media'
 
 import bottomOverlay from '../images/waves-flipped-vertical.png'
-import logo from '../../static/img/logo.png'
+import logo from '../../static/img/logo-only.png'
 
 import { pages } from '../site'
 
@@ -46,12 +46,11 @@ const FooterContent = styled.div`
   padding-top: 10em;
   margin: 0 auto;
   width: 100%;
-  padding: 3em 0;
   max-width: ${(props) => props.theme.sizes.maxWidth};
 
   display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
+  justify-content: start;
+  align-items: center;
   z-index: 1338;
   padding-top: 10em;
 
@@ -70,19 +69,20 @@ const PagesList = styled.ul`
   padding: 0;
   display: flex;
   justify-content: space-between;
-  min-width: 250px;
 
   ${media.largePhone`
     flex-direction: column;
     padding-top: 2.5em;
-  `} li {
+  `};
+
+  li {
     display: inline-block;
     text-align: center;
+    margin-right: 23px;
 
     ${media.largePhone`
-      margin-left: 0;
-      text-align: center;
-      padding-top: 2.5em;
+      margin: 0;
+      line-height: 3;
       font-size: 1.25em;
     `};
   }
@@ -99,36 +99,66 @@ const PagesList = styled.ul`
   }
 `
 
-const RightContainer = styled.div`
+const LeftContainer = styled.div`
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-end;
+  flex-direction: row;
+  flex-wrap: wrap;
+  line-height: 1.5;
 
   ${media.largePhone`
     flex-direction: column;
+  `};
+`
+
+const RightContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  flex-grow: 2;
+
+  ${media.largePhone`
+    margin-top: 2em;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
+    font-size: 1.5em;
   `};
+`
+
+const SocialLinks = styled.div`
+  ${media.largePhone`
+    font-size: 1.5em;
+    line-height: 3em;
+  `};
+`
+
+const Social = styled.a`
+  color: white;
+  opacity: 0.5;
+  transition: all 0.2s;
+
+  &:nth-child(n + 2) {
+    margin-left: 5px;
+  }
+
+  &:hover {
+    opacity: 1;
+  }
 `
 
 const Copyright = styled.span`
   color: white;
-  margin-top: 30px;
 
   ${media.largePhone`
-    font-size: 1.25em;  
-    padding-top: 2.5em;
+    font-size: 0.5em;
   `};
 `
 const Logo = styled.img`
   max-width: 200px;
-  margin-top: -1em;
+  margin-right: 42px;
 
   ${media.largePhone`
-    padding-top: 2.5em;
-    max-width: 175px;
-    margin-left: -20px;
+    margin: 0;
   `};
 `
 export function Footer({ backgroundImage, backgroundColor, children }) {
@@ -144,7 +174,7 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
           <Link to={`/`} activeStyle={{ opacity: 1 }}>
             <Logo src={logo} />
           </Link>
-          <RightContainer>
+          <LeftContainer>
             <PagesList>
               {pages.map(({ name, to }) => {
                 return (
@@ -156,6 +186,28 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
                 )
               })}
             </PagesList>
+            <SocialLinks>
+              <Social
+                href="https://twitter.com/planetscaledata"
+                target="_blank"
+              >
+                <i className="fab fa-twitter-square" />
+              </Social>
+              <Social
+                href="https://www.facebook.com/planetscaledata/"
+                target="_blank"
+              >
+                <i className="fab fa-facebook-square" />
+              </Social>
+              <Social
+                href="https://www.linkedin.com/company/planetscale"
+                target="_blank"
+              >
+                <i className="fab fa-linkedin" />
+              </Social>
+            </SocialLinks>
+          </LeftContainer>
+          <RightContainer>
             <Copyright>©2018 PlanetScale, Inc</Copyright>
           </RightContainer>
         </FooterContent>

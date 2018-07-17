@@ -6,7 +6,7 @@ import { Button } from '../components/Common.Button'
 import { HeaderWrapper } from '../components/Layout.Wrapper'
 import { Modal } from '../components/Common.Modal'
 import { EmailForm } from './Home.EmailForm'
-import { H2 } from '../components/Typography.Headings'
+import { H3 } from '../components/Typography.Headings'
 
 import { media } from '../styles/media'
 
@@ -27,7 +27,7 @@ const Nav = styled.nav`
   width: 100%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
   padding-bottom: 10px;
@@ -47,6 +47,8 @@ const Nav = styled.nav`
 
 const NavList = styled.ol`
   padding: 0;
+  flex-grow: 2;
+  text-align: right;
 
   ${media.tablet`
     flex-wrap: wrap;
@@ -190,10 +192,10 @@ export class Header extends Component {
                   visible={modalOpen}
                   onClose={() => this.toggleModal(false)}
                 >
-                  <H2>
+                  <H3>
                     Get in touch to see how we can help you operationalize
                     Vitess.
-                  </H2>
+                  </H3>
                   <EmailForm onDone={() => this.toggleModal(false)} />
                 </Modal>
               </RightSide>

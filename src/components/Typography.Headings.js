@@ -29,3 +29,13 @@ export const H2 = styled.h2`
     font-size: 2em; 
   `};
 `
+
+export const H3 = styled.h3`
+  ${HeadingCommons} font-size: 2em;
+  font-weight: ${(props) => (props.bold ? '400' : '100')};
+  margin: 0;
+
+  ${media.largePhone`
+    font-size: 2em; 
+  `};
+`

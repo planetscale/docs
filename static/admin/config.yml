@@ -8,8 +8,8 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - name: "team"
-    label: "Team"
+  - label: "Team"
+    name: "team"
     folder: "content/team"
     create: true
     slug: "{{slug}}"
@@ -20,8 +20,8 @@ collections:
       - {label: "LinkedIn", name: "linkedin", widget: "string"}
       - {label: "Introduction", name: "body", widget: "markdown"}
       - {label: "Order", name: "order", widget: "number",  required: false}
-  - name: "blog"
-    label: "Blog"
+  - label: "Blog"
+    name: "blog"
     folder: "content/blog"
     create: true
     slug: "{{slug}}"
@@ -32,7 +32,6 @@ collections:
       - {label: "Comments", name: "comments", widget: "boolean"}
       - {label: "Social Sharing", name: "share", widget: "boolean"}
       - {label: "Body", name: "body", widget: "markdown"}
-
   - label: "Pages"
     name: "pages"
     files:
@@ -43,11 +42,14 @@ collections:
           - {label: Hero Title, name: title, widget: string, required: false}
           - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
           - {label: Hero Content, name: content, widget: string, required: false}
-          - label: Writer Words
-            name: writer
-            widget: list
+          - label: "Powered By Vitess"
+            name: sectionContent
+            widget: "object"
+            required: false
             fields:
-              - {label: Word, name: word, widget: string}
+              - {label: Icon, name: icon, widget: image}
+              - {label: Title, name: title, widget: string}
+              - {label: content, name: content, widget: markdown}
           - label: "Offerings"
             name: "offerings"
             widget: "object"
@@ -59,18 +61,6 @@ collections:
                 widget: list
                 fields:
                   - {label: Icon, name: icon, widget: image}
-                  - {label: Title, name: title, widget: string}
-                  - {label: content, name: content, widget: markdown}
-          - label: "Why Us"
-            name: "whyUs"
-            widget: "object"
-            required: false
-            fields:
-              - {label: "Title", name: "title", widget: "string"}
-              - label: Reason
-                name: list
-                widget: list
-                fields:
                   - {label: Title, name: title, widget: string}
                   - {label: content, name: content, widget: markdown}
       - label: "Team Page"
