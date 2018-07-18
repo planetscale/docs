@@ -49,6 +49,14 @@ function handleScriptLoad() {
   window.netlifyIdentity.init()
 }
 
+function handleIntercomScriptLoad() {
+  console.log('Intercom script loaded')
+
+  window.Intercom('boot', {
+    app_id: 'zc7g97ft',
+  })
+}
+
 export default function IndexPage({ data, location }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
@@ -58,6 +66,10 @@ export default function IndexPage({ data, location }) {
       <Script
         url="https://identity.netlify.com/v1/netlify-identity-widget.js"
         onLoad={() => handleScriptLoad()}
+      />
+      <Script
+        url="https://widget.intercom.io/widget/zc7g97ft"
+        onLoad={() => handleIntercomScriptLoad()}
       />
       <TitleAndMetaTags title="Home" />
       <Hero
