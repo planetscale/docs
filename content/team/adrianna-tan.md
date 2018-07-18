@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-adrianna-tan.jpg
 name: Adrianna Tan
-role: Head of International Expansion
+role: Jill of All Trades
 linkedin: 'adriannatan'
 order: 3
 ---
