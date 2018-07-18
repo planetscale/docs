@@ -64,9 +64,7 @@ export class ContactSalesCard extends Component {
           Get Started
         </Button>
         <Modal visible={modalOpen} onClose={() => this.toggleModal(false)}>
-          <H3>
-            Get in touch to see how we can help you operationalize Vitess.
-          </H3>
+          <H3>Let us help you operationalize Vitess.</H3>
           <EmailForm onDone={() => this.toggleModal(false)} />
         </Modal>
       </_Container>
