@@ -31,6 +31,32 @@ const InputField = styled.input`
   box-sizing: border-box;
 `
 
+const Label = styled.label`
+  font-weight: 400;
+`
+
+const Checkbox = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0;
+
+  input[type='checkbox'] {
+    width: auto;
+    height: auto;
+    margin: 0 4px 0 0;
+  }
+
+  ${media.largePhone`
+    align-items: baseline;
+  `};
+`
+
+const FormSubmitButton = InputButton.extend`
+  margin-top: 1.5em;
+  background-color: #e46a5c;
+`
+
 const HoneyPot = styled.p`
   display: none;
 `
@@ -102,7 +128,34 @@ export class EmailForm extends Component {
           placeholder="Your Organization"
           onChange={this.handleChange}
         />
-        <InputButton type="submit" value={isSending ? 'Sending' : 'Submit'} />
+
+        <Checkbox>
+          <InputField
+            type="checkbox"
+            id="know-more"
+            name="feature"
+            value="scales"
+          />
+          <Label htmlFor="know-more">
+            I want to find out more about Vitess/PlanetScale
+          </Label>
+        </Checkbox>
+
+        <Checkbox>
+          <InputField
+            type="checkbox"
+            id="updates"
+            name="feature"
+            value="scales"
+          />
+          <Label htmlFor="updates">
+            I want to receive updates about PlanetScale
+          </Label>
+        </Checkbox>
+        <FormSubmitButton
+          type="submit"
+          value={isSending ? 'Sending' : 'Submit'}
+        />
       </FormContainer>
     )
   }

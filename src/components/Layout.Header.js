@@ -192,10 +192,7 @@ export class Header extends Component {
                   visible={modalOpen}
                   onClose={() => this.toggleModal(false)}
                 >
-                  <H3>
-                    Get in touch to see how we can help you operationalize
-                    Vitess.
-                  </H3>
+                  <H3>Let us help you operationalize Vitess.</H3>
                   <EmailForm onDone={() => this.toggleModal(false)} />
                 </Modal>
               </RightSide>
