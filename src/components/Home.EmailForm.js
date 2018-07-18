@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
 import { InputButton } from './Common.Button'
+import { H5 } from '../components/Typography.Headings'
 
 import { media } from '../styles/media'
 
@@ -29,6 +30,17 @@ const InputField = styled.input`
   color: rgba(35, 97, 109, 0.8);
   box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
+  background-color: #eee;
+`
+
+const UpdateContainer = styled.div`
+  border-top: 1px solid #666;
+  padding: 1.2em 0 0;
+  margin: 1.2em 0 1em;
+
+  h5 {
+    margin-bottom: 1em;
+  }
 `
 
 const Label = styled.label`
@@ -39,7 +51,7 @@ const Checkbox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 8px 0;
+  padding: 0.2em 0;
 
   input[type='checkbox'] {
     width: auto;
@@ -129,29 +141,39 @@ export class EmailForm extends Component {
           onChange={this.handleChange}
         />
 
-        <Checkbox>
-          <InputField
-            type="checkbox"
-            id="know-more"
-            name="feature"
-            value="scales"
-          />
-          <Label htmlFor="know-more">
-            I want to find out more about Vitess/PlanetScale
-          </Label>
-        </Checkbox>
+        <UpdateContainer>
+          <H5>Keep me updated on</H5>
+          <Checkbox>
+            <InputField
+              type="checkbox"
+              id="careers"
+              name="feature"
+              value="scales"
+            />
+            <Label htmlFor="careers">Careers at PlanetScale</Label>
+          </Checkbox>
 
-        <Checkbox>
-          <InputField
-            type="checkbox"
-            id="updates"
-            name="feature"
-            value="scales"
-          />
-          <Label htmlFor="updates">
-            I want to receive updates about PlanetScale
-          </Label>
-        </Checkbox>
+          <Checkbox>
+            <InputField
+              type="checkbox"
+              id="product-offerings"
+              name="feature"
+              value="scales"
+            />
+            <Label htmlFor="product-offerings">Product Offerings</Label>
+          </Checkbox>
+
+          <Checkbox>
+            <InputField
+              type="checkbox"
+              id="updates"
+              name="feature"
+              value="scales"
+            />
+            <Label htmlFor="updates">PlanetScale Updates</Label>
+          </Checkbox>
+        </UpdateContainer>
+
         <FormSubmitButton
           type="submit"
           value={isSending ? 'Sending' : 'Submit'}

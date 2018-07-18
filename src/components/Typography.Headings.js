@@ -39,3 +39,13 @@ export const H3 = styled.h3`
     font-size: 2em; 
   `};
 `
+
+export const H5 = styled.h5`
+  ${HeadingCommons} font-size: 1.2em;
+  font-weight: 500;
+  margin: 0;
+
+  ${media.largePhone`
+  font-size: 1.2em; 
+`};
+`

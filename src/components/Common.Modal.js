@@ -9,7 +9,7 @@ const customStyles = {
   backgroundColor: '#808284',
   color: 'white',
   maxWidth: '600px',
-  height: '380px',
+  height: '490px',
   padding: '2em',
   borderRadius: '4px',
 }
