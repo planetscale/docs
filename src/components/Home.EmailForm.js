@@ -142,7 +142,7 @@ export class EmailForm extends Component {
         />
 
         <UpdateContainer>
-          <H5>Keep me updated on</H5>
+          <H5>I'm Interested In</H5>
           <Checkbox>
             <InputField
               type="checkbox"
@@ -160,7 +160,9 @@ export class EmailForm extends Component {
               name="feature"
               value="scales"
             />
-            <Label htmlFor="product-offerings">Product Offerings</Label>
+            <Label htmlFor="product-offerings">
+              PlanetScale products & services
+            </Label>
           </Checkbox>
 
           <Checkbox>
@@ -170,7 +172,7 @@ export class EmailForm extends Component {
               name="feature"
               value="scales"
             />
-            <Label htmlFor="updates">PlanetScale Updates</Label>
+            <Label htmlFor="updates">All PlanetScale updates</Label>
           </Checkbox>
         </UpdateContainer>
 
