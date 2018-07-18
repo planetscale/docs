@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="772px" height="571px" viewBox="0 0 772 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
-    <title>Home</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <radialGradient cx="2.84501445%" cy="123.616114%" fx="2.84501445%" fy="123.616114%" r="178.974194%" gradientTransform="translate(0.028450,1.236161),scale(0.739637,1.000000),rotate(-42.782945),translate(-0.028450,-1.236161)" id="radialGradient-1">
-            <stop stop-color="#EFAD2D" offset="0%"></stop>
-            <stop stop-color="#D82425" offset="100%"></stop>
-        </radialGradient>
-    </defs>
-    <g id="Home" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle-2" fill="url(#radialGradient-1)" x="0" y="0" width="772" height="571"></rect>
-    </g>
-</svg>
+<svg height="571" viewBox="0 0 772 571" width="772" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><radialGradient id="a" cx="2.845014%" cy="123.616114%" gradientTransform="matrix(.54284332 -.67922287 .50237836 .73393208 -.608014 .348227)" r="178.974194%"><stop offset="0" stop-color="#efad2d"/><stop offset="1" stop-color="#d82425"/></radialGradient><path d="m0 0h772v571h-772z" fill="url(#a)" fill-rule="evenodd"/></svg>

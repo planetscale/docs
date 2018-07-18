@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="772px" height="571px" viewBox="0 0 772 571" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
-    <title>Careers</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="24.2860621%" y1="92.9009728%" x2="76.5945264%" y2="6.86633325%" id="linearGradient-1">
-            <stop stop-color="#2878E0" offset="0%"></stop>
-            <stop stop-color="#25B7DB" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Careers" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle-2" fill="url(#linearGradient-1)" x="0" y="0" width="772" height="571"></rect>
-    </g>
-</svg>
+<svg height="571" viewBox="0 0 772 571" width="772" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="a" x1="24.286062%" x2="76.594526%" y1="92.900973%" y2="6.866333%"><stop offset="0" stop-color="#2878e0"/><stop offset="1" stop-color="#25b7db"/></linearGradient><path d="m0 0h772v571h-772z" fill="url(#a)" fill-rule="evenodd"/></svg>
