@@ -1,17 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="339px" height="399px" viewBox="0 0 339 399" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 49.2 (51160) - http://www.bohemiancoding.com/sketch -->
-    <title>Team Overlay</title>
-    <desc>Created with Sketch.</desc>
-    <defs>
-        <linearGradient x1="50%" y1="0%" x2="50%" y2="91.5156619%" id="linearGradient-1">
-            <stop stop-color="#6EF19C" offset="0%"></stop>
-            <stop stop-color="#63E9EA" offset="100%"></stop>
-        </linearGradient>
-    </defs>
-    <g id="Team-Overlay" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <rect id="Rectangle-5" fill="url(#linearGradient-1)" opacity="0.203294837" style="mix-blend-mode: screen;" transform="translate(152.683027, 165.683027) rotate(352.000000) translate(-152.683027, -165.683027) " x="104.183027" y="40.6830265" width="97" height="250"></rect>
-        <rect id="Rectangle-5" fill="url(#linearGradient-1)" transform="translate(204.078399, 90.074644) rotate(291.000000) translate(-204.078399, -90.074644) " x="155.578399" y="-34.9253556" width="97" height="250"></rect>
-        <rect id="Rectangle-5" fill="url(#linearGradient-1)" transform="translate(117.429358, 277.427141) rotate(403.000000) translate(-117.429358, -277.427141) " x="73.4293579" y="152.427141" width="88" height="250"></rect>
-    </g>
-</svg>
+<svg height="399" viewBox="0 0 339 399" width="339" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><linearGradient id="a" x1="50%" x2="50%" y1="0%" y2="91.515662%"><stop offset="0" stop-color="#6ef19c"/><stop offset="1" stop-color="#63e9ea"/></linearGradient><g fill="url(#a)" fill-rule="evenodd"><path d="m104.183027 40.683027h97v250h-97z" opacity=".203295" transform="matrix(.99026807 -.1391731 .1391731 .99026807 -21.57272 22.861786)"/><path d="m155.578399-34.925356h97v250h-97z" transform="matrix(.35836795 -.93358043 .93358043 .35836795 46.851317 248.318377)"/><path d="m73.429358 152.427141h88v250h-88z" transform="matrix(.7313537 .68199836 -.68199836 .7313537 220.751818 -5.556855)"/></g></svg>
