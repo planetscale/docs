@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-adrianna-tan.jpg
 name: Adrianna Tan
-role: Jill of All Tradesn
+role: Jill of All Trades
 linkedin: 'adriannatan'
 order: 3
 ---
