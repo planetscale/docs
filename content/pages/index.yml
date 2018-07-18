@@ -6,12 +6,12 @@ vitess:
   title: Powered By Vitess
   logo: /img/vitess-logo.svg
   content: >-
-    We created Vitess, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps such businesses scale their new and existing infrastrucutre faster.
+    We created Vitess, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps such businesses scale their new and existing faster.
 offerings:
   title: Our Offerings
   list:
     - icon: /img/home-offerings-deploy.svg
-      title: Database As A Service
+      title: Database-As-A-Service
       content: >-
         A set of tools and processes to automate the deployment and operation of
         new Vitess Clusters. Managed or self-serve options available
