@@ -2,6 +2,7 @@
   "name": "planetscale.com",
   "description": "PlanetScale Website",
   "version": "1.0.0",
+  "license": "UNLICENSED",
   "author": "Pierre Reimertz <pierre@reimertz.co>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.5.1",
@@ -45,7 +46,10 @@
     "precommit": "pretty-quick --staged"
   },
   "lint-staged": {
-    "*.{js,jsx}": ["prettier --config .prettierrc --write", "git add"]
+    "*.{js,jsx}": [
+      "prettier --config .prettierrc --write",
+      "git add"
+    ]
   },
   "devDependencies": {
     "husky": "^0.14.3",
