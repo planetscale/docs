@@ -185,13 +185,13 @@ export class Header extends Component {
                     </NavListItem>
                   )
                 })}
+	        <NavListItem>	    
+ 	          <a href={'http://support.planetscale.com'} activeStyle={{ opacity: 1 }}>
+	            Support
+	          </a>
+	        </NavListItem>
               </NavList>
               <RightSide>
-              <NavListItem>	    
- 	        <a href={'support.planetscale.com'} activeStyle={{ opacity: 1 }}>
-	          Support
-	        </a>
-	      </NavListItem>
                 <Button onClick={this.toggleModal}> Learn More </Button>
                 <Modal
                   visible={modalOpen}
