@@ -178,7 +178,7 @@ export class Header extends Component {
                         onClick={() => this.toggleSidebar(false)}
                         to={`${to}`}
                         exact
-                        activeStyle={{ opacity: 1 }}
+                      activeStyle={{ opacity: 1 }}
                       >
                         {name}
                       </Link>
@@ -187,6 +187,9 @@ export class Header extends Component {
                 })}
               </NavList>
               <RightSide>
+	      <a to={'support.planetscale.com'} activeStyle={{ opacity: 1 }}>
+	        Support
+	      </a>
                 <Button onClick={this.toggleModal}> Learn More </Button>
                 <Modal
                   visible={modalOpen}
