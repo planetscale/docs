@@ -2,11 +2,11 @@ title: PlanetScale
 subtitle: Scaling Done Right. Scaling Done Fast.
 content: >-
   We run the world's most scalable database clusters with Vitess.
-vitess:
+vitess: 
   title: Powered By Vitess
   logo: /img/vitess-logo.svg
   content: >-
-    We created Vitess, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps such businesses scale their new and existing infrastructure faster.
+    We created <a href=https://vitess.io> Vitess</a>, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps     such businesses scale their new and existing infrastructure faster.
 offerings:
   title: Our Offerings
   list:
@@ -14,7 +14,7 @@ offerings:
       title: Database-As-A-Service
       content: >-
         A set of tools and processes to automate the deployment and operation of
-        new Vitess Clusters. Managed or self-serve options available
+        new Vitess Clusters. Both managed and self-serve options are available.
     - icon: /img/home-offerings-multicloud.svg
       title: Multi-Cloud Support
       content: >-

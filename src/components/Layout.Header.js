@@ -178,13 +178,18 @@ export class Header extends Component {
                         onClick={() => this.toggleSidebar(false)}
                         to={`${to}`}
                         exact
-                        activeStyle={{ opacity: 1 }}
+                      activeStyle={{ opacity: 1 }}
                       >
                         {name}
                       </Link>
                     </NavListItem>
                   )
                 })}
+	        <NavListItem>	    
+ 	          <a href={'http://support.planetscale.com'} activeStyle={{ opacity: 1 }}>
+	            Support
+	          </a>
+	        </NavListItem>
               </NavList>
               <RightSide>
                 <Button onClick={this.toggleModal}> Learn More </Button>
