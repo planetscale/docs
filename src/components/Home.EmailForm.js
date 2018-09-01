@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
 import { InputButton } from './Common.Button'
-import { H5 } from '../components/Typography.Headings'
 
 import { media } from '../styles/media'
 
@@ -36,7 +35,7 @@ const InputField = styled.input`
 const UpdateContainer = styled.div`
   border-top: 1px solid #666;
   padding: 1.2em 0 0;
-  margin: 1.2em 0 1em;
+  margin: 1.2em 0 0.5em;
 
   h5 {
     margin-bottom: 1em;
@@ -142,29 +141,6 @@ export class EmailForm extends Component {
         />
 
         <UpdateContainer>
-          <H5>I'm Interested In</H5>
-          <Checkbox>
-            <InputField
-              type="checkbox"
-              id="careers"
-              name="feature"
-              value="scales"
-            />
-            <Label htmlFor="careers">Careers at PlanetScale</Label>
-          </Checkbox>
-
-          <Checkbox>
-            <InputField
-              type="checkbox"
-              id="product-offerings"
-              name="feature"
-              value="scales"
-            />
-            <Label htmlFor="product-offerings">
-              PlanetScale products & services
-            </Label>
-          </Checkbox>
-
           <Checkbox>
             <InputField
               type="checkbox"
@@ -172,7 +148,7 @@ export class EmailForm extends Component {
               name="feature"
               value="scales"
             />
-            <Label htmlFor="updates">All PlanetScale updates</Label>
+            <Label htmlFor="updates">Sign me up for Planetscale updates</Label>
           </Checkbox>
         </UpdateContainer>
 
