@@ -1,5 +1,5 @@
 ---
-title: ! 'GopherCon 2018 Debrief: Sugu Sougoumarane'
+title: GopherCon 2018 Debrief with Sugu Sougoumarane
 date: '2018-09-11T13:50:34+08:00'
 description: >-
   Hear what the PlanetScale CTO had to say about his experience at GopherCon 2018.
@@ -62,6 +62,5 @@ Sugu: I wish I could multiply myself, but I try to balance the two to the extent
 Sugu: I am holding my breath on the PlanetScale SaaS product. It will allow peole to deploy a full cluster immediately! We're looking forward to releasing the beta soon. In terms of conferences, you will see me at AWS re:Invent 2018 and KubeCon Seattle.
 
 **Abhi: Awesome! I'm definitely excited as well. Thanks for your time Sugu!**
-
 
 Sugu: Of course, my pleasure.
