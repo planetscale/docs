@@ -23,7 +23,7 @@ Sugu: Definitely the keynote speech by Kavya Joshi. The Go scheduler is a very c
 
 **Abhi: I'll make sure to go [watch it](https://www.youtube.com/watch?v=NjMGHrM2cc0)! So how did your talk go then?**
 
-Sugu: My went surprisingly well. I did not expect a big audience because I thought writing a parser in Go is not something that would attract many people. However, many people attended and an unusually large number of people came and told me that they enjoyed it.
+Sugu: My talk went surprisingly well. I did not expect a big audience because I thought writing a parser in Go is not something that would attract many people. However, many people attended and an unusually large number of people came and told me that they enjoyed it.
 
 **Abhi: Where did you feel like you got the most traction with the audience? Did you enjoy it?**
 
