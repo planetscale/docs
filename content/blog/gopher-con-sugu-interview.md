@@ -23,13 +23,13 @@ Sugu: Definitely the keynote speech by Kavya Joshi. The Go scheduler is a very c
 
 **Abhi: I'll make sure to go [watch it](https://www.youtube.com/watch?v=NjMGHrM2cc0)! So how did your talk go then?**
 
-Sugu: [My talk](https://www.youtube.com/watch?v=tVpaSOGMeq4) went surprisingly well. I did not expect a big audience because I thought writing a parser in Go is not something that would attract many people. However, many people attended and an unusually large number of people came and told me that they enjoyed it.
+Sugu: My went surprisingly well. I did not expect a big audience because I thought writing a parser in Go is not something that would attract many people. However, many people attended and an unusually large number of people came and told me that they enjoyed it.
 
 **Abhi: Where did you feel like you got the most traction with the audience? Did you enjoy it?**
 
-Sugu: I can't pinpoint a specific part, but it was likely the fact that I simplied the topic to allow people with no formal compiler training to write one. And of course I enjoyed my talk, for myself. 
+Sugu: I can't pinpoint a specific part, but it was likely the fact that I simplied the topic to allow people with no formal compiler training to write a parser. And of course I enjoyed my talk, for myself. 
 
-**Abhi: Makes sense. Moving on, what does the future of Go look like to you?**
+**Abhi: I definitely agree; I think [your talk](https://www.youtube.com/watch?v=tVpaSOGMeq4&t=1s) was impressively accessible to individuals with limited experience in the subject. Moving on, what does the future of Go look like to you?**
 
 Sugu: The future of go is looking bright. Its adoption has been growing over the years. At GopherCon, over two-thirds of the audience were brand new Go programmers.
 
@@ -39,7 +39,7 @@ Sugu: There are a few reasons for why go is gaining this momentum. It mostly lie
 
 **Abhi: Interesting. But why is it specifically popular in the cloud software domain?**
 
-Sugu: It actually got introduced right as the cloud industry was taking off, so a lot of the new software for the cloud was written in go. It is almost the de facto language for the cloud now.
+Sugu: It actually got introduced right as the cloud industry was taking off, so a lot of the new software for the cloud was written in Go. It is almost the de facto language for the cloud now.
 
 **Abhi: What would you like to see Go implement in 2019?**
 
