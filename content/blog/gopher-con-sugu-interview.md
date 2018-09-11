@@ -29,7 +29,7 @@ Sugu: My went surprisingly well. I did not expect a big audience because I thoug
 
 Sugu: I can't pinpoint a specific part, but it was likely the fact that I simplied the topic to allow people with no formal compiler training to write a parser. And of course I enjoyed my talk, for myself. 
 
-**Abhi: I definitely agree; I think [your talk](https://www.youtube.com/watch?v=tVpaSOGMeq4&t=1s) was impressively accessible to individuals with limited experience in the subject. Moving on, what does the future of Go look like to you?**
+**Abhi: I agree; regardless of experience, it's likely worth it for anyone to [check it out!](https://www.youtube.com/watch?v=tVpaSOGMeq4&t=1s). Moving on, what does the future of Go look like to you?**
 
 Sugu: The future of go is looking bright. Its adoption has been growing over the years. At GopherCon, over two-thirds of the audience were brand new Go programmers.
 
