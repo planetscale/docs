@@ -2,12 +2,12 @@
 title: ! 'GopherCon 2018 Debrief: Sugu Sougoumarane'
 date: '2018-09-11T13:50:34+08:00'
 description: >-
-  Hear what the PlanetScale CTO has to say about his experience at GopherCon 2018.
+  Hear what the PlanetScale CTO had to say about his experience at GopherCon 2018.
 comments: true
 share: true
 ---
-#### Interviewer: Abhi Vaidyanatha, Software Engineer
-#### Interviewee: Sugu Sougoumarane, PlanetScale CTO
+### Interviewer: Abhi Vaidyanatha, Software Engineer
+### Interviewee: Sugu Sougoumarane, PlanetScale CTO
 
 **Abhi: Hi Sugu, glad to have you here; today we're going to catch up on your experience at GopherCon!**
 
