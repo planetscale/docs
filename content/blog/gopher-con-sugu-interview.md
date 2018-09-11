@@ -6,8 +6,8 @@ description: >-
 comments: true
 share: true
 ---
-# Interviewer: Abhi Vaidyanatha, Software Engineer
-# Interviewee: Sugu Sougoumarane, PlanetScale CTO
+#### Interviewer: Abhi Vaidyanatha, Software Engineer
+#### Interviewee: Sugu Sougoumarane, PlanetScale CTO
 
 **Abhi: Hi Sugu, glad to have you here; today we're going to catch up on your experience at GopherCon!**
 
