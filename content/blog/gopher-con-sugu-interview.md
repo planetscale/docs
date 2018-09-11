@@ -19,7 +19,7 @@ Sugu: The overall experience was awesome - this was actually my first time atten
 
 **Abhi: Great to hear. Which talk really stood out to you?**
 
-Sugu: Definitely the keynote speech by Kavya Joshi. The Go scheduler is a very complex topic, but she simplified it to the point that someone who is not familiar with the go runtime could completely understand how it was designed. Papers that describe it are very complex and it's amazing that she was able to summarize it in just 20 minutes.
+Sugu: Definitely the keynote speech by Kavya Joshi. The Go scheduler is a very complex topic, but she simplified it to the point that someone who is not familiar with the Go runtime could completely understand how it was designed. Papers that describe it are very complex and it's amazing that she was able to summarize it in just 20 minutes.
 
 **Abhi: I'll make sure to go [watch it](https://www.youtube.com/watch?v=NjMGHrM2cc0)! So how did your talk go then?**
 
@@ -29,13 +29,13 @@ Sugu: My talk went surprisingly well. I did not expect a big audience because I 
 
 Sugu: I can't pinpoint a specific part, but it was likely the fact that I simplied the topic to allow people with no formal compiler training to write a parser. And of course I enjoyed my talk, for myself. 
 
-**Abhi: I agree; regardless of experience, it's likely worth it for anyone to [check it out!](https://www.youtube.com/watch?v=tVpaSOGMeq4&t=1s). Moving on, what does the future of Go look like to you?**
+**Abhi: Regardless of experience, it's likely worth it for anyone to [check it out!](https://www.youtube.com/watch?v=tVpaSOGMeq4&t=1s). Moving on, what does the future of Go look like to you?**
 
-Sugu: The future of go is looking bright. Its adoption has been growing over the years. At GopherCon, over two-thirds of the audience were brand new Go programmers.
+Sugu: The future of Go is looking bright. Its adoption has been growing over the years. At GopherCon, over two-thirds of the audience were brand new Go programmers.
 
 **Abhi: Why do you think the language is picking up popularity?**
 
-Sugu: There are a few reasons for why go is gaining this momentum. It mostly lies in concerns that it resolves that other languages don't really address. For example, it has a good balance between expressability and performance. Additionally, it has the ability to exploit modern hardware due to its concurrency patterns.
+Sugu: There are a few reasons for why Go is gaining this momentum. It mostly lies in concerns that it resolves that other languages don't really address. For example, it has a good balance between expressability and performance. Additionally, it has the ability to exploit modern hardware due to its concurrency patterns.
 
 **Abhi: Interesting. But why is it specifically popular in the cloud software domain?**
 
