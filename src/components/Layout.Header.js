@@ -142,7 +142,8 @@ const CareerLink = styled.div`
   box-sizing: border-box;
   padding: 0.7em 2em;
   text-align: center;
-  color: #d8d8d8;
+  color: #eee;
+  font-weight: 300;
 `
 
 export class Header extends Component {
@@ -222,7 +223,7 @@ export class Header extends Component {
                     Psst! We are{' '}
                     <a href={'/careers'} activeStyle={{ opacity: 1 }}>
                       hiring
-                    </a>
+                    </a>!
                   </CareerLink>
                 </Modal>
               </RightSide>
