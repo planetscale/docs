@@ -2,15 +2,14 @@ import React from 'react'
 import Rodal from 'rodal'
 
 import '../css/rodal.css'
-import { EmailForm } from './Home.EmailForm'
-import { H3 } from '../components/Typography.Headings'
 
 const customStyles = {
   backgroundColor: '#808284',
   color: 'white',
+  minWidth: '420px',
   maxWidth: '600px',
-  height: '490px',
-  padding: '2em',
+  height: '481px',
+  padding: '0em',
   borderRadius: '4px',
 }
 

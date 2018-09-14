@@ -2,15 +2,13 @@ import React, { Component } from 'react'
 import { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
 import { InputButton } from './Common.Button'
-import { H5 } from '../components/Typography.Headings'
 
 import { media } from '../styles/media'
 
 const FormContainer = styled.form`
-  margin-top: 40px;
+  margin: 30px 20px 0;
   display: flex;
   flex-direction: column;
-  width: 100%;
   position: relative;
 
   ${media.largePhone`
@@ -36,7 +34,7 @@ const InputField = styled.input`
 const UpdateContainer = styled.div`
   border-top: 1px solid #666;
   padding: 1.2em 0 0;
-  margin: 1.2em 0 1em;
+  margin: 1.2em 0 0.5em;
 
   h5 {
     margin-bottom: 1em;
@@ -67,6 +65,19 @@ const Checkbox = styled.div`
 const FormSubmitButton = InputButton.extend`
   margin-top: 1.5em;
   background-color: #e46a5c;
+`
+
+const CareerLink = styled.div`
+  width: 100%;
+  height: 40px;
+  background-color: #8a8a8a;
+  margin-top: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-sizing: border-box;
+  padding: 0.7em 2em;
+  text-align: center;
+  color: #d8d8d8;
 `
 
 const HoneyPot = styled.p`
@@ -142,15 +153,14 @@ export class EmailForm extends Component {
         />
 
         <UpdateContainer>
-          <H5>I'm Interested In</H5>
           <Checkbox>
             <InputField
               type="checkbox"
-              id="careers"
+              id="updates"
               name="feature"
               value="scales"
             />
-            <Label htmlFor="careers">Careers at PlanetScale</Label>
+            <Label htmlFor="updates">Sign me up for Planetscale updates</Label>
           </Checkbox>
 
           <Checkbox>
@@ -161,18 +171,8 @@ export class EmailForm extends Component {
               value="scales"
             />
             <Label htmlFor="product-offerings">
-              PlanetScale products & services
+              Planetscale products & services
             </Label>
-          </Checkbox>
-
-          <Checkbox>
-            <InputField
-              type="checkbox"
-              id="updates"
-              name="feature"
-              value="scales"
-            />
-            <Label htmlFor="updates">All PlanetScale updates</Label>
           </Checkbox>
         </UpdateContainer>
 
