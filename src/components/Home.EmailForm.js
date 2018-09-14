@@ -6,10 +6,9 @@ import { InputButton } from './Common.Button'
 import { media } from '../styles/media'
 
 const FormContainer = styled.form`
-  margin-top: 40px;
+  margin: 30px 20px 0;
   display: flex;
   flex-direction: column;
-  width: 100%;
   position: relative;
 
   ${media.largePhone`
@@ -66,6 +65,19 @@ const Checkbox = styled.div`
 const FormSubmitButton = InputButton.extend`
   margin-top: 1.5em;
   background-color: #e46a5c;
+`
+
+const CareerLink = styled.div`
+  width: 100%;
+  height: 40px;
+  background-color: #8a8a8a;
+  margin-top: 20px;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  box-sizing: border-box;
+  padding: 0.7em 2em;
+  text-align: center;
+  color: #d8d8d8;
 `
 
 const HoneyPot = styled.p`
@@ -149,6 +161,18 @@ export class EmailForm extends Component {
               value="scales"
             />
             <Label htmlFor="updates">Sign me up for Planetscale updates</Label>
+          </Checkbox>
+
+          <Checkbox>
+            <InputField
+              type="checkbox"
+              id="product-offerings"
+              name="feature"
+              value="scales"
+            />
+            <Label htmlFor="product-offerings">
+              Planetscale products & services
+            </Label>
           </Checkbox>
         </UpdateContainer>
 
