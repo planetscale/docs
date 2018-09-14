@@ -27,7 +27,7 @@ Sugu: My talk went surprisingly well. I did not expect a big audience because I 
 
 **Abhi: Where did you feel like you got the most traction with the audience? Did you enjoy it?**
 
-Sugu: I can't pinpoint a specific part, but it was likely the fact that I simplied the topic to allow people with no formal compiler training to write a parser. And of course I enjoyed my talk, for myself. 
+Sugu: I can't pinpoint a specific part, but it was likely the fact that I simplified the topic to allow people with no formal compiler training to write a parser. And of course I enjoyed my talk, for myself. 
 
 **Abhi: Regardless of experience, it's likely worth it for anyone to [check it out!](https://www.youtube.com/watch?v=tVpaSOGMeq4&t=1s). Moving on, what does the future of Go look like to you?**
 
