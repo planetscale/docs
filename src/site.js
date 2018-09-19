@@ -36,7 +36,7 @@ export const pages = [
   },
   {
     id: 'blog',
-    name: 'News',
-    to: '/news',
+    name: 'Blog',
+    to: '/blog',
   },
 ]
