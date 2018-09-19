@@ -204,7 +204,7 @@ export class Header extends Component {
                 })}
                 <NavListItem>
                   <a
-                    href={'http://support.planetscale.com'}
+                    href={'https://support.planetscale.com'}
                     activeStyle={{ opacity: 1 }}
                   >
                     Support
