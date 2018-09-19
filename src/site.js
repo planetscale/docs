@@ -37,6 +37,6 @@ export const pages = [
   {
     id: 'blog',
     name: 'News',
-    to: '/blog',
+    to: '/news',
   },
 ]
