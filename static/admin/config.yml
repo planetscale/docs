@@ -8,115 +8,212 @@ media_folder: static/img
 public_folder: /img
 
 collections:
-  - label: "Team"
-    name: "team"
-    folder: "content/team"
+  - label: 'Team'
+    name: 'team'
+    folder: 'content/team'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
-      - {label: "Image", name: "image", widget: "image"}
-      - {label: "Name", name: "name", widget: "string"}
-      - {label: "Role", name: "role", widget: "string"}      
-      - {label: "LinkedIn", name: "linkedin", widget: "string"}
-      - {label: "Introduction", name: "body", widget: "markdown"}
-      - {label: "Order", name: "order", widget: "number",  required: false}
-  - label: "Blog"
-    name: "blog"
-    folder: "content/blog"
+      - { label: 'Image', name: 'image', widget: 'image' }
+      - { label: 'Name', name: 'name', widget: 'string' }
+      - { label: 'Role', name: 'role', widget: 'string' }
+      - { label: 'LinkedIn', name: 'linkedin', widget: 'string' }
+      - { label: 'Introduction', name: 'body', widget: 'markdown' }
+      - { label: 'Order', name: 'order', widget: 'number', required: false }
+  - label: 'Blog'
+    name: 'blog'
+    folder: 'content/blog'
     create: true
-    slug: "{{slug}}"
+    slug: '{{slug}}'
     fields:
-      - {label: "Title", name: "title", widget: "string"} 
-      - {label: "Date", name: "date", widget: "datetime"}
-      - {label: "Description", name: "description", widget: "text"}
-      - {label: "Comments", name: "comments", widget: "boolean"}
-      - {label: "Social Sharing", name: "share", widget: "boolean"}
-      - {label: "Body", name: "body", widget: "markdown"}
-  - label: "Pages"
-    name: "pages"
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Comments', name: 'comments', widget: 'boolean' }
+      - { label: 'Social Sharing', name: 'share', widget: 'boolean' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
+  - label: 'Pages'
+    name: 'pages'
     files:
-      - label: "Home Page"
-        name: "home"
-        file: "content/pages/index.yml"
+      - label: 'Home Page'
+        name: 'home'
+        file: 'content/pages/index.yml'
         fields:
-          - {label: Hero Title, name: title, widget: string, required: false}
-          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
-          - {label: Hero Content, name: content, widget: string, required: false}
-          - label: "Powered By Vitess"
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - {
+              label: Hero Subtitle,
+              name: subtitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Content,
+              name: content,
+              widget: string,
+              required: false,
+            }
+          - label: 'Powered By Vitess'
             name: sectionContent
-            widget: "object"
+            widget: 'object'
             required: false
             fields:
-              - {label: Icon, name: icon, widget: image}
-              - {label: Title, name: title, widget: string}
-              - {label: content, name: content, widget: markdown}
-          - label: "Offerings"
-            name: "offerings"
-            widget: "object"
+              - { label: Icon, name: icon, widget: image }
+              - { label: Title, name: title, widget: string }
+              - { label: content, name: content, widget: markdown }
+          - label: 'Offerings'
+            name: 'offerings'
+            widget: 'object'
             required: false
             fields:
-              - {label: "Title", name: "title", widget: "string"}
+              - { label: 'Title', name: 'title', widget: 'string' }
               - label: Offering
                 name: list
                 widget: list
                 fields:
-                  - {label: Icon, name: icon, widget: image}
-                  - {label: Title, name: title, widget: string}
-                  - {label: content, name: content, widget: markdown}
-      - label: "Team Page"
-        name: "team"
-        file: "content/pages/team.yml"
+                  - { label: Icon, name: icon, widget: image }
+                  - { label: Title, name: title, widget: string }
+                  - { label: content, name: content, widget: markdown }
+      - label: 'Team Page'
+        name: 'team'
+        file: 'content/pages/team.yml'
         fields:
-          - {label: Hero Title, name: title, widget: string, required: false}
-          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
-          - {label: Hero Content, name: content, widget: string, required: false}
-          - label: "Team"
-            name: "team"
-            widget: "object"
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - {
+              label: Hero Subtitle,
+              name: subtitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Content,
+              name: content,
+              widget: string,
+              required: false,
+            }
+          - label: 'Team'
+            name: 'team'
+            widget: 'object'
             fields:
-              - {label: "Title", name: "title", widget: "string", required: false}
-      - label: "Careers Page"
-        name: "careers"
-        file: "content/pages/careers.yml"
+              - {
+                  label: 'Title',
+                  name: 'title',
+                  widget: 'string',
+                  required: false,
+                }
+      - label: 'Terms of Service Page'
+        name: 'tos'
+        file: 'content/pages/tos.yml'
         fields:
-          - {label: Hero Title, name: title, widget: string, required: false}
-          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
-          - {label: Hero Content, name: content, widget: string, required: false}
-          - {label: About Us, name: aboutUs, widget: markdown, required: false}
-          - label: "Perks"
-            name: "perks"
-            widget: "object"
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - { label: Content, name: content, widget: markdown }
+      - label: 'Privacy Policy Page'
+        name: 'privacy'
+        file: 'content/pages/privacy.yml'
+        fields:
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - { label: Content, name: content, widget: markdown }
+      - label: 'Careers Page'
+        name: 'careers'
+        file: 'content/pages/careers.yml'
+        fields:
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - {
+              label: Hero Subtitle,
+              name: subtitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Content,
+              name: content,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: About Us,
+              name: aboutUs,
+              widget: markdown,
+              required: false,
+            }
+          - label: 'Perks'
+            name: 'perks'
+            widget: 'object'
             required: false
             fields:
-              - {label: "Title", name: "title", widget: "string"}
+              - { label: 'Title', name: 'title', widget: 'string' }
               - label: Perk
                 name: list
                 widget: list
                 fields:
-                  - {label: Perk, name: perk, widget: markdown}
-      - label: "Blog Page"
-        name: "blog"
-        file: "content/pages/blog.yml"
+                  - { label: Perk, name: perk, widget: markdown }
+      - label: 'Blog Page'
+        name: 'blog'
+        file: 'content/pages/blog.yml'
         fields:
-          - {label: Hero Title, name: title, widget: string, required: false}
-          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
-          - {label: Hero Content, name: content, widget: string, required: false}
-          - {label: Hero Blog Button, name: blogButton, widget: string}
-          - {label: More Blog Posts Title, name: moreBlogPostsTitle, widget: string, required: false}
-      - label: "Thanks Page"
-        name: "thanks"
-        file: "content/pages/thanks.yml"
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - {
+              label: Hero Subtitle,
+              name: subtitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Content,
+              name: content,
+              widget: string,
+              required: false,
+            }
+          - { label: Hero Blog Button, name: blogButton, widget: string }
+          - {
+              label: More Blog Posts Title,
+              name: moreBlogPostsTitle,
+              widget: string,
+              required: false,
+            }
+      - label: 'Thanks Page'
+        name: 'thanks'
+        file: 'content/pages/thanks.yml'
         fields:
-          - {label: Hero Title, name: title, widget: string, required: false}
-          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
-          - {label: Hero Content, name: content, widget: string, required: false}
-          - {label: Hero Back Button, name: backButton, widget: string}
-      - label: "Page not Found Page"
-        name: "pageNotFound"
-        file: "content/pages/pageNotFound.yml"
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - {
+              label: Hero Subtitle,
+              name: subtitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Content,
+              name: content,
+              widget: string,
+              required: false,
+            }
+          - { label: Hero Back Button, name: backButton, widget: string }
+      - label: 'Page not Found Page'
+        name: 'pageNotFound'
+        file: 'content/pages/pageNotFound.yml'
         fields:
-          - {label: Hero Title, name: title, widget: string, required: false}
-          - {label: Hero Subtitle, name: subtitle, widget: string, required: false}
-          - {label: Hero Content, name: content, widget: string, required: false}
-          - {label: Hero Back Button, name: homeButton, widget: string, required: false}
-          - {label: Hero Back Button Url, name: homeButtonUrl, widget: string, required: false}
+          - { label: Hero Title, name: title, widget: string, required: false }
+          - {
+              label: Hero Subtitle,
+              name: subtitle,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Content,
+              name: content,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Back Button,
+              name: homeButton,
+              widget: string,
+              required: false,
+            }
+          - {
+              label: Hero Back Button Url,
+              name: homeButtonUrl,
+              widget: string,
+              required: false,
+            }

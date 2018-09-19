@@ -6,6 +6,7 @@ import { media } from '../styles/media'
 const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
   color: ${(props) => (props.inverted ? 'white' : '#222;')};
+  white-space: pre-line;
 
   h1 {
     font-weight: 300;
