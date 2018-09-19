@@ -29,7 +29,7 @@ export default function TOSPage({ data }) {
         </Wrapper>
       </Hero>
       <Wrapper>
-        <MarkdownContent html={pageData.content} />
+        <MarkdownContent html={pageData.content} style={{ fontWeight: 400 }} />
       </Wrapper>
       <Footer
         backgroundImage={background}
