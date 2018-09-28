@@ -9,7 +9,9 @@ share: true
 ### Interviewer: Abhi Vaidyanatha, PlanetScale Software Engineer
 ### Interviewee: Adrianna Tan, PlanetScale Senior Product Manager
 
-**Abhi: Hi Adrianna, thanks for the time! We're gonna tell the internet a little about you!**
+*Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Over lunch one day, I heard about Adrianna's travels and wanted to learn more about her background and what shaped her perspective on the world today. During this interview, I was able to learn a lot about her past experiences, cool projects outside of work, and unique facts about her life.*
+
+**Abhi: Hi Adrianna, thanks for the time! We're gonna tell the Internet some cool things about you!**
 
 Adrianna: Sounds good!
 
@@ -69,7 +71,7 @@ Adrianna: It's interesting really. I'm just physically not afraid of some things
 
 Adrianna: A few women actually emailed me and said that my blog inspired them to travel on their own. My [post](https://www.youtube.com/watch?v=LkGKPagtzEs) on my trip to Yemen is a good example of that.
 
-**Abhi: Must have been a crazy experience, I'm not surprised that you had a ton of followers! Ok last question - what are you currently working on outside of work?**
+**Abhi: Must have been a crazy experience, I'm not surprised that you had a ton of followers! Ok last question - what are you currently doing outside of work?**
 
 Adrianna: I like the idea of building things with my hands, so right now I really want to learn how to be a carpenter! I was always really interested in cycling and wasn't completely sure how they work so I spent time putting my own bike together recently. When I have time, I'm a huge fan of playing Overcooked, XCOM, and the latest Wolfenstein game.
 
