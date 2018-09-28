@@ -15,15 +15,15 @@ Adrianna: Sounds good!
 
 **Abhi: So starting off easy... what drew you to PlanetScale?**
 
-Adrianna: After having spent a lot of my career in front-facing consumer technology, I was very curious about being on the other side. I wanted to be in a position where I could learn a lot about back-end infrastructure first-hand. I've known Jiten (PlanetScale CEO) for a couple of years through a bunch of mutual friends across the world, so I always spent time with his family when I came to the Bay area. Hearing him always talk about technology made me want to find out more about it!
+Adrianna: After having spent a lot of my career in front-facing consumer technology, I was very curious about being on the other side. I wanted to be in a position where I could learn a lot about back-end infrastructure first-hand. I've known Jiten (PlanetScale CEO) for a couple of years through a bunch of mutual friends across the world, so I always spent time with his family when I came to the Bay area. Hearing him talk about technology made me want to find out more about it!
 
-**Abhi: Yeah that makes sense - I feel like Jiten knows everyone one way or another! So why don't you tell everyone a little about what you do here?**
+**Abhi: Yeah that makes sense - I feel like Jiten knows everyone one way or another! So why don't you tell us a little about what you do here?**
 
 Adrianna: Like with any early stage startup, I do pretty much anything. I'm mainly helping out with sales, legal processes, marketing, and channeling my background as a company founder to make sure that all our bases as a new company are covered.
 
-**Abhi: Interesting, tell me more about the company you founded!"**
+**Abhi: Interesting, tell me more about the organization you founded!**
 
-Adrianna: In 2013 a friend and I were really interested in taking action on social issues in India; educating girls has always been a key prioirty for us. There’s a lot of NGOs that do this, but we wanted to specifically target 10-11 year olds due to their disproportionally high dropout rate from school. We’ve worked with more than 150 girls, paying for their education and ensuring their academid success. Now we’re moving on to pilot programs that teach them more technical skills. To test this, we are starting a programming class with 25 of them!
+Adrianna: In 2013 a friend and I were really interested in taking action on social issues in India; educating girls has always been a key prioirty for us. There’s a lot of NGOs that do this, but we wanted to specifically target 10-11 year olds due to their disproportionally high dropout rate from school. We’ve worked with more than 150 girls, paying for their education and ensuring their academic success. Now we’re moving on to pilot programs that teach them more technical skills. To test this, we are starting a programming class with 25 of them!
 
 **Abhi: That's an amazing cause - why are girls of that specific age group dropping out so often?**
 
