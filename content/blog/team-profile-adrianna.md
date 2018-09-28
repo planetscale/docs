@@ -23,7 +23,7 @@ Adrianna: After having spent a lot of my career in front-facing consumer technol
 
 Adrianna: Like with any early stage startup, I do pretty much anything. I'm mainly helping out with sales, legal processes, marketing, and channeling my background as a company founder to make sure that all our bases as a new company are covered.
 
-**Abhi: Interesting, tell me more about the organization you founded!**
+**Abhi: I'm interested in the [organization you founded](http://gyanada.org), tell me more about that!**
 
 Adrianna: In 2013 a friend and I were really interested in taking action on social issues in India; educating girls has always been a key prioirty for us. There’s a lot of NGOs that do this, but we wanted to specifically target 10-11 year olds due to their disproportionally high dropout rate from school. We’ve worked with more than 150 girls, paying for their education and ensuring their academic success. Now we’re moving on to pilot programs that teach them more technical skills. To test this, we are starting a programming class with 25 of them!
 
