@@ -49,7 +49,7 @@ Adrianna: My parents didn't always think so. I've given them a lot of heart atta
 
 **Abhi: I can imagine... but it seems like they are pretty supportive though!**
 
-Adrianna: Definitely. One time I called home to let them know I had just narrowly missed a suicide bomb in Yemen. They just responded with, "well you're alive. Good." Another time I followed a random person I met in a bar to a tribal city in Northeast India. We ended up collaborating on an article that became the cover story of [Geographical](https://en.wikipedia.org/wiki/Geographical_(magazine), sort of the UK counterpart to the National Geographic.
+Adrianna: Definitely. One time I called home to let them know I had just narrowly missed a suicide bomb in Yemen. They just responded with, "well you're alive. Good." Another time I followed a random person I met in a bar to a tribal city in Northeast India. We ended up collaborating on an article that became the cover story of [Geographical](https://en.wikipedia.org/wiki/Geographical_(magazine)), sort of the UK counterpart to the National Geographic.
 
 **Abhi: Seems like it was worth it for sure. Have you been published a lot?**
 
