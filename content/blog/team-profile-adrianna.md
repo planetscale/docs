@@ -21,7 +21,7 @@ Adrianna: After having spent a lot of my career in front-facing consumer technol
 
 Adrianna: Like with any early stage startup, I do pretty much anything. I'm mainly helping out with sales, legal processes, marketing, and channeling my background as a company founder to make sure that all our bases as a new company are covered.
 
-**Abhi: Interesting, tell me more about the company you founded!"
+**Abhi: Interesting, tell me more about the company you founded!"**
 
 Adrianna: In 2013 a friend and I were really interested in taking action on social issues in India; educating girls has always been a key prioirty for us. There’s a lot of NGOs that do this, but we wanted to specifically target 10-11 year olds due to their disproportionally high dropout rate from school. We’ve worked with more than 150 girls, paying for their education and ensuring their academid success. Now we’re moving on to pilot programs that teach them more technical skills. To test this, we are starting a programming class with 25 of them!
 
@@ -37,7 +37,7 @@ Adrianna: Yeah, very often when we talk about what we do to upper class people, 
 
 Adrianna: Cartography. I would show them a world map to explain that there's a world outside of Silicon Valley and that the world is bigger than them. Additionally, I would explain how to apply technology to places outside of their direct reach.
 
-**Abhi: (laughing) Yes, I do feel that the general culture here is extremely insular. So what other startups have you been a part of?**
+**Abhi (laughing): Yes, I do feel that the general culture here is extremely insular. So what other startups have you been a part of?**
 
 Adrianna: I worked at Uber and Yelp when they were both starting up in Singapore. Additionally, I worked at an Australia crowdfunding startup as a manager.
 
@@ -49,7 +49,7 @@ Adrianna: I left my home country for the first time when I was 7... We went to B
 
 Adrianna: My parents didn't always think so. I've given them a lot of heart attacks.
 
-**Abhi: Yeah, it seems like they are pretty supportive though!**
+**Abhi: I can imagine... but it seems like they are pretty supportive though!**
 
 Adrianna: Definitely. One time in a bar in India, a man randomly asked if I wanted to travel to the rainiest place in India for a news article and I had to ask my dad to sponsor me. He was understandably tentative, but let me do it anyway. I spent a few weeks there and we ended up getting featured on Geographical (UK's equivalent of NatGeo) for our work. 
 
