@@ -6,7 +6,7 @@ description: >-
 comments: true
 share: true
 ---
-### Interviewer: Abhi Vaidynatha, PlanetScale Software Engineer
+### Interviewer: Abhi Vaidyanatha, PlanetScale Software Engineer
 ### Interviewee: Adrianna Tan, PlanetScale Senior Product Manager
 
 **Abhi: Hi Adrianna, thanks for the time! We're gonna tell the internet a little about you!**
