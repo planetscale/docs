@@ -9,7 +9,7 @@ share: true
 ### Interviewer: Abhi Vaidyanatha, PlanetScale Software Engineer
 ### Interviewee: Adrianna Tan, PlanetScale Senior Product Manager
 
-*Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Over lunch one day, I heard about Adrianna's travels and wanted to learn more about her background and what shaped her perspective on the world today. During this interview, I was able to learn a lot about her past experiences, cool projects outside of work, and unique facts about her life.*
+*Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Considering how different our backgrounds are, I thought it would be worthwile to give everyone a peek into the awesome things we've done in the past. During this interview, I was able to learn a lot about her wild travel experiences, cool projects outside of work, and unique facts about her life.*
 
 **Abhi: Hi Adrianna, thanks for the time! We're gonna tell the Internet some cool things about you!**
 
