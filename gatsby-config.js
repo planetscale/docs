@@ -3,6 +3,13 @@ module.exports = {
     title: 'Dona Rita',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-crisp-chat',
+      options: {
+        websiteId: '49d76117-cce4-416f-9ac9-dac89fd7e93a',
+        enableDuringDevelop: true,
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-nprogress',
