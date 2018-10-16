@@ -1,40 +1,18 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Script from 'react-load-script'
-import styled from 'styled-components'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { Spacing } from '../components/Layout.Spacing'
 import { H1 } from '../components/Typography.Headings'
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
+import { Hero, HeroTitle, HeroSubTitle } from '../components/Common.Hero'
 
 import { Footer } from '../components/Layout.Footer'
 import { Offering, OfferingsContainer } from '../components/Home.Offerings'
 import { VitessSection } from '../components/Home.VitessSection'
 import { ContactSalesCard } from '../components/Home.ContactSalesCard'
 
-import { media } from '../styles/media'
-
 import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
-import logo from '../../static/img/logo.png'
-import { Button } from '../components/Common.Button'
-
-const Logo = styled.img`
-  max-height: 100px;
-  margin-left: -70px;
-
-  ${media.largePhone`
-    max-height: 50px;
-    margin-left: -15px;
-  `};
-`
 
 function handleScriptLoad() {
   if (typeof window !== `undefined` && window.netlifyIdentity) {

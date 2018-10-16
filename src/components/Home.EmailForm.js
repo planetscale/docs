@@ -67,19 +67,6 @@ const FormSubmitButton = InputButton.extend`
   background-color: #e46a5c;
 `
 
-const CareerLink = styled.div`
-  width: 100%;
-  height: 40px;
-  background-color: #8a8a8a;
-  margin-top: 20px;
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-  box-sizing: border-box;
-  padding: 0.7em 2em;
-  text-align: center;
-  color: #d8d8d8;
-`
-
 const HoneyPot = styled.p`
   display: none;
 `
@@ -131,6 +118,9 @@ export class EmailForm extends Component {
         data-netlify-honeypot="bot-field"
         onSubmit={this.handleSubmit}
       >
+        <HoneyPot>
+          <InputField name="bot-field" />
+        </HoneyPot>
         <InputField
           name="email"
           type="email"
