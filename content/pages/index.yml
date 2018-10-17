@@ -1,8 +1,8 @@
 title: PlanetScale
-subtitle: Scaling Done Right. Scaling Done Fast.
+subtitle: Turbocharge MySQL In The Cloud With Vitess.io
 content: >-
   We run the world's most scalable database clusters with Vitess.
-vitess: 
+vitess:
   title: Powered By Vitess
   logo: /img/vitess-logo.svg
   content: >-
@@ -26,4 +26,4 @@ offerings:
     - icon: /img/home-offerings-sla.svg
       title: 24/7 Support
       content: >-
-        Around-the-clock SLA support by the creators of Vitess for your deployment with the option to escalate critical issues. Reach us over the web or phone anytime.  
+        Around-the-clock SLA support by the creators of Vitess for your deployment with the option to escalate critical issues. Reach us over the web or phone anytime.
