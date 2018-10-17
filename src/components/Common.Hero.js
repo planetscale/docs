@@ -12,7 +12,7 @@ const _Hero = styled.section`
   display: flex;
   justify-content: center;
   position: relative;
-  padding-bottom: 15em;
+  padding-bottom: 12em;
   width: 100%;
 
   overflow: hidden;
@@ -24,9 +24,9 @@ const _Hero = styled.section`
 `
 
 export const HeroTitle = styled.h1`
-  padding-top: 2em;
+  padding-top: 3em;
   text-shadow: 0 0 50px rgba(0, 0, 0, 0.175);
-  font-size: 4em;
+  font-size: 3em;
   color: white;
   margin: 0;
   font-weight: 100;
@@ -43,7 +43,7 @@ export const HeroTitle = styled.h1`
 export const HeroSubTitle = styled.h2`
   text-shadow: 0 0 10px rgba(0, 0, 0, 0.175);
   margin: 0;
-  padding: 0.5em 0;
+  padding: 0.5em 0 0;
   font-size: 1.75em;
   line-height: 1.25em;
   font-weight: 300;
