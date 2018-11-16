@@ -2,7 +2,7 @@
 image: /img/team-member-abhi.jpg
 name: Abhi Vaidyanatha
 role: Software Engineer
-linkedin: 'abhivaidyanatha'
+linkedin: 'avaidyanatha'
 order: 6
 ---
 
