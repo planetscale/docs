@@ -1,9 +1,9 @@
 ---
 image: /img/team-member-isaac-anastasoff.jpg
 name: Isaac Anastasoff
-role: Intern at PlanetScale
+role: Intern
 linkedin: 'isaac-anastasoff'
-order: 7
+order: 8
 ---
 
-Isaac takes pride in keeping a clean and organized office and making sure operations are running smoothly. Through the daily routine, Isaac has garnered the skills of working in an office space. Isaac interned at PlanetScale recently for several weeks. Isaac plans to major in Computer Science in college and pursue a career in the Tech Industry. Isaac’s favorite pastimes are surfing at Half Moon Bay and going on long bike rides on the Hills of Palo Alto.
+Isaac is a senior in high school helping PlanetScale with HR and management initiatives. Through the daily routine, Isaac has learned the skills of working in and around an office space. Isaac plans to major in Computer Science in college and pursue a career in the tech industry. At school, Isaac is the president/founder of his high school's speech and debate club, where he runs debates, organizes meetings, and arranges trips to conferences. Isaac’s favorite pastimes are surfing with his twin brother at Half Moon Bay and swimming. 
