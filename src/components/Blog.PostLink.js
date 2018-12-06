@@ -50,7 +50,7 @@ const ByAt = styled.h2`
 
 export function BlogPostLink({ title, description, date, author, slug }) {
   return (
-    <Link to={`blog/${slug}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/blog/${slug}`} style={{ textDecoration: 'none' }}>
       <_BlogPostLink key={title}>
         <H2 align={'left'} bold>
           {title}
