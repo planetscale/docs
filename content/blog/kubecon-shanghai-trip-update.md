@@ -7,7 +7,7 @@ comments: true
 share: true
 ---
 
-November was whirlwind of travel for us here at Planet Scale that included an exciting stop in Shanghai for China’s KubeCon 2018. Our CEO, Jiten Vaidya, shared the stage with Mr Xin Lv, Senior Architect of Technical Infrastructure Group at JD.com in a talk that offered an introduction to Vitess and an overview of how JD.com has leveraged Vitess to scale their databases.
+November was whirlwind of travel for us here at PlanetScale that included an exciting stop in Shanghai for China’s KubeCon 2018. Our CEO, Jiten Vaidya, shared the stage with Mr Xin Lv, Senior Architect of Technical Infrastructure Group at JD.com in a talk that offered an introduction to Vitess and an overview of how JD.com has leveraged Vitess to scale their databases.
 
 [JD.com](https://www.jd.com), for those of you who are not familiar, is China’s largest online and offline retailer (think Amazon) with more than 300 million active users. JD.com has the largest e-commerce logistics infrastructure in China, which makes the story of how they have used Vitess to scale their databases especially compelling. In fact, it represents the largest and most complex implementation of Vitess on Kubernetes to date.
 
