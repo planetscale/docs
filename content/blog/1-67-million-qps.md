@@ -7,7 +7,7 @@ share: true
 ---
 While most Americans spent last week recovering from turkey comas and the inevitable post-Thanksgiving letdown, we headed to Las Vegas for AWS re:Invent. 
 
-We attended many amazing talks at this conference, but we were especially excited for “Running a High-Performance Kubernetes Cluster with Amazon EKS”. And we weren’t the only ones -- this talk drew so many attendees that the conference added five additional viewing rooms so everyone could watch it. 
+We attended many amazing talks at this conference, but we were especially excited for “Running a High-Performance Kubernetes Cluster with Amazon EKS”. And we weren’t the only ones—this talk drew so many attendees that the conference added five additional viewing rooms so everyone could watch it. 
 
 Yekesa Kosuru, Managing Director at State Street Bank, demonstrated the power of using Vitess to scale a large transactional database. Kosuru gave an overview of State Street’s process for tackling the challenges of scaling their transactional database, which ultimately resulted in leveraging Vitess with RocksDB and Amazon EKS. 
 
