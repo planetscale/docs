@@ -11,7 +11,7 @@ We attended many amazing talks at this conference, but we were especially excite
 
 Yekesa Kosuru, Managing Director at State Street Bank, demonstrated the power of using Vitess to scale a large transactional database. Kosuru gave an overview of State Street’s process for tackling the challenges of scaling their transactional database, which ultimately resulted in leveraging Vitess with RocksDB and Amazon EKS. 
 
-Then with some help from the crowd who submitted real-time jobs, Kosuru set out to demonstrate that the system could now run 1 million queries per second without latency, but as the crowd watched, the QPS hit first 1.59 million QPS and then tipped over to **1.67 million QPS**. This is the highest QPS we’ve seen using Vitess and demonstrates how Vitess can scale to meet any QPS requirement given the appropriate resources. 
+Then, with some help from the crowd who submitted real-time jobs, Kosuru set out to demonstrate that the system could now run 1 million queries per second without latency, but as the crowd watched, the QPS hit first 1.59 million QPS and then tipped over to **1.67 million QPS**. This is the highest QPS we’ve seen using Vitess and demonstrates how Vitess can scale to meet any QPS requirement given the appropriate resources. 
 
 This example shows how Vitess can offer practical applications for handling complex financial and security databases without performance loss. 
 
