@@ -15,7 +15,7 @@ To get a sense for the scale of this project, consider the fact that JD.com has 
 
 ![Jiten presenting at KubeCon Shanghai 2018](/img/201812-blog-kubeconshanghai.jpg)
 
-We're also very proud to see that [JD.com was awarded the winner of Top End User Award](https://www.cncf.io/announcement/2018/11/14/jd-wins-top-end-user-award/) by the Cloud Native Computing Foundation, at the same event. Their contributions to Vitess and other open source projects have been substantial.
+We're also very proud to see that [JD.com was awarded the Top End User Award](https://www.cncf.io/announcement/2018/11/14/jd-wins-top-end-user-award/) by the Cloud Native Computing Foundation, at the same event. Their contributions to Vitess and other open source projects have been substantial.
 
 It was great to have the opportunity to introduce Vitess, which is beginning to gain interest in China, with such a large-scale example. The talk generated many interesting topics and questions, and we were able to connect with lots of people at our booth throughout the conference.
 
