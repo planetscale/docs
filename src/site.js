@@ -39,4 +39,16 @@ export const pages = [
     name: 'Blog',
     to: '/blog',
   },
+
+  {
+    id: 'faq',
+    name: 'FAQ',
+    to: '/faq',
+  },
+
+  {
+    id: 'contact',
+    name: 'Contact',
+    to: '/contact',
+  },
 ]

@@ -22,7 +22,7 @@ const MarkDownContainer = styled.div`
     font-size: 1.15em;
     line-height: 1.5em;
     color: ${(props) => (props.inverted ? 'white' : '#444;')};
-    margin-top: 0em;
+    margin: 0em;
   }
 
   ul,

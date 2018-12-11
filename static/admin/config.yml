@@ -8,6 +8,15 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - label: 'FAQ'
+    name: 'faq'
+    folder: 'content/faq'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Question', name: 'question', widget: 'string' }
+      - { label: 'Answer', name: 'body', widget: 'markdown' }
+      - { label: 'Order', name: 'order', widget: 'number', required: false }
   - label: 'Team'
     name: 'team'
     folder: 'content/team'

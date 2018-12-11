@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper, SmallWrapper } from '../components/Layout.Wrapper'
+import { Wrapper } from '../components/Layout.Wrapper'
 import { Spacing, XLargeSpacing } from '../components/Layout.Spacing'
 import { H1 } from '../components/Typography.Headings'
 import {
@@ -12,7 +12,6 @@ import {
   HeroContent,
 } from '../components/Common.Hero'
 import { Button } from '../components/Common.Button'
-import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
 
 import { BlogPostLink } from '../components/Blog.PostLink'

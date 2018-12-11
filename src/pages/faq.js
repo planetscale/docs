@@ -1,9 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { H1 } from '../components/Typography.Headings'
 import {
   Hero,
   HeroTitle,
@@ -11,21 +9,19 @@ import {
   HeroContent,
 } from '../components/Common.Hero'
 
+import { QAndAContainer, QAndA } from '../components/Faq.QAndA'
 import { Footer } from '../components/Layout.Footer'
-
-import { TeamMemberContainer, TeamMember } from '../components/Team.TeamMember'
-import { InvestorContainer, Investor } from '../components/Team.Investor'
 
 import background from '../images/hero/team-bg.svg'
 import overlay from '../images/hero/team-overlay.svg'
 
-export default function TeamPage({ data }) {
+export default function FaqPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
   return (
     <div>
-      <TitleAndMetaTags title="Team" pathname="team" />
+      <TitleAndMetaTags title="FAQ" pathname="faq" />
       <Hero
         backgroundImage={background}
         backgroundColor={'#24C8D8'}
@@ -40,30 +36,15 @@ export default function TeamPage({ data }) {
         </Wrapper>
       </Hero>
       <Wrapper>
-        <H1>{pageData.team.title}</H1>
-        <TeamMemberContainer>
-          {data.team.edges.map((edge) => {
+        <QAndAContainer>
+          {data.faq.edges.map((edge) => {
             const { node } = edge
             const { html, frontmatter } = node
-            const { name, role, image, linkedin } = frontmatter
+            const { question } = frontmatter
 
-            return (
-              <TeamMember
-                key={name}
-                name={name}
-                role={role}
-                image={image}
-                linkedin={linkedin}
-                bio={html}
-              />
-            )
+            return <QAndA question={question} answer={html} />
           })}
-        </TeamMemberContainer>
-        {data.investors && (
-          <InvestorContainer>
-            {data.investors.edges.map(Investor)}
-          </InvestorContainer>
-        )}
+        </QAndAContainer>
       </Wrapper>
       <Footer
         backgroundImage={background}
@@ -75,21 +56,17 @@ export default function TeamPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query teamQuery {
-    team: allMarkdownRemark(
+  query faqQuery {
+    faq: allMarkdownRemark(
       sort: { order: ASC, fields: [frontmatter___order] }
-      filter: { fields: { collection: { eq: "team" } } }
+      filter: { fields: { collection: { eq: "faq" } } }
     ) {
       edges {
         node {
           html
           frontmatter {
-            image
-            name
-            role
+            question
             order
-            position
-            linkedin
           }
           fields {
             slug
@@ -97,15 +74,12 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPagesYaml(filter: { id: { regex: "/pages/team/" } }) {
+    allPagesYaml(filter: { id: { regex: "/pages/faq/" } }) {
       edges {
         node {
           title
           subtitle
           content
-          team {
-            title
-          }
         }
       }
     }
