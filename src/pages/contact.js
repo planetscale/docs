@@ -14,8 +14,8 @@ import {
 import { EmailForm } from '../components/Home.EmailForm'
 import { Footer } from '../components/Layout.Footer'
 
-import background from '../images/hero/team-bg.svg'
-import overlay from '../images/hero/team-overlay.svg'
+import background from '../images/hero/home-bg.svg'
+import overlay from '../images/hero/home-overlay.svg'
 
 const FormCard = styled.div`
   background-color: #808284;
