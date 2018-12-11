@@ -18,12 +18,12 @@ import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
 
 const FormCard = styled.div`
-  background-color: #808284;
+  background-color: #eee;
   padding: 2em;
   border-radius: 4px;
   position: relative;
   top: -200px;
-  color: white;
+  color: #666;
   max-width: 500px;
   margin-bottom: 20px;
 
@@ -33,12 +33,12 @@ const FormCard = styled.div`
 `
 
 const ContactCard = styled.div`
-  background-color: #808284;
-  padding: 2em;
+  background-color: #eee;
+  padding: 2em 2em 1em;
   border-radius: 4px;
   position: relative;
   top: -200px;
-  color: white;
+  color: #666;
   max-width: 500px;
 
   ${media.largePhone`
@@ -49,9 +49,9 @@ const ContactCard = styled.div`
 const CardHeader = styled.div`
   font-size: 1em;
   font-weight: 500;
-  border-bottom: 1px solid #666;
+  border-bottom: 1px solid #d8d8d8;
   padding-bottom: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 `
 
 const ContactPoint = styled.div`

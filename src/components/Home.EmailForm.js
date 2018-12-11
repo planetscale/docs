@@ -6,7 +6,6 @@ import { InputButton } from './Common.Button'
 import { media } from '../styles/media'
 
 const FormContainer = styled.form`
-  margin: 30px 20px 0;
   display: flex;
   flex-direction: column;
   position: relative;
@@ -19,6 +18,7 @@ const FormContainer = styled.form`
 const InputField = styled.input`
   outline: none;
   border: 0;
+  border-radius: 4px;
   margin: 0 0 10px;
   width: 100%;
   height: 40px;
@@ -26,14 +26,23 @@ const InputField = styled.input`
   padding: 0 1em;
   z-index: 2;
   color: rgba(35, 97, 109, 0.8);
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
   box-sizing: border-box;
-  background-color: #eee;
+`
+
+const TextAreaField = styled.textarea`
+  outline: none;
+  border: 0;
+  border-radius: 4px;
+  margin: 0 0 10px;
+  width: 100%;
+  line-height: 40px;
+  padding: 0 1em;
+  z-index: 2;
+  color: rgba(35, 97, 109, 0.8);
+  box-sizing: border-box;
 `
 
 const UpdateContainer = styled.div`
-  border-top: 1px solid #666;
-  padding: 1.2em 0 0;
   margin: 1.2em 0 0.5em;
 
   h5 {
@@ -48,7 +57,7 @@ const Label = styled.label`
 const Checkbox = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: center;
+  align-items: baseline;
   padding: 0.2em 0;
 
   input[type='checkbox'] {
@@ -142,6 +151,13 @@ export class EmailForm extends Component {
           onChange={this.handleChange}
         />
 
+        <TextAreaField
+          name="notes"
+          placeholder="Notes (anything you would like to tell us)"
+          rows="5"
+          onChange={this.handleChange}
+        />
+
         <UpdateContainer>
           <Checkbox>
             <InputField
@@ -150,18 +166,8 @@ export class EmailForm extends Component {
               name="feature"
               value="scales"
             />
-            <Label htmlFor="updates">Sign me up for Planetscale updates</Label>
-          </Checkbox>
-
-          <Checkbox>
-            <InputField
-              type="checkbox"
-              id="product-offerings"
-              name="feature"
-              value="scales"
-            />
-            <Label htmlFor="product-offerings">
-              Planetscale products & services
+            <Label htmlFor="updates">
+              Email me PlanetScale updates (once a week)
             </Label>
           </Checkbox>
         </UpdateContainer>
