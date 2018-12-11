@@ -78,7 +78,7 @@ export default function ContactPage({ data }) {
 
   return (
     <div>
-      <TitleAndMetaTags title="FAQ" pathname="faq" />
+      <TitleAndMetaTags title="Contact" pathname="contact" />
       <Hero
         backgroundImage={background}
         backgroundColor={'#24C8D8'}
