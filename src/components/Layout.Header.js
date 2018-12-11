@@ -46,7 +46,7 @@ const Nav = styled.nav`
 const NavList = styled.ol`
   padding: 0;
   flex-grow: 2;
-  text-align: right;
+  text-align: center;
 
   ${media.tablet`
     flex-wrap: wrap;
@@ -202,14 +202,6 @@ export class Header extends Component {
                     </NavListItem>
                   )
                 })}
-                <NavListItem>
-                  <a
-                    href={'https://support.planetscale.com'}
-                    activeStyle={{ opacity: 1 }}
-                  >
-                    Support
-                  </a>
-                </NavListItem>
               </NavList>
               <RightSide>
                 <Button onClick={this.toggleModal}> Learn More </Button>

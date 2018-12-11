@@ -18,28 +18,33 @@ export const theme = {
 
 export const sizes = theme.sizes
 
-export const pages = [
-  {
-    id: 'home',
-    name: 'Home',
-    to: '/',
-  },
+export const headerLinks = [
   {
     id: 'team',
-    name: 'Team',
+    name: 'Who We Are',
     to: '/team',
   },
+
   {
-    id: 'careers',
-    name: 'Careers',
-    to: '/careers',
+    id: 'product',
+    name: 'Products',
+    to: '/product',
   },
+
   {
     id: 'blog',
-    name: 'Blog',
+    name: 'News',
     to: '/blog',
   },
 
+  {
+    id: 'contact',
+    name: 'Contact',
+    to: '/contact',
+  },
+]
+
+export const footerLinks = [
   {
     id: 'faq',
     name: 'FAQ',
@@ -47,8 +52,14 @@ export const pages = [
   },
 
   {
-    id: 'contact',
-    name: 'Contact',
-    to: '/contact',
+    id: 'careers',
+    name: 'Work With Us',
+    to: '/careers',
+  },
+
+  {
+    id: 'media',
+    name: 'Media',
+    to: '/media',
   },
 ]
