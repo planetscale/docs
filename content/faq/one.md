@@ -1,14 +1,8 @@
 ---
-question: Why should I use PlanetScale? 
+question: What is PlanetScale?
 order: 1
 ---
 
-PlanetScale is a relational database platform that helps companies horizontally scale data in the cloud.
+PlanetScale is a company founded by the co-creators of Vitess in early 2018.
 
-PlanetScale is the perfect solution for companies that:
-
-Want to store transactional data without having to worry about scaling.
-Want to move to Kubernetes on premise or on public cloud.
-No longer want the pain of managing database clusters.
-
-Let the creators and maintainers of Vitess help you get the most out of Vitess.
+While working to help companies like Square, Slack, HubSpot and JD.com use Vitess to meet their scaling needs, we decided to build a company that would expand upon the work we had spent the past decade doing: a company that would build upon Vitess and that would help companies scale, scale and scale their data across clouds and across continents.
