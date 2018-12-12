@@ -31,7 +31,7 @@ collections:
       - { label: 'Order', name: 'order', widget: 'number', required: false }
   - label: 'Blog'
     name: 'blog'
-    folder: 'content/blog'
+    folder: 'content/news'
     create: true
     slug: '{{slug}}'
     fields:
@@ -157,7 +157,7 @@ collections:
                   - { label: Perk, name: perk, widget: markdown }
       - label: 'Blog Page'
         name: 'blog'
-        file: 'content/pages/blog.yml'
+        file: 'content/pages/news.yml'
         fields:
           - { label: Hero Title, name: title, widget: string, required: false }
           - {

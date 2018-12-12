@@ -111,14 +111,7 @@ export default function ContactPage({ data }) {
             <ContactPointIcon>
               <i class="fas fa-at" />
             </ContactPointIcon>
-            <ContactPointText>mail@planetscale.com</ContactPointText>
-          </ContactPoint>
-
-          <ContactPoint>
-            <ContactPointIcon>
-              <i class="fas fa-phone-square" />
-            </ContactPointIcon>
-            <ContactPointText>+1 650-248-3175</ContactPointText>
+            <ContactPointText>contact@planetscale.com</ContactPointText>
           </ContactPoint>
         </ContactCard>
       </Wrapper>

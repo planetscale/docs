@@ -3,8 +3,6 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { Button } from '../components/Common.Button'
 import { HeaderWrapper } from '../components/Layout.Wrapper'
-import { Modal } from '../components/Common.Modal'
-import { EmailForm } from './Home.EmailForm'
 
 import { media } from '../styles/media'
 
@@ -127,23 +125,8 @@ const RightSide = styled.div`
   `};
 `
 
-const ModalTitle = styled.div`
-  margin: 1.4em 0.7em 0em;
-  font-size: 2em;
-`
-
-const CareerLink = styled.div`
-  width: 100%;
-  height: 40px;
-  background-color: #8a8a8a;
-  margin-top: 20px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  box-sizing: border-box;
-  padding: 0.7em 2em;
-  text-align: center;
-  color: #eee;
-  font-weight: 300;
+const ButtonLink = styled.a`
+  text-decoration: none;
 `
 
 export class Header extends Component {
@@ -204,20 +187,9 @@ export class Header extends Component {
                 })}
               </NavList>
               <RightSide>
-                <Button onClick={this.toggleModal}> Learn More </Button>
-                <Modal
-                  visible={modalOpen}
-                  onClose={() => this.toggleModal(false)}
-                >
-                  <ModalTitle>Let us run Vitess for you.</ModalTitle>
-                  <EmailForm onDone={() => this.toggleModal(false)} />
-                  <CareerLink>
-                    Psst! We are{' '}
-                    <a href={'/careers'} activeStyle={{ opacity: 1 }}>
-                      hiring
-                    </a>!
-                  </CareerLink>
-                </Modal>
+                <Button>
+                  <ButtonLink href="/signup">Sign Up</ButtonLink>{' '}
+                </Button>
               </RightSide>
             </Nav>
           </HeaderWrapper>

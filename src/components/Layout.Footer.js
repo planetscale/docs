@@ -185,6 +185,15 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
                   </li>
                 )
               })}
+              <li>
+                <a
+                  href={'https://support.planetscale.com'}
+                  activeStyle={{ opacity: 1 }}
+                  target="_blank"
+                >
+                  Support
+                </a>
+              </li>
             </PagesList>
             <SocialLinks>
               <Social

@@ -1,0 +1,20 @@
+title: Media Kit
+subtitle: Download official PlanetScale logos, badges, product screenshots, and executive team photos.
+downloads:
+  - title: PlanetScale Logos
+    link: /downloads/logos.zip
+    description: >-
+      Download all of the official PlanetScale variant logos in multiple
+      color and file formats.
+  - title: Executive Shots
+    link: /downloads/executive-photos.zip
+    description: >-
+      Download portrait photographs of Jiten Vaidya and Sugu Sougoumarane.
+  - title: Architecture Diagrams
+    link: /downloads/diagrams.zip
+    description: >-
+      Download architecture diagrams describing Vitess and PlantScale.
+  - title: Team Photographs
+    link: /downloads/team.zip
+    description: >-
+      Download PlanetScale's most recent team photographs (with and without pets).

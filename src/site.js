@@ -34,7 +34,7 @@ export const headerLinks = [
   {
     id: 'blog',
     name: 'News',
-    to: '/blog',
+    to: '/news',
   },
 
   {

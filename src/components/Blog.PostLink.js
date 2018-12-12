@@ -2,7 +2,7 @@ import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { Button } from './Common.Button'
-import { H1, H2 } from './Typography.Headings'
+import { H2 } from './Typography.Headings'
 
 import { media } from '../styles/media'
 
@@ -50,7 +50,7 @@ const ByAt = styled.h2`
 
 export function BlogPostLink({ title, description, date, author, slug }) {
   return (
-    <Link to={`/blog/${slug}`} style={{ textDecoration: 'none' }}>
+    <Link to={`/news/${slug}`} style={{ textDecoration: 'none' }}>
       <_BlogPostLink key={title}>
         <H2 align={'left'} bold>
           {title}
