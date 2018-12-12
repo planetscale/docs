@@ -99,7 +99,11 @@ const Button = styled.button`
   }
 `
 
-export function Product({ title, icon, content, action }) {
+const ButtonLink = styled.a`
+  text-decoration: none;
+`
+
+export function Product({ title, icon, content, action, link }) {
   return (
     <_Product key={title}>
       <Icon src={icon} />
@@ -107,7 +111,9 @@ export function Product({ title, icon, content, action }) {
         <Title>{title}</Title>
         <Content>
           <MarkdownContent html={content} inverted={true} />
-          <Button backgroundImage={background}>{action}</Button>
+          <Button backgroundImage={background}>
+            <ButtonLink href={link}>{action}</ButtonLink>
+          </Button>
         </Content>
       </ContentContainer>
     </_Product>

@@ -37,20 +37,24 @@ products:
     - icon: /img/planetscale-cloud.png
       title: PlanetScale Cloud
       action: Sign Up
+      link: /signup
       content: >-
         Easy to use DbaaS product that works with every major cloud service. Try our demo today.
     - icon: /img/vitess-operator.png
       title: Vitess Operator & Cluster Manager
       action: Contact Us
+      link: /contact
       content: >-
         PlanetScale’s Vitess Operator simplifies the administration of Vitess clusters on Kubernetes. Reduce manual workload by automating repetitive processes. The Cluster Manager is used to provision, manage, monitor and operate Vitess clusters and keyspaces. Manage your clusters on planetscale.com via VPC or contact us for a white-label solution.
     - icon: /img/customized-services.png
       title: Customized Services
       action: Contact Us
+      link: /contact
       content: >-
         We provide custom-designed Vitess deployment and management curriculum and training for your DBAs and engineers.
     - icon: /img/expert-support.png
       title: Expert Support for Vitess
       action: Contact Support
+      link: /contact
       content: >-
         Around-the-clock SLA support by the creators of Vitess for your deployment with the option to escalate critical issues. Reach us over the web or phone anytime.
