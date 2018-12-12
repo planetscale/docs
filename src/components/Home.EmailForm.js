@@ -101,7 +101,7 @@ export class EmailForm extends Component {
     fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
+      body: encode({ 'form-name': 'contactus', ...this.state }),
     })
       .then(() => {
         this.props.onDone && this.props.onDone()
@@ -120,7 +120,7 @@ export class EmailForm extends Component {
 
     return (
       <FormContainer
-        name="contact"
+        name="contactus"
         method="post"
         action="/thanks/"
         data-netlify="true"

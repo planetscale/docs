@@ -78,7 +78,7 @@ export class SignupForm extends Component {
 
     return (
       <FormContainer
-        name="contact"
+        name="signup"
         method="post"
         action="/thanks/"
         data-netlify="true"
