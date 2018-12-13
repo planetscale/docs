@@ -147,7 +147,7 @@ export class EmailForm extends Component {
         <InputField
           name="organization"
           type="text"
-          placeholder="Your Organization"
+          placeholder="Your Company"
           onChange={this.handleChange}
         />
 
@@ -167,7 +167,7 @@ export class EmailForm extends Component {
               value="scales"
             />
             <Label htmlFor="updates">
-              Email me PlanetScale updates (once a week)
+              Email me PlanetScale updates (no more than once a week)
             </Label>
           </Checkbox>
         </UpdateContainer>

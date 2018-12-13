@@ -105,7 +105,7 @@ export class SignupForm extends Component {
         <InputField
           name="organization"
           type="text"
-          placeholder="Organization"
+          placeholder="Company"
           onChange={this.handleChange}
         />
 

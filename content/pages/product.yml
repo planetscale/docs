@@ -1,31 +1,31 @@
-title: Your MySQL Scaling Checklist
+title: What We Offer
 subtitle: >-
-  Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for our open-source offering, Vitess.
+  Turbocharge your MySQL infrastructure with PlanetScale—we offer everything from a fully managed cloud service, to tools and support for open source Vitess.
 content: ''
 products:
   title: Start Scaling Here
   list:
     - icon: /img/planetscale-cloud.png
-      title: PlanetScale Cloud
-      action: Sign Up
+      title: Database-as-a-Service
+      action: Sign Up For Early Access
       link: /signup
       content: >-
-        Easy to use DbaaS product that works with every major cloud service. Try our demo today.
+        Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Choose from a multi-region deployment in a single cloud or a multi-cloud environment with masters and replicas spread around the globe. Whatever your scaling needs, we’re here to meet them.
     - icon: /img/vitess-operator.png
-      title: Vitess Operator & Cluster Manager
+      title: Cluster Manager Software Licenses
       action: Contact Us
       link: /contact
       content: >-
-        PlanetScale’s Vitess Operator simplifies the administration of Vitess clusters on Kubernetes. Reduce manual workload by automating repetitive processes. The Cluster Manager is used to provision, manage, monitor and operate Vitess clusters and keyspaces. Manage your clusters on planetscale.com via VPC or contact us for a white-label solution.
+        Don’t need a full DBaaS offering? License the software we use for our DBaaS customers and run it in your own cloud deployment or on premise. You can administer it yourself or have us carry the pager.
     - icon: /img/customized-services.png
-      title: Customized Services
+      title: Open Source Vitess Support
       action: Contact Us
       link: /contact
       content: >-
-        We provide custom-designed Vitess deployment and management curriculum and training for your DBAs and engineers.
+        Get support from the co-creators of Vitess for your deployment with the option to escalate critical issues.
     - icon: /img/expert-support.png
-      title: Expert Support for Vitess
-      action: Contact Support
+      title: Professional Services & Training
+      action: Contact Us
       link: /contact
       content: >-
-        Around-the-clock SLA support by the creators of Vitess for your deployment with the option to escalate critical issues. Reach us over the web or phone anytime.
+        Leverage our expertise to train your team. We provide custom-designed Vitess deployment and management curriculum and training for your DBAs and engineers.
