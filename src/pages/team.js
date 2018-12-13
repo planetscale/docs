@@ -19,9 +19,6 @@ import { InvestorContainer, Investor } from '../components/Team.Investor'
 import background from '../images/hero/team-bg.svg'
 import overlay from '../images/hero/team-overlay.svg'
 
-import careersBackground from '../images/hero/careers-bg.svg'
-import careersOverlay from '../images/hero/careers-overlay.svg'
-
 export default function TeamPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
@@ -93,23 +90,6 @@ export const pageQuery = graphql`
             order
             position
             linkedin
-          }
-          fields {
-            slug
-          }
-        }
-      }
-    }
-    investors: allMarkdownRemark(
-      filter: { fields: { collection: { eq: "investors" } } }
-    ) {
-      edges {
-        node {
-          html
-          frontmatter {
-            image
-            name
-            link
           }
           fields {
             slug

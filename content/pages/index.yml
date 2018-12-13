@@ -2,28 +2,42 @@ title: PlanetScale
 subtitle: Turbocharge MySQL in the Cloud with Vitess.io
 content: >-
   We run the world's most scalable database clusters with Vitess.
-vitess:
+vitessIntroduction:
   title: Powered By Vitess
   logo: /img/vitess-logo.svg
   content: >-
-    We created <a href=https://vitess.io> Vitess</a>, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps     such businesses scale their new and existing infrastructure faster.
-offerings:
-  title: Our Offerings
+    We co-created Vitess, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps     such businesses scale their new and existing infrastructure faster.
+vitess:
+  title: The Vitess Powerhouse
+  description: >-
+    At the heart of PlanetScale lies Vitess; the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of MySQL.
   list:
-    - icon: /img/home-offerings-deploy.svg
-      title: Database-As-A-Service
+    - icon: /img/scale-massively.png
+      title: Scale Massively
       content: >-
-        A set of tools and processes to automate the deployment and operation of
-        new Vitess Clusters. Both managed and self-serve options are available.
-    - icon: /img/home-offerings-multicloud.svg
-      title: Multi-Cloud Support
+        Vitess combines many important MySQL features with the scalability of a NoSQL database. Its built-in sharding features let you grow your database without adding sharding logic to your application.
+    - icon: /img/improve-performance.png
+      title: Improve Performance
       content: >-
-        The PlanetScale offering is platform agnostic, whether you want to run in one or multiple cloud deployments or have an on-premise deployment.
-    - icon: /img/home-offerings-training.svg
-      title: Expert Training
+        Vitess automatically rewrites queries that hurt database performance. It also uses caching mechanism to mediate queries and prevent duplicate queries from simultaneously reaching your database.
+    - icon: /img/auto-failover.png
+      title: Auto Failover and Backups
       content: >-
-        We provide custom-designed Vitess deployment and management curriculum and training for your DBAs and engineers.
-    - icon: /img/home-offerings-sla.svg
-      title: 24/7 Support
+        Vitess handles functions like master failovers and backups. It uses a lock server to track and administer servers, letting your application be blissfully ignorant of database topology.
+    - icon: /img/manage-shards.png
+      title: Manage Shards
       content: >-
-        Around-the-clock SLA support by the creators of Vitess for your deployment with the option to escalate critical issues. Reach us over the web or phone anytime.
+        MySQL doesn’t natively support sharding, but you will likely need it as your database grows. Vitess saves you from having to add sharding logic to your app and also enables live resharding with minimal read-only downtime.
+    - icon: /img/gain-connection-pooling.png
+      title: Gain Connection Pooling
+      content: >-
+        Vitess eliminates the high-memory overhead of MySQL connections through connection pooling.
+    - icon: /img/cluster-workflows.png
+      title: Cluster Workflows
+      content: >-
+        Vitess keeps track of all of the metadata about your cluster configuration so that the cluster view is always up-to-date and consistent for different clients.
+offerings:
+  title: Sign Up for our Early Beta
+  icon: /img/planetscale-cloud.png
+  content: >-
+    Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Sign up for early access to our Database-as-a-Service beta today.

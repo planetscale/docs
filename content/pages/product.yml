@@ -1,0 +1,31 @@
+title: What We Offer
+subtitle: >-
+  Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.
+content: ''
+products:
+  title: Start Scaling Here
+  list:
+    - icon: /img/planetscale-cloud.png
+      title: Database-as-a-Service
+      action: Sign Up For Early Access
+      link: /signup
+      content: >-
+        Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Choose from a multi-region deployment in a single cloud or a multi-cloud environment with masters and replicas spread around the globe. Whatever your scaling needs, we’re here to meet them.
+    - icon: /img/vitess-operator.png
+      title: Cluster Manager Software Licenses
+      action: Contact Us
+      link: /contact
+      content: >-
+        Don’t need a full  offering? License the software we use for our DbaaS customers and run it in your own cloud deployment or on premise. You can administer it yourself or have us carry the pager.
+    - icon: /img/customized-services.png
+      title: Open Source Vitess Support
+      action: Contact Us
+      link: /contact
+      content: >-
+        Get support from the co-creators of Vitess for your deployment with the option to escalate critical issues.
+    - icon: /img/expert-support.png
+      title: Professional Services & Training
+      action: Contact Us
+      link: /contact
+      content: >-
+        Leverage our expertise to train your team. We provide custom-designed Vitess deployment and management curriculum and training for your DBAs and engineers.

@@ -8,6 +8,15 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - label: 'FAQ'
+    name: 'faq'
+    folder: 'content/faq'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Question', name: 'question', widget: 'string' }
+      - { label: 'Answer', name: 'body', widget: 'markdown' }
+      - { label: 'Order', name: 'order', widget: 'number', required: false }
   - label: 'Team'
     name: 'team'
     folder: 'content/team'
@@ -20,9 +29,9 @@ collections:
       - { label: 'LinkedIn', name: 'linkedin', widget: 'string' }
       - { label: 'Introduction', name: 'body', widget: 'markdown' }
       - { label: 'Order', name: 'order', widget: 'number', required: false }
-  - label: 'Blog'
-    name: 'blog'
-    folder: 'content/blog'
+  - label: 'News'
+    name: 'news'
+    folder: 'content/news'
     create: true
     slug: '{{slug}}'
     fields:
@@ -146,9 +155,9 @@ collections:
                 widget: list
                 fields:
                   - { label: Perk, name: perk, widget: markdown }
-      - label: 'Blog Page'
-        name: 'blog'
-        file: 'content/pages/blog.yml'
+      - label: 'News Page'
+        name: 'news'
+        file: 'content/pages/news.yml'
         fields:
           - { label: Hero Title, name: title, widget: string, required: false }
           - {

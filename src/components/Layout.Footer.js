@@ -11,7 +11,7 @@ import { media } from '../styles/media'
 import bottomOverlay from '../images/waves-flipped-vertical.png'
 import logo from '../../static/img/logo-only.png'
 
-import { pages } from '../site'
+import { footerLinks } from '../site'
 
 const _Footer = styled.footer`
   display: flex;
@@ -176,7 +176,7 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
           </Link>
           <LeftContainer>
             <PagesList>
-              {pages.map(({ name, to }) => {
+              {footerLinks.map(({ name, to }) => {
                 return (
                   <li key={to}>
                     <Link to={`${to}`} exact activeStyle={{ opacity: 1 }}>
@@ -185,6 +185,15 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
                   </li>
                 )
               })}
+              <li>
+                <a
+                  href={'https://support.planetscale.com'}
+                  activeStyle={{ opacity: 1 }}
+                  target="_blank"
+                >
+                  Support
+                </a>
+              </li>
             </PagesList>
             <SocialLinks>
               <Social
@@ -203,7 +212,7 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
                 href="https://www.linkedin.com/company/planetscale"
                 target="_blank"
               >
-                <i className="fab fa-linkedin" />
+                <i className="fab fa-linkedin-square" />
               </Social>
             </SocialLinks>
           </LeftContainer>

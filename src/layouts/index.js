@@ -7,7 +7,7 @@ import { ThemeProvider } from 'styled-components'
 
 import { Header } from '../components/Layout.Header'
 
-import { theme, pages } from '../site'
+import { theme, headerLinks } from '../site'
 import '../fonts/'
 import '../styles/globals'
 
@@ -51,7 +51,7 @@ export default class TemplateWrapper extends React.Component {
         </Helmet>
         <ThemeProvider theme={theme}>
           <React.Fragment>
-            <Header pages={pages} location={location} />
+            <Header pages={headerLinks} location={location} />
             {children()}
           </React.Fragment>
         </ThemeProvider>

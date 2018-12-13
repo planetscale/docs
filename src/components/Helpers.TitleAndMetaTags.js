@@ -1,12 +1,8 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-import { pages } from '../site'
-
 export function TitleAndMetaTags({ url, pathname, title, description }) {
-  const pageConfig =
-    pages[pages.findIndex((p) => p.id === pathname.split('/')[0])]
-  const favIconName = !!pageConfig ? `favicon-${pageConfig.id}` : 'favicon'
+  const favIconName = 'favicon'
 
   return (
     <Helmet>

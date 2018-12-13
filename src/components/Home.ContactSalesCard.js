@@ -3,8 +3,7 @@ import styled from 'styled-components'
 import { media } from '../styles/media'
 import { Button } from '../components/Common.Button'
 import background from '../images/hero/home-bg.svg'
-import { Modal } from '../components/Common.Modal'
-import { EmailForm } from './Home.EmailForm'
+import MarkdownContent from '../components/Common.MarkdownContent'
 
 const _Container = styled.div`
   display: flex;
@@ -16,6 +15,12 @@ const _Container = styled.div`
   max-width: 600px;
   box-shadow: 0 0 4px #d8d8d8;
   border-radius: 4px;
+  background: rgb(231, 126, 42);
+  background: linear-gradient(
+    90deg,
+    rgba(231, 126, 42, 1) 0%,
+    rgba(221, 64, 39, 1) 100%
+  );
 
   ${media.largePhone`
     flex-direction: column;
@@ -26,7 +31,7 @@ const _Container = styled.div`
 const Title = styled.h2`
   font-size: 1.8em;
   font-weight: 300;
-  margin: 0;
+  margin: 0 0 15px;
 
   ${media.largePhone`
     font-size: 1.4em;
@@ -35,61 +40,47 @@ const Title = styled.h2`
   `};
 `
 
-const ModalTitle = styled.div`
-  margin: 1.4em 0.7em 0em;
-  font-size: 2em;
+const Icon = styled.img`
+  height: 100px;
+  margin: 0 40px;
+
+  ${media.largePhone`
+    height: 80px;
+    margin-bottom: 30px;
+  `};
 `
 
-const CareerLink = styled.div`
-  width: 100%;
-  height: 40px;
-  background-color: #8a8a8a;
-  margin-top: 20px;
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-  box-sizing: border-box;
-  padding: 0.7em 2em;
-  text-align: center;
-  color: #eee;
+const Content = styled.div`
   font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: white;
 `
 
-export class ContactSalesCard extends Component {
-  constructor(props) {
-    super(props)
+const Actions = styled.div`
+  margin-top: 10px;
+  border-top: 1px solid #f5774a;
+  padding-top: 10px;
+`
 
-    this.state = {
-      modalOpen: false,
-    }
-  }
+const ButtonLink = styled.a`
+  text-decoration: none;
+`
 
-  toggleModal = (boolean) =>
-    this.setState((oldState) => {
-      return {
-        modalOpen: boolean,
-      }
-    })
+export function ContactSalesCard({ title, icon, content }) {
+  return (
+    <_Container>
+      <Icon src={icon} />
 
-  render() {
-    const { modalOpen } = this.state
-
-    return (
-      <_Container>
-        <Title>Ready to start scaling?</Title>
-        <Button backgroundImage={background} onClick={this.toggleModal}>
-          Get Started
-        </Button>
-        <Modal visible={modalOpen} onClose={() => this.toggleModal(false)}>
-          <ModalTitle>Let us run Vitess for you.</ModalTitle>
-          <EmailForm onDone={() => this.toggleModal(false)} />
-          <CareerLink>
-            Psst! We are{' '}
-            <a href={'/careers'} activeStyle={{ opacity: 1 }}>
-              hiring
-            </a>!
-          </CareerLink>
-        </Modal>
-      </_Container>
-    )
-  }
+      <Content>
+        <Title>{title}</Title>
+        <MarkdownContent html={content} inverted={true} />
+        <Actions>
+          <Button>
+            <ButtonLink href="/signup">Sign Up</ButtonLink>{' '}
+          </Button>
+        </Actions>
+      </Content>
+    </_Container>
+  )
 }

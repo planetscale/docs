@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: 'Dona Rita',
+    title: 'PlanetScale',
   },
   plugins: [
     {
@@ -32,8 +32,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `blog`,
-        path: `${__dirname}/content/blog/`,
+        name: `news`,
+        path: `${__dirname}/content/news/`,
       },
     },
     {
@@ -46,8 +46,8 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `investors`,
-        path: `${__dirname}/content/investors/`,
+        name: `faq`,
+        path: `${__dirname}/content/faq/`,
       },
     },
     `gatsby-transformer-yaml`,
