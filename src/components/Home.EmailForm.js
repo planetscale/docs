@@ -133,7 +133,7 @@ export class EmailForm extends Component {
         <InputField
           name="email"
           type="email"
-          placeholder="Your email address"
+          placeholder="Your Email Address"
           onChange={this.handleChange}
         />
 

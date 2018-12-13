@@ -1,6 +1,6 @@
 title: What We Offer
 subtitle: >-
-  Turbocharge your MySQL infrastructure with PlanetScale—we offer everything from a fully managed cloud service, to tools and support for open source Vitess.
+  Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.
 content: ''
 products:
   title: Start Scaling Here
@@ -16,7 +16,7 @@ products:
       action: Contact Us
       link: /contact
       content: >-
-        Don’t need a full DBaaS offering? License the software we use for our DBaaS customers and run it in your own cloud deployment or on premise. You can administer it yourself or have us carry the pager.
+        Don’t need a full  offering? License the software we use for our DbaaS customers and run it in your own cloud deployment or on premise. You can administer it yourself or have us carry the pager.
     - icon: /img/customized-services.png
       title: Open Source Vitess Support
       action: Contact Us

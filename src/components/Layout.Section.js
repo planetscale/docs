@@ -14,7 +14,7 @@ const _Section = styled.section`
 `
 
 export const SectionTitle = styled.h1`
-	padding-${(props) => (props.alignment === 'right' ? 'left' : 'right')}: 6em;	
+	padding-${(props) => (props.alignment === 'right' ? 'left' : 'right')}: 6em;
 	text-shadow: 0 0 30px rgba(0,0,0, 0.25);
 	font-size: 4em;
 	color: white;
