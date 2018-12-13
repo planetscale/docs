@@ -10,7 +10,7 @@ vitessIntroduction:
 vitess:
   title: The Vitess Powerhouse
   description: >-
-    At the heart of PlanetScale lies <a href=https://vitess.io>Vitess</a>; the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of MySQL.
+    At the heart of PlanetScale lies Vitess; the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of MySQL.
   list:
     - icon: /img/scale-massively.png
       title: Scale Massively
