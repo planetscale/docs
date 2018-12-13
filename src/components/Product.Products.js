@@ -42,11 +42,12 @@ const _Product = styled.li`
 `
 
 const Icon = styled.img`
-  width: 80px;
-  height: 100%;
+  height: 100px;
+  margin: 0 40px 0 20px;
 
   ${media.largePhone`
     width: 80px;
+    height: 100%;
     margin-left: 30px;
     margin-top: 30px;
     margin-bottom: 20px;

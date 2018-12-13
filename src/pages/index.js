@@ -1,13 +1,13 @@
 import React from 'react'
 import Script from 'react-load-script'
+import styled from 'styled-components'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { H1 } from '../components/Typography.Headings'
 import { Hero, HeroTitle, HeroSubTitle } from '../components/Common.Hero'
-
+import { FeatureContainer, Feature } from '../components/Vitess.Features'
 import { Footer } from '../components/Layout.Footer'
-import { Offering, OfferingsContainer } from '../components/Home.Offerings'
 import { VitessSection } from '../components/Home.VitessSection'
 import { ContactSalesCard } from '../components/Home.ContactSalesCard'
 
@@ -26,6 +26,12 @@ function handleScriptLoad() {
   }
   window.netlifyIdentity.init()
 }
+
+const VitessDescription = styled.p`
+  margin: 0 auto;
+  max-width: 550px;
+  font-size: 20px;
+`
 
 export default function IndexPage({ data, location }) {
   const { allPagesYaml } = data
@@ -50,20 +56,23 @@ export default function IndexPage({ data, location }) {
       </Hero>
 
       <VitessSection
-        title={pageData.vitess.title}
-        logo={pageData.vitess.logo}
-        content={pageData.vitess.content}
+        title={pageData.vitessIntroduction.title}
+        logo={pageData.vitessIntroduction.logo}
+        content={pageData.vitessIntroduction.content}
         overlay={overlay}
       />
 
       <Wrapper>
-        <OfferingsContainer>
-          <H1>{pageData.offerings.title}</H1>
-          {pageData.offerings.list.map(Offering)}
-        </OfferingsContainer>
+        <H1>{pageData.vitess.title}</H1>
+        <VitessDescription>{pageData.vitess.description}</VitessDescription>
+        <FeatureContainer>{pageData.vitess.list.map(Feature)}</FeatureContainer>
       </Wrapper>
 
-      <ContactSalesCard />
+      <ContactSalesCard
+        title={pageData.offerings.title}
+        icon={pageData.offerings.icon}
+        content={pageData.offerings.content}
+      />
       <Footer
         backgroundImage={background}
         backgroundColor={'#EFAD2D'}
@@ -81,18 +90,24 @@ export const pageQuery = graphql`
           title
           subtitle
           content
-          vitess {
+          vitessIntroduction {
             title
             logo
             content
           }
-          offerings {
+          vitess {
             title
+            description
             list {
               icon
               title
               content
             }
+          }
+          offerings {
+            title
+            icon
+            content
           }
         }
       }

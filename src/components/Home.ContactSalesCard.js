@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { media } from '../styles/media'
 import { Button } from '../components/Common.Button'
 import background from '../images/hero/home-bg.svg'
+import MarkdownContent from '../components/Common.MarkdownContent'
 
 const _Container = styled.div`
   display: flex;
@@ -14,6 +15,12 @@ const _Container = styled.div`
   max-width: 600px;
   box-shadow: 0 0 4px #d8d8d8;
   border-radius: 4px;
+  background: rgb(231, 126, 42);
+  background: linear-gradient(
+    90deg,
+    rgba(231, 126, 42, 1) 0%,
+    rgba(221, 64, 39, 1) 100%
+  );
 
   ${media.largePhone`
     flex-direction: column;
@@ -24,7 +31,7 @@ const _Container = styled.div`
 const Title = styled.h2`
   font-size: 1.8em;
   font-weight: 300;
-  margin: 0;
+  margin: 0 0 15px;
 
   ${media.largePhone`
     font-size: 1.4em;
@@ -33,23 +40,47 @@ const Title = styled.h2`
   `};
 `
 
+const Icon = styled.img`
+  height: 100px;
+  margin: 0 40px;
+
+  ${media.largePhone`
+    height: 80px;
+    margin-bottom: 30px;
+  `};
+`
+
+const Content = styled.div`
+  font-weight: 300;
+  font-size: 1em;
+  line-height: 1.5em;
+  color: white;
+`
+
+const Actions = styled.div`
+  margin-top: 10px;
+  border-top: 1px solid #f5774a;
+  padding-top: 10px;
+`
+
 const ButtonLink = styled.a`
   text-decoration: none;
 `
 
-export class ContactSalesCard extends Component {
-  constructor(props) {
-    super(props)
-  }
+export function ContactSalesCard({ title, icon, content }) {
+  return (
+    <_Container>
+      <Icon src={icon} />
 
-  render() {
-    return (
-      <_Container>
-        <Title>Ready to start scaling?</Title>
-        <Button backgroundImage={background}>
-          <ButtonLink href="/signup">Sign Up</ButtonLink>{' '}
-        </Button>
-      </_Container>
-    )
-  }
+      <Content>
+        <Title>{title}</Title>
+        <MarkdownContent html={content} inverted={true} />
+        <Actions>
+          <Button>
+            <ButtonLink href="/signup">Sign Up</ButtonLink>{' '}
+          </Button>
+        </Actions>
+      </Content>
+    </_Container>
+  )
 }

@@ -38,6 +38,12 @@ export const headerLinks = [
   },
 
   {
+    id: 'careers',
+    name: 'Work With Us',
+    to: '/careers',
+  },
+
+  {
     id: 'contact',
     name: 'Contact',
     to: '/contact',
@@ -49,12 +55,6 @@ export const footerLinks = [
     id: 'faq',
     name: 'FAQ',
     to: '/faq',
-  },
-
-  {
-    id: 'careers',
-    name: 'Work With Us',
-    to: '/careers',
   },
 
   {

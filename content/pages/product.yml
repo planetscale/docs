@@ -2,35 +2,6 @@ title: Your MySQL Scaling Checklist
 subtitle: >-
   Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for our open-source offering, Vitess.
 content: ''
-vitess:
-  title: The Vitess Powerhouse
-  description: >-
-    At the heart of PlanetScale lies Vitess; our open-source MySQL sharding solution to help you scale horizontally like NoSQL with the reliability of MySQL.
-  list:
-    - icon: /img/scale-massively.png
-      title: Scale Massively
-      content: >-
-        Vitess combines many important MySQL features with the scalability of a NoSQL database. Its built-in sharding features let you grow your database without adding sharding logic to your application.
-    - icon: /img/improve-performance.png
-      title: Improve Performance
-      content: >-
-        Vitess automatically rewrites queries that hurt database performance. It also uses caching mechanism to mediate queries and prevent duplicate queries from simultaneously reaching your database.
-    - icon: /img/auto-failover.png
-      title: Auto Failover and Backups
-      content: >-
-        Vitess handles functions like master failovers and backups. It uses a lock server to track and administer servers, letting your application be blissfully ignorant of database topology.
-    - icon: /img/manage-shards.png
-      title: Manage Shards
-      content: >-
-        MySQL doesn’t natively support sharding, but you will likely need it as your database grows. Vitess saves you from having to add sharding logic to your app and also enables live resharding with minimal read-only downtime.
-    - icon: /img/gain-connection-pooling.png
-      title: Gain Connection Pooling
-      content: >-
-        Vitess eliminates the high-memory overhead of MySQL connections through connection pooling.
-    - icon: /img/cluster-workflows.png
-      title: Cluster Workflows
-      content: >-
-        Vitess keeps track of all of the metadata about your cluster configuration so that the cluster view is always up-to-date and consistent for differnt clients.
 products:
   title: Start Scaling Here
   list:
