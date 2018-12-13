@@ -35,7 +35,7 @@ vitess:
     - icon: /img/cluster-workflows.png
       title: Cluster Workflows
       content: >-
-        Vitess keeps track of all of the metadata about your cluster configuration so that the cluster view is always up-to-date and consistent for differnt clients.
+        Vitess keeps track of all of the metadata about your cluster configuration so that the cluster view is always up-to-date and consistent for different clients.
 offerings:
   title: Sign Up for our Early Beta
   icon: /img/planetscale-cloud.png

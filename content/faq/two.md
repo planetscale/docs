@@ -10,4 +10,4 @@ At PlanetScale, we are building the operational scaffolding that makes it easy t
 * **Open Source Vitess Support**
 * **Professional Services & Training**
 
-Take a closer look here at [what we do](/products).
+Take a closer look here at [what we do](/product).

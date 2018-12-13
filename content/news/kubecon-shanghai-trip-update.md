@@ -19,7 +19,7 @@ We're also very proud to see that [JD.com was awarded the Top End User Award](ht
 
 It was great to have the opportunity to introduce Vitess, which is beginning to gain interest in China, with such a large-scale example. The talk generated many interesting topics and questions, and we were able to connect with lots of people at our booth throughout the conference.
 
-Plus, we got to try out these tasty Shanghai specialties, including Dan's favorite, [_sheng jian bao_](www.smartshanghai.com/articles/activities/the-shanghai-shengjian-bao-informative-graph). Among others:
+Plus, we got to try out these tasty Shanghai specialties, including Dan's favorite, [_sheng jian bao_](http://www.smartshanghai.com/articles/activities/the-shanghai-shengjian-bao-informative-graph). Among others:
 
 * Shanghai-style soup dumplings, _xiao long bao_ (小笼包: go eat at [our fave XLB restaurant](http://www.thatsmags.com/shanghai/directory/3838/lin-long-fang-special-dumplings) here!)
 * Noodles tossed with scallions and oil, _cong you ban mian_ (葱油拌面), breakfast of champions in Shanghai
