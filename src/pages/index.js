@@ -55,13 +55,6 @@ export default function IndexPage({ data, location }) {
         </Wrapper>
       </Hero>
 
-      <VitessSection
-        title={pageData.vitessIntroduction.title}
-        logo={pageData.vitessIntroduction.logo}
-        content={pageData.vitessIntroduction.content}
-        overlay={overlay}
-      />
-
       <Wrapper>
         <H1>{pageData.vitess.title}</H1>
         <VitessDescription>{pageData.vitess.description}</VitessDescription>
