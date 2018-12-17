@@ -5,6 +5,7 @@ description: >-
   Come join us for an evening of food and presentations, with the creators, maintainers and users of Vitess.
 comments: true
 share: true
+author: 'Adrianna Tan'
 ---
 
 As some of you know, PlanetScale was founded by the creators and maintainers of the open source [Vitess.io](https://vitess.io) project. Though we've only just begun, we aim to continue providing resources to the Vitess project so that the project continues to flourish.

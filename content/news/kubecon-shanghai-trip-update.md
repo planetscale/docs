@@ -5,13 +5,14 @@ description: >-
   November was a whirlwind month for us, the most exciting stop was our visit to KubeCon in Shanghai.
 comments: true
 share: true
+author: 'Adrianna Tan'
 ---
 
-November was whirlwind of travel for us here at PlanetScale that included an exciting stop in Shanghai for China’s KubeCon 2018. Our CEO, Jiten Vaidya, shared the stage with Mr Xin Lv, Senior Architect of Technical Infrastructure Group at JD.com in a talk that offered an introduction to Vitess and an overview of how JD.com has leveraged Vitess to scale their databases.
+November involved a ton of travel for us here at PlanetScale, including an exciting stop in Shanghai for China’s KubeCon 2018. Our CEO, Jiten Vaidya, shared the stage with Mr Xin Lv, Senior Architect of the Technical Infrastructure Group at JD.com, in a talk that offered an introduction to Vitess and an overview of how JD.com has leveraged Vitess to scale their databases.
 
 [JD.com](https://www.jd.com), for those of you who are not familiar, is China’s largest online and offline retailer (think Amazon) with more than 300 million active users. JD.com has the largest e-commerce logistics infrastructure in China, which makes the story of how they have used Vitess to scale their databases especially compelling. In fact, it represents the largest and most complex implementation of Vitess on Kubernetes to date.
 
-To get a sense for the scale of this project, consider the fact that JD.com has 100s of terabytes of data stored in over 250 billion rows. As you can imagine, this could be a scaling nightmare. However, using Vitess, JD.com has organized its data into thousands of keyspaces across 8 datacenters with a total of almost 5000 shards. This organization of their data has allowed them to continue to grow at an expected rate of 10TB or 20 billion rows per week, without a loss in performance. (If you’re interested in more details, [the slides from the talk can be found here](https://schd.ws/hosted_files/kccncchina2018english/97/Shanghai%20Kubecon%20%281%29.pdf).)
+To get a sense for the scale of this project, consider the fact that JD.com has 100s of terabytes of data stored in over 250 billion rows. As you can imagine, this could be a scalability nightmare. However, using Vitess, JD.com has organized its data into thousands of keyspaces across 8 datacenters with a total of almost 5000 shards. This organization of their data has allowed them to continue to grow at an expected rate of 10TB or 20 billion rows per week, without a loss in performance. (If you’re interested in more details, [the slides from the talk can be found here](https://schd.ws/hosted_files/kccncchina2018english/97/Shanghai%20Kubecon%20%281%29.pdf).)
 
 ![Jiten presenting at KubeCon Shanghai 2018](/img/201812-blog-kubeconshanghai.jpg)
 
