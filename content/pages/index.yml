@@ -10,7 +10,7 @@ vitessIntroduction:
 vitess:
   title: The Vitess Powerhouse
   description: >-
-    At the heart of PlanetScale lies Vitess; the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of MySQL.
+    At the heart of PlanetScale lies Vitess: the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of MySQL.
   list:
     - icon: /img/scale-massively.png
       title: Scale Massively
@@ -19,7 +19,7 @@ vitess:
     - icon: /img/improve-performance.png
       title: Improve Performance
       content: >-
-        Vitess automatically rewrites queries that hurt database performance. It also uses caching mechanism to mediate queries and prevent duplicate queries from simultaneously reaching your database.
+        Vitess automatically rewrites queries that hurt database performance. It also uses caching mechanisms to mediate queries and prevent duplicate queries from simultaneously reaching your database.
     - icon: /img/auto-failover.png
       title: Auto Failover and Backups
       content: >-
@@ -31,7 +31,7 @@ vitess:
     - icon: /img/gain-connection-pooling.png
       title: Gain Connection Pooling
       content: >-
-        Vitess eliminates the high-memory overhead of MySQL connections through connection pooling.
+        By multiplexing application queries onto a pool of MySQL connections, Vitess optimizes performance by eliminating the high-memory overhead of MySQL connections.
     - icon: /img/cluster-workflows.png
       title: Cluster Workflows
       content: >-

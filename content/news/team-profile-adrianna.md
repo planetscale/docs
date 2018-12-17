@@ -5,6 +5,7 @@ description: >-
   Join us to get an inside scoop on PlanetScale's Senior Product Manager.
 comments: true
 share: true
+author: 'Abhi Vaidyanatha'
 ---
 
 ### Interviewer: Abhi Vaidyanatha, PlanetScale Software Engineer
