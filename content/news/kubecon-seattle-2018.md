@@ -2,6 +2,7 @@
 title: KubeCon Seattle 2018
 date: '2018-12-17T00:00:00-08:00'
 description: 'Updates from PlanetScale''s trip to KubeCon Seattle 2018. '
+author: 'Lucy Burns'
 comments: true
 share: true
 ---
