@@ -11,6 +11,8 @@ KubeCon Seattle got off to a great start with Vitess 3.0, a major Vitess version
 
 Along with the much-awaited Vitess update, we also got a brand and website refresh. Check out our new look [here](https://vitess.io/).
 
+![]()
+
 Sugu Sougoumarane, CTO and Cofounder of PlanetScale, gave a talk highlighting the power of Vitess, and shared some recent success stories: Slack has migrated 30% of their databases to Vitess, the Square Cash app runs completely on Vitess, and JD.com has more than 10k Vitess tablets running. Want to learn more about Vitess? You can review Sugu’s slides [here](https://schd.ws/hosted_files/kccna18/91/Vitess%40Kubecon2018.pdf), check out the [Vitess Documentation](https://vitess.io/docs/), or join the [Vitess Slack Channel](https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM). 
 
 Dan Kozlowski, Minister of Engineering at PlanetScale, led a deep dive talk humorously titled “Failure is Always an Option” on surviving failures while using Vitess. Although the demo title unveiled the consequences of tempting fate, Dan was able to outline the exciting ways in which you can anticipate and avoid failure when first implementing Vitess. He also led the group through potential points of failure and best practices for recovery in each situation. The beauty of running Vitess lies in the fact that even if your pods, nodes, or even data centers go down, you can feel safe knowing that your data is still reachable and not lost. Slides from his talk can be found [here](https://events.linuxfoundation.org/events/kubecon-cloudnativecon-north-america-2018/schedule/). 
