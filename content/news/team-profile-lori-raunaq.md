@@ -15,6 +15,8 @@ author: 'Abhi Vaidyanatha'
 
 _Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Considering how different our backgrounds are, I thought it would be worthwile to give everyone a peek into the awesome things that make us who we are. As a side note, it may sound like I made up the flow of this interview for comedic effect, but it was just as scatter-brained as it sounds. We made coffee right before this interview, which could explain a few things. 
 
+![Lori and Raunaq](/img/201812-blog-lr.jpg)
+
 **Abhi: Hey guys how's it going?**
 
 Lori: Bitchin' dude.
@@ -87,6 +89,8 @@ L: He had drop foot!
 R: Drop foot sounds like a band name. I wish this room were full of cats right now. I keep thinking about being in a room suffocating with cats. 
 
 *Lori's dog, Rocco, enters the room*
+
+![Rocco](/img/201812-blog-rocco.jpg)
 
 L: How about a big greyhound instead of cats?
 R: *Talks for a while about Lori's sheep socks and a riddle he heard on a cab ride*
