@@ -13,7 +13,7 @@ author: 'Abhi Vaidyanatha'
 ### Interviewee: Lori Clerkin, PlanetScale Executive Assistant
 ### Interviewee: Raunaq Gupta, PlanetScale UI/UX Designer
 
-_Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Considering how different our backgrounds are, I thought it would be worthwile to give everyone a peek into the awesome things we've done in the past. As a side note, it may sound like I made up the flow of this interview for comedic effect, but it was just as scatter-brained as it sounds. For extra flavor, read this as if L stands for left brain and R stands for right brain of one individual._
+_Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Considering how different our backgrounds are, I thought it would be worthwile to give everyone a peek into the awesome things that make us who we are. As a side note, it may sound like I made up the flow of this interview for comedic effect, but it was just as scatter-brained as it sounds. We made coffee right before this interview, which could explain a few things. 
 
 **Abhi: Hey guys how's it going?**
 
@@ -33,7 +33,7 @@ R: Like the wysiwyg editor?
 L: What?...
 R: What you see is what you get.
 L: *Visible confusion*
-L: Anyway, I don't like to say that certain things define me, but if I had to pick it would be triathlon and music. I grew up with older siblings that introduced me to 60s, 70s, and 80s music. Stuff like RUSH, Led Zeppelin, Tom Petty, Metallica, Ozzy Osbourne, and Black Sabbath. My sister used to lay in the basement with speakers next to her ears and listen to Black Sabbath, so I think it's in my blood. Although, I really only started listening to harder stuff after going to OzFest.
+L: Anyway, I don't like to say that certain things define me, but if I had to pick it would be triathlon and music. I grew up with older siblings that introduced me to 60s, 70s, and 80s music. Stuff like Rush, Led Zeppelin, Tom Petty, Metallica, Ozzy Osbourne, and Black Sabbath. My sister used to lay in the basement with speakers next to her ears and listen to Black Sabbath, so I think it's in my blood. Although, I really only started listening to harder stuff after going to OzFest.
 R: One of my favorite bands, Incubus, opened for Ozzy at OzFest once. Maybe they exchange melodies. Is there a GitHub for melodies?
 L: *Completely ignores Raunaq's comment*
 L: When Lady Gaga and Metallica performed at the Super Bowl I stopped listening to Metallica for a while.
@@ -43,7 +43,7 @@ R: I don't know him personally, I'm sure he is a nice man. I think you need ener
 L: I think you need energy to be a drummer. He's not that great. The rest of Metallica is insane, Lars is lucky to be where he is. Eh... I'm totally doggin' poor Lars. He's gonna come after me.
 R: Oh man, yeah.
 
-**Abhi: Okay how about you Raunaq?**
+**Abhi: Okay, how about you Raunaq?**
 
 R: These days I really like cats and cars. I'm always looking to photograph new cats and old cars. I think about design a lot too; I can't separate myself from that. I love going to concerts...
 L: ...And you travel for them too!
@@ -59,11 +59,11 @@ R: I feel like cars are such an amazing design constraint - you can do so much w
 R: New cats and old dogs sounds like a really good band name. "We are new cats and old dogs... live from Mountain View Amphitheatre!"
 L: *Guitar noises*
 R: I actually saw Incubus in Kuala Lumpur in 2011, and again in 2015... then again this year in India. That was the first time they visited India actually.
-L: That is awesome, they knew, they felt the vibe. I'm trying to think of when I saw them. I think it was in '98 at Slims in SF. It's owned by Boz Scaggs, famous for that one song... you know the one that goes "Lido... whoah oh oh."
+L: That is awesome, they knew, they felt the vibe. I'm trying to think of when I saw them. I think it was in '98 at Slims in SF. It's owned by Boz Scaggs, famous for that one song... you know the one that goes, "Lido... whoah oh oh."
 
 **Abhi: I think you need a degree in paleontology to know that song.**
 
-L: Whatever, it doesn't bother me at all. I could care less how old i am. *Rasberry noises*
+L: Whatever, it doesn't bother me at all. I could care less how old i am. *Raspberry noises*
 R: I'm also gonna see Ben Kenny, who is playing with Incubus right now. He previously played for the Roots. 
 L: They are a bunch of rich kids, like Peter Gabriel.
 R: Who is that guy?
@@ -124,10 +124,10 @@ R: Someone was telling me about Gwyneth Paltrow at some point. She runs a store 
 L: Hair products?
 R: All kinds of products.
 L: I think that was just in your dreams.
-R: That would be awfuk. Like a nightmare. I need some order in this interview... it's too free form, I feel like I'm wasting people's time.
+R: That would be awful. Like a nightmare. I need some order in this interview... it's too free form, I feel like I'm wasting peoples' time.
 L: I'm the one that was shitting on Lars.
 R: I mean... he doesn't care.
-L: Yeah, he's probabl like "Free publicity!" Ok next question.
+L: Yeah, he's probably like "Free publicity!" Ok next question.
 
 *Abhi doesn't even try to get a word in this time*
 
@@ -136,13 +136,13 @@ L: Oh no!
 R: Yeah I gotta get back soon.
 L: I'm crying, it's exhausting to laugh.
 
-**Abhi: Okay. Actually question. What's something that you guys are looking forward to in the upcoming holidays?**
+**Abhi: Okay. Let's get to another question. What's something that you guys are looking forward to in the upcoming holidays?**
 
 L: I’m looking forward to my birthday in 5 days.
 R: Oh sweet! My birthday is on the 20th! 
 R: *Hi-fives Lori*
 L: Eeeek! Look at that. 
-R: That’s why I’m gonna see Ben Kenny! It’s his last solo show.
+R: That’s why I’m gonna see Ben Kenney! It’s his last solo show.
 L: I’m so jealous, you have to go. I’m looking forward to the company taking off, the Godsmack show in April in Milwaukee, and going to the beach in June.
 
 **Abhi: What about you Raunaq?**
@@ -160,14 +160,14 @@ L: And the future?
 R: Yeah, the future is very uncertain.
 L: Do you love your birthday too. It’s your day!
 R: Do I?
-L: You get to wake up and say “I can do whatever the f*** I want”
+L: You get to wake up and say “I can do whatever the f\*\*\* I want”
 R: But I say that to myself every day! 
 L: *Goes into another bout of laughter*
 R: I’m alive... not dead. Isn’t that a Pearl Jam song??
-L: *starts singing the song* 
-L: Can I just say that Eddie vedder is super hot. 
+L: *Starts singing the song* 
+L: Can I just say that Eddie Vedder is super hot. 
 R: He plays the uke pretty nicely too.
-L: I saw Pearl Jam open for the Rolling Stones. Just as they were in the middle of their set it was pouring rain and man... there’s nothing hotter than Eddie Vetter in the rain. It was pretty spectacular.
+L: I saw Pearl Jam open for the Rolling Stones. Just as they were in the middle of their set it was pouring rain and man... there’s nothing hotter than Eddie Vedder in the rain. It was pretty spectacular.
 R: Yeah that’s burned into my memory now. 
 L: I love that he’s good friends with Neil Young who's also really cool... well super cool until he cheated on his wife.
 R: What’s your most memorable concert experience?
@@ -182,3 +182,5 @@ L: We did drop him off at his house. That was the most memorable show ever - the
 R: It would definitely have to be a podcast. What would we call the podcast?
 L: Brown and White.
 R&L: *Laughing way too hard*
+
+*Abhi actually only got to 2 out of the 8 questions he had for the interview.*
