@@ -13,7 +13,7 @@ author: 'Abhi Vaidyanatha'
 ### Interviewee: Lori Clerkin, PlanetScale Executive Assistant
 ### Interviewee: Raunaq Gupta, PlanetScale UI/UX Designer
 
-_Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Considering how different our backgrounds are, I thought it would be worthwile to give everyone a peek into the awesome things that make us who we are. As a side note, it may sound like I made up the flow of this interview for comedic effect, but it was just as scatter-brained as it sounds. We made coffee right before this interview, which could explain a few things. 
+*Here at PlanetScale, we have an extremely diverse group of individuals that make up our team. Considering how different our backgrounds are, I thought it would be worthwile to give everyone a peek into the awesome things that make us who we are. As a side note, it may sound like I made up the flow of this interview for comedic effect, but it was just as scatter-brained as it sounds. We made coffee right before this interview, which could explain a few things.* 
 
 ![Lori and Raunaq](/img/201812-blog-lr.jpg)
 
@@ -35,8 +35,8 @@ R: Like the wysiwyg editor?
 L: What?...
 R: What you see is what you get.
 L: *Visible confusion*
-L: Anyway, I don't like to say that certain things define me, but if I had to pick it would be triathlon and music. I grew up with older siblings that introduced me to 60s, 70s, and 80s music. Stuff like Rush, Led Zeppelin, Tom Petty, Metallica, Ozzy Osbourne, and Black Sabbath. My sister used to lay in the basement with speakers next to her ears and listen to Black Sabbath, so I think it's in my blood. Although, I really only started listening to harder stuff after going to OzFest.
-R: One of my favorite bands, Incubus, opened for Ozzy at OzFest once. Maybe they exchange melodies. Is there a GitHub for melodies?
+L: Anyway, I don't like to say that certain things define me, but if I had to pick it would be triathlon and music. I grew up with older siblings that introduced me to 60s, 70s, and 80s music. Stuff like Rush, Led Zeppelin, Tom Petty, Metallica, Ozzy Osbourne, and Black Sabbath. My sister used to lay in the basement with speakers next to her ears and listen to Black Sabbath, so I think it's in my blood. Although, I really only started listening to harder stuff after going to OzzFest.
+R: One of my favorite bands, Incubus, opened for Ozzy at OzzFest once. Maybe they exchange melodies. Is there a GitHub for melodies?
 L: *Completely ignores Raunaq's comment*
 L: When Lady Gaga and Metallica performed at the Super Bowl I stopped listening to Metallica for a while.
 R: Wasn't Metallica the first band to sue Napster? I read that in a book somewhere.
@@ -171,7 +171,7 @@ R: I’m alive... not dead. Isn’t that a Pearl Jam song??
 L: *Starts singing the song* 
 L: Can I just say that Eddie Vedder is super hot. 
 R: He plays the uke pretty nicely too.
-L: I saw Pearl Jam open for the Rolling Stones. Just as they were in the middle of their set it was pouring rain and man... there’s nothing hotter than Eddie Vedder in the rain. It was pretty spectacular.
+L: I saw Pearl Jam open for the Rolling Stones. Just as they were in the middle of their set it was pouring rain and man... there’s nothing hotter than a wet Eddie Vedder. It was pretty spectacular.
 R: Yeah that’s burned into my memory now. 
 L: I love that he’s good friends with Neil Young who's also really cool... well super cool until he cheated on his wife.
 R: What’s your most memorable concert experience?
@@ -185,6 +185,6 @@ L: We did drop him off at his house. That was the most memorable show ever - the
 
 R: It would definitely have to be a podcast. What would we call the podcast?
 L: Brown and White.
-R&L: *Laughing way too hard*
+L&R: *Laughing way too hard*
 
-*Abhi actually only got to 2 out of the 8 questions he had for the interview.*
+*Abhi only got to 2 out of the 8 questions he had for the interview.*
