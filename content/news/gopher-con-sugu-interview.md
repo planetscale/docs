@@ -5,6 +5,7 @@ description: >-
   Hear what the PlanetScale CTO had to say about his experience at GopherCon 2018.
 comments: true
 share: true
+author: 'Abhi Vaidyanatha'
 ---
 
 ### Interviewer: Abhi Vaidyanatha, PlanetScale Software Engineer

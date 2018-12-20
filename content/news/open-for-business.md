@@ -6,6 +6,7 @@ description: >-
   Vitess for your business.
 comments: true
 share: true
+author: 'Adrianna Tan'
 ---
 
 Almost 8 years ago, a group of engineers at YouTube came together to create [Vitess](http://vitess.io). The scale at which YouTube needed to serve its videos was the perfect environment for Vitess to grow into one of the world's foremost open source database projects. Now, companies like [Square](https://squareup.com), [Slack](https://slack.com), [HubSpot](https://hubspot.com), [GitHub](https://github.com), [JD.com](http://jd.com) and many of the world’s largest technology companies use and trust Vitess.
