@@ -212,7 +212,7 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
                 href="https://www.linkedin.com/company/planetscale"
                 target="_blank"
               >
-                <i className="fab fa-linkedin-square" />
+                <i className="fab fa-linkedin" />
               </Social>
             </SocialLinks>
           </LeftContainer>
