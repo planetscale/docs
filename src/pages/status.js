@@ -1,30 +1,28 @@
 import React from 'react'
 import Link from 'gatsby-link'
-
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-
 import {
   Hero,
   HeroTitle,
   HeroSubTitle,
   HeroContent,
 } from '../components/Common.Hero'
-import { Button } from '../components/Common.Button'
 
 import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
+import { Button } from '../components/Common.Button'
 
-export default function ThanksPage({ data }) {
+export default function StatusPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <React.Fragment>
-      <TitleAndMetaTags title="Thanks" pathname="thanks" />
+    <div>
+      <TitleAndMetaTags title="Status" pathname="status" />
       <Hero
         backgroundImage={background}
-        backgroundColor={'#EFAD2D'}
+        backgroundColor={'#24C8D8'}
         overlay={overlay}
       >
         <Wrapper>
@@ -38,17 +36,18 @@ export default function ThanksPage({ data }) {
           </Link>
         </Wrapper>
       </Hero>
-    </React.Fragment>
+    </div>
   )
 }
 
 export const pageQuery = graphql`
-  query thanksQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/thanks/" } }) {
+  query statusQuery {
+    allPagesYaml(filter: { id: { regex: "/pages/status/" } }) {
       edges {
         node {
           title
           subtitle
+          content
           backButton
         }
       }
