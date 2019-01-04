@@ -19,7 +19,7 @@ export default function StatusPage({ data }) {
 
   return (
     <div>
-      <TitleAndMetaTags title="Status" pathname="status" />
+      <TitleAndMetaTags title="Thank You" pathname="thankyou" />
       <Hero
         backgroundImage={background}
         backgroundColor={'#24C8D8'}
