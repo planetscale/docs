@@ -42,7 +42,7 @@ export default function StatusPage({ data }) {
 
 export const pageQuery = graphql`
   query statusQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/status/" } }) {
+    allPagesYaml(filter: { id: { regex: "/pages/thankyou/" } }) {
       edges {
         node {
           title
