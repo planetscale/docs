@@ -23,7 +23,7 @@ export default function ProductPage({ data }) {
       <TitleAndMetaTags title="Products" pathname="product" />
       <Hero
         backgroundImage={background}
-        backgroundColor={'#24C8D8'}
+        backgroundColor={'#EFAD2D'}
         overlay={overlay}
       >
         <Wrapper>
