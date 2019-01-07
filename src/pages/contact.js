@@ -81,7 +81,7 @@ export default function ContactPage({ data }) {
       <TitleAndMetaTags title="Contact" pathname="contact" />
       <Hero
         backgroundImage={background}
-        backgroundColor={'#24C8D8'}
+        backgroundColor={'#EFAD2D'}
         overlay={overlay}
       >
         <Wrapper>
