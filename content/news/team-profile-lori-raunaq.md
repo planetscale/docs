@@ -20,8 +20,8 @@ author: 'Abhi Vaidyanatha'
 **Abhi: Hey guys how's it going?**
 
 Lori: Bitchin' dude.
-Raunaq: I love this coffee so much!
-L: Right, it's really good.
+Raunaq: I love this coffee so much.
+L: Right, it's really good!
 R: I need more of it... as long as I don't die eating something, I'll eat it.
 L: Did you ever eat the worm of a tequila?
 R: Is that a thing?
@@ -49,7 +49,7 @@ R: Oh man, yeah.
 
 R: These days I really like cats and cars. I'm always looking to photograph new cats and old cars. I think about design a lot too; I can't separate myself from that. I love going to concerts.
 L: And you travel for them too!
-R: And I travel extensively for them. These days, I really like Nine Inch Nails. They’ve sorta mellowed out, but they are still making really good music. They don’t want to get bored by doing the same thing over and over again.
+R: And I travel extensively for them. These days I really like Nine Inch Nails. They’ve sorta mellowed out, but they are still making really good music. They don’t want to get bored doing the same thing over and over again.
 L: Very similar to Godsmack, who are also maturing with their music while their music matures with them.
 R: I do have one small hobby - I collect small die-cast toy cars.
 L: SEE, you're way more interesting than I am.
@@ -60,7 +60,7 @@ R: I feel like cars are such an amazing design constraint. You can do so much wi
 
 R: New cats and old dogs sounds like a really good band name. "We are new cats and old dogs... live from Mountain View Amphitheatre!"
 L: *Guitar noises*
-R: I actually saw Incubus in Kuala Lumpur in 2011, and again in 2015, and then again this year in India. It was the first time they performed in India.
+R: I actually saw Incubus in Kuala Lumpur in 2011, and again in 2015, and then again this year in India. That was the first time they performed in India actually.
 L: That is awesome, they knew, they felt the vibe. I think I first saw them in '98 at Slims in SF. It's owned by Boz Scaggs, famous for that one song... you know the one that goes, "Lido... whoah oh oh."
 
 **Abhi: I think you need a degree in paleontology to know that song.**
@@ -93,6 +93,18 @@ R: Drop foot sounds like a band name. I wish this room were full of cats right n
 ![Rocco](/img/201812-blog-rocco.jpg)
 
 L: How about a big greyhound instead of cats?
+R: *Talks for a while about Lori's sheep socks and a riddle he heard on a cab ride*
+L: I still don't get that riddle. The one about the goat, farmer, cabbage, and wolf. 
+R: I'm surprised there isn't an Uber like rideshare app called Cabbage. Because it's cabs. And everything is about the cab economy - Cabbage - it's the age of the cabs.
+L: Cabbage patch dolls ruined this word for everyone.
+R: I don't know this culture. 
+L: Show him a picture of the doll. Do you know Chucky?
+R: Like Chuck E Cheese?
+L: *Laughing, a little out of breath*
+R: I do know about Sour Patch Kids.
+L: Yes, those are amazing. But yes, Chucky is a doll that comes to life and kills people.
+R: Just for fun?
+L: Yeah.
 
 **Abhi: Alright, so wh-**
 
@@ -112,7 +124,7 @@ L: I’m looking forward to my birthday in 5 days.
 R: Oh sweet! My birthday is on the 20th!
 R: *Hi-fives Lori*
 R: That’s why I’m gonna see Ben Kenney! It’s his last solo show.
-L: I’m so jealous that you get to go. I’m looking forward to PlanetScale taking off, the Godsmack show in April in Milwaukee, and going to the beach in June.
+L: I’m so jealous. You HAVE to go. I’m looking forward to PlanetScale taking off, the Godsmack show in April in Milwaukee, and going to the beach in June.
 
 **Abhi: What about you Raunaq?**
 
