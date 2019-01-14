@@ -22,7 +22,7 @@ export default function StatusPage({ data }) {
       <TitleAndMetaTags title="Thank You For Your Time" pathname="thankyou" />
       <Hero
         backgroundImage={background}
-        backgroundColor={'#24C8D8'}
+        backgroundColor={'#EFAD2D'}
         overlay={overlay}
       >
         <Wrapper>

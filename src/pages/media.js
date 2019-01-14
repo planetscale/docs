@@ -24,7 +24,7 @@ export default function MediaPage({ data }) {
       <TitleAndMetaTags title="Media" pathname="media" />
       <Hero
         backgroundImage={background}
-        backgroundColor={'#24C8D8'}
+        backgroundColor={'#EFAD2D'}
         overlay={overlay}
       >
         <Wrapper>

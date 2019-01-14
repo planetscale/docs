@@ -8,7 +8,6 @@ import { H1 } from '../components/Typography.Headings'
 import { Hero, HeroTitle, HeroSubTitle } from '../components/Common.Hero'
 import { FeatureContainer, Feature } from '../components/Vitess.Features'
 import { Footer } from '../components/Layout.Footer'
-import { VitessSection } from '../components/Home.VitessSection'
 import { ContactSalesCard } from '../components/Home.ContactSalesCard'
 
 import background from '../images/hero/home-bg.svg'
