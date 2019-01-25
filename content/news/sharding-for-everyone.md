@@ -1,7 +1,7 @@
 ---
 title: 'Sharding For Everyone'
 date: '2018-12-13T00:00:00-08:00'
-description: 'Announcing Our New Seed Funding'
+description: 'Announcing Our Seed Funding'
 comments: true
 share: true
 author: 'Jiten Vaidya'

@@ -21,7 +21,7 @@ export const sizes = theme.sizes
 export const headerLinks = [
   {
     id: 'team',
-    name: 'Who We Are',
+    name: 'About Us',
     to: '/team',
   },
 
@@ -39,7 +39,7 @@ export const headerLinks = [
 
   {
     id: 'careers',
-    name: 'Work With Us',
+    name: 'Join our Team',
     to: '/careers',
   },
 
