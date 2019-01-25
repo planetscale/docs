@@ -1,0 +1,24 @@
+title: Downloads
+subtitle: >-
+  PlanetScale builds and releases Vitess tar packages to help you quickly start running the tutorials in examples/local.
+content: 'Releases are listed below as well as available on <a href="https://github.com/planetscale/vitess-releases/releases">Github</a>'
+releases:
+  title: Releases
+  list:
+    - title: Vitess release a88142d
+      link: https://github.com/planetscale/vitess-releases/releases/tag/a88142d
+      content: >-
+        Created on 21 January 2019
+    - title: Vitess Release b06cf39
+      link: https://github.com/planetscale/vitess-releases/releases/tag/b06cf39
+      content: >-
+        Created on 14 January 2019
+    - title: Vitess release 182a942
+      link: https://github.com/planetscale/vitess-releases/releases/tag/182a942
+      content: >-
+        Created on 9 January 2019
+
+    - title: Vitess release b90b3c0
+      link: https://github.com/planetscale/vitess-releases/releases/tag/b90b3c0
+      content: >-
+        Created on 25 December 2018
