@@ -1,6 +1,7 @@
 title: Downloads
 subtitle: >-
-content: 'PlanetScale Vitess Releases are also available on <a href="https://github.com/planetscale/vitess-releases/releases">Github</a>'
+  PlanetScale Releases
+content: 'Releases are listed below as well as available on <a href="https://github.com/planetscale/vitess-releases/releases">Github</a>'
 releases:
   title: PlanetScale Releases
   list:
