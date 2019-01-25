@@ -21,7 +21,7 @@ export const sizes = theme.sizes
 export const headerLinks = [
   {
     id: 'team',
-    name: 'The Team',
+    name: 'About Us',
     to: '/team',
   },
 
