@@ -1,0 +1,125 @@
+title: Guidelines
+content: |
+  This Agreement is between the person or entity agreeing to these terms ("Customer," "you" or "your") and PlanetScale, Inc., ("PlanetScale, "we," "us," or "our"). If you accept this agreement on behalf of your employer or another legal entity, you represent and warrant that you have the authority to bind that entity and that you agree to these terms on behalf of that entity. If you cannot truthfully make these representations, do not click "accept" below. The terms and conditions of this agreement apply to Customer's access and use of the PlanetScale Cloud Database ("PCD "), including any technology, information, software, materials, and updates that PlanetScale makes available to you as part of such services (collectively, the "Services").
+
+  1. ABOUT PLANETSCALE CLOUD DATABASE
+
+  PlanetScale Cloud Database provides a fully managed offering of Vitess hosted on top of cloud infrastructure. The Planetscale Cloud Database can span regions of a single cloud provider and can be configured to span cloud providers. PlanetScale Cloud Database is continuously monitored and optimized to maintain availability on your cluster and when availability issues arise Planetscale will work to restore availability without customer intervention.
+
+  2. YOUR ACCOUNT
+
+  In order to use the Services, you must provide certain information about yourself to create an account (“Account”). You represent and warrant that: (a) all required account information you submit is truthful and accurate; and (b) you will maintain the accuracy of such information. You may delete your Account at any time, for any reason, by following the instructions on the website. PlanetScale may suspend or terminate your Account in accordance with the Term and Termination section below. We will not be liable for any loss or damage caused by any unauthorized use of your Account
+
+  You are responsible for maintaining the confidentiality of your Account login information and are responsible for all activities that occur under your Account. Company is not liable for any loss or damage arising from your failure to comply with these requirements.
+
+  You may order the Service by following the directions on the Site. Once you order the Service, your subscription to the Service will continue until you cancel your Service. Customers are allowed to cancel at any time and PlanetScale will prorate their payment based on the point in the month that they reached before they cancelled their subscription. Upon canceling, they will be billed for the prorated amount immediately and their account will be terminated and data removed from the Service.
+
+  If you order the Service, you agree to pay the applicable Service fees according to payment terms listed in Appendix A of this ToS. 
+
+  You will pay applicable sales, use, and other such taxes related to the Service provided hereunder, (excluding any taxes imposed or based on Company’s income) or provide PlanetScale evidence of exemption from such taxes.
+
+  3. THE SERVICES
+
+  3.1 Permissible use of the Services.
+
+  (a) Customer may use the Services to store, share and read your Hosted Data. Customer’s use of the Services is subject to this Agreement, any policies and procedures we designate for use of the Services, and any limits on the number of users who may access or use the Services. “Hosted Content” means any and all information and content that You submit to, or uses with, the Services. You are solely responsible for your Hosted Content and you assume all risks associated therewith. with use of your User Content. You hereby grant to Company a license to use your User Content, and to grant sublicenses of the foregoing, solely for the purposes of including your User Content in the Services.
+
+  (b) Customer represents and warrants that: (i) it has, will obtain, and will maintain all necessary rights to its Hosted Data, and any other data, software programs or services it uses in connection with the Services; (ii) its use of such Hosted Data does not infringe the intellectual property or other proprietary rights of any third party; (iii) it will not access or use the Services in a manner that violates the rights of any third party or which purports to subject PlanetScale to any other obligations; and (iv) it will access and use the Services in a manner which complies with all laws and regulations.
+
+  3.2 Use Restrictions.
+
+  Customer may not: (a) Remove, modify, or tamper with any regulatory or legal notice or link that is incorporated into the Services; (b) Falsify any protocol or email header information (e.g., "spoofing") within the Services; or (c) Access or use the Services: (i) in any way prohibited by any law, regulation or governmental order or decree or that violates others' legal rights; (ii) in any way that could harm the Services or impair anyone else's use of the Services; (iii) to try to gain unauthorized access to any service, data, or account by any means; (iv) to send "spam" (i.e., unsolicited bulk or commercial messages) or otherwise make available any offering designed to violate these terms (e.g., denial of service attacks, etc.); or (v) through any other Service subscription without the express permission of the subscription holder.
+
+  3.3 Third Party Services.
+
+  If Customer uses any third-party services in connection with the Services, (a) Customer is responsible for complying with all terms of the third party service; (b) PlanetScale will not be responsible for any act or omission of the third party, including the third party's access to or use of Hosted Data and (c) PlanetScale does not warrant or support any service provided by the third party.
+
+  4. PROPRIETARY RIGHTS
+
+  4.1 Reservation of Rights; No Other License.
+
+  PlanetScale reserves all rights not expressly granted in this agreement. Except as expressly set forth herein, this agreement does not provide Customer with any license or rights to use any data, software programs or services, or to any related or enabling technologies that may be necessary to use such data, software programs or services..
+
+  4.2 License to PlanetScale.
+
+  Other than as necessary to provide the Services, PlanetScale has no right of ownership over Customer's Hosted Data or other information provided by Customer in connection with the use of the Services. Customer is solely responsible for protecting rights it has, or may have, in its Hosted Data or information.
+
+  5. PRIVACY
+
+  See the PlanetScale Cloud Database Privacy Statement disclosure relating to the collection and use of your information : https://www.planetscale.com/privacy.
+
+  6. SERVICE LEVELS; SECURITY
+
+  6.1 Service Levels.
+
+  PlanetScale has no obligation to provide any support services for the Services. The Services may be periodically inaccessible for reasons including maintenance updates, power outages, system failures, extended downtime and other interruptions. During such periods, Customer may be unable to access or use all or a portion of the Services and some or all of Customer's Hosted Data may be inaccessible. If PlanetScale determines that an outage or interruption may cause risk to the Services, PlanetScale may suspend the Services.
+
+  6.2 Security.
+
+  PlanetScale may apply security technologies and procedures to help protect against unauthorized access or use of the Services. PlanetScale does not guarantee the success of such technologies and procedures. Customer is solely responsible for the backup of its Hosted Data it uses in connection with the Services.
+
+  7. NOTICES
+
+  7.1 Notices to Customer.
+
+  PlanetScale may provide Customer with notices by email or posting any such notices on a portal or web site for the Services. Notices provided to you via e­mail will be deemed given and received on the transmission date of the e­mail. If you can access and use the Services, no other software and hardware is required to receive these notices.
+
+  7.2 Notices to PlanetScale.
+
+  Customer will provide notices to PlanetScale in the manner set forth in the customer support, "Contact Us," "Feedback," or "Help" area of the Services.
+
+  8.FEEDBACK
+
+  PlanetScale may, at its discretion and for any purpose, use, modify, and incorporate into its products and services, license and sublicense, any feedback, comments, or suggestions Customer sends or post in forums without any obligation to Customer.
+
+  9. INDEMNIFICATION
+
+  Customer will indemnify, defend, and hold harmless PlanetScale from and against all liabilities, damages, and costs (including settlement costs and reasonable attorneys' fees) arising out of any claim by a third party against PlanetScale and its affiliates regarding: (i) Protected Data or (ii) Customer's use of the Services in violation of this Agreement.
+
+  The party seeking indemnification will promptly notify the other party of the claim and cooperate with the other party in defending the claim. The indemnifying party will have full control and authority over the defense, except that: (i) any settlement requiring the party seeking indemnification to admit liability requires prior written consent, not to be unreasonably withheld or delayed and (ii) the other party may join in the defense with its own counsel at its own expense.
+
+  10. DISCLAIMER OF WARRANTY
+
+  THE SERVICES ARE PROVIDED "AS IS." TO THE FULLEST EXTENT PERMITTED BY LAW, EXCEPT AS EXPRESSLY STATED IN THIS AGREEMENT, NEITHER CUSTOMER NOR PlanetScale AND ITS AFFILIATES, SUPPLIERS, AND DISTRIBUTORS MAKE ANY WARRANTY OF ANY KIND, WHETHER EXPRESS, IMPLIED, STATUTORY OR OTHERWISE, INCLUDING WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR USE, OR NON-INFRINGEMENT. CUSTOMER IS RESPONSIBLE FOR MAINTAINING AND BACKING UP ANY STORED DATA
+
+  11. LIMITATION OF LIABILITY
+
+  TO THE FULLEST EXTENT PERMITTED BY LAW, EXCEPT FOR INDEMNIFICATION OBLIGATIONS, NEITHER CUSTOMER NOR PlanetScale AND ITS AFFILIATES, SUPPLIERS, AND DISTRIBUTORS WILL BE LIABLE UNDER THIS AGREEMENT FOR (I) INDIRECT, SPECIAL, INCIDENTAL, CONSEQUENTIAL, EXEMPLARY, OR PUNITIVE DAMAGES, OR (II) LOSS OF USE, DATA, BUSINESS, REVENUES, OR PROFITS (IN EACH CASE WHETHER DIRECT OR INDIRECT), EVEN IF THE PARTY KNEW OR SHOULD HAVE KNOWN THAT SUCH DAMAGES WERE POSSIBLE AND EVEN IF A REMEDY FAILS OF ITS ESSENTIAL PURPOSE. TO THE FULLEST EXTENT PERMITTED BY LAW, PlanetScale’ AGGREGATE LIABILITY UNDER THIS AGREEMENT WILL NOT EXCEED THE AMOUNT PAID BY CUSTOMER FOR THE SERVICES HEREUNDER DURING THE TWELVE MONTHS PRIOR TO THE EVENT GIVING RISE TO LIABILITY.
+
+  12. MODIFYING THE TERMS
+
+  PlanetScale may revise this Agreement from time to time and the most current version will always be posted on the PlanetScale website. If a revision, in PlanetScale's sole discretion, is material, PlanetScale will notify Customer (by, for example, sending an email to Customer). Other revisions may be posted to PlanetScale's terms page, and Customer is responsible for checking such postings regularly. By continuing to access or use the Services after revisions become effective, Customer agrees to be bound by the revised Agreement. If Customer does not agree to the revised Agreement terms, Customer may terminate the Services within 30 days of receiving notice of the change.
+
+  13. TERM; TERMINATION
+
+  This agreement is effective on Customer's acceptance. PlanetScale may suspend or cancel the Services, or terminate this agreement at any time for any reason. Upon cancellation, suspension or termination, Customer will have thirty (30) days to extract any Hosted Data. There is no guarantee that Hosted Data and applications will be retrievable after thirty (30) days. Customer may stop using and accessing the Services at any time without further obligation, whether or not it deletes or extracts its Hosted Data.
+
+  14. MISCELLANEOUS
+
+  14.1 Third Parties.
+
+  This Agreement is only for the benefit of the parties and only they may enforce it. The parties do not intend to confer any right or benefit on any third party. No third party may commence or prosecute an action against a party on the basis that it is a third party beneficiary of this Agreement.
+
+  14.2. No Waiver.
+
+  Any delay or failure by PlanetScale to exercise a right or remedy will not result in a waiver of that, or any other, right or remedy.
+
+  14.3. Jurisdiction.
+
+  This Agreement shall be governed by the laws of the State of California regardless of conflict of laws principles. The parties irrevocably consent to the exclusive jurisdiction and venue of the state or federal courts in Santa Clara County, California, USA, for all disputes arising out of or relating to this agreement. This Agreement does not change your rights under the laws of your country if the laws of your country do not permit it to do so.
+
+  14.4. Interpretation.
+
+  If any court of competent jurisdiction determines that any provision of this Agreement is illegal, invalid or unenforceable, the remaining provisions will remain in full force and effect. This agreement, including any other policies or terms incorporated by reference, is the entire agreement between the parties regarding the Services. It supersedes any prior agreements or statements (whether oral or written) regarding the Services, and is separate and independent from any other agreement(s) that may exist between the parties.
+
+  14.5. Assignment.
+
+  PlanetScale may assign this agreement, in whole or in part, at any time without notice. You may not assign this agreement, or any part of it, to any other third party. Any attempt by you to do so is void. You may not transfer to a third party, either temporarily or permanently, any rights to use the Services or any part of them.
+
+  14.6. Limitation of Claims
+
+  Any claim related to this agreement or the Services is barred unless brought within one year from the date the claim could first be filed. This limitation applies to each party's successors or assigns.
+
+  14.7. Export.
+
+  The export and re-export of Hosted Data via the Services may be controlled by the United States Export Administration Regulations or other applicable export restrictions or embargo. The Services may not be used in Cuba, Iran, North Korea, Sudan, or Syria or any country that is subject to an embargo by the United States and Customer must not use the Services in violation of any export restriction or embargo by the United States or any other applicable jurisdiction. In addition, Customer must ensure that the Services are not provided to persons on the United States Table of Denial Orders, the Entity List, or the List of Specially Designated Nationals.
