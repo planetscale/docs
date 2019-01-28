@@ -1,12 +1,10 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import ReactDisqusComments from 'react-disqus-comments'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper, SmallWrapper } from '../components/Layout.Wrapper'
 import { Spacing } from '../components/Layout.Spacing'
 import { Hero, HeroTitle, HeroContent } from '../components/Common.Hero'
-import { Button } from '../components/Common.Button'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
 
@@ -72,7 +70,7 @@ export const query = graphql`
         slug
       }
       frontmatter {
-        date(formatString: "MMMM d, YYYY")
+        date(formatString: "MMMM DD, YYYY")
         title
         author
         comments
