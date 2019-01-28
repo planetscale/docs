@@ -95,6 +95,17 @@ export class EmailForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
+  isFormEmpty() {
+    if (
+      this.state.email === '' ||
+      this.state.name === '' ||
+      this.state.organization === ''
+    ) {
+      return true
+    }
+    return false
+  }
+
   handleSubmit = (e) => {
     if (this.state.isSending) return
     else this.setState({ isSending: true })

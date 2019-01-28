@@ -62,4 +62,10 @@ export const footerLinks = [
     name: 'Media',
     to: '/media',
   },
+
+  {
+    id: 'downloads',
+    name: 'Downloads',
+    to: '/downloads',
+  },
 ]
