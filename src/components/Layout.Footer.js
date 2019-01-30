@@ -217,7 +217,7 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
             </SocialLinks>
           </LeftContainer>
           <RightContainer>
-            <Copyright>©2018 PlanetScale, Inc</Copyright>
+            <Copyright>©2019 PlanetScale, Inc</Copyright>
           </RightContainer>
         </FooterContent>
       </Wrapper>
