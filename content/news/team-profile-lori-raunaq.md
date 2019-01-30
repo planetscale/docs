@@ -1,6 +1,6 @@
 ---
 title: "PlanetScale Team Profile: Lori and Raunaq"
-date: '2018-01-13'
+date: '2019-01-13'
 description: >-
   Join us to ride the streams of consciousness of our Executive Assistant and UI/UX Designer.
 comments: true

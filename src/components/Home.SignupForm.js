@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
 import { InputButton } from './Common.Button'
-
 import { media } from '../styles/media'
 
 const FormContainer = styled.form`
@@ -46,6 +45,9 @@ function encode(data) {
 
 export class SignupForm extends Component {
   state = {
+    email: '',
+    name: '',
+    organization: '',
     isSending: false,
   }
 
@@ -53,24 +55,37 @@ export class SignupForm extends Component {
     this.setState({ [e.target.name]: e.target.value })
   }
 
-  handleSubmit = (e) => {
-    if (this.state.isSending) return
-    else this.setState({ isSending: true })
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'signup', ...this.state }),
-    })
-      .then(() => {
-        this.props.onDone && this.props.onDone()
-        this.setState({ isSending: false })
-        navigateTo('/thanks/')
-      })
-      .catch((error) => {
-        this.setState({ isSending: false })
-        alert(error)
-      })
+  isFormEmpty() {
+    if (
+      this.state.email === '' ||
+      this.state.name === '' ||
+      this.state.organization === ''
+    ) {
+      return true
+    }
+    return false
+  }
+
+  onFormSubmit = (e) => {
     e.preventDefault()
+    if (this.state.isSending) return
+    else if (!this.isFormEmpty()) {
+      this.setState({ isSending: true })
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: encode({ 'form-name': 'signup', ...this.state }),
+      })
+        .then(() => {
+          this.props.onDone && this.props.onDone()
+          this.setState({ isSending: false })
+          navigateTo('/thanks/')
+        })
+        .catch((error) => {
+          this.setState({ isSending: false })
+          alert(error)
+        })
+    }
   }
 
   render() {
@@ -79,11 +94,9 @@ export class SignupForm extends Component {
     return (
       <FormContainer
         name="signup"
-        method="post"
-        action="/thanks/"
+        onSubmit={this.onFormSubmit}
         data-netlify="true"
         data-netlify-honeypot="bot-field"
-        onSubmit={this.handleSubmit}
       >
         <HoneyPot>
           <InputField name="bot-field" />

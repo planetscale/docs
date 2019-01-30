@@ -28,7 +28,7 @@ export default function NewsPage({ data }) {
   const { frontmatter, html, fields } = node
   return (
     <React.Fragment>
-      <TitleAndMetaTags title="Blog" pathname="blog" />
+      <TitleAndMetaTags title="News" pathname="news" />
       <Hero
         backgroundImage={background}
         backgroundColor={'#9124D8'}
@@ -79,7 +79,7 @@ export const pageQuery = graphql`
           frontmatter {
             title
             author
-            date(formatString: "MMMM d, YYYY")
+            date(formatString: "MMMM DD, YYYY")
             description
           }
           fields {
