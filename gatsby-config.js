@@ -50,6 +50,13 @@ module.exports = {
         path: `${__dirname}/content/faq/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `sla`,
+        path: `${__dirname}/content/sla/`,
+      },
+    },
     `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,

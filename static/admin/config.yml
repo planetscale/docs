@@ -8,6 +8,15 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - label: 'SLA'
+    name: 'sla'
+    folder: 'content/sla'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   - label: 'FAQ'
     name: 'faq'
     folder: 'content/faq'
