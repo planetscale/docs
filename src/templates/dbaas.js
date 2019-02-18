@@ -30,7 +30,6 @@ export default function DbaasPage({ data }) {
           </HeroTitle>
           <HeroContent>
             <b>{frontmatter.author}</b>
-            {frontmatter.date}
           </HeroContent>
         </Wrapper>
       </Hero>
