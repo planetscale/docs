@@ -13,7 +13,7 @@ import { BlogPostShareButtons } from '../components/Blog.Post.ShareButtons'
 import background from '../images/hero/blog-bg.svg'
 import overlay from '../images/hero/blog-overlay.svg'
 
-export default function BlogPage({ data }) {
+export default function DbaasPage({ data }) {
   const { post } = data
   const { frontmatter, html, fields } = post
 
@@ -21,7 +21,7 @@ export default function BlogPage({ data }) {
     <React.Fragment>
       <TitleAndMetaTags
         title={frontmatter.title}
-        pathname={`sla/${fields.slug}`}
+        pathname={`dbaas/${fields.slug}`}
       />
       <Hero backgroundImage={background} backgroundColor={'#9124D8'}>
         <Wrapper>
@@ -39,7 +39,7 @@ export default function BlogPage({ data }) {
         <MarkdownContent html={html} />
         {frontmatter.share && (
           <BlogPostShareButtons
-            shareUrl={`https://planetscale.com/sla/${fields.slug}`}
+            shareUrl={`https://planetscale.com/dbaas/${fields.slug}`}
             title={frontmatter.title}
           />
         )}
@@ -64,7 +64,7 @@ export default function BlogPage({ data }) {
 }
 
 export const query = graphql`
-  query SLAQuery($slug: String!) {
+  query DbaasQuery($slug: String!) {
     post: markdownRemark(fields: { slug: { eq: $slug } }) {
       html
       fields {
