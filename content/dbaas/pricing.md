@@ -1,6 +1,5 @@
 ---
 title: 'Database-as-a-Service Pricing'
-date: '2019-02-01'
 ---
 
 # Database-as-a-Service Pricing

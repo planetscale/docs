@@ -30,6 +30,9 @@ export default function DbaasPage({ data }) {
           </HeroTitle>
           <HeroContent>
             <b>{frontmatter.author}</b>
+            {frontmatter.updatedOn && (
+              <span>Last updated on {frontmatter.updatedOn}</span>
+            )}
           </HeroContent>
         </Wrapper>
       </Hero>
@@ -70,7 +73,7 @@ export const query = graphql`
         slug
       }
       frontmatter {
-        date(formatString: "MMMM DD, YYYY")
+        updatedOn(formatString: "MMMM DD, YYYY")
         title
       }
     }

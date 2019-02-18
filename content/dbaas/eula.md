@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale Cloud Database Agreement'
-date: '2019-02-01'
+updatedOn: '2019-02-15'
 ---
 
 # PlanetScale Cloud Database Agreement
