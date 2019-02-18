@@ -8,6 +8,15 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - label: 'DBAAS'
+    name: 'dbaas'
+    folder: 'content/dbaas'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Date', name: 'date', widget: 'datetime' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   - label: 'SLA'
     name: 'sla'
     folder: 'content/sla'

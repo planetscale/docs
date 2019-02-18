@@ -52,6 +52,26 @@ const MarkDownContainer = styled.div`
       width: 100%;
     `};
   }
+
+  table {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    padding: 0 10px;
+  }
+
+  th {
+    text-align: left;
+  }
+
+  thead > tr > th {
+    border-bottom: 1px solid #eee;
+    padding: 10px 0;
+  }
+
+  tbody > tr > td {
+    font-weight: 300;
+    padding: 10px 40px 10px 0px;
+  }
 `
 
 class MarkdownContent extends React.Component {
