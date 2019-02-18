@@ -2,7 +2,6 @@ import React from 'react'
 import styled from 'styled-components'
 import background from '../images/hero/home-bg.svg'
 import MarkdownContent from '../components/Common.MarkdownContent'
-
 import { media } from '../styles/media'
 
 export const ProductContainer = styled.ul`
@@ -81,7 +80,8 @@ const Content = styled.div`
   line-height: 1.5em;
 `
 
-const Button = styled.button`
+const Button = styled.div`
+  display: inline-block;
   border-radius: 99px;
   padding: 8px 16px;
   margin-top: 10px;
@@ -112,7 +112,7 @@ export function Product({ title, icon, content, action, link }) {
         <Title>{title}</Title>
         <Content>
           <MarkdownContent html={content} inverted={true} />
-          <Button backgroundImage={background}>
+          <Button>
             <ButtonLink href={link}>{action}</ButtonLink>
           </Button>
         </Content>
