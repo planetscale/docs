@@ -1,16 +1,18 @@
 # planetscale.com
 
-## Install dependencies
+## Development instructions
+
+### Install dependencies
 ```
 yarn install
 ```
 
-## Development
+### Local Development
 ```
 yarn develop
 ```
 
-## Build
+### Deployment-ready build
 ```
 yarn build
 ```
