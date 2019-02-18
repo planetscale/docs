@@ -70,7 +70,7 @@ const MarkDownContainer = styled.div`
 
   tbody > tr > td {
     font-weight: 300;
-    padding: 10px 10px 10px 0px;
+    padding: 10px 40px 10px 0px;
   }
 `
 
