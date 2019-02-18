@@ -57,6 +57,13 @@ module.exports = {
         path: `${__dirname}/content/sla/`,
       },
     },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `dbaas`,
+        path: `${__dirname}/content/dbaas/`,
+      },
+    },
     `gatsby-transformer-yaml`,
     {
       resolve: `gatsby-source-filesystem`,
