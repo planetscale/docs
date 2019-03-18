@@ -7,11 +7,11 @@ share: true
 author: 'Adrianna Tan'
 ---
 
-PlanetScale was founded by the co-creators and maintainers of the open source Vitess project a year ago, mostly because we had a vision for building a multi-cloud Database-as-a-Service based on Vitess. The rest of it, though, was because as Vitess open source usage grew among the enterprises that use and love it, so did demand for providing professional services supporting Vitess.
+PlanetScale was founded by the co-founders and maintainers of the open source [Vitess project](https://vitess.io) a year ago. After many years of working with companies that want to run open source Vitess around the world, we saw the need to build a multi-cloud Database-as-a-Service based on Vitess. We also provide professional services and support to companies that want to migrate to, and run production traffic in Vitess.
 
-Security is a top priority for everyone. Sometimes, the lack of independent security testing on open source projects may even lead to hesitation in considering the adoption of less mature open source technology.
+Security is a top priority for everyone. The lack of independent security testing on open source projects may lead to hesitation in considering the adoption of less mature open source technology in production traffic. That is why we are pleased to share the results of an independent security test carried out in February 2019 on the open source Vitess project. 
 
-We are pleased to share the results of an independent security test carried out in February 2019 on the open source Vitess project. Here are some highlights.
+Here are some highlights.
 
 “In Cure53’s view, there is a clear intention and follow-through on providing a secure system for scaling MySQL databases. This was achieved by keeping the attack surface minimal and selecting the language suited for this implementation. The auditors managed to reach wide-spanning coverage of all aspects pertinent to the main repository of the Vitess software system. The most likely avenues for exploitation were chosen and verified for resilience.”
 
@@ -19,7 +19,9 @@ We are pleased to share the results of an independent security test carried out 
 
 “While the results of this assessment are few and far between and may suggest some kind of test limitations, they in fact prove that the Vitess team delivers on the security promises they make.”
 
-We believe Vitess is the right choice for companies that want to turbocharge MySQL performance in the cloud, especially in the Kubernetes environment. If you have any questions about using Vitess, PlanetScale is happy to help.
+We believe Vitess is the right choice for companies that want to turbocharge MySQL performance in the cloud, especially in the Kubernetes environment. 
+
+If you have any questions about using Vitess, PlanetScale is [happy to help](https://planetscale.com/contact).
 
 [Click through to the Vitess blog post](https://vitess.io/blog/2019-03-12-vitess-security-audit/) to read more about the security audit, and download the results.
 
