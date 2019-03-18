@@ -9,7 +9,7 @@ author: 'Adrianna Tan'
 
 PlanetScale was founded by the co-founders and maintainers of the open source [Vitess project](https://vitess.io) a year ago. After many years of working with companies that want to run open source Vitess, we saw the need to build a multi-cloud Database-as-a-Service based on Vitess. We also provide professional services and support to companies that want to migrate to, and run production traffic in Vitess.
 
-Security is a top priority for everyone. The lack of independent security testing on open source projects may lead to hesitation in considering the adoption of less mature open source technology in production traffic. That is why we are pleased to share the results of an independent security test carried out in February 2019 on the open source Vitess project. 
+Security is a top priority for everyone. The lack of independent security testing on open source projects may lead to hesitation in deploying them in production environments. That is why we are pleased to share the results of an independent security test carried out in February 2019 on Vitess. 
 
 Here are some highlights.
 
