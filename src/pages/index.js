@@ -42,7 +42,10 @@ export default function IndexPage({ data, location }) {
         url="https://identity.netlify.com/v1/netlify-identity-widget.js"
         onLoad={() => handleScriptLoad()}
       />
-      <TitleAndMetaTags title="Home" />
+      <TitleAndMetaTags
+        title={pageData.title}
+        description={pageData.subtitle}
+      />
       <Hero
         backgroundImage={background}
         backgroundColor={'#EFAD2D'}
