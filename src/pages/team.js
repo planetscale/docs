@@ -4,6 +4,7 @@ import Link from 'gatsby-link'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { H1 } from '../components/Typography.Headings'
+import { PageDescription } from '../components/Common.PageDescription'
 import {
   Hero,
   HeroTitle,
@@ -41,6 +42,7 @@ export default function TeamPage({ data }) {
       </Hero>
       <Wrapper>
         <H1>{pageData.team.title}</H1>
+        <PageDescription relaxedWidth>{pageData.team.blurb}</PageDescription>
         <TeamMemberContainer>
           {data.team.edges.map((edge) => {
             const { node } = edge
@@ -105,6 +107,7 @@ export const pageQuery = graphql`
           content
           team {
             title
+            blurb
           }
         }
       }

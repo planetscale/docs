@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { H1 } from '../components/Typography.Headings'
+import { PageDescription } from '../components/Common.PageDescription'
 import { Hero, HeroTitle, HeroSubTitle } from '../components/Common.Hero'
 import { FeatureContainer, Feature } from '../components/Vitess.Features'
 import { Footer } from '../components/Layout.Footer'
@@ -25,12 +26,6 @@ function handleScriptLoad() {
   }
   window.netlifyIdentity.init()
 }
-
-const VitessDescription = styled.p`
-  margin: 0 auto;
-  max-width: 550px;
-  font-size: 20px;
-`
 
 export default function IndexPage({ data, location }) {
   const { allPagesYaml } = data
@@ -59,7 +54,7 @@ export default function IndexPage({ data, location }) {
 
       <Wrapper>
         <H1>{pageData.vitess.title}</H1>
-        <VitessDescription>{pageData.vitess.description}</VitessDescription>
+        <PageDescription>{pageData.vitess.description}</PageDescription>
         <FeatureContainer>{pageData.vitess.list.map(Feature)}</FeatureContainer>
       </Wrapper>
 
