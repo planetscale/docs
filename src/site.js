@@ -26,9 +26,9 @@ export const headerLinks = [
   },
 
   {
-    id: 'product',
+    id: 'products',
     name: 'Products',
-    to: '/product',
+    to: '/products',
   },
 
   {
