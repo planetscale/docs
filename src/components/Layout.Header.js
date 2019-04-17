@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import { Button } from '../components/Common.Button'
 import { HeaderWrapper } from '../components/Layout.Wrapper'
 
@@ -8,6 +8,16 @@ import { media } from '../styles/media'
 
 import logo from '../../static/img/logo.png'
 import background from '../images/hero/home-bg.svg'
+
+injectGlobal`
+  html.fixed,
+  html.fixed body {
+    position: fixed;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+`
 
 const _Header = styled.header`
   width: 100%;
@@ -17,6 +27,10 @@ const _Header = styled.header`
   ${media.tablet`
     width: 100%;
     margin: 0 auto;
+
+    > [class^="LayoutWrapper"] {
+      padding: 0;
+    }
   `};
 `
 const Nav = styled.nav`
@@ -29,13 +43,12 @@ const Nav = styled.nav`
   padding-bottom: 10px;
 
   ${media.tablet`
-    height: 110vh;
-    margin-top: -5vh;
+    height: 100vh;
     background-image: url(${background});
     background-size: cover;
     transition: all 250ms;
     position: ${(props) => (props.visible ? 'fixed' : 'absolute')} ;
-    right: ${(props) => (props.visible ? '0vw' : '-100vw')} ;
+    transform: translateX(${(props) => (props.visible ? '0' : '100vw')}) ;
     top: 0;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
   `};
@@ -48,7 +61,6 @@ const NavList = styled.ol`
 
   ${media.tablet`
     flex-wrap: wrap;
-    padding-bottom: 10em;
     margin: 0 auto;
   `};
 `
@@ -72,16 +84,20 @@ const NavListItem = styled.li`
   ${media.tablet`
     width: 100%;
     text-align: center;
-    padding-top: 1em;
     font-size: 2.5em;
-    margin-left: 0em;
+    margin-left: 0;
+
+    &:not(:first-child) {
+      padding-top: 8vmin;
+    }
   `};
 `
 
-const MobileHeaderButton = styled.div`
+const MobileHeaderButton = styled.button`
+  background-color: transparent;
+  border: none;
   color: white;
   display: none;
-  font-size: 1.5em;
   font-weight: 800;
   position: absolute;
   top: 25px;
@@ -90,10 +106,27 @@ const MobileHeaderButton = styled.div`
   z-index: 1338;
   user-select: none;
 
+  &:focus {
+    outline: none;
+  }
+
   ${media.tablet`
     display: inline-block;
-    position: ${(props) => (props.visible ? 'fixed' : 'absolute')} ;
+    position: ${(props) => (props.visible ? 'fixed' : 'absolute')};
+    padding-right: 1.7rem;
   `};
+`
+
+const MobileHeaderButtonLabel = styled.span`
+  font-size: 1.5em;
+`
+
+const MobileHeaderButtonIcon = styled.span`
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.3rem;
 `
 
 const Logo = styled.img`
@@ -139,17 +172,21 @@ export class Header extends Component {
     }
   }
 
-  toggleSidebar = (boolean) =>
-    this.setState((oldState) => {
-      document.body.setAttribute(
-        'data-sidebar-open',
-        boolean || !oldState.sideBarOpen
-      )
+  toggleSidebar = (boolean) => {
+    this.setState(
+      (oldState) => {
+        document.body.setAttribute(
+          'data-sidebar-open',
+          boolean || !oldState.sideBarOpen
+        )
 
-      return {
-        sideBarOpen: !oldState.sideBarOpen,
-      }
-    })
+        return {
+          sideBarOpen: !oldState.sideBarOpen,
+        }
+      },
+      () => document.querySelector('html').classList.toggle('fixed')
+    )
+  }
 
   toggleModal = (boolean) =>
     this.setState((oldState) => {
@@ -198,8 +235,10 @@ export class Header extends Component {
             visible={sideBarOpen}
             onClick={this.toggleSidebar}
           >
-            {' '}
-            {sideBarOpen ? 'Menu ✕' : 'Menu ☰'}{' '}
+            <MobileHeaderButtonLabel>Menu</MobileHeaderButtonLabel>
+            <MobileHeaderButtonIcon>
+              {sideBarOpen ? '✕' : '☰'}
+            </MobileHeaderButtonIcon>
           </MobileHeaderButton>
           <Link to={'/'} activeStyle={{ opacity: 1 }}>
             <MobileLogo src={logo} visible={sideBarOpen} />
