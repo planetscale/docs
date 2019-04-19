@@ -5,6 +5,10 @@ content: 'Releases are listed below as well as available on <a href="https://git
 releases:
   title: PlanetScale Releases
   list:
+    - title: Vitess Release 111d42e
+      link: https://github.com/planetscale/vitess-releases/releases/tag/111d42e
+      content: >-
+        Created on 18 April 2019
     - title: Vitess Release 56e8186
       link: https://github.com/planetscale/vitess-releases/releases/tag/56e8186
       content: >-
