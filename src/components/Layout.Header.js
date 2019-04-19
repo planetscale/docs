@@ -141,14 +141,21 @@ const Logo = styled.img`
 const MobileLogo = styled.img`
   display: none;
   max-height: 30px;
-  position: absolute;
-  position: ${(props) => (props.visible ? 'fixed' : 'absolute')};
-  top: 25px;
-  left: 20px;
+  position: ${(props) => (props.visible ? 'fixed' : 'static')};
   z-index: 1338;
 
   ${media.tablet`
     display: block;
+  `};
+`
+
+const MobileLogoWrapper = styled(Link)`
+  display: none;
+
+  ${media.tablet`
+    display: inline-block;
+    padding-top: 25px;
+    padding-left: 20px;
   `};
 `
 
@@ -177,14 +184,19 @@ export class Header extends Component {
       (oldState) => {
         document.body.setAttribute(
           'data-sidebar-open',
-          boolean || !oldState.sideBarOpen
+          typeof boolean === 'boolean' ? boolean : !oldState.sideBarOpen
         )
 
         return {
-          sideBarOpen: !oldState.sideBarOpen,
+          sideBarOpen:
+            typeof boolean === 'boolean' ? boolean : !oldState.sideBarOpen,
         }
       },
-      () => document.querySelector('html').classList.toggle('fixed')
+      () => {
+        this.state.sideBarOpen
+          ? document.querySelector('html').classList.add('fixed')
+          : document.querySelector('html').classList.remove('fixed')
+      }
     )
   }
 
@@ -240,9 +252,13 @@ export class Header extends Component {
               {sideBarOpen ? '✕' : '☰'}
             </MobileHeaderButtonIcon>
           </MobileHeaderButton>
-          <Link to={'/'} activeStyle={{ opacity: 1 }}>
+          <MobileLogoWrapper
+            to="/"
+            activeStyle={{ opacity: 1 }}
+            onClick={() => this.toggleSidebar(false)}
+          >
             <MobileLogo src={logo} visible={sideBarOpen} />
-          </Link>
+          </MobileLogoWrapper>
         </_Header>
       </React.Fragment>
     )

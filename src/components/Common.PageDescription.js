@@ -13,5 +13,5 @@ export const PageDescription = styled.p`
 `
 
 PageDescription.propTypes = {
-  relaxedWidth: PropTypes.string,
+  relaxedWidth: PropTypes.bool,
 }
