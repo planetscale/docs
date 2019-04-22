@@ -5,7 +5,7 @@ updatedOn: '2019-02-15'
 
 # PlanetScale Cloud Database Agreement
 
-The following PlanetScale Cloud Database Agreement (“Agreement”) is a legal agreement between you or the employer or other entity on whose behalf you are entering into this Agreement ("Customer," "you" or "your") and PlanetScale, Inc., ("PlanetScale, "we," "us," or "our") and sets forth the terms and conditions with respect to your access and use of the Subscription Services. By purchasing, accessing or using the Subscription Services, you agree to be bound by this Agreement.
+The following PlanetScale Cloud Database Agreement (“Agreement”) is a legal agreement between you or the employer or other entity on whose behalf you are entering into this Agreement ("Customer," "you" or "your") and PlanetScale, Inc., ("PlanetScale, "we," "us," or "our") and sets forth the terms and conditions with respect to your access and use of the Subscription Services. By purchasing, accessing or using the Subscription Services, you agree to be bound by this Agreement. **However, if you (or the entity on whose behalf you are purchasing Subscription Services) and PlanetScale have executed an agreement governing the Subscription Services that is currently in effect, then that agreement and not this one shall govern your use of the Subscription Services.**
 
 Please revisit this Agreement prior to purchasing, accessing or using any of the Subscription Services. Any purchase, access or use of the Subscription Services constitutes a binding agreement with PlanetScale with respect to such Subscription Services. PlanetScale reserves the right to modify this Agreement at any time in its sole discretion. Prior to any material change to this Agreement becoming effective, PlanetScale will use reasonable efforts to notify you of any such change. Such notice may be made by email to the email address on file in your PlanetScale account, an announcement on this page, your login page, and/or by other means. Modifications to this Agreement will only apply to prospective purchases, use or access of the Subscription Services (including any automatic renewals). By using or accessing the Subscription Services following any such modifications, you agree to be bound this Agreement as modified.
 
@@ -35,15 +35,15 @@ a. **Provision of Subscription Service.** For the applicable term of your subscr
 
 ## 3. Support & Maintenance
 
-The Subscription Service will operate in accordance with the PlanetScale DBaaS Service Level Agreement which is made available at <a href="https://planetscale.com/sla/201902sla/" target="_blank">SLA</a> and incorporated herein by reference.
+The Subscription Service will operate in accordance with the PlanetScale DBaaS Service Level Agreement which is made available at <a href="https://planetscale.com/dbaas/sla/" target="_blank">SLA</a> and incorporated herein by reference.
 
 ## 4. Customer Responsibilities and Acknowledgements
 
-Customer acknowledges and agrees to the PlanetScale Platform Guidelines made available at www.planetscale.com/[INSERT](“Platform Guidelines”).
+Customer acknowledges and agrees to the PlanetScale Platform Guidelines made available at <a href="https://planetscale.com/dbaas/guidelines/" target="_blank">Platform Guidelines</a>.
 
 ## 5. Pricing, Fees and Payment Terms
 
-a. Pricing. The pricing for Subscription Services can be found at www.planetscale.com/[INSERT]. We may modify the price, content or nature of the Subscription Services at any time. We may provide notice of any such changes by email, notice to you upon log-in or by publishing them on www.planetscale.com (“Website”). We may change the fees and charges in effect or add new fees and charges from time to time, but we will give you advance notice of these changes by email.
+a. Pricing. The pricing for Subscription Services can be found at <a href="https://planetscale.com/dbaas/pricing/" target="_blank">DBaaS Pricing</a>. We may modify the price, content or nature of the Subscription Services at any time. We may provide notice of any such changes by email, notice to you upon log-in or by publishing them on www.planetscale.com (“Website”). We may change the fees and charges in effect or add new fees and charges from time to time, but we will give you advance notice of these changes by email.
 
 b. Fees. Customer will pay PlanetScale all fees applicable to the Subscription Services you purchase (“Fees”) in accordance with this Section 5. Fees are quoted and payable in United States dollars. Payment obligations are non-cancelable and Fees paid are non-refundable.
 
