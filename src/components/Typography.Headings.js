@@ -3,16 +3,16 @@ import styled from 'styled-components'
 import { media } from '../styles/media'
 
 const HeadingCommons = `
-  font-family: Roboto;
+  font-family: Poppins;
   display: block;
   width: 100%;
 `
 
 export const H1 = styled.h1`
   ${HeadingCommons}
-  
+
   text-align: ${(props) => (props.align ? props.align : 'center')};
-  font-size: 3.5em; 
+  font-size: 3.5em;
   font-weight: ${(props) => (props.bold ? '500' : '100')};
 
   ${media.largePhone`
@@ -26,7 +26,7 @@ export const H2 = styled.h2`
   margin: 0;
 
   ${media.largePhone`
-    font-size: 2em; 
+    font-size: 2em;
   `};
 `
 
@@ -36,7 +36,7 @@ export const H3 = styled.h3`
   margin: 0;
 
   ${media.largePhone`
-    font-size: 2em; 
+    font-size: 2em;
   `};
 `
 
@@ -46,6 +46,6 @@ export const H5 = styled.h5`
   margin: 0;
 
   ${media.largePhone`
-  font-size: 1.2em; 
+  font-size: 1.2em;
 `};
 `

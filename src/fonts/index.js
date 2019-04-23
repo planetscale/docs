@@ -1,59 +1,59 @@
 import { injectGlobal } from 'styled-components'
 
-import RobotoThin from './Roboto-Thin.ttf'
-import RobotoLight from './Roboto-Light.ttf'
-import RobotoRegular from './Roboto-Regular.ttf'
-import RobotoMedium from './Roboto-Medium.ttf'
-import RobotoBold from './Roboto-Bold.ttf'
-import RobotoBlack from './Roboto-Black.ttf'
+import PoppinsThin from './Poppins-Thin.ttf'
+import PoppinsLight from './Poppins-Light.ttf'
+import PoppinsRegular from './Poppins-Regular.ttf'
+import PoppinsMedium from './Poppins-Medium.ttf'
+import PoppinsBold from './Poppins-Bold.ttf'
+import PoppinsBlack from './Poppins-Black.ttf'
 
 injectGlobal`
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 100;
-  src: local('Roboto Thin'), local('Roboto-Thin'), url(${RobotoThin}) format('truetype');
+  src: local('Poppins Thin'), local('Poppins-Thin'), url(${PoppinsThin}) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 300;
-  src: local('Roboto Light'), local('Roboto-Light'), url(${RobotoLight}) format('truetype');
+  src: local('Poppins Light'), local('Poppins-Light'), url(${PoppinsLight}) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 400;
-  src: local('Roboto'), local('Roboto-Regular'), url(${RobotoRegular}) format('truetype');
+  src: local('Poppins'), local('Poppins-Regular'), url(${PoppinsRegular}) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 500;
-  src: local('Roboto Medium'), local('Roboto-Medium'), url(${RobotoMedium}) format('truetype');
+  src: local('Poppins Medium'), local('Poppins-Medium'), url(${PoppinsMedium}) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 700;
-  src: local('Roboto Bold'), local('Roboto-Bold'), url(${RobotoBold}) format('truetype');
+  src: local('Poppins Bold'), local('Poppins-Bold'), url(${PoppinsBold}) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
 @font-face {
-  font-family: 'Roboto';
+  font-family: 'Poppins';
   font-style: normal;
   font-weight: 900;
-  src: local('Roboto Black'), local('Roboto-Black'), url(${RobotoBlack}) format('truetype');
+  src: local('Poppins Black'), local('Poppins-Black'), url(${PoppinsBlack}) format('truetype');
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
@@ -65,6 +65,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   font-weight: 100;
-  font-family: Roboto;
+  font-family: Poppins;
 }
 `
