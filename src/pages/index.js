@@ -1,6 +1,5 @@
 import React from 'react'
 import Script from 'react-load-script'
-import styled from 'styled-components'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
@@ -10,6 +9,7 @@ import { Hero, HeroTitle, HeroSubTitle } from '../components/Common.Hero'
 import { FeatureContainer, Feature } from '../components/Vitess.Features'
 import { Footer } from '../components/Layout.Footer'
 import { ContactSalesCard } from '../components/Home.ContactSalesCard'
+import MarkdownContent from '../components/Common.MarkdownContent'
 
 import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
@@ -53,7 +53,9 @@ export default function IndexPage({ data, location }) {
       </Hero>
 
       <Wrapper>
-        <H1>{pageData.vitess.title}</H1>
+        <H1>
+          <MarkdownContent html={pageData.vitess.title} />
+        </H1>
         <PageDescription>{pageData.vitess.description}</PageDescription>
         <FeatureContainer>{pageData.vitess.list.map(Feature)}</FeatureContainer>
       </Wrapper>

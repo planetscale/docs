@@ -18,6 +18,8 @@ export const H1 = styled.h1`
   ${media.largePhone`
     font-size: 2em;
   `}
+
+  a { font-weight 300; }
 `
 
 export const H2 = styled.h2`
