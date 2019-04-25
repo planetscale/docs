@@ -1,4 +1,4 @@
-# Global settings applied to the whole site.  
+# Global settings applied to the whole site.
 [build]
   publish = "public"
   command = "rm -rf .cache public && gatsby build"
@@ -16,3 +16,7 @@
 # Branch Deploy context: All deploys that are not in
 # an active Deploy Preview will inherit these settings.
 [context.branch-deploy]
+
+[[redirects]]
+  from = "/product"
+  to = "/products"
