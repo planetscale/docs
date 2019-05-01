@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-lori.jpg
 name: Lori Clerkin
-role: Executive Assistant
+role: Fun Boss and Calendar Sorceress
 linkedin: 'lori-clerkin-073038164'
 order: 5
 ---

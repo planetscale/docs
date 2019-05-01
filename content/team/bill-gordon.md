@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-bill-gordon.png
 name: Bill Gordon 
-role: Software Engineer 
+role: Elite E-Web Engineer
 linkedin: 'william-gordon-9a761951'
 order: 14 
 ---

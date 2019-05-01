@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-adrianna-tan.jpg
 name: Adrianna Tan
-role: Senior Product Manager 
+role: Boba Liberal
 linkedin: 'adriannatan'
 order: 3
 ---

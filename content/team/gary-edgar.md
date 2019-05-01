@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-gary-edgar.jpg
 name: Gary Edgar 
-role: Sales Engineer 
+role: Envoy Extraordinary of Customers 
 linkedin: 'gedgar'
 order: 13
 ---

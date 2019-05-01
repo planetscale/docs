@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-raunaq-gupta.jpg
 name: Raunaq Gupta 
-role: Designer 
+role: Figure of Speech
 linkedin: 'raunaqgupta'
 order: 15 
 ---

@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-dan.jpg
 name: Dan Kozlowski
-role: Minister of Engineering
+role: Minister Plenipotentiary of Engineering
 linkedin: 'dkhenry'
 order: 2
 ---
