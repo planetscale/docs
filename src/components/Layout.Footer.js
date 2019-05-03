@@ -13,6 +13,8 @@ import logo from '../../static/img/logo-only.png'
 
 import { footerLinks } from '../site'
 
+import _SocialLinks from '../components/Layout.Footer.SocialLinks'
+
 const _Footer = styled.footer`
   display: flex;
   justify-content: center;
@@ -47,12 +49,13 @@ const FooterContent = styled.div`
   margin: 0 auto;
   width: 100%;
   max-width: ${(props) => props.theme.sizes.maxWidth};
-
   display: flex;
-  justify-content: start;
-  align-items: center;
+  flex-direction: column;
   z-index: 1338;
-  padding-top: 10em;
+
+  > *:not(:last-child):not(:first-child) {
+    padding: 100px 0;
+  }
 
   ${media.largePhone`
     flex-direction: column;
@@ -63,27 +66,31 @@ const FooterContent = styled.div`
   `};
 `
 
-const PagesList = styled.ul`
+const PageLists = styled.div`
   list-style-type: none;
   margin: 0;
   padding: 0;
   display: flex;
   justify-content: space-between;
+  align-items: flex-start;
 
   ${media.largePhone`
     flex-direction: column;
-    padding-top: 2.5em;
+    align-items: center;
   `};
 
+  ul {
+    padding-left: 0;
+  }
+
   li {
-    display: inline-block;
-    text-align: center;
-    margin-right: 23px;
+    text-align: left;
+    list-style: none;
 
     ${media.largePhone`
-      margin: 0;
       line-height: 3;
       font-size: 1.25em;
+      text-align: center;
     `};
   }
 
@@ -93,75 +100,139 @@ const PagesList = styled.ul`
     opacity: 0.5;
     font-weight: 600;
     transition: all 0.2s;
+    display: inline-block;
+    padding: 0;
+    font-size: 110%;
+
     &:hover {
       opacity: 1;
     }
+
+    ${media.largePhone`
+      font-size: 90%;
+    `};
   }
 `
 
-const LeftContainer = styled.div`
+const RowZero = styled.div``
+
+const RowOne = styled.div`
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+  flex-direction: column;
   line-height: 1.5;
+  position: relative;
+  align-items: flex-start;
+
+  &::after,
+  &::before {
+    content: '';
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 1px;
+    width: 100%;
+  }
+  &::before {
+    top: 50px;
+  }
+  &::after {
+    bottom: 50px;
+  }
 
   ${media.largePhone`
+    flex-direction: row;
+  `};
+`
+
+const RowTwo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+
+  ${media.largePhone`
+    align-items: center;
     flex-direction: column;
   `};
 `
 
-const RightContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  flex-grow: 2;
-
-  ${media.largePhone`
-    margin-top: 2em;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-  `};
-`
-
-const SocialLinks = styled.div`
-  ${media.largePhone`
-    font-size: 1.5em;
-    line-height: 3em;
-  `};
-`
-
-const Social = styled.a`
+const Copyright = styled.small`
   color: white;
-  opacity: 0.5;
-  transition: all 0.2s;
-
-  &:nth-child(n + 2) {
-    margin-left: 5px;
-  }
-
-  &:hover {
-    opacity: 1;
-  }
-`
-
-const Copyright = styled.span`
-  color: white;
-
-  ${media.largePhone`
-    font-size: 0.5em;
-  `};
+  font-size: 0.9rem;
 `
 const Logo = styled.img`
   max-width: 200px;
-  margin-right: 42px;
 
   ${media.largePhone`
     margin: 0;
   `};
 `
+
+const FooterLogoLink = styled(Link)`
+  padding: 0.2rem 0;
+`
+
+const FooterH4 = styled.h4`
+  color: white;
+  font-size: 1.5em;
+  font-weight: 400;
+  opacity: 0.75;
+  text-align: left;
+  margin: 0;
+
+  ${media.largePhone`
+    text-align: center;
+  `};
+`
+
+const ListSection = styled.div`
+  ul {
+    margin: 0;
+  }
+  &:not(:last-child):not(:first-child) {
+    padding: 0 100px;
+
+    ${media.tablet`
+      padding: 0 50px;
+    `};
+  }
+  ${media.largePhone`
+    &:not(:last-child) {
+      margin-bottom: 1.75em;
+    }
+  `};
+`
+
+function ListItem(props) {
+  return <li>{props.children}</li>
+}
+
+function ListLinks(props) {
+  const listItems = props.data.map((section) => (
+    <ListSection key={section.title}>
+      <FooterH4>{section.title}</FooterH4>
+      <ul>
+        {section.data.map(({ id, name, to, external }) => (
+          <ListItem key={id}>
+            {external && external === true ? (
+              <a href={to}>{name}</a>
+            ) : (
+              <Link to={to}>{name}</Link>
+            )}
+          </ListItem>
+        ))}
+      </ul>
+    </ListSection>
+  ))
+
+  return listItems
+}
+
 export function Footer({ backgroundImage, backgroundColor, children }) {
+  const FooterLogo = () => (
+    <FooterLogoLink to={`/`} activeStyle={{ opacity: 1 }}>
+      <Logo src={logo} />
+    </FooterLogoLink>
+  )
+
   return (
     <_Footer>
       <SmartImage
@@ -171,54 +242,18 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
       />
       <Wrapper>
         <FooterContent>
-          <Link to={`/`} activeStyle={{ opacity: 1 }}>
-            <Logo src={logo} />
-          </Link>
-          <LeftContainer>
-            <PagesList>
-              {footerLinks.map(({ name, to }) => {
-                return (
-                  <li key={to}>
-                    <Link to={`${to}`} exact activeStyle={{ opacity: 1 }}>
-                      {name}
-                    </Link>
-                  </li>
-                )
-              })}
-              <li>
-                <a
-                  href={'https://support.planetscale.com'}
-                  activeStyle={{ opacity: 1 }}
-                  target="_blank"
-                >
-                  Support
-                </a>
-              </li>
-            </PagesList>
-            <SocialLinks>
-              <Social
-                href="https://twitter.com/planetscaledata"
-                target="_blank"
-              >
-                <i className="fab fa-twitter-square" />
-              </Social>
-              <Social
-                href="https://www.facebook.com/planetscaledata/"
-                target="_blank"
-              >
-                <i className="fab fa-facebook-square" />
-              </Social>
-              <Social
-                href="https://www.linkedin.com/company/planetscale"
-                target="_blank"
-              >
-                <i className="fab fa-linkedin" />
-              </Social>
-            </SocialLinks>
-          </LeftContainer>
-          <RightContainer>
+          <RowZero>
+            <FooterLogo />
+          </RowZero>
+          <RowOne>
+            <PageLists>
+              <ListLinks data={footerLinks} />
+            </PageLists>
+          </RowOne>
+          <RowTwo>
+            <_SocialLinks />
             <Copyright>©2019 PlanetScale, Inc</Copyright>
-          </RightContainer>
+          </RowTwo>
         </FooterContent>
       </Wrapper>
       <BottomOverlay src={bottomOverlay} />

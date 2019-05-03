@@ -2,7 +2,7 @@ import React from 'react'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { Hero, HeroTitle } from '../components/Common.Hero'
+import { Hero, HeroTitle, HeroContent } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 import { Footer } from '../components/Layout.Footer'
@@ -13,10 +13,11 @@ import overlay from '../images/hero/team-overlay.svg'
 export default function PrivacyPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
+  const { title, content, lastUpdatedLabel, lastUpdatedDate } = pageData
 
   return (
     <div>
-      <TitleAndMetaTags title="Terms of Service" pathname="tos" />
+      <TitleAndMetaTags title={title} pathname="privacy" />
       <Hero
         backgroundImage={background}
         backgroundColor={'#24C8D8'}
@@ -26,10 +27,21 @@ export default function PrivacyPage({ data }) {
           <HeroTitle>
             <span style={{ fontWeight: 100 }}>{pageData.title}</span>
           </HeroTitle>
+          <HeroContent>{`${lastUpdatedLabel}: ${lastUpdatedDate}`}</HeroContent>
         </Wrapper>
       </Hero>
       <Wrapper>
-        <MarkdownContent html={pageData.content} style={{ fontWeight: 400 }} />
+        <MarkdownContent
+          whiteSpace="normal"
+          html={content}
+          customCSS={`
+            strong { font-weight: 500; }
+            > p:first-child,
+            ul + p,
+            h3 + p,
+            p + p { margin-bottom: 1em; }
+          `}
+        />
       </Wrapper>
       <Footer
         backgroundImage={background}
@@ -46,6 +58,8 @@ export const pageQuery = graphql`
       edges {
         node {
           title
+          lastUpdatedLabel
+          lastUpdatedDate
           content
         }
       }

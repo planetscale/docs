@@ -52,20 +52,62 @@ export const headerLinks = [
 
 export const footerLinks = [
   {
-    id: 'faq',
-    name: 'FAQ',
-    to: '/faq',
+    title: 'Company',
+    data: [
+      {
+        id: 'news',
+        name: 'News',
+        to: '/news',
+      },
+      {
+        id: 'faq',
+        name: 'FAQ',
+        to: '/faq',
+      },
+    ],
   },
-
   {
-    id: 'media',
-    name: 'Media',
-    to: '/media',
+    title: 'Support',
+    data: [
+      {
+        id: 'help_center',
+        name: 'Help Center',
+        to: 'https://support.planetscale.com',
+        external: true,
+      },
+      {
+        id: 'licenses',
+        name: 'Licenses',
+        to: 'https://planetscale.com/sla/201902sla/',
+        external: true,
+      },
+      {
+        id: 'terms',
+        name: 'Terms of Service',
+        to: '/tos',
+      },
+      {
+        id: 'privacy_policy',
+        name: 'Privacy',
+        to: '/privacy',
+      },
+    ],
   },
-
   {
-    id: 'downloads',
-    name: 'Downloads',
-    to: '/downloads',
+    title: 'Open Source',
+    data: [
+      {
+        id: 'vitess',
+        name: 'Vitess',
+        to: 'https://vitess.io',
+        external: true,
+      },
+      {
+        id: 'community',
+        name: 'Community',
+        to: 'https://vitess.slack.com',
+        external: true,
+      },
+    ],
   },
 ]

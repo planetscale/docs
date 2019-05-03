@@ -1,87 +1,218 @@
-title: Privacy Policy
+title: PlanetScale's Privacy Policy
+lastUpdatedLabel: LAST UPDATED
+lastUpdatedDate: April 29 2019
+
 content: |
-  PlanetScale, Inc. (“PlanetScale”) appreciates you using our products and services. We provide this Privacy Policy to inform you about how we collect, use, and handle your personally identifying information (or “PII”) when you use our websites (“Websites”), and our software and services (“Services”) as follows.
 
-  Website Visitors and Service Users
+  <p>PlanetScale , Inc. ("PlanetScale ", "we", "us" or "our") appreciates you using our products and services. This privacy policy ("Privacy Policy") describes our policies and procedures on the collection use and disclosure of your personally identifiable information ("Personal Information") when you use (a) our website www.planetscale.com and all subdomains thereof ("Website"), (b) our PlanetScale  Cloud Database service , (c) our managed service and other professional service offerings and (d) any other content, applications, systems, features, functionality, software, information, products and services offered by us that link to this Privacy Policy (collectively, the "Service").</p>
+  <ol>
+   <li><a href="#1introductiongeneralterms">Introduction; General Terms</a></li>
+   <li><a href="#2informationwecollectaboutyou">Information We Collect About You</a></li>
+   <li><a href="#3howweuseinformation">How We Use Information</a></li>
+   <li><a href="#4sharinganddisclosureofpersonalinformationandotherinformation">Sharing and Disclosure of Personal Information and Other Information</a></li>
+   <li><a href="#5accesstoyourpersonalinformationandyourprivacyrights">Access to Your Personal Information and Your Privacy Rights</a></li>
+   <li><a href="#6ouruseofcookiesandothertrackingmechanisms">Our Use of Cookies and Other Tracking Mechanisms</a></li>
+   <li><a href="#7interestbasedadvertising">Interest Based Advertising</a></li>
+   <li><a href="#8minors">Minors</a></li>
+   <li><a href="#9yourcaliforniaprivacyrightscaliforniadonottrackdisclosure">Your California Privacy Rights & California Do Not Track Disclosure</a></li>
+   <li><a href="#10transferofpersonalinformationtotheunitedstates">Transfer of Personal Information to the United States</a></li>
+   <li><a href="#11legalbasisforouruseeeavisitorsonly">Legal Basis For Our use (EEA Visitors Only)</a></li>
+   <li><a href="#12security">Security</a></li>
+   <li><a href="#13dataretention">Data Retention</a></li>
+   <li><a href="#14linkstothirdpartywebsites">Links to Third Party Websites</a></li>
+   <li><a href="#15privacypolicychanges">Privacy Policy Changes</a></li>
+   <li><a href="#16accuracy">Accuracy</a></li>
+   <li><a href="#17contactus">Contact Us</a></li>
+   <li><a href="#18solestatement">Sole Statement</a></li>
+  </ol>
 
-  Like many managed service operators, we collect non-personally identifying information of the sort that web browsers and servers typically make available, such as the browser type, language preference, device type, referring site, and the date and time of each visitor request, and we store it in log files. Your devices (depending on their settings) may also transmit location information to the Services.
+  <h3 id="1introductiongeneralterms">1. Introduction; General Terms</h3>
 
-  We may also collect statistics about the behavior of visitors to our Websites and our Services, as well as potentially personally identifying information like Internet Protocol (“IP”) addresses. Our purpose in collecting such information is to better understand how our visitors use the Websites and Services, and to improve the Websites and Services. We do not disclose such statistics and IP address information other than under the circumstances described further below.
+  <p>This Privacy Policy explains what information we collect in connection with your access to and/or use of the Service, how the information is used, and how and when we disclose such information. Please take a few minutes to read this Privacy Policy so that you understand how we treat your information.</p>
 
-  Your Account with Our Services
+  <p>This Privacy Policy will remain in full force and effect, even if your access to, use of and/or participation in connection with the Service or any other particular service, feature, function, initiative, promotion or activity offered on or through the Service terminates, expires, is suspended or deactivated for any reason. If you do not agree with this Privacy Policy, please do not participate in, access and/or use the Website, the PlanetScale  Cloud Database service  or any other portion of the Service.</p>
 
-  PlanetScale collects information like your name, email address, phone number, payment info, and physical address when you set up your account with our Services.
+  <p>This Privacy Policy governs only the information collected by us on or through your use of the Service, and does not cover any other information collected in any other manner or collected by any other third party, unless specifically stated.</p>
 
+  <h3 id="2informationwecollectaboutyou">2. Information We Collect About You</h3>
 
-  Your Data with Our Services
+  <p>Information you Provide Voluntarily. We collect the information you voluntarily provide to us. For example:</p>
 
-  When you use PlanetScale Services, we store, process, and transmit your files (including data, photos, documents, and emails) and information related to them. This will make it easy for you to do things like share your information, send emails, and invite others to use the Services.
+  <ul>
+  <li>In order to access and/or use the Service (e.g., account registration, billing, etc.), we may require that you provide and/or otherwise make available to us certain information, which may include, among other things, your legal name, email address, company affiliation, physical address and telephone number .</li>
 
-  Cookies and other technologies
+  <li>If you purchase products or services, then we or our third party payment processor will also ask for additional information, such as your credit card number and billing address.</li>
 
-  We and our partners (including analytics providers) use various technologies to collect and store information when you use our Websites and our Services, and this may include using cookies, beacons, tags, or similar technologies to identify your browser or device, and to analyze trends, track users’ movements around the website and the service, and to gather information about our visitors and users.
+  <li>If you provide us feedback or contact us via email, we will collect your name and email address, as well as any other content included in the email, in order to send you a reply. When you post messages to the Website or otherwise communicate with us or other users via the Service, the information contained in your posting will be stored on our servers and other users may be able to see it.</li>
 
-  A cookie is a string of information that a website stores on a visitor’s computer, and that the visitor’s browser provides to the website each time the visitor returns. We use both session ID cookies and persistent cookies. A session ID cookie expires when you close your browser. A persistent cookie remains on your hard drive for an extended period of time. We use cookies to help identify and track visitors, their usage of our Websites and Services, and their preferences. If you do not wish to have cookies placed on your computers, you should set your browsers to refuse cookies before using our services, with the drawback that certain or all of the features of our services may not function properly without the aid of cookies.
+  <li>We also collect other types of Personal Information that you provide to us voluntarily, such as your operating system and version, and other requested information if you contact us via email regarding support for the Service.</li>
 
-  Behavioral Targeting/Retargeting
+  <li>We may allow you to sign up and log in to the Service using accounts you create with third-party products and services, such as Google and Github (collectively, "Third-Party Accounts"). If you access the Service with Third-Party Accounts we will collect information that you have agreed to make available such as your name, email address, profile information and preferences with the applicable Third-Party Account. This information is collected by the Third-Party Account provider and is provided to us under their privacy policies. You can generally control the information that we receive from these sources using the privacy settings in your Third-Party Account.</li>
 
-  We may partner with one or more third-party ad networks to either display advertising on our Websites or to manage our advertising on other sites. Our ad network partners use cookies and web beacons to collect non-personally identifying information about your activities on this and other websites to provide you targeted advertising based upon your interests. If you wish to learn more about your advertising choices and how to opt out of behavioral targeting and interest-based advertising, click here (https://www.networkadvertising.org/choices/) or if located in the European Union, click here (https://www.youronlinechoices.eu/).
+  <li>When you participate in one of our surveys, we will collect the information you choose to submit to us.</li>
 
-  Customer and User Quotes and Testimonials
+  <li>We may also collect Personal Information at other points in the Service that state that Personal Information is being collected.</li>
+  </ul>
 
-  We display personal testimonials of satisfied customers and users on our Websites in addition to other endorsements. With your consent we may post your personal testimonial with your name and/or with your bio picture. If you wish to update or delete your testimonial, you can contact us at info@planetscale.com.
+  <p><strong>Information We Collect Automatically.</strong>  When you access and/or use the Service, we automatically collect certain information through  cookies, web beacons and other technologies and store it in our log files. Log file information is automatically reported by your browser each time you access a web page. When you use our Service, our servers automatically record certain log file information. These server logs may include information such as your web request, operating system and version, Internet Protocol ("IP") address, browser type, device type, language preference, referring / exit pages and URLs, pages you view on our Website, number of clicks and how you interact with links on the Website, search terms you entered to arrive at our Website, the date and time of each of your requests and other such information regarding your access to and/or use of the Service . We may combine this information with other information that we have collected about you, including, where applicable, your username, name, and other Personal Information. Please see the section "Cookies and Other Tracking Mechanisms" below for more information.</p>
 
-  Usage
+  <p><strong>Location data.</strong> When you access the Service by or through a mobile device, we may access, collect, monitor and/or remotely store "location data," which may include GPS coordinates (e.g. latitude and/or longitude) or similar information regarding the location of your mobile device. Location data may convey to us information about how you browse and use the Service. Some features of the Service, particularly location-based services, may not function properly if use or availability of location data is impaired or disabled.</p>
 
-  We may share information as outlined below, but we won’t sell it to advertisers or other third-parties.
+  <p><strong>Invitations.</strong> If you use our invitation service to invite a third party to the Service we may ask you for that person's name, user ID, email address or other contact information and automatically send an invitation to the invitee. We store this information to send this invitation and to track the success of our invitation service. Unless the invitee becomes a user of the Service, we do not use the invitee's contact information for marketing purposes, and we do not share the invitee's contact information with third parties other than PlanetScale's service providers in accordance with this Privacy Policy. The invitee may contact us at contact @planetscale.com  at any time to request that we remove his or her information from our database. If you submit any personal information about other people to us or to our service providers, you represent that you have the authority to do so and to allow us to use their Personal Information in accordance with this Privacy Policy (for example, by asking for their consent).</p>
 
-  PlanetScale Employees and Contractors
+  <p><strong>Information we obtain from other third party sources.</strong> We may receive information about you from third parties, but only where we have received assurances from these third parties that they have either received your consent or are otherwise legally permitted or required to disclose your Personal Information to us. For example, the customer relationship management software we use may supplement your contact information we have entered for you with information available from third party sources (e.g., LinkedIn).  This information could include, but is not limited to any information that you have permitted the a third party to share with us, and any information you have made public in connection with that service.</p>
 
-  PlanetScale uses third parties to help us provide, improve, protect, and promote our Websites and our Services. These third parties will access your information only to perform tasks on our behalf and in compliance with this Privacy Policy. Your account administrator and PlanetScale support personnel may have the ability to access and control your PlanetScale account.
+  <h3 id="3howweuseinformation">3. How We Use Information</h3>
 
-  Third Party Applications
+  <p><strong>Use of Personal Information.</strong> We may use your Personal Information for, among other things, the following purposes:</p>
 
-  You can also choose to give third parties access to your information and your account for the Services—for example, via PlanetScale APIs. Just remember that their use of your information will be governed by their privacy policies and terms.
+  <ul>
+  <li>To provide the features and functionality of the Service to you, to communicate with you about your use of the Service, to respond to your inquiries, to fulfill your orders, and for other customer service purposes.</li>
 
-  Bulletin Boards / Chat Rooms
+  <li>We use or may use the data collected through cookies, log file, device identifiers, location data and clear gifs information to: (a) remember information so that you will not have to re-enter it during your visit or the next time you visit the Website; (b) provide custom, personalized content and information; (c) to provide, improve and monitor the effectiveness and/or usage patterns of our Service; (d) monitor aggregate metrics such as total number of visitors, traffic, and demographic patterns; (e) diagnose or fix technology problems; and (f) help you efficiently access your information after you sign in.</li>
 
-  If you use a bulletin board or chat room associated with the Websites or the Services, you should be aware that any personally identifiable information you submit there can be read, collected, or used by other users of these forums and others who have access to the archive, and could be used to send you unsolicited messages. We are not responsible for the personally identifiable information you choose to submit in these forums.
+  <li>To tailor the content and information that we may send or display to you or to otherwise personalize your experiences while using the Service.</li>
 
-  Law Enforcement
+  <li>For marketing and promotional purposes. For example, we may send you emails about products or information we think may interest you. We may also use the information that we learn about you to help determine when and how to advertise our services on third party websites, advertising networks and services, or to customize advertising to you or to customize your experience on our Website and the Service.</li>
 
-  We may disclose your information to third parties if we determine that such disclosure is reasonably necessary to (a) comply with the law; (b) protect any person from death or serious bodily injury; (c) prevent fraud or abuse of PlanetScale or our users; or (d) protect PlanetScale’s property rights.
+  <li>To verify your eligibility to win a prize in a sweepstakes, contest or giveaway you have entered and to deliver that prize to you.</li>
 
-  Our users’ data should receive the same legal protections regardless of whether it’s stored on our services or on their home computer’s hard drive, therefore we abide by the following Government Request Principles when receiving, scrutinizing, and responding to government requests for our users’ data:
+  <li>For the prevention and detection of fraud or infringement of our or any third party's rights.</li>
 
-  Be transparent,
-  Fight blanket requests,
-  Protect all users, and
-  Provide trusted services.
+  <li>To better understand how users access and use our Service, both on an aggregated and individualized basis, in order to improve our Service, respond to user preferences, and for other research and analytical purposes.</li>
 
-  Security
+  <li>To diagnose service or technical problems.</li>
 
-  For our Services, we have a team dedicated to keeping your information secure, and we take precautions to ensure the security of your PII. We follow generally accepted standards to protect the PII submitted to us, both during transmission and once we receive it. We also continue to work on features to keep your information safe in addition to things like two-factor authentication and encryption of backup files.
+  <li>To ensure and maintain the security of the Service.</li>
 
-  That said, like any managed service provider, we cannot guarantee that unauthorized third parties or unauthorized personnel will not gain access to your PII despite our efforts. You should note that in using the Websites and the Services, your information will travel through third-party infrastructures which are not under our control.
+  <li>To comply with legal obligations or legal process.</li>
 
-  Retention of Information
+  <li>For any other purposes described in this Privacy Policy or disclosed at the time you provide us with the Personal Information.</li>
+  </ul>
 
-  For users of our Services, we will retain information and PII you store on our Services for as long as we need it to provide you the Services.
+  <h3 id="4sharinganddisclosureofpersonalinformationandotherinformation">4. Sharing and Disclosure of Personal Information and Other Information</h3>
 
-  If you delete your account with our Services, we’ll also delete this information. But please note: (1) there might be some latency in deleting this information from our servers and back-up storage; and (2) we may retain this information if necessary to comply with our legal obligations, resolve disputes, or enforce our agreements; and (3) where our customer for the Services is an organization and you are accessing and using the Service as an authorized representative of that organization, references to “you” and the like in this Privacy Policy generally refer to the customer organization, not individual end users. In such cases, we receive and process information under the direction of our customer. If you as an individual seek to delete an account or to delete inaccurate data, you should direct your query to the applicable customer organization, and we will respond to the customer’s request within a reasonable timeframe.
+  <p><strong>Service Providers.</strong> We may share your information with third-party business partners, consultants and service providers that perform services on our behalf for the purpose of providing the Service to you (e.g., email providers, hosting providers, analytics companies, etc.). Those business partners will be given limited access to your information that is reasonably necessary to deliver the Service. We use third party payment processors to collect and store your payment card information and to process payments in connection with the Service. Any information that you provide to our payment processors is governed by each processor's separate privacy policy instead of this Privacy Policy. We encourage you to learn about the privacy practices of those third parties. PlanetScale  neither collects nor stores your payment card information on its servers. Except as stated in this privacy policy or unless we inform you otherwise, our service providers do not have any right to use the Personal Information we share with them beyond what we deem necessary to assist us in performing such tasks.</p>
 
-  International
+  <p><strong>Customer and User Quotes and Testimonials.</strong> We may display personal testimonials of satisfied customers and users on our Website in addition to other endorsements. With your consent we may post your personal testimonial with your name and/or with your bio picture. If you wish to update or delete your testimonial, you can contact us at contact @planetscale.com .</p>
 
-  To provide you with the Websites and Services, we may store, process, and transmit information in the United States and locations around the world, including locations outside your country. Information may also be stored locally on the devices you use to access the Websites and Services.
+  <p><strong>Your Third Party Services.</strong> You can also choose to give third parties access to your information and your account for the Service—for example, via PlanetScale APIs. Just remember that their use of your information will be governed by their privacy policies and terms.</p>
 
-  Opt-Out Policy
+  <p><strong>Additional Disclosures.</strong> PlanetScale will disclose your information where required to do so by law or subpoena or if we reasonably believe that such action is necessary to (a) comply with the law and the reasonable requests of law enforcement or governmental entity; (b) to enforce our Terms of Use, or to protect the security or integrity of our Service; and/or (c) to exercise or protect the rights, property, and personal safety of PlanetScale , our employees, other users of the Service and others. This includes exchanging information with other companies and organizations for fraud protection and credit risk reduction.</p>
 
-  If, at any time after providing us with your PII, you change your mind about receiving information from us or about the use of information volunteered by you, please send us a request at info@planetscale.com specifying your new choice. You may also choose to stop receiving our technical newsletter, product updates, marketing emails, and invitations by following the unsubscribe instructions included in these emails.
+  <p>Our users' data should receive the same legal protections regardless of whether it's stored on our services or on their home computer's hard drive, therefore we abide by the following Government Request Principles when receiving, scrutinizing, and responding to government requests for our users' data:</p>
 
-  Changes
+  <ul>
+  <li>Be transparent,</li>
 
-  Our Privacy Policy may change from time to time. We will not reduce your rights under this Privacy Policy without notifying you. We will post any privacy policy changes on this page and, if the changes are significant, we will provide a more prominent notice (including, for certain services, email notification of privacy policy changes). We will also keep prior versions of this Privacy Policy in an archive for your review.
+  <li>Fight blanket requests,</li>
 
-  Contact
+  <li>Protect all users, and</li>
 
-  If you have questions or concerns about this Privacy Policy, contact us at contact@planetscale.com.
+  <li>Provide trusted services.</li>
+  </ul>
+
+  <p><strong>Corporate Restructuring.</strong> We may buy or sell, divest or transfer the company (including any shares in the company), or any combination of its products, services, assets and/or businesses. Your information such as customer names and email addresses, and other user information related to the Service (as described herein) will likely be among the items transferred in these types of transactions. We may also sell, transfer or assign such information in the course of corporate divestitures, reorganizations, mergers, acquisitions, bankruptcies, dissolutions, liquidations or similar transactions or proceedings involving all or a portion of the company.</p>
+
+  <p><strong>Aggregate and/or Non-identified Information.</strong> We may also share information with others in an aggregated and anonymous form that does not reasonably identify you directly as an individual for any purpose, including for research and marketing purposes, and our disclosure of such information is not subject to restriction.</p>
+
+  <p><strong>Others.</strong>  We may disclose your Personal Information to any other person with your consent to the disclosure.</p>
+
+  <h3 id="5accesstoyourpersonalinformationandyourprivacyrights">5. Access to your Personal Information and Your Privacy Rights</h3>
+
+  <p>We respond to all requests we receive from individuals wishing to exercise their data protection rights in accordance with applicable data protection laws. You may change your privacy preferences (e.g., ask us not to share your Personal Information with a particular third party) by sending an email to us at contact@planetscale.com  detailing your privacy request.</p>
+
+  <p><strong>Access, correct, update or request deletion.</strong> If you wish to access, correct, update or request deletion of your Personal Information that you may not access directly through the Service, you can do so at any time by sending an email to us at contact@planetscale.com .</p>
+
+  <p><strong>Object to processing, restrict processing or request portability.</strong> If you are a resident of the European Union, you can object to processing of your Personal Information, ask us to restrict processing of your Personal Information or request portability of your Personal Information. You can exercise these rights by sending an email to us at contact@planetscale.com .</p>
+
+  <p><strong>Opt-out.</strong> You have the right to opt-out of marketing communications (including our technical newsletter, product updates, marketing emails, and invitations) we send you at any time.  You can exercise this right by clicking on the "unsubscribe" or "opt-out" link in the emails we send you or by sending an email to us at contact@planetscale.com . Please note that "opt-out" and "unsubscribe" requests may not take effect immediately and may take a reasonable amount of time to receive, process and apply, during which time your information shall remain subject to the prior privacy settings. Further, also please note that in order to keep you informed about the operation of the Service, we may still send you administrative emails, notifications and announcements that are needed for the proper functioning and administration of the Service, including, without limitation, for the purposes described in Section 3 above, in connection with your use thereof.</p>
+
+  <p><strong>Withdraw consent.</strong> If we have collected and processed your Personal Information with your consent, then you can withdraw your consent at any time.  Withdrawing your consent will not affect the lawfulness of any processing we conducted prior to your withdrawal, nor will it affect processing of your Personal Information conducted in reliance on lawful processing grounds other than consent.</p>
+
+  <p><strong>Right to complain.</strong> You have the right to complain to a data protection authority about our collection and use of your Personal Information.  For more information, please contact your local data protection authority. (Contact details for data protection authorities in the European Economic Area are available <a href="https://www.google.com/url?q=http://ec.europa.eu/justice/data-protection/article-29/structure/data-protection-authorities/index_en.htm&amp;sa=D&amp;ust=1556584969140000">here</a>.)</p>
+
+  <h3 id="6ouruseofcookiesandothertrackingmechanisms">6. Our Use of Cookies and Other Tracking Mechanisms</h3>
+
+  <p>We and our third party service providers (including analytics providers) may use "cookies" (which are small electronic files containing information about you and your activities that are stored on your Device (e.g., html files, Flash files, etc.), "embedded scripts", web beacons and other similar tracking technologies to collect and store information automatically as you use, access and/or otherwise interact with the Website and the Service.  We may combine this information with other Personal Information we collect from you (and our third party service providers may do so on our behalf).</p>
+
+  <p><strong>Cookies.</strong> Cookies are alphanumeric identifiers that we transfer to your computer's hard drive through your web browser for record-keeping purposes. Some cookies allow us to make it easier for you to navigate our Service, while others are used to enable a faster log-in process, to allow us to track your activities on our Service, or to otherwise enable Service features. Most web browsers automatically accept cookies, but if you prefer, you can edit your browser options to block them in the future. The Help portion of the toolbar on most browsers will tell you how to prevent your computer from accepting new cookies, how to have the browser notify you when you receive a new cookie, or how to disable cookies altogether. Visitors to our Website who disable cookies will be able to browse certain areas of the Website, but some features may not function.</p>
+
+  <p><strong>Clear GIFs, pixel tags and other technologies.</strong> Clear GIFs are tiny graphics with a unique identifier, similar in function to cookies. In contrast to cookies, which are stored on your computer's hard drive, clear GIFs are embedded invisibly on web pages. We may use clear GIFs (also known as web beacons, web bugs or pixel tags), in connection with our Website to, among other things, track the activities of Website visitors, help us manage content and compile statistics about Website usage. We or our service providers may also use clear GIFs in HTML emails to our customers to help us track email response rates, identify when our emails are viewed and track whether our emails are forwarded.</p>
+
+  <p><strong>LSOs.</strong> We or third parties with whom we partner to provide certain features of the Service or to display advertising based upon your tracked activity may use Local Storage Objects (LSOs) using technologies such as HTML5 or Flash to collect and store information. Various browsers may offer management tools for removing HTML5 LSOs. To learn about managing Flash LSOs, please click <a href="https://www.google.com/url?q=https://www.macromedia.com/support/documentation/en/flashplayer/help/settings_manager07.html&amp;sa=D&amp;ust=1556584969142000">here</a>.</p>
+
+  <p><strong>Third-party Analytics.</strong> We use third party analytics tools, such as Google Analytics, to collect, monitor and analyze collected information in order to improve functionality and user-friendliness, and to better tailor the Service to our visitors' needs. Accordingly, usage data is shared with Google, which has its own <a href="https://www.google.com/url?q=http://www.google.com/intl/en/policies/privacy/&amp;sa=D&amp;ust=1556584969142000">privacy policy</a> addressing how it uses such information. We encourage you to review this privacy policy to understand how Google uses such information.</p>
+
+  <p>Please be aware that that if you limit the collection of certain information, you may not be able to use some or all of the Service.</p>
+
+  <h3 id="7interestbasedadvertising">7. Interest Based Advertising.</h3>
+
+  <p>The Service may also use a variety of third party advertising networks, data exchanges, traffic measurement service providers, marketing analytics service providers and other third parties (collectively, <strong>"Third Party Advertising Service Providers"</strong>), such as Google Adwords and Facebook. We use Third Party Advertising Service Providers to, for example, serve advertisements on or in connection with the Service, facilitate targeting of advertisements and/or measure and analyze advertising effectiveness and/or traffic on or in connection with the Service and any use thereof. Third Party Advertising Service Providers may enable us to display advertisements based on your profile and corresponding use of the Service and other websites, services and platforms you have used or visited. Targeting services enable us to, among other things, help deliver advertisements or other content to you for products and services that you might be interested in, to prevent you from seeing the same advertisements too many times and to conduct research regarding the usefulness of certain advertisements to you.</p>
+
+  <p>Third Party Advertising Service Providers may use cookies, JavaScript, web beacons (including clear GIFs), LSOs and other tracking technologies to measure the effectiveness of their ads and to personalize advertising content to you . These third-party cookies and other technologies are governed by each third party's specific privacy policy, not this one. We may provide these third-party advertisers with information, including Personal Information, about you.</p>
+
+  <p>Users in the United States may opt out of many third-party ad networks. For example, you may go to the Digital Advertising Alliance ("DAA") <a href="https://www.google.com/url?q=http://www.aboutads.info/choices/&amp;sa=D&amp;ust=1556584969143000">Consumer Choice Page</a> for information about opting out of interest-based advertising  and choices regarding having information used by <a href="https://www.google.com/url?q=http://www.aboutads.info/participating&amp;sa=D&amp;ust=1556584969144000">DAA companies</a>. You may also go to the Network Advertising Initiative ("NAI") <a href="https://www.google.com/url?q=http://www.networkadvertising.org/choices/&amp;sa=D&amp;ust=1556584969144000">Consumer Opt-Out Page</a> for information about opting out of interest-based advertising and choices regarding having information used by NAI members.</p>
+
+  <p>Users in the European Union may also opt out of many third-party ad networks. For example, you may go to the European Interactive Digital Advertising Alliance ("EDAA") <a href="https://www.google.com/url?q=http://youronlinechoices.eu/&amp;sa=D&amp;ust=1556584969145000">Your Online Choices Page</a>for information about opting out of interest-based advertising and choices regarding having information used by <a href="https://www.google.com/url?q=http://www.youronlinechoices.com/goodpractice&amp;sa=D&amp;ust=1556584969145000">EDAA members</a>.</p>
+
+  <p>Opting out from one or more companies listed on the DAA <a href="https://www.google.com/url?q=http://www.aboutads.info/choices/&amp;sa=D&amp;ust=1556584969145000">Consumer Choice Page</a>, the <a href="https://www.google.com/url?q=http://www.networkadvertising.org/choices/&amp;sa=D&amp;ust=1556584969146000">NAI Consumer Opt-Out Page</a> or the EDAA <a href="https://www.google.com/url?q=http://youronlinechoices.eu/&amp;sa=D&amp;ust=1556584969146000">Your Online Choices Page</a> will opt you out from those companies' delivery of interest-based content or ads to you, but it does not mean you will no longer receive any advertising through our Website or on other websites. You may continue to receive advertisements, for example, based on the particular website that you are viewing (i.e., contextually based ads). Also, if your browsers are configured to reject cookies when you opt out on the DAA, NAI, or EDAA-related websites, your opt out may not be effective. Additional information is available on the DAA's website at <a href="https://www.google.com/url?q=http://www.aboutads.info/&amp;sa=D&amp;ust=1556584969146000">www.aboutads.info</a>, the NAI's website at <a href="https://www.google.com/url?q=http://www.networkadvertising.org/&amp;sa=D&amp;ust=1556584969147000">www.networkadvertising.org</a>, and the EDAA's website at <a href="https://www.google.com/url?q=http://www.youronlinechoices.com/goodpractice&amp;sa=D&amp;ust=1556584969147000">www.youronlinechoices.com/goodpractice</a>.</p>
+
+  <h3 id="8minors">8. Minors</h3>
+
+  <p>The Service is not directed toward children under 16 years of age, and PlanetScale  does not want to collect and does not seek to collect Personal Information from children under 16 or knowingly allow such persons to become a registered user of the Service.  If we discover that we have collected Personal Information from a child under 16, we will take steps to remove that information from our systems.  If you believe the Company inadvertently collected information from a child under 16 years of age, please contact contact@planetscale.com .</p>
+
+  <h3 id="9yourcaliforniaprivacyrightscaliforniadonottrackdisclosure">9. Your California Privacy Rights &amp; California Do Not Track Disclosure</h3>
+
+  <p>If you are a resident of the State of California, we provide you with information on how to exercise your disclosure choice options with respect to use of your Personal Information by third parties for marketing purposes. If you are a California resident and wish to request information about how to exercise your third-party disclosure choices, please send a request by email to our Privacy Administrator at contact@planetscale.com  detailing your privacy request. All requests must be labeled "Your California Privacy Rights" on the email subject line. For all requests, please clearly state that the request is related to "Your California Privacy Rights", include your name, street address, city, state, zip code and email address (your street address is optional if you wish to receive a response to your request via email) and indicate your preference on how our response to your request should be sent (email or postal mail). We will not accept requests via the telephone, postal mail or by fax. We are not responsible for notices that are not labeled or sent properly, or do not have complete or legible information.</p>
+
+  <p><em>Currently, our systems do not recognize browser "do-not-track" requests.</em> You may, however, disable certain tracking (e.g., by disabling cookies) as discussed above in the section "Our Use of Cookies and Other Tracking Mechanisms". For more information about tracking, please click <a href="https://www.google.com/url?q=http://www.allaboutdnt.com/&amp;sa=D&amp;ust=1556584969149000">here</a>.</p>
+
+  <h3 id="10transferofpersonalinformationtotheunitedstates">10. Transfer of Personal Information to the United States</h3>
+
+  <p>If you visit, access, interact with and/or otherwise use the Service from a location outside the United States, please be advised that any information you provide in connection with any such activity may be processed in and/or transferred to the United States of America and/or other territories and locations around the world, where privacy protections may not be as comprehensive as those in the territory or location where you interact with or otherwise use the Service. We have taken appropriate safeguards to require that your Personal Information will remain protected in accordance with this Privacy Policy. These include implementing the European Commission's Standard Contractual Clauses for transfers of Personal Information with our third party service providers and partners or ensuring that such service providers and partners are certified with the EU-U.S. Privacy Shield and the Swiss-U.S. Privacy Shield, and further details can be provided upon request.  By using the Services, you affirmatively consent to the transfer, use, disclosure, provision, and other administration of your information as described herein.</p>
+
+  <h3 id="11legalbasisforouruseeeavisitorsonly">11. Legal Basis For Our Use (EEA visitors only)</h3>
+
+  <p>If you are a resident from the European Economic Area, our legal basis for collecting and using the Personal Information described above will depend on the Personal Information concerned and the specific context in which we collect it.  However, we will normally collect Personal Information from you only where we have your consent to do so, where we need the Personal Information to perform a contract with you, or where the processing is in our legitimate interests and not overridden by your data protection interests or fundamental rights and freedoms.  In some cases, we may also have a legal obligation to collect Personal Information from you.</p>
+
+  <p>If we ask you to provide Personal Information to comply with a legal requirement or to perform a contract with you, we will make this clear at the relevant time and advise you whether the provision of your Personal Information is mandatory or not (as well as of the possible consequences if you do not provide your Personal Information).  Similarly, if we collect and use your Personal Information in reliance on our legitimate interests (or those of any third party), we will make clear to you at the relevant time what those legitimate interests are.</p>
+
+  <p>If you have questions about or need further information concerning the legal basis on which we collect and use your Personal Information for any specific processing activity, please contact us by sending an email to us at contact@planetscale.com .</p>
+
+  <h3 id="12security">12. Security</h3>
+
+  <p>We have a team dedicated to keeping your Personal Information secure.  We follow generally accepted standards to protect the Personal Information submitted to us, both during transmission and once we receive it, and have implemented appropriate physical and organizational measures to protect the Personal Information we collect from loss, misuse, and unauthorized access, disclosure, alteration, and destruction such as storing such information using third party data centers that are routinely and independently audited against widely accepted security standards, encrypting data at rest and in transit and providing security training to our employees.That said, like any managed service provider, we cannot guarantee that unauthorized third parties or unauthorized personnel will not gain access to your Personal Information despite our efforts. You should note that in using the Website and the Service, your information will travel through third-party infrastructures which are not under our control. You should take steps to protect against unauthorized access to your password, phone, and computer by, among other things, signing off after using a shared computer, choosing a robust password that nobody else knows or can easily guess, and keeping your login and password private. We are not responsible for any lost, stolen, or compromised passwords or for any activity on your account via unauthorized password activity.</p>
+
+  <h3 id="13dataretention">13. Data Retention</h3>
+
+  <p>We retain Personal Information we collect from you where we have an ongoing legitimate business need to do so (for example, to provide you with a service you have requested or to comply with applicable legal, tax or accounting requirements).  When we have no ongoing legitimate business need to process your Personal Information, we will either delete or anonymize it or, if this is not possible (for example, because your Personal Information has been stored in backup archives), then we will securely store your Personal Information and isolate it from any further processing until deletion is possible.</p>
+
+  <p>If you delete your account with our Service, we'll also delete this information. But please note: (1) there might be some latency in deleting this information from our servers and backup storage; (2) we may retain this information if necessary to comply with our legal obligations, resolve disputes, or enforce our agreements; and (3) where our customer of the Service is an organization and you are accessing and using the Service as an authorized representative of that organization, references to "you" and the like in this Privacy Policy generally refer to the customer organization, not individual end users. In such cases, we receive and process information under the direction of our customer. If you as an individual seek to delete an account or to delete inaccurate data, you should direct your query to the applicable customer organization, and we will respond to the customer's request within a reasonable timeframe.</p>
+
+  <h3 id="14linkstothirdpartywebsites">14. Links to Third Party Websites</h3>
+
+  <p>We are not responsible for the practices employed by third-party websites linked to or from the Service, nor the information or content contained therein. Please remember that when you use a link to go from the Website or the Service to a third-party website, this Privacy Policy is no longer in effect. Your browsing and interaction on any third-party website, including those that have a link from the Service, is subject to that third-party website's own rules and policies.</p>
+
+  <h3 id="15privacypolicychanges">15. Privacy Policy Changes</h3>
+
+  <p>From time to time, we may modify this Privacy Policy to reflect industry initiatives, third party requirements or changes in the law, our information collection, use and disclosure practices, the features and functionality of the Service, or technology, and such modifications shall be effective upon posting. In the event we update this Privacy Policy, we will update the "Last Updated" date above, and will provide notice on the Website and within the Service. It is therefore important that you review this Privacy Policy regularly to ensure you are updated as to any changes.  If we make any changes to this Policy that materially affect our practices with regard to the Personal Information we have previously collected from you, we will endeavor to notify you of such change by posting an announcement within the Service or contacting you directly via email or using other contact information that we have on file for you. If we are required by applicable data protection laws to seek your consent to any changes in use of your Personal Information described in our updated Privacy Policy, then we will do so.</p>
+
+  <h3 id="16accuracy">16. Accuracy</h3>
+
+  <p>It is your responsibility to give us current, complete, truthful and accurate information, including Personal Information, and to keep such information up to date. We cannot and will not be responsible for any problems or liability that may arise if you do not give us accurate, truthful or complete information or Personal Information or you fail to update such information or Personal Information. We will reject and delete any entry that we believe in good faith to be false, fraudulent or inconsistent with this Privacy Policy.</p>
+
+  <h3 id="17contactus">17. Contact Us</h3>
+
+  <p>If you have any questions about our privacy practices or any of the terms or conditions of this Privacy Policy, please feel free to contact us at:</p>
+
+  <p>PlanetScale , Inc.
+  Attn: Customer Support
+  278 Hope Street, Suite E
+  Mountain View, CA 94041
+  650-227-9714
+  contact@planetscale.com</p>
+
+  <h3 id="18solestatement">18. Sole Statement</h3>
+
+  <p>This document is the sole statement of the Privacy Policy for the Service and no summary, restatement or other version thereof, or other privacy statement or policy, in any form, including, without limitation, machine-generated, is valid.</p>
