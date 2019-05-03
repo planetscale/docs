@@ -88,7 +88,7 @@ const PageLists = styled.div`
     list-style: none;
 
     ${media.largePhone`
-      line-height: 3;
+      line-height: 2;
       font-size: 1.25em;
       text-align: center;
     `};
@@ -180,6 +180,7 @@ const FooterH4 = styled.h4`
 
   ${media.largePhone`
     text-align: center;
+    margin-bottom: .25em;
   `};
 `
 
@@ -196,7 +197,7 @@ const ListSection = styled.div`
   }
   ${media.largePhone`
     &:not(:last-child) {
-      margin-bottom: 1.75em;
+      margin-bottom: 2em;
     }
   `};
 `
