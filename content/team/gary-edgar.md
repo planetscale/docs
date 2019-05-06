@@ -1,7 +1,7 @@
 ---
 image: /img/team-member-gary-edgar.jpg
 name: Gary Edgar 
-role: Envoy Extraordinaire of Customers 
+role: Envoy Extraordinary of Customers 
 linkedin: 'gedgar'
 order: 14
 ---
