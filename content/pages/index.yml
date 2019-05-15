@@ -41,3 +41,15 @@ offerings:
   icon: /img/planetscale-cloud.png
   content: >-
     Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Sign up for early access to our Database-as-a-Service beta today.
+conference:
+  banner:
+    text: >-
+      Data explosion, no problem! Vitess + PlanetScale, at KubeCon Barcelona helping you grow.
+    img: //events.linuxfoundation.org/wp-content/uploads/2018/08/kccnc-eu-2019-white.svg
+    link: //events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/
+    eventDate: May 20-23, 2019
+  buttons:
+    - text: Set Up a Meeting
+      link: //calendly.com/planetscale
+    - text: Hear Us Speak
+      link: /news/planetscale-in-barcelona/

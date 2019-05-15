@@ -10,6 +10,11 @@ import { FeatureContainer, Feature } from '../components/Vitess.Features'
 import { Footer } from '../components/Layout.Footer'
 import { ContactSalesCard } from '../components/Home.ContactSalesCard'
 import MarkdownContent from '../components/Common.MarkdownContent'
+import ConferenceBanner, {
+  ConferenceImage,
+  ConferenceImageLink,
+  ConferenceImageDate,
+} from '../components/ConferenceBanner'
 
 import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
@@ -45,7 +50,17 @@ export default function IndexPage({ data, location }) {
         backgroundImage={background}
         backgroundColor={'#EFAD2D'}
         overlay={overlay}
+        wrap="wrap"
       >
+        <ConferenceBanner data={pageData.conference}>
+          <ConferenceImageLink href={pageData.conference.banner.link}>
+            <ConferenceImage src={pageData.conference.banner.img} alt="" />
+          </ConferenceImageLink>
+          <h2>{pageData.conference.banner.text}</h2>
+          <ConferenceImageDate>
+            {pageData.conference.banner.eventDate}
+          </ConferenceImageDate>
+        </ConferenceBanner>
         <Wrapper>
           <HeroTitle>{pageData.subtitle}</HeroTitle>
           <HeroSubTitle>{pageData.content}</HeroSubTitle>
@@ -100,6 +115,18 @@ export const pageQuery = graphql`
             title
             icon
             content
+          }
+          conference {
+            banner {
+              text
+              img
+              link
+              eventDate
+            }
+            buttons {
+              text
+              link
+            }
           }
         }
       }

@@ -14,13 +14,17 @@ const styles = `
   font-weight: 600;
   height: auto;
   letter-spacing: .025em;
-  line-height: 40px;
-  padding: 0 14px;
+  padding: 0;
   text-transform: uppercase;
-  transition: all .15s ease;  
+  transition: all .15s ease;
   text-align: center;
   font-size: 15px;
   background-size: cover;
+
+  a {
+    padding: 11px 14px;
+    display: inline-block;
+  }
 
   ${media.largePhone`
     width: 100%;

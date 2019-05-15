@@ -14,12 +14,12 @@ const _Hero = styled.section`
   position: relative;
   padding-bottom: 12em;
   width: 100%;
-
+  flex-wrap: ${(props) => props.wrap || 'nowrap'};
   overflow: hidden;
 
   ${media.largePhone`
-   text-align: center;
-   padding-bottom: 10em;
+    text-align: center;
+    padding-bottom: 10em;
   `};
 `
 
@@ -86,9 +86,15 @@ const BottomOverlay = styled.img`
   z-index: 0;
 `
 
-export function Hero({ backgroundImage, backgroundColor, overlay, children }) {
+export function Hero({
+  backgroundImage,
+  backgroundColor,
+  overlay,
+  wrap,
+  children,
+}) {
   return (
-    <_Hero>
+    <_Hero wrap={wrap}>
       <SmartImage
         img={backgroundImage}
         backgroundColor={backgroundColor}
