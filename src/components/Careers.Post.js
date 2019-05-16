@@ -100,6 +100,9 @@ const ButtonLink = styled(OutboundLink)`
   display: inline-block;
   margin: 3em 0 1em;
   width: 100%;
+  & > * {
+    padding: 11px 14px;
+  }
 `
 
 const Content = styled.div`
