@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale at KubeCon Barcelona'
 date: '2019-05-13'
-description: 'The Planet Scale team will be at KubeCon + CloudNative Con in full force! Come say hi at KubeHunt, at our booth, or listen to our talks.' 
+description: 'The PlanetScale team will be at KubeCon + CloudNative Con in full force! Come say hi at KubeHunt, at our booth (SE28), or listen to our talks.' 
 comments: true
 share: true
 author: 'Adrianna Tan'
@@ -10,7 +10,8 @@ author: 'Adrianna Tan'
 
 The PlanetScale team will be at KubeCon + CloudNative Con in full force!
 
-* We kick off on Monday 05/20/2019 with [KubeHunt](http://bit.ly/kubehunt-2019-planetscale) (sign up now!), a treasure hunt co-hosted with Red Hat, Turbonomic, and other great companies. We will conclude the evening with "Smooth Operator", a special event at [Ocana](https://goo.gl/maps/rhaU49iD86qK5LnL7) to hear about how and why PlanetScale built a certified operator   
+* We kick off on Monday 05/20/2019 with two of our engineers speaking at Cloud Native Storage Day. Dan will speak on "Stateful Applications in Production" at 10:30-11:00, then at 12:45 Deepthi will moderate the panel, "Best Practices for creating DBaaS using CNS". [Details here](https://www.cloudnativestorageday.com/).
+* For something completely different, come join [KubeHunt](http://bit.ly/kubehunt-2019-planetscale), a treasure hunt co-hosted with Red Hat, Turbonomic, and other great companies. [Sign up now](http://bit.ly/kubehunt-2019-planetscale) to take the chance to see Barcelona's delightful Gothic Quarter, possibly winning great prizes in the process. For the best part of the day, come to "Smooth Operator" (you need to have registered for KubeHunt to attend), a special event at [Ocana](https://goo.gl/maps/rhaU49iD86qK5LnL7) to hear about how and why PlanetScale built a certified operator   
 * Jiten will have some great news to share! He’ll be meeting with users, partners, press, analysts, and basically anyone who wants to talk about PlanetScale.
 * All day Monday, we’ll be at the [Kubernetes Operator Frameworks Workshop](https://events.linuxfoundation.org/events/kubecon-cloudnativecon-europe-2019/co-located-events/). There’s a little bit of Vitess to talk about there! The workshop is at capacity, but there is a waitlist and the doors open at 3pm to talk Operators. **Monday 05/20/19 9:00-17:00, Fira Gran Via Hall 8.0 Room D2.**
 * Sugu and Deepthi are doing an [Intro to Vitess](https://sched.co/MPiq), covering the features and a tutorial (!) on bringing up a Vitess cluster in Kubernetes. They will then go through the steps to reshard the database while it’s serving live traffic. **Wednesday 05/22/19 11:05, Hall 8.0 E1.**
