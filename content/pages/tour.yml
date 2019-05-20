@@ -1,0 +1,22 @@
+title: PlanetScale Cloud Database Tour
+subtitle: >-
+  A quick runthrough of key features
+screens:
+  list:
+    - image: /img/screens/screen_cluster.png
+      title: Quickly Create Clusters
+      description: >-
+        The cluster screen gives you an overview of its usage, access to the MySQL connection string and the ability to spin up databases.
+    - image: /img/screens/screen_database.png
+      title: Deploy Databases
+      description: >-
+        Get an overview of deployed databases, access to Vitess control panels, usage, and a list of all its instances. You can also view and update the schema and the sharding scheme.
+    - image: /img/screens/screen_sharding_scheme.png
+      title: Granular Sharding Control
+      description: >-
+        Easily apply sharding schemes to databases to define how your tables would be organized across shards.
+offerings:
+  title: Sign Up for our Early Beta
+  icon: /img/planetscale-cloud.png
+  content: >-
+    Spin out multi-cloud Vitess clusters without any of the operational overhead. Sign up for early access to our Database-as-a-Service beta today.

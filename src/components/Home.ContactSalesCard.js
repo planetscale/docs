@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { media } from '../styles/media'
 import { Button } from '../components/Common.Button'
-import background from '../images/hero/home-bg.svg'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 const _Container = styled.div`

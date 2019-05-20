@@ -10,6 +10,8 @@ import background from '../images/hero/blog-bg.svg'
 
 const _BlogPostLink = styled.article`
   margin: 0 5em 5em 5em;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 5em;
 
   ${media.largePhone`
      margin: 0 2em 5em 2em;

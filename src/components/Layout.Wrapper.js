@@ -1,7 +1,4 @@
-import React from 'react'
 import styled from 'styled-components'
-import { fadeInAnimation } from '../styles/animations'
-
 import { media } from '../styles/media'
 
 export const Wrapper = styled.section`
@@ -23,4 +20,10 @@ export const SmallWrapper = Wrapper.extend`
 
 export const HeaderWrapper = Wrapper.extend`
   max-width: 100%;
+`
+
+export const TourWrapper = Wrapper.extend`
+  ${media.largePhone`
+  padding: 0;
+  `};
 `
