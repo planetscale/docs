@@ -6,17 +6,17 @@ products:
   title: Start Scaling Here
   list:
     - icon: /img/planetscale-cloud.png
-      title: Database-as-a-Service
+      title: Cloud Database
       action: Sign Up For Early Access
       link: /signup
       content: >-
-        Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Choose from a multi-region deployment in a single cloud or a multi-cloud environment with masters and replicas spread around the globe. Whatever your scaling needs, we’re here to meet them.
+        PlanetScale Cloud Database is a multi-cloud, multi-region relational database service that makes it easy to provision, manage, and scale your databases as they grow. It provides built-in, transparent sharding for unlimited scale, while managing common database tasks and protecting your database from toxic queries.
     - icon: /img/vitess-operator.png
-      title: Cluster Manager Software Licenses
+      title: Enterprise Database
       action: Contact Us
       link: /contact
       content: >-
-        Don’t need a full  offering? License the software we use for our DbaaS customers and run it in your own cloud deployment or on premise. You can administer it yourself or have us carry the pager.
+        We provide you with the same great features as the Cloud Database, but we’ll meet you where your data lives. License our control plane and Kubernetes operator to deploy and manage databases that scale to fit your evolving needs. Administer them yourself or have us carry the pager.
     - icon: /img/customized-services.png
       title: Open Source Vitess Support
       action: Contact Us
