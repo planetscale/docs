@@ -2,6 +2,7 @@
 title: PlanetScale secures Series A
 date: '2019-05-23T13:05:25+02:00'
 description: PlanetScale raises Series A funding from a16z
+author: ‘Jiten Vaidya’
 comments: false
 share: false
 ---
