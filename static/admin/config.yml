@@ -56,6 +56,7 @@ collections:
       - { label: 'Title', name: 'title', widget: 'string' }
       - { label: 'Date', name: 'date', widget: 'datetime' }
       - { label: 'Description', name: 'description', widget: 'text' }
+      - { label: 'Author', name: 'author', widget: 'text' }
       - { label: 'Comments', name: 'comments', widget: 'boolean' }
       - { label: 'Social Sharing', name: 'share', widget: 'boolean' }
       - { label: 'Body', name: 'body', widget: 'markdown' }
