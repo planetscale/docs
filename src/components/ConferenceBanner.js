@@ -8,18 +8,25 @@ const ButtonLink = styled.a`
 `
 
 const _ConferenceBanner = styled.div`
-  background-color: rgba(255, 255, 255, 0.3);
   color: white;
   line-height: 1.3;
   z-index: 2;
   margin: 8em 0 -5em;
   padding: 2em;
+  width: 100%;
+  background: linear-gradient(45deg, rgba(255, 255, 255, 0.3), transparent);
+  max-width: 1170px;
+  box-sizing: border-box;
 
   h2 {
     margin-top: 0;
     margin-bottom: 0;
     text-align: left;
   }
+
+  ${media.largePhone`
+    background: rgba(255, 255, 255, 0.3);
+  `};
 `
 
 const ActionContainer = styled.div`
@@ -42,6 +49,8 @@ export const ConferenceImageLink = styled.a`
   display: inline-block;
   width: 200px;
   padding: 0 0 1em;
+  border-bottom: 1px solid;
+  margin-bottom: 1em;
 
   ${media.largePhone`
     width: 100%;
@@ -56,6 +65,7 @@ export const ConferenceImageDate = styled.h3`
 
 export const ConferenceImage = styled.img`
   border: none;
+  width: 200px;
 `
 
 export default function ConferenceBanner(props) {
