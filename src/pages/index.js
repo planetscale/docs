@@ -52,15 +52,6 @@ export default function IndexPage({ data, location }) {
         overlay={overlay}
         wrap="wrap"
       >
-        <ConferenceBanner data={pageData.conference}>
-          <ConferenceImageLink href={pageData.conference.banner.link}>
-            <ConferenceImage src={pageData.conference.banner.img} alt="" />
-          </ConferenceImageLink>
-          <h2>{pageData.conference.banner.text}</h2>
-          <ConferenceImageDate>
-            {pageData.conference.banner.eventDate}
-          </ConferenceImageDate>
-        </ConferenceBanner>
         <Wrapper>
           <HeroTitle>{pageData.subtitle}</HeroTitle>
           <HeroSubTitle>{pageData.content}</HeroSubTitle>
