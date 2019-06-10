@@ -52,6 +52,7 @@ export const CalendlyWrap = styled.div`
   }
 
   .calendly-inline-widget {
+    height: 100vh;
     width: 100%;
     flex-grow: 1;
   }
