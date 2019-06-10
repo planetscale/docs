@@ -5,6 +5,7 @@ import { media } from './media'
 
 injectGlobal`
   ${styledNormalize}
+
   body {
   	background: white;
     max-width: 100vw;
@@ -14,6 +15,7 @@ injectGlobal`
       overflow-x: hidden;
       position: relative;
   }
+
   a {
     color: inherit;
     font-weight: 500;
@@ -25,6 +27,7 @@ injectGlobal`
       padding: 11px 14px !important;
     }
   }
+
   .Typist {
   	display: inline;
   	padding-left: 7px;
@@ -37,14 +40,8 @@ injectGlobal`
   .rodal-close:before, .rodal-close:after {
     background: white !important;
   }
-  .sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
+
+  .calendly-open  .crisp-client {
+    display: none;
   }
 `

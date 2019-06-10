@@ -20,12 +20,6 @@ export const sizes = theme.sizes
 
 export const headerLinks = [
   {
-    id: 'team',
-    name: 'About Us',
-    to: '/team',
-  },
-
-  {
     id: 'products',
     name: 'Products',
     to: '/products',
@@ -42,12 +36,6 @@ export const headerLinks = [
     name: 'Join our Team',
     to: '/careers',
   },
-
-  {
-    id: 'contact',
-    name: 'Contact',
-    to: '/contact',
-  },
 ]
 
 export const footerLinks = [
@@ -63,6 +51,21 @@ export const footerLinks = [
         id: 'faq',
         name: 'FAQ',
         to: '/faq',
+      },
+      {
+        id: 'team',
+        name: 'About Us',
+        to: '/team',
+      },
+      {
+        id: 'media',
+        name: 'Media Kit',
+        to: '/media',
+      },
+      {
+        id: 'contact',
+        name: 'Contact',
+        to: '/contact',
       },
     ],
   },

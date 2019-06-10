@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import styled, { injectGlobal } from 'styled-components'
-import { Button } from '../components/Common.Button'
+import { Button, NativeButton } from '../components/Common.Button'
 import { HeaderWrapper } from '../components/Layout.Wrapper'
 
 import { media } from '../styles/media'
+
+import TalkDrawer from './TalkToUs/Main'
 
 import logo from '../../static/img/logo.png'
 import background from '../images/hero/home-bg.svg'
@@ -24,7 +26,7 @@ const _Header = styled.header`
   z-index: 1337;
   position: absolute;
 
-  ${media.tablet`
+  ${media.desktop`
     width: 100%;
     margin: 0 auto;
 
@@ -41,8 +43,12 @@ const Nav = styled.nav`
   align-items: center;
   box-sizing: border-box;
   padding-bottom: 10px;
+  flex-direction: row;
+  justify-content: flex-start;
 
-  ${media.tablet`
+  ${media.desktop`
+    flex-direction: column;
+    justify-content: center;
     height: 100vh;
     background-image: url(${background});
     background-size: cover;
@@ -51,6 +57,7 @@ const Nav = styled.nav`
     transform: translateX(${(props) => (props.visible ? '0' : '100vw')}) ;
     top: 0;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
+
   `};
 `
 
@@ -59,9 +66,11 @@ const NavList = styled.ol`
   flex-grow: 2;
   text-align: center;
 
-  ${media.tablet`
+  ${media.desktop`
     flex-wrap: wrap;
     margin: 0 auto;
+    order: 2;
+    flex-grow: 0;
   `};
 `
 
@@ -81,14 +90,14 @@ const NavListItem = styled.li`
     }
   }
 
-  ${media.tablet`
+  ${media.desktop`
     width: 100%;
     text-align: center;
-    font-size: 2.5em;
+    font-size: 2.2em;
     margin-left: 0;
 
     &:not(:first-child) {
-      padding-top: 8vmin;
+      padding-top: 5vmin;
     }
   `};
 `
@@ -110,7 +119,7 @@ const MobileHeaderButton = styled.button`
     outline: none;
   }
 
-  ${media.tablet`
+  ${media.desktop`
     display: inline-block;
     position: ${(props) => (props.visible ? 'fixed' : 'absolute')};
     padding-right: 1.7rem;
@@ -133,7 +142,7 @@ const Logo = styled.img`
   max-height: 40px;
   margin-bottom: -2px;
 
-  ${media.tablet`
+  ${media.desktop`
     display: none;
   `};
 `
@@ -144,7 +153,7 @@ const MobileLogo = styled.img`
   position: ${(props) => (props.visible ? 'fixed' : 'static')};
   z-index: 1338;
 
-  ${media.tablet`
+  ${media.desktop`
     display: block;
   `};
 `
@@ -152,7 +161,7 @@ const MobileLogo = styled.img`
 const MobileLogoWrapper = styled(Link)`
   display: none;
 
-  ${media.tablet`
+  ${media.desktop`
     display: inline-block;
     padding-top: 25px;
     padding-left: 20px;
@@ -160,8 +169,12 @@ const MobileLogoWrapper = styled(Link)`
 `
 
 const RightSide = styled.div`
+  button {
+    margin-left: 0.5em;
+  }
+
   ${media.desktop`
-    display: none;
+    margin-bottom: 2rem;
   `};
 `
 
@@ -176,7 +189,53 @@ export class Header extends Component {
     this.state = {
       sideBarOpen: false,
       modalOpen: false,
+      talkDrawerOpen: false,
     }
+
+    this.handleTalkClick = this.handleTalkClick.bind(this)
+    this.checkFixedPage = this.checkFixedPage.bind(this)
+    this.escHandler = this.escHandler.bind(this)
+  }
+
+  componentDidMount() {
+    document.addEventListener('keydown', this.escHandler, false)
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.escHandler, false)
+  }
+
+  escHandler(event) {
+    if (event.keyCode === 27) {
+      const html = document.querySelector('html')
+      if (html.classList) {
+        if (html.classList.contains('calendly-open')) {
+          this.handleTalkClick()
+        } else if (html.classList.contains('fixed')) {
+          this.toggleSidebar(false)
+        }
+      }
+    }
+  }
+
+  checkFixedPage() {
+    this.state.sideBarOpen
+      ? document.querySelector('html').classList.add('fixed')
+      : document.querySelector('html').classList.remove('fixed')
+  }
+
+  handleTalkClick() {
+    const { talkDrawerOpen } = this.state
+    this.setState({ talkDrawerOpen: !talkDrawerOpen }, () => {
+      const html = document.querySelector('html')
+      const clazz = 'calendly-open'
+      if (html.classList && html.classList.contains(clazz)) {
+        html.classList.remove(clazz)
+      } else {
+        html.classList.add(clazz)
+      }
+      this.checkFixedPage()
+    })
   }
 
   toggleSidebar = (boolean) => {
@@ -193,9 +252,7 @@ export class Header extends Component {
         }
       },
       () => {
-        this.state.sideBarOpen
-          ? document.querySelector('html').classList.add('fixed')
-          : document.querySelector('html').classList.remove('fixed')
+        this.checkFixedPage()
       }
     )
   }
@@ -208,11 +265,16 @@ export class Header extends Component {
     })
 
   render() {
-    const { location, pages } = this.props
-    const { sideBarOpen, modalOpen } = this.state
+    const { location, pages, calendly } = this.props
+    const { sideBarOpen, modalOpen, talkDrawerOpen } = this.state
 
     return (
       <React.Fragment>
+        <TalkDrawer
+          onClick={this.handleTalkClick}
+          visible={talkDrawerOpen}
+          calendly={calendly}
+        />
         <_Header visible={sideBarOpen}>
           <HeaderWrapper>
             <Nav visible={sideBarOpen}>
@@ -239,6 +301,12 @@ export class Header extends Component {
                 <Button>
                   <ButtonLink href="/signup">Sign Up</ButtonLink>{' '}
                 </Button>
+                <NativeButton
+                  onClick={this.handleTalkClick}
+                  style={{ fontWeight: '500', letterSpacing: '.025em' }}
+                >
+                  Talk to us
+                </NativeButton>
               </RightSide>
             </Nav>
           </HeaderWrapper>

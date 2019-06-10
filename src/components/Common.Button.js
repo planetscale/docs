@@ -28,6 +28,7 @@ const styles = `
     ${buttonPadding}
   }
   a {
+    ${buttonPadding}
     display: inline-block;
   }
   ${media.largePhone`

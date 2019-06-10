@@ -26,6 +26,7 @@ export default class TemplateWrapper extends React.Component {
 
   render() {
     const { location, children, data } = this.props
+    const calendly = data.allPagesYaml.edges[0].node
 
     return (
       <React.Fragment>
@@ -51,7 +52,11 @@ export default class TemplateWrapper extends React.Component {
         </Helmet>
         <ThemeProvider theme={theme}>
           <React.Fragment>
-            <Header pages={headerLinks} location={location} />
+            <Header
+              pages={headerLinks}
+              location={location}
+              calendly={calendly}
+            />
             {children()}
           </React.Fragment>
         </ThemeProvider>
@@ -61,11 +66,11 @@ export default class TemplateWrapper extends React.Component {
 }
 
 export const query = graphql`
-  query allPages {
-    allSitePage {
+  query calendlyQuery {
+    allPagesYaml(filter: { id: { regex: "/pages/calendly/" } }) {
       edges {
         node {
-          path
+          closeDialog
         }
       }
     }
