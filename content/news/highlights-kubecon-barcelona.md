@@ -1,7 +1,7 @@
 ---
-title: 'Highlights from KubeCon Barcelona'
+title: 'Highlights from KubeCon Europe 2019'
 date: '2019-05-29'
-description: 'Results of an independent security audit of Vitess'
+description: 'The Planetscale team was in Barcelona in May for Kubecon+CloudNativeCon Europe'
 comments: true
 share: true
 author: 'Adrianna Tan'
