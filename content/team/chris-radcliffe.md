@@ -3,7 +3,7 @@ image: /img/team-member-chris-radcliffe.jpg
 name: Chris Radcliffe 
 role: Customer Success Engineer 
 linkedin: 'chrisradcliffe1'
-order: 13
+order: 12
 ---
 
 Chris focuses on delivery of PlanetScale's offerings to new customers, and their continued success.

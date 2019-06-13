@@ -3,7 +3,7 @@ image: /img/team-member-anthony-yeh.jpg
 name: Anthony Yeh 
 role: Software Engineer 
 linkedin: 'anthonyyeh'
-order: 11
+order: 10
 ---
 Anthony joined the Vitess team in 2014 and quickly made it his mission to help Vitess "escape" from YouTube by supporting external users and contributors with docs, scripts, tutorials, blog posts, a release process, and features that eliminated dependencies on Google-internal infrastructure. He also maintained the Vitess control plane components, going on call and working with YouTube SREs to improve operability, reliability, and scalability.
 
