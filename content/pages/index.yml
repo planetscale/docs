@@ -44,12 +44,10 @@ offerings:
 conference:
   banner:
     text: >-
-      Vitess and PlanetScale at PerconaLive 2019
-    img: //www.percona.com/live/19/sites/default/files/pl19-logo.png
-    link: //www.percona.com/live/19/
-    eventDate: May 28-30, 2019
+      Vitess and PlanetScale at RootConf 2019
+    img: //rootconf.in/images/rootconf-logo.png
+    link: //rootconf.in/2019/
+    eventDate: June 21-22, 2019
   buttons:
-    - text: Set Up a Meeting
-      link: //calendly.com/planetscale
     - text: Hear Us Speak
-      link: /news/planetscale-at-perconalive-2019/
+      link: /news/planetscale-at-rootconf-2019
