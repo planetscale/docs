@@ -1,3 +1,4 @@
+id: downloads
 title: Downloads
 subtitle: >-
   PlanetScale Releases
@@ -56,7 +57,7 @@ releases:
     - title: Vitess Release 9094685
       link: https://github.com/planetscale/vitess-releases/releases/tag/9094685
       content: >-
-        Created on 05 February 2019  
+        Created on 05 February 2019
     - title: Vitess Release a88142d
       link: https://github.com/planetscale/vitess-releases/releases/tag/a88142d
       content: >-

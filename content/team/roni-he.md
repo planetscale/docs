@@ -1,7 +1,7 @@
 ---
-image: /img/team-member-roni-he.png
-name: Roni He 
-role: Software Engineer 
+image: /img/team/team-member-roni-he.png
+name: Roni He
+role: Software Engineer
 linkedin: 'ronihe'
 order: 16
 ---

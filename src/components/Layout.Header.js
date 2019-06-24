@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import styled, { injectGlobal } from 'styled-components'
+import styled, { createGlobalStyle } from 'styled-components'
 import { Button, NativeButton } from '../components/Common.Button'
 import { HeaderWrapper } from '../components/Layout.Wrapper'
+import { StaticQuery, graphql } from 'gatsby'
 
 import { media } from '../styles/media'
 
@@ -11,7 +12,7 @@ import TalkDrawer from './TalkToUs/Main'
 import logo from '../../static/img/logo.png'
 import background from '../images/hero/home-bg.svg'
 
-injectGlobal`
+const GlobalStyle = createGlobalStyle`
   html.fixed,
   html.fixed body {
     position: fixed;
@@ -182,7 +183,7 @@ const ButtonLink = styled.a`
   text-decoration: none;
 `
 
-export class Header extends Component {
+class Header extends Component {
   constructor(props) {
     super(props)
 
@@ -265,11 +266,12 @@ export class Header extends Component {
     })
 
   render() {
-    const { location, pages, calendly } = this.props
-    const { sideBarOpen, modalOpen, talkDrawerOpen } = this.state
+    const { location, pages, data } = this.props
+    const { sideBarOpen, talkDrawerOpen } = this.state
+    const calendly = data.allPagesYaml.edges[0].node
 
     return (
-      <React.Fragment>
+      <>
         <TalkDrawer
           onClick={this.handleTalkClick}
           visible={talkDrawerOpen}
@@ -288,7 +290,7 @@ export class Header extends Component {
                       <Link
                         onClick={() => this.toggleSidebar(false)}
                         to={`${to}`}
-                        exact
+                        exact="true"
                         activeStyle={{ opacity: 1 }}
                       >
                         {name}
@@ -328,7 +330,25 @@ export class Header extends Component {
             <MobileLogo src={logo} visible={sideBarOpen} />
           </MobileLogoWrapper>
         </_Header>
-      </React.Fragment>
+        <GlobalStyle />
+      </>
     )
   }
 }
+
+export default (props) => (
+  <StaticQuery
+    query={graphql`
+      query calendlyQuery {
+        allPagesYaml(filter: { id: { eq: "calendly" } }) {
+          edges {
+            node {
+              closeDialog
+            }
+          }
+        }
+      }
+    `}
+    render={(data) => <Header data={data} {...props} />}
+  />
+)

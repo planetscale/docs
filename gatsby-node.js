@@ -1,44 +1,27 @@
-const slug = require(`slug`)
-const path = require(`path`)
-// Implement the Gatsby API `createPages`. This is called once the
-// data layer is bootstrapped to let plugins create pages from data.
-// exports.createPages = ({ boundActionCreators }) => {
-// 	// We need `createRedirect` action in `boundActionCreators` collection
-// 	// to make the redirection magic happen.
-// 	// https://www.gatsbyjs.org/docs/bound-action-creators/
-// 	const { createRedirect } = boundActionCreators;
+const slug = require('slug')
+const path = require('path')
 
-// 	// create the one-off redirect
-// 	// https://www.gatsbyjs.org/docs/bound-action-creators/#createRedirect
-// 	// createRedirect({
-// 	// 	fromPath: '/stockists',
-// 	// 	isPermanent: true,
-// 	// 	redirectInBrowser: true,
-// 	// 	toPath: '/shops'
-// 	// });
-// };
-
-exports.onCreateNode = ({ node, getNode, boundActionCreators }) => {
-  if (node.internal.type === `MarkdownRemark`) {
-    const { createNodeField, deleteNode } = boundActionCreators
+exports.onCreateNode = ({ node, getNode, actions }) => {
+  if (node.internal.type === 'MarkdownRemark') {
+    const { createNodeField } = actions
     const parent = getNode(node.parent)
 
     createNodeField({
       node,
-      name: `slug`,
+      name: 'slug',
       value: slug(parent.name),
     })
     createNodeField({
       node,
-      name: `collection`,
+      name: 'collection',
       value: parent.name === 'noop' ? 'noop' : parent.sourceInstanceName,
     })
   }
 }
 
-exports.createPages = ({ graphql, boundActionCreators }) => {
-  const { createPage } = boundActionCreators
-  return new Promise((resolve, reject) => {
+exports.createPages = ({ graphql, actions }) => {
+  const { createPage } = actions
+  return new Promise((resolve) => {
     graphql(`
       {
         allMarkdownRemark {
@@ -73,12 +56,17 @@ exports.createPages = ({ graphql, boundActionCreators }) => {
   })
 }
 
-exports.modifyWebpackConfig = ({ config, stage }) => {
-  // fixes issues statically building sites when dependencies asuming window/document
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
-    config.loader('null', {
-      test: /details-element-polyfill/,
-      loader: 'null-loader',
+    actions.setWebpackConfig({
+      module: {
+        rules: [
+          {
+            test: /details-element-polyfill/,
+            use: loaders.null(),
+          },
+        ],
+      },
     })
   }
 }

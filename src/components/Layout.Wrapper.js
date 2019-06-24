@@ -5,7 +5,8 @@ export const Wrapper = styled.section`
   box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
-  max-width: ${(props) => props.theme.sizes.maxWidth};
+  max-width: ${(props) =>
+    props.theme && props.theme.sizes && props.theme.sizes.maxWidth};
   padding: 2em 1.5em 2em;
   z-index: 1;
 
@@ -14,16 +15,11 @@ export const Wrapper = styled.section`
   `};
 `
 
-export const SmallWrapper = Wrapper.extend`
-  max-width: ${(props) => props.theme.sizes.maxWidthCentered};
+export const SmallWrapper = styled(Wrapper)`
+  max-width: ${(props) =>
+    props.theme && props.theme.sizes && props.theme.sizes.maxWidthCentered};
 `
 
-export const HeaderWrapper = Wrapper.extend`
+export const HeaderWrapper = styled(Wrapper)`
   max-width: 100%;
-`
-
-export const TourWrapper = Wrapper.extend`
-  ${media.largePhone`
-  padding: 0;
-  `};
 `

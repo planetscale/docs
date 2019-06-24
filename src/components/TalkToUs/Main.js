@@ -4,10 +4,6 @@ import '../../styles/globals'
 import { DialogCloseButton, CalendlyWrap, CalendlyWrapContent } from './styles'
 
 export default class TalkDrawer extends Component {
-  constructor(props) {
-    super(props)
-  }
-
   static propTypes = {
     visible: PropTypes.bool.isRequired,
     onClick: PropTypes.func.isRequired,

@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Layout from '../components/layout'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 
@@ -20,7 +22,7 @@ export default function ThanksPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <React.Fragment>
+    <Layout>
       <TitleAndMetaTags title="Thanks" pathname="thanks" />
       <Hero
         backgroundImage={background}
@@ -33,18 +35,18 @@ export default function ThanksPage({ data }) {
           </HeroTitle>
           <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
           <HeroContent>{pageData.content}</HeroContent>
-          <Link to={`/`}>
+          <Link to={'/'}>
             <Button>{pageData.backButton}</Button>
           </Link>
         </Wrapper>
       </Hero>
-    </React.Fragment>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query thanksQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/thanks/" } }) {
+    allPagesYaml(filter: { id: { eq: "thanks" } }) {
       edges {
         node {
           title

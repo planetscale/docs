@@ -1,5 +1,5 @@
 ---
-image: /img/team-member-deepthi.jpg
+image: /img/team/team-member-deepthi.jpg
 name: Deepthi Sigireddi
 role: Software Engineer
 linkedin: 'deepthi-sigireddi'

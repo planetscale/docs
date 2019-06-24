@@ -28,7 +28,7 @@ const InputField = styled.input`
   box-sizing: border-box;
 `
 
-const FormSubmitButton = InputButton.extend`
+const FormSubmitButton = styled(InputButton)`
   margin-top: 1.5em;
   background-color: #e46a5c;
 `

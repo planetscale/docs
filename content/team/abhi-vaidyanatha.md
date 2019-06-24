@@ -1,5 +1,5 @@
 ---
-image: /img/team-member-abhi.jpg
+image: /img/team/team-member-abhi.jpg
 name: Abhi Vaidyanatha
 role: Software Engineer and Brew Architect
 linkedin: 'avaidyanatha'

@@ -71,7 +71,7 @@ const Checkbox = styled.div`
   `};
 `
 
-const FormSubmitButton = InputButton.extend`
+const FormSubmitButton = styled(InputButton)`
   margin-top: 1.5em;
   background-color: #e46a5c;
 `

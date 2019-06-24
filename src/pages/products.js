@@ -1,4 +1,7 @@
 import React from 'react'
+import Layout from '../components/layout'
+import PropTypes from 'prop-types'
+import { graphql } from 'gatsby'
 import { H1 } from '../components/Typography.Headings'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
@@ -19,39 +22,45 @@ export default function ProductPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="Products" pathname="product" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#EFAD2D'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="Products" pathname="product" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#EFAD2D'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>{pageData.content}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
+          <ProductContainer>
+            <H1>{pageData.products.title}</H1>
+            {pageData.products.list.map(Product)}
+          </ProductContainer>
         </Wrapper>
-      </Hero>
-      <Wrapper>
-        <ProductContainer>
-          <H1>{pageData.products.title}</H1>
-          {pageData.products.list.map(Product)}
-        </ProductContainer>
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
+}
+
+ProductPage.propTypes = {
+  data: PropTypes.object,
 }
 
 export const pageQuery = graphql`
   query productQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/product/" } }) {
+    allPagesYaml(filter: { id: { eq: "all_products" } }) {
       edges {
         node {
           title

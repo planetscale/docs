@@ -1,5 +1,8 @@
 import React from 'react'
+import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import Layout from '../components/layout'
+import { graphql } from 'gatsby'
 import { media } from '../styles/media'
 
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
@@ -37,38 +40,40 @@ export default function SignupPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="Sign Up" pathname="signup" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="Sign Up" pathname="signup" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>{pageData.content}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
+          <FormCard>
+            <SignupForm />
+          </FormCard>
         </Wrapper>
-      </Hero>
-      <Wrapper>
-        <FormCard>
-          <SignupForm />
-        </FormCard>
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query signupQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/signup/" } }) {
+    allPagesYaml(filter: { id: { eq: "signup" } }) {
       edges {
         node {
           title
@@ -78,3 +83,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+SignupPage.propTypes = {
+  data: PropTypes.object,
+}

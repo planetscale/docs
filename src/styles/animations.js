@@ -1,25 +1,25 @@
-import styled, { keyframes } from 'styled-components'
+import { keyframes, css } from 'styled-components'
 
 const fadeIn = keyframes`
   from {
-    opacity: 0; 
+    opacity: 0;
 
   }
-  to { 
-    opacity: 1; 
+  to {
+    opacity: 1;
   }
 `
 
 const fadeInAndRotate = keyframes`
   0% {
-    opacity: 0; 
+    opacity: 0;
     translate: rotate(-36deg);
   }
-  1% { 
+  1% {
   	opacity: 1;
   }
-  100% { 
-    opacity: 1; 
+  100% {
+    opacity: 1;
     translate: rotate(0deg);
   }
 `
@@ -28,17 +28,17 @@ const sweep = keyframes`
   100%  {opacity: 1; margin-left: 0px; height: 100%;}
 `
 
-export const fadeInAnimation = `
-	opacity: 0;
-	animation: ${fadeIn} 0.5s linear 50ms forwards;
+export const fadeInAnimation = css`
+  opacity: 0;
+  animation: ${fadeIn} 0.5s linear 50ms forwards;
 `
 
-export const fadeInAndRotateAnimation = `
-	opacity: 0;
-	transition: 200ms opacity;
-	animation: ${fadeInAndRotate} 360s linear 50ms forwards;
+export const fadeInAndRotateAnimation = css`
+  opacity: 0;
+  transition: 200ms opacity;
+  animation: ${fadeInAndRotate} 360s linear 50ms forwards;
 `
 
-export const sweepAnimation = `
+export const sweepAnimation = css`
   animation: ${sweep} 1s ease-in-out both;
 `

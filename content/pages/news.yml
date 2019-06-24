@@ -1,4 +1,5 @@
 # Hero
+id: news
 title: Latest News from PlanetScale
 subtitle: Stories from the world of distributed databases
 content: >-

@@ -1,5 +1,5 @@
 ---
-image: /img/team-member-sugu.jpg
+image: /img/team/team-member-sugu.jpg
 name: Sugu Sougoumarane
 role: Cofounder & CTO
 linkedin: 'sugu-sougoumarane-b9bb25'

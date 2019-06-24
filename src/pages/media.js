@@ -1,5 +1,8 @@
 import React from 'react'
+import Layout from '../components/layout'
+import PropTypes from 'prop-types'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import {
@@ -20,38 +23,40 @@ export default function MediaPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="Media" pathname="media" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#EFAD2D'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="Media" pathname="media" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#EFAD2D'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>{pageData.content}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
+          <DownloadContainer>
+            {pageData.downloads.map(Download)}
+          </DownloadContainer>
         </Wrapper>
-      </Hero>
-      <Wrapper>
-        <DownloadContainer>
-          {pageData.downloads.map(Download)}
-        </DownloadContainer>
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query mediaQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/media/" } }) {
+    allPagesYaml(filter: { id: { eq: "media" } }) {
       edges {
         node {
           title
@@ -66,3 +71,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+MediaPage.propTypes = {
+  data: PropTypes.object,
+}

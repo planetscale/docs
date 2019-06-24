@@ -1,7 +1,6 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { fadeInAndRotateAnimation } from '../styles/animations'
 
 import { SmartImage } from './Common.SmartImage'
 import { Wrapper } from './Layout.Wrapper'
@@ -23,16 +22,6 @@ const _Footer = styled.footer`
   overflow: hidden;
 `
 
-const BottomRightImage = styled.img`
-  position: absolute;
-  right: -5vw;
-  bottom: 5vh;
-  width: 40vw;
-  min-width: 400px;
-  max-width: 600px;
-  ${fadeInAndRotateAnimation};
-`
-
 const BottomOverlay = styled.img`
   position: absolute;
   width: 100%;
@@ -48,7 +37,8 @@ const FooterContent = styled.div`
   padding-top: 10em;
   margin: 0 auto;
   width: 100%;
-  max-width: ${(props) => props.theme.sizes.maxWidth};
+  max-width: ${(props) =>
+    props.theme && props.theme.sizes && props.theme.sizes.maxWidth};
   display: flex;
   flex-direction: column;
   z-index: 1338;
@@ -230,7 +220,7 @@ function ListLinks(props) {
 
 export function Footer({ backgroundImage, backgroundColor, children }) {
   const FooterLogo = () => (
-    <FooterLogoLink to={`/`} activeStyle={{ opacity: 1 }}>
+    <FooterLogoLink to={'/'} activeStyle={{ opacity: 1 }}>
       <Logo src={logo} />
     </FooterLogoLink>
   )

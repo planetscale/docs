@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import background from '../images/hero/home-bg.svg'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 import { media } from '../styles/media'

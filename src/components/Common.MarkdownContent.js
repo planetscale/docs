@@ -98,7 +98,7 @@ MarkdownContent.defaultProps = {
 }
 
 MarkdownContent.propTypes = {
-  inverted: PropTypes.boolean,
+  inverted: PropTypes.bool,
   customCSS: PropTypes.string,
   whiteSpace: PropTypes.string,
 }

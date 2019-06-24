@@ -1,9 +1,9 @@
 ---
-image: /img/team-member-raunaq-gupta.jpg
-name: Raunaq Gupta 
-role: Figure of Speech
+image: /img/team/team-member-raunaq-gupta.jpg
+name: Raunaq Gupta
+role: Designer
 linkedin: 'raunaqgupta'
-order: 18 
+order: 18
 ---
 
-Raunaq lives in Mumbai and focuses on design and frontend development at PlanetScale. Otherwise he spends his day with his cat teaching him manners and nursing subsequent wounds. It's love he tells himself everyday. Talks jokes, design and food on [Twitter](http://twitter.com/raunaqgupta). Climate change is real.
+Raunaq focuses on all things design and front-end. Earlier he has designed for startups dealing with virtual networking (and checked of his bucket list goal of being granted a patent), India's leading payment gateway and IBM Watson. He talks design, art and food on [twitter](https://twitter.com/raunaqgupta).

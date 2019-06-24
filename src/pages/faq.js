@@ -1,5 +1,8 @@
 import React from 'react'
+import Layout from '../components/layout'
+import PropTypes from 'prop-types'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import {
@@ -20,38 +23,46 @@ export default function FaqPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="FAQ" pathname="faq" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="FAQ" pathname="faq" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>{pageData.content}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
-        </Wrapper>
-      </Hero>
-      <Wrapper>
-        <QAndAContainer>
-          {data.faq.edges.map((edge) => {
-            const { node } = edge
-            const { html, frontmatter } = node
-            const { question } = frontmatter
+          <QAndAContainer>
+            {data.faq.edges.map((edge, index) => {
+              const { node } = edge
+              const { html, frontmatter } = node
+              const { question } = frontmatter
 
-            return <QAndA question={question} answer={html} />
-          })}
-        </QAndAContainer>
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+              return (
+                <QAndA
+                  key={`QAndA${index}`}
+                  question={question}
+                  answer={html}
+                />
+              )
+            })}
+          </QAndAContainer>
+        </Wrapper>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
 }
 
@@ -74,7 +85,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPagesYaml(filter: { id: { regex: "/pages/faq/" } }) {
+    allPagesYaml(filter: { id: { eq: "faq" } }) {
       edges {
         node {
           title
@@ -85,3 +96,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+FaqPage.propTypes = {
+  data: PropTypes.object,
+}

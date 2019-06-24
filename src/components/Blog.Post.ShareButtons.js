@@ -31,7 +31,7 @@ const PlatformContainer = styled.li`
 `
 export const BlogPostShareButtons = ({ title, shareUrl }) => {
   return (
-    <React.Fragment>
+    <>
       <Spacing />
       <BlogPostShareButtonsContainer>
         <h3>Share this article</h3>
@@ -65,6 +65,6 @@ export const BlogPostShareButtons = ({ title, shareUrl }) => {
           <PlatformContainer key={index} children={shareButton} />
         ))}
       </BlogPostShareButtonsContainer>
-    </React.Fragment>
+    </>
   )
 }

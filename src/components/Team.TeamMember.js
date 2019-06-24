@@ -1,13 +1,8 @@
 import React from 'react'
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 import styled from 'styled-components'
 import { media } from '../styles/media'
 
 import MarkdownContent from '../components/Common.MarkdownContent'
-
-import background from '../images/hero/team-bg.svg'
-
-import { LinkedinIcon } from 'react-share'
 
 export const TeamMemberContainer = styled.ul`
   display: flex;
@@ -23,8 +18,8 @@ export const TeamMemberContainer = styled.ul`
 const _TeamMember = styled.li`
   display: flex;
   flex-direction: row;
-  align-items: center;
-  margin: 2em;
+  align-items: top;
+  margin: 2em 2em 4em;
   width: 100%;
 
   ${media.largePhone`
@@ -56,7 +51,7 @@ const Name = styled.h2`
 
 const Role = styled.h3`
   font-size: 1.5em;
-  font-weight 100;
+  font-weight: 100;
   margin: 0 0 10px;
 
   ${media.largePhone`
@@ -69,8 +64,9 @@ const ImageContainer = styled.div``
 
 const Image = styled.img`
   border-radius: 300px;
-  width: 200px;
-  height: 200px;
+  border: 1px solid;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
 
   ${media.largePhone`
@@ -80,8 +76,13 @@ const Image = styled.img`
 
 const iconStyle = {
   fontSize: '1.2em',
-  opacity: `0.2`,
+  opacity: '0.2',
 }
+
+const LinkedInLink = styled.a`
+  display: inline-block;
+  margin-top: 0.5em;
+`
 
 export function TeamMember({ name, role, image, bio, linkedin }) {
   return (
@@ -93,13 +94,13 @@ export function TeamMember({ name, role, image, bio, linkedin }) {
         <Name>{name}</Name>
         <Role>{role}</Role>
         <MarkdownContent html={bio} />
-        <OutboundLink
+        <LinkedInLink
           href={'https://www.linkedin.com/in/' + linkedin}
           target="_blank"
           rel="nofollow"
         >
           <i className="fab fa-linkedin" style={iconStyle} />
-        </OutboundLink>
+        </LinkedInLink>
       </Content>
     </_TeamMember>
   )

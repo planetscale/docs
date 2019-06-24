@@ -1,5 +1,7 @@
 import React from 'react'
+import Layout from '../components/layout'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { Hero, HeroTitle, HeroContent } from '../components/Common.Hero'
@@ -16,45 +18,47 @@ export default function PrivacyPage({ data }) {
   const { title, content, lastUpdatedLabel, lastUpdatedDate } = pageData
 
   return (
-    <div>
-      <TitleAndMetaTags title={title} pathname="privacy" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title={title} pathname="privacy" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroContent>{`${lastUpdatedLabel}: ${lastUpdatedDate}`}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroContent>{`${lastUpdatedLabel}: ${lastUpdatedDate}`}</HeroContent>
-        </Wrapper>
-      </Hero>
-      <Wrapper>
-        <MarkdownContent
-          whiteSpace="normal"
-          html={content}
-          customCSS={`
+          <MarkdownContent
+            whiteSpace="normal"
+            html={content}
+            customCSS={`
             strong { font-weight: 500; }
             > p:first-child,
             ul + p,
             h3 + p,
             p + p { margin-bottom: 1em; }
           `}
+          />
+        </Wrapper>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
         />
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+      </div>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query privacyQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/privacy/" } }) {
+    allPagesYaml(filter: { id: { eq: "privacy" } }) {
       edges {
         node {
           title

@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import MarkdownContent from './Common.MarkdownContent'
@@ -9,9 +8,6 @@ import { sweepAnimation } from '../styles/animations'
 import { media } from '../styles/media'
 
 import chevron from '../images/chevron.png'
-import background from '../images/hero/careers-bg.svg'
-
-import { OutboundLink } from 'gatsby-plugin-google-analytics'
 
 export const CareersPostContainer = styled.ul`
   display: flex;
@@ -96,10 +92,9 @@ const Title = styled.h1`
     font-size: 1.25em;
   `};
 `
-const ButtonLink = styled(OutboundLink)`
+const ButtonLink = styled.a`
   display: inline-block;
-  margin: 3em 0 1em;
-  width: 100%;
+  margin: 3em 0;
   & > * {
     padding: 11px 14px;
   }
@@ -112,6 +107,7 @@ const Content = styled.div`
 `
 export function CareersPost({ node, open = false }) {
   const { title, id, content } = node
+  const jobId = id.split('__')[2]
 
   return (
     <_CareersPost open={open}>
@@ -125,7 +121,7 @@ export function CareersPost({ node, open = false }) {
           style={{ color: 'white' }}
         />
         <ButtonLink
-          href={`https://boards.greenhouse.io/planetscale/jobs/${id}#app`}
+          href={`https://boards.greenhouse.io/planetscale/jobs/${jobId}#app`}
         >
           <Button> Apply for this Position</Button>
         </ButtonLink>

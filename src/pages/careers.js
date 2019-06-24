@@ -1,9 +1,10 @@
 import React from 'react'
 import Link from 'gatsby-link'
-import styled from 'styled-components'
+import Layout from '../components/layout'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper, SmallWrapper } from '../components/Layout.Wrapper'
+import { Wrapper } from '../components/Layout.Wrapper'
 import { Spacing } from '../components/Layout.Spacing'
 import { H1 } from '../components/Typography.Headings'
 import {
@@ -13,79 +14,65 @@ import {
   HeroContent,
 } from '../components/Common.Hero'
 import { Button } from '../components/Common.Button'
-import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
 
 import { CareerPosts } from '../containers/Careers.Posts'
-import { CareersPostContainer, CareersPost } from '../components/Careers.Post'
 
 import background from '../images/hero/careers-bg.svg'
 import overlay from '../images/hero/careers-overlay.svg'
 
-const Content = styled.div`
-  margin-top: 0.5em;
-  font-weight: 100;
-  font-size: 1.15em;
-  line-height: 1.75em;
-`
-
-const PerksContent = Content.extend`
-  font-weight: 300;
-`
-
 //IE11 <details> polyfill
-if (typeof window !== `undefined`) {
+if (typeof window !== 'undefined') {
   require('details-element-polyfill')
 }
 
 export default function CareersPage({ data }) {
-  const { allPagesYaml, allGreenhouseJob } = data
+  const { allPagesYaml, allGreenhouseJobPost } = data
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <React.Fragment>
-      <TitleAndMetaTags title="Careers" pathname="careers" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#25B7DB'}
-        overlay={overlay}
-      >
-        <Wrapper>
-          <HeroTitle>
-            <span>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>
-            {pageData.content}
-            <Link to={`#positions`}>
-              <Button>See our Available Positions</Button>
-            </Link>
-          </HeroContent>
+    <Layout>
+      <>
+        <TitleAndMetaTags title="Careers" pathname="careers" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#25B7DB'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>
+              {pageData.content}
+              <Link to={'/careers/#positions'}>
+                <Button>See our Available Positions</Button>
+              </Link>
+            </HeroContent>
+          </Wrapper>
+        </Hero>
+        <Wrapper id={'positions'}>
+          <H1>Open Positions</H1>
+          <CareerPosts posts={allGreenhouseJobPost.edges} />
         </Wrapper>
-      </Hero>
-      <Wrapper id={'positions'}>
-        <H1>Open Positions</H1>
-        <CareerPosts posts={data.allGreenhouseJob.edges} />
-      </Wrapper>
-      <Spacing />
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#25B7DB'}
-        overlay={overlay}
-      />
-    </React.Fragment>
+        <Spacing />
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#25B7DB'}
+          overlay={overlay}
+        />
+      </>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query careersQuery {
-    allGreenhouseJob {
+    allGreenhouseJobPost {
       edges {
         node {
           id
-          location {
-            name
-          }
           title
           content
         }
@@ -104,7 +91,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPagesYaml(filter: { id: { regex: "/pages/careers/" } }) {
+    allPagesYaml(filter: { id: { eq: "careers" } }) {
       edges {
         node {
           title

@@ -1,5 +1,5 @@
 ---
-image: /img/team-member-jitendra.jpg
+image: /img/team/team-member-jitendra.jpg
 name: Jitendra Vaidya
 role: Cofounder & CEO
 linkedin: 'jitenvaidya'

@@ -1,5 +1,5 @@
 ---
-image: /img/team-member-dan.jpg
+image: /img/team/team-member-dan.jpg
 name: Dan Kozlowski
 role: Minister Plenipotentiary of Engineering
 linkedin: 'dkhenry'

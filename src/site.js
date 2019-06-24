@@ -81,7 +81,7 @@ export const footerLinks = [
       {
         id: 'licenses',
         name: 'Licenses',
-        to: 'https://planetscale.com/sla/201902sla/',
+        to: '/sla/201902sla/',
         external: true,
       },
       {

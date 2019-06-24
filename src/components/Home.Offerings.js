@@ -6,8 +6,6 @@ import MarkdownContent from '../components/Common.MarkdownContent'
 
 import { media } from '../styles/media'
 
-import background from '../images/hero/home-bg.svg'
-
 export const OfferingsContainer = styled.ul`
   display: flex;
   list-style: none;

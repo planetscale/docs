@@ -1,5 +1,7 @@
 import React from 'react'
+import Layout from '../components/layout'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { Hero, HeroTitle } from '../components/Common.Hero'
@@ -15,34 +17,39 @@ export default function TOSPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="Terms of Service" pathname="tos" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="Terms of Service" pathname="tos" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
+          <MarkdownContent
+            html={pageData.content}
+            style={{ fontWeight: 400 }}
+          />
         </Wrapper>
-      </Hero>
-      <Wrapper>
-        <MarkdownContent html={pageData.content} style={{ fontWeight: 400 }} />
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query tosQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/tos/" } }) {
+    allPagesYaml(filter: { id: { eq: "tos" } }) {
       edges {
         node {
           title

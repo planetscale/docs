@@ -1,6 +1,9 @@
 import React from 'react'
+import Layout from '../components/layout'
 import Script from 'react-load-script'
+import PropTypes from 'prop-types'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { H1 } from '../components/Typography.Headings'
@@ -20,7 +23,7 @@ import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
 
 function handleScriptLoad() {
-  if (typeof window !== `undefined` && window.netlifyIdentity) {
+  if (typeof window !== 'undefined' && window.netlifyIdentity) {
     window.netlifyIdentity.on('init', (user) => {
       if (!user) {
         window.netlifyIdentity.on('login', () => {
@@ -32,12 +35,12 @@ function handleScriptLoad() {
   window.netlifyIdentity.init()
 }
 
-export default function IndexPage({ data, location }) {
+export default function IndexPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <React.Fragment>
+    <Layout>
       <Script
         url="https://identity.netlify.com/v1/netlify-identity-widget.js"
         onLoad={() => handleScriptLoad()}
@@ -85,13 +88,13 @@ export default function IndexPage({ data, location }) {
         backgroundColor={'#EFAD2D'}
         overlay={overlay}
       />
-    </React.Fragment>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query homeQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/index/" } }) {
+    allPagesYaml(filter: { id: { eq: "index" } }) {
       edges {
         node {
           title
@@ -133,3 +136,7 @@ export const pageQuery = graphql`
     }
   }
 `
+
+IndexPage.propTypes = {
+  data: PropTypes.object,
+}

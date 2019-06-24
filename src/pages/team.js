@@ -1,6 +1,7 @@
 import React from 'react'
-import Link from 'gatsby-link'
+import Layout from '../components/layout'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { H1 } from '../components/Typography.Headings'
@@ -25,54 +26,56 @@ export default function TeamPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="Team" pathname="team" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="Team" pathname="team" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>{pageData.content}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
-        </Wrapper>
-      </Hero>
-      <Wrapper>
-        <H1>{pageData.team.title}</H1>
-        <PageDescription relaxedWidth>{pageData.team.blurb}</PageDescription>
-        <TeamMemberContainer>
-          {data.team.edges.map((edge) => {
-            const { node } = edge
-            const { html, frontmatter } = node
-            const { name, role, image, linkedin } = frontmatter
+          <H1>{pageData.team.title}</H1>
+          <PageDescription relaxedWidth>{pageData.team.blurb}</PageDescription>
+          <TeamMemberContainer>
+            {data.team.edges.map((edge) => {
+              const { node } = edge
+              const { html, frontmatter } = node
+              const { name, role, image, linkedin } = frontmatter
 
-            return (
-              <TeamMember
-                key={name}
-                name={name}
-                role={role}
-                image={image}
-                linkedin={linkedin}
-                bio={html}
-              />
-            )
-          })}
-        </TeamMemberContainer>
-        {data.investors && (
-          <InvestorContainer>
-            {data.investors.edges.map(Investor)}
-          </InvestorContainer>
-        )}
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+              return (
+                <TeamMember
+                  key={name}
+                  name={name}
+                  role={role}
+                  image={image}
+                  linkedin={linkedin}
+                  bio={html}
+                />
+              )
+            })}
+          </TeamMemberContainer>
+          {data.investors && (
+            <InvestorContainer>
+              {data.investors.edges.map(Investor)}
+            </InvestorContainer>
+          )}
+        </Wrapper>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
 }
 
@@ -99,7 +102,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPagesYaml(filter: { id: { regex: "/pages/team/" } }) {
+    allPagesYaml(filter: { id: { eq: "team" } }) {
       edges {
         node {
           title

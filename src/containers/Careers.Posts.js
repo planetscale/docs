@@ -7,7 +7,13 @@ export const CareerPosts = ({ posts }) => {
       {posts.map((edge, index) => {
         const { node } = edge
 
-        return <CareersPost node={node} open={index === 0} />
+        return (
+          <CareersPost
+            key={`careerPost${index}`}
+            node={node}
+            open={index === 0}
+          />
+        )
       })}
     </CareersPostContainer>
   )

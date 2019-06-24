@@ -1,3 +1,4 @@
+id: tos
 title: Terms of Service
 content: |
   This Agreement is between the person or entity agreeing to these terms ("Customer," "you" or "your") and PlanetScale, Inc., ("PlanetScale, "we," "us," or "our"). If you accept this agreement on behalf of your employer or another legal entity, you represent and warrant that you have the authority to bind that entity and that you agree to these terms on behalf of that entity. If you cannot truthfully make these representations, do not click "accept" below. The terms and conditions of this agreement apply to Customer's access and use of the PlanetScale Cloud Database ("PCD "), including any technology, information, software, materials, and updates that PlanetScale makes available to you as part of such services (collectively, the "Services").
@@ -14,7 +15,7 @@ content: |
 
   You may order the Service by following the directions on the Site. Once you order the Service, your subscription to the Service will continue until you cancel your Service. Customers are allowed to cancel at any time and PlanetScale will prorate their payment based on the point in the month that they reached before they cancelled their subscription. Upon canceling, they will be billed for the prorated amount immediately and their account will be terminated and data removed from the Service.
 
-  If you order the Service, you agree to pay the applicable Service fees according to payment terms listed in Appendix A of this ToS. 
+  If you order the Service, you agree to pay the applicable Service fees according to payment terms listed in Appendix A of this ToS.
 
   You will pay applicable sales, use, and other such taxes related to the Service provided hereunder, (excluding any taxes imposed or based on Company’s income) or provide PlanetScale evidence of exemption from such taxes.
 

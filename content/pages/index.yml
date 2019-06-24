@@ -1,3 +1,4 @@
+id: index
 title: PlanetScale
 subtitle: Turbocharge MySQL in the Cloud with Vitess.io
 content: >-
@@ -44,10 +45,10 @@ offerings:
 conference:
   banner:
     text: >-
-      Vitess and PlanetScale at RootConf 2019
-    img: //rootconf.in/images/rootconf-logo.png
-    link: //rootconf.in/2019/
-    eventDate: June 21-22, 2019
+      Vitess and PlanetScale at KubeCon China 2019
+    img: //www.lfasiallc.com/wp-content/uploads/2018/08/kccnc-oss-china-2019-white.svg
+    link: //www.lfasiallc.com/events/kubecon-cloudnativecon-china-2019/
+    eventDate: June 24-26, 2019
   buttons:
     - text: Hear Us Speak
-      link: /news/planetscale-at-rootconf-2019
+      link: /news/kubecon-cloudnativecon-open-source-summit-china-2019

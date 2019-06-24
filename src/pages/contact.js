@@ -1,7 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import Layout from '../components/layout'
+import PropTypes from 'prop-types'
 import { media } from '../styles/media'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import {
@@ -77,63 +80,69 @@ export default function ContactPage({ data }) {
   const pageData = allPagesYaml.edges[0].node
 
   return (
-    <div>
-      <TitleAndMetaTags title="Contact" pathname="contact" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#EFAD2D'}
-        overlay={overlay}
-      >
+    <Layout>
+      <div>
+        <TitleAndMetaTags title="Contact" pathname="contact" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#EFAD2D'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent>{pageData.content}</HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
-        </Wrapper>
-      </Hero>
-      <Wrapper>
-        <FormCard>
-          <EmailForm />
-        </FormCard>
-        <ContactCard>
-          <CardHeader>Reach Out</CardHeader>
-          <ContactPoint>
-            <ContactPointIcon>
-              <i class="fas fa-map-marked-alt" />
-            </ContactPointIcon>
-            <ContactPointText>
-              278 Hope St, Mountain View, California 94041
-            </ContactPointText>
-          </ContactPoint>
+          <FormCard>
+            <EmailForm />
+          </FormCard>
+          <ContactCard>
+            <CardHeader>Reach Out</CardHeader>
+            <ContactPoint>
+              <ContactPointIcon>
+                <i className="fas fa-map-marked-alt" />
+              </ContactPointIcon>
+              <ContactPointText>{pageData.address}</ContactPointText>
+            </ContactPoint>
 
-          <ContactPoint>
-            <ContactPointIcon>
-              <i class="fas fa-at" />
-            </ContactPointIcon>
-            <ContactPointText>contact@planetscale.com</ContactPointText>
-          </ContactPoint>
-        </ContactCard>
-      </Wrapper>
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#24C8D8'}
-        overlay={overlay}
-      />
-    </div>
+            <ContactPoint>
+              <ContactPointIcon>
+                <i className="fas fa-at" />
+              </ContactPointIcon>
+              <ContactPointText>{pageData.email}</ContactPointText>
+            </ContactPoint>
+          </ContactCard>
+        </Wrapper>
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#24C8D8'}
+          overlay={overlay}
+        />
+      </div>
+    </Layout>
   )
 }
 
 export const pageQuery = graphql`
   query contactQuery {
-    allPagesYaml(filter: { id: { regex: "/pages/contact/" } }) {
+    allPagesYaml(filter: { id: { eq: "contact" } }) {
       edges {
         node {
           title
           subtitle
+          address
+          email
           content
         }
       }
     }
   }
 `
+
+ContactPage.propTypes = {
+  data: PropTypes.object,
+}

@@ -1,5 +1,4 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 
 import MarkdownContent from '../components/Common.MarkdownContent'
@@ -38,10 +37,6 @@ const Image = styled.img`
   border-radius: 300px;
   width: 200px;
   margin: 2em 0;
-`
-
-const LinkedIn = styled.img`
-  width: 75px;
 `
 
 export function Investor({ name, image, bio }) {

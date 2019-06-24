@@ -1,6 +1,8 @@
 import React from 'react'
 import Link from 'gatsby-link'
+import Layout from '../components/layout'
 
+import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { Spacing, XLargeSpacing } from '../components/Layout.Spacing'
@@ -19,54 +21,64 @@ import { BlogPostLink } from '../components/Blog.PostLink'
 import background from '../images/hero/blog-bg.svg'
 import overlay from '../images/hero/blog-overlay.svg'
 
-export default function NewsPage({ data }) {
+function NewsPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
   const firstBlogPostEdge = data.allMarkdownRemark.edges[0]
   const { node } = firstBlogPostEdge
-  const { frontmatter, html, fields } = node
+  const { frontmatter, fields } = node
   return (
-    <React.Fragment>
-      <TitleAndMetaTags title="News" pathname="news" />
-      <Hero
-        backgroundImage={background}
-        backgroundColor={'#9124D8'}
-        overlay={overlay}
-      >
+    <Layout>
+      <>
+        <TitleAndMetaTags title="News" pathname="news" />
+        <Hero
+          backgroundImage={background}
+          backgroundColor={'#9124D8'}
+          overlay={overlay}
+        >
+          <Wrapper>
+            <HeroTitle>
+              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
+            </HeroTitle>
+            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
+            <HeroContent align={'left'}>
+              <Link to={`/news/${fields.slug}`}>
+                <Button>
+                  {pageData.blogButton} {frontmatter.title}
+                </Button>
+              </Link>
+            </HeroContent>
+          </Wrapper>
+        </Hero>
         <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent align={'left'}>
-            <Link to={`/news/${fields.slug}`}>
-              <Button>
-                {pageData.blogButton} {frontmatter.title}
-              </Button>
-            </Link>
-          </HeroContent>
-        </Wrapper>
-      </Hero>
-      <Wrapper>
-        <H1>{pageData.moreBlogPostsTitle}</H1>
-        <Spacing />
-        {data.allMarkdownRemark.edges.map((edge) => {
-          const { node } = edge
-          const { frontmatter, fields } = node
+          <H1>{pageData.moreBlogPostsTitle}</H1>
+          <Spacing />
+          {data.allMarkdownRemark.edges.map((edge, index) => {
+            const { node } = edge
+            const { frontmatter, fields } = node
 
-          return <BlogPostLink {...fields} {...frontmatter} />
-        })}
-      </Wrapper>
-      <XLargeSpacing />
-      <Footer
-        backgroundImage={background}
-        backgroundColor={'#9124D8'}
-        overlay={overlay}
-      />
-    </React.Fragment>
+            return (
+              <BlogPostLink
+                key={`BlogPostLink${index}`}
+                {...fields}
+                {...frontmatter}
+              />
+            )
+          })}
+        </Wrapper>
+        <XLargeSpacing />
+        <Footer
+          backgroundImage={background}
+          backgroundColor={'#9124D8'}
+          overlay={overlay}
+        />
+      </>
+    </Layout>
   )
 }
+
+export default NewsPage
 
 export const pageQuery = graphql`
   query newsQuery {
@@ -88,7 +100,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    allPagesYaml(filter: { id: { regex: "/pages/news/" } }) {
+    allPagesYaml(filter: { id: { eq: "news" } }) {
       edges {
         node {
           title
