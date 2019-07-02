@@ -301,13 +301,13 @@ class Header extends Component {
               </NavList>
               <RightSide>
                 <Button>
-                  <ButtonLink href="/signup">Sign Up</ButtonLink>{' '}
+                  <ButtonLink href="/signup">Sign Up For Beta</ButtonLink>{' '}
                 </Button>
                 <NativeButton
                   onClick={this.handleTalkClick}
                   style={{ fontWeight: '500', letterSpacing: '.025em' }}
                 >
-                  Talk to us
+                  Schedule A Call
                 </NativeButton>
               </RightSide>
             </Nav>

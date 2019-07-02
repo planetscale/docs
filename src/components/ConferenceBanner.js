@@ -65,7 +65,7 @@ export const ConferenceImageDate = styled.h3`
 
 export const ConferenceImage = styled.img`
   border: none;
-  width: 200px;
+  width: 80px;
   filter: grayscale(100%) brightness(0%) invert(100%);
 `
 

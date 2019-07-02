@@ -99,7 +99,8 @@ export class EmailForm extends Component {
     if (
       this.state.email === '' ||
       this.state.name === '' ||
-      this.state.organization === ''
+      this.state.phone === '' ||
+      this.state.company === ''
     ) {
       return true
     }
@@ -142,6 +143,12 @@ export class EmailForm extends Component {
           <InputField name="bot-field" />
         </HoneyPot>
         <InputField
+          name="name"
+          type="text"
+          placeholder="Your Name"
+          onChange={this.handleChange}
+        />
+        <InputField
           name="email"
           type="email"
           placeholder="Your Email Address"
@@ -149,14 +156,14 @@ export class EmailForm extends Component {
         />
 
         <InputField
-          name="name"
+          name="phone"
           type="text"
-          placeholder="Your Name"
+          placeholder="Phone Number (optional)"
           onChange={this.handleChange}
         />
 
         <InputField
-          name="organization"
+          name="company"
           type="text"
           placeholder="Your Company"
           onChange={this.handleChange}

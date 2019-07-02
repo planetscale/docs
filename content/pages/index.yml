@@ -45,10 +45,10 @@ offerings:
 conference:
   banner:
     text: >-
-      Vitess and PlanetScale at KubeCon China 2019
-    img: //www.lfasiallc.com/wp-content/uploads/2018/08/kccnc-oss-china-2019-white.svg
-    link: //www.lfasiallc.com/events/kubecon-cloudnativecon-china-2019/
-    eventDate: June 24-26, 2019
+      Scaling With Vitess At Slack
+    img: //d24wuq6o951i2g.cloudfront.net/img/events/id/347/3470779/assets/c.H.c9.bf9.0be.f7c.vitess-orange-stacked.png
+    link: //scalewithvitess.splashthat.com/
+    eventDate: July 11, 2019
   buttons:
-    - text: Hear Us Speak
-      link: /news/kubecon-cloudnativecon-open-source-summit-china-2019
+    - text: Attend
+      link: //scalewithvitess.splashthat.com/

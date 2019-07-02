@@ -28,6 +28,19 @@ const InputField = styled.input`
   box-sizing: border-box;
 `
 
+const TextAreaField = styled.textarea`
+  outline: none;
+  border: 0;
+  border-radius: 4px;
+  margin: 0 0 10px;
+  width: 100%;
+  line-height: 40px;
+  padding: 0 1em;
+  z-index: 2;
+  color: rgba(35, 97, 109, 0.8);
+  box-sizing: border-box;
+`
+
 const FormSubmitButton = styled(InputButton)`
   margin-top: 1.5em;
   background-color: #e46a5c;
@@ -47,7 +60,8 @@ export class SignupForm extends Component {
   state = {
     email: '',
     name: '',
-    organization: '',
+    phone: '',
+    company: '',
     isSending: false,
   }
 
@@ -59,7 +73,8 @@ export class SignupForm extends Component {
     if (
       this.state.email === '' ||
       this.state.name === '' ||
-      this.state.organization === ''
+      this.state.phone === '' ||
+      this.state.company === ''
     ) {
       return true
     }
@@ -102,23 +117,35 @@ export class SignupForm extends Component {
           <InputField name="bot-field" />
         </HoneyPot>
         <InputField
-          name="email"
-          type="email"
-          placeholder="Email address"
-          onChange={this.handleChange}
-        />
-
-        <InputField
           name="name"
           type="text"
           placeholder="Name"
           onChange={this.handleChange}
         />
+        <InputField
+          name="email"
+          type="email"
+          placeholder="Email address"
+          onChange={this.handleChange}
+        />
+        <InputField
+          name="phone"
+          type="text"
+          placeholder="Phone Number (optional)"
+          onChange={this.handleChange}
+        />
 
         <InputField
-          name="organization"
+          name="company"
           type="text"
           placeholder="Company"
+          onChange={this.handleChange}
+        />
+
+        <TextAreaField
+          name="notes"
+          placeholder="Notes (anything you would like to tell us)"
+          rows="5"
           onChange={this.handleChange}
         />
 
