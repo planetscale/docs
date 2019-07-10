@@ -1,8 +1,15 @@
 module.exports = {
   siteMetadata: {
     title: 'PlanetScale',
+    siteUrl: 'https://planetscale.com',
   },
   plugins: [
+    {
+      resolve: 'gatsby-plugin-sitemap',
+      options: {
+        exclude: ['/faq/*', '/thanks', '/thankyou', '/team/*'],
+      },
+    },
     'gatsby-plugin-react-helmet',
     {
       resolve: 'gatsby-plugin-nprogress',

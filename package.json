@@ -17,6 +17,7 @@
     "gatsby-plugin-netlify-cms": "^4.0.2",
     "gatsby-plugin-nprogress": "^2.0.10",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sitemap": "^2.2.1",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-source-filesystem": "^2.0.39",
     "gatsby-source-greenhouse": "^2.0.2",
@@ -40,6 +41,7 @@
   },
   "main": "n/a",
   "scripts": {
+    "serve": "gatsby serve",
     "build": "gatsby build",
     "develop": "rm -rf .cache && gatsby develop",
     "diff": "prettier --config .prettierrc --list-different \"src/**/*.js\"",
