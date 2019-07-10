@@ -6,9 +6,10 @@ author: Abhi Vaidyanatha
 comments: true
 share: true
 ---
+
 ### Vitess Slack Meetup
 
-PlanetScale is co-hosting a Vitess Meetup in San Francisco this Thursday, July 11th at Slack! Stop by to chat with the PlanetScale team, hear about new Vitess features, and learn about the unique ways that Slack and Pinterest have implemented Vitess. Register [here](https://scalewithvitess.splashthat.com/) to reserve your spot! 
+PlanetScale is co-hosting a Vitess Meetup in San Francisco this Thursday, July 11th at Slack! Stop by to chat with the PlanetScale team, hear about new Vitess features, and learn about the unique ways that Slack and Pinterest have implemented Vitess. Register [here](https://scalewithvitess.splashthat.com/) to reserve your spot!
 
 ### Vitess Webinar
 
