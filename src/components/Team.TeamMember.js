@@ -95,7 +95,11 @@ export function TeamMember({ name, role, image, bio, linkedin }) {
         <Role>{role}</Role>
         <MarkdownContent html={bio} />
         <LinkedInLink
-          href={'https://www.linkedin.com/in/' + linkedin}
+          href={
+            linkedin === 'rocco'
+              ? 'https://www.linkedin.com/company/planetscale'
+              : 'https://www.linkedin.com/in/' + linkedin
+          }
           target="_blank"
           rel="nofollow"
         >
