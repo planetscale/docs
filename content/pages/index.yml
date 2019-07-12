@@ -42,13 +42,13 @@ offerings:
   icon: /img/planetscale-cloud.png
   content: >-
     Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Sign up for early access to our Cloud Database beta today.
-conference:
+event:
   banner:
-    text: >-
-      Scaling With Vitess At Slack
-    img: //d24wuq6o951i2g.cloudfront.net/img/events/id/347/3470779/assets/c.H.c9.bf9.0be.f7c.vitess-orange-stacked.png
-    link: //scalewithvitess.splashthat.com/
-    eventDate: July 11, 2019
+    title: >-
+      CNCF Webinar Series – Vitess: Running Sharded MySQL on Kubernetes
+    img: //raw.githubusercontent.com/cncf/artwork/master/other/cncf/icon/white/cncf-icon-white.png
+    link: //www.cncf.io/
+    date: July 16 @ 10:00 am - 11:00 am PDT
   buttons:
-    - text: Attend
-      link: //scalewithvitess.splashthat.com/
+    - text: Register
+      link: //www.cncf.io/event/cncf-webinar-series-vitess-running-sharded-mysql-on-kubernetes/

@@ -8,6 +8,7 @@ const ButtonLink = styled.a`
 `
 
 const _ConferenceBanner = styled.div`
+  display: flex;
   color: white;
   line-height: 1.3;
   z-index: 2;
@@ -18,19 +19,63 @@ const _ConferenceBanner = styled.div`
   max-width: 1170px;
   box-sizing: border-box;
 
-  h2 {
-    margin-top: 0;
-    margin-bottom: 0;
-    text-align: left;
-  }
-
   ${media.largePhone`
     background: rgba(255, 255, 255, 0.3);
+    flex-direction: column;
   `};
+`
+
+const EventData = styled.div``
+
+const ConferenceImageLink = styled.a`
+  display: inline-block;
+  padding: 0 2em 0 0;
+  border-right: 1px solid;
+  margin-right: 2em;
+  height: 100%;
+  display: flex;
+
+  ${media.largePhone`
+    width: 100%;
+    border-right: 0;
+    margin: 0px 0 2em;
+    border-bottom: 1px solid;
+    padding: 0px 0 2em 0px;
+    justify-content: center;
+  `};
+`
+
+const ConferenceImage = styled.img`
+  border: none;
+  width: 80px;
+  filter: grayscale(100%) brightness(0%) invert(100%);
+  align-self: center;
+`
+
+const EventTitle = styled.div`
+  font-size: 24px;
+  font-weight: 500;
+
+  ${media.largePhone`
+    font-size: 20px;
+    text-align: left;
+  `}
+`
+
+const EventDate = styled.div`
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 5px;
+
+  ${media.largePhone`
+    margin-top: 1em;
+    text-align: left;
+  `}
 `
 
 const ActionContainer = styled.div`
   display: flex;
+  margin-top: 1em;
 
   ${media.largePhone`
     flex-direction: column;
@@ -45,44 +90,26 @@ const ActionContainer = styled.div`
   }
 `
 
-export const ConferenceImageLink = styled.a`
-  display: inline-block;
-  width: 200px;
-  padding: 0 0 1em;
-  border-bottom: 1px solid;
-  margin-bottom: 1em;
-
-  ${media.largePhone`
-    width: 100%;
-  `};
-`
-
-export const ConferenceImageDate = styled.h3`
-  font-weight: 400;
-  text-align: left;
-  margin-top: 0.5em;
-`
-
-export const ConferenceImage = styled.img`
-  border: none;
-  width: 80px;
-  filter: grayscale(100%) brightness(0%) invert(100%);
-`
-
 export default function ConferenceBanner(props) {
   return (
     <_ConferenceBanner>
-      {props.children}
-      <ActionContainer>
-        {props.data.buttons &&
-          props.data.buttons.map((button) => {
-            return (
-              <Button key={button.link}>
-                <ButtonLink href={button.link}>{button.text}</ButtonLink>
-              </Button>
-            )
-          })}
-      </ActionContainer>
+      <ConferenceImageLink href={props.data.banner.link}>
+        <ConferenceImage src={props.data.banner.img} alt="" />
+      </ConferenceImageLink>
+      <EventData>
+        <EventTitle>{props.data.banner.title}</EventTitle>
+        <EventDate>{props.data.banner.date}</EventDate>
+        <ActionContainer>
+          {props.data.buttons &&
+            props.data.buttons.map((button) => {
+              return (
+                <Button key={button.link}>
+                  <ButtonLink href={button.link}>{button.text}</ButtonLink>
+                </Button>
+              )
+            })}
+        </ActionContainer>
+      </EventData>
     </_ConferenceBanner>
   )
 }

@@ -14,8 +14,6 @@ import { Footer } from '../components/Layout.Footer'
 import { ContactSalesCard } from '../components/Home.ContactSalesCard'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import ConferenceBanner, {
-  ConferenceImage,
-  ConferenceImageLink,
   ConferenceImageDate,
 } from '../components/ConferenceBanner'
 
@@ -55,14 +53,9 @@ export default function IndexPage({ data }) {
         overlay={overlay}
         wrap="wrap"
       >
-        <ConferenceBanner data={pageData.conference}>
-          <ConferenceImageLink href={pageData.conference.banner.link}>
-            <ConferenceImage src={pageData.conference.banner.img} alt="" />
-          </ConferenceImageLink>
-          <h2>{pageData.conference.banner.text}</h2>
-          <ConferenceImageDate>
-            {pageData.conference.banner.eventDate}
-          </ConferenceImageDate>
+        <ConferenceBanner data={pageData.event}>
+          <h2>{pageData.event.banner.text}</h2>
+          <h4>{pageData.event.banner.date}</h4>
         </ConferenceBanner>
         <Wrapper>
           <HeroTitle>{pageData.subtitle}</HeroTitle>
@@ -119,12 +112,12 @@ export const pageQuery = graphql`
             icon
             content
           }
-          conference {
+          event {
             banner {
-              text
+              title
               img
               link
-              eventDate
+              date
             }
             buttons {
               text
