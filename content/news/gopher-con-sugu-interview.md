@@ -1,8 +1,7 @@
 ---
 title: GopherCon 2018 Debrief with Sugu Sougoumarane
 date: '2018-09-11T13:50:34+08:00'
-description: >-
-  Hear what the PlanetScale CTO had to say about his experience at GopherCon 2018.
+description: 'Hear what the PlanetScale CTO had to say about his experience at GopherCon 2018'
 comments: true
 share: true
 author: 'Abhi Vaidyanatha'
