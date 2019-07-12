@@ -5,9 +5,23 @@ module.exports = {
   },
   plugins: [
     {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://planetscale.com',
+        sitemap: 'https://planetscale.com/sitemap.xml',
+        policy: [
+          {
+            userAgent: '*',
+            allow: '/',
+            disallow: '/admin',
+          },
+        ],
+      },
+    },
+    {
       resolve: 'gatsby-plugin-sitemap',
       options: {
-        exclude: ['/faq/*', '/thanks', '/thankyou', '/team/*'],
+        exclude: ['/faq/*', '/thanks', '/team/*'],
       },
     },
     'gatsby-plugin-react-helmet',

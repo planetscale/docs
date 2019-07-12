@@ -17,6 +17,7 @@
     "gatsby-plugin-netlify-cms": "^4.0.2",
     "gatsby-plugin-nprogress": "^2.0.10",
     "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sitemap": "^2.2.1",
     "gatsby-plugin-styled-components": "^3.0.7",
     "gatsby-source-filesystem": "^2.0.39",
