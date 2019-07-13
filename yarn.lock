@@ -4832,11 +4832,6 @@ gatsby-node-helpers@^0.3.0:
     lodash "^4.17.4"
     p-is-promise "^1.1.0"
 
-gatsby-plugin-crisp-chat@^3.1.0:
-  version "3.1.0"
-  resolved "https://registry.yarnpkg.com/gatsby-plugin-crisp-chat/-/gatsby-plugin-crisp-chat-3.1.0.tgz#43b1913914e99066893267fbe6b482b53246286c"
-  integrity sha512-gq8OftYnpRTDPAMVn+y8OaRPMnwh7VIv3AD84zCj+MYH0wd+YHebL+x/3oCvVdQj1qXKGi8zTnG04nyKXk+R6A==
-
 gatsby-plugin-google-fonts@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-google-fonts/-/gatsby-plugin-google-fonts-1.0.1.tgz#d71054f7bf207b9a8da227380369e18e6f4e0201"
