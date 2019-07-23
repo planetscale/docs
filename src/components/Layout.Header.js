@@ -281,7 +281,10 @@ class Header extends Component {
           <HeaderWrapper>
             <Nav visible={sideBarOpen}>
               <Link to={'/'} activeStyle={{ opacity: 1 }}>
-                <Logo src={logo} />
+                <Logo
+                  src={logo}
+                  alt="PlanetScale - world's most scalable database clusters with Vitess"
+                />
               </Link>
               <NavList>
                 {pages.map(({ name, to }) => {

@@ -68,7 +68,13 @@ const Content = styled.div`
 export function Feature({ title, icon, content, action }) {
   return (
     <_Feature key={title}>
-      <Icon src={icon} />
+      <Icon
+        src={icon}
+        alt={
+          'Icon to visually describe the Vitess & PlanetScale feature of ' +
+          title
+        }
+      />
       <ContentContainer>
         <Title>{title}</Title>
         <Content>

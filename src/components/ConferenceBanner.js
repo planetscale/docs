@@ -94,7 +94,10 @@ export default function ConferenceBanner(props) {
   return (
     <_ConferenceBanner>
       <ConferenceImageLink href={props.data.banner.link}>
-        <ConferenceImage src={props.data.banner.img} alt="" />
+        <ConferenceImage
+          src={props.data.banner.img}
+          alt={props.data.banner.alt}
+        />
       </ConferenceImageLink>
       <EventData>
         <EventTitle>{props.data.banner.title}</EventTitle>

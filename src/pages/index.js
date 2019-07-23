@@ -116,6 +116,7 @@ export const pageQuery = graphql`
             banner {
               title
               img
+              alt
               link
               date
             }
