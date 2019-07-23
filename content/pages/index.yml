@@ -49,7 +49,7 @@ event:
     img: //raw.githubusercontent.com/cncf/artwork/master/other/cncf/icon/white/cncf-icon-white.png
     alt: CNCF Logo
     link: //www.cncf.io/
-    date: July 16 @ 10:00 am - 11:00 am PDT
+    date: Livestreamed on July 16, 2019
   buttons:
-    - text: Register
+    - text: Watch Recording
       link: //www.cncf.io/event/cncf-webinar-series-vitess-running-sharded-mysql-on-kubernetes/
