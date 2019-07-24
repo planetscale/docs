@@ -73,9 +73,9 @@ export const footerLinks = [
     title: 'Support',
     data: [
       {
-        id: 'help_center',
-        name: 'Help Center',
-        to: 'https://support.planetscale.com',
+        id: 'support',
+        name: 'Submit a Ticket',
+        to: '/support',
         external: true,
       },
       {

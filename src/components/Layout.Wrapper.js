@@ -19,7 +19,3 @@ export const SmallWrapper = styled(Wrapper)`
   max-width: ${(props) =>
     props.theme && props.theme.sizes && props.theme.sizes.maxWidthCentered};
 `
-
-export const HeaderWrapper = styled(Wrapper)`
-  max-width: 100%;
-`

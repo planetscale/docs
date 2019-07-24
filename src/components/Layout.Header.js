@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import styled, { createGlobalStyle } from 'styled-components'
 import { Button, NativeButton } from '../components/Common.Button'
-import { HeaderWrapper } from '../components/Layout.Wrapper'
+import { Wrapper } from '../components/Layout.Wrapper'
 import { StaticQuery, graphql } from 'gatsby'
 
 import { media } from '../styles/media'
@@ -278,7 +278,7 @@ class Header extends Component {
           calendly={calendly}
         />
         <_Header visible={sideBarOpen}>
-          <HeaderWrapper>
+          <Wrapper>
             <Nav visible={sideBarOpen}>
               <Link to={'/'} activeStyle={{ opacity: 1 }}>
                 <Logo
@@ -314,7 +314,7 @@ class Header extends Component {
                 </NativeButton>
               </RightSide>
             </Nav>
-          </HeaderWrapper>
+          </Wrapper>
 
           <MobileHeaderButton
             visible={sideBarOpen}
