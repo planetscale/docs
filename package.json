@@ -12,6 +12,7 @@
     "gatsby-link": "^2.1.1",
     "gatsby-plugin-google-fonts": "^1.0.1",
     "gatsby-plugin-google-tagmanager": "^2.0.15",
+    "gatsby-plugin-html-attributes": "^1.0.5",
     "gatsby-plugin-manifest": "^2.2.3",
     "gatsby-plugin-netlify": "^2.1.1",
     "gatsby-plugin-netlify-cms": "^4.1.2",

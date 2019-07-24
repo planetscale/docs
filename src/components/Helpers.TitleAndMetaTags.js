@@ -1,7 +1,13 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export function TitleAndMetaTags({ url, pathname, title, description }) {
+export function TitleAndMetaTags({
+  url,
+  pathname,
+  title,
+  description,
+  schemaOrgJSONLD,
+}) {
   return (
     <Helmet>
       <title>{title}</title>
@@ -38,6 +44,7 @@ export function TitleAndMetaTags({ url, pathname, title, description }) {
       <meta property="og:image" content={`${url}/img/social-1.png`} />
       <meta property="og:image" content={`${url}/img/social-2.png`} />
       <meta property="og:image" content={`${url}/img/social-3.png`} />
+      <meta property="og:type" content={type} />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
 
@@ -48,14 +55,37 @@ export function TitleAndMetaTags({ url, pathname, title, description }) {
       <meta name="twitter:site" content="@planetsclae" />
       <meta name="twitter:card" content="summary_large_image" />
       <meta name="twitter:creator" content="@planetsclae" />
+
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
     </Helmet>
   )
 }
 
-//TODO: Iterate on this content
 TitleAndMetaTags.defaultProps = {
   url: 'https://planetscale.com',
   pathname: '',
-  title: 'PlanetScale',
-  description: 'PlanetScale',
+  title: 'Turbocharged MySQL in the Cloud - PlanetScale',
+  type: 'website',
+  description:
+    'Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.',
+  schemaOrgJSONLD: {
+    '@context': 'http://schema.org',
+    '@type': 'Organization',
+    name: 'PlanetScale',
+    url: 'https://planetscale.com',
+    sameAs: [
+      'https://twitter.com/planetscaledata',
+      'https://www.facebook.com/planetscaledata',
+      'https://www.instagram.com/planetscale',
+    ],
+    address: {
+      '@type': 'PostalAddress',
+      streetAddress: '278 Hope St',
+      addressRegion: 'CA',
+      postalCode: '94041',
+      addressCountry: 'US',
+    },
+  },
 }
