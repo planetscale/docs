@@ -5,6 +5,7 @@ export function TitleAndMetaTags({
   url,
   pathname,
   title,
+  type,
   description,
   schemaOrgJSONLD,
 }) {
