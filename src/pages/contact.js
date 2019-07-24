@@ -82,7 +82,7 @@ export default function ContactPage({ data }) {
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title="Contact" pathname="contact" />
+        <TitleAndMetaTags title={pageData.title} pathname="contact" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#EFAD2D'}

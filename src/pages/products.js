@@ -24,7 +24,7 @@ export default function ProductPage({ data }) {
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title="Products" pathname="product" />
+        <TitleAndMetaTags title={pageData.title} pathname="product" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#EFAD2D'}

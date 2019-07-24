@@ -33,7 +33,7 @@ export default function CareersPage({ data }) {
   return (
     <Layout>
       <>
-        <TitleAndMetaTags title="Careers" pathname="careers" />
+        <TitleAndMetaTags title={pageData.title} pathname="careers" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#25B7DB'}

@@ -11,7 +11,7 @@ export function TitleAndMetaTags({
 }) {
   return (
     <Helmet>
-      <title>{title}</title>
+      <title>{title + ' - PlanetScale'}</title>
 
       <link
         rel="apple-touch-icon"
@@ -67,7 +67,7 @@ export function TitleAndMetaTags({
 TitleAndMetaTags.defaultProps = {
   url: 'https://planetscale.com',
   pathname: '',
-  title: 'Turbocharged MySQL in the Cloud - PlanetScale',
+  title: 'Turbocharged MySQL in the Cloud',
   type: 'website',
   description:
     'Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.',

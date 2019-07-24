@@ -31,7 +31,7 @@ function NewsPage({ data }) {
   return (
     <Layout>
       <>
-        <TitleAndMetaTags title="News" pathname="news" />
+        <TitleAndMetaTags title={pageData.title} pathname="news" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#9124D8'}

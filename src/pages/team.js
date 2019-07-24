@@ -28,7 +28,7 @@ export default function TeamPage({ data }) {
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title="Team" pathname="team" />
+        <TitleAndMetaTags title={pageData.title} pathname="team" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#24C8D8'}

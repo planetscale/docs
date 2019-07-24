@@ -42,7 +42,7 @@ export default function SignupPage({ data }) {
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title="Sign Up" pathname="signup" />
+        <TitleAndMetaTags title={pageData.title} pathname="signup" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#24C8D8'}

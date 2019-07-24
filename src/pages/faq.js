@@ -25,7 +25,7 @@ export default function FaqPage({ data }) {
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title="FAQ" pathname="faq" />
+        <TitleAndMetaTags title={pageData.title} pathname="faq" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#24C8D8'}

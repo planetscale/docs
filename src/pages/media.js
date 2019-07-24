@@ -25,7 +25,7 @@ export default function MediaPage({ data }) {
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title="Media" pathname="media" />
+        <TitleAndMetaTags title={pageData.title} pathname="media" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#EFAD2D'}
