@@ -26,7 +26,7 @@ export default class TalkDrawer extends Component {
         <CalendlyWrapContent>
           <div
             className="calendly-inline-widget"
-            data-url="https://calendly.com/planetscale-presale-default/30min-1on1"
+            data-url="https://calendly.com/helpmescale/30min"
           />
         </CalendlyWrapContent>
         <DialogCloseButton
