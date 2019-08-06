@@ -58,6 +58,7 @@ const FooterContent = styled.div`
 
 const PageLists = styled.div`
   list-style-type: none;
+  width: 100%;
   margin: 0;
   padding: 0;
   display: flex;
@@ -179,16 +180,9 @@ const ListSection = styled.div`
   ul {
     margin: 0;
   }
-  &:not(:last-child):not(:first-child) {
-    padding: 0 100px;
-
-    ${media.tablet`
-      padding: 0 50px;
-    `};
-  }
   ${media.largePhone`
     &:not(:last-child) {
-      margin-bottom: 2em;
+      margin-bottom: 3em;
     }
   `};
 `

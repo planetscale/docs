@@ -62,11 +62,6 @@ export const footerLinks = [
         name: 'Media Kit',
         to: '/media',
       },
-      {
-        id: 'contact',
-        name: 'Contact',
-        to: '/contact',
-      },
     ],
   },
   {
@@ -110,6 +105,22 @@ export const footerLinks = [
         name: 'Community',
         to: 'https://vitess.slack.com',
         external: true,
+      },
+    ],
+  },
+  {
+    title: 'Talk To Us',
+    data: [
+      {
+        id: 'phone',
+        name: 'Call +1-669-237-1085',
+        to: 'tel:1-669-237-1085',
+        external: true,
+      },
+      {
+        id: 'contact',
+        name: 'Contact Sales',
+        to: '/contact',
       },
     ],
   },
