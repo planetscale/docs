@@ -118,8 +118,8 @@ export const footerLinks = [
     data: [
       {
         id: 'phone',
-        name: 'Call +1-669-237-1085',
-        to: 'tel:1-669-237-1085',
+        name: 'Call +1-408-649-9870',
+        to: 'tel:1-408-649-9870',
         external: true,
       },
       {
