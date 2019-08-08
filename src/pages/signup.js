@@ -14,7 +14,7 @@ import {
   HeroContent,
 } from '../components/Common.Hero'
 
-import { SignupForm } from '../components/Home.SignupForm'
+import { Form } from '../components/HubSpot.Form'
 import { Footer } from '../components/Layout.Footer'
 
 import background from '../images/hero/home-bg.svg'
@@ -58,7 +58,10 @@ export default function SignupPage({ data }) {
         </Hero>
         <Wrapper>
           <FormCard>
-            <SignupForm />
+            <Form
+              portalId="5983949"
+              formId="e3c1fc2a-5bf0-4d0e-b6b7-88b51eb3e670"
+            ></Form>
           </FormCard>
         </Wrapper>
         <Footer

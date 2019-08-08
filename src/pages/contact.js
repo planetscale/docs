@@ -14,8 +14,8 @@ import {
   HeroContent,
 } from '../components/Common.Hero'
 
-import { EmailForm } from '../components/Home.EmailForm'
 import { Footer } from '../components/Layout.Footer'
+import { Form } from '../components/HubSpot.Form'
 
 import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
@@ -75,7 +75,7 @@ const ContactPointText = styled.div`
   font-weight: 300;
 `
 
-export default function ContactPage({ data }) {
+export default function ContactPage({ data, hbspotID }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
@@ -98,7 +98,10 @@ export default function ContactPage({ data }) {
         </Hero>
         <Wrapper>
           <FormCard>
-            <EmailForm />
+            <Form
+              portalId="5983949"
+              formId="e3c1fc2a-5bf0-4d0e-b6b7-88b51eb3e670"
+            ></Form>
           </FormCard>
           <ContactCard>
             <CardHeader>Reach Out</CardHeader>
@@ -145,4 +148,11 @@ export const pageQuery = graphql`
 
 ContactPage.propTypes = {
   data: PropTypes.object,
+}
+
+ContactPage.defaultProps = {
+  hbspotID: {
+    portalId: '5983949',
+    formId: 'e3c1fc2a-5bf0-4d0e-b6b7-88b51eb3e670',
+  },
 }
