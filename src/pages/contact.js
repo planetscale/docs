@@ -21,7 +21,7 @@ import background from '../images/hero/home-bg.svg'
 import overlay from '../images/hero/home-overlay.svg'
 
 const FormCard = styled.div`
-  background-color: #eee;
+  background-color: #333;
   padding: 2em;
   border-radius: 4px;
   position: relative;
