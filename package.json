@@ -22,6 +22,7 @@
     "gatsby-plugin-robots-txt": "^1.5.0",
     "gatsby-plugin-sitemap": "^2.2.1",
     "gatsby-plugin-styled-components": "^3.0.7",
+    "gatsby-source-contentful": "^2.1.18",
     "gatsby-source-filesystem": "^2.0.39",
     "gatsby-source-greenhouse": "^2.0.2",
     "gatsby-transformer-json": "^2.1.11",
@@ -46,6 +47,7 @@
   "scripts": {
     "serve": "gatsby serve",
     "build": "gatsby build",
+    "clean": "gatsby clean",
     "develop": "rm -rf .cache && gatsby develop",
     "diff": "prettier --config .prettierrc --list-different \"src/**/*.js\"",
     "format": "prettier --config .prettierrc --write \"src/**/*.js\""

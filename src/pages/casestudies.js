@@ -1,11 +1,10 @@
 import React from 'react'
 import Layout from '../components/layout'
+import PropTypes from 'prop-types'
 
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { H1 } from '../components/Typography.Headings'
-import { PageDescription } from '../components/Common.PageDescription'
 import {
   Hero,
   HeroTitle,
@@ -13,22 +12,20 @@ import {
   HeroContent,
 } from '../components/Common.Hero'
 
+import { CardContainer, Card } from '../components/CaseStudies.Card'
 import { Footer } from '../components/Layout.Footer'
-
-import { TeamMemberContainer, TeamMember } from '../components/Team.TeamMember'
-import { InvestorContainer, Investor } from '../components/Team.Investor'
 
 import background from '../images/hero/team-bg.svg'
 import overlay from '../images/hero/team-overlay.svg'
 
-export default function TeamPage({ data }) {
+export default function CaseStudiesPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
   return (
     <Layout>
       <div>
-        <TitleAndMetaTags title={pageData.title} pathname="team" />
+        <TitleAndMetaTags title={pageData.title} pathname="faq" />
         <Hero
           backgroundImage={background}
           backgroundColor={'#24C8D8'}
@@ -39,30 +36,25 @@ export default function TeamPage({ data }) {
               <span style={{ fontWeight: 100 }}>{pageData.title}</span>
             </HeroTitle>
             <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-            <HeroContent>{pageData.content}</HeroContent>
           </Wrapper>
         </Hero>
         <Wrapper>
-          <H1>{pageData.team.title}</H1>
-          <PageDescription relaxedWidth>{pageData.team.blurb}</PageDescription>
-          <TeamMemberContainer>
-            {data.team.edges.map((edge) => {
+          <CardContainer>
+            {data.casestudies.edges.map((edge) => {
               const { node } = edge
-              const { html, frontmatter } = node
-              const { name, role, image, linkedin } = frontmatter
-
+              const { name, logo, blurb, resourceLink } = node
+              const description = blurb.content[0].content[0].value
+              console.log(description)
               return (
-                <TeamMember
-                  key={name}
+                <Card
                   name={name}
-                  role={role}
-                  image={image}
-                  linkedin={linkedin}
-                  bio={html}
+                  logo={logo}
+                  description={description}
+                  resourceLink={resourceLink}
                 />
               )
             })}
-          </TeamMemberContainer>
+          </CardContainer>
         </Wrapper>
         <Footer
           backgroundImage={background}
@@ -75,40 +67,42 @@ export default function TeamPage({ data }) {
 }
 
 export const pageQuery = graphql`
-  query teamQuery {
-    team: allMarkdownRemark(
-      sort: { order: ASC, fields: [frontmatter___order] }
-      filter: { fields: { collection: { eq: "team" } } }
-    ) {
+  query caseStudiesQuery {
+    casestudies: allContentfulVitessCaseStudies {
       edges {
         node {
-          html
-          frontmatter {
-            image
-            name
-            role
-            order
-            position
-            linkedin
+          name
+          logo {
+            title
+            file {
+              url
+            }
           }
-          fields {
-            slug
+          blurb {
+            content {
+              content {
+                value
+              }
+            }
+          }
+          resourceLink {
+            url
+            linkText
           }
         }
       }
     }
-    allPagesYaml(filter: { id: { eq: "team" } }) {
+    allPagesYaml(filter: { id: { eq: "case_studies" } }) {
       edges {
         node {
           title
           subtitle
-          content
-          team {
-            title
-            blurb
-          }
         }
       }
     }
   }
 `
+
+CaseStudiesPage.propTypes = {
+  data: PropTypes.object,
+}

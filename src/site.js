@@ -26,6 +26,12 @@ export const headerLinks = [
   },
 
   {
+    id: 'casestudies',
+    name: 'Vitess Case Studies',
+    to: '/casestudies',
+  },
+
+  {
     id: 'blog',
     name: 'News',
     to: '/news',

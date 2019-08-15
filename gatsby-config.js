@@ -124,5 +124,12 @@ module.exports = {
         includeInDevelopment: true,
       },
     },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `rhwi883tiknj`,
+        accessToken: `CGZMEfhpdmTZW3Zy-aEowpPd4P9giedlvtsMV7T5SPE`,
+      },
+    },
   ],
 }

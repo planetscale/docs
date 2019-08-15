@@ -306,12 +306,6 @@ class Header extends Component {
                 <Button>
                   <ButtonLink href="/signup">Sign Up For Beta</ButtonLink>{' '}
                 </Button>
-                <NativeButton
-                  onClick={this.handleTalkClick}
-                  style={{ fontWeight: '500', letterSpacing: '.025em' }}
-                >
-                  Schedule A Call
-                </NativeButton>
               </RightSide>
             </Nav>
           </Wrapper>
