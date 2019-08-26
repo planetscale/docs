@@ -5,7 +5,7 @@ updatedOn: '2019-02-15'
 
 #Platform Guidelines
 
-These Platform Guidelines are hereby incorporated into by reference into the PlanetScale Cloud Database Agreement made available at [www.planetscale.com/dbaas/eula](“Agreement”). All capitalized terms not defined herein shall have the meanings assigned to them in the Agreement.
+These Platform Guidelines are hereby incorporated into by reference into the PlanetScale Cloud Database Agreement made available at [www.planetscale.com/dbaas/eula](/dbaas/eula). All capitalized terms not defined herein shall have the meanings assigned to them in the Agreement.
 
 a. User Accounts. Each User will be assigned a unique user identification name and password (“User ID”) for access to and use of the Subscription Services. Customer is responsible for ensuring the security and confidentiality of all User IDs assigned to Customer and Customer’s Users. User IDs are intended for use by the designated Users only and cannot be shared. Customer agrees to provide accurate, current and complete account and User information.
 
