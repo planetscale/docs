@@ -23,7 +23,7 @@ export default function BlogPage({ data }) {
       <>
         <TitleAndMetaTags
           title={frontmatter.title}
-          pathname={`blog/${fields.slug}`}
+          pathname={`news/${fields.slug}`}
         />
         <Hero backgroundImage={background} backgroundColor={'#9124D8'}>
           <Wrapper>

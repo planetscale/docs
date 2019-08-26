@@ -112,7 +112,7 @@ module.exports = {
     {
       resolve: 'gatsby-source-greenhouse',
       options: {
-        apiToken: 'fde04402b62d4e24777f64abf9056cd2-2',
+        apiToken: process.env.GREENHOUSE_API_TOKEN,
       },
     },
     'gatsby-plugin-netlify-cms',
@@ -120,15 +120,15 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
-        id: 'GTM-KL98Z8C',
+        id: process.env.GOOGLE_TAG_MANAGER_ID,
         includeInDevelopment: true,
       },
     },
     {
       resolve: `gatsby-source-contentful`,
       options: {
-        spaceId: `rhwi883tiknj`,
-        accessToken: `CGZMEfhpdmTZW3Zy-aEowpPd4P9giedlvtsMV7T5SPE`,
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
   ],
