@@ -1,8 +1,13 @@
-# Codebase for planetscale.com
-
 [![Netlify Status](https://api.netlify.com/api/v1/badges/169b6b58-dbd7-4f25-a4fc-5906221132c8/deploy-status)](https://app.netlify.com/sites/planetscale/deploys)
 
----
+# Codebase for planetscale.com
+
+## Internals
+
+- GatsbyJS
+- Hosted and deployed via Netlify
+- Content in yaml and markdown files editable via `/admin`
+- `Vitess Case Studies` content on Contentful
 
 ## How to setup local development (on MacOS)
 
