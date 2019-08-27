@@ -106,15 +106,22 @@ const NavListItem = styled.li`
 const MobileHeaderButton = styled.button`
   background-color: transparent;
   border: none;
+  box-sizing: border-box;
   color: white;
   display: none;
-  font-weight: 800;
+  font-weight: 500;
   position: absolute;
   top: 25px;
   right: 20px;
   cursor: pointer;
   z-index: 1338;
   user-select: none;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 0;
 
   &:focus {
     outline: none;
@@ -123,20 +130,14 @@ const MobileHeaderButton = styled.button`
   ${media.desktop`
     display: inline-block;
     position: ${(props) => (props.visible ? 'fixed' : 'absolute')};
-    padding-right: 1.7rem;
   `};
 `
 
-const MobileHeaderButtonLabel = styled.span`
-  font-size: 1.5em;
-`
-
 const MobileHeaderButtonIcon = styled.span`
-  position: absolute;
-  right: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.3rem;
+  position: relative;
+  padding: 0;
+  margin: 0;
+  font-size: 1.5rem;
 `
 
 const Logo = styled.img`
@@ -314,9 +315,12 @@ class Header extends Component {
             visible={sideBarOpen}
             onClick={this.toggleSidebar}
           >
-            <MobileHeaderButtonLabel>Menu</MobileHeaderButtonLabel>
             <MobileHeaderButtonIcon>
-              {sideBarOpen ? '✕' : '☰'}
+              {sideBarOpen ? (
+                <i className="fas fa-times"></i>
+              ) : (
+                <i className="fas fa-bars"></i>
+              )}
             </MobileHeaderButtonIcon>
           </MobileHeaderButton>
           <MobileLogoWrapper

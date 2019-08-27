@@ -131,5 +131,12 @@ module.exports = {
         accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
+    {
+      resolve: `gatsby-plugin-google-fonts`,
+      options: {
+        fonts: ['poppins:100, 300, 400, 500, 700'],
+        display: 'swap',
+      },
+    },
   ],
 }

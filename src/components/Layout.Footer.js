@@ -89,7 +89,7 @@ const PageLists = styled.div`
     text-decoration: none;
     color: white;
     opacity: 0.5;
-    font-weight: 600;
+    font-weight: 500;
     transition: all 0.2s;
     display: inline-block;
     padding: 0;
@@ -164,7 +164,7 @@ const FooterLogoLink = styled(Link)`
 
 const FooterH4 = styled.h4`
   color: white;
-  font-size: 1.5em;
+  font-size: 1.3em;
   font-weight: 400;
   opacity: 0.75;
   text-align: left;

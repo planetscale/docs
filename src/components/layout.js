@@ -8,7 +8,6 @@ import { ThemeProvider } from 'styled-components'
 import Header from '../components/Layout.Header'
 
 import { theme, headerLinks } from '../site'
-import { GlobalFonts } from '../fonts'
 import { GlobalStyles } from '../styles/globals'
 
 const Layout = (props) => {
@@ -20,7 +19,6 @@ const Layout = (props) => {
         <>
           <Header pages={headerLinks} />
           {children}
-          <GlobalFonts />
           <GlobalStyles />
         </>
       </ThemeProvider>

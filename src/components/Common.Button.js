@@ -13,7 +13,7 @@ const styles = `
   color: white;
   cursor: pointer;
   display: inline-block;
-  font-weight: 600;
+  font-weight: 500;
   height: auto;
   letter-spacing: .025em;
   padding: 0;

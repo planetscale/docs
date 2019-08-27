@@ -44,8 +44,8 @@ const Content = styled.div`
 `
 
 const Question = styled.h2`
-  font-size: 1.5em;
-  font-weight: bold;
+  font-size: 1.3em;
+  font-weight: 700;
   margin: 0 0 20px;
 
   ${media.largePhone`

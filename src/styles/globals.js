@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
   ${styledNormalize}
 
   body {
+    font-family: 'Poppins', sans-serif;
     background: white;
     max-width: 100vw;
   }
