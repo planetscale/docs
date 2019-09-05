@@ -1,10 +1,10 @@
 id: index
 title: Turbocharged MySQL For The Cloud
-subtitle: ScaleDB helps you build highly scalable modern applications on top of MySQL without any of the guesswork.
+subtitle: PlanetScale helps you build highly scalable modern applications on top of MySQL without any of the guesswork.
 vitess:
   logo: /img/vitess-logo.svg
   title: Powered By Vitess
-  buttonLabel: Talk to us on slack
+  buttonLabel: Join The Vitess Slack Community
   buttonLink: https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM
   description: >-
     At the heart of PlanetScale lies Vitess: the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of SQL.

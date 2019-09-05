@@ -18,8 +18,8 @@ products:
       License our control plane and Kubernetes operator to deploy and manage databases that scale to fit your evolving needs. Administer them yourself or have us carry the pager.
   - icon: /img/customized-services.png
     title: Open Source Vitess Support
-    action: Join Slack Channel
-    link: https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM
+    action: Contact Us
+    link: /contact
     content: >-
       Get support from the co-creators of Vitess for your deployment with the option to escalate critical issues.
   - icon: /img/expert-support.png
