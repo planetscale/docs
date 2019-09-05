@@ -13,7 +13,7 @@ const _Hero = styled.section`
   position: relative;
   width: 100%;
   flex-wrap: ${(props) => props.wrap || 'nowrap'};
-  background: linear-gradient(270deg, #d92727 0%, #f0562b 100%);
+  background: linear-gradient(180deg, #d92727 0%, #f0562b 100%);
 `
 
 const _BackgroundHero = styled.div`

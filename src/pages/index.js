@@ -17,6 +17,12 @@ import overlay from '../images/hero/cylinder_overlay.png'
 import { Introduction } from '../components/Vitess.Introduction'
 import { Architecture } from '../components/Vitess.Architecture'
 import { Products } from '../components/Section.Products'
+import styled from 'styled-components'
+
+const _SectionTitle = styled.h2`
+  font-size: 3em;
+  font-weight: 700;
+`
 
 function handleScriptLoad() {
   if (typeof window !== 'undefined' && window.netlifyIdentity) {
@@ -54,17 +60,18 @@ export default function IndexPage({ data }) {
         <Button className="big clear-color">
           <ButtonLink href="/signup">Request Demo</ButtonLink>
         </Button>
+        <Introduction
+          logo={pageData.vitess.logo}
+          title={pageData.vitess.title}
+          description={pageData.vitess.description}
+          buttonLabel={pageData.vitess.buttonLabel}
+          buttonLink={pageData.vitess.buttonLink}
+        ></Introduction>
       </Hero>
 
       <FeatureBackground>
         <Wrapper>
-          <Introduction
-            logo={pageData.vitess.logo}
-            title={pageData.vitess.title}
-            description={pageData.vitess.description}
-            buttonLabel={pageData.vitess.buttonLabel}
-            buttonLink={pageData.vitess.buttonLink}
-          ></Introduction>
+          <_SectionTitle>Features</_SectionTitle>
           <FeatureContainer>
             {pageData.vitess.list.map(Feature)}
           </FeatureContainer>

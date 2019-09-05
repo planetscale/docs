@@ -7,11 +7,12 @@ const _Container = styled.div`
   box-sizing: border-box;
   width: 50%;
   border-radius: 8px;
-  background-color: black;
+  background-color: #00000024;
+  color: #fff;
   padding: 2em;
   display: flex;
   flex-direction: row;
-  box-shadow: 0 0 32px #222;
+  margin-top: 2em;
 
   ${media.largePhone`
     flex-direction: column;
