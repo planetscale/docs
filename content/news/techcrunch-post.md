@@ -7,4 +7,4 @@ share: true
 author: 'Abhi Vaidyanatha'
 ---
 
-About a month ago, PlanetScale's seed funding, gameplan, and path for the future were featured on a TechCrunch article. Following its publication, interest in our upcoming database-as-a-service product and Vitess skyrocketed. Just in case you didn't catch it last time, you can [click here to check it out!](https://techcrunch.com/2018/12/13/planetscale/). 
+About a month ago, PlanetScale's seed funding, gameplan, and path for the future were featured on a TechCrunch article. Following its publication, interest in our upcoming Cloud Database product and Vitess skyrocketed. Just in case you didn't catch it last time, you can [click here to check it out!](https://techcrunch.com/2018/12/13/planetscale/).

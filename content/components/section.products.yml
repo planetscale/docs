@@ -1,0 +1,30 @@
+id: products
+sectionLogo: /img/scale-up.svg
+title: Start Scaling Here
+subtitle: Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.
+products:
+  - icon: /img/planetscale-cloud.png
+    highlight: true
+    title: Cloud Database
+    action: Request Demo
+    link: /signup
+    content: >-
+      PlanetScale Cloud Database is a multi-cloud, multi-region relational database service that makes it easy to provision, manage, and scale your databases as they grow. It provides built-in, transparent sharding for unlimited scale, while managing common database tasks and protecting your database from toxic queries.
+  - icon: /img/enterprise.png
+    title: Enterprise Database
+    action: Contact Us
+    link: /contact
+    content: >-
+      License our control plane and Kubernetes operator to deploy and manage databases that scale to fit your evolving needs. Administer them yourself or have us carry the pager.
+  - icon: /img/customized-services.png
+    title: Open Source Vitess Support
+    action: Join Slack Channel
+    link: https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM
+    content: >-
+      Get support from the co-creators of Vitess for your deployment with the option to escalate critical issues.
+  - icon: /img/expert-support.png
+    title: Professional Services & Training
+    action: Contact Us
+    link: /contact
+    content: >-
+      Leverage our expertise to train your team. We tailor our training to your use case, creating a custom Vitess deployment and management curriculum for your DBAs and engineers.

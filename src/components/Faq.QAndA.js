@@ -8,7 +8,7 @@ export const QAndAContainer = styled.ul`
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 5em 0 0;
+  margin: 0;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
@@ -19,8 +19,11 @@ const _QAndA = styled.li`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 1em;
   width: 100%;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
 
   ${media.largePhone`
     flex-direction: column;
@@ -30,9 +33,7 @@ const _QAndA = styled.li`
 `
 
 const Content = styled.div`
-  margin: 0 3em;
-  background-color: #fafafa;
-  padding: 2em;
+  padding: 2em 0;
   border-radius: 4px;
   width: 100%;
 

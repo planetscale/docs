@@ -1,38 +1,44 @@
 import React from 'react'
 import styled from 'styled-components'
-
-import { SmartImage } from './Common.SmartImage'
-
 import { fadeInAndRotateAnimation } from '../styles/animations'
 import { media } from '../styles/media'
-
-import bottomOverlay from '../images/waves.png'
+import { Wrapper } from '../components/Layout.Wrapper'
+import Header from '../components/Layout.Header'
+import { headerLinks } from '../site'
 
 const _Hero = styled.section`
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: top;
   position: relative;
-  padding-bottom: 12em;
   width: 100%;
   flex-wrap: ${(props) => props.wrap || 'nowrap'};
-  overflow: hidden;
-
-  ${media.largePhone`
-    text-align: center;
-    padding-bottom: 10em;
-  `};
+  background: linear-gradient(270deg, #d92727 0%, #f0562b 100%);
 `
 
-export const HeroTitle = styled.h1`
-  padding-top: 3em;
+const _BackgroundHero = styled.div`
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+
+  ${media.largePhone`
+    opacity: 0.4;
+  `}
+`
+
+const HeroTitle = styled.h1`
   text-shadow: 0 0 50px rgba(0, 0, 0, 0.175);
-  font-size: 3em;
-  color: white;
+  font-size: 4em;
+  color: #fff;
   margin: 0;
-  font-weight: 100;
+  font-weight: 600;
+  width: ${(props) => props.width || '75%'};
   text-align: ${(props) => props.align || 'left'};
 
   ${media.largePhone`
+    width: 100%;
 		font-size: 2.5em;
     padding-top: 1em;
     padding-left: 0;
@@ -40,69 +46,47 @@ export const HeroTitle = styled.h1`
   `};
 `
 
-export const HeroSubTitle = styled.h2`
-  text-shadow: 0 0 10px rgba(0, 0, 0, 0.175);
-  margin: 0;
-  padding: 0.5em 0 0;
-  font-size: 1.75em;
-  line-height: 1.25em;
-  font-weight: 300;
-  color: ${(props) => props.theme.colors.tertiary};
+const HeroSubTitle = styled.h2`
+  margin: 2em 0;
+  font-size: 1.5em;
+  line-height: 1.5em;
+  width: 66%;
+  color: #fff;
   text-align: ${(props) => props.align || 'left'};
 
   ${media.largePhone`
+    width: 100%;
 		font-size: 1em;
   `};
 `
 
-export const HeroContent = styled.h3`
-  text-shadow: 0 0 7px rgba(0, 0, 0, 0.05);
-  font-size: 1.25em;
-  max-width: ${(props) => (props.align ? 'inherit' : '500px')};
-  font-weight: 300;
-  color: white;
-  text-align: ${(props) => props.align || 'left'};
-`
-
 const BottomRightImage = styled.img`
   position: absolute;
-  right: 7vw;
-  bottom: -25vh;
-  width: 40vw;
-  min-width: 400px;
-  max-width: 600px;
-  z-index: 0;
+  right: 0vw;
+  top: 12vh;
+  width: 50vw;
   ${fadeInAndRotateAnimation};
+
+  ${media.largePhone`
+    position: relative;
+    width: 100vw;
+  `}
 `
 
-const BottomOverlay = styled.img`
-  position: absolute;
-  width: 100%;
-  min-width: 700px;
-  left: 0;
-  height: 150px;
-  bottom: -1px;
-  overflow: hidden;
-  z-index: 0;
-`
-
-export function Hero({
-  backgroundImage,
-  backgroundColor,
-  overlay,
-  wrap,
-  children,
-}) {
+export function Hero({ overlay, title, subTitle, wrap, children, width }) {
   return (
     <_Hero wrap={wrap}>
-      <SmartImage
-        img={backgroundImage}
-        backgroundColor={backgroundColor}
-        style={{ zIndex: 1337 }}
-      />
-      {overlay && <BottomRightImage src={overlay} />}
-      {children}
-      <BottomOverlay src={bottomOverlay} />
+      {overlay && (
+        <_BackgroundHero>
+          <BottomRightImage src={overlay} />
+        </_BackgroundHero>
+      )}
+      <Header pages={headerLinks} />
+      <Wrapper>
+        <HeroTitle width={width}>{title}</HeroTitle>
+        {subTitle && <HeroSubTitle>{subTitle}</HeroSubTitle>}
+        {children}
+      </Wrapper>
     </_Hero>
   )
 }

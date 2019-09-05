@@ -1,71 +1,50 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
-import { Button } from './Common.Button'
-import { H2 } from './Typography.Headings'
-
+import { ButtonLink } from './Common.Button'
 import { media } from '../styles/media'
 
-import background from '../images/hero/blog-bg.svg'
+export const BlogPosts = styled.ul`
+  list-style: none;
+  margin: 0;
+  padding: 0;
+`
 
-const _BlogPostLink = styled.article`
-  margin: 0 5em 5em 5em;
+const _BlogPostLink = styled.li`
+  margin: 0;
+  padding: 3em 0;
   border-bottom: 1px solid #eee;
-  padding-bottom: 5em;
 
   ${media.largePhone`
-     margin: 0 2em 5em 2em;
+    padding: 2em;
   `};
 `
 
+const Date = styled.div`
+  margin-bottom: 1em;
+  font-weight: 300;
+  font-size: 0.8em;
+  color: #666;
+`
+
+const Title = styled.h2`
+  font-size: 2em;
+  font-weight: 500;
+  margin: 0;
+`
+
 const Description = styled.p`
-  font-size: 1.5em;
-  font-weight: 100;
+  font-weight: 400;
   margin: 0;
   padding: 1em 0;
 `
 
-const Footer = styled.footer`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  font-size: 1.5em;
-  font-weight: 100;
-  margin: 0;
-
-  ${media.largePhone`
-    flex-direction: column;
-  `};
-`
-
-const ByAt = styled.h2`
-  font-size: 0.75em;
-  font-weight: 300;
-  margin: 0 1em;
-
-  ${media.largePhone`
-    order: -1;
-    margin: 1em 0;
-  `};
-`
-
 export function BlogPostLink({ title, description, date, author, slug }) {
   return (
-    <Link to={`/news/${slug}`} style={{ textDecoration: 'none' }}>
-      <_BlogPostLink key={title}>
-        <H2 align={'left'} bold>
-          {title}
-        </H2>
-        <Description>{description}</Description>
-
-        <Footer>
-          <Button backgroundImage={background}>Read More</Button>
-          <ByAt>
-            <b>{author}</b> posted this on {date}
-          </ByAt>
-        </Footer>
-      </_BlogPostLink>
-    </Link>
+    <_BlogPostLink key={title}>
+      <Date>{date}</Date>
+      <Title>{title}</Title>
+      <Description>{description}</Description>
+      <ButtonLink href={`/news/${slug}`}>Read More</ButtonLink>
+    </_BlogPostLink>
   )
 }

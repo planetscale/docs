@@ -1,16 +1,11 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
 import styled, { createGlobalStyle } from 'styled-components'
-import { Button, NativeButton } from '../components/Common.Button'
+import { Button, ButtonLink } from '../components/Common.Button'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { StaticQuery, graphql } from 'gatsby'
-
 import { media } from '../styles/media'
-
-import TalkDrawer from './TalkToUs/Main'
-
 import logo from '../../static/img/logo.png'
-import background from '../images/hero/home-bg.svg'
 
 const GlobalStyle = createGlobalStyle`
   html.fixed,
@@ -22,10 +17,17 @@ const GlobalStyle = createGlobalStyle`
   }
 `
 
+const HeaderWrapper = styled(Wrapper)`
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+`
+
+const HeaderButton = styled(Button)`
+  border: 2px solid rgba(255, 255, 255, 0.8);
+`
+
 const _Header = styled.header`
   width: 100%;
   z-index: 1337;
-  position: absolute;
 
   ${media.desktop`
     width: 100%;
@@ -51,12 +53,11 @@ const Nav = styled.nav`
     flex-direction: column;
     justify-content: center;
     height: 100vh;
-    background-image: url(${background});
-    background-size: cover;
     transition: all 250ms;
     position: ${(props) => (props.visible ? 'fixed' : 'absolute')} ;
     transform: translateX(${(props) => (props.visible ? '0' : '100vw')}) ;
     top: 0;
+    background-color: white;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
 
   `};
@@ -65,7 +66,8 @@ const Nav = styled.nav`
 const NavList = styled.ol`
   padding: 0;
   flex-grow: 2;
-  text-align: center;
+  text-align: right;
+  margin-right: 1em;
 
   ${media.desktop`
     flex-wrap: wrap;
@@ -77,17 +79,17 @@ const NavList = styled.ol`
 
 const NavListItem = styled.li`
   display: inline-block;
-  margin: 0 1em;
-  font-size: 1.15em;
+  margin: 0 0.5em;
+  font-size: 1em;
 
   a {
     text-decoration: none;
-    color: white;
-    opacity: 0.5;
+    color: #fff;
     font-weight: 500;
     transition: all 0.2s;
+
     &:hover {
-      opacity: 1;
+      border-bottom: 4px solid #fff;
     }
   }
 
@@ -96,6 +98,12 @@ const NavListItem = styled.li`
     text-align: center;
     font-size: 2.2em;
     margin-left: 0;
+
+    a {
+      &:hover {
+        border-bottom: 4px solid #fff;
+      }
+    }
 
     &:not(:first-child) {
       padding-top: 5vmin;
@@ -178,10 +186,6 @@ const RightSide = styled.div`
   ${media.desktop`
     margin-bottom: 2rem;
   `};
-`
-
-const ButtonLink = styled.a`
-  text-decoration: none;
 `
 
 class Header extends Component {
@@ -267,19 +271,13 @@ class Header extends Component {
     })
 
   render() {
-    const { location, pages, data } = this.props
-    const { sideBarOpen, talkDrawerOpen } = this.state
-    const calendly = data.allPagesYaml.edges[0].node
+    const { pages } = this.props
+    const { sideBarOpen } = this.state
 
     return (
       <>
-        <TalkDrawer
-          onClick={this.handleTalkClick}
-          visible={talkDrawerOpen}
-          calendly={calendly}
-        />
         <_Header visible={sideBarOpen}>
-          <Wrapper>
+          <HeaderWrapper>
             <Nav visible={sideBarOpen}>
               <Link to={'/'} activeStyle={{ opacity: 1 }}>
                 <Logo
@@ -295,7 +293,9 @@ class Header extends Component {
                         onClick={() => this.toggleSidebar(false)}
                         to={`${to}`}
                         exact="true"
-                        activeStyle={{ opacity: 1 }}
+                        activeStyle={{
+                          borderBottom: '4px solid rgb(255, 255, 255)',
+                        }}
                       >
                         {name}
                       </Link>
@@ -304,12 +304,12 @@ class Header extends Component {
                 })}
               </NavList>
               <RightSide>
-                <Button>
-                  <ButtonLink href="/signup">Sign Up For Beta</ButtonLink>{' '}
-                </Button>
+                <HeaderButton>
+                  <ButtonLink href="/signup">Request Demo</ButtonLink>{' '}
+                </HeaderButton>
               </RightSide>
             </Nav>
-          </Wrapper>
+          </HeaderWrapper>
 
           <MobileHeaderButton
             visible={sideBarOpen}

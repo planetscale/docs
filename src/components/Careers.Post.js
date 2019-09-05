@@ -1,13 +1,9 @@
 import React from 'react'
 import styled from 'styled-components'
-
 import MarkdownContent from './Common.MarkdownContent'
 import { Button } from './Common.Button'
-
 import { sweepAnimation } from '../styles/animations'
 import { media } from '../styles/media'
-
-import chevron from '../images/chevron.png'
 
 export const CareersPostContainer = styled.ul`
   display: flex;
@@ -26,47 +22,23 @@ const _CareersPost = styled.details`
   align-items: center;
   width: 100%;
   outline: none;
-  background: #2878e0;
-  margin-top: 1em;
   cursor: pointer;
-  color: white;
   position: relative;
-  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
 
   summary {
+    display: flex;
+    flex-direction: row;
     padding: 0.75em 3em;
     width: 100%;
     box-sizing: border-box;
+    align-items: center;
 
-    :before {
-      display: none;
-    }
-
-    &:after {
-      content: ' ';
-      display: block;
-      position: absolute;
-
-      background-color: rgba(255, 255, 255, 0.2);
-      background-image: url(${chevron});
-      background-position: center;
-      background-size: 20px;
-      background-repeat: no-repeat;
-      border-radius: 50px;
-
-      pointer-events: none;
-      width: 50px;
-      height: 50px;
-      right: 1.25em;
-      top: 1.25em;
-
-      ${media.largePhone`
-        font-size: 1.25em;
-        width: 2em;
-        height: 2em;
-        top: 1em;
-        right: 1em;
-      `};
+    > h1 {
+      flex-grow: 2;
     }
   }
 
@@ -74,8 +46,8 @@ const _CareersPost = styled.details`
     ${sweepAnimation};
   }
 
-  &[open] summary:after {
-    transform: rotate(180deg);
+  &[open] summary > i {
+    transform: rotate(90deg);
   }
 `
 
@@ -83,9 +55,7 @@ const Title = styled.h1`
   font-size: 1.75em;
   font-weight: 500;
   background-size: cover;
-  color: white;
   display: block;
-  color: white;
   user-select: none;
 
   ${media.largePhone`
@@ -105,21 +75,18 @@ const Content = styled.div`
   width: 100%;
   box-sizing: border-box;
 `
-export function CareersPost({ node, open = false }) {
+export function CareersPost({ node }) {
   const { title, id, content } = node
   const jobId = id.split('__')[2]
 
   return (
-    <_CareersPost open={open}>
+    <_CareersPost>
       <summary style={{ outline: 'none' }}>
         <Title>{title}</Title>
+        <i className="fas fa-chevron-right" />
       </summary>
       <Content>
-        <MarkdownContent
-          inverted={true}
-          html={content}
-          style={{ color: 'white' }}
-        />
+        <MarkdownContent html={content} style={{ color: 'black' }} />
         <ButtonLink
           href={`https://boards.greenhouse.io/planetscale/jobs/${jobId}#app`}
         >

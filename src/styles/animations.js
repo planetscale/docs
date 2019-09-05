@@ -12,15 +12,10 @@ const fadeIn = keyframes`
 
 const fadeInAndRotate = keyframes`
   0% {
-    opacity: 0;
-    translate: rotate(-36deg);
-  }
-  1% {
-  	opacity: 1;
+    transform: translateY(-1em);
   }
   100% {
-    opacity: 1;
-    translate: rotate(0deg);
+    transform: translateY(0px);
   }
 `
 const sweep = keyframes`
@@ -34,9 +29,8 @@ export const fadeInAnimation = css`
 `
 
 export const fadeInAndRotateAnimation = css`
-  opacity: 0;
-  transition: 200ms opacity;
-  animation: ${fadeInAndRotate} 360s linear 50ms forwards;
+  opacity: 1;
+  animation: ${fadeInAndRotate} 1s linear 50ms;
 `
 
 export const sweepAnimation = css`

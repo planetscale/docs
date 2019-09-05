@@ -1,22 +1,12 @@
 import React from 'react'
 import Layout from '../components/layout'
 import PropTypes from 'prop-types'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
-
+import { Hero } from '../components/Common.Hero'
 import { QAndAContainer, QAndA } from '../components/Faq.QAndA'
 import { Footer } from '../components/Layout.Footer'
-
-import background from '../images/hero/team-bg.svg'
-import overlay from '../images/hero/team-overlay.svg'
 
 export default function FaqPage({ data }) {
   const { allPagesYaml } = data
@@ -26,19 +16,7 @@ export default function FaqPage({ data }) {
     <Layout>
       <div>
         <TitleAndMetaTags title={pageData.title} pathname="faq" />
-        <Hero
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-            <HeroContent>{pageData.content}</HeroContent>
-          </Wrapper>
-        </Hero>
+        <Hero title={pageData.title} wrap="wrap" width="100%"></Hero>
         <Wrapper>
           <QAndAContainer>
             {data.faq.edges.map((edge, index) => {
@@ -56,11 +34,7 @@ export default function FaqPage({ data }) {
             })}
           </QAndAContainer>
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )
@@ -79,9 +53,6 @@ export const pageQuery = graphql`
             question
             order
           }
-          fields {
-            slug
-          }
         }
       }
     }
@@ -89,8 +60,6 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          subtitle
-          content
         }
       }
     }

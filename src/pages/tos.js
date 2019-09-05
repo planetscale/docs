@@ -4,13 +4,9 @@ import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { Hero, HeroTitle } from '../components/Common.Hero'
+import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
-
 import { Footer } from '../components/Layout.Footer'
-
-import background from '../images/hero/team-bg.svg'
-import overlay from '../images/hero/team-overlay.svg'
 
 export default function TOSPage({ data }) {
   const { allPagesYaml } = data
@@ -21,27 +17,17 @@ export default function TOSPage({ data }) {
       <div>
         <TitleAndMetaTags title="Terms of Service" pathname="tos" />
         <Hero
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-          </Wrapper>
-        </Hero>
+          title={pageData.title}
+          subTitle={pageData.subtitle}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
           <MarkdownContent
             html={pageData.content}
             style={{ fontWeight: 400 }}
           />
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )

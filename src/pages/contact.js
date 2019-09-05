@@ -3,29 +3,18 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import PropTypes from 'prop-types'
 import { media } from '../styles/media'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
-
+import { Hero } from '../components/Common.Hero'
 import { Footer } from '../components/Layout.Footer'
 import { Form } from '../components/HubSpot.Form'
-
-import background from '../images/hero/home-bg.svg'
-import overlay from '../images/hero/home-overlay.svg'
 
 const FormCard = styled.div`
   background-color: #333;
   padding: 2em;
   border-radius: 4px;
   position: relative;
-  top: -200px;
   color: #666;
   max-width: 500px;
   margin-bottom: 20px;
@@ -40,7 +29,6 @@ const ContactCard = styled.div`
   padding: 2em 2em 1em;
   border-radius: 4px;
   position: relative;
-  top: -200px;
   color: #666;
   max-width: 500px;
 
@@ -84,23 +72,15 @@ export default function ContactPage({ data, hbspotID }) {
       <div>
         <TitleAndMetaTags title={pageData.title} pathname="contact" />
         <Hero
-          backgroundImage={background}
-          backgroundColor={'#EFAD2D'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-            <HeroContent>{pageData.content}</HeroContent>
-          </Wrapper>
-        </Hero>
+          title={pageData.title}
+          subTitle={pageData.subtitle}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
           <FormCard>
             <Form
               portalId="5983949"
-              formId="e3c1fc2a-5bf0-4d0e-b6b7-88b51eb3e670"
+              formId="50aac238-e887-4a8a-bf43-a4572e870fe6"
             ></Form>
           </FormCard>
           <ContactCard>
@@ -120,11 +100,7 @@ export default function ContactPage({ data, hbspotID }) {
             </ContactPoint>
           </ContactCard>
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )
@@ -139,7 +115,6 @@ export const pageQuery = graphql`
           subtitle
           address
           email
-          content
         }
       }
     }

@@ -1,25 +1,12 @@
 import React from 'react'
 import Layout from '../components/layout'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { H1 } from '../components/Typography.Headings'
-import { PageDescription } from '../components/Common.PageDescription'
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
-
+import { Hero } from '../components/Common.Hero'
 import { Footer } from '../components/Layout.Footer'
-
 import { TeamMemberContainer, TeamMember } from '../components/Team.TeamMember'
-import { InvestorContainer, Investor } from '../components/Team.Investor'
-
-import background from '../images/hero/team-bg.svg'
-import overlay from '../images/hero/team-overlay.svg'
+import { H2 } from '../components/Typography.Headings'
 
 export default function TeamPage({ data }) {
   const { allPagesYaml } = data
@@ -30,21 +17,14 @@ export default function TeamPage({ data }) {
       <div>
         <TitleAndMetaTags title={pageData.title} pathname="team" />
         <Hero
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-            <HeroContent>{pageData.content}</HeroContent>
-          </Wrapper>
-        </Hero>
+          title={pageData.title}
+          subTitle={pageData.subtitle}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
-          <H1>{pageData.team.title}</H1>
-          <PageDescription relaxedWidth>{pageData.team.blurb}</PageDescription>
+          <H2>Roster</H2>
+        </Wrapper>
+        <Wrapper>
           <TeamMemberContainer>
             {data.team.edges.map((edge) => {
               const { node } = edge
@@ -64,11 +44,7 @@ export default function TeamPage({ data }) {
             })}
           </TeamMemberContainer>
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )
@@ -102,11 +78,6 @@ export const pageQuery = graphql`
         node {
           title
           subtitle
-          content
-          team {
-            title
-            blurb
-          }
         }
       }
     }

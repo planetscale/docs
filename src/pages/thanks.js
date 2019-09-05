@@ -1,21 +1,8 @@
 import React from 'react'
-import Link from 'gatsby-link'
 import Layout from '../components/layout'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
-
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
-import { Button } from '../components/Common.Button'
-
-import background from '../images/hero/home-bg.svg'
-import overlay from '../images/hero/home-overlay.svg'
+import { Hero } from '../components/Common.Hero'
 
 export default function ThanksPage({ data }) {
   const { allPagesYaml } = data
@@ -25,21 +12,10 @@ export default function ThanksPage({ data }) {
     <Layout>
       <TitleAndMetaTags title="Thanks" pathname="thanks" />
       <Hero
-        backgroundImage={background}
-        backgroundColor={'#EFAD2D'}
-        overlay={overlay}
-      >
-        <Wrapper>
-          <HeroTitle>
-            <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-          </HeroTitle>
-          <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          <HeroContent>{pageData.content}</HeroContent>
-          <Link to={'/'}>
-            <Button>{pageData.backButton}</Button>
-          </Link>
-        </Wrapper>
-      </Hero>
+        title={pageData.title}
+        subTitle={pageData.subtitle}
+        wrap="wrap"
+      ></Hero>
     </Layout>
   )
 }

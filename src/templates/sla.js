@@ -1,20 +1,12 @@
 import React from 'react'
-import ReactDisqusComments from 'react-disqus-comments'
 import Layout from '../components/layout'
 import PropTypes from 'prop-types'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { Spacing } from '../components/Layout.Spacing'
-import { Hero, HeroTitle, HeroContent } from '../components/Common.Hero'
+import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
-
-import { BlogPostShareButtons } from '../components/Blog.Post.ShareButtons'
-
-import background from '../images/hero/blog-bg.svg'
-import overlay from '../images/hero/blog-overlay.svg'
 
 export default function BlogPage({ data }) {
   const { post } = data
@@ -22,48 +14,20 @@ export default function BlogPage({ data }) {
 
   return (
     <Layout>
-      <>
-        <TitleAndMetaTags
-          title={frontmatter.title}
-          pathname={`sla/${fields.slug}`}
-        />
-        <Hero backgroundImage={background} backgroundColor={'#9124D8'}>
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{frontmatter.title}</span>
-            </HeroTitle>
-            <HeroContent>
-              <b>{frontmatter.author}</b>
-              {frontmatter.date}
-            </HeroContent>
-          </Wrapper>
-        </Hero>
+      <TitleAndMetaTags
+        title={frontmatter.title}
+        pathname={`sla/${fields.slug}`}
+      />
+      <Hero
+        title={frontmatter.title}
+        subTitle={`Last updated on ${frontmatter.date}`}
+        wrap="wrap"
+      ></Hero>
 
-        <Wrapper>
-          <MarkdownContent html={html} />
-          {frontmatter.share && (
-            <BlogPostShareButtons
-              shareUrl={`https://planetscale.com/sla/${fields.slug}`}
-              title={frontmatter.title}
-            />
-          )}
-          {frontmatter.comments && (
-            <>
-              <Spacing />
-              <ReactDisqusComments
-                shortname="planetscale"
-                title={frontmatter.title}
-              />
-            </>
-          )}
-        </Wrapper>
-        <Spacing />
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#302DEF'}
-          overlay={overlay}
-        />
-      </>
+      <Wrapper>
+        <MarkdownContent html={html} />
+      </Wrapper>
+      <Footer />
     </Layout>
   )
 }

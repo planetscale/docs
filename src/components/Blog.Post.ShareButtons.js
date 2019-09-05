@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import {
   FacebookShareButton,
   LinkedinShareButton,
@@ -11,8 +12,6 @@ import {
   RedditIcon,
   EmailIcon,
 } from 'react-share'
-import styled from 'styled-components'
-import { Spacing } from './Layout.Spacing'
 
 const BlogPostShareButtonsContainer = styled.ol`
   list-style-type: none;
@@ -32,7 +31,6 @@ const PlatformContainer = styled.li`
 export const BlogPostShareButtons = ({ title, shareUrl }) => {
   return (
     <>
-      <Spacing />
       <BlogPostShareButtonsContainer>
         <h3>Share this article</h3>
         {[

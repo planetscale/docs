@@ -110,6 +110,13 @@ module.exports = {
       },
     },
     {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'components',
+        path: `${__dirname}/content/components/`,
+      },
+    },
+    {
       resolve: 'gatsby-source-greenhouse',
       options: {
         apiToken: process.env.GREENHOUSE_API_TOKEN,

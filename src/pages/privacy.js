@@ -1,38 +1,26 @@
 import React from 'react'
 import Layout from '../components/layout'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { Hero, HeroTitle, HeroContent } from '../components/Common.Hero'
+import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
-
 import { Footer } from '../components/Layout.Footer'
-
-import background from '../images/hero/team-bg.svg'
-import overlay from '../images/hero/team-overlay.svg'
 
 export default function PrivacyPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
-  const { title, content, lastUpdatedLabel, lastUpdatedDate } = pageData
+  const { title, content, updatedOn } = pageData
 
   return (
     <Layout>
       <div>
         <TitleAndMetaTags title={title} pathname="privacy" />
         <Hero
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-            <HeroContent>{`${lastUpdatedLabel}: ${lastUpdatedDate}`}</HeroContent>
-          </Wrapper>
-        </Hero>
+          title={pageData.title}
+          subTitle={`Last updated on ${updatedOn}`}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
           <MarkdownContent
             whiteSpace="normal"
@@ -46,11 +34,7 @@ export default function PrivacyPage({ data }) {
           `}
           />
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )
@@ -62,8 +46,7 @@ export const pageQuery = graphql`
       edges {
         node {
           title
-          lastUpdatedLabel
-          lastUpdatedDate
+          updatedOn(formatString: "MMMM DD, YYYY")
           content
         }
       }

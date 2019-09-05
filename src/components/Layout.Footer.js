@@ -1,18 +1,11 @@
 import React from 'react'
 import Link from 'gatsby-link'
 import styled from 'styled-components'
-
-import { SmartImage } from './Common.SmartImage'
 import { Wrapper } from './Layout.Wrapper'
-
 import { media } from '../styles/media'
-
-import bottomOverlay from '../images/waves-flipped-vertical.png'
 import logo from '../../static/img/logo-only.png'
-
 import { footerLinks } from '../site'
-
-import _SocialLinks from '../components/Layout.Footer.SocialLinks'
+import SocialLinks from '../components/Layout.Footer.SocialLinks'
 
 const _Footer = styled.footer`
   display: flex;
@@ -20,21 +13,12 @@ const _Footer = styled.footer`
   position: relative;
   min-height: 300px;
   overflow: hidden;
-`
-
-const BottomOverlay = styled.img`
-  position: absolute;
-  width: 100%;
-  min-width: 700px;
-  left: 0;
-  height: 150px;
-  top: -1px;
-  overflow: hidden;
-  z-index: 0;
+  background-color: #fafafa;
+  margin-top: 5em;
 `
 
 const FooterContent = styled.div`
-  padding-top: 10em;
+  padding-top: 1em;
   margin: 0 auto;
   width: 100%;
   max-width: ${(props) =>
@@ -52,7 +36,6 @@ const FooterContent = styled.div`
     justify-content: center;
     align-items: center;
     width: 100%;
-    padding-top: 10em;
   `};
 `
 
@@ -87,17 +70,12 @@ const PageLists = styled.div`
 
   a {
     text-decoration: none;
-    color: white;
-    opacity: 0.5;
-    font-weight: 500;
+    color: #db3d22;
+    font-weight: 600;
     transition: all 0.2s;
     display: inline-block;
     padding: 0;
     font-size: 110%;
-
-    &:hover {
-      opacity: 1;
-    }
 
     ${media.largePhone`
       font-size: 90%;
@@ -118,7 +96,7 @@ const RowOne = styled.div`
   &::before {
     content: '';
     position: absolute;
-    background-color: rgba(255, 255, 255, 0.2);
+    background-color: #eee;
     height: 1px;
     width: 100%;
   }
@@ -147,11 +125,11 @@ const RowTwo = styled.div`
 `
 
 const Copyright = styled.small`
-  color: white;
+  color: #db3d22;
   font-size: 0.9rem;
 `
 const Logo = styled.img`
-  max-width: 200px;
+  max-width: 50px;
 
   ${media.largePhone`
     margin: 0;
@@ -163,7 +141,7 @@ const FooterLogoLink = styled(Link)`
 `
 
 const FooterH4 = styled.h4`
-  color: white;
+  color: #db3d22;
   font-size: 1.3em;
   font-weight: 400;
   opacity: 0.75;
@@ -179,6 +157,10 @@ const FooterH4 = styled.h4`
 const ListSection = styled.div`
   ul {
     margin: 0;
+  }
+
+  li {
+    font-size: 0.9em;
   }
   ${media.largePhone`
     &:not(:last-child) {
@@ -212,7 +194,7 @@ function ListLinks(props) {
   return listItems
 }
 
-export function Footer({ backgroundImage, backgroundColor, children }) {
+export function Footer({ children }) {
   const FooterLogo = () => (
     <FooterLogoLink to={'/'} activeStyle={{ opacity: 1 }}>
       <Logo src={logo} />
@@ -221,11 +203,6 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
 
   return (
     <_Footer>
-      <SmartImage
-        img={backgroundImage}
-        backgroundColor={backgroundColor}
-        style={{ zIndex: 1337 }}
-      />
       <Wrapper>
         <FooterContent>
           <RowZero>
@@ -237,12 +214,11 @@ export function Footer({ backgroundImage, backgroundColor, children }) {
             </PageLists>
           </RowOne>
           <RowTwo>
-            <_SocialLinks />
+            <SocialLinks />
             <Copyright>©2019 PlanetScale, Inc</Copyright>
           </RowTwo>
         </FooterContent>
       </Wrapper>
-      <BottomOverlay src={bottomOverlay} />
     </_Footer>
   )
 }

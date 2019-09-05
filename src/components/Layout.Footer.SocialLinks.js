@@ -2,7 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { media } from '../styles/media'
 
-const SocialLinks = styled.div`
+const _SocialLinks = styled.div`
   ${media.largePhone`
     font-size: 1.5em;
     line-height: 3em;
@@ -10,10 +10,9 @@ const SocialLinks = styled.div`
 `
 
 const Social = styled.a`
-  color: white;
-  opacity: 0.5;
+  color: #db3d22;
   transition: all 0.2s;
-  font-size: 1.8rem;
+  font-size: 1.5rem;
 
   &:nth-child(n + 2) {
     margin-left: 10px;
@@ -28,14 +27,14 @@ const Social = styled.a`
   `};
 `
 
-export default function _SocialLinks() {
+export default function SocialLinks() {
   return (
-    <SocialLinks>
+    <_SocialLinks>
       <Social href="https://twitter.com/planetscaledata" target="_blank">
-        <i className="fab fa-twitter-square" />
+        <i className="fab fa-twitter" />
       </Social>
       <Social href="https://www.facebook.com/planetscaledata/" target="_blank">
-        <i className="fab fa-facebook-square" />
+        <i className="fab fa-facebook" />
       </Social>
       <Social
         href="https://www.linkedin.com/company/planetscale"
@@ -43,6 +42,15 @@ export default function _SocialLinks() {
       >
         <i className="fab fa-linkedin" />
       </Social>
-    </SocialLinks>
+      <Social href="https://github.com/vitessio/vitess" target="_blank">
+        <i className="fab fa-github" />
+      </Social>
+      <Social
+        href="https://stackoverflow.com/questions/tagged/vitess"
+        target="_blank"
+      >
+        <i className="fab fa-stack-overflow" />
+      </Social>
+    </_SocialLinks>
   )
 }

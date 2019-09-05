@@ -14,8 +14,3 @@ export const Wrapper = styled.section`
     padding: 5em 1.5em 2em 1.5em;
   `};
 `
-
-export const SmallWrapper = styled(Wrapper)`
-  max-width: ${(props) =>
-    props.theme && props.theme.sizes && props.theme.sizes.maxWidthCentered};
-`

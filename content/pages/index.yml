@@ -1,17 +1,13 @@
 id: index
-title: Turbocharged MySQL in the Cloud
-subtitle: Turbocharge MySQL in the Cloud with Vitess.io
-content: >-
-  We run the world's most scalable database clusters with Vitess.
-vitessIntroduction:
-  title: Powered By Vitess
-  logo: /img/vitess-logo.svg
-  content: >-
-    We co-created Vitess, a MySQL sharding solution powering products such as YouTube, Slack, Square and many more. PlanetScale’s expertise helps     such businesses scale their new and existing infrastructure faster.
+title: Turbocharged MySQL For The Cloud
+subtitle: ScaleDB helps you build highly scalable modern applications on top of MySQL without any of the guesswork.
 vitess:
-  title: The <a href="https://vitess.io/">Vitess</a> Powerhouse
+  logo: /img/vitess-logo.svg
+  title: Powered By Vitess
+  buttonLabel: Talk to us on slack
+  buttonLink: https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM
   description: >-
-    At the heart of PlanetScale lies Vitess: the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of MySQL.
+    At the heart of PlanetScale lies Vitess: the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of SQL.
   list:
     - icon: /img/scale-massively.png
       title: Scale Massively
@@ -24,7 +20,7 @@ vitess:
     - icon: /img/auto-failover.png
       title: Auto Failover and Backups
       content: >-
-        Vitess handles functions like master failovers and backups. It uses a lock server to track and administer servers, letting your application be blissfully ignorant of database topology.
+        Vitess integrates with Orchestrator to provide failure detection and automated recovery. Backups are automatically performed on a replica, with Vitess keeping track of any topology changes.
     - icon: /img/manage-shards.png
       title: Manage Shards
       content: >-
@@ -37,6 +33,9 @@ vitess:
       title: Cluster Workflows
       content: >-
         Vitess keeps track of all of the metadata about your cluster configuration so that the cluster view is always up-to-date and consistent for different clients.
+  architecture:
+    title: Vitess Architecture Diagram
+    image: /img/vitess-architecture-diagram.svg
 offerings:
   title: Sign Up for our Early Beta
   icon: /img/planetscale-cloud.png

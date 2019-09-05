@@ -8,7 +8,7 @@ export const TeamMemberContainer = styled.ul`
   display: flex;
   list-style: none;
   padding: 0;
-  margin: 5em 0 0;
+  margin: 0;
   flex-direction: row;
   justify-content: space-around;
   align-items: flex-start;
@@ -16,11 +16,16 @@ export const TeamMemberContainer = styled.ul`
 `
 
 const _TeamMember = styled.li`
+  box-sizing: border-box;
   display: flex;
   flex-direction: row;
   align-items: top;
-  margin: 2em 2em 4em;
+  padding: 4em 0;
   width: 100%;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid #eee;
+  }
 
   ${media.largePhone`
     flex-direction: column;

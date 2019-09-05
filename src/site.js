@@ -20,27 +20,21 @@ export const sizes = theme.sizes
 
 export const headerLinks = [
   {
-    id: 'products',
-    name: 'Products',
-    to: '/products',
-  },
-
-  {
     id: 'casestudies',
     name: 'Vitess Case Studies',
     to: '/casestudies',
   },
 
   {
-    id: 'blog',
+    id: 'news',
     name: 'News',
     to: '/news',
   },
 
   {
-    id: 'careers',
-    name: 'Join our Team',
-    to: '/careers',
+    id: 'faq',
+    name: 'FAQ',
+    to: '/faq',
   },
 ]
 
@@ -114,7 +108,14 @@ export const footerLinks = [
       {
         id: 'community',
         name: 'Community',
-        to: 'https://vitess.slack.com',
+        to:
+          'https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM',
+        external: true,
+      },
+      {
+        id: 'downloads',
+        name: 'Downloads',
+        to: 'https://github.com/planetscale/vitess-releases/releases',
         external: true,
       },
     ],

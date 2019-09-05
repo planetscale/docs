@@ -5,18 +5,9 @@ import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
-
+import { Hero } from '../components/Common.Hero'
 import { CardContainer, Card } from '../components/CaseStudies.Card'
 import { Footer } from '../components/Layout.Footer'
-
-import background from '../images/hero/team-bg.svg'
-import overlay from '../images/hero/team-overlay.svg'
 
 export default function CaseStudiesPage({ data }) {
   const { allPagesYaml } = data
@@ -27,17 +18,10 @@ export default function CaseStudiesPage({ data }) {
       <div>
         <TitleAndMetaTags title={pageData.title} pathname="faq" />
         <Hero
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-          </Wrapper>
-        </Hero>
+          title={pageData.title}
+          subTitle={pageData.subtitle}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
           <CardContainer>
             {data.casestudies.edges.map((edge) => {
@@ -56,11 +40,7 @@ export default function CaseStudiesPage({ data }) {
             })}
           </CardContainer>
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )

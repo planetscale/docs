@@ -4,28 +4,17 @@ import styled from 'styled-components'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { media } from '../styles/media'
-
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
-import {
-  Hero,
-  HeroTitle,
-  HeroSubTitle,
-  HeroContent,
-} from '../components/Common.Hero'
-
+import { Hero } from '../components/Common.Hero'
 import { Form } from '../components/HubSpot.Form'
 import { Footer } from '../components/Layout.Footer'
-
-import background from '../images/hero/home-bg.svg'
-import overlay from '../images/hero/home-overlay.svg'
 
 const FormCard = styled.div`
   background-color: #333;
   padding: 2em;
   border-radius: 4px;
   position: relative;
-  top: -200px;
   color: #666;
   max-width: 500px;
   margin-bottom: 20px;
@@ -44,18 +33,10 @@ export default function SignupPage({ data }) {
       <div>
         <TitleAndMetaTags title={pageData.title} pathname="signup" />
         <Hero
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        >
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{pageData.title}</span>
-            </HeroTitle>
-            <HeroSubTitle>{pageData.subtitle}</HeroSubTitle>
-            <HeroContent>{pageData.content}</HeroContent>
-          </Wrapper>
-        </Hero>
+          title={pageData.title}
+          subTitle={pageData.subtitle}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
           <FormCard>
             <Form
@@ -64,11 +45,7 @@ export default function SignupPage({ data }) {
             ></Form>
           </FormCard>
         </Wrapper>
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#24C8D8'}
-          overlay={overlay}
-        />
+        <Footer />
       </div>
     </Layout>
   )

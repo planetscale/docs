@@ -6,7 +6,8 @@ author: Lucy Burns
 comments: true
 share: true
 ---
-It’s been an exciting couple of months for Vitess; the PlanetScale team has been hard at work spreading the news about new features, new community leaders, and the upcoming database-as-a-service launch!
+
+It’s been an exciting couple of months for Vitess; the PlanetScale team has been hard at work spreading the news about new features, new community leaders, and the upcoming Cloud Database launch!
 
 In June, PlanetScale engineer Toliver Jue, had the opportunity to introduce Vitess at meetups in both Tokyo, Japan and Hangzhou, China. Toliver spoke at the Japan Container Days Meetup in Tokyo, and we were excited to see how many attendees had already heard about Vitess and all of the enthusiasm for learning more about Vitess.
 

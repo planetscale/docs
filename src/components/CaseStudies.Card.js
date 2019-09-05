@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { media } from '../styles/media'
+import { ButtonLink } from '../components/Common.Button'
 
 export const CardContainer = styled.div`
   display: flex;
@@ -43,10 +44,8 @@ const Description = styled.p`
   padding-top: 1em;
 `
 
-const ResourceLink = styled.a`
+const ResourceLink = styled(ButtonLink)`
   width: 100%;
-  text-decoration: none;
-  color: #d92727;
 `
 
 export function Card({ name, logo, description, resourceLink }) {

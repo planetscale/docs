@@ -1,5 +1,5 @@
 ---
-question: What are the advantages of a relational database and a key-value database? How does PlanetScale Database-as-a-Service compare?
+question: What are the advantages of a relational database and a key-value database? How does PlanetScale Cloud Database compare?
 order: 6
 ---
 

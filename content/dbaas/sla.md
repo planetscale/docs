@@ -1,9 +1,7 @@
 ---
-title: 'Database-as-a-Service Service Level Agreement'
+title: 'Cloud Database Service Level Agreement'
 updatedOn: '2019-02-15'
 ---
-
-# Database-as-a-Service Service Level Agreement
 
 This PlanetScale DBaaS Service Level Agreement ("SLA") is a policy governing the use of the PlanetScale Database As a Service ("PlanetScale DBaaS") under the terms of the PlanetScale Cloud Database Agreement (the "PlanetScale Agreement") between PlanetScale Inc. and its affiliates ("PlanetScale", "us" or "we") and users of PlanetScale’ services ("you"). This SLA applies separately to each account using PlanetScale DBaaS. Unless otherwise provided herein, this SLA is subject to the terms of the PlanetScale Agreement and capitalized terms will have the meaning specified in the PlanetScale Agreement. We reserve the right to change the terms of this SLA in accordance with the PlanetScale Agreement.
 
@@ -28,7 +26,7 @@ Service Credits are calculated as a percentage of the charges paid by you for th
 | Less than 99.95% but equal to or greater than 99.0% | 10%                       |
 | Less than 99.0%                                     | 25%                       |
 
-We will apply any Service Credits only against future PlanetScale DBaaS payments otherwise due from you. At our discretion, we may issue the Service Credit to the credit card you used to pay for the billing cycle in which the unavailability occurred. Service Credits will not entitle you to any refund or other payment from PlanetScale. A Service Credit will be applicable and issued only if the credit amount for the applicable monthly billing cycle is greater than one dollar ($1 USD). Service Credits may not be transferred or applied to any other account. Notwithstanding anything to the contrary in the PlanetScale Agreement, your sole and exclusive remedy for any unavailability or non-performance or other failure by us to provide PlanetScale DBaaS is the receipt of a Service Credit (if eligible) in accordance with the terms of this SLA.
+We will apply any Service Credits only against future PlanetScale DBaaS payments otherwise due from you. At our discretion, we may issue the Service Credit to the credit card you used to pay for the billing cycle in which the unavailability occurred. Service Credits will not entitle you to any refund or other payment from PlanetScale. A Service Credit will be applicable and issued only if the credit amount for the applicable monthly billing cycle is greater than one dollar (\$1 USD). Service Credits may not be transferred or applied to any other account. Notwithstanding anything to the contrary in the PlanetScale Agreement, your sole and exclusive remedy for any unavailability or non-performance or other failure by us to provide PlanetScale DBaaS is the receipt of a Service Credit (if eligible) in accordance with the terms of this SLA.
 
 ## Credit Request and Payment Procedures
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import ReactDisqusComments from 'react-disqus-comments'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
@@ -10,9 +9,6 @@ import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
 
 import { BlogPostShareButtons } from '../components/Blog.Post.ShareButtons'
-
-import background from '../images/hero/blog-bg.svg'
-import overlay from '../images/hero/blog-overlay.svg'
 
 export default function BlogPage({ data }) {
   const { post } = data
@@ -25,17 +21,11 @@ export default function BlogPage({ data }) {
           title={frontmatter.title}
           pathname={`news/${fields.slug}`}
         />
-        <Hero backgroundImage={background} backgroundColor={'#9124D8'}>
-          <Wrapper>
-            <HeroTitle>
-              <span style={{ fontWeight: 100 }}>{frontmatter.title}</span>
-            </HeroTitle>
-            <HeroContent>
-              <b>{frontmatter.author}</b> posted this on {frontmatter.date}
-            </HeroContent>
-          </Wrapper>
-        </Hero>
-
+        <Hero
+          title={frontmatter.title}
+          subTitle={`${frontmatter.date} · ${frontmatter.author}`}
+          wrap="wrap"
+        ></Hero>
         <Wrapper>
           <MarkdownContent html={html} />
           {frontmatter.share && (
@@ -44,22 +34,9 @@ export default function BlogPage({ data }) {
               title={frontmatter.title}
             />
           )}
-          {frontmatter.comments && (
-            <>
-              <Spacing />
-              <ReactDisqusComments
-                shortname="planetscale"
-                title={frontmatter.title}
-              />
-            </>
-          )}
         </Wrapper>
         <Spacing />
-        <Footer
-          backgroundImage={background}
-          backgroundColor={'#302DEF'}
-          overlay={overlay}
-        />
+        <Footer />
       </>
     </Layout>
   )

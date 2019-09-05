@@ -31,10 +31,4 @@ export const GlobalStyles = createGlobalStyle`
   details > summary:first-of-type {
     list-style-type: none;
   }
-
-
-  // TODO: remove or edit for hubspot chat integration
-  .calendly-open  .crisp-client {
-    display: none;
-  }
 `
