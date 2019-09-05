@@ -23,6 +23,10 @@ const HeaderWrapper = styled(Wrapper)`
 
 const HeaderButton = styled(Button)`
   border: 2px solid rgba(255, 255, 255, 0.8);
+
+  ${media.largePhone`
+    border: unset;
+  `}
 `
 
 const _Header = styled.header`
@@ -59,7 +63,6 @@ const Nav = styled.nav`
     top: 0;
     background-color: white;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
-
   `};
 `
 
@@ -96,10 +99,11 @@ const NavListItem = styled.li`
   ${media.desktop`
     width: 100%;
     text-align: center;
-    font-size: 2.2em;
+    font-size: 1.75em;
     margin-left: 0;
 
     a {
+      color: #000;
       &:hover {
         border-bottom: 4px solid #fff;
       }
@@ -124,7 +128,6 @@ const MobileHeaderButton = styled.button`
   cursor: pointer;
   z-index: 1338;
   user-select: none;
-  border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 4px;
   width: 30px;
   height: 30px;
@@ -138,6 +141,9 @@ const MobileHeaderButton = styled.button`
   ${media.desktop`
     display: inline-block;
     position: ${(props) => (props.visible ? 'fixed' : 'absolute')};
+    border: 1px solid;
+    border-color: ${(props) =>
+      props.visible ? '#000' : 'rgba(255, 255, 255, 0.8)'};
   `};
 `
 
@@ -146,6 +152,7 @@ const MobileHeaderButtonIcon = styled.span`
   padding: 0;
   margin: 0;
   font-size: 1.5rem;
+  color: ${(props) => (props.activeMobileMenu ? '#000' : '#fff')};
 `
 
 const Logo = styled.img`
@@ -315,7 +322,7 @@ class Header extends Component {
             visible={sideBarOpen}
             onClick={this.toggleSidebar}
           >
-            <MobileHeaderButtonIcon>
+            <MobileHeaderButtonIcon activeMobileMenu={this.state.sideBarOpen}>
               {sideBarOpen ? (
                 <i className="fas fa-times"></i>
               ) : (
