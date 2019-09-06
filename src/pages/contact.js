@@ -47,7 +47,7 @@ const CardHeader = styled.div`
 
 const ContactPoint = styled.div`
   font-size: 1em;
-  font-weight: 300;
+  font-weight: 400;
   padding-bottom: 10px;
   display: flex;
   align-items: baseline;
@@ -60,7 +60,7 @@ const ContactPointIcon = styled.div`
 
 const ContactPointText = styled.div`
   font-size: 1em;
-  font-weight: 300;
+  font-weight: 400;
 `
 
 export default function ContactPage({ data, hbspotID }) {

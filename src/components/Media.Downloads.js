@@ -57,8 +57,8 @@ const Title = styled.h2`
 
 const Content = styled.div`
   margin-top: 1rem;
-  font-weight: 300;
-  font-size: 1.2rem;
+  font-weight: 400;
+  font-size: 1rem;
   line-height: 1.5em;
   display: flex;
   flex-direction: column;

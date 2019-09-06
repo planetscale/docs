@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { Spacing } from '../components/Layout.Spacing'
-import { Hero, HeroTitle, HeroContent } from '../components/Common.Hero'
+import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
 

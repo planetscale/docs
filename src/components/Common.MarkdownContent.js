@@ -10,7 +10,7 @@ const MarkDownContainer = styled.div`
   white-space: ${(props) => props.whiteSpace};
 
   h1 {
-    font-weight: 300;
+    font-weight: 400;
     margin: 1.5em 0 0.5em 0;
   }
 
@@ -19,7 +19,7 @@ const MarkDownContainer = styled.div`
   }
 
   p {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.15em;
     line-height: 1.5em;
     color: ${(props) => (props.inverted ? 'white' : '#444;')};
@@ -32,7 +32,7 @@ const MarkDownContainer = styled.div`
   }
 
   li {
-    font-weight: 300;
+    font-weight: 400;
     font-size: 1.15em;
     margin: 0.5em 0;
     color: ${(props) => (props.inverted ? 'white' : '#222;')};
@@ -70,7 +70,7 @@ const MarkDownContainer = styled.div`
   }
 
   tbody > tr > td {
-    font-weight: 300;
+    font-weight: 400;
     padding: 10px 40px 10px 0px;
   }
 

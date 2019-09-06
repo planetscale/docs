@@ -72,9 +72,9 @@ const Title = styled.h2`
 `
 
 const Content = styled.div`
-  margin-top: 0.5em;
+  margin-top: 1em;
   font-weight: 300;
-  font-size: 1em;
+  font-size: 1.1em;
   line-height: 1.5em;
 `
 
