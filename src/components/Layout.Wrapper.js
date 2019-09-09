@@ -11,6 +11,6 @@ export const Wrapper = styled.section`
   z-index: 1;
 
   ${media.largePhone`
-    padding: 5em 1.5em 2em 1.5em;
+    padding: 2em 1.5em 2em 1.5em;
   `};
 `

@@ -14,7 +14,6 @@ const _Footer = styled.footer`
   min-height: 300px;
   overflow: hidden;
   background-color: #fafafa;
-  margin-top: 5em;
 `
 
 const FooterContent = styled.div`

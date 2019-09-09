@@ -1,31 +1,37 @@
 import React from 'react'
 import styled from 'styled-components'
-import MarkdownContent from '../components/Common.MarkdownContent'
 import { media } from '../styles/media'
+import { Button, ButtonLink } from '../components/Common.Button'
 
 export const DownloadContainer = styled.ul`
-  display: flex;
+  display: grid;
   list-style: none;
   padding: 0;
   margin: 0 auto;
   flex-direction: row;
   justify-content: space-around;
   align-items: normal;
-  flex-wrap: wrap;
-  max-width: 1000px;
+  grid-template-columns: 1fr 1fr;
+  grid-row-gap: 2em;
+  grid-column-gap: 2em;
+
+  ${media.largePhone`
+    grid-template-columns: 1fr;
+  `}
 `
 
 const _Download = styled.li`
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: top;
   justify-content: space-between;
   width: 100%;
-  max-width: 420px;
-  background-color: #f9f9f9;
+  border-radius: 4px;
+  box-shadow: 0 4px 6px rgba(50, 50, 93, 0.11), 0 1px 3px rgba(0, 0, 0, 0.08);
+  background-color: #fff;
   padding: 30px;
   color: #333;
-  margin: 0 auto 20px;
   border-radius: 4px;
 
   ${media.largePhone`
@@ -47,7 +53,7 @@ const ContentContainer = styled.div`
 const Title = styled.h2`
   font-size: 2rem;
   font-weight: 500;
-  margin: 0;
+  margin: 0 0 0.5em;
 
   ${media.largePhone`
     font-size: 1.2em;
@@ -55,44 +61,12 @@ const Title = styled.h2`
   `};
 `
 
-const Content = styled.div`
-  margin-top: 1rem;
-  font-weight: 400;
-  font-size: 1rem;
-  line-height: 1.5em;
-  display: flex;
-  flex-direction: column;
-  flex-grow: 2;
-
-  ${media.largePhone`
-    font-size: 1rem;
-  `};
+const Blurb = styled.p`
+  margin: 0 0 1em;
 `
 
-const Button = styled.div`
-  display: inline-block;
-  border-radius: 99px;
-  padding: 8px 16px;
-  margin-top: 2rem;
-  border: 0;
-  background-color: #dd4327;
-  color: white;
-  align-self: flex-start;
-
-  &:hover {
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-    transform: translateY(-1px);
-    cursor: pointer;
-  }
-
-  &:active {
-    box-shadow: 0 7px 14px rgba(50, 50, 93, 0.1), 0 3px 6px rgba(0, 0, 0, 0.08);
-    transform: translateY(1px);
-  }
-`
-
-const ButtonLink = styled.a`
-  text-decoration: none;
+const DownloadButton = styled(Button)`
+  width: min-content;
 `
 
 export function Download({ title, description, link }) {
@@ -100,12 +74,10 @@ export function Download({ title, description, link }) {
     <_Download key={title}>
       <ContentContainer>
         <Title>{title}</Title>
-        <Content>
-          <MarkdownContent html={description} />
-          <Button>
-            <ButtonLink href={link}>Download</ButtonLink>
-          </Button>
-        </Content>
+        <Blurb>{description}</Blurb>
+        <DownloadButton className="clear">
+          <ButtonLink href={link}>Download</ButtonLink>
+        </DownloadButton>
       </ContentContainer>
     </_Download>
   )

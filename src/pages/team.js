@@ -22,9 +22,6 @@ export default function TeamPage({ data }) {
           wrap="wrap"
         ></Hero>
         <Wrapper>
-          <H2>Roster</H2>
-        </Wrapper>
-        <Wrapper>
           <TeamMemberContainer>
             {data.team.edges.map((edge) => {
               const { node } = edge

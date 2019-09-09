@@ -73,6 +73,7 @@ export const Button = styled.div`
 `
 
 export const ButtonLink = styled.a`
+  box-sizing: border-box;
   display: inline-flex;
   flex-direction: row;
   align-items: center;
@@ -82,6 +83,7 @@ export const ButtonLink = styled.a`
 
   ${Button} & {
     color: #fff;
+    width: 100%;
   }
 
   ${Button}.clear & {

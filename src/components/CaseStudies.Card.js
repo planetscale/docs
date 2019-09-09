@@ -45,7 +45,7 @@ const Description = styled.p`
 `
 
 const ResourceLink = styled(ButtonLink)`
-  width: 100%;
+  align-self: flex-start;
 `
 
 export function Card({ name, logo, description, resourceLink }) {

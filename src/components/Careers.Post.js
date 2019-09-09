@@ -32,7 +32,7 @@ const _CareersPost = styled.details`
   summary {
     display: flex;
     flex-direction: row;
-    padding: 0.75em 3em;
+    padding: 0.75em 0em;
     width: 100%;
     box-sizing: border-box;
     align-items: center;
@@ -47,12 +47,12 @@ const _CareersPost = styled.details`
   }
 
   &[open] summary > i {
-    transform: rotate(90deg);
+    transform: rotate(45deg);
   }
 `
 
 const Title = styled.h1`
-  font-size: 1.75em;
+  font-size: 1.8em;
   font-weight: 500;
   background-size: cover;
   display: block;
@@ -83,7 +83,7 @@ export function CareersPost({ node }) {
     <_CareersPost>
       <summary style={{ outline: 'none' }}>
         <Title>{title}</Title>
-        <i className="fas fa-chevron-right" />
+        <i className="fas fa-plus" />
       </summary>
       <Content>
         <MarkdownContent html={content} style={{ color: 'black' }} />

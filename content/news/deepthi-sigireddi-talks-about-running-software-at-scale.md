@@ -1,7 +1,7 @@
 ---
 title: Deepthi Sigireddi talks about running software at scale
 date: 2019-08-23T05:29:30.452Z
-description: 'Deepthi Sigireddi, PlanetScale Engineer talks about various challenges of database scaling in this podcast and how Vitess can solve them.'
+description: 'Deepthi Sigireddi, PlanetScale Engineer talks about various challenges of database scaling in this podcast.'
 author: Raunaq Gupta
 comments: true
 share: true

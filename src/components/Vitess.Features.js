@@ -28,7 +28,7 @@ const _Feature = styled.li`
   flex-direction: column;
   padding: 3em;
   border: 1px solid #3c3c3c;
-  background-color: #333;
+  // background-color: #333;
   transition: transform 500ms, background-color 500ms;
 
   &:hover {

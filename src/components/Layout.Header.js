@@ -49,7 +49,6 @@ const Nav = styled.nav`
   justify-content: flex-start;
   align-items: center;
   box-sizing: border-box;
-  padding-bottom: 10px;
   flex-direction: row;
   justify-content: flex-start;
 

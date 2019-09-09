@@ -35,7 +35,6 @@ export default function BlogPage({ data }) {
             />
           )}
         </Wrapper>
-        <Spacing />
         <Footer />
       </>
     </Layout>
