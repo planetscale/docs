@@ -25,6 +25,7 @@ export default function BlogPage({ data }) {
           title={frontmatter.title}
           subTitle={`${frontmatter.date} · ${frontmatter.author}`}
           wrap="wrap"
+          width="100%"
         ></Hero>
         <Wrapper>
           <MarkdownContent html={html} />
