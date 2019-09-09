@@ -38,15 +38,22 @@ const MarkDownContainer = styled.div`
     color: ${(props) => (props.inverted ? 'white' : '#222;')};
   }
 
-  img {
-    padding: 5rem;
-    width: 100%;
-    height: auto;
-    box-sizing: border-box;
+  figure {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 
-    & + span {
-      margin-top: -2em;
+    > figcaption {
+      margin-top: 1em;
     }
+  }
+
+  img {
+    padding: 1rem;
+    max-width: 100%;
+    box-sizing: border-box;
+    border: 1px solid #eee;
 
     ${media.largePhone`
       padding: 1rem 0;
@@ -66,7 +73,7 @@ const MarkDownContainer = styled.div`
 
   thead > tr > th {
     border-bottom: 1px solid #eee;
-    padding: 10px 0;
+    padding: 1em;
   }
 
   tbody > tr > td {

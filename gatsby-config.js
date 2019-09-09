@@ -65,7 +65,6 @@ module.exports = {
     },
     'gatsby-plugin-styled-components',
     'gatsby-transformer-json',
-    'gatsby-transformer-remark',
     {
       resolve: 'gatsby-source-filesystem',
       options: {
@@ -143,6 +142,23 @@ module.exports = {
       options: {
         fonts: ['poppins:100, 300, 400, 500, 700'],
         display: 'swap',
+      },
+    },
+    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        plugins: [
+          `gatsby-remark-copy-linked-files`,
+          {
+            resolve: `gatsby-remark-images`,
+            options: {
+              maxWidth: 650,
+              showCaptions: true,
+              markdownCaptions: true,
+            },
+          },
+        ],
       },
     },
   ],
