@@ -21,14 +21,6 @@ const HeaderWrapper = styled(Wrapper)`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 `
 
-const HeaderButton = styled(Button)`
-  border: 2px solid rgba(255, 255, 255, 0.8);
-
-  ${media.largePhone`
-    border: unset;
-  `}
-`
-
 const _Header = styled.header`
   width: 100%;
   z-index: 1337;
@@ -310,9 +302,9 @@ class Header extends Component {
                 })}
               </NavList>
               <RightSide>
-                <HeaderButton>
+                <Button>
                   <ButtonLink href="/signup">Request Demo</ButtonLink>{' '}
-                </HeaderButton>
+                </Button>
               </RightSide>
             </Nav>
           </HeaderWrapper>

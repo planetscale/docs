@@ -2,7 +2,7 @@ import React from 'react'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { Footer } from '../components/Layout.Footer'
 import { CareerPosts } from '../containers/Careers.Posts'
@@ -18,18 +18,16 @@ export default function CareersPage({ data }) {
 
   return (
     <Layout>
-      <>
-        <TitleAndMetaTags title={pageData.title} pathname="careers" />
-        <Hero
-          title={pageData.title}
-          subTitle={pageData.subtitle}
-          wrap="wrap"
-        ></Hero>
-        <Wrapper id={'positions'}>
-          <CareerPosts posts={allGreenhouseJobPost.edges} />
-        </Wrapper>
-        <Footer />
-      </>
+      <TitleAndMetaTags title={pageData.title} pathname="careers" />
+      <Hero
+        title={pageData.title}
+        subTitle={pageData.subtitle}
+        wrap="wrap"
+      ></Hero>
+      <Section id={'positions'}>
+        <CareerPosts posts={allGreenhouseJobPost.edges} />
+      </Section>
+      <Footer />
     </Layout>
   )
 }

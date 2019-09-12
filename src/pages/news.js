@@ -3,10 +3,10 @@ import Layout from '../components/layout'
 
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
+import overlay from '../images/hero/background-texture.svg'
 import { Footer } from '../components/Layout.Footer'
-
 import { BlogPosts, BlogPostLink } from '../components/Blog.PostLink'
 
 function NewsPage({ data }) {
@@ -15,27 +15,25 @@ function NewsPage({ data }) {
 
   return (
     <Layout>
-      <>
-        <TitleAndMetaTags title={pageData.title} pathname="news" />
-        <Hero title={pageData.title} wrap="wrap"></Hero>
-        <Wrapper>
-          <BlogPosts>
-            {data.allMarkdownRemark.edges.map((edge, index) => {
-              const { node } = edge
-              const { frontmatter, fields } = node
+      <TitleAndMetaTags title={pageData.title} pathname="news" />
+      <Hero title={pageData.title} wrap="wrap" overlay={overlay}></Hero>
+      <Section>
+        <BlogPosts>
+          {data.allMarkdownRemark.edges.map((edge, index) => {
+            const { node } = edge
+            const { frontmatter, fields } = node
 
-              return (
-                <BlogPostLink
-                  key={`BlogPostLink${index}`}
-                  {...fields}
-                  {...frontmatter}
-                />
-              )
-            })}
-          </BlogPosts>
-        </Wrapper>
-        <Footer />
-      </>
+            return (
+              <BlogPostLink
+                key={`BlogPostLink${index}`}
+                {...fields}
+                {...frontmatter}
+              />
+            )
+          })}
+        </BlogPosts>
+      </Section>
+      <Footer />
     </Layout>
   )
 }

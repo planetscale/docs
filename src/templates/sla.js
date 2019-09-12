@@ -3,10 +3,11 @@ import Layout from '../components/layout'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
+import { Spacing } from '../components/Layout.Spacing'
 
 export default function BlogPage({ data }) {
   const { post } = data
@@ -24,9 +25,10 @@ export default function BlogPage({ data }) {
         wrap="wrap"
       ></Hero>
 
-      <Wrapper>
+      <Section>
+        <Spacing />
         <MarkdownContent html={html} />
-      </Wrapper>
+      </Section>
       <Footer />
     </Layout>
   )

@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { QAndAContainer, QAndA } from '../components/Faq.QAndA'
 import { Footer } from '../components/Layout.Footer'
@@ -17,7 +17,7 @@ export default function FaqPage({ data }) {
       <div>
         <TitleAndMetaTags title={pageData.title} pathname="faq" />
         <Hero title={pageData.title} wrap="wrap" width="100%"></Hero>
-        <Wrapper>
+        <Section>
           <QAndAContainer>
             {data.faq.edges.map((edge, index) => {
               const { node } = edge
@@ -33,7 +33,7 @@ export default function FaqPage({ data }) {
               )
             })}
           </QAndAContainer>
-        </Wrapper>
+        </Section>
         <Footer />
       </div>
     </Layout>

@@ -13,7 +13,6 @@ import {
   Feature,
 } from '../components/Vitess.Features'
 import { Footer } from '../components/Layout.Footer'
-import overlay from '../images/hero/cylinder_overlay.png'
 import { Introduction } from '../components/Vitess.Introduction'
 import { Architecture } from '../components/Vitess.Architecture'
 import { Products } from '../components/Section.Products'
@@ -51,12 +50,7 @@ export default function IndexPage({ data }) {
         title={pageData.title}
         description={pageData.subtitle}
       />
-      <Hero
-        overlay={overlay}
-        title={pageData.title}
-        subTitle={pageData.subtitle}
-        wrap="wrap"
-      >
+      <Hero title={pageData.title} subTitle={pageData.subtitle} wrap="wrap">
         <Button className="big clear-color">
           <ButtonLink href="/signup">Request Demo</ButtonLink>
         </Button>

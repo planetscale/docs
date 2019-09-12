@@ -1,9 +1,9 @@
 import React from 'react'
 import Layout from '../components/layout'
-
+import { Spacing } from '../components/Layout.Spacing'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
@@ -27,9 +27,11 @@ export default function DbaasPage({ data }) {
           wrap="wrap"
         ></Hero>
 
-        <Wrapper>
+        <Section>
+          <Spacing />
           <MarkdownContent html={html} />
-        </Wrapper>
+          <Spacing />
+        </Section>
         <Footer />
       </>
     </Layout>

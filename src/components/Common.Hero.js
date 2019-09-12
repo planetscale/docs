@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled from 'styled-components'
-import { fadeInAndRotateAnimation } from '../styles/animations'
 import { media } from '../styles/media'
 import { Wrapper } from '../components/Layout.Wrapper'
 import Header from '../components/Layout.Header'
 import { headerLinks } from '../site'
+import { Background } from '../components/Layout.Background'
+import overlay from '../images/hero/background-texture.svg'
 
 const _Hero = styled.section`
   display: flex;
@@ -13,19 +14,7 @@ const _Hero = styled.section`
   position: relative;
   width: 100%;
   flex-wrap: ${(props) => props.wrap || 'nowrap'};
-  background: linear-gradient(180deg, #d92727 0%, #f0562b 100%);
-`
-
-const _BackgroundHero = styled.div`
-  height: 100vh;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-
-  ${media.largePhone`
-    opacity: 0.4;
-  `}
+  overflow: hidden;
 `
 
 const HeroTitle = styled.h1`
@@ -47,7 +36,7 @@ const HeroTitle = styled.h1`
 `
 
 const HeroSubTitle = styled.h2`
-  margin: 2em 0;
+  margin: 2em 0 1em;
   font-size: 1.5em;
   line-height: 1.5em;
   width: 66%;
@@ -60,33 +49,18 @@ const HeroSubTitle = styled.h2`
   `};
 `
 
-const BottomRightImage = styled.img`
-  position: absolute;
-  right: 0vw;
-  top: 12vh;
-  width: 50vw;
-  ${fadeInAndRotateAnimation};
-
-  ${media.largePhone`
-    position: relative;
-    width: 100vw;
-  `}
-`
-
-export function Hero({ overlay, title, subTitle, wrap, children, width }) {
+export function Hero({ title, subTitle, wrap, children, width }) {
   return (
-    <_Hero wrap={wrap}>
-      {overlay && (
-        <_BackgroundHero>
-          <BottomRightImage src={overlay} />
-        </_BackgroundHero>
-      )}
-      <Header pages={headerLinks} />
-      <Wrapper>
-        <HeroTitle width={width}>{title}</HeroTitle>
-        {subTitle && <HeroSubTitle>{subTitle}</HeroSubTitle>}
-        {children}
-      </Wrapper>
-    </_Hero>
+    <Fragment>
+      <Background backgroundImage={overlay}></Background>
+      <_Hero wrap={wrap}>
+        <Header pages={headerLinks} />
+        <Wrapper>
+          <HeroTitle width={width}>{title}</HeroTitle>
+          {subTitle && <HeroSubTitle>{subTitle}</HeroSubTitle>}
+          {children}
+        </Wrapper>
+      </_Hero>
+    </Fragment>
   )
 }

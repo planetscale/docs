@@ -6,7 +6,7 @@ export const GlobalStyles = createGlobalStyle`
 
   body {
     font-family: 'Poppins', sans-serif;
-    background: white;
+    background: #333;
     max-width: 100vw;
   }
   #___gatsby {

@@ -4,28 +4,28 @@ import { media } from '../styles/media'
 import { ButtonLink } from '../components/Common.Button'
 
 export const CardContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-column-gap: 2em;
+  grid-row-gap: 2em;
+  margin: 2em 0;
+
+  ${media.largePhone`
+    grid-template-columns: 1fr;
+    margin: 1em;
+  `};
 `
 
 const _Card = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-around;
-  margin: 0 0 1.5em 0;
   max-width: 100%;
-  width: 42%;
   background-color: #fafafa;
   border-radius: 8px;
   padding: 2em;
   align-items: center;
   box-shadow: 1px 1px 2px #eee;
-
-  ${media.largePhone`
-    width: 100%;
-  `};
 `
 
 const _LogoContainer = styled.div`

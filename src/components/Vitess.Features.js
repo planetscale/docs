@@ -4,7 +4,7 @@ import MarkdownContent from '../components/Common.MarkdownContent'
 import { media } from '../styles/media'
 
 export const FeatureBackground = styled.div`
-  background-color: #333;
+  background-color: transparent;
   color: #fff;
 `
 

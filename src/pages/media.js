@@ -3,7 +3,7 @@ import Layout from '../components/layout'
 import PropTypes from 'prop-types'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { Footer } from '../components/Layout.Footer'
 import { DownloadContainer, Download } from '../components/Media.Downloads'
@@ -21,11 +21,11 @@ export default function MediaPage({ data }) {
           subTitle={pageData.subtitle}
           wrap="wrap"
         ></Hero>
-        <Wrapper>
+        <Section>
           <DownloadContainer>
             {pageData.downloads.map(Download)}
           </DownloadContainer>
-        </Wrapper>
+        </Section>
         <Footer />
       </div>
     </Layout>

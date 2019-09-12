@@ -5,19 +5,20 @@ import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { media } from '../styles/media'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { SupportForm } from '../components/Support.Form'
 import { Footer } from '../components/Layout.Footer'
 
 const FormCard = styled.div`
-  background-color: #eee;
+  background-color: transparent;
+  border: 1px solid #eee;
   padding: 2em;
   border-radius: 4px;
   position: relative;
   color: #666;
   max-width: 500px;
-  margin-bottom: 20px;
+  margin-bottom: 2em;
 
   ${media.largePhone`
     max-width: 100%;
@@ -37,11 +38,11 @@ export default function SupportPage({ data }) {
           subTitle={pageData.subtitle}
           wrap="wrap"
         ></Hero>
-        <Wrapper>
+        <Section background={'transparent'}>
           <FormCard>
             <SupportForm />
           </FormCard>
-        </Wrapper>
+        </Section>
         <Footer />
       </div>
     </Layout>

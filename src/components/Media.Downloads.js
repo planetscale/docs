@@ -7,7 +7,7 @@ export const DownloadContainer = styled.ul`
   display: grid;
   list-style: none;
   padding: 0;
-  margin: 0 auto;
+  margin: 2em 0;
   flex-direction: row;
   justify-content: space-around;
   align-items: normal;
@@ -17,6 +17,8 @@ export const DownloadContainer = styled.ul`
 
   ${media.largePhone`
     grid-template-columns: 1fr;
+    margin-left: 1em;
+    margin-right: 1em;
   `}
 `
 
