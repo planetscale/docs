@@ -46,7 +46,7 @@ const _CustomButtonLinkWithImage = styled(ButtonLink)`
 `
 
 const _ButtonLinkImage = styled.img`
-  filter: invert();
+  filter: invert(100%);
   display: inline;
   width: 3em;
 `

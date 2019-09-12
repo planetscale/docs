@@ -5,15 +5,16 @@ import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { media } from '../styles/media'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { Form } from '../components/HubSpot.Form'
 import { Footer } from '../components/Layout.Footer'
 
 const FormCard = styled.div`
-  background-color: #333;
+  background-color: transparent;
   padding: 2em;
   border-radius: 4px;
+  border: 1px solid #eee;
   position: relative;
   color: #666;
   max-width: 500px;
@@ -37,14 +38,14 @@ export default function SignupPage({ data }) {
           subTitle={pageData.subtitle}
           wrap="wrap"
         ></Hero>
-        <Wrapper>
+        <Section background={'transparent'}>
           <FormCard>
             <Form
               portalId="5983949"
               formId="e3c1fc2a-5bf0-4d0e-b6b7-88b51eb3e670"
             ></Form>
           </FormCard>
-        </Wrapper>
+        </Section>
         <Footer />
       </div>
     </Layout>

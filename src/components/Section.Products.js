@@ -81,7 +81,7 @@ const _Product = styled.li`
 const Icon = styled.img`
   max-height: 3em;
   margin-bottom: 1em;
-  filter: invert();
+  filter: invert(100%);
 
   ${_Product}.highlight & {
     filter: none;
