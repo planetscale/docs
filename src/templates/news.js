@@ -2,10 +2,11 @@ import React from 'react'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { Wrapper } from '../components/Layout.Wrapper'
+import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
+import { Spacing } from '../components/Layout.Spacing'
 
 import { BlogPostShareButtons } from '../components/Blog.Post.ShareButtons'
 
@@ -26,7 +27,8 @@ export default function BlogPage({ data }) {
           wrap="wrap"
           width="100%"
         ></Hero>
-        <Wrapper>
+        <Section>
+          <Spacing />
           <MarkdownContent html={html} />
           {frontmatter.share && (
             <BlogPostShareButtons
@@ -34,7 +36,8 @@ export default function BlogPage({ data }) {
               title={frontmatter.title}
             />
           )}
-        </Wrapper>
+          <Spacing />
+        </Section>
         <Footer />
       </>
     </Layout>
