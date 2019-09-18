@@ -5,17 +5,19 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
     const { createNodeField } = actions
     const parent = getNode(node.parent)
+    if (parent.name && parent.sourceInstanceName) {
+      createNodeField({
+        node,
+        name: 'slug',
+        value: slug(parent.name),
+      })
 
-    createNodeField({
-      node,
-      name: 'slug',
-      value: slug(parent.name),
-    })
-    createNodeField({
-      node,
-      name: 'collection',
-      value: parent.name === 'noop' ? 'noop' : parent.sourceInstanceName,
-    })
+      createNodeField({
+        node,
+        name: 'collection',
+        value: parent.name === 'noop' ? 'noop' : parent.sourceInstanceName,
+      })
+    }
   }
 }
 
@@ -40,7 +42,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then((result) => {
       result.data.allMarkdownRemark.edges.forEach((edge) => {
         const { node } = edge
-        if (node.fields.collection !== 'noop') {
+        if (node && node.fields && node.fields.collection !== 'noop') {
           createPage({
             path: `${node.fields.collection}/${node.fields.slug}`,
             component: path.resolve(

@@ -51,6 +51,14 @@ const styles = `
     border: 1px solid #fff;
   }
 
+  &.small {
+    font-size: 14px;
+    box-shadow: unset;
+    background: transparent;
+    font-size: 14px;
+    border: 1px solid #fff;
+  }
+
   ${media.largePhone`
     width: 100%;
   `}
@@ -92,6 +100,10 @@ export const ButtonLink = styled.a`
 
   ${Button}.clear-color & {
     color: #d92727;
+  }
+
+  ${Button}.small & {
+    padding: 8px;
   }
 `
 

@@ -16,6 +16,7 @@ import { Footer } from '../components/Layout.Footer'
 import { Introduction } from '../components/Vitess.Introduction'
 import { Architecture } from '../components/Vitess.Architecture'
 import { Products } from '../components/Section.Products'
+import { EventBanner } from '../components/Event.Banner'
 import styled from 'styled-components'
 
 const _SectionTitle = styled.h2`
@@ -50,6 +51,7 @@ export default function IndexPage({ data }) {
         title={pageData.title}
         description={pageData.subtitle}
       />
+      <EventBanner></EventBanner>
       <Hero title={pageData.title} subTitle={pageData.subtitle} wrap="wrap">
         <Button className="big clear-color">
           <ButtonLink href="/signup">Request Demo</ButtonLink>
