@@ -1,7 +1,5 @@
 import React from 'react'
 import Layout from '../components/layout'
-import PropTypes from 'prop-types'
-
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Section } from '../components/Layout.Wrapper'
@@ -15,7 +13,7 @@ export default function CaseStudiesPage({ data }) {
 
   return (
     <Layout>
-      <TitleAndMetaTags title={pageData.title} pathname="faq" />
+      <TitleAndMetaTags title={pageData.title} pathname="casestudies" />
       <Hero
         title={pageData.title}
         subTitle={pageData.subtitle}
@@ -23,13 +21,13 @@ export default function CaseStudiesPage({ data }) {
       ></Hero>
       <Section>
         <CardContainer>
-          {data.casestudies.edges.map((edge) => {
+          {data.casestudies.edges.map((edge, index) => {
             const { node } = edge
             const { name, logo, blurb, resourceLink } = node
             const description = blurb.content[0].content[0].value
-            console.log(description)
             return (
               <Card
+                key={index}
                 name={name}
                 logo={logo}
                 description={description}
@@ -80,7 +78,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-CaseStudiesPage.propTypes = {
-  data: PropTypes.object,
-}

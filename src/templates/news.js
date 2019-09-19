@@ -1,4 +1,5 @@
 import React from 'react'
+import styled from 'styled-components'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
@@ -7,8 +8,11 @@ import { Hero } from '../components/Common.Hero'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import { Footer } from '../components/Layout.Footer'
 import { Spacing } from '../components/Layout.Spacing'
-
 import { BlogPostShareButtons } from '../components/Blog.Post.ShareButtons'
+
+const BlogContentContainer = styled.div`
+  padding: 0 1em;
+`
 
 export default function BlogPage({ data }) {
   const { post } = data
@@ -29,13 +33,15 @@ export default function BlogPage({ data }) {
         ></Hero>
         <Section>
           <Spacing />
-          <MarkdownContent html={html} />
-          {frontmatter.share && (
-            <BlogPostShareButtons
-              shareUrl={`https://planetscale.com/news/${fields.slug}`}
-              title={frontmatter.title}
-            />
-          )}
+          <BlogContentContainer>
+            <MarkdownContent html={html} />
+            {frontmatter.share && (
+              <BlogPostShareButtons
+                shareUrl={`https://planetscale.com/news/${fields.slug}`}
+                title={frontmatter.title}
+              />
+            )}
+          </BlogContentContainer>
           <Spacing />
         </Section>
         <Footer />

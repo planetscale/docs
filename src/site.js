@@ -63,6 +63,11 @@ export const footerLinks = [
         to: '/careers',
       },
       {
+        id: 'events',
+        name: 'Events',
+        to: '/events',
+      },
+      {
         id: 'media',
         name: 'Media Kit',
         to: '/media',

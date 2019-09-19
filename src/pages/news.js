@@ -5,18 +5,17 @@ import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
-import overlay from '../images/hero/background-texture.svg'
 import { Footer } from '../components/Layout.Footer'
 import { BlogPosts, BlogPostLink } from '../components/Blog.PostLink'
 
-function NewsPage({ data }) {
+export default function NewsPage({ data }) {
   const { allPagesYaml } = data
   const pageData = allPagesYaml.edges[0].node
 
   return (
     <Layout>
       <TitleAndMetaTags title={pageData.title} pathname="news" />
-      <Hero title={pageData.title} wrap="wrap" overlay={overlay}></Hero>
+      <Hero title={pageData.title} wrap="wrap"></Hero>
       <Section>
         <BlogPosts>
           {data.allMarkdownRemark.edges.map((edge, index) => {
@@ -37,8 +36,6 @@ function NewsPage({ data }) {
     </Layout>
   )
 }
-
-export default NewsPage
 
 export const pageQuery = graphql`
   query newsQuery {
