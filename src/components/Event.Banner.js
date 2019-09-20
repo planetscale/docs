@@ -49,6 +49,7 @@ export function EventBanner() {
       query={query}
       render={(data) => {
         const eventDetails = data.allContentfulEvent.edges[0].node
+        const eventLink = `/events/#${eventDetails.title.replace(/[ ]/gi, '')}`
         return (
           <_BackgroundContainer>
             <Section background={'transparent'}>
@@ -59,7 +60,7 @@ export function EventBanner() {
                   to {eventDetails.endDate}
                 </_BannerText>
                 <Button className="small">
-                  <_Link href="/news/planetscale-at-oracle-open-world-and-percona-live-europe-2019">
+                  <_Link href={eventLink}>
                     Details&nbsp;&nbsp;
                     <i className="fas fa-chevron-right" />
                   </_Link>

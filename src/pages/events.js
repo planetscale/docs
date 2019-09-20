@@ -48,8 +48,11 @@ export const pageQuery = graphql`
           presenter {
             name
           }
-          startTime
-          endTime
+          startTime(formatString: "HH:MM")
+          endTime(formatString: "HH:MM, DD MMM")
+          blurb {
+            json
+          }
         }
       }
     }

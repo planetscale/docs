@@ -23,7 +23,7 @@ const _Event = styled.li`
   `};
 `
 
-const Date = styled.div`
+const Venue = styled.div`
   margin-bottom: 1em;
   font-weight: 300;
   font-size: 0.9em;
@@ -36,7 +36,7 @@ const Title = styled.h2`
   margin: 0;
 `
 
-const Venue = styled.p`
+const Date = styled.p`
   font-weight: 400;
   font-size: 1.1em;
   color: #555;
@@ -58,14 +58,14 @@ const Talks = styled.ul`
 
 export function Event({ title, startDate, endDate, eventLink, venue, talks }) {
   return (
-    <_Event key={title}>
-      <Date>
-        {startDate} - {endDate}
-      </Date>
+    <_Event key={title} id={title.replace(/[ ]/gi, '')}>
+      <Venue>{venue}</Venue>
       <ButtonLink href={eventLink.url}>
         <Title>{title}</Title>
       </ButtonLink>
-      <Venue>{venue}</Venue>
+      <Date>
+        {startDate} - {endDate}
+      </Date>
       <TalksHeading>Talks</TalksHeading>
       <Talks>{talks.map(Talk)}</Talks>
     </_Event>
