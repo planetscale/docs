@@ -35,9 +35,13 @@ export const pageQuery = graphql`
     events: allContentfulEvent(sort: { fields: [startDate], order: ASC }) {
       nodes {
         title
-        startDate(formatString: "DD MMM, YYYY")
-        endDate(formatString: "DD MMM, YYYY")
+        type
+        startDate
+        endDate
         venue
+        description {
+          json
+        }
         eventLink {
           url
         }

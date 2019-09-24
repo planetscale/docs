@@ -1,12 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ButtonLink } from './Common.Button'
-import { media } from '../styles/media'
 import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
 
+export const TalkContainer = styled.div``
+
 const _Talk = styled.li`
-  margin-bottom: 6em;
   max-width: 800px;
+
+  &:not(:last-child) {
+    margin-bottom: 6em;
+  }
 `
 
 const _TalkTitle = styled.h3`
@@ -30,13 +33,15 @@ const _TalkBlurb = styled.div`
   line-height: 1.3em;
 `
 
-export function Talk({ title, presenter, startTime, endTime, blurb }) {
+export function Talk({ title, presenter, blurb }) {
   return (
-    <_Talk>
+    <_Talk key={title.title}>
       <_TalkTitle>{title.title}</_TalkTitle>
       <_TalkPresenter>
         {presenter.map((node) => {
-          return <_TalkPresenterName>{node.name}</_TalkPresenterName>
+          return (
+            <_TalkPresenterName key={node.name}>{node.name}</_TalkPresenterName>
+          )
         })}
       </_TalkPresenter>
       <_TalkBlurb>{documentToReactComponents(blurb.json)}</_TalkBlurb>

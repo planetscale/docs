@@ -2,7 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { ButtonLink } from './Common.Button'
 import { media } from '../styles/media'
-import { Talk } from '../components/Event.Talk'
+import { TalkContainer, Talk } from '../components/Event.Talk'
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer'
+import { format, isSameDay } from 'date-fns'
 
 export const EventList = styled.ul`
   list-style: none;
@@ -12,7 +14,10 @@ export const EventList = styled.ul`
 
 const _Event = styled.li`
   margin: 0;
-  padding: 3em 0 0;
+  padding: 3em 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 
   &:not(:last-child) {
     border-bottom: 1px solid #eee;
@@ -23,11 +28,14 @@ const _Event = styled.li`
   `};
 `
 
-const Venue = styled.div`
+const Type = styled.div`
   margin-bottom: 1em;
   font-weight: 300;
   font-size: 0.9em;
-  color: #666;
+  color: #333;
+  background-color: #eee;
+  padding: 0.2em 0.4em;
+  border-radius: 4px;
 `
 
 const Title = styled.h2`
@@ -36,12 +44,17 @@ const Title = styled.h2`
   margin: 0;
 `
 
-const Date = styled.p`
+const _Date = styled.p`
   font-weight: 400;
   font-size: 1.1em;
   color: #555;
   margin: 0;
   padding: 1em 0 0;
+`
+
+const _Description = styled.div`
+  max-width: 800px;
+  margin-bottom: 0;
 `
 
 const TalksHeading = styled.h3`
@@ -56,18 +69,48 @@ const Talks = styled.ul`
   padding: 0;
 `
 
-export function Event({ title, startDate, endDate, eventLink, venue, talks }) {
+export function Event({
+  title,
+  type,
+  startDate,
+  endDate,
+  eventLink,
+  venue,
+  talks,
+  description,
+}) {
+  const startDateInstance = new Date(startDate)
+  const endDateInstance = new Date(endDate)
+  const compareDates = isSameDay(startDateInstance, endDateInstance)
   return (
     <_Event key={title} id={title.replace(/[ ]/gi, '')}>
-      <Venue>{venue}</Venue>
+      <Type>{type}</Type>
       <ButtonLink href={eventLink.url}>
         <Title>{title}</Title>
       </ButtonLink>
-      <Date>
-        {startDate} - {endDate}
-      </Date>
-      <TalksHeading>Talks</TalksHeading>
-      <Talks>{talks.map(Talk)}</Talks>
+
+      <_Date>
+        {compareDates
+          ? `${format(startDateInstance, 'd LLL, yyy')}`
+          : `${format(startDateInstance, 'd LLL')} - ${format(
+              endDateInstance,
+              'd LLL, yyy'
+            )}`}{' '}
+        · {venue}
+      </_Date>
+
+      {/* only show the description of the event if there are no underlying talks */}
+      {!talks && (
+        <_Description>
+          {documentToReactComponents(description.json)}
+        </_Description>
+      )}
+      {talks && (
+        <TalkContainer>
+          <TalksHeading>Talks</TalksHeading>
+          <Talks>{talks.map(Talk)}</Talks>
+        </TalkContainer>
+      )}
     </_Event>
   )
 }
