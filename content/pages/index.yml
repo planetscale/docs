@@ -5,7 +5,7 @@ vitess:
   logo: /img/vitess-logo.svg
   title: Powered By Vitess
   buttonLabel: Join The Vitess Slack Community
-  buttonLink: https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM
+  buttonLink: https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE
   description: >-
     At the heart of PlanetScale lies Vitess: the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of SQL.
   list:

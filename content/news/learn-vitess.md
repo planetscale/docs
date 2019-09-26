@@ -7,7 +7,7 @@ share: true
 author: 'Adrianna Tan'
 ---
 
-Vitess is a powerful database clustering middleware for MySQL. To learn Vitess, start with the [Vitess documentation](https://vitess.io/docs), and say hello to the community on [Slack](https://vitess.slack.com) (click [here](https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM) if you need an invite).
+Vitess is a powerful database clustering middleware for MySQL. To learn Vitess, start with the [Vitess documentation](https://vitess.io/docs), and say hello to the community on [Slack](https://vitess.slack.com) (click [here](https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE) if you need an invite).
 
 As you make your way through the documentation, here are some other resources that can help you get off the ground.
 

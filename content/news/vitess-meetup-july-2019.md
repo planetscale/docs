@@ -35,4 +35,4 @@ For those who couldn’t attend the Meetup, Sugu gave a similar talk as a part o
 
 Interested in hosting or attending a Vitess Meetup? Fill out this brief [survey](https://forms.gle/4PDxG15rWDmLr1fSA) to help us get Vitess to you.
 
-And be sure to check out the open source [Vitess Community on Slack](https://vitess.slack.com/join/shared_invite/enQtMzIxMDMyMzA0NzA1LTBjYjY1M2I2Yjg5YmY3ODIwOTk0N2M1YzI4Y2ViODdiNmIxMDdiMDM5YWQ1ZTc0YmJhZDdiOTliMGVkNDY4MjM) if you’re interested in getting started with Vitess.
+And be sure to check out the open source [Vitess Community on Slack](https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE) if you’re interested in getting started with Vitess.
