@@ -54,6 +54,7 @@ const Nav = styled.nav`
     top: 0;
     background-color: white;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
+    z-index: 1337;
   `};
 `
 
@@ -159,7 +160,6 @@ const MobileLogo = styled.img`
   display: none;
   max-height: 30px;
   position: ${(props) => (props.visible ? 'fixed' : 'static')};
-  z-index: 1338;
 
   ${media.desktop`
     display: block;
