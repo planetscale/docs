@@ -1,0 +1,16 @@
+name: Daily Build
+
+on:
+  schedule:
+    - cron: 0 8 * * *
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Trigger 1am PST daily build on netlify
+        run: curl -s -X POST https://api.netlify.com/build_hooks/${TOKEN}
+        env:
+          TOKEN: ${{secrets.CRON_NETLIFY_BUILD_HOOK}}
