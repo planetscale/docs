@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { ButtonLink } from './Common.Button'
+import { InternalLink } from './Common.Button'
 import { media } from '../styles/media'
 
 export const BlogPosts = styled.ul`
@@ -47,9 +47,9 @@ export function BlogPostLink({ title, description, date, author, slug }) {
   return (
     <_BlogPostLink key={title}>
       <Date>{date}</Date>
-      <ButtonLink href={`/news/${slug}`}>
+      <InternalLink to={`/news/${slug}`}>
         <Title>{title}</Title>
-      </ButtonLink>
+      </InternalLink>
       <Description>{description}</Description>
     </_BlogPostLink>
   )

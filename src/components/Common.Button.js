@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { media } from '../styles/media'
+import { Link } from 'gatsby'
 
 const buttonPadding = `
   padding: 11px 14px;
@@ -111,4 +112,9 @@ export const InputButton = styled.input`
   ${styles} ${buttonPadding} ${media.largePhone`
     width: 100%;
   `};
+`
+
+export const InternalLink = styled(Link)`
+  text-decoration: none;
+  color: #d92727;
 `
