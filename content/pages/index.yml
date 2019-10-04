@@ -1,4 +1,5 @@
 id: index
+eventBannerIsVisible: false
 title: Turbocharged MySQL For The Cloud
 subtitle: PlanetScale helps you build highly scalable modern applications on top of MySQL without any of the guesswork.
 vitess:
@@ -41,14 +42,3 @@ offerings:
   icon: /img/planetscale-cloud.png
   content: >-
     Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Sign up for early access to our Cloud Database beta today.
-event:
-  banner:
-    title: >-
-      CNCF Webinar Series – Vitess: Running Sharded MySQL on Kubernetes
-    img: //raw.githubusercontent.com/cncf/artwork/master/other/cncf/icon/white/cncf-icon-white.png
-    alt: CNCF Logo
-    link: //www.cncf.io/
-    date: Livestreamed on July 16, 2019
-  buttons:
-    - text: Watch Recording
-      link: //www.youtube.com/watch?v=E6H4bgJ3Z6c&amp

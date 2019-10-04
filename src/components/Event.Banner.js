@@ -7,6 +7,7 @@ import { Section } from '../components/Layout.Wrapper'
 
 const _BackgroundContainer = styled.div`
   background: linear-gradient(223.52deg, #ff7a00 21.27%, #ff0f00 138.36%);
+  display: ${(props) => (props.isVisible ? 'block' : 'none')};
 `
 
 const _BannerLayout = styled.div`
@@ -43,7 +44,7 @@ const _Link = styled(ButtonLink)`
   color: white;
 `
 
-export function EventBanner() {
+export function EventBanner({ isVisible }) {
   return (
     <StaticQuery
       query={query}
@@ -51,7 +52,7 @@ export function EventBanner() {
         const eventDetails = data.allContentfulEvent.edges[0].node
         const eventLink = `/events/#${eventDetails.title.replace(/[ ]/gi, '')}`
         return (
-          <_BackgroundContainer>
+          <_BackgroundContainer isVisible={isVisible}>
             <Section background={'transparent'}>
               <_BannerLayout>
                 <_BannerTag>Event</_BannerTag>

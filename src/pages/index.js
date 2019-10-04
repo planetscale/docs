@@ -51,7 +51,7 @@ export default function IndexPage({ data }) {
         title={pageData.title}
         description={pageData.subtitle}
       />
-      <EventBanner></EventBanner>
+      <EventBanner isVisible={pageData.eventBannerIsVisible}></EventBanner>
       <Hero title={pageData.title} subTitle={pageData.subtitle} wrap="wrap">
         <Button className="big clear-color">
           <ButtonLink href="/signup">Request Demo</ButtonLink>
@@ -88,6 +88,7 @@ export const pageQuery = graphql`
     allPagesYaml(filter: { id: { eq: "index" } }) {
       edges {
         node {
+          eventBannerIsVisible
           title
           subtitle
           vitess {
