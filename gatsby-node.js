@@ -1,5 +1,6 @@
 const slug = require('slug')
 const path = require('path')
+const { isPast } = require('date-fns')
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === 'MarkdownRemark') {
@@ -18,6 +19,13 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
         value: parent.name === 'noop' ? 'noop' : parent.sourceInstanceName,
       })
     }
+  } else if (node.internal.type === 'ContentfulEvent') {
+    const { createNodeField } = actions
+    createNodeField({
+      node,
+      name: 'isPast',
+      value: isPast(new Date(node.endDate)),
+    })
   }
 }
 

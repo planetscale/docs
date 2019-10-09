@@ -77,7 +77,11 @@ export function EventBanner({ isVisible }) {
 
 const query = graphql`
   query {
-    allContentfulEvent(limit: 1, sort: { fields: [startDate], order: ASC }) {
+    allContentfulEvent(
+      limit: 1
+      sort: { fields: [startDate], order: ASC }
+      filter: { fields: { isPast: { eq: false } } }
+    ) {
       edges {
         node {
           title

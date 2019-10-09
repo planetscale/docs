@@ -32,7 +32,10 @@ export default function EventsPage({ data }) {
 
 export const pageQuery = graphql`
   query eventsQuery {
-    events: allContentfulEvent(sort: { fields: [startDate], order: ASC }) {
+    events: allContentfulEvent(
+      sort: { fields: [startDate], order: ASC }
+      filter: { fields: { isPast: { eq: false } } }
+    ) {
       nodes {
         title
         type
