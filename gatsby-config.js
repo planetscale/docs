@@ -121,7 +121,6 @@ module.exports = {
         apiToken: process.env.GREENHOUSE_API_TOKEN,
       },
     },
-    'gatsby-plugin-netlify-cms',
     'gatsby-plugin-netlify',
     {
       resolve: `gatsby-plugin-google-tagmanager`,
@@ -161,5 +160,6 @@ module.exports = {
         ],
       },
     },
+    'gatsby-plugin-catch-links',
   ],
 }

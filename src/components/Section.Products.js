@@ -154,7 +154,7 @@ function Product({ title, icon, content, action, link, highlight }) {
   const highlightClassName = highlight === true ? 'highlight' : ''
   const buttonClassName = highlight === true ? '' : 'clear'
   return (
-    <_Product className={highlightClassName}>
+    <_Product key={title} className={highlightClassName}>
       <Icon src={icon} />
       <ContentContainer>
         <Title>{title}</Title>

@@ -7,7 +7,7 @@
 - GatsbyJS
 - Hosted and deployed via Netlify
 - Content in yaml and markdown files editable via `/admin`
-- `Vitess Case Studies` content on Contentful
+- `Vitess Case Studies` and `Events/Talks` content on Contentful
 
 ## How to setup local development (on MacOS)
 
@@ -17,7 +17,7 @@
 - Login to netlify via `netlify login`
 - Git clone this repository (`git clone git@github.com:planetscale/website.git`)
 - Switch to the repository's folder
-- Link your repository to planetscale.com project on netlify via `netlify link`
+- Link your repository to the planetscale.com project on netlify via `netlify link`
 - `yarn install` to install all dependencies
 - `netlify dev` to start a local server
 - Open `http://localhost:8888` to access the local server instance

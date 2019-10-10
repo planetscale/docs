@@ -8,22 +8,11 @@ const _Container = styled.div`
   border: 1px solid #3c3c3c;
   margin-top: 1em;
   padding: 3em;
-  background-color: #333;
-  transition: transform 500ms, background-color 500ms;
-
-  &:hover {
-    background-color: #3c3c3c;
-    transform: scale(1.02);
-  }
 
   ${media.largePhone`
     padding: 3em 1em;
     border: 0;
     border-bottom: 1px solid #666;
-
-    &:hover {
-      background-color: unset;
-    }
   `};
 `
 

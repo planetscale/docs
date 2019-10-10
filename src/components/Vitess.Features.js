@@ -28,22 +28,11 @@ const _Feature = styled.li`
   flex-direction: column;
   padding: 3em;
   border: 1px solid #3c3c3c;
-  // background-color: #333;
-  transition: transform 500ms, background-color 500ms;
-
-  &:hover {
-    background-color: #3c3c3c;
-    transform: scale(1.04);
-  }
 
   ${media.largePhone`
     padding: 3em 1em;
     border: 0;
     border-bottom: 1px solid #666;
-
-    &:hover {
-      background-color: unset;
-    }
   `};
 `
 
