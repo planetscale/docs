@@ -60,6 +60,9 @@ export const pageQuery = graphql`
           blurb {
             json
           }
+          talkLink {
+            url
+          }
         }
       }
     }
