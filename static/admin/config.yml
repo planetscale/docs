@@ -8,6 +8,14 @@ media_folder: static/img
 public_folder: /img
 
 collections:
+  - label: 'Docs'
+    name: 'docs'
+    folder: 'content/docs'
+    create: true
+    slug: '{{slug}}'
+    fields:
+      - { label: 'Title', name: 'title', widget: 'string' }
+      - { label: 'Body', name: 'body', widget: 'markdown' }
   - label: 'DBAAS'
     name: 'dbaas'
     folder: 'content/dbaas'

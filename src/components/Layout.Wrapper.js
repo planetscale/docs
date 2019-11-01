@@ -25,14 +25,23 @@ export const _SectionWrapperContainer = styled.section`
 
 export const _SectionWrapperContentBound = styled.section`
   width: 100%;
+  display: flex;
+  flex-direction: ${(props) => props.flexDirection || 'column'};
+  padding: ${(props) => (props.padding === 'true' ? '2em 0' : '0')};
+  align-items: flex-start;
   max-width: ${(props) =>
     props.theme && props.theme.sizes && props.theme.sizes.maxWidth};
 `
 
-export function Section({ children, background }) {
+export function Section({ children, background, flexDirection, padding }) {
   return (
     <_SectionWrapperContainer background={background}>
-      <_SectionWrapperContentBound>{children}</_SectionWrapperContentBound>
+      <_SectionWrapperContentBound
+        flexDirection={flexDirection}
+        padding={padding}
+      >
+        {children}
+      </_SectionWrapperContentBound>
     </_SectionWrapperContainer>
   )
 }

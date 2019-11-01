@@ -36,6 +36,12 @@ export const headerLinks = [
     name: 'FAQ',
     to: '/faq',
   },
+
+  {
+    id: 'docs',
+    name: 'Docs',
+    to: '/docs/index',
+  },
 ]
 
 export const footerLinks = [
