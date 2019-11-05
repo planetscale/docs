@@ -26,7 +26,7 @@ This quickstart includes the following steps:
 
 If you do not have a PlanetScale account, create one first.
 
-Go to [console.planetscale.com] and click *Sign up here.* Provide user account information. Payment information is not necessary for this quickstart.
+Go to [console.planetscale.com](https://console.planetscale.com) and click *Sign up here.* Provide user account information. Payment information is not necessary for this quickstart.
 
 <!-- Is it true that payment information is not necessary for this quickstart?-->
 
@@ -58,9 +58,9 @@ Open MySQL Workbench and click **New Connection**. In the "Set up a New Connecti
 
 The connection string is formatted as follows:
 
-***
+```
 --host [hostname] --port [port number] --user [username] --password=[password]
-***
+```
 
 Click **Okay**. Your database should now appear as a connection in MySQL Workbench, and the SQL Query Tab for your database should open.
 
@@ -68,9 +68,9 @@ Click **Okay**. Your database should now appear as a connection in MySQL Workben
 
 In the SQL Query Tab for your database, enter the following query:
 
-***
+```
 SHOW DATABASES;
-***
+```
 
 This query returns the following output:
 

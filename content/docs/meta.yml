@@ -18,4 +18,10 @@ order:
   - id: setting-up-your-planetscale-database
     name: Setting up your PlanetScale Database
     pages:
+      - creating-cluster
       - creating-database
+      - configuring-sharding
+  - id: using-your-planetscale-database
+    name: Using your PlanetScale Database
+    pages:
+      - connecting-to-db

@@ -21,6 +21,7 @@ This page contains documentation for using the PlanetScale Database, powered by 
 
 ## Setting up your PlanetScale Database
 
++ [Creating a cluster](creating-cluster)
 + [Creating a PlanetScale Database](creating-database)
 + [Configuring a sharding scheme](configuring-sharding)
-+ [Creating a cluster](creating-cluster)
++ [Connecting to your PlanetScale Database](connecting-to-db)

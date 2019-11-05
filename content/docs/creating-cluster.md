@@ -33,7 +33,7 @@ After clicking **Create Cluster**, you are prompted to name your cluster.
 
 ![Create new cluster screen](/img/docs/create-new-cluster.png)
 
-The name of your cluster is prepended with your company name, and must be unique.
+The name of your cluster is prepended with your account name, and must be unique.
 
 ## Step 4: Choose a cloud provider and region.
 

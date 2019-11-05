@@ -1,0 +1,97 @@
+---
+title: 'Connecting to your database'
+category: 'using-your-planetscale-database'
+---
+
+# Connecting to your database
+
+This document describes how to connect to your PlanetScale database using a MySQL connection string.
+
+## Prerequisites
+
+This document assumes you have [created a PlanetScale database](creating-database).
+
+This document uses the [MySQL command line client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) as an example MySQL client; however, you can connect to your PlanetScale database using any MySQL client.
+
+## Overview
+
+To create a PlanetScale Database, follow these steps:
+
+1. Go to the [PlanetScale console](https://console.planetscale.com).
+1. Click on your database name.
+1. Click the **Connect** button.
+1. Click the **Copy** button next to your connection string.
+1. Paste the connection string into a MySQL client.
+1. Connect to your database using the MySQL client.
+
+## Step 1. Go to the [PlanetScale console](https://console.planetscale.com).
+
+This opens the **Clusters Overview**.
+
+## Step 2. Click on your database name.
+
+This opens the **Overview** for your database.
+
+## Step 3. Click the **Connect** button.
+
+![Connect button](/img/docs/connect-button.png)
+
+This opens the connection pane.
+
+## Step 4. Click the **Copy** button next to your connection string.
+
+The connection panel displays your MySQL connection string for each region. Click the **Copy** button next to the connection string for the desired region.
+
+![Copy button](/img/docs/connection-string-copy-button.png)
+
+This copies the connection string to your clipboard.
+
+## Step 5. Paste the connection string into a MySQL client.
+
+The connection string contains the user credentials for your PlanetScale database, formatted as a MySQL client command line command. To connect to the database with a client, paste the connection string into the appropriate location for your client.
+
+For example, to connect using the MySQL command line client, you can paste the connection string into a your terminal. It should look like the following:
+
+```
+mysql --host abcdefghijklmnop-123456789.us-east-1.elb.amazonaws.com --port 3306 --user vtgate-1-user --password=aAbBcCdDeE12345
+```
+
+Note: MySQL [discourages specifying passwords in plaintext on the command line](https://dev.mysql.com/doc/mysql-security-excerpt/5.7/en/password-security-user.html). To improve password security, configure the MySQL command line to default to your PlanetScale database connection settings. For example:
+
+```
+cat << EOF > ~/.my.cnf
+[client]
+user=vtgate-1-user
+password=aAbBcCdDeE12345
+host=abcdefghijklmnop-123456789.us-east-1.elb.amazonaws.com 
+port=3306
+EOF
+```
+
+## Step 6. Connect to your database using the MySQL client.
+
+Using your MySQL client, request a MySQL connection using the connection string. For example, using the MySQL command line client, enter the command from **Step 5** above. Your MySQL client should indicate that there is now a connection to your PlanetScale database, and prompt for MySQL queries.
+
+For example, assuming that you have a configuration file from **Step 5** above, you can run the MySQL command line client with no arguments, and it will connect to your PlanetScale database:
+
+```
+shell> mysql
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 12669
+Server version: 5.5.10-Vitess MySQL Community Server (GPL)
+
+Copyright (c) 2000, 2019, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> 
+```
+
+You can now issue queries against your PlanetScale database.
+
+

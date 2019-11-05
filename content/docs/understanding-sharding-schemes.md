@@ -34,7 +34,7 @@ Sharding schemes use JSON format. Each sharding scheme contains at least one key
 
 Below is an example sharding scheme. This sharding scheme indicates that the database is sharded, that it has one sharded table called `user`, whose `user_id` column maps to the Vindex `hash`, and that this Vindex is of type `hash`.
 
-***
+```
     {
         "sharded": true,
         "vindexes": {
@@ -53,7 +53,7 @@ Below is an example sharding scheme. This sharding scheme indicates that the dat
           }
         }
       }
-***
+```
 
 ## What does the sharding scheme do?
 
@@ -63,14 +63,14 @@ The sharding scheme contains, among other things, the [Vindex](http://vitess.io/
 
 In the example sharding scheme above, the `user` table object contains an object called `column_vindexes`, which itself contains two key-value pairs: `column` and `name`:
 
-***
+```
     "column_vindexes": [
         {
         "column": "user_id",
         "name": "hash"
         }
     ]
-***
+```
 
 The `column_vindexes` object specifies that the `user_id` column maps to a Vindex called `hash`. This means that, at query execution time, your database will use the `WHERE` clause of the SQL query to identify the range of values of `user_id` it needs to return; then, it will use a hash function to compute the keyspace IDs for the desired rows.
 
