@@ -65,3 +65,7 @@ We were not surprised at these numbers, as we have seen Vitess perform well unde
 If you are interested in trying to replicate this benchmark, we would be more than happy to provide the Terraform configurations used to provision our deployment.
 
 Also we are [hiring!](https://planetscale.com/careers)
+
+## Disclaimer
+
+These results are not certified by the [TPC](http://www.tpc.org/tpcc/).
