@@ -45,3 +45,18 @@ export function Section({ children, background, flexDirection, padding }) {
     </_SectionWrapperContainer>
   )
 }
+
+const _DocsWrapperContentBound = styled.section`
+  max-width: 1170px;
+  display: grid;
+  grid-template-columns: 500px 1fr;
+  padding: 2em 0;
+`
+
+export function DocsSection({ children }) {
+  return (
+    <_SectionWrapperContainer>
+      <_DocsWrapperContentBound>{children}</_DocsWrapperContentBound>
+    </_SectionWrapperContainer>
+  )
+}

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 const _SidenavContainer = styled.div`
-  border: 1px solid #eee;
+  border-right: 1px solid #eee;
   padding: 2rem 2rem 1rem;
   margin-right: 2rem;
 `
