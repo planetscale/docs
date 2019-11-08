@@ -13,6 +13,8 @@ order:
       - db-overview
       - performance-features
       - security-features
+      - understanding-clusters
+      - understanding-databases
       - understanding-sharding-schemes
       - understanding-deployment
   - id: setting-up-your-planetscale-database

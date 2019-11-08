@@ -14,6 +14,8 @@ This page contains documentation for using the PlanetScale Database, powered by 
 ## Concepts
 
 + [PlanetScale Database Overview](db-overview) <!-- (Introducing PlanetScale database) -->
++ [Understanding clusters](understanding-clusters)
++ [Understanding databases](understanding-databases)
 + [Understanding sharding schemes](understanding-sharding-schemes) <!-- We may want a separate doc for sharding concepts. -->
 + [Understanding Deployment](understanding-deployment)
 + [Security features](security-features)
@@ -22,6 +24,6 @@ This page contains documentation for using the PlanetScale Database, powered by 
 ## Setting up your PlanetScale Database
 
 + [Creating a cluster](creating-cluster)
-+ [Creating a PlanetScale Database](creating-database)
++ [Creating a database](creating-database)
 + [Configuring a sharding scheme](configuring-sharding)
-+ [Connecting to your PlanetScale Database](connecting-to-db)
++ [Connecting to your Database](connecting-to-db)
