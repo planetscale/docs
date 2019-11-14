@@ -18,7 +18,8 @@ This document uses the [MySQL command line client](https://dev.mysql.com/doc/ref
 To create a PlanetScale Database, follow these steps:
 
 1. Go to the [PlanetScale console](https://console.planetscale.com).
-1. Click on your database name.
+1. Click on your cluster.
+1. Click on your database.
 1. Click the **Connect** button.
 1. Click the **Copy** button next to your connection string.
 1. Paste the connection string into a MySQL client.
@@ -28,17 +29,21 @@ To create a PlanetScale Database, follow these steps:
 
 This opens the **Clusters Overview**.
 
-## Step 2. Click on your database name.
+## Step 2. Click on your cluster name.
+
+This opens the **Overview** for your cluster.
+
+## Step 3. Click on your database name.
 
 This opens the **Overview** for your database.
 
-## Step 3. Click the **Connect** button.
+## Step 4. Click the **Connect** button.
 
 ![Connect button](/img/docs/connect-button.png)
 
 This opens the connection pane.
 
-## Step 4. Click the **Copy** button next to your connection string.
+## Step 5. Click the **Copy** button next to your connection string.
 
 The connection panel displays your MySQL connection string for each region. Click the **Copy** button next to the connection string for the desired region.
 
@@ -46,7 +51,7 @@ The connection panel displays your MySQL connection string for each region. Clic
 
 This copies the connection string to your clipboard.
 
-## Step 5. Paste the connection string into a MySQL client.
+## Step 6. Paste the connection string into a MySQL client.
 
 The connection string contains the user credentials for your PlanetScale database, formatted as a MySQL client command line command. To connect to the database with a client, paste the connection string into the appropriate location for your client.
 
@@ -68,7 +73,7 @@ port=3306
 EOF
 ```
 
-## Step 6. Connect to your database using the MySQL client.
+## Step 7. Connect to your database using the MySQL client.
 
 Using your MySQL client, request a MySQL connection using the connection string. For example, using the MySQL command line client, enter the command from **Step 5** above. Your MySQL client should indicate that there is now a connection to your PlanetScale database, and prompt for MySQL queries.
 

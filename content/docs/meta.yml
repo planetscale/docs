@@ -23,6 +23,7 @@ order:
       - creating-cluster
       - creating-database
       - configuring-sharding
+      - adding-users
   - id: using-your-planetscale-database
     name: Using your PlanetScale Database
     pages:

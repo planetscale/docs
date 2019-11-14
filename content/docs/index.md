@@ -27,3 +27,4 @@ This page contains documentation for using the PlanetScale Database, powered by 
 + [Creating a database](creating-database)
 + [Configuring a sharding scheme](configuring-sharding)
 + [Connecting to your Database](connecting-to-db)
++ [Adding users to your account](adding-users)

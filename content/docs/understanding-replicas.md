@@ -24,4 +24,3 @@ Replicas have two main benefits:
 ## What's next
 
 + [Create a database](creating-database) with replicas
-

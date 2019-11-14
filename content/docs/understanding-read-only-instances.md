@@ -14,4 +14,3 @@ A [replica](understanding-replicas) is similar to a read-only instance, but serv
 ## What's next
 
 + [Create a database](creating-database) with read-only replicas
-

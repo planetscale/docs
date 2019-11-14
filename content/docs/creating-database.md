@@ -1,19 +1,19 @@
 ---
-title: 'Creating a PlanetScale DB'
+title: 'Creating a database'
 category: 'setting-up-your-planetscale-database'
 ---
 
-# Creating a PlanetScale Database
+# Creating a database
 
-This document explains how to create a PlanetScale Database using the PlanetScale console.
+This document explains how to create a Database using the PlanetScale console.
 
 ## Prerequisites
 
-Before you can create a PlanetScale Database, you must first [create a cluster](creating-cluster).
+Before you can create a database, you must first [create a cluster](creating-cluster).
 
 ## Overview
 
-To create a PlanetScale Database, you will complete the following steps:
+To create a database, you will complete the following steps:
 
 ## Step 1: Open the Overview page for a cluster.
 
@@ -41,12 +41,56 @@ In the **Create New Database** pane, enter the name of your new database.
 
 Database names can only contain lowercase alphanumeric characters.
 
+By default, PlanetScale deploys your database immediately on creation. If you deselect this option, you have the option to deploy the database from the database **Overview** later.
+
 ## Step 5: Select a region.
 
 In the **Create New Database** pane, select a region from the **Regions** dropdown. You can choose from the regions that you selected for the cluster where this database will run.
 
 ![Select region dropdown](/img/docs/select-database-region.png)
 
-## Step 6: Click **Next**.
+## Step 6: Assign resources to your instance.
 
-## Step 7: Select a database configuration.
+Under **Instance Configuration**, select the amount of CPU, RAM, and storage for each instance.
+
+![Instance Configuration section](/img/docs/instance-configuration.png)
+
+The **Cost per instance** calculator below shows the hourly cost for the current instance configuration.
+
+## Step 7: Choose the number of instances
+
+Under **Number of instances**, choose the number of [replicas](understanding-replicas) and [read-only instances](understanding-read-only-instances) per [shard](understanding-sharding-schemes).
+
+![Number of instances section](/img/docs/number-of-instances.png)
+
+The **Cost per shard** calculator below shows the hourly cost for the current number of instances per shard.
+
+Note: PlanetScale does not recommend databases with fewer than three replicas per shard for production environments, because they may not survive a partial region outage and are subject to downtimes of up to 30 seconds during scheduled maintenance procedures.
+
+## Step 8: Choose the number of shards
+
+Under **Sharding**, choose **Unsharded** or **Sharded**. For a sharded database, select the number of shards.
+
+![Sharding section](/img/docs/sharding-section.png)
+
+The **Total cost** calculator below shows the overall hourly cost of your database. Because each shard contains the selected number of instances, the total cost of the database is the number of shards multiplied times the number of instances.
+
+## Step 9: Click **Create Database**.
+
+By default, your database deploys immediately. This process can take up to several minutes.
+
+
+Once your database is ready, the **Cluster Overview** displays its status as **Deployed**.
+
+## Step 10 (Optional): Click your database name.
+
+This opens the **Database Overview** for your new database.
+
+## Step 11 (Optional): Click **Deploy**.
+
+If you deselected **Deploy on creation** in **Step 4** above, you can deploy it at any time from the **Database Overview**.
+
+## See also
+
++ Learn more about [sharding](understanding-sharding-schemes).
++ Read about our [pricing model](pricing).

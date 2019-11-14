@@ -17,4 +17,3 @@ You can assign resources to each database at the time of [database creation](cre
 
 + [Create a database](creating-database)
 + [Connect to a database](connecting-to-db)
-
