@@ -28,3 +28,7 @@ order:
     name: Using your PlanetScale Database
     pages:
       - connecting-to-db
+  - id: resources
+    name: Resources
+    pages:
+      - pricing
