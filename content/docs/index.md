@@ -13,21 +13,26 @@ This page contains documentation for using the PlanetScale Database, powered by 
 
 ## Concepts
 
-+ [PlanetScale Database Overview](db-overview) <!-- (Introducing PlanetScale database) -->
++ [PlanetScale CMDb Overview](db-overview)
 + [Understanding clusters](understanding-clusters)
 + [Understanding databases](understanding-databases)
-+ [Understanding sharding schemes](understanding-sharding-schemes) <!-- We may want a separate doc for sharding concepts. -->
++ [Understanding sharding schemes](understanding-sharding-schemes)
 + [Understanding Deployment](understanding-deployment)
 + [Security features](security-features)
 + [Performance features](performance-features)
 
-## Setting up your PlanetScale Database
+## Setting up your Database
 
 + [Creating a cluster](creating-cluster)
 + [Creating a database](creating-database)
 + [Configuring a sharding scheme](configuring-sharding)
 + [Connecting to your Database](connecting-to-db)
 + [Adding users to your account](adding-users)
+
+## Using your database
+
++ [Importing data](importing-data)
++ [Migrating database schemas](migrating-database-schemas)
 
 ## Resources
 

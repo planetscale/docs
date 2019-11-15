@@ -28,6 +28,8 @@ order:
     name: Using your PlanetScale Database
     pages:
       - connecting-to-db
+      - importing-data
+      - migrating-database-schemas
   - id: resources
     name: Resources
     pages:
