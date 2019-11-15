@@ -1,16 +1,16 @@
 ---
 title: 'Creating a cluster'
-category: 'setting-up-your-planetscale-database'
+category: 'setting-up-your-planetscale-cndb'
 ---
 
 # Creating a cluster
 
-Before you can create a PlanetScale Database, you must first create a cluster.
-This document explains how to create a cluster for your PlanetScale Database using the PlanetScale console.
+Before you can create a database, you must first create a cluster.
+This document explains how to create a cluster using the PlanetScale console.
 
 ## Overview
 
-To create a PlanetScale cluster, you will complete the following steps:
+To create a cluster, you will complete the following steps:
 
 1. Create a Cluster.
 1. Click **Create Cluster**.

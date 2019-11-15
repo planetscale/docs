@@ -1,11 +1,11 @@
 ---
 title: 'Creating a database'
-category: 'setting-up-your-planetscale-database'
+category: 'setting-up-your-planetscale-cndb'
 ---
 
 # Creating a database
 
-This document explains how to create a Database using the PlanetScale console.
+This document explains how to create a database using the PlanetScale console.
 
 ## Prerequisites
 

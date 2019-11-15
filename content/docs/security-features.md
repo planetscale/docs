@@ -3,13 +3,13 @@ title: 'Security Features'
 category: 'concepts'
 ---
 
-# PlanetScale Database security features
+# PlanetScale CNDb security features
 
-This document describes the security features of the PlanetScale Database.
+This document describes the security features of the PlanetScale CNDb.
 
 ## Security features 
 
-The PlanetScale Database is a fully managed scaling database solution. The database runs entirely on PlanetScale's private cloud; your application connects to the database using a standard connection string. Within the PlanetScale private cloud, data is secure at rest on the storage level. In order to secure your application connection to the PlanetScale Database, the server accepts TLS connections.
+The PlanetScale CNDb is a fully managed scaling database solution. The database runs entirely on PlanetScale's private cloud; your application connects to the database using a standard connection string. Within the PlanetScale private cloud, data is secure at rest on the storage level. In order to secure your application connection to the PlanetScale Database, the server accepts TLS connections.
 
 ## Security updates
 

@@ -5,7 +5,7 @@ category: 'concepts'
 
 # Understanding sharding schemes
 
-This document explains the basic concept of sharding schemes as used in the PlanetScale Database. PlanetScale is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
+This document explains the basic concept of sharding schemes as used in the PlanetScale CNDb. PlanetScale is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
 
 <!-- We may want to link out to this doc also/instead: vitess.io/docs/reference/sharding This document contains a table under the "Resharding" section that gives a good run-down on why you would want more shards vs. more replicas. Key takeaways: Splitting shards increases read and write capacity uniformly; merging shards frees up resources; splitting shards can also cool a hot tablet. -->
 

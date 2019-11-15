@@ -3,7 +3,7 @@ title: 'Documentation Overview'
 category: 'home'
 ---
 
-This page contains documentation for using the PlanetScale Database, powered by Vitess. For documentation on Vitess itself, see the [open source Vitess documentation](http://vitess.io/docs).
+This page contains documentation for using the PlanetScale CNDb, powered by Vitess. For documentation on Vitess itself, see the [open source Vitess documentation](http://vitess.io/docs).
 
 <!-- Should this contain a link out to the Slack or other support channels? -->
 
@@ -13,7 +13,7 @@ This page contains documentation for using the PlanetScale Database, powered by 
 
 ## Concepts
 
-+ [PlanetScale CMDb Overview](db-overview)
++ [PlanetScale CNDb Overview](db-overview)
 + [Understanding clusters](understanding-clusters)
 + [Understanding databases](understanding-databases)
 + [Understanding sharding schemes](understanding-sharding-schemes)

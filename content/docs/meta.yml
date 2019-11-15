@@ -17,15 +17,15 @@ order:
       - understanding-databases
       - understanding-sharding-schemes
       - understanding-deployment
-  - id: setting-up-your-planetscale-database
-    name: Setting up your PlanetScale Database
+  - id: setting-up-your-planetscale-cndb
+    name: Setting up your PlanetScale CNDb
     pages:
       - creating-cluster
       - creating-database
       - configuring-sharding
       - adding-users
-  - id: using-your-planetscale-database
-    name: Using your PlanetScale Database
+  - id: using-your-planetscale-cndb
+    name: Using your PlanetScale CNDb
     pages:
       - connecting-to-db
       - importing-data

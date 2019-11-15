@@ -5,7 +5,7 @@ category: 'concepts'
 
 # Understanding replicas
 
-This document describes the basic concept of replicas in the PlanetScale Database context.
+This document describes the basic concept of replicas in the PlanetScale CNDb context.
 
 ## What is a replica?
 

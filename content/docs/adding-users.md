@@ -1,6 +1,6 @@
 ---
 title: 'Adding users to your account'
-category: 'setting-up-your-planetscale-database'
+category: 'setting-up-your-planetscale-cndb'
 ---
 
 # Adding users to your account

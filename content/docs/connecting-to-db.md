@@ -1,21 +1,21 @@
 ---
 title: 'Connecting to your database'
-category: 'using-your-planetscale-database'
+category: 'using-your-planetscale-cndb'
 ---
 
 # Connecting to your database
 
-This document describes how to connect to your PlanetScale database using a MySQL connection string.
+This document describes how to connect to your database using a MySQL connection string.
 
 ## Prerequisites
 
-This document assumes you have [created a PlanetScale database](creating-database).
+This document assumes you have [created a database](creating-database).
 
-This document uses the [MySQL command line client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) as an example MySQL client; however, you can connect to your PlanetScale database using any MySQL client.
+This document uses the [MySQL command line client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) as an example MySQL client; however, you can connect to your database using any MySQL client.
 
 ## Overview
 
-To create a PlanetScale Database, follow these steps:
+To create a Database, follow these steps:
 
 1. Go to the [PlanetScale console](https://console.planetscale.com).
 1. Click on your cluster.

@@ -5,7 +5,7 @@ category: 'getting-started'
 
 # MySQL Workbench Quickstart
 
-This document shows how to get started using PlanetScale Database. By the end, you will have a working PlanetScale Database that you can connect to using MySQL Workbench.
+This document shows how to get started using PlanetScale CNDb. By the end, you will have a working PlanetScale CNDb that you can connect to using MySQL Workbench.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ Before beginning this tutorial, you must [install MySQL Workbench](https://dev.m
 
 This quickstart includes the following steps:
 
-1. Create a PlanetScale Database account.
+1. Create a PlanetScale account.
 2. Create a cluster.
 3. Create a database.
 4. Find the MySQL connection string for your database.
