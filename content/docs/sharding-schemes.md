@@ -1,9 +1,9 @@
 ---
-title: 'Understanding Sharding Schemes'
+title: 'Sharding schemes'
 category: 'concepts'
 ---
 
-# Understanding sharding schemes
+# Sharding schemes
 
 This document explains the basic concept of sharding schemes as used in the PlanetScale CNDb. PlanetScale is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
 

@@ -13,10 +13,10 @@ order:
       - db-overview
       - performance-features
       - security-features
-      - understanding-clusters
-      - understanding-databases
-      - understanding-sharding-schemes
-      - understanding-deployment
+      - clusters
+      - databases
+      - sharding-schemes
+      - deployment
   - id: setting-up-your-planetscale-cndb
     name: Setting up your PlanetScale CNDb
     pages:

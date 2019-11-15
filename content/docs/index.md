@@ -5,8 +5,6 @@ category: 'home'
 
 This page contains documentation for using the PlanetScale CNDb, powered by Vitess. For documentation on Vitess itself, see the [open source Vitess documentation](http://vitess.io/docs).
 
-<!-- Should this contain a link out to the Slack or other support channels? -->
-
 ## Getting Started
 
 [MySQL Workbench Quickstart](mysql-workbench-quickstart)
@@ -14,10 +12,10 @@ This page contains documentation for using the PlanetScale CNDb, powered by Vite
 ## Concepts
 
 + [PlanetScale CNDb Overview](db-overview)
-+ [Understanding clusters](understanding-clusters)
-+ [Understanding databases](understanding-databases)
-+ [Understanding sharding schemes](understanding-sharding-schemes)
-+ [Understanding Deployment](understanding-deployment)
++ [clusters](clusters)
++ [databases](databases)
++ [sharding schemes](sharding-schemes) <!-- We may want a separate doc for sharding concepts. -->
++ [Deployment](deployment)
 + [Security features](security-features)
 + [Performance features](performance-features)
 

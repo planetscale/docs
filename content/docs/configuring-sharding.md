@@ -6,7 +6,8 @@ category: 'setting-up-your-planetscale-cndb'
 # Configuring a sharding scheme
 
 This document describes how to configure your database to use multiple shards.
-For more information on how sharding works and how to structure your sharding scheme, see [Understanding sharding schemes](understanding-sharding-schemes).
+
+For more information on how sharding works and how to structure your sharding scheme, see [Sharding schemes](sharding-schemes).
 
 ## Overview
 
