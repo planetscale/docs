@@ -69,7 +69,7 @@ const _SectionTitle = styled.h6`
 
 const _TechSection = styled.div`
   display: grid;
-  margin-bottom: 2em;
+  margin-bottom: 4em;
   grid-template-rows: 1fr;
   grid-template-columns: 1fr 4fr;
 

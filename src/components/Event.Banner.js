@@ -30,7 +30,7 @@ const _BannerDescription = styled.div`
 
 const _BannerLead = styled.h3`
   color: #fff;
-  font-size: var(--exo-font-size-h3);
+  font-size: var(--exo-font-size-h4);
   margin: 0;
 
   ${media.largePhone`

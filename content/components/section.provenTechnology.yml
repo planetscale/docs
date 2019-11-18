@@ -12,7 +12,9 @@ leftSection:
 
   mysql:
     logo: /img/mysql_grayscale.png
-    blurb: MySQL, the most popular open source database in the world, powers millions of applications, popular stacks, and has been used as a system of record for over twenty years by hundreds of thousands of companies.
+    blurb: >-
+      <p>MySQL, the most popular open source database in the world, powers millions of applications, popular stacks, and has been used as a system of record for over twenty years by hundreds of thousands of companies.</p>
+
 rightSection:
   title: Trusted by large web-scale companies to power their most business-critical applications.
   image: /img/logos_vitess.png

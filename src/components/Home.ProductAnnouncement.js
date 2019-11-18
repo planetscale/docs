@@ -13,7 +13,7 @@ const _Container = styled.div`
   padding: 4em;
   display: flex;
   flex-direction: row;
-  margin-top: 90px;
+  margin-top: 4rem;
 
   &:before {
     content: '';
@@ -73,8 +73,9 @@ const Blurb = styled.h5`
 `
 
 const _Button = styled.a`
+  position: relative;
   align-self: center;
-  border: 1px solid;
+  background-color: #fff;
   border-radius: 99px;
   padding: 0.75em 2em;
   text-decoration: none;
@@ -82,6 +83,24 @@ const _Button = styled.a`
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
+  color: black;
+  border: 2px solid #ff1200;
+
+  &:before {
+    content: '';
+    width: 102%;
+    height: 108%;
+    position: absolute;
+    display: block;
+    top: -4px;
+    left: -4px;
+    border-radius: 99px;
+    border: 2px solid #fff;
+  }
+
+  &:hover {
+    border: 2px solid #fff;
+  }
 
   ${media.largePhone`
     box-sizing: border-box;
