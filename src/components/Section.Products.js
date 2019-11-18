@@ -23,17 +23,13 @@ const _SectionHeading = styled.div`
   `}
 `
 
-const _SectionLogo = styled.img`
-  width: 5em;
-`
-
 const _SectionTitle = styled.h2`
   font-size: var(--exo-font-size-h2);
   font-weight: 700;
   color: #fff;
 `
 
-export const ProductContainer = styled.ul`
+const ProductContainer = styled.ul`
   list-style: none;
   padding: 0;
   margin: 0;
@@ -118,6 +114,12 @@ const _ProductBlurb = styled.p`
   flex-grow: 2;
 `
 
+const ButtonSection = styled.div`
+  > div {
+    width: 100%;
+  }
+`
+
 export function Products() {
   return (
     <StaticQuery
@@ -146,11 +148,13 @@ function Product({ title, icon, content, action, link }) {
         <Title>{title}</Title>
         <Content>
           <_ProductBlurb>
-            <MarkdownContent html={content} />
+            <MarkdownContent html={content}></MarkdownContent>
           </_ProductBlurb>
-          <Button>
-            <ButtonLink href={link}>{action}</ButtonLink>
-          </Button>
+          <ButtonSection>
+            <Button>
+              <ButtonLink href={link}>{action}</ButtonLink>
+            </Button>
+          </ButtonSection>
         </Content>
       </ContentContainer>
     </_Product>
