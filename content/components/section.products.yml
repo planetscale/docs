@@ -19,6 +19,6 @@ products:
   - icon: /img/planetscale-cloud.png
     title: PlanetScale CNDb
     action: Get Started
-    link: https://console.planetscale.com
+    link: https://console.planetscale.com/signup
     content: >-
       Finally, a cloud native database for Vitess to support your mission critical applications

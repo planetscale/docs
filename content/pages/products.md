@@ -15,7 +15,7 @@ th3_link: /contact
 th4: PlanetScale CNDb
 th4_brief: A fully managed, cloud native database for Kubernetes.
 th4_cta: Try It Now
-th4_link: https://console.planetscale.com
+th4_link: https://console.planetscale.com/signup
 ---
 
 |                                            | \${th2}                                            | \${th3}                 | \${th4}                                        |
