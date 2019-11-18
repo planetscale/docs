@@ -144,10 +144,11 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-plugin-google-fonts`,
+      resolve: 'gatsby-plugin-web-font-loader',
       options: {
-        fonts: ['poppins:100, 300, 400, 500, 700'],
-        display: 'swap',
+        google: {
+          families: ['Poppins:400,700'],
+        },
       },
     },
     `gatsby-plugin-sharp`,
@@ -168,5 +169,6 @@ module.exports = {
       },
     },
     'gatsby-plugin-catch-links',
+    'gatsby-plugin-lodash',
   ],
 }

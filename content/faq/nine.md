@@ -1,9 +1,9 @@
 ---
-question: How easy is it to use PlanetScale Cloud Database?
+question: How easy is it to use PlanetScale CNDb?
 order: 9
 ---
 
-If you are writing a new application, you can start using PlanetScale Cloud Database right away, as though you are writing to a MySQL database. If you want to migrate from an existing database, we can help through our professional services offering.
+If you are writing a new application, you can start using PlanetScale CNDb right away, as though you are writing to a MySQL database. If you want to migrate from an existing database, we can help through our professional services offering.
 
 PlanetScale uses MySQL as the storage engine and provides MySQL protocol compatibility, so migration can happen quickly and easily without changes to your application.
 

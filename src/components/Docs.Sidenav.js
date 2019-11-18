@@ -4,7 +4,7 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 
 const _SidenavContainer = styled.div`
   border-right: 1px solid #eee;
-  padding: 2rem 2rem 1rem;
+  padding: 0 2rem 1rem 0rem;
   margin-right: 2rem;
 `
 const _GroupContainer = styled.div`
@@ -17,6 +17,11 @@ const _GroupHeading = styled.div`
 const _GroupLinks = styled.ul`
   list-style: none;
   padding: 0;
+  margin-bottom: 32px;
+
+  li {
+    margin-bottom: 8px;
+  }
 `
 const _PageLink = styled(Link)`
   text-decoration: none;

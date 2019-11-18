@@ -1,11 +1,11 @@
 ---
-question: Why should I use PlanetScale Cloud Database?
+question: Why should I use PlanetScale CNDb?
 order: 5
 ---
 
-PlanetScale is a relational database platform that helps companies horizontally scale data in the cloud.
 
-PlanetScale is the perfect solution for companies that:
+
+PlanetScale CNDb is the perfect solution for companies that:
 
 - Want to store transactional data without having to worry about scaling.
 - Want to move to Kubernetes on premise or on public cloud.

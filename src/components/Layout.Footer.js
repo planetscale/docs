@@ -145,11 +145,11 @@ const FooterH4 = styled.h4`
   font-weight: 400;
   opacity: 0.75;
   text-align: left;
-  margin: 0;
+  margin-bottom: 0.5em;
 
   ${media.largePhone`
     text-align: center;
-    margin-bottom: .25em;
+    margin-bottom: 0.25em;
   `};
 `
 

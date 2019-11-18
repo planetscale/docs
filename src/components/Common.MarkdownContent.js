@@ -85,7 +85,7 @@ const MarkDownContainer = styled.div`
   pre {
     padding: 2em;
     background-color: #f7f7f7;
-    overflow: scroll;
+    overflow: auto;
   }
 
   ${(props) => props.customCSS};

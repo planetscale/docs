@@ -3,6 +3,4 @@ question: What is Vitess?
 order: 3
 ---
 
-Vitess is an open-source, industry standard MySQL sharding solution that was first adopted by YouTube. The scale at which YouTube needed to serve its videos was the perfect environment for Vitess to grow into one of the world's foremost open-source database projects.
-
-Now, companies like Square, Slack, HubSpot, GitHub, JD.com, and many of the world’s largest technology companies use and trust Vitess.
+Vitess is an open source project born at Youtube and hosted by CNCF that runs very large OLTP workloads at companies such as GitHub, Slack and Square. YouTube used Vitess to run MySQL databases in Borg, the blueprint for Kubernetes, which makes it ideal for running MySQL databases at scale under Kubernetes. Companies like Hubspot and JD.com trust their production traffic to MySQL databases running under Vitess on Kubernetes. Vitess is a highly scalable cloud native database. 

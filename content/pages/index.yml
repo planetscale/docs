@@ -1,44 +1,4 @@
 id: index
-eventBannerIsVisible: false
-title: Turbocharged MySQL For The Cloud
-subtitle: PlanetScale helps you build highly scalable modern applications on top of MySQL without any of the guesswork.
-vitess:
-  logo: /img/vitess-logo.svg
-  title: Powered By Vitess
-  buttonLabel: Join The Vitess Slack Community
-  buttonLink: https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE
-  description: >-
-    At the heart of PlanetScale lies Vitess: the open-source MySQL sharding solution we co-created that helps you scale horizontally like NoSQL with the reliability of SQL.
-  list:
-    - icon: /img/scale-massively.png
-      title: Scale Massively
-      content: >-
-        Vitess combines many important MySQL features with the scalability of a NoSQL database. Its built-in sharding features let you grow your database without adding sharding logic to your application.
-    - icon: /img/improve-performance.png
-      title: Improve Performance
-      content: >-
-        Vitess automatically rewrites queries that hurt database performance. It also uses caching mechanisms to mediate queries and prevent duplicate queries from simultaneously reaching your database.
-    - icon: /img/auto-failover.png
-      title: Auto Failover and Backups
-      content: >-
-        Vitess integrates with Orchestrator to provide failure detection and automated recovery. Backups are automatically performed on a replica, with Vitess keeping track of any topology changes.
-    - icon: /img/manage-shards.png
-      title: Manage Shards
-      content: >-
-        MySQL doesn’t natively support sharding, but you will likely need it as your database grows. Vitess saves you from having to add sharding logic to your app and also enables live resharding with minimal read-only downtime.
-    - icon: /img/gain-connection-pooling.png
-      title: Gain Connection Pooling
-      content: >-
-        By multiplexing application queries onto a pool of MySQL connections, Vitess optimizes performance by eliminating the high-memory overhead of MySQL connections.
-    - icon: /img/cluster-workflows.png
-      title: Cluster Workflows
-      content: >-
-        Vitess keeps track of all of the metadata about your cluster configuration so that the cluster view is always up-to-date and consistent for different clients.
-  architecture:
-    title: Vitess Architecture Diagram
-    image: /img/vitess-architecture-diagram.svg
-offerings:
-  title: Sign Up for our Early Beta
-  icon: /img/planetscale-cloud.png
-  content: >-
-    Let us take on the complexities of Vitess. We’ll help you spin out multi-cloud Vitess clusters without any of the operational overhead. Sign up for early access to our Cloud Database beta today.
+eventBannerIsVisible: true
+title: The Most Trusted Cloud Native Database
+subtitle: Database Technology for Mission Critical Applications

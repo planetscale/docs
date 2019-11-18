@@ -13,31 +13,33 @@ const _BackgroundContainer = styled.div`
 const _BannerLayout = styled.div`
   display: flex;
   align-items: center;
+  width: 100%;
+  margin: 1em 0;
 
   ${media.largePhone`
     flex-direction: column;
     align-items: start;
     padding: 1rem;
+    width: unset;
   `}
 `
 
-const _BannerTag = styled.div`
-  box-sizing: border-box;
-  background-color: #fff;
-  color: #000;
-  border-radius: 16px;
-  text-transform: uppercase;
-  padding: 0.2rem 0.5rem;
-  text-align: center;
-  font-size: 0.8rem;
-  color: #ff0f00;
-  justify-self: start;
-  margin-right: 1rem;
+const _BannerDescription = styled.div`
+  flex-grow: 2;
 `
 
-const _BannerText = styled.p`
+const _BannerLead = styled.h3`
   color: #fff;
-  flex-grow: 2;
+  font-size: var(--exo-font-size-h3);
+  margin: 0;
+
+  ${media.largePhone`
+    font-size: var(--exo-font-size-h6);
+  `}
+`
+
+const _BannerBlurb = styled.p`
+  color: #fff;
 `
 
 const _Link = styled(ButtonLink)`
@@ -55,14 +57,15 @@ export function EventBanner({ isVisible }) {
           <_BackgroundContainer isVisible={isVisible}>
             <Section background={'transparent'}>
               <_BannerLayout>
-                <_BannerTag>Event</_BannerTag>
-                <_BannerText>
-                  Join us at {eventDetails.title} from {eventDetails.startDate}{' '}
-                  to {eventDetails.endDate}
-                </_BannerText>
+                <_BannerDescription>
+                  <_BannerLead>Attending KubeCon San Diego ? </_BannerLead>
+                  <_BannerBlurb>
+                    Drop by booth SE39 or attend one of our speaking sessions.
+                  </_BannerBlurb>
+                </_BannerDescription>
                 <Button className="small">
                   <_Link href={eventLink}>
-                    Details&nbsp;&nbsp;
+                    Sessions&nbsp;&nbsp;
                     <i className="fas fa-chevron-right" />
                   </_Link>
                 </Button>

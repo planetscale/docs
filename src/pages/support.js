@@ -17,10 +17,13 @@ const FormCard = styled.div`
   border-radius: 4px;
   position: relative;
   color: #666;
-  max-width: 500px;
+  width: 500px;
   margin-bottom: 2em;
 
   ${media.largePhone`
+    padding: 0 1.5em;
+    border: 0;
+    width: unset;
     max-width: 100%;
   `};
 `

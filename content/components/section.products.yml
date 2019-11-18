@@ -1,30 +1,24 @@
 id: products
 sectionLogo: /img/scale-up.svg
 title: Start Scaling Here
-subtitle: Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.
 products:
-  - icon: /img/planetscale-cloud.png
-    highlight: true
-    title: Cloud Database
-    action: Request Demo
-    link: /signup
+  - icon: /img/customized-services.png
+    title: Open Source Vitess
+    action: Contact Us
+    link: /contact
     content: >-
-      PlanetScale Cloud Database is a multi-cloud, multi-region relational database service that makes it easy to provision, manage, and scale your databases as they grow. It provides built-in, transparent sharding for unlimited scale, while managing common database tasks and protecting your database from toxic queries.
+      Get started with open source Vitess on your own. Join the public <a href="https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE">Slack Channel</a> and get support from the Community. Need help with a POC or want an SLA as you go into production? Contact us for support.
+
   - icon: /img/enterprise.png
     title: Enterprise Database
     action: Contact Us
     link: /contact
     content: >-
-      License our control plane and Kubernetes operator to deploy and manage databases that scale to fit your evolving needs. Administer them yourself or have us carry the pager.
-  - icon: /img/customized-services.png
-    title: Open Source Vitess Support
-    action: Contact Us
-    link: /contact
+      License our control plane and Kubernetes operator to deploy and manage databases that scale to fit your evolving needs. Administer them yourself or have us carry the pager.      
+
+  - icon: /img/planetscale-cloud.png
+    title: PlanetScale CNDb
+    action: Get Started
+    link: https://console.planetscale.com
     content: >-
-      Get support from the co-creators of Vitess for your deployment with the option to escalate critical issues.
-  - icon: /img/expert-support.png
-    title: Professional Services & Training
-    action: Contact Us
-    link: /contact
-    content: >-
-      Leverage our expertise to train your team. We tailor our training to your use case, creating a custom Vitess deployment and management curriculum for your DBAs and engineers.
+      Finally, a cloud native database for Vitess to support your mission critical applications

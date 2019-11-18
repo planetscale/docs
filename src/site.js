@@ -20,6 +20,11 @@ export const sizes = theme.sizes
 
 export const headerLinks = [
   {
+    id: 'products',
+    name: 'Products',
+    to: '/products',
+  },
+  {
     id: 'casestudies',
     name: 'Vitess Case Studies',
     to: '/casestudies',

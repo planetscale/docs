@@ -35,7 +35,12 @@ exports.createPages = ({ graphql, actions }) => {
     graphql(`
       {
         allMarkdownRemark(
-          filter: { fields: { collection: { nin: ["faq", "team"] } } }
+          filter: {
+            fields: {
+              collection: { nin: ["faq", "team"] }
+              slug: { nin: "products" }
+            }
+          }
         ) {
           edges {
             node {

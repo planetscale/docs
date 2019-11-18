@@ -1,12 +1,8 @@
 ---
-question: What are the advantages of a relational database and a key-value database? How does PlanetScale Cloud Database compare?
+question: How is a relational database such as MySQL or PlanetScale CNDb different from a key value store?
 order: 6
 ---
 
-Traditionally, key-value databases are heralded for having greater scalability than relational databases. In services and applications where data explodes exponentially with popularity (i.e. Facebook, LinkedIn), this scalability is essential.
+Key-value stores allow you to scale your data horizontally by adding more nodes to your database. But, they lack in a number of other features, such as SQL protocol compatibility, secondary indexes, joins, and transactions.
 
-However, what key-value stores have in scalability they lack in a number of other important features, including SQL protocol compatibility, secondary indexes, joins, and transactions.
-
-PlanetScale’s novel offering, built on Vitess, uses a relational database and offers even greater scalability than key-value stores. At the same time, because of its relational backbone, PlanetScale does not sacrifice the key features that would normally be lost when working with a key-value store.
-
-Essentially, PlanetScale allows you to scale your relational data like a NoSQL database. PlanetScale is a functional superset of a key-value store and also scales horizontally like a key-value store. The PlanetScale solution supports out-of-the-box globally scalable, multi-datacenter deployments.
+PlanetScale CNDb allows you to scale your relational data like a NoSQL database; it scales horizontally like a key-value store, but without sacrificing relational features. The PlanetScale CNDb supports out-of-the-box globally scalable, multi-cloud deployments.

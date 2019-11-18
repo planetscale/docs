@@ -3,11 +3,11 @@ question: What is sharding? Why does it matter?
 order: 8
 ---
 
-Sharding is a type of database partitioning that separates very large databases into smaller, faster, more manageable parts called data shards.
+Sharding is a type of database partitioning that splits very large databases into smaller, faster, more manageable parts called shards. Vitess gives you an unprecedented level of control over how each table is sharded, thus allowing you to co-locate relevant data in a single shard. Because of this architectural flexibility, in the majority of cases, a query can be served by a single shard allowing you to keep the benefits of an unsharded system while reaping the scaling and performance benefits of a sharded database. 
 
 There are numerous advantages to this approach:
 
-* Since database tables are divided and distributed into multiple servers, index size is smaller, which improves search performance.
-* Sharding enables distribution of write load over a large number of machines, greatly improving performance.
-* Because the size of each shard is smaller, replication lag reduces and replication across multiple servers is much easier.
-* These properties are also useful for worldwide distribution of databases, where communications links between data centers would otherwise create a bottleneck.
+* Sharded tables are smaller, so indexes also remain smaller leading to faster search.
+* Your write load is distributed across multiple shards thus increasing your write throughput.
+* Because the size of each shard is smaller, replication lag is reduced and replication across multiple servers is much easier.
+

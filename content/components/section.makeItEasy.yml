@@ -1,0 +1,10 @@
+id: section.makeItEasy
+title: We make it easy
+subtitle: We get it. Database migrations can feel like open heart surgery.
+list:
+  - title: Migrating?
+    blurb: If you are running MySQL databases, you can migrate into Vitess seamlessly without application downtime. Whether single or multi-sharded your application will continue to treat your database as the MySQL database that you know and love.
+  - title: No More “Query of Death”
+    blurb: Vitess is designed from the ground up to provide guardrails and automations which allow you to scale your data without scaling your database team. PlanetScale workflows make it even easier.
+  - title: No Vendor Lock-In
+    blurb: We support multiple cloud vendors and even self hosted Kubernetes on premises. Run your databases adjacent to your applications without fear of vendor lock-in.

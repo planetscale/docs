@@ -1,0 +1,10 @@
+id: section.hereToHelp
+title: We're here to help
+subtitle: No matter what you're looking to achieve
+list:
+  - title: Future-Proof your move to kubernetes
+    blurb: We built Vitess at Google to run YouTube’s databases, ranging from single instance to massive multi-shard, multi-cell clusters on Borg, the blueprint for Kubernetes. As Hubspot and JD.com have proven, Vitess makes running your databases in Kubernetes easy.
+  - title: Liberate your data from monolithic databases
+    blurb: What allows us to support the smallest databases to the largest? Meet shard, the unit of database within Vitess where we co-locate related data. As your data grows, scale up by splitting your database into more and more shards. Grow indefinitely without degrading performance.
+  - title: Build a bridge from self hosted to multi-cloud
+    blurb: PlanetScale provides a platform that can host your data on-prem and then seamlessly migrate it to the cloud provider of your choice or a multi-cloud cluster if you prefer.

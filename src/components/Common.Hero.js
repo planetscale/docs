@@ -4,8 +4,6 @@ import { media } from '../styles/media'
 import { Wrapper } from '../components/Layout.Wrapper'
 import Header from '../components/Layout.Header'
 import { headerLinks } from '../site'
-import { Background } from '../components/Layout.Background'
-import overlay from '../images/hero/background-texture.svg'
 
 const _Hero = styled.section`
   display: flex;
@@ -19,10 +17,10 @@ const _Hero = styled.section`
 
 const HeroTitle = styled.h1`
   text-shadow: 0 0 50px rgba(0, 0, 0, 0.175);
-  font-size: 4em;
+  font-size: var(--exo-font-size-h1);
   color: #fff;
   margin: 0;
-  font-weight: 600;
+  font-weight: 700;
   width: ${(props) => props.width || '75%'};
   text-align: ${(props) => props.align || 'left'};
 
@@ -38,6 +36,7 @@ const HeroTitle = styled.h1`
 const HeroSubTitle = styled.h2`
   margin: 2em 0 1em;
   font-size: 1.5em;
+  font-weight: 400;
   line-height: 1.5em;
   width: 66%;
   color: #fff;
@@ -52,7 +51,7 @@ const HeroSubTitle = styled.h2`
 export function Hero({ title, subTitle, wrap, children, width }) {
   return (
     <Fragment>
-      <Background backgroundImage={overlay}></Background>
+      {/* <Background backgroundImage={overlay}></Background> */}
       <_Hero wrap={wrap}>
         <Header pages={headerLinks} />
         <Wrapper>
