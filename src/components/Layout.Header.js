@@ -303,7 +303,9 @@ class Header extends Component {
               </NavList>
               <RightSide>
                 <Button>
-                  <ButtonLink href="/signup">Request Demo</ButtonLink>{' '}
+                  <ButtonLink href="https://console.planetscale.com">
+                    Get Started
+                  </ButtonLink>{' '}
                 </Button>
               </RightSide>
             </Nav>

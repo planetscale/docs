@@ -14,12 +14,12 @@ const _BannerLayout = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  margin: 1em 0;
+  margin: 1em 0 1.23em;
 
   ${media.largePhone`
     flex-direction: column;
     align-items: start;
-    padding: 1rem;
+    padding: 1rem 1em 0.5em;
     width: unset;
   `}
 `
@@ -40,10 +40,21 @@ const _BannerLead = styled.h3`
 
 const _BannerBlurb = styled.p`
   color: #fff;
+  margin: 0.5em 0 0;
+
+  ${media.largePhone`
+    margin: 1em 0;
+  `}
 `
 
 const _Link = styled(ButtonLink)`
   color: white;
+  font-size: var(--exo-font-size-h5);
+  text-transform: uppercase;
+
+  ${media.largePhone`
+    font-size: var(--exo-font-size-body);
+  `}
 `
 
 export function EventBanner({ isVisible }) {
@@ -63,12 +74,10 @@ export function EventBanner({ isVisible }) {
                     Drop by booth SE39 or attend one of our speaking sessions.
                   </_BannerBlurb>
                 </_BannerDescription>
-                <Button className="small">
-                  <_Link href={eventLink}>
-                    Sessions&nbsp;&nbsp;
-                    <i className="fas fa-chevron-right" />
-                  </_Link>
-                </Button>
+                <_Link href={eventLink}>
+                  <i className="fas fa-chevron-right" />
+                  &nbsp;&nbsp;Sessions
+                </_Link>
               </_BannerLayout>
             </Section>
           </_BackgroundContainer>

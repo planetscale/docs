@@ -25,7 +25,7 @@ The challenging part about running a stateful service such as a database in a co
 
 Companies such as Hubspot today run hundreds of clusters, most of which are single sharded on Vitess in Kubernetes. They use Vitess not for horizontal scaling, but for its ability to run MySQL databases in Kubernetes.
 
-With Vitess, “query of death” is a thing of the past
+## With Vitess, “Query of Death” is a thing of the past
 
 Every time there was a database related outage at YouTube, we built features in Vitess to protect the underlying MySQL database - features such as connection pooling, limits on the number of rows returned, query and transaction timeouts, hot-row protection for both reads and writes. It is virtually impossible to write a “query of death” that will take your database down or reduce it’s availability under Vitess. Because of this, we feel that even single shard MySQL clusters run better under Vitess.
 

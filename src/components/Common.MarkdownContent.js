@@ -8,7 +8,6 @@ const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
   color: ${(props) => (props.inverted ? 'white' : '#222;')};
   white-space: ${(props) => props.whiteSpace};
-  overflow: auto;
 
   h1 {
     font-weight: 400;

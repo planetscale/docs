@@ -5,6 +5,7 @@ import { Button, ButtonLink } from '../components/Common.Button'
 import { StaticQuery, graphql, Link } from 'gatsby'
 
 const _Container = styled.div`
+  position: relative;
   box-sizing: border-box;
   width: 100%;
   background: linear-gradient(223.52deg, #ff0f00 21.27%, #ff7a00 138.36%);
@@ -14,11 +15,28 @@ const _Container = styled.div`
   flex-direction: row;
   margin-top: 90px;
 
+  &:before {
+    content: '';
+    position: absolute;
+    top: -42px;
+    background: url(/img/bg_dots.svg);
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    background-repeat: no-repeat;
+    background-size: contain;
+  }
+
   ${media.largePhone`
     padding: 4em 2em 2em;
     flex-direction: column;
     align-items: left;
     width: 100%;
+
+    &:before {
+      background-repeat: repeat;
+      left: 42px;
+    }
   `}
 `
 
