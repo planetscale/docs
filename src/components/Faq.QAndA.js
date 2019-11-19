@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { media } from '../styles/media'
-
+import { sweepAnimation } from '../styles/animations'
 import MarkdownContent from './Common.MarkdownContent'
 
 export const QAndAContainer = styled.ul`
@@ -17,8 +17,8 @@ export const QAndAContainer = styled.ul`
 
 const _QAndA = styled.li`
   display: flex;
-  flex-direction: row;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
   width: 100%;
 
   &:not(:last-child) {
@@ -32,8 +32,36 @@ const _QAndA = styled.li`
   `};
 `
 
+const DetailContainer = styled.details`
+  summary {
+    display: flex;
+    flex-direction: row;
+    padding: 2em 0em;
+    width: 100%;
+    box-sizing: border-box;
+    align-items: center;
+    color: #666;
+
+    > h2 {
+      flex-grow: 2;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  &[open] summary ~ * {
+    ${sweepAnimation};
+  }
+
+  &[open] summary > i {
+    transform: rotate(45deg);
+  }
+`
+
 const Content = styled.div`
-  padding: 2em 0;
+  padding: 0 0 2em;
   border-radius: 4px;
   width: 100%;
 
@@ -45,9 +73,10 @@ const Content = styled.div`
 `
 
 const Question = styled.h2`
-  font-size: 1.3em;
+  margin: 0;
+  font-size: var(--exo-font-size-h6);
   font-weight: 700;
-  margin: 0 0 20px;
+  color: black;
 
   ${media.largePhone`
     text-align: center;
@@ -57,10 +86,15 @@ const Question = styled.h2`
 export function QAndA({ question, answer }) {
   return (
     <_QAndA key={question}>
-      <Content>
-        <Question>{question}</Question>
-        <MarkdownContent html={answer} />
-      </Content>
+      <DetailContainer>
+        <summary style={{ outline: 'none' }}>
+          <Question>{question}</Question>
+          <i className="fas fa-plus" />
+        </summary>
+        <Content>
+          <MarkdownContent html={answer} />
+        </Content>
+      </DetailContainer>
     </_QAndA>
   )
 }
