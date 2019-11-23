@@ -42,7 +42,7 @@ export default function IndexPage({ data }) {
         title={pageData.title}
         description={pageData.subtitle}
       />
-      <EventBanner isVisible={pageData.eventBannerIsVisible}></EventBanner>
+      {/* <EventBanner isVisible={pageData.eventBannerIsVisible}></EventBanner> */}
       <Hero title={pageData.title} subTitle={pageData.subtitle} wrap="wrap">
         <ProductAnnouncement></ProductAnnouncement>
       </Hero>
