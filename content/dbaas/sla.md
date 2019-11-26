@@ -1,9 +1,9 @@
 ---
 title: 'Cloud Database Service Level Agreement'
-updatedOn: '2019-02-15'
+updatedOn: '2019-11-25'
 ---
 
-This PlanetScale DBaaS Service Level Agreement ("SLA") is a policy governing the use of the PlanetScale Database As a Service ("PlanetScale DBaaS") under the terms of the PlanetScale Cloud Database Agreement (the "PlanetScale Agreement") between PlanetScale Inc. and its affiliates ("PlanetScale", "us" or "we") and users of PlanetScale’ services ("you"). This SLA applies separately to each account using PlanetScale DBaaS. Unless otherwise provided herein, this SLA is subject to the terms of the PlanetScale Agreement and capitalized terms will have the meaning specified in the PlanetScale Agreement. We reserve the right to change the terms of this SLA in accordance with the PlanetScale Agreement.
+This PlanetScale DBaaS Service Level Agreement ("SLA") is a policy governing the use of the PlanetScale Database As a Service ("PlanetScale DBaaS") under the terms of the PlanetScale Cloud Database Agreement (the "PlanetScale Agreement") between PlanetScale Inc. and its affiliates ("PlanetScale", "us" or "we") and users of PlanetScale’s services ("you"). This SLA applies separately to each account using PlanetScale DBaaS. Unless otherwise provided herein, this SLA is subject to the terms of the PlanetScale Agreement and capitalized terms will have the meaning specified in the PlanetScale Agreement. We reserve the right to change the terms of this SLA in accordance with the PlanetScale Agreement.
 
 ## Service Commitment
 
@@ -30,7 +30,7 @@ We will apply any Service Credits only against future PlanetScale DBaaS payments
 
 ## Credit Request and Payment Procedures
 
-To receive a Service Credit, you will need to submit a claim by opening a case in the [PlanetScale Support Center](https://support.planetscale.com). To be eligible, the credit request must be received by us by within 30 days after which the incident occurred and must include:
+To receive a Service Credit, you will need to submit a claim by opening a case with PlanetScale Support (https://planetscale.com/support). To be eligible, the credit request must be received by us by within 30 days after which the incident occurred and must include:
 
 i. the words "SLA Credit Request" in the subject line;
 
@@ -52,13 +52,13 @@ The Service Commitment does not apply to any unavailability, suspension or termi
 
 (iii) that result from any voluntary actions or inactions from you or any third party (e.g., rebooting a database instance, scaling compute capacity, not scaling storage when the storage is full, misconfiguring security groups, VPC configurations or credential settings, disabling encryption keys or making the encryption keys inaccessible, etc.);
 
-(iv) that result from instances belonging to the Micro DB instance class or other instance classes which have similar CPU and memory resource limitations;
+(iv) that result from instances belonging to the Starter Database instance class or other instance classes which have similar CPU and memory resource limitations;
 
 (v) that result from you not following the basic operational guidelines described in the PlanetScale DBaaS Documentation (e.g., overloading a database instance to the point it is inoperable, creating excessively large number of tables that significantly increase the recovery time etc.);
 
 (vi) caused by underlying database engine software that lead to repeated database crashes or an inoperable database instance;
 
-(vii) that result in long recovery time due to insufficient IO capacity for your database workload;
+(vii) that result in long recovery time due to insufficient I/O capacity for your database workload;
 
 (viii) that result from your equipment, software or other technology and/or third party equipment, software or other technology (other than third party equipment within our direct control); or
 
