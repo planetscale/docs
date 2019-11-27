@@ -24,8 +24,9 @@ This page contains documentation for using the PlanetScale CNDb, powered by Vite
 + [Creating a cluster](creating-cluster)
 + [Creating a database](creating-database)
 + [Configuring a sharding scheme](configuring-sharding)
-+ [Connecting to your Database](connecting-to-db)
++ [Connecting to your database](connecting-to-db)
 + [Adding users to your account](adding-users)
++ [Secure the connection to your database](secure-connection)
 
 ## Using your database
 
