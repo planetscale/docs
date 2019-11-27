@@ -5,7 +5,7 @@ description: 'The PlanetScale team went to Amsterdam for Percona Live EU 2019'
 author: Lucy Burns
 ---
 
-We’re always excited to connect with people at Percona Live and this year’s [Percona Live Europe](https://www.cvent.com/events/percona-live-open-source-database-conference-europe-2019/event-summary-6321c2468b1b43328f97212f3e53f4de.aspx) in Amsterdam was no exception. We had the opportunity to participate as Gold Sponsors this time and loved getting to chat with attendees about [Vitess](https://vitess.io/) and our Cloud Database ([coming soon!](https://planetscale.com/signup)).
+We’re always excited to connect with people at Percona Live and this year’s [Percona Live Europe](https://www.cvent.com/events/percona-live-open-source-database-conference-europe-2019/event-summary-6321c2468b1b43328f97212f3e53f4de.aspx) in Amsterdam was no exception. We had the opportunity to participate as Gold Sponsors this time and loved getting to chat with attendees about [Vitess](https://vitess.io/) and our Cloud Database ([coming soon!](https://console.planetscale.com/signup)).
 
 ![PlanetScale at PerconaLive EU](/img/planetscale-perconalive-eu.jpeg)
 

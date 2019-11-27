@@ -20,3 +20,7 @@
 [[redirects]]
   from = "/product"
   to = "/products"
+
+[[redirects]]
+  from = "/signup"
+  to = "https://console.planetscale.com/signup"
