@@ -1,9 +1,9 @@
 ---
-title: 'CNDb deployment'
+title: 'Understanding CNDb deployment'
 category: 'concepts'
 ---
 
-# PlanetScale CNDb Deployment
+# Understanding PlanetScale CNDb Deployment
 
 This document explains how PlanetScale deploys your database.
 
