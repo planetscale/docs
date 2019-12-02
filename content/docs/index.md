@@ -12,9 +12,9 @@ This page contains documentation for using the PlanetScale CNDb, powered by Vite
 ## Concepts
 
 + [PlanetScale CNDb Overview](db-overview)
-+ [clusters](clusters)
-+ [databases](databases)
-+ [sharding schemes](sharding-schemes) <!-- We may want a separate doc for sharding concepts. -->
++ [Clusters](clusters)
++ [Databases](databases)
++ [Sharding schemes](sharding-schemes) <!-- We may want a separate doc for sharding concepts. -->
 + [Deployment](deployment)
 + [Security features](security-features)
 + [Performance features](performance-features)
