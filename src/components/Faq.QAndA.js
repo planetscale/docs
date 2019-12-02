@@ -22,7 +22,7 @@ const _QAndA = styled.li`
   width: 100%;
 
   &:not(:last-child) {
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid #f7f7f7;
   }
 
   ${media.largePhone`
@@ -36,7 +36,7 @@ const DetailContainer = styled.details`
   summary {
     display: flex;
     flex-direction: row;
-    padding: 2em 0em;
+    padding: 2.5em 0em;
     width: 100%;
     box-sizing: border-box;
     align-items: center;
@@ -75,7 +75,7 @@ const Content = styled.div`
 const Question = styled.h2`
   margin: 0;
   font-size: var(--exo-font-size-h6);
-  font-weight: 700;
+  font-weight: 500;
   color: black;
 
   ${media.largePhone`
