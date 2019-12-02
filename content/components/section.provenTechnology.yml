@@ -8,7 +8,7 @@ leftSection:
       <p>Vitess, a CNCF hosted open source project that serves massive scale production traffic at large web-scale companies.</p>
 
 
-      <a href="https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE">Join the Vitess Community on Slack</a>
+      <a href="https://vitess.io/slack">Join the Vitess Community on Slack</a>
 
   mysql:
     logo: /img/mysql_grayscale.png

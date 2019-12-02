@@ -124,8 +124,7 @@ export const footerLinks = [
       {
         id: 'community',
         name: 'Community',
-        to:
-          'https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE',
+        to: 'https://vitess.io/slack',
         external: true,
       },
       {

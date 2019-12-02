@@ -7,7 +7,7 @@ products:
     action: Contact Us
     link: /contact
     content: >-
-      Get started with open source Vitess on your own. Join the public <a href="https://join.slack.com/t/vitess/shared_invite/enQtMzIxMDMyMzA0NzA1LTYxMjk2M2M2NjAwNGY0ODljY2E1MjBlZjRkMmZmNDVkZTBhNDUxNzNkOGM4YmEzNWEwOTE2NjJiY2QyZjZjYTE">Slack Channel</a> and get support from the Community. Need help with a POC or want an SLA as you go into production? Contact us for support.
+      Get started with open source Vitess on your own. Join the public <a href="https://vitess.io/slack">Slack Channel</a> and get support from the Community. Need help with a POC or want an SLA as you go into production? Contact us for support.
 
   - icon: /img/enterprise.png
     title: Enterprise Database
