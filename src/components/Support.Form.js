@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { navigateTo } from 'gatsby-link'
 import styled from 'styled-components'
 import { InputButton } from './Common.Button'
 import { media } from '../styles/media'
@@ -46,115 +45,25 @@ const FormSubmitButton = styled(InputButton)`
   background-color: #e46a5c;
 `
 
-const HoneyPot = styled.p`
-  display: none;
-`
-
-function encode(data) {
-  return Object.keys(data)
-    .map((key) => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
-
 export class SupportForm extends Component {
-  state = {
-    email: '',
-    name: '',
-    phone: '',
-    subject: '',
-    description: '',
-    isSending: false,
-  }
-
-  handleChange = (e) => {
-    this.setState({ [e.target.name]: e.target.value })
-  }
-
-  isFormEmpty() {
-    if (
-      this.state.email === '' ||
-      this.state.name === '' ||
-      this.state.phone === '' ||
-      this.state.subject === '' ||
-      this.state.description === ''
-    ) {
-      return true
-    }
-    return false
-  }
-
-  onFormSubmit = (e) => {
-    e.preventDefault()
-    if (this.state.isSending) return
-    else if (!this.isFormEmpty()) {
-      this.setState({ isSending: true })
-      fetch('/', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: encode({ 'form-name': 'support', ...this.state }),
-      })
-        .then(() => {
-          this.props.onDone && this.props.onDone()
-          this.setState({ isSending: false })
-          navigateTo('/thanks/')
-        })
-        .catch((error) => {
-          this.setState({ isSending: false })
-          alert(error)
-        })
-    }
-  }
-
   render() {
-    const { isSending } = this.state
-
     return (
       <FormContainer
-        name="support"
-        onSubmit={this.onFormSubmit}
-        data-netlify="true"
-        data-netlify-honeypot="bot-field"
+        action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8"
+        method="POST"
       >
-        <HoneyPot>
-          <InputField name="bot-field" />
-        </HoneyPot>
+        <InputField type="hidden" name="orgid" value="00D4P0000010OuM" />
         <InputField
-          name="name"
-          type="text"
-          placeholder="Name"
-          onChange={this.handleChange}
+          type="hidden"
+          name="retURL"
+          value="http://planetscale.com/thanks"
         />
-        <InputField
-          name="email"
-          type="email"
-          placeholder="Email address"
-          onChange={this.handleChange}
-        />
-        <InputField
-          name="phone"
-          type="text"
-          placeholder="Phone Number (optional)"
-          onChange={this.handleChange}
-        />
-
-        <InputField
-          name="subject"
-          type="text"
-          placeholder="Subject"
-          onChange={this.handleChange}
-        />
-
-        <TextAreaField
-          name="description"
-          placeholder="Description"
-          rows="5"
-          onChange={this.handleChange}
-        />
-
-        <FormSubmitButton
-          type="submit"
-          value={isSending ? 'Sending' : 'Submit Ticket'}
-        />
+        <InputField name="name" type="text" placeholder="Name" />
+        <InputField name="email" type="email" placeholder="Email address" />
+        <InputField name="phone" type="text" placeholder="Phone Number" />
+        <InputField name="subject" type="text" placeholder="Subject" />
+        <TextAreaField name="description" placeholder="Description" rows="5" />
+        <FormSubmitButton type="submit" value="Submit Ticket" />
       </FormContainer>
     )
   }
