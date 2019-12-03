@@ -44,7 +44,7 @@ export function DocsSidenav() {
                 <SidenavGroup
                   key={index}
                   category={category.name}
-                  pages={getPagesInCategory(category.id, docPages)}
+                  pages={getPagesInCategory(category.pages, docPages)}
                 ></SidenavGroup>
               )
             })}
@@ -74,12 +74,14 @@ function SidenavGroup({ category, pages }) {
   )
 }
 
-function getPagesInCategory(categoryNameId, docPages) {
+function getPagesInCategory(categoryPages, docPages) {
   const outputPages = []
-  docPages.nodes.map((page) => {
-    if (page.frontmatter.category === categoryNameId) {
-      outputPages.push(page)
-    }
+  categoryPages.map((pageID) => {
+    docPages.nodes.map((page) => {
+      if (page.fields.slug === pageID) {
+        outputPages.push(page)
+      }
+    })
   })
 
   return outputPages

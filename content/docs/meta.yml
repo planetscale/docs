@@ -24,10 +24,11 @@ order:
       - creating-database
       - configuring-sharding
       - adding-users
+      - connecting-to-db
+      - secure-connection
   - id: using-your-planetscale-cndb
     name: Using your PlanetScale CNDb
     pages:
-      - connecting-to-db
       - importing-data
       - migrating-database-schemas
   - id: resources
