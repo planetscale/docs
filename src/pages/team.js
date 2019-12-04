@@ -6,7 +6,6 @@ import { Section } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { Footer } from '../components/Layout.Footer'
 import { TeamMemberContainer, TeamMember } from '../components/Team.TeamMember'
-import { H2 } from '../components/Typography.Headings'
 
 export default function TeamPage({ data }) {
   const { allPagesYaml } = data

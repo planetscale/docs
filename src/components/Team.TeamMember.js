@@ -30,6 +30,7 @@ const _TeamMember = styled.li`
   ${media.largePhone`
     flex-direction: column;
     margin: 0;
+    padding: 4em 2em 2em;
     align-items: center;
   `};
 `
@@ -38,9 +39,7 @@ const Content = styled.div`
   margin: 0 3em;
 
   ${media.largePhone`
-    margin: 0 0 3em;
-    padding: 0 0 1.5em;
-    border-bottom: 1px solid #eee;
+    margin: 0;
   `};
 `
 
@@ -87,6 +86,10 @@ const iconStyle = {
 const LinkedInLink = styled.a`
   display: inline-block;
   margin-top: 0.5em;
+
+  ${media.largePhone`
+    margin-top: 2em;
+  `}
 `
 
 export function TeamMember({ name, role, image, bio, linkedin }) {
