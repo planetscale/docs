@@ -18,6 +18,8 @@ This page contains documentation for using the PlanetScale CNDb, powered by Vite
 + [Deployment](deployment)
 + [Security features](security-features)
 + [Performance features](performance-features)
++ [Read-only instances](read-only-instances)
++ [Replicas](replicas)
 
 ## Setting up your Database
 
