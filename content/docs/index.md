@@ -34,6 +34,7 @@ This page contains documentation for using the PlanetScale CNDb, powered by Vite
 
 + [Importing data](importing-data)
 + [Migrating database schemas](migrating-database-schemas)
++ [Undeploying a database](undeploying-database)
 + [Restoring backups](restoring-backups)
 
 ## Resources

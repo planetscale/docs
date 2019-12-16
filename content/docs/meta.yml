@@ -33,6 +33,7 @@ order:
     pages:
       - importing-data
       - migrating-database-schemas
+      - undeploying-database
       - restoring-backups
   - id: resources
     name: Resources
