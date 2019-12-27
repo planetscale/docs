@@ -50,7 +50,7 @@ export function Talk({ title, presenter, blurb, talkLink }) {
           )
         })}
       </_TalkPresenter>
-      <_TalkBlurb>{documentToReactComponents(blurb.json)}</_TalkBlurb>
+      <_TalkBlurb>{blurb && documentToReactComponents(blurb.json)}</_TalkBlurb>
     </_Talk>
   )
 }
