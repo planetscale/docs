@@ -37,6 +37,10 @@ This page contains documentation for using the PlanetScale CNDb, powered by Vite
 + [Undeploying a database](undeploying-database)
 + [Restoring backups](restoring-backups)
 
+## Reference
+
++ [MySQL Compatibility](mysql-compatibility)
+
 ## Resources
 
 + [Pricing](pricing)

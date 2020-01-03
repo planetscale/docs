@@ -35,6 +35,10 @@ order:
       - migrating-database-schemas
       - undeploying-database
       - restoring-backups
+  - id: reference
+    name: Reference
+    pages:
+      - mysql-compatibility
   - id: resources
     name: Resources
     pages:
