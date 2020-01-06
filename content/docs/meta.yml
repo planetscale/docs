@@ -19,6 +19,7 @@ order:
       - deployment
       - replicas
       - read-only-instances
+      - backups
   - id: setting-up-your-planetscale-cndb
     name: Setting up your PlanetScale CNDb
     pages:
