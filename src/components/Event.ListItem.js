@@ -80,7 +80,14 @@ export function Event({
   description,
 }) {
   const startDateInstance = new Date(startDate)
+  const startDateInstanceOffset = new Date(
+    startDateInstance.valueOf() +
+      startDateInstance.getTimezoneOffset() * 60 * 1000
+  )
   const endDateInstance = new Date(endDate)
+  const endDateInstanceOffset = new Date(
+    endDateInstance.valueOf() + endDateInstance.getTimezoneOffset() * 60 * 1000
+  )
   const compareDates = isSameDay(startDateInstance, endDateInstance)
   return (
     <_Event key={title} id={title.replace(/[ ]/gi, '')}>
@@ -91,9 +98,9 @@ export function Event({
 
       <_Date>
         {compareDates
-          ? `${format(startDateInstance, 'd LLL, yyy')}`
-          : `${format(startDateInstance, 'd LLL')} - ${format(
-              endDateInstance,
+          ? `${format(startDateInstanceOffset, 'd LLL, yyy')}`
+          : `${format(startDateInstanceOffset, 'd LLL')} - ${format(
+              endDateInstanceOffset,
               'd LLL, yyy'
             )}`}{' '}
         · {venue}
