@@ -7,9 +7,11 @@ category: 'reference'
 
 This document contains information about the compatibility of the PlanetScale CNDb with MySQL features.
 
-## PlanetScale CNDb supports most MySQL features
+While Vitess [supports running instances of MariaDB](https://vitess.io/docs/get-started/local/), PlanetScale CNDb currently does not.
 
-The PlanetScale CNDb database supports most MySQL features, including standard SQL statements and MySQL-specific commands. In general, you can issue queries against your database as if it were a MySQL database.
+## PlanetScale CNDb supports all core MySQL features
+
+CNDb supports all core features of MySQL 5.7, including standard SQL statements and MySQL-specific commands. In general, you can issue queries against your database as if it were a MySQL database.
 
 ## Limitations
 
