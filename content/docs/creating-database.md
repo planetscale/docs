@@ -59,7 +59,7 @@ The **Cost per instance** calculator below shows the hourly cost for the current
 
 ## Step 7: Choose the number of instances
 
-Under **Number of instances**, choose the number of [replicas](replicas) and [read-only instances](read-only-instances) per [shard](sharding-schemes).
+Under **Number of instances**, choose the number of [replicas](replicas) and [analytics instances](analytics-instances) per [shard](sharding-schemes).
 
 ![Number of instances section](/img/docs/number-of-instances.png)
 

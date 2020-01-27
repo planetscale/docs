@@ -18,7 +18,7 @@ order:
       - sharding-schemes
       - deployment
       - replicas
-      - read-only-instances
+      - analytics-instances
       - backups
   - id: setting-up-your-planetscale-cndb
     name: Setting up your PlanetScale CNDb

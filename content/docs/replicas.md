@@ -11,7 +11,7 @@ This document describes the basic concept of replicas in the PlanetScale CNDb co
 
 A **replica** is a copy of your database that can serve data in response to queries and which can be promoted to master when necessary.
 
-Replicas are distinct from [read-only instances](read-only-instances), which are like replicas, but which cannot be promoted to master.
+Replicas are distinct from [analytics instances](analytics-instances), which are like replicas, but which cannot be promoted to master.
 
 ## Why have replicas?
 

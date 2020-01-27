@@ -11,7 +11,7 @@ This document explains the basic ideas behind backups in the PlanetScale CNDb co
 
 In the context of your PlanetScale CNDB, a **backup** is a copy of data in your [database](databases).
 
-Unlike a [replica](replicas) or a [read-only instance](read-only-instances), a backup does not serve data in response to queries. 
+Unlike a [replica](replicas) or an [analytics instance](analytics-instances), a backup does not serve data in response to queries. 
 
 ## Backups are frequent and temporary
 
