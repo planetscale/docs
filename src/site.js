@@ -49,7 +49,7 @@ export const headerLinks = [
   {
     id: 'docs',
     name: 'Docs',
-    to: '/docs/index',
+    to: '/index',
   },
 ]
 

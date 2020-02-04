@@ -211,26 +211,29 @@ class Header extends Component {
       <_Header visible={sideBarOpen}>
         <HeaderWrapper>
           <Nav visible={sideBarOpen}>
-            <Link to={'https://planetscale.com'} activeStyle={{ opacity: 1 }}>
+            <a href="https://planetscale.com">
               <Logo
                 src={logo}
                 alt="PlanetScale - world's most scalable database clusters with Vitess"
               />
-            </Link>
+            </a>
             <NavList>
-              {pages.map(({ name, to }) => {
+              {pages.map(({ name, to, external }) => {
                 return (
                   <NavListItem key={to}>
-                    <Link
-                      onClick={() => this.toggleSidebar(false)}
-                      to={`${to}`}
-                      exact="true"
-                      activeStyle={{
-                        borderBottom: '4px solid rgb(255, 255, 255)',
-                      }}
-                    >
-                      {name}
-                    </Link>
+                    {external && external === true ? (
+                      <a href={to}>{name}</a>
+                    ) : (
+                      <Link
+                        to={to}
+                        exact="true"
+                        activeStyle={{
+                          borderBottom: '4px solid rgb(255, 255, 255)',
+                        }}
+                      >
+                        {name}
+                      </Link>
+                    )}
                   </NavListItem>
                 )
               })}
