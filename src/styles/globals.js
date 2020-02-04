@@ -17,7 +17,7 @@ export const GlobalStyles = createGlobalStyle`
 
   a {
     color: inherit;
-    font-weight: 500;
+    
     & > div {
       display: inline-block !important;
       padding: 11px 14px !important;

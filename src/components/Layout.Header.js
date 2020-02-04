@@ -1,21 +1,10 @@
 import React, { Component } from 'react'
 import Link from 'gatsby-link'
-import styled, { createGlobalStyle } from 'styled-components'
+import styled from 'styled-components'
 import { Button, ButtonLink } from '../components/Common.Button'
 import { Wrapper } from '../components/Layout.Wrapper'
-import { StaticQuery, graphql } from 'gatsby'
 import { media } from '../styles/media'
 import logo from '../../static/img/logo.png'
-
-const GlobalStyle = createGlobalStyle`
-  html.fixed,
-  html.fixed body {
-    position: fixed;
-    overflow: hidden;
-    width: 100%;
-    height: 100%;
-  }
-`
 
 const HeaderWrapper = styled(Wrapper)`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -192,54 +181,7 @@ class Header extends Component {
 
     this.state = {
       sideBarOpen: false,
-      modalOpen: false,
-      talkDrawerOpen: false,
     }
-
-    this.handleTalkClick = this.handleTalkClick.bind(this)
-    this.checkFixedPage = this.checkFixedPage.bind(this)
-    this.escHandler = this.escHandler.bind(this)
-  }
-
-  componentDidMount() {
-    document.addEventListener('keydown', this.escHandler, false)
-  }
-
-  componentWillUnmount() {
-    document.removeEventListener('keydown', this.escHandler, false)
-  }
-
-  escHandler(event) {
-    if (event.keyCode === 27) {
-      const html = document.querySelector('html')
-      if (html.classList) {
-        if (html.classList.contains('calendly-open')) {
-          this.handleTalkClick()
-        } else if (html.classList.contains('fixed')) {
-          this.toggleSidebar(false)
-        }
-      }
-    }
-  }
-
-  checkFixedPage() {
-    this.state.sideBarOpen
-      ? document.querySelector('html').classList.add('fixed')
-      : document.querySelector('html').classList.remove('fixed')
-  }
-
-  handleTalkClick() {
-    const { talkDrawerOpen } = this.state
-    this.setState({ talkDrawerOpen: !talkDrawerOpen }, () => {
-      const html = document.querySelector('html')
-      const clazz = 'calendly-open'
-      if (html.classList && html.classList.contains(clazz)) {
-        html.classList.remove(clazz)
-      } else {
-        html.classList.add(clazz)
-      }
-      this.checkFixedPage()
-    })
   }
 
   toggleSidebar = (boolean) => {
@@ -261,95 +203,67 @@ class Header extends Component {
     )
   }
 
-  toggleModal = (boolean) =>
-    this.setState((oldState) => {
-      return {
-        modalOpen: boolean,
-      }
-    })
-
   render() {
     const { pages } = this.props
     const { sideBarOpen } = this.state
 
     return (
-      <>
-        <_Header visible={sideBarOpen}>
-          <HeaderWrapper>
-            <Nav visible={sideBarOpen}>
-              <Link to={'/'} activeStyle={{ opacity: 1 }}>
-                <Logo
-                  src={logo}
-                  alt="PlanetScale - world's most scalable database clusters with Vitess"
-                />
-              </Link>
-              <NavList>
-                {pages.map(({ name, to }) => {
-                  return (
-                    <NavListItem key={to}>
-                      <Link
-                        onClick={() => this.toggleSidebar(false)}
-                        to={`${to}`}
-                        exact="true"
-                        activeStyle={{
-                          borderBottom: '4px solid rgb(255, 255, 255)',
-                        }}
-                      >
-                        {name}
-                      </Link>
-                    </NavListItem>
-                  )
-                })}
-              </NavList>
-              <RightSide>
-                <Button>
-                  <ButtonLink href="https://console.planetscale.com/signup">
-                    Get Started
-                  </ButtonLink>{' '}
-                </Button>
-              </RightSide>
-            </Nav>
-          </HeaderWrapper>
+      <_Header visible={sideBarOpen}>
+        <HeaderWrapper>
+          <Nav visible={sideBarOpen}>
+            <Link to={'/'} activeStyle={{ opacity: 1 }}>
+              <Logo
+                src={logo}
+                alt="PlanetScale - world's most scalable database clusters with Vitess"
+              />
+            </Link>
+            <NavList>
+              {pages.map(({ name, to }) => {
+                return (
+                  <NavListItem key={to}>
+                    <Link
+                      onClick={() => this.toggleSidebar(false)}
+                      to={`${to}`}
+                      exact="true"
+                      activeStyle={{
+                        borderBottom: '4px solid rgb(255, 255, 255)',
+                      }}
+                    >
+                      {name}
+                    </Link>
+                  </NavListItem>
+                )
+              })}
+            </NavList>
+            <RightSide>
+              <Button>
+                <ButtonLink href="https://console.planetscale.com/signup">
+                  Get Started
+                </ButtonLink>{' '}
+              </Button>
+            </RightSide>
+          </Nav>
+        </HeaderWrapper>
 
-          <MobileHeaderButton
-            visible={sideBarOpen}
-            onClick={this.toggleSidebar}
-          >
-            <MobileHeaderButtonIcon activeMobileMenu={this.state.sideBarOpen}>
-              {sideBarOpen ? (
-                <i className="fas fa-times"></i>
-              ) : (
-                <i className="fas fa-bars"></i>
-              )}
-            </MobileHeaderButtonIcon>
-          </MobileHeaderButton>
-          <MobileLogoWrapper
-            to="/"
-            activeStyle={{ opacity: 1 }}
-            onClick={() => this.toggleSidebar(false)}
-          >
-            <MobileLogo src={logo} visible={sideBarOpen} />
-          </MobileLogoWrapper>
-        </_Header>
-        <GlobalStyle />
-      </>
+        <MobileHeaderButton visible={sideBarOpen} onClick={this.toggleSidebar}>
+          <MobileHeaderButtonIcon activeMobileMenu={this.state.sideBarOpen}>
+            {sideBarOpen ? (
+              <i className="fas fa-times"></i>
+            ) : (
+              <i className="fas fa-bars"></i>
+            )}
+          </MobileHeaderButtonIcon>
+        </MobileHeaderButton>
+        <MobileLogoWrapper
+          to="/"
+          activeStyle={{ opacity: 1 }}
+          onClick={() => this.toggleSidebar(false)}
+        >
+          <MobileLogo src={logo} visible={sideBarOpen} />
+        </MobileLogoWrapper>
+      </_Header>
     )
   }
 }
 
-export default (props) => (
-  <StaticQuery
-    query={graphql`
-      query calendlyQuery {
-        allPagesYaml(filter: { id: { eq: "calendly" } }) {
-          edges {
-            node {
-              closeDialog
-            }
-          }
-        }
-      }
-    `}
-    render={(data) => <Header data={data} {...props} />}
-  />
-)
+export default Header

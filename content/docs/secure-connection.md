@@ -51,7 +51,9 @@ This displays your Certificate Authority certificate.
 
 This document should be accessible by your MySQL client.
 
-For example, you can create a file named ```ca.pem`` and paste the certificate from your clipboard. Include the lines that read "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE".
+For example, you can create a file named `ca.pem` and paste the certificate from your clipboard.
+
+Note: Include the lines that read `-----BEGIN CERTIFICATE-----` and `-----END CERTIFICATE`.
 
 ## Step 7. Specify the certificate location in your MySQL connection string.
 
@@ -63,5 +65,5 @@ Replace `/path/to/ca-cert.pem` with the path to your certificate.
 
 ## See also
 
-+ [Connecting to your database](connecting-to-db)
-+ [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).
+- [Connecting to your database](connecting-to-db)
+- [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).

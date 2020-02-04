@@ -22,24 +22,24 @@ export const headerLinks = [
   {
     id: 'products',
     name: 'Products',
-    to: '/products',
+    to: 'https://planetscale.com/products',
   },
   {
     id: 'casestudies',
     name: 'Vitess Case Studies',
-    to: '/casestudies',
+    to: 'https://planetscale.com/casestudies',
   },
 
   {
     id: 'news',
     name: 'News',
-    to: '/news',
+    to: 'https://planetscale.com/news',
   },
 
   {
     id: 'faq',
     name: 'FAQ',
-    to: '/faq',
+    to: 'https://planetscale.com/faq',
   },
 
   {
@@ -56,32 +56,44 @@ export const footerLinks = [
       {
         id: 'news',
         name: 'News',
-        to: '/news',
+        to: 'https://planetscale.com/news',
+        external: true,
       },
       {
         id: 'faq',
         name: 'FAQ',
-        to: '/faq',
+        to: 'https://planetscale.com/faq',
+        external: true,
       },
       {
         id: 'team',
         name: 'About Us',
-        to: '/team',
+        to: 'https://planetscale.com/team',
+        external: true,
       },
       {
         id: 'careers',
         name: 'Careers',
-        to: '/careers',
+        to: 'https://planetscale.com/careers',
+        external: true,
       },
       {
         id: 'events',
         name: 'Events',
-        to: '/events',
+        to: 'https://planetscale.com/events',
+        external: true,
+      },
+      {
+        id: 'resources',
+        name: 'Resources',
+        to: 'https://planetscale.com/resources',
+        external: true,
       },
       {
         id: 'media',
         name: 'Media Kit',
-        to: '/media',
+        to: 'https://planetscale.com/media',
+        external: true,
       },
     ],
   },
@@ -91,24 +103,26 @@ export const footerLinks = [
       {
         id: 'support',
         name: 'Submit a Ticket',
-        to: '/support',
+        to: 'https://planetscale.com/support',
         external: true,
       },
       {
         id: 'licenses',
         name: 'Licenses',
-        to: '/sla/201902sla/',
+        to: 'https://planetscale.com/sla/201902sla/',
         external: true,
       },
       {
         id: 'terms',
         name: 'Terms of Service',
-        to: '/tos',
+        to: 'https://planetscale.com/tos',
+        external: true,
       },
       {
         id: 'privacy_policy',
         name: 'Privacy',
-        to: '/privacy',
+        to: 'https://planetscale.com/privacy',
+        external: true,
       },
     ],
   },
@@ -147,7 +161,8 @@ export const footerLinks = [
       {
         id: 'contact',
         name: 'Contact Sales',
-        to: '/contact',
+        to: 'https://planetscale.com/contact',
+        external: true,
       },
     ],
   },

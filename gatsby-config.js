@@ -9,7 +9,7 @@ module.exports = {
       options: {
         name: `PlanetScale`,
         short_name: `PlanetScale`,
-        start_url: `/`,
+        start_url: `/docs/index`,
         theme_color: `#ffffff`,
         background_color: `#ffffff`,
         display: `standalone`,
@@ -51,9 +51,6 @@ module.exports = {
     },
     {
       resolve: 'gatsby-plugin-sitemap',
-      options: {
-        exclude: ['/faq/*', '/thanks', '/team/*'],
-      },
     },
     'gatsby-plugin-react-helmet',
     {
@@ -68,43 +65,8 @@ module.exports = {
     {
       resolve: 'gatsby-source-filesystem',
       options: {
-        name: 'news',
-        path: `${__dirname}/content/news/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
         name: 'docs',
         path: `${__dirname}/content/docs/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'team',
-        path: `${__dirname}/content/team/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'faq',
-        path: `${__dirname}/content/faq/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'sla',
-        path: `${__dirname}/content/sla/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'dbaas',
-        path: `${__dirname}/content/dbaas/`,
       },
     },
     'gatsby-transformer-yaml',
@@ -115,32 +77,12 @@ module.exports = {
         path: `${__dirname}/content/pages/`,
       },
     },
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'components',
-        path: `${__dirname}/content/components/`,
-      },
-    },
-    {
-      resolve: 'gatsby-source-greenhouse',
-      options: {
-        apiToken: process.env.GREENHOUSE_API_TOKEN,
-      },
-    },
     'gatsby-plugin-netlify',
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: process.env.GOOGLE_TAG_MANAGER_ID,
         includeInDevelopment: true,
-      },
-    },
-    {
-      resolve: `gatsby-source-contentful`,
-      options: {
-        spaceId: process.env.CONTENTFUL_SPACE_ID,
-        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
       },
     },
     {

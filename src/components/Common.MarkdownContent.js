@@ -11,7 +11,7 @@ const MarkDownContainer = styled.div`
 
   h1 {
     font-weight: 400;
-    margin: 1.5em 0 0.5em 0;
+    margin: 0em 0 0.5em 0;
   }
 
   h2 {
@@ -28,7 +28,7 @@ const MarkDownContainer = styled.div`
 
   ul,
   ol {
-    -webkit-padding-start: 1em;
+    white-space: normal;
   }
 
   li {
@@ -85,6 +85,11 @@ const MarkDownContainer = styled.div`
     padding: 2em;
     background-color: #f7f7f7;
     overflow: auto;
+  }
+
+  code {
+    padding: 4px;
+    background-color: #f7f7f7;
   }
 
   ${(props) => props.customCSS};

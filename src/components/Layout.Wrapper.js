@@ -49,7 +49,7 @@ export function Section({ children, background, flexDirection, padding }) {
 const _DocsWrapperContentBound = styled.section`
   max-width: 1170px;
   display: grid;
-  grid-template-columns: 500px 1fr;
+  grid-template-columns: 420px 1fr;
   padding: 2em 0;
 `
 

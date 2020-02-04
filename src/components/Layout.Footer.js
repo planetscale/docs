@@ -27,7 +27,7 @@ const FooterContent = styled.div`
   z-index: 1338;
 
   > *:not(:last-child):not(:first-child) {
-    padding: 100px 0;
+    padding: 50px 0 80px;
   }
 
   ${media.largePhone`
@@ -100,10 +100,10 @@ const RowOne = styled.div`
     width: 100%;
   }
   &::before {
-    top: 50px;
+    top: 40px;
   }
   &::after {
-    bottom: 50px;
+    bottom: 30px;
   }
 
   ${media.largePhone`
@@ -115,7 +115,6 @@ const RowTwo = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: baseline;
-  margin-bottom: 1em;
 
   ${media.largePhone`
     align-items: center;
@@ -214,7 +213,7 @@ export function Footer({ children }) {
           </RowOne>
           <RowTwo>
             <SocialLinks />
-            <Copyright>©2019 PlanetScale, Inc</Copyright>
+            <Copyright>©2020 PlanetScale, Inc</Copyright>
           </RowTwo>
         </FooterContent>
       </Wrapper>

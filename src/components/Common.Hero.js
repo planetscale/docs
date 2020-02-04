@@ -51,7 +51,6 @@ const HeroSubTitle = styled.h2`
 export function Hero({ title, subTitle, wrap, children, width }) {
   return (
     <Fragment>
-      {/* <Background backgroundImage={overlay}></Background> */}
       <_Hero wrap={wrap}>
         <Header pages={headerLinks} />
         <Wrapper>

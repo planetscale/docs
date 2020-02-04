@@ -11,8 +11,9 @@ const _GroupContainer = styled.div`
   white-space: nowrap;
 `
 const _GroupHeading = styled.div`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 18px;
+  color: #666;
 `
 const _GroupLinks = styled.ul`
   list-style: none;

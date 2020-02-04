@@ -1,3 +1,0 @@
-id: block.quote
-quote: 'We built Vitess at Google to scale, manage and monitor YouTube’s MySQL databases on Borg, the blueprint for Kubernetes. It is trusted by companies like Square, Slack and Github to run mission-critical workloads at massive scale. Vitess has enabled HubSpot and JD.com to run their workloads on Kubernetes. We are now offering the same technology to everyone.'
-author: PlanetScale Co-Founders (Jiten Vaidya, Sugu Sougoumarane)

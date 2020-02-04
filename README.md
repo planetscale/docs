@@ -1,13 +1,11 @@
 [![Netlify Status](https://api.netlify.com/api/v1/badges/169b6b58-dbd7-4f25-a4fc-5906221132c8/deploy-status)](https://app.netlify.com/sites/planetscale/deploys)
 
-# Codebase for planetscale.com
+# Codebase for docs.planetscale.com
 
 ## Internals
 
 - GatsbyJS
 - Hosted and deployed via Netlify
-- Content in yaml and markdown files editable via `/admin`
-- `Vitess Case Studies` and `Events/Talks` content on Contentful
 
 ## How to setup local development (on MacOS)
 
@@ -21,3 +19,7 @@
 - `yarn install` to install all dependencies
 - `netlify dev` to start a local server
 - Open `http://localhost:8888` to access the local server instance
+
+## Notes
+
+- The main website hosted on webflow embeds the greenhouse job board which uses a custom stylesheet. A copy of it is available in this repository at src/styles/greenhouse.css

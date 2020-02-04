@@ -18,9 +18,5 @@
 [context.branch-deploy]
 
 [[redirects]]
-  from = "/product"
-  to = "/products"
-
-[[redirects]]
-  from = "/signup"
-  to = "https://console.planetscale.com/signup"
+  from = "/docs"
+  to = "/docs/index"

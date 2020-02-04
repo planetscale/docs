@@ -1,4 +1,0 @@
-id: team
-title: Driven by change
-subtitle: >-
-  PlanetScale was founded in 2018 by the co-creators and maintainers of the Vitess open source project. They created and operated Vitess, an open source scaling and sharding solution for MySQL in 2010 to solve the data explosion at YouTube. They have worked on high scale systems at PayPal, Google, YouTube, and Dropbox. PlanetScale is venture-funded and based in Mountain View, California. We provide enterprise support for Vitess and also host a multi-cloud SQL-compliant DBaaS based on Vitess.
