@@ -23,23 +23,27 @@ export const headerLinks = [
     id: 'products',
     name: 'Products',
     to: 'https://planetscale.com/products',
+    external: true,
   },
   {
     id: 'casestudies',
     name: 'Vitess Case Studies',
     to: 'https://planetscale.com/casestudies',
+    external: true,
   },
 
   {
     id: 'news',
     name: 'News',
     to: 'https://planetscale.com/news',
+    external: true,
   },
 
   {
     id: 'faq',
     name: 'FAQ',
     to: 'https://planetscale.com/faq',
+    external: true,
   },
 
   {
