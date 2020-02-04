@@ -2,7 +2,7 @@ order:
   - id: home
     name: Home
     pages:
-      - index
+      - overview
   - id: getting-started
     name: Getting Started
     pages:
