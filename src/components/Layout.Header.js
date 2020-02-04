@@ -211,7 +211,7 @@ class Header extends Component {
       <_Header visible={sideBarOpen}>
         <HeaderWrapper>
           <Nav visible={sideBarOpen}>
-            <Link to={'/'} activeStyle={{ opacity: 1 }}>
+            <Link to={'https://planetscale.com'} activeStyle={{ opacity: 1 }}>
               <Logo
                 src={logo}
                 alt="PlanetScale - world's most scalable database clusters with Vitess"
