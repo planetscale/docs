@@ -18,5 +18,5 @@
 [context.branch-deploy]
 
 [[redirects]]
-  from = "/docs"
-  to = "/docs/index"
+  from = "/"
+  to = "/index"

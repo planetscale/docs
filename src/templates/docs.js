@@ -14,10 +14,7 @@ export default function DocsPage({ data }) {
 
   return (
     <Layout>
-      <TitleAndMetaTags
-        title={frontmatter.title}
-        pathname={`docs/${fields.slug}`}
-      />
+      <TitleAndMetaTags title={frontmatter.title} pathname={`${fields.slug}`} />
       <Hero title={page.title}></Hero>
       <DocsSection flexDirection="row" padding="true">
         <DocsSidenav></DocsSidenav>

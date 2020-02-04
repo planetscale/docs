@@ -64,7 +64,7 @@ function SidenavGroup({ category, pages }) {
         {pages.map((page, index) => {
           return (
             <li key={index}>
-              <_PageLink to={`/docs/${page.fields.slug}`}>
+              <_PageLink to={`/${page.fields.slug}`}>
                 {page.frontmatter.title}
               </_PageLink>
             </li>

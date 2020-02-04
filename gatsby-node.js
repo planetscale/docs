@@ -49,7 +49,7 @@ exports.createPages = ({ graphql, actions }) => {
         const { node } = edge
         if (node && node.fields && node.fields.collection !== 'noop') {
           createPage({
-            path: `${node.fields.collection}/${node.fields.slug}`,
+            path: `/${node.fields.slug}`,
             component: path.resolve(
               `./src/templates/${node.fields.collection}.js`
             ),
