@@ -39,6 +39,7 @@ order:
   - id: reference
     name: Reference
     pages:
+      - operational-guidelines
       - mysql-compatibility
   - id: resources
     name: Resources
