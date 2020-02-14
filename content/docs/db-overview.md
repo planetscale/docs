@@ -15,7 +15,7 @@ Vitess manages MySQL replication and sharding, allowing you to grow your databas
 
 ## Why use PlanetScale?
 
-This is where the PlanetScale CNDb comes in: using the PlanetScale user interface, you can create a MySQL database with Vitess horizontal sharding, replication, and query handling in a few miniutes. PlanetScale manages the database on our own virtual private cloud, and your app connects to it with a connection string, like any MySQL database. You can import data from an existing database to gain the benefits of Vitess, or export data to another platform. You can also customize your database to use specific schemas, sharding configurations, regions or zones, and resources, such as memory and processors, all through the PlanetScale console.
+This is where the PlanetScale CNDb comes in: using the PlanetScale user interface, you can create a MySQL database with Vitess horizontal sharding, replication, and query handling in a few minutes. PlanetScale manages the database on our own virtual private cloud, and your app connects to it with a connection string, like any MySQL database. You can import data from an existing database to gain the benefits of Vitess, or export data to another platform. You can also customize your database to use specific schemas, sharding configurations, regions or zones, and resources, such as memory and processors, all through the PlanetScale console.
 
 ## What's next
 
