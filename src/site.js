@@ -33,9 +33,9 @@ export const headerLinks = [
   },
 
   {
-    id: 'news',
-    name: 'News',
-    to: 'https://planetscale.com/news',
+    id: 'blog',
+    name: 'Blog',
+    to: 'https://planetscale.com/blog',
     external: true,
   },
 
@@ -58,9 +58,9 @@ export const footerLinks = [
     title: 'Company',
     data: [
       {
-        id: 'news',
-        name: 'News',
-        to: 'https://planetscale.com/news',
+        id: 'blog',
+        name: 'Blog',
+        to: 'https://planetscale.com/blog',
         external: true,
       },
       {
@@ -126,6 +126,12 @@ export const footerLinks = [
         id: 'privacy_policy',
         name: 'Privacy',
         to: 'https://planetscale.com/privacy',
+        external: true,
+      },
+      {
+        id: 'status',
+        name: 'Status',
+        to: 'https://planetscale.freshstatus.io/',
         external: true,
       },
     ],
