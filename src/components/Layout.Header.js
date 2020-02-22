@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button, ButtonLink } from '../components/Common.Button'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { media } from '../styles/media'
-import logo from '../../static/img/logo.png'
+import logo from '../../static/img/PS_logo_full_white.svg'
 
 const HeaderWrapper = styled(Wrapper)`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
@@ -137,6 +137,7 @@ const MobileHeaderButtonIcon = styled.span`
 `
 
 const Logo = styled.img`
+  width: 262px;
   max-height: 40px;
   margin-bottom: -2px;
 
