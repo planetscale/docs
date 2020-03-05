@@ -23,3 +23,4 @@
 ## Notes
 
 - The main website hosted on webflow embeds the greenhouse job board which uses a custom stylesheet. A copy of it is available in this repository at src/styles/greenhouse.css
+- Favicons are generated via https://favicon.io/favicon-converter/
