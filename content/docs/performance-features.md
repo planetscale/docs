@@ -3,9 +3,9 @@ title: 'Performance features'
 category: 'concepts'
 ---
 
-# Performance features of the PlanetScale CNDb 
+# Performance features of PlanetScaleDB 
 
-This document provides an overview of the performance features of the PlanetScale CNDb.
+This document provides an overview of the performance features of PlanetScaleDB.
 
 ## Query rewriting
 
@@ -13,7 +13,7 @@ Some SQL queries are inefficient to execute at the database layer due to missing
 
 ## Query de-duplication
 
-Your PlanetScale CNDb protects your database from "hot" or duplicate queries by reusing results, so that multiple identical requests do not reach your database simultaneously.
+PlanetScaleDB protects your database from "hot" or duplicate queries by reusing results, so that multiple identical requests do not reach your database simultaneously.
 
 ## Connection Pooling
 

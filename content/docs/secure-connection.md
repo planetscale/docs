@@ -3,13 +3,13 @@ title: 'Securing the connection to your database'
 category: 'setting-up-your-planetscale-database'
 ---
 
-# Securing the connection to your PlanetScale database
+# Securing the connection to your PlanetScaleDB database
 
-This document describes how to encrypt and authenticate the connection between your application and your CNDb database using the HTTPS protocol.
+This document describes how to encrypt and authenticate the connection between your application and your PlanetScaleDB database using the HTTPS protocol.
 
 ## Overview
 
-By default, every [connection to a CNDb database](connecting-to-db) will use transport encryption if possible, using the [`PREFERRED` SSL mode](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode). If the server cannot establish an encrypted connection, it will fall back to an unencrypted connection.
+By default, every [connection to a PlanetScaleDB database](connecting-to-db) will use transport encryption if possible, using the [`PREFERRED` SSL mode](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode). If the server cannot establish an encrypted connection, it will fall back to an unencrypted connection.
 
 To enforce encrypted transport, use the `--ssl-mode=REQUIRED` option in your MySQL connection string.
 
@@ -23,7 +23,7 @@ To enforce encrypted transport and verify the certificate authority, use the `--
 1. Save the certificate to a document.
 1. Specify the certificate location in your MySQL connection string.
 
-CNDb databases currently do not support the `VERIFY_IDENTITY` SSL mode.
+PlanetScaleDB databases currently do not support the `VERIFY_IDENTITY` SSL mode.
 
 ## Step 1. Go to the [PlanetScale console](https://console.planetscale.com).
 

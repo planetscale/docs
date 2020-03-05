@@ -11,7 +11,7 @@ For more information on how sharding works and how to structure your sharding sc
 
 ## Overview
 
-The PlanetScale CNDb allows you to scale your database by spreading the tables over multiple MySQL instances, or **shards**. The database continues to behave like a single MySQL database instance: sharding does not require a change to your application. Scaling the database further by increasing the number of shards requires a single configuration change.
+The PlanetScaleDB allows you to scale your database by spreading the tables over multiple MySQL instances, or **shards**. The database continues to behave like a single MySQL database instance: sharding does not require a change to your application. Scaling the database further by increasing the number of shards requires a single configuration change.
 
 To configure your database to use multiple shards, follow these steps:
 

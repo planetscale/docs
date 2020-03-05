@@ -5,11 +5,11 @@ category: 'concepts'
 
 # Clusters
 
-This document explains the basic ideas behind clusters in the PlanetScale CNDb context.
+This document explains the basic ideas behind clusters in the PlanetScaleDB context.
 
 ## What is a cluster?
 
-In the context of your PlanetScale CNDB, a **cluster** is a set of resources that run one or more [databases](databases). Your application connects to a particular cluster, which provides access to all of the databases it contains.
+In the context of PlanetScaleDB, a **cluster** is a set of resources that run one or more [databases](databases). Your application connects to a particular cluster, which provides access to all of the databases it contains.
 
 ![Diagram of a large cylinder representing a cluster and containing multiple smaller cylinders representing databases](/img/docs/cluster-diagram.png)
 

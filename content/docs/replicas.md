@@ -5,7 +5,7 @@ category: 'concepts'
 
 #Replicas
 
-This document describes the basic concept of replicas in the PlanetScale CNDb context.
+This document describes the basic concept of replicas in the PlanetScaleDB context.
 
 ## What is a replica?
 

@@ -20,8 +20,8 @@ order:
       - replicas
       - analytics-instances
       - backups
-  - id: setting-up-your-planetscale-cndb
-    name: Setting up your PlanetScale CNDb
+  - id: setting-up-planetscaleDB
+    name: Setting up PlanetScaleDB
     pages:
       - creating-cluster
       - creating-database
@@ -29,8 +29,8 @@ order:
       - adding-users
       - connecting-to-db
       - secure-connection
-  - id: using-your-planetscale-cndb
-    name: Using your PlanetScale CNDb
+  - id: using-planetscaledb
+    name: Using PlanetScaleDB
     pages:
       - importing-data
       - migrating-database-schemas

@@ -5,11 +5,11 @@ category: 'concepts'
 
 # Databases
 
-This document explains the basic ideas behind databases in the PlanetScale CNDb context.
+This document explains the basic ideas behind databases in the PlanetScaleDB context.
 
-## What is a CNDb database?
+## What is a PlanetScaleDB database?
 
-A CNDb database is like a MySQL database that can scale horizontally using [sharding](sharding-schemes). Each database runs on a [cluster](clusters).
+A PlanetScaleDB database is like a MySQL database that can scale horizontally using [sharding](sharding-schemes). Each database runs on a [cluster](clusters).
 
 You can assign resources to each database at the time of [database creation](creating-database). You can also choose to create replicas of particular databases to improve availability and serve more read traffic.
 

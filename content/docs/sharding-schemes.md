@@ -5,7 +5,7 @@ category: 'concepts'
 
 # Sharding schemes
 
-This document explains the basic concept of sharding schemes as used in the PlanetScale CNDb. PlanetScale is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
+This document explains the basic concept of sharding schemes as used in PlanetScaleDB. PlanetScale is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
 
 <!-- We may want to link out to this doc also/instead: vitess.io/docs/reference/sharding This document contains a table under the "Resharding" section that gives a good run-down on why you would want more shards vs. more replicas. Key takeaways: Splitting shards increases read and write capacity uniformly; merging shards frees up resources; splitting shards can also cool a hot tablet. -->
 
@@ -16,7 +16,7 @@ This document explains the basic concept of sharding schemes as used in the Plan
 In order to scale your database, PlanetScale can distribute your database tables into **shards**. If you want a sharded database, you need to configure a sharding scheme. However, if you want replicas of your database tables, you do not need a sharding scheme. Your database can also use both sharding and replication. An unsharded database does not require a sharding scheme. Your application does not need to be aware of the sharding scheme.
 
 <!-- Can we omit the rest of this section as implementation detail?-->
-PlanetScale uses **keyspaces** to divide data into shards: each shard is assigned a range within the keyspace. Vitess uses Vindexes to map column values onto keyspaces. The sharding scheme relates tables, shards, keyspaces, and Vindexes. Your PlanetScale database uses all of this information to treat the different shards as one database.
+PlanetScaleDB uses **keyspaces** to divide data into shards: each shard is assigned a range within the keyspace. Vitess uses Vindexes to map column values onto keyspaces. The sharding scheme relates tables, shards, keyspaces, and Vindexes. Your PlanetScale database uses all of this information to treat the different shards as one database.
 
 <!-- What is a keyspace? Do we want to use this term? Do we need to? -->
 <!-- Do we need a separate section or document on Vindexes? Can we point out to the Vitess docs? -->

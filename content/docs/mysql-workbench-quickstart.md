@@ -5,7 +5,7 @@ category: 'getting-started'
 
 # MySQL Workbench Quickstart
 
-This document shows how to get started using PlanetScale CNDb. By the end, you will have a working PlanetScale CNDb that you can connect to using MySQL Workbench.
+This document shows how to get started using PlanetScaleDB. By the end, you will have a working PlanetScaleDB that you can connect to using MySQL Workbench.
 
 ## Prerequisites
 

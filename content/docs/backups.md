@@ -5,11 +5,11 @@ category: 'concepts'
 
 # Backups
 
-This document explains the basic ideas behind backups in the PlanetScale CNDb context.
+This document explains the basic ideas behind backups in the PlanetScaleDB context.
 
 ## Backups are inactive copies of your data
 
-In the context of your PlanetScale CNDB, a **backup** is a copy of data in your [database](databases).
+In the context of your PlanetScaleDB, a **backup** is a copy of data in your [database](databases).
 
 Unlike a [replica](replicas) or an [analytics instance](analytics-instances), a backup does not serve data in response to queries. 
 
