@@ -36,6 +36,7 @@ order:
       - migrating-database-schemas
       - undeploying-database
       - restoring-backups
+      - viewing-status-messages
   - id: reference
     name: Reference
     pages:

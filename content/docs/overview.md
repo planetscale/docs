@@ -37,6 +37,7 @@ This page contains documentation for using PlanetScaleDB, powered by Vitess. For
 - [Migrating database schemas](migrating-database-schemas)
 - [Undeploying a database](undeploying-database)
 - [Restoring backups](restoring-backups)
+- [Viewing status messages](viewing-status-messages)
 
 ## Reference
 
