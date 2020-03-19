@@ -42,20 +42,24 @@ export function TitleAndMetaTags({
       />
 
       <meta property="og:url" content={`${url}/${pathname}`} />
-      <meta property="og:image" content={`${url}/img/social-1.png`} />
-      <meta property="og:image" content={`${url}/img/social-2.png`} />
-      <meta property="og:image" content={`${url}/img/social-3.png`} />
+      <meta
+        property="og:image"
+        content={`${url}/social_share_placeholder.png`}
+      />
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={title} />
+      <meta property="og:title" content={title + ' - PlanetScale'} />
       <meta property="og:description" content={description} />
 
       <meta name="twitter:url" content={`${url}/${pathname}`} />
-      <meta name="twitter:image" content={`${url}/img/social-1.png`} />
-      <meta name="twitter:title" content={title} />
+      <meta
+        name="twitter:image"
+        content={`${url}/social_share_placeholder.png`}
+      />
+      <meta name="twitter:title" content={title + ' - PlanetScale'} />
       <meta name="twitter:description" content={description} />
-      <meta name="twitter:site" content="@planetsclae" />
+      <meta name="twitter:site" content="@planetscaledata" />
       <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="@planetsclae" />
+      <meta name="twitter:creator" content="@planetscaledata" />
 
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
@@ -65,7 +69,7 @@ export function TitleAndMetaTags({
 }
 
 TitleAndMetaTags.defaultProps = {
-  url: 'https://planetscale.com',
+  url: 'https://docs.planetscale.com',
   pathname: '',
   title: 'Turbocharged MySQL in the Cloud',
   type: 'website',
@@ -75,7 +79,7 @@ TitleAndMetaTags.defaultProps = {
     '@context': 'http://schema.org',
     '@type': 'Organization',
     name: 'PlanetScale',
-    url: 'https://planetscale.com',
+    url: 'https://docs.planetscale.com',
     sameAs: [
       'https://twitter.com/planetscaledata',
       'https://www.facebook.com/planetscaledata',

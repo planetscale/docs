@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'PlanetScale',
-    siteUrl: 'https://planetscale.com',
+    siteUrl: 'https://docs.planetscale.com',
   },
   plugins: [
     {
@@ -38,8 +38,8 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-robots-txt',
       options: {
-        host: 'https://planetscale.com',
-        sitemap: 'https://planetscale.com/sitemap.xml',
+        host: 'https://docs.planetscale.com',
+        sitemap: 'https://docs.planetscale.com/sitemap.xml',
         policy: [
           {
             userAgent: '*',

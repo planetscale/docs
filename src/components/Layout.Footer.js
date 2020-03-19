@@ -3,7 +3,7 @@ import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { Wrapper } from './Layout.Wrapper'
 import { media } from '../styles/media'
-import logo from '../../static/img/PS_icon_full_color.svg'
+import logo from '../../static/planetscale_icon_color.svg'
 import { footerLinks } from '../site'
 import SocialLinks from '../components/Layout.Footer.SocialLinks'
 

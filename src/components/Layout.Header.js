@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import { Button, ButtonLink } from '../components/Common.Button'
 import { Wrapper } from '../components/Layout.Wrapper'
 import { media } from '../styles/media'
-import logo from '../../static/img/PS_logo_full_white.svg'
+import logo from '../../static/planetscale_logo_white_text.svg'
 
 const HeaderWrapper = styled(Wrapper)`
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
