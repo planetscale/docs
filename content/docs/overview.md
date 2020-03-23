@@ -18,8 +18,8 @@ This page contains documentation for using PlanetScaleDB, powered by Vitess. For
 - [Deployment](deployment)
 - [Security features](security-features)
 - [Performance features](performance-features)
+- [Database instances](database-instances)
 - [Analytics instances](analytics-instances)
-- [Replicas](replicas)
 - [Backups](backups)
 
 ## Setting up your Database

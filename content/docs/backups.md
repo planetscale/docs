@@ -11,7 +11,7 @@ This document explains the basic ideas behind backups in the PlanetScaleDB conte
 
 In the context of your PlanetScaleDB, a **backup** is a copy of data in your [database](databases).
 
-Unlike a [replica](replicas) or an [analytics instance](analytics-instances), a backup does not serve data in response to queries. 
+Unlike a [database instance](database-instances) or an [analytics instance](analytics-instances), a backup does not serve data in response to queries. 
 
 ## Backups are frequent and temporary
 
@@ -29,7 +29,7 @@ If your database is not sharded, each backup contains all of the data from your 
 
 ## PlanetScale validates your backups
 
-When your backup status is **Validated**, it means that an automated test job has restored an empty replica from that backup, started it, and resumed replication from the master.
+When your backup status is **Validated**, it means that an automated test job has restored an empty database instance from that backup, started it, and resumed replication from the master.
 
 ## You can access your backups from the console
 

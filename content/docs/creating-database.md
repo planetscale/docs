@@ -59,13 +59,13 @@ The **Cost per instance** calculator below shows the hourly cost for the current
 
 ## Step 7: Choose the number of instances
 
-Under **Number of instances**, choose the number of [replicas](replicas) and [analytics instances](analytics-instances) per [shard](sharding-schemes).
+Under **Number of instances**, choose the number of [database instances](database instances) and [analytics instances](analytics-instances) per [shard](sharding-schemes).
 
 ![Number of instances section](/img/docs/number-of-instances.png)
 
 The **Cost per shard** calculator below shows the hourly cost for the current number of instances per shard.
 
-Note: PlanetScale does not recommend databases with fewer than three replicas per shard for production environments, because they may not survive a partial region outage and are subject to downtimes of up to 30 seconds during scheduled maintenance procedures.
+Note: PlanetScale does not recommend databases with fewer than three database instances per shard for production environments, because they may not survive a partial region outage and are subject to downtimes of up to 30 seconds during scheduled maintenance procedures.
 
 ## Step 8: Choose the number of shards
 

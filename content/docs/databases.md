@@ -11,7 +11,7 @@ This document explains the basic ideas behind databases in the PlanetScaleDB con
 
 A PlanetScaleDB database is like a MySQL database that can scale horizontally using [sharding](sharding-schemes). Each database runs on a [cluster](clusters).
 
-You can assign resources to each database at the time of [database creation](creating-database). You can also choose to create replicas of particular databases to improve availability and serve more read traffic.
+You can assign resources to each database at the time of [database creation](creating-database). You can also choose to create instances of particular databases to improve availability and serve more read traffic.
 
 ## What's next
 

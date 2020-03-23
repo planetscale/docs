@@ -13,7 +13,7 @@ This document explains the basic concept of sharding schemes as used in PlanetSc
 
 <!-- This doc still doesn't address the initial question: why have a sharding scheme, and when? How many shards should the typical user have? Probably more in-depth questions are out of scope, and need to be covered in the Vitess docs. -->
 
-In order to scale your database, PlanetScale can distribute your database tables into **shards**. If you want a sharded database, you need to configure a sharding scheme. However, if you want replicas of your database tables, you do not need a sharding scheme. Your database can also use both sharding and replication. An unsharded database does not require a sharding scheme. Your application does not need to be aware of the sharding scheme.
+In order to scale your database, PlanetScale can distribute your database tables into **shards**. If you want a sharded database, you need to configure a sharding scheme. However, if you want multiple instances of your database tables, you do not need a sharding scheme. Your database can also use both sharding and replication. An unsharded database does not require a sharding scheme. Your application does not need to be aware of the sharding scheme.
 
 <!-- Can we omit the rest of this section as implementation detail?-->
 PlanetScaleDB uses **keyspaces** to divide data into shards: each shard is assigned a range within the keyspace. Vitess uses Vindexes to map column values onto keyspaces. The sharding scheme relates tables, shards, keyspaces, and Vindexes. Your PlanetScale database uses all of this information to treat the different shards as one database.

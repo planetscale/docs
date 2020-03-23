@@ -17,7 +17,7 @@ order:
       - databases
       - sharding-schemes
       - deployment
-      - replicas
+      - database-instances 
       - analytics-instances
       - backups
   - id: setting-up-planetscaleDB
