@@ -17,6 +17,7 @@ This page contains documentation for using PlanetScaleDB, powered by Vitess. For
 - [Sharding schemes](sharding-schemes) <!-- We may want a separate doc for sharding concepts. -->
 - [Deployment](deployment)
 - [Security features](security-features)
+- [Availability features](availability-features)
 - [Performance features](performance-features)
 - [Database instances](database-instances)
 - [Analytics instances](analytics-instances)

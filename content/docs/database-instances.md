@@ -19,8 +19,19 @@ Multiple database instances have two main benefits:
 
 + Database instances let you scale up the maximum rate of read queries for your database for a given number of [shards](sharding-schemes). Using additional database instances results in eventually-consistent reads. 
  
-+ Database instances also prevent disruption to writes during planned maintenance. 
++ Database instances prevent disruption to writes during planned maintenance. 
+
++ Database instances allow for cross-zone survivability.
+
+## How do additional database instances improve availability?
+
+The number of instances determines the level of availability of your database.
+
++ 1 database instance provides 99.95% availability.
++ 2 database instances provide 99.95% availabliity, 2x read scaling, and cross-zone survivability.
++ 3 database instances provide 99.95% availability, 3x read scaling, and cross-zone survivability.
 
 ## What's next
 
++ [Availability features](availability-features)
 + [Create a database](creating-database) with database instances

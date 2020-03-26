@@ -1,5 +1,5 @@
 ---
-title: 'Security Features'
+title: 'Security features'
 category: 'concepts'
 ---
 
