@@ -40,9 +40,9 @@ export const headerLinks = [
   },
 
   {
-    id: 'faq',
-    name: 'FAQ',
-    to: 'https://planetscale.com/faq',
+    id: 'news',
+    name: 'News',
+    to: 'https://planetscale.com/newsroom',
     external: true,
   },
 
@@ -61,6 +61,12 @@ export const footerLinks = [
         id: 'blog',
         name: 'Blog',
         to: 'https://planetscale.com/blog',
+        external: true,
+      },
+      {
+        id: 'news',
+        name: 'News',
+        to: 'https://planetscale.com/newsroom',
         external: true,
       },
       {
