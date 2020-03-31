@@ -13,7 +13,7 @@ In the context of PlanetScaleDB, a **cluster** is a set of resources that run on
 
 ![Diagram of a large cylinder representing a cluster and containing multiple smaller cylinders representing databases](/img/docs/cluster-diagram.png)
 
-Each cluster runs on a particular cloud provider and region.  Databases on the same cluster are collocated. With multiple clusters, you can assign your databases to the correct region and allocate the appropriate resources to each database in the cluster.
+Each cluster runs on one or more cloud providers and regions. The databases on a cluster can only deploy to the regions and providers for that cluster.
 
 PlanetScale clusters correspond to [Kubernetes clusters](https://kubernetes.io/docs/concepts), which PlanetScale uses to run your databases.
 

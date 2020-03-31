@@ -13,7 +13,7 @@ Before you can create a database, you must first [create a cluster](creating-clu
 
 ## Overview
 
-To create a database, you will complete the following steps:
+To create a database, complete the following steps:
 
 ## Step 1: Open the Overview page for a cluster.
 
@@ -43,11 +43,9 @@ Database names can only contain lowercase alphanumeric characters.
 
 By default, PlanetScale deploys your database immediately on creation. If you deselect this option, you have the option to deploy the database from the database **Overview** later.
 
-## Step 5: Select a region.
+## Step 5: Select regions.
 
-In the **Create New Database** pane, select a region from the **Regions** dropdown. You can choose from the regions that you selected for the cluster where this database will run.
-
-![Select region dropdown](/img/docs/select-database-region.png)
+In the **Create New Database** pane, select a region from the **Region Deployment** card. You can choose from the regions and cloud providers that this cluster supports.
 
 ## Step 6: Assign resources to your instance.
 
