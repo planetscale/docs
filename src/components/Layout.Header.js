@@ -242,7 +242,7 @@ class Header extends Component {
             <RightSide>
               <Button>
                 <ButtonLink href="https://console.planetscale.com/signup">
-                  Get Started
+                  Try it for free
                 </ButtonLink>{' '}
               </Button>
             </RightSide>
