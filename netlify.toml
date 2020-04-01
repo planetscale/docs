@@ -20,3 +20,7 @@
 [[redirects]]
   from = "/"
   to = "/overview"
+
+[[redirects]]
+  from = "/replicas"
+  to = "/database-instances"
