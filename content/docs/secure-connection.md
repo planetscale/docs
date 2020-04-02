@@ -66,4 +66,5 @@ Replace `/path/to/ca-cert.pem` with the path to your certificate.
 ## See also
 
 - [Connecting to your database](connecting-to-db)
+- [Allowing access to specific IP addresses](whitelisting-ips)
 - [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).

@@ -30,6 +30,7 @@ order:
       - adding-users
       - connecting-to-db
       - secure-connection
+      - allowing-ips
   - id: using-planetscaledb
     name: Using PlanetScaleDB
     pages:
