@@ -40,13 +40,15 @@ The name of your cluster is prepended with your account name, and must be unique
 
 If you want to deploy your database to more than one cloud provider or region, choose **Multi-region and Multi-cloud**. 
 
-## Step 4: Select cloud providers and regions.
+## Step 5: Select cloud providers and regions.
 
-Select each region where you wish to deploy your database. Once you deploy your cluster, you can only deploy databases to the regions you select for that cluster.
+If you are creating a **Single Region** cluster, select the cloud provider and region for your cluster.
 
-In order to use more than one region, you must select at least three total regions.
+If you are creating a **Multi-Region and Multi-Cloud** cluster, select each region where you wish to deploy your database. Once you deploy your cluster, you can only deploy databases to the regions you select for that cluster.
 
-## Step 5: Click **Create Cluster**.
+In order to use more than one region, you must select at least three total regions. You may select multiple regions in a single cloud provider.
+
+## Step 6: Click **Create Cluster**.
 
 When you have selected a name and region for your cluster, click **Create Cluster**.
 
