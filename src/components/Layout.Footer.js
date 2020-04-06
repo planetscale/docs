@@ -76,6 +76,10 @@ const PageLists = styled.div`
     padding: 0;
     font-size: 110%;
 
+    &:hover {
+      color: #000000;
+    }
+
     ${media.largePhone`
       font-size: 90%;
     `};

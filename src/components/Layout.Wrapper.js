@@ -17,10 +17,15 @@ export const Wrapper = styled.section`
 `
 
 export const _SectionWrapperContainer = styled.section`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   background-color: ${(props) => props.background || 'white'};
+
+  ${media.largePhone`
+    align-items: stretch;
+  `}
 `
 
 export const _SectionWrapperContentBound = styled.section`
@@ -51,6 +56,12 @@ const _DocsWrapperContentBound = styled.section`
   display: grid;
   grid-template-columns: 420px 1fr;
   padding: 2em 0;
+
+  ${media.largePhone`
+    display: flex;
+    flex-direction: column;
+    padding: 1.5em;
+  `}
 `
 
 export function DocsSection({ children }) {

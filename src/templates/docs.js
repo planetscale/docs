@@ -5,7 +5,7 @@ import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { DocsSection } from '../components/Layout.Wrapper'
 import { Hero } from '../components/Common.Hero'
 import { Footer } from '../components/Layout.Footer'
-import { DocsSidenav } from '../components/Docs.Sidenav'
+import DocsNavigation from '../components/DocsSidenav'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 export default function DocsPage({ data }) {
@@ -17,7 +17,7 @@ export default function DocsPage({ data }) {
       <TitleAndMetaTags title={frontmatter.title} pathname={`${fields.slug}`} />
       <Hero title={page.title}></Hero>
       <DocsSection flexDirection="row" padding="true">
-        <DocsSidenav></DocsSidenav>
+        <DocsNavigation></DocsNavigation>
         <MarkdownContent html={html} />
       </DocsSection>
       <Footer />

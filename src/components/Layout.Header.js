@@ -6,10 +6,6 @@ import { Wrapper } from '../components/Layout.Wrapper'
 import { media } from '../styles/media'
 import logo from '../../static/planetscale_logo_white_text.svg'
 
-const HeaderWrapper = styled(Wrapper)`
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-`
-
 const _Header = styled.header`
   width: 100%;
   z-index: 1337;
@@ -17,12 +13,34 @@ const _Header = styled.header`
   ${media.desktop`
     width: 100%;
     margin: 0 auto;
-
-    > [class^="LayoutWrapper"] {
-      padding: 0;
-    }
   `};
 `
+
+const HeaderWrapper = styled(Wrapper)`
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  ${media.largePhone`
+    padding: 1.5em;
+  `}
+`
+
+const HomeLink = styled(Link)`
+  flex-grow: 2;
+`
+
+const Logo = styled.img`
+  height: 40px;
+  margin-bottom: -2px;
+
+  ${media.largePhone`
+    height: 24px;
+  `}
+`
+
 const Nav = styled.nav`
   width: 100%;
   margin: 0 auto;
@@ -98,14 +116,7 @@ const NavListItem = styled.li`
 
 const MobileHeaderButton = styled.button`
   background-color: transparent;
-  border: none;
-  box-sizing: border-box;
-  color: white;
   display: none;
-  font-weight: 500;
-  position: absolute;
-  top: 25px;
-  right: 20px;
   cursor: pointer;
   z-index: 1338;
   user-select: none;
@@ -120,11 +131,9 @@ const MobileHeaderButton = styled.button`
   }
 
   ${media.desktop`
-    display: inline-block;
-    position: ${(props) => (props.visible ? 'fixed' : 'absolute')};
-    border: 1px solid;
-    border-color: ${(props) =>
-      props.visible ? '#000' : 'rgba(255, 255, 255, 0.8)'};
+    display: block;
+    border: 1px solid ${(props) =>
+      props.visible ? '#000' : 'rgba(255, 255, 255, 0)'};
   `};
 `
 
@@ -134,36 +143,6 @@ const MobileHeaderButtonIcon = styled.span`
   margin: 0;
   font-size: 1.5rem;
   color: ${(props) => (props.activeMobileMenu ? '#000' : '#fff')};
-`
-
-const Logo = styled.img`
-  width: 262px;
-  max-height: 40px;
-  margin-bottom: -2px;
-
-  ${media.desktop`
-    display: none;
-  `};
-`
-
-const MobileLogo = styled.img`
-  display: none;
-  max-height: 30px;
-  position: ${(props) => (props.visible ? 'fixed' : 'static')};
-
-  ${media.desktop`
-    display: block;
-  `};
-`
-
-const MobileLogoWrapper = styled(Link)`
-  display: none;
-
-  ${media.desktop`
-    display: inline-block;
-    padding-top: 25px;
-    padding-left: 20px;
-  `};
 `
 
 const RightSide = styled.div`
@@ -186,22 +165,17 @@ class Header extends Component {
   }
 
   toggleSidebar = (boolean) => {
-    this.setState(
-      (oldState) => {
-        document.body.setAttribute(
-          'data-sidebar-open',
-          typeof boolean === 'boolean' ? boolean : !oldState.sideBarOpen
-        )
+    this.setState((oldState) => {
+      document.body.setAttribute(
+        'data-sidebar-open',
+        typeof boolean === 'boolean' ? boolean : !oldState.sideBarOpen
+      )
 
-        return {
-          sideBarOpen:
-            typeof boolean === 'boolean' ? boolean : !oldState.sideBarOpen,
-        }
-      },
-      () => {
-        this.checkFixedPage()
+      return {
+        sideBarOpen:
+          typeof boolean === 'boolean' ? boolean : !oldState.sideBarOpen,
       }
-    )
+    })
   }
 
   render() {
@@ -211,13 +185,13 @@ class Header extends Component {
     return (
       <_Header visible={sideBarOpen}>
         <HeaderWrapper>
+          <HomeLink href="https://planetscale.com">
+            <Logo
+              src={logo}
+              alt="PlanetScale - world's most scalable database clusters with Vitess"
+            />
+          </HomeLink>
           <Nav visible={sideBarOpen}>
-            <a href="https://planetscale.com">
-              <Logo
-                src={logo}
-                alt="PlanetScale - world's most scalable database clusters with Vitess"
-              />
-            </a>
             <NavList>
               {pages.map(({ name, to, external }) => {
                 return (
@@ -247,24 +221,19 @@ class Header extends Component {
               </Button>
             </RightSide>
           </Nav>
+          <MobileHeaderButton
+            visible={sideBarOpen}
+            onClick={this.toggleSidebar}
+          >
+            <MobileHeaderButtonIcon activeMobileMenu={this.state.sideBarOpen}>
+              {sideBarOpen ? (
+                <i className="fas fa-times"></i>
+              ) : (
+                <i className="fas fa-bars"></i>
+              )}
+            </MobileHeaderButtonIcon>
+          </MobileHeaderButton>
         </HeaderWrapper>
-
-        <MobileHeaderButton visible={sideBarOpen} onClick={this.toggleSidebar}>
-          <MobileHeaderButtonIcon activeMobileMenu={this.state.sideBarOpen}>
-            {sideBarOpen ? (
-              <i className="fas fa-times"></i>
-            ) : (
-              <i className="fas fa-bars"></i>
-            )}
-          </MobileHeaderButtonIcon>
-        </MobileHeaderButton>
-        <MobileLogoWrapper
-          to="/"
-          activeStyle={{ opacity: 1 }}
-          onClick={() => this.toggleSidebar(false)}
-        >
-          <MobileLogo src={logo} visible={sideBarOpen} />
-        </MobileLogoWrapper>
       </_Header>
     )
   }

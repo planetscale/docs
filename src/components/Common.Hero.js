@@ -27,7 +27,6 @@ const HeroTitle = styled.h1`
   ${media.largePhone`
     width: 100%;
 		font-size: 2.5em;
-    padding-top: 1em;
     padding-left: 0;
     padding-right: 0;
   `};
