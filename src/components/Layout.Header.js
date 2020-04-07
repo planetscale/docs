@@ -41,6 +41,23 @@ const Logo = styled.img`
   `}
 `
 
+const MobileCloseButton = styled(Button)`
+  display: none;
+
+  ${media.largePhone`
+    display: block;
+    background-color: white;
+    border: 1px solid;
+    border-radius: 4px;
+    color: black;
+    box-shadow: unset;
+    padding: 8px;
+    font-size: 1.5em;
+    color: #666;
+    margin-bottom: 1em;
+  `}
+`
+
 const Nav = styled.nav`
   width: 100%;
   margin: 0 auto;
@@ -49,33 +66,32 @@ const Nav = styled.nav`
   align-items: center;
   box-sizing: border-box;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
 
-  ${media.desktop`
+  ${media.largePhone`
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
+    align-items: flex-end;
     height: 100vh;
+    width: 100vw;
     transition: all 250ms;
     position: ${(props) => (props.visible ? 'fixed' : 'absolute')} ;
     transform: translateX(${(props) => (props.visible ? '0' : '100vw')}) ;
     top: 0;
+    left: 0;
     background-color: white;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
     z-index: 1337;
+    
+    padding: 2em;
   `};
 `
 
 const NavList = styled.ol`
-  padding: 0;
-  flex-grow: 2;
-  text-align: right;
   margin-right: 1em;
+  padding: 0;
 
-  ${media.desktop`
-    flex-wrap: wrap;
-    margin: 0 auto;
-    order: 2;
-    flex-grow: 0;
+  ${media.largePhone`
   `};
 `
 
@@ -95,11 +111,12 @@ const NavListItem = styled.li`
     }
   }
 
-  ${media.desktop`
+  ${media.largePhone`
     width: 100%;
-    text-align: center;
-    font-size: 1.75em;
-    margin-left: 0;
+    text-align: right;
+    font-size: 1.5em;
+    margin-right: 0;
+    margin-bottom: 0.5em;
 
     a {
       color: #000;
@@ -118,7 +135,6 @@ const MobileHeaderButton = styled.button`
   background-color: transparent;
   display: none;
   cursor: pointer;
-  z-index: 1338;
   user-select: none;
   border-radius: 4px;
   width: 30px;
@@ -143,16 +159,6 @@ const MobileHeaderButtonIcon = styled.span`
   margin: 0;
   font-size: 1.5rem;
   color: ${(props) => (props.activeMobileMenu ? '#000' : '#fff')};
-`
-
-const RightSide = styled.div`
-  button {
-    margin-left: 0.5em;
-  }
-
-  ${media.desktop`
-    margin-bottom: 2rem;
-  `};
 `
 
 class Header extends Component {
@@ -192,6 +198,9 @@ class Header extends Component {
             />
           </HomeLink>
           <Nav visible={sideBarOpen}>
+            <MobileCloseButton onClick={this.toggleSidebar}>
+              Close
+            </MobileCloseButton>
             <NavList>
               {pages.map(({ name, to, external }) => {
                 return (
@@ -213,13 +222,11 @@ class Header extends Component {
                 )
               })}
             </NavList>
-            <RightSide>
-              <Button>
-                <ButtonLink href="https://console.planetscale.com/signup">
-                  Try it for free
-                </ButtonLink>{' '}
-              </Button>
-            </RightSide>
+            <Button>
+              <ButtonLink href="https://console.planetscale.com/signup">
+                Try it for free
+              </ButtonLink>{' '}
+            </Button>
           </Nav>
           <MobileHeaderButton
             visible={sideBarOpen}

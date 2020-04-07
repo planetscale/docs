@@ -131,7 +131,7 @@ const Copyright = styled.small`
   font-size: 0.9rem;
 `
 const Logo = styled.img`
-  max-width: 50px;
+  width: 50px;
 
   ${media.largePhone`
     margin: 0;
