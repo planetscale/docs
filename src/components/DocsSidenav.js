@@ -53,9 +53,8 @@ const _Icon = styled.i`
 `
 
 const _SidenavList = styled.div`
-  padding: 0 1em;
-
   ${media.largePhone`
+    padding: 0 1em;
     ${_SidenavContainer}.hide & {
       display: none;
     }
@@ -71,15 +70,17 @@ const _GroupContainer = styled.div`
 `
 
 const _GroupHeading = styled.div`
-  font-weight: 500;
-  font-size: 18px;
-  color: #666;
+  font-weight: 600;
+  font-size: 16px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1em;
 `
 
 const _GroupLinks = styled.ul`
   list-style: none;
-  padding: 0;
-  margin-bottom: 32px;
+  padding: 0px 0 0;
+  margin-bottom: 42px;
 
   li {
     margin-bottom: 8px;
@@ -88,9 +89,24 @@ const _GroupLinks = styled.ul`
 
 const _PageLink = styled(Link)`
   text-decoration: none;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.3em 0;
 
   &:hover {
-    text-decoration: underline;
+    color: #db3d22;
+  }
+
+  &.active {
+    font-weight: 600;
+    color: #db3d22;
+    &:after {
+      display: inline-block;
+      margin-left: 8px;
+      content: '◁';
+      font-size: 16px;
+    }
   }
 `
 
@@ -165,7 +181,7 @@ function SidenavGroup({ category, pages }) {
         {pages.map((page, index) => {
           return (
             <li key={index}>
-              <_PageLink to={`/${page.fields.slug}`}>
+              <_PageLink to={`/${page.fields.slug}`} activeClassName="active">
                 {page.frontmatter.title}
               </_PageLink>
             </li>

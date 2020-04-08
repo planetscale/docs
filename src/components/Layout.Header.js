@@ -225,7 +225,7 @@ class Header extends Component {
             <Button>
               <ButtonLink href="https://console.planetscale.com/signup">
                 Try it for free
-              </ButtonLink>{' '}
+              </ButtonLink>
             </Button>
           </Nav>
           <MobileHeaderButton

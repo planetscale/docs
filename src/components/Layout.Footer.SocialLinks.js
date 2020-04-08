@@ -19,7 +19,7 @@ const Social = styled.a`
   }
 
   &:hover {
-    opacity: 1;
+    color: #000000;
   }
 
   ${media.largePhone`
