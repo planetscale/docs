@@ -28,10 +28,6 @@ const HeaderWrapper = styled(Wrapper)`
   `}
 `
 
-const HomeLink = styled(Link)`
-  flex-grow: 2;
-`
-
 const Logo = styled.img`
   height: 40px;
   margin-bottom: -2px;
@@ -191,12 +187,12 @@ class Header extends Component {
     return (
       <_Header visible={sideBarOpen}>
         <HeaderWrapper>
-          <HomeLink href="https://planetscale.com">
+          <a href="https://www.planetscale.com">
             <Logo
               src={logo}
               alt="PlanetScale - world's most scalable database clusters with Vitess"
             />
-          </HomeLink>
+          </a>
           <Nav visible={sideBarOpen}>
             <MobileCloseButton onClick={this.toggleSidebar}>
               Close
