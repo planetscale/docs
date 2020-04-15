@@ -1,9 +1,9 @@
 ---
-title: 'Creating a database'
+title: 'Create a database'
 category: 'setting-up-your-planetscale-cndb'
 ---
 
-# Creating a database
+# Create a database
 
 This document explains how to create a database using the PlanetScale console.
 
@@ -77,7 +77,6 @@ The **Total cost** calculator below shows the overall hourly cost of your databa
 
 By default, your database deploys immediately. This process can take up to several minutes.
 
-
 Once your database is ready, the **Cluster Overview** displays its status as **Deployed**.
 
 ## Step 10 (Optional): Click your database name.
@@ -90,5 +89,5 @@ If you deselected **Deploy on creation** in **Step 4** above, you can deploy it 
 
 ## See also
 
-+ Learn more about [sharding](sharding-schemes).
-+ Read about our [pricing model](pricing).
+- Learn more about [sharding](sharding-schemes).
+- Read about our [pricing model](pricing).

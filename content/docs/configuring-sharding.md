@@ -1,9 +1,9 @@
 ---
-title: 'Configuring a sharding scheme'
+title: 'Configure sharding scheme'
 category: 'setting-up-your-planetscale-cndb'
 ---
 
-# Configuring a sharding scheme
+# Configure sharding scheme
 
 This document describes how to configure your database to use multiple shards.
 

@@ -1,9 +1,9 @@
 ---
-title: 'Allowing access for specific IP addresses'
+title: 'Configure IP address based access'
 category: 'setting-up-your-planetscale-database'
 ---
 
-# Allowing access for specific IP addresses
+# Configure IP address based access
 
 This document describes how to allow specific IP addresses to connect to your PlanetScaleDB cluster.
 
@@ -50,6 +50,6 @@ The new IP addresses can now connect to your PlanetScaleDB.
 
 ## See also
 
-+ [Connecting to your database](connecting-to-db)
-+ [Securing the connection to your database](secure-connection)
-+ [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).
+- [Connecting to your database](connecting-to-db)
+- [Securing the connection to your database](secure-connection)
+- [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).

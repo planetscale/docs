@@ -18,11 +18,11 @@ order:
       - databases
       - sharding-schemes
       - deployment
-      - database-instances 
+      - database-instances
       - analytics-instances
       - backups
   - id: setting-up-planetscaleDB
-    name: Setting up PlanetScaleDB
+    name: Set up PlanetScaleDB
     pages:
       - creating-cluster
       - creating-database

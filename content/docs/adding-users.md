@@ -1,9 +1,9 @@
 ---
-title: 'Adding users to your account'
+title: 'Add users to your account'
 category: 'setting-up-your-planetscale-cndb'
 ---
 
-# Adding users to your account
+# Add users to your account
 
 This document describes how to add additional users to your PlanetScale account.
 

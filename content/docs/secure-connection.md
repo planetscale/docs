@@ -1,5 +1,5 @@
 ---
-title: 'Securing the connection to your database'
+title: 'Secure database connection'
 category: 'setting-up-your-planetscale-database'
 ---
 

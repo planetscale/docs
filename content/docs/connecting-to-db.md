@@ -1,9 +1,9 @@
 ---
-title: 'Connecting to your database'
+title: 'Connect to your database'
 category: 'using-your-planetscale-cndb'
 ---
 
-# Connecting to your database
+# Connect to your database
 
 This document describes how to connect to your database using a MySQL connection string.
 
@@ -68,7 +68,7 @@ cat << EOF > ~/.my.cnf
 [client]
 user=vtgate-1-user
 password=aAbBcCdDeE12345
-host=abcdefghijklmnop-123456789.us-east-1.elb.amazonaws.com 
+host=abcdefghijklmnop-123456789.us-east-1.elb.amazonaws.com
 port=3306
 EOF
 ```
@@ -94,9 +94,7 @@ owners.
 
 Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
-mysql> 
+mysql>
 ```
 
 You can now issue queries against your PlanetScale database.
-
-

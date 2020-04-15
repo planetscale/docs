@@ -1,9 +1,9 @@
 ---
-title: 'Creating a cluster'
+title: 'Create a cluster'
 category: 'setting-up-your-planetscale-cndb'
 ---
 
-# Creating a cluster
+# Create a cluster
 
 Before you can create a database, you must first create a cluster.
 This document explains how to create a cluster using the PlanetScale console.
@@ -21,7 +21,6 @@ To create a cluster, complete the following steps:
 
 ## Step 1: Open the clusters view.
 
-
 When you create a PlanetScale.com account, you are prompted to create a cluster. You can also access this view by going to [console.planetscale.com/clusters](https://console.planetscale.com/clusters).
 
 ![Create your first cluster screen](/img/docs/create-your-first-cluster.png)
@@ -38,7 +37,7 @@ The name of your cluster is prepended with your account name, and must be unique
 
 ## Step 4: Select **Single Region** or **Multi-region and multi-cloud**
 
-If you want to deploy your database to more than one cloud provider or region, choose **Multi-region and Multi-cloud**. 
+If you want to deploy your database to more than one cloud provider or region, choose **Multi-region and Multi-cloud**.
 
 ## Step 5: Select cloud providers and regions.
 

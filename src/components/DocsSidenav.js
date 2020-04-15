@@ -73,8 +73,8 @@ const _GroupHeading = styled.div`
   font-weight: 600;
   font-size: 16px;
   color: #333;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1em;
+  /* border-bottom: 1px solid #eee; */
+  /* padding-bottom: 1em; */
 `
 
 const _GroupLinks = styled.ul`

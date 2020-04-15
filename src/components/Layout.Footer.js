@@ -138,7 +138,7 @@ const Logo = styled.img`
   `};
 `
 
-const FooterLogoLink = styled(Link)`
+const FooterLogoLink = styled.a`
   padding: 0.2rem 0;
 `
 
@@ -197,18 +197,14 @@ function ListLinks(props) {
 }
 
 export function Footer({ children }) {
-  const FooterLogo = () => (
-    <FooterLogoLink to={'/'} activeStyle={{ opacity: 1 }}>
-      <Logo src={logo} />
-    </FooterLogoLink>
-  )
-
   return (
     <_Footer>
       <Wrapper>
         <FooterContent>
           <RowZero>
-            <FooterLogo />
+            <FooterLogoLink href="https://www.planetscale.comm">
+              <Logo src={logo} />
+            </FooterLogoLink>
           </RowZero>
           <RowOne>
             <PageLists>

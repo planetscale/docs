@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import Link from 'gatsby-link'
 import styled from 'styled-components'
 import { Button, ButtonLink } from '../components/Common.Button'
 import { Wrapper } from '../components/Layout.Wrapper'
@@ -28,12 +27,34 @@ const HeaderWrapper = styled(Wrapper)`
   `}
 `
 
+const HomeLink = styled.a`
+  flex-grow: 2;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+`
+
 const Logo = styled.img`
-  height: 40px;
+  height: 36px;
   margin-bottom: -2px;
 
   ${media.largePhone`
     height: 24px;
+  `}
+`
+
+const DocsBadge = styled.div`
+  color: white;
+  background-color: orange;
+  margin-left: 16px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 16px;
+  padding: 8px;
+  background-color: #347171;
+
+  ${media.largePhone`
+    font-size: 12px;
   `}
 `
 
@@ -83,48 +104,17 @@ const Nav = styled.nav`
   `};
 `
 
-const NavList = styled.ol`
-  margin-right: 1em;
-  padding: 0;
-
-  ${media.largePhone`
-  `};
-`
-
-const NavListItem = styled.li`
-  display: inline-block;
-  margin: 0 0.5em;
-  font-size: 1em;
-
-  a {
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    transition: all 0.2s;
-
-    &:hover {
-      border-bottom: 4px solid #fff;
-    }
+const HeaderButton = styled(Button)`
+  &:nth-child(2) {
+    margin-right: 1rem;
   }
 
   ${media.largePhone`
-    width: 100%;
-    text-align: right;
-    font-size: 1.5em;
-    margin-right: 0;
-    margin-bottom: 0.5em;
-
-    a {
-      color: #000;
-      &:hover {
-        border-bottom: 4px solid #fff;
-      }
+    &:nth-child(2) {
+      margin-right: 0;
+      margin-bottom: 1rem;    
     }
-
-    &:not(:first-child) {
-      padding-top: 5vmin;
-    }
-  `};
+  `}
 `
 
 const MobileHeaderButton = styled.button`
@@ -181,48 +171,32 @@ class Header extends Component {
   }
 
   render() {
-    const { pages } = this.props
     const { sideBarOpen } = this.state
 
     return (
       <_Header visible={sideBarOpen}>
         <HeaderWrapper>
-          <a href="https://www.planetscale.com">
+          <HomeLink href="/">
             <Logo
               src={logo}
               alt="PlanetScale - world's most scalable database clusters with Vitess"
             />
-          </a>
+            <DocsBadge>Docs</DocsBadge>
+          </HomeLink>
           <Nav visible={sideBarOpen}>
             <MobileCloseButton onClick={this.toggleSidebar}>
               Close
             </MobileCloseButton>
-            <NavList>
-              {pages.map(({ name, to, external }) => {
-                return (
-                  <NavListItem key={to}>
-                    {external && external === true ? (
-                      <a href={to}>{name}</a>
-                    ) : (
-                      <Link
-                        to={to}
-                        exact="true"
-                        activeStyle={{
-                          borderBottom: '4px solid rgb(255, 255, 255)',
-                        }}
-                      >
-                        {name}
-                      </Link>
-                    )}
-                  </NavListItem>
-                )
-              })}
-            </NavList>
-            <Button>
+            <HeaderButton className="transparent">
+              <ButtonLink href="https://www.planetscale.com">
+                Go to planetscale.com
+              </ButtonLink>
+            </HeaderButton>
+            <HeaderButton>
               <ButtonLink href="https://console.planetscale.com/signup">
                 Try it for free
               </ButtonLink>
-            </Button>
+            </HeaderButton>
           </Nav>
           <MobileHeaderButton
             visible={sideBarOpen}

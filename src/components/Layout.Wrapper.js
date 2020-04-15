@@ -8,7 +8,7 @@ export const Wrapper = styled.section`
   width: 100%;
   max-width: ${(props) =>
     props.theme && props.theme.sizes && props.theme.sizes.maxWidth};
-  padding: 2em 0em 2em;
+  padding: 37px 0;
   z-index: 1;
 
   ${media.largePhone`
@@ -54,7 +54,7 @@ export function Section({ children, background, flexDirection, padding }) {
 const _DocsWrapperContentBound = styled.section`
   max-width: 1170px;
   display: grid;
-  grid-template-columns: 420px 1fr;
+  grid-template-columns: 350px 1fr;
   padding: 2em 0;
 
   ${media.largePhone`
