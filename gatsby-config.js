@@ -70,13 +70,6 @@ module.exports = {
       },
     },
     'gatsby-transformer-yaml',
-    {
-      resolve: 'gatsby-source-filesystem',
-      options: {
-        name: 'pages',
-        path: `${__dirname}/content/pages/`,
-      },
-    },
     'gatsby-plugin-netlify',
     {
       resolve: `gatsby-plugin-google-tagmanager`,

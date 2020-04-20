@@ -18,41 +18,6 @@ export const theme = {
 
 export const sizes = theme.sizes
 
-export const headerLinks = [
-  {
-    id: 'products',
-    name: 'Products',
-    to: 'https://planetscale.com/products',
-    external: true,
-  },
-  {
-    id: 'casestudies',
-    name: 'Vitess Case Studies',
-    to: 'https://planetscale.com/casestudies',
-    external: true,
-  },
-
-  {
-    id: 'blog',
-    name: 'Blog',
-    to: 'https://planetscale.com/blog',
-    external: true,
-  },
-
-  {
-    id: 'news',
-    name: 'News',
-    to: 'https://planetscale.com/newsroom',
-    external: true,
-  },
-
-  {
-    id: 'docs',
-    name: 'Docs',
-    to: '/',
-  },
-]
-
 export const footerLinks = [
   {
     title: 'Company',
