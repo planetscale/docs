@@ -6,13 +6,7 @@ import { media } from '../styles/media'
 import logo from '../../static/planetscale_logo_white_text.svg'
 
 const _Header = styled.header`
-  width: 100%;
-  z-index: 1337;
-
-  ${media.desktop`
-    width: 100%;
-    margin: 0 auto;
-  `};
+  overflow-x: hidden;
 `
 
 const HeaderWrapper = styled(Wrapper)`
@@ -99,7 +93,6 @@ const Nav = styled.nav`
     background-color: white;
     opacity: ${(props) => (props.visible ? '1' : '0')} ;
     z-index: 1337;
-    
     padding: 2em;
   `};
 `
@@ -202,12 +195,8 @@ class Header extends Component {
             visible={sideBarOpen}
             onClick={this.toggleSidebar}
           >
-            <MobileHeaderButtonIcon activeMobileMenu={this.state.sideBarOpen}>
-              {sideBarOpen ? (
-                <i className="fas fa-times"></i>
-              ) : (
-                <i className="fas fa-bars"></i>
-              )}
+            <MobileHeaderButtonIcon>
+              <i className="fas fa-bars"></i>
             </MobileHeaderButtonIcon>
           </MobileHeaderButton>
         </HeaderWrapper>
