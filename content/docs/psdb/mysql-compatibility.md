@@ -18,4 +18,3 @@ PlanetScaleDB supports all core features of MySQL 5.7, including standard SQL st
 PlanetScaleDB uses [Vitess](https://vitess.io) to scale your database. This means that the PlanetScaleDB only supports the same set of MySQL features as the latest version of Vitess.
 
 To learn about what MySQL features Vitess supports, see [the Vitess documentation](https://vitess.io/docs/reference/mysql-compatibility/).
-

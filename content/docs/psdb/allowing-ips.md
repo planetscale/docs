@@ -9,7 +9,7 @@ This document describes how to allow specific IP addresses to connect to your Pl
 
 ## Overview
 
-PlanetScaleDB handles connection security at the [cluster](clusters) level. By default, your PlanetScaleDB cluster only accepts connections from your IP address. To specify additional IP addresses that can connect to your cluster, you can update the **IP Access List**. To do so, follow these steps:
+PlanetScaleDB handles connection security at the [cluster](/psdb/clusters) level. By default, your PlanetScaleDB cluster only accepts connections from your IP address. To specify additional IP addresses that can connect to your cluster, you can update the **IP Access List**. To do so, follow these steps:
 
 1. Go to your [PlanetScale console](https://console.planetscale.com).
 1. Click on your cluster.
@@ -50,6 +50,6 @@ The new IP addresses can now connect to your PlanetScaleDB.
 
 ## See also
 
-- [Connecting to your database](connecting-to-db)
-- [Securing the connection to your database](secure-connection)
+- [Connecting to your database](psdb/connecting-to-db)
+- [Securing the connection to your database](psdb/secure-connection)
 - [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).

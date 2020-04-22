@@ -1,6 +1,6 @@
 ---
 title: 'Undeploying a database'
-category: 'using-your-planetscale-cndb'
+category: 'using-your-planetscaledb'
 ---
 
 # Undeploying a database
@@ -9,7 +9,7 @@ This document describes how to undeploy your database from the PlanetScale conso
 
 ## Prerequisites
 
-This document assumes you have [created a database](creating-database) and deployed it.
+This document assumes you have [created a database](psdb/creating-database) and deployed it.
 
 ## Overview
 
@@ -47,4 +47,3 @@ To confirm that you wish to undeploy your database, type the name of the databas
 ## Step 6. Click **Confirm**.
 
 **Note:** This deletes the data in your database. However, database backups and configuration persist. You can redeploy at any time. Redeployment restores your database from the latest backup.
-

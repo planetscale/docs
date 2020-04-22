@@ -3,7 +3,7 @@ title: 'Performance features'
 category: 'concepts'
 ---
 
-# Performance features of PlanetScaleDB 
+# Performance features of PlanetScaleDB
 
 This document provides an overview of the performance features of PlanetScaleDB.
 
@@ -18,4 +18,3 @@ PlanetScaleDB protects your database from "hot" or duplicate queries by reusing 
 ## Connection Pooling
 
 Standard MySQL memory usage is fairly unpredictable; uncontrolled memory allocations may require configuring connection buffers or overprovisioning memory to avoid performance failures. Instead of opening a new thread for every connection to the database, Vitess maps its lightweight connections to a small set of MySQL connections to efficiently support a larger number of client connections. PlanetScale Database takes advantage of Vitess connection pooling by default.
-

@@ -34,12 +34,10 @@ export function TitleAndMetaTags({
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="description" content={description}></meta>
 
-      <link
-        rel="stylesheet"
-        href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
-        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/"
-        crossOrigin="anonymous"
-      />
+      <script
+        src="https://kit.fontawesome.com/4f3d66bc81.js"
+        crossorigin="anonymous"
+      ></script>
 
       <meta property="og:url" content={`${url}/${pathname}`} />
       <meta

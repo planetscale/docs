@@ -26,7 +26,7 @@ This quickstart includes the following steps:
 
 If you do not have a PlanetScale account, create one first.
 
-Go to [console.planetscale.com](https://console.planetscale.com) and click *Sign up here.* Provide user account information. Payment information is not necessary for this quickstart.
+Go to [console.planetscale.com](https://console.planetscale.com) and click _Sign up here._ Provide user account information. Payment information is not necessary for this quickstart.
 
 <!-- Is it true that payment information is not necessary for this quickstart?-->
 
@@ -77,4 +77,3 @@ This query returns the following output:
 ![MySQL Workbench Query Tab](/img/docs/mysql-workbench-show-databases-screenshot.png)
 
 <!-- What's next section with links to how-to docs. -->
-

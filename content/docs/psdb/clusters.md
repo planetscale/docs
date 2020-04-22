@@ -9,7 +9,7 @@ This document explains the basic ideas behind clusters in the PlanetScaleDB cont
 
 ## What is a cluster?
 
-In the context of PlanetScaleDB, a **cluster** is a set of resources that run one or more [databases](databases). Your application connects to a particular cluster, which provides access to all of the databases it contains.
+In the context of PlanetScaleDB, a **cluster** is a set of resources that run one or more [databases](psdb/databases). Your application connects to a particular cluster, which provides access to all of the databases it contains.
 
 ![Diagram of a large cylinder representing a cluster and containing multiple smaller cylinders representing databases](/img/docs/cluster-diagram.png)
 
@@ -19,5 +19,5 @@ PlanetScale clusters correspond to [Kubernetes clusters](https://kubernetes.io/d
 
 ## What's next
 
-+ Learn how to [create a cluster](creating-cluster).
-+ Learn how to [connect to a cluster](connecting-to-db).
+- Learn how to [create a cluster](psdb/creating-cluster).
+- Learn how to [connect to a cluster](psdb/connecting-to-db).

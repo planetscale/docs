@@ -1,6 +1,6 @@
 ---
 title: 'Create a cluster'
-category: 'setting-up-your-planetscale-cndb'
+category: 'setting-up-your-planetscaledb'
 ---
 
 # Create a cluster
@@ -35,7 +35,7 @@ After clicking **Create Cluster**, you are prompted to name your cluster.
 
 The name of your cluster is prepended with your account name, and must be unique.
 
-## Step 4: Select **Single Region** or **Multi-region and multi-cloud**
+## Step 4: Select **Single Region** or **Multi-region and Multi-cloud**
 
 If you want to deploy your database to more than one cloud provider or region, choose **Multi-region and Multi-cloud**.
 
@@ -53,4 +53,4 @@ When you have selected a name and region for your cluster, click **Create Cluste
 
 ## What's next
 
-Now that you have a cluster, you can [create a database](creating-database).
+Now that you have a cluster, you can [create a database](psdb/creating-database).

@@ -7,15 +7,15 @@ category: 'using-your-planetscale-database'
 
 This document explains how to view status messages for your clusters and databases.
 
-## Overview 
+## Overview
 
-Messages about the status of your [clusters](clusters) and [databases](databases) appear in the **Messages** view. These messages contain information about important changes to the status of your database, including the following:
+Messages about the status of your [clusters](psdb/clusters) and [databases](psdb/databases) appear in the **Messages** view. These messages contain information about important changes to the status of your database, including the following:
 
-+ Low disk space
-+ Increased latency
-+ Maintenance notifications
-+ Database resize events
-+ Communications from PlanetScale. 
+- Low disk space
+- Increased latency
+- Maintenance notifications
+- Database resize events
+- Communications from PlanetScale.
 
 ## Open the **Messages** view
 

@@ -11,14 +11,14 @@ The steps in this document may be too slow for large databases. If you want to i
 
 ## Prerequisites
 
-Before you import data into your database, you must first [create a database](creating-database). If you want your database to use multiple [shards](understanding-sharding-schemes), apply your sharding scheme before importing data.
+Before you import data into your database, you must first [create a database](psdb/creating-database). If you want your database to use multiple [shards](psdb/understanding-sharding-schemes), apply your sharding scheme before importing data.
 
 ## Overview
 
 To import data into your database, complete the following steps:
 
 1. [Export your database to a file](https://dev.mysql.com/doc/refman/8.0/en/mysqldump-sql-format.html).
-1. [Connect to your database](connecting-to-db).
+1. [Connect to your database](psdb/connecting-to-db).
 1. [Reload the database file from your MySQL client](https://dev.mysql.com/doc/refman/8.0/en/reloading-sql-format-dumps.html).
 
 ## Step 1: Export your database to a file
@@ -30,7 +30,7 @@ you can use the [`mysqldump`](https://dev.mysql.com/doc/refman/8.0/en/mysqldump-
 shell> mysqldump --source-database > exported-database.sql
 ```
 
-## Step 2: [Connect to your database](connecting-to-db).
+## Step 2: [Connect to your database](psdb/connecting-to-db).
 
 ## Step 3: Reload the database file from your MySQL client.
 
@@ -39,7 +39,3 @@ Using your MySQL client, import your database file. For example, you can use the
 ```
 shell> mysql < exported-database.sql
 ```
-
-
-
-

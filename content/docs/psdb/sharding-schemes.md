@@ -16,6 +16,7 @@ This document explains the basic concept of sharding schemes as used in PlanetSc
 In order to scale your database, PlanetScale can distribute your database tables into **shards**. If you want a sharded database, you need to configure a sharding scheme. However, if you want multiple instances of your database tables, you do not need a sharding scheme. Your database can also use both sharding and replication. An unsharded database does not require a sharding scheme. Your application does not need to be aware of the sharding scheme.
 
 <!-- Can we omit the rest of this section as implementation detail?-->
+
 PlanetScaleDB uses **keyspaces** to divide data into shards: each shard is assigned a range within the keyspace. Vitess uses Vindexes to map column values onto keyspaces. The sharding scheme relates tables, shards, keyspaces, and Vindexes. Your PlanetScale database uses all of this information to treat the different shards as one database.
 
 <!-- What is a keyspace? Do we want to use this term? Do we need to? -->
@@ -27,8 +28,9 @@ PlanetScaleDB uses **keyspaces** to divide data into shards: each shard is assig
 <!-- We still can't get around using the term 'vindex', because it's baked into the vschema format. Explain. -->
 
 Sharding schemes use JSON format. Each sharding scheme contains at least one key-value pair indicating whether or not the database is sharded; it also contains at least one JSON object, called `tables`, which itself contains one JSON object for each sharded table. Each of these table objects can contain an object called `column_vindexes`, which contains the name of any column(s) in the table that map to a Vindex, along with the name of the Vindex. Finally, it contains a JSON object called `vindexes`, which contains one JSON object for each Vindex on the database; each of these Vindex objects contains a key-value pair called `type`, which specifies the [Vindex type](http://vitess.io/docs/reference/vschema/#predefined-vindexes).
- 
+
 ### Example sharding scheme
+
 <!-- Should we include an example non-sharded scheme? -->
 <!-- This section also references vindexes. -->
 
@@ -74,7 +76,6 @@ In the example sharding scheme above, the `user` table object contains an object
 
 The `column_vindexes` object specifies that the `user_id` column maps to a Vindex called `hash`. This means that, at query execution time, your database will use the `WHERE` clause of the SQL query to identify the range of values of `user_id` it needs to return; then, it will use a hash function to compute the keyspace IDs for the desired rows.
 
-<!-- We should probably revise this to remove any redundancies, and consider how much of this should actually be happening in the vitess.io docs. The user will likely need more information than this, but the VSchema docs at vitess.io are difficult to understand. --> 
+<!-- We should probably revise this to remove any redundancies, and consider how much of this should actually be happening in the vitess.io docs. The user will likely need more information than this, but the VSchema docs at vitess.io are difficult to understand. -->
 
 <!-- Should we develop a graphic here or somewhere that demonstrates the relation between sharded table, Vindex, and keyspace ID? E.g., at query execution time, how does Vitess route a query to a shard? Perhaps this ought to live in the Vitess open source docs instead. -->
-  

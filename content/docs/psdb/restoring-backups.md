@@ -21,10 +21,8 @@ This opens the **Overview** for your database.
 
 ## Step 4. Click the **Backups** tab.
 
-This displays all existing backups for your database. 
+This displays all existing backups for your database.
 
 ## Step 5. Contact <support@planetscale.com>
 
 If you need to restore your database from a backup, contact <support@planetscale.com> for assistance. Please specify the date and time of the specific backup you would like PlanetScale to restore.
-
-

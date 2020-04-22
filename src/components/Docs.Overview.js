@@ -62,7 +62,7 @@ class Overview extends Component {
     const outputPages = []
     categoryPages.map((pageID) => {
       docPages.nodes.map((page) => {
-        if (page.fields.slug === pageID) {
+        if (page.fields.slug.includes(pageID)) {
           outputPages.push(page)
         }
       })

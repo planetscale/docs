@@ -4,55 +4,56 @@ order:
     name: Getting Started
     description: Learn how to quickly setup PlanetScaleDB to connect to your application
     pages:
-      - mysql-workbench-quickstart
+      - psdb/mysql-workbench-quickstart
   - id: concepts
     icon: bullseye
-    name: Concepts
-    description: Learn about the various concepts available to be configured in PlanetScaleDB
+    name: PlanetScaleDB Concepts
+    description: Learn about the different features and options of PlanetScaleDB
     pages:
-      - db-overview
-      - availability-features
-      - performance-features
-      - security-features
-      - clusters
-      - databases
-      - sharding-schemes
-      - deployment
-      - database-instances
-      - analytics-instances
-      - backups
+      - psdb/db-overview
+      - psdb/availability-features
+      - psdb/performance-features
+      - psdb/security-features
+      - psdb/clusters
+      - psdb/databases
+      - psdb/sharding-schemes
+      - psdb/deployment
+      - psdb/database-instances
+      - psdb/analytics-instances
+      - psdb/backups
   - id: setting-up-planetscaleDB
     icon: wrench
     name: Set up PlanetScaleDB
-    description: Learn about the various concepts available to be configured in PlanetScaleDB
+    description: Configure and deploy your database
     pages:
-      - creating-cluster
-      - creating-database
-      - configuring-sharding
-      - adding-users
-      - connecting-to-db
-      - secure-connection
-      - allowing-ips
+      - psdb/creating-cluster
+      - psdb/creating-database
+      - psdb/configuring-sharding
+      - psdb/adding-users
+      - psdb/connecting-to-db
+      - psdb/secure-connection
+      - psdb/allowing-ips
   - id: using-planetscaledb
-    icon: paper-plane
+    icon: database
     name: Using PlanetScaleDB
-    description: Learn about the various concepts available to be configured in PlanetScaleDB
+    description: Connect to your database and make changes to your configuration
     pages:
-      - importing-data
-      - migrating-database-schemas
-      - undeploying-database
-      - restoring-backups
-      - viewing-status-messages
+      - psdb/importing-data
+      - psdb/migrating-database-schemas
+      - psdb/undeploying-database
+      - psdb/restoring-backups
+      - psdb/viewing-status-messages
   - id: reference
-    icon: crosshairs
-    name: Reference
-    description: Learn about the various concepts available to be configured in PlanetScaleDB
-    pages:
-      - operational-guidelines
-      - mysql-compatibility
-  - id: resources
+    name: PlanetScaleDB Reference
     icon: info-circle
-    name: Resources
-    description: Learn about the various concepts available to be configured in PlanetScaleDB
+    description: Refer to technical guidelines on operation and compatibility
     pages:
-      - pricing
+      - psdb/operational-guidelines
+      - psdb/mysql-compatibility
+      - psdb/pricing
+  - id: psdb-operator
+    name: PlanetScaleDB Operator
+    icon: hard-hat
+    description: Automate Vitess deployment and maintenance in your own Kubernetes cluster
+    pages:
+      - psdb-operator/overview

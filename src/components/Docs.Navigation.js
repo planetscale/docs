@@ -117,11 +117,11 @@ class Sidenav extends Component {
     }
   }
 
-  getPagesInCategory(categoryPages, docPages) {
+  getPagesInCategory(category, docPages) {
     const outputPages = []
-    categoryPages.map((pageID) => {
+    category.pages.map((pageID) => {
       docPages.nodes.map((page) => {
-        if (page.fields.slug === pageID) {
+        if (page.fields.slug.includes(pageID)) {
           outputPages.push(page)
         }
       })
@@ -158,10 +158,7 @@ class Sidenav extends Component {
               <SidenavGroup
                 key={index}
                 category={category.name}
-                pages={this.getPagesInCategory(
-                  category.pages,
-                  this.props.docPages
-                )}
+                pages={this.getPagesInCategory(category, this.props.docPages)}
               ></SidenavGroup>
             )
           })}

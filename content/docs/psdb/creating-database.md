@@ -1,6 +1,6 @@
 ---
 title: 'Create a database'
-category: 'setting-up-your-planetscale-cndb'
+category: 'setting-up-your-planetscaledb'
 ---
 
 # Create a database
@@ -9,7 +9,7 @@ This document explains how to create a database using the PlanetScale console.
 
 ## Prerequisites
 
-Before you can create a database, you must first [create a cluster](creating-cluster).
+Before you can create a database, you must first [create a cluster](/psdb/creating-cluster).
 
 ## Overview
 
@@ -57,7 +57,7 @@ The **Cost per instance** calculator below shows the hourly cost for the current
 
 ## Step 7: Choose the number of instances
 
-Under **Number of instances**, choose the number of [database instances](database instances) and [analytics instances](analytics-instances) per [shard](sharding-schemes).
+Under **Number of instances**, choose the number of [database instances](database instances) and [analytics instances](analytics-instances) per [shard](/psdb/sharding-schemes).
 
 ![Number of instances section](/img/docs/number-of-instances.png)
 
@@ -89,5 +89,5 @@ If you deselected **Deploy on creation** in **Step 4** above, you can deploy it 
 
 ## See also
 
-- Learn more about [sharding](sharding-schemes).
-- Read about our [pricing model](pricing).
+- Learn more about [sharding](/psdb/sharding-schemes).
+- Read about our [pricing model](/psdb/pricing).
