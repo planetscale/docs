@@ -71,10 +71,8 @@ const _GroupContainer = styled.div`
 
 const _GroupHeading = styled.div`
   font-weight: 600;
-  font-size: 16px;
-  color: #333;
-  /* border-bottom: 1px solid #eee; */
-  /* padding-bottom: 1em; */
+  font-size: 0.816em;
+  color: #666;
 `
 
 const _GroupLinks = styled.ul`

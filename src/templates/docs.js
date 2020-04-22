@@ -4,7 +4,7 @@ import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { DocsSection } from '../components/Layout.Wrapper'
 import { Footer } from '../components/Layout.Footer'
-import DocsNavigation from '../components/DocsSidenav'
+import DocsNavigation from '../components/Docs.Navigation'
 import MarkdownContent from '../components/Common.MarkdownContent'
 import Header from '../components/Layout.Header'
 

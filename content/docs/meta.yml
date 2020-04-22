@@ -1,14 +1,14 @@
 order:
-  - id: home
-    name: Home
-    pages:
-      - overview
   - id: getting-started
+    icon: angle-double-right
     name: Getting Started
+    description: Learn how to quickly setup PlanetScaleDB to connect to your application
     pages:
       - mysql-workbench-quickstart
   - id: concepts
+    icon: bullseye
     name: Concepts
+    description: Learn about the various concepts available to be configured in PlanetScaleDB
     pages:
       - db-overview
       - availability-features
@@ -22,7 +22,9 @@ order:
       - analytics-instances
       - backups
   - id: setting-up-planetscaleDB
+    icon: wrench
     name: Set up PlanetScaleDB
+    description: Learn about the various concepts available to be configured in PlanetScaleDB
     pages:
       - creating-cluster
       - creating-database
@@ -32,7 +34,9 @@ order:
       - secure-connection
       - allowing-ips
   - id: using-planetscaledb
+    icon: paper-plane
     name: Using PlanetScaleDB
+    description: Learn about the various concepts available to be configured in PlanetScaleDB
     pages:
       - importing-data
       - migrating-database-schemas
@@ -40,11 +44,15 @@ order:
       - restoring-backups
       - viewing-status-messages
   - id: reference
+    icon: crosshairs
     name: Reference
+    description: Learn about the various concepts available to be configured in PlanetScaleDB
     pages:
       - operational-guidelines
       - mysql-compatibility
   - id: resources
+    icon: info-circle
     name: Resources
+    description: Learn about the various concepts available to be configured in PlanetScaleDB
     pages:
       - pricing

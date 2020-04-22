@@ -15,6 +15,7 @@ const HeaderWrapper = styled(Wrapper)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  z-index: 2;
 
   ${media.largePhone`
     padding: 1.5em;
@@ -167,7 +168,7 @@ class Header extends Component {
     const { sideBarOpen } = this.state
 
     return (
-      <_Header visible={sideBarOpen}>
+      <_Header>
         <HeaderWrapper>
           <HomeLink href="/">
             <Logo
