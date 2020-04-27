@@ -198,7 +198,7 @@ const query = graphql`
     }
 
     docPages: allMarkdownRemark(
-      filter: { fields: { collection: { eq: "docs" } } }
+      filter: { fields: { collection: { in: ["docs", "open-source-docs"] } } }
     ) {
       nodes {
         frontmatter {

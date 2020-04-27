@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScaleDB Operator Overview'
+title: 'Overview'
 category: 'psdb-operator'
 ---
 
-# PlanetScaleDB Operator for Vitess overview
+# Overview: PlanetScaleDB Operator for Vitess
 
 This document describes the purpose of the PlanetScaleDB Operator for Vitess and introduces its usage. To learn more about Vitess, see the [Vitess documentation](https://vitess.io/docs).
 

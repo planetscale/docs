@@ -57,3 +57,9 @@ order:
     description: Automate Vitess deployment and maintenance in your own Kubernetes cluster
     pages:
       - psdb-operator/overview
+  - id: vitess-operator
+    name: Vitess Operator
+    icon: hard-hat
+    description: Automate Vitess deployment and maintenance in your own Kubernetes cluster
+    pages:
+      - vitess-operator/overview

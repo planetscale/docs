@@ -36,13 +36,14 @@ const CategoryTitle = styled.div`
   font-size: 24px;
 `
 
-const PageLink = styled(Link)`
+const CategoryCard = styled(Link)`
   background-color: #214746;
   color: white;
   padding: 2em;
   text-decoration: none;
   display: flex;
   flex-direction: column;
+  transition: background-color 0.2s;
 
   &:hover {
     background-color: #347171;
@@ -77,7 +78,7 @@ class Overview extends Component {
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
             return (
-              <CategoryCard
+              <Category
                 key={index}
                 category={category.name}
                 icon={category.icon}
@@ -86,7 +87,7 @@ class Overview extends Component {
                   category.pages,
                   this.props.docPages
                 )}
-              ></CategoryCard>
+              ></Category>
             )
           })}
         </CategoryList>
@@ -95,13 +96,13 @@ class Overview extends Component {
   }
 }
 
-function CategoryCard({ category, icon, description, pages }) {
+function Category({ category, icon, description, pages }) {
   return (
-    <PageLink to={`/${pages[0].fields.slug}`} activeClassName="active">
+    <CategoryCard to={`/${pages[0].fields.slug}`} activeClassName="active">
       <CategoryIcon className={`fas fa-${icon}`}></CategoryIcon>
       <CategoryTitle>{category}</CategoryTitle>
       <p>{description}</p>
-    </PageLink>
+    </CategoryCard>
   )
 }
 
@@ -118,7 +119,7 @@ const query = graphql`
     }
 
     docPages: allMarkdownRemark(
-      filter: { fields: { collection: { eq: "docs" } } }
+      filter: { fields: { collection: { in: ["docs", "open-source-docs"] } } }
     ) {
       nodes {
         frontmatter {
