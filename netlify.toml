@@ -18,5 +18,5 @@
 [context.branch-deploy]
 
 [[redirects]]
-  from = "/replicas"
-  to = "/database-instances"
+  from = "/psdb/replicas"
+  to = "/psdb/database-instances"
