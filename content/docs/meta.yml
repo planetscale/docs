@@ -54,12 +54,12 @@ order:
   - id: psdb-operator
     name: PlanetScaleDB Operator
     icon: hard-hat
-    description: Automate Vitess deployment and maintenance in your own Kubernetes cluster
+    description: Deploy, manage, and monitor Vitess clusters in your own Kubernetes cluster using our enterprise operator
     pages:
       - psdb-operator/overview
   - id: vitess-operator
     name: Vitess Operator
     icon: hard-hat
-    description: Automate Vitess deployment and maintenance in your own Kubernetes cluster
+    description: Automate Vitess deployment and maintenance in your own Kubernetes cluster using our open source operator
     pages:
       - vitess-operator/overview
