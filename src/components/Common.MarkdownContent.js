@@ -8,6 +8,7 @@ const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
   color: ${(props) => (props.inverted ? 'white' : '#222;')};
   white-space: ${(props) => props.whiteSpace};
+  overflow: auto;
 
   h1 {
     font-weight: 400;
@@ -84,12 +85,7 @@ const MarkDownContainer = styled.div`
   pre {
     padding: 2em;
     background-color: #f7f7f7;
-    overflow: auto;
-  }
-
-  code {
-    padding: 4px;
-    background-color: #f7f7f7;
+    overflow: scroll;
   }
 
   ${(props) => props.customCSS};
