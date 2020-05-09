@@ -10,7 +10,7 @@ order:
     name: PlanetScaleDB Concepts
     description: Learn about the different features and options of PlanetScaleDB
     pages:
-      - psdb/db-overview
+      - psdb/overview
       - psdb/availability-features
       - psdb/performance-features
       - psdb/security-features
