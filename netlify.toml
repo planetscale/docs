@@ -20,3 +20,8 @@
 [[redirects]]
   from = "/psdb/replicas"
   to = "/psdb/database-instances"
+
+[[headers]]
+  for = "/static/**/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"

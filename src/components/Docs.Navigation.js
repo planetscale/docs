@@ -2,67 +2,104 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
+import logo from '../../static/planetscale_logo_green_text.svg'
 
-const _SidenavContainer = styled.div`
-  border-right: 1px solid #eee;
-  padding: 0 2rem 1rem 0rem;
-  margin-right: 2rem;
+const HomeLink = styled.a`
+  flex-grow: 2;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5em 2em;
+  border-bottom: 1px solid #f3ebe6;
 
   ${media.largePhone`
-    border: 0;
     padding: 0;
-    background-color: #f7f7f7;
-    margin: 0 0 2em;
-    border-radius: 8px;
+    border: 0;
+    justify-content: left;
   `}
 `
 
-const _SidenavTitle = styled.div`
+const Logo = styled.img`
+  height: 24px;
+
+  ${media.largePhone`
+    height: 24px;
+  `}
+`
+
+const DocsBadge = styled.div`
+  color: #8f847e;
+  margin-left: 16px;
+  border-radius: 8px;
+  text-transform: uppercase;
+  font-size: 0.666em;
+  padding: 0.666em;
+  background-color: #f3ebe6;
+
+  ${media.largePhone`
+    font-size: 12px;
+  `}
+`
+
+const _SidenavContainer = styled.div`
+  border-right: 1px solid #f3ebe6;
+  border-left: 1px solid #f3ebe6;
+  height: 100vh;
+  overflow: auto;
+
+  ${media.largePhone`
+    display: flex;
+    flex-direction: row;
+    border: 0;
+    border-bottom: 1px solid #f3ebe6;
+    height: unset;
+    padding: 1.5em 1em;
+    z-index: 2;
+  `}
+`
+
+const MenuLink = styled.div`
   display: none;
 
   ${media.largePhone`
-    border-bottom: 1px solid #e1e1e1;
-    padding: 1em  2em 1em 1em;
-    margin-bottom: 1em;
-    font-weight: 500;
+    font-size: 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
-
-    &:hover {
-      cursor: pointer;
-    }
-
-    ${_SidenavContainer}.hide & {
-      border-bottom: 0;
-      margin-bottom: 0;
-    }
+    color: #6C5E5A;  
   `}
 `
 
-const _Label = styled.h3`
-  margin: 0;
-
-  ${media.largePhone`
-    flex-grow: 2;
-  `}
-`
-
-const _Icon = styled.i`
-  font-size: 24px;
-`
+const _Icon = styled.i``
 
 const _SidenavList = styled.div`
+  padding: 0 0 2em;
+
+  div:last-child {
+    margin-bottom: 0;
+  }
+
   ${media.largePhone`
-    padding: 0 1em;
+    position: fixed;
+    background: #333;
+    left: 0;
+    bottom: 0;
+    height: 100vh;
+    width: 80vw;
+    color: white;
+    transition: all 0.5s;
+    overflow: scroll;
+
     ${_SidenavContainer}.hide & {
-      display: none;
+      left: -100%;
     }
   `}
 `
 
 const _GroupContainer = styled.div`
   white-space: nowrap;
+  margin-bottom: 2.5em;
 
   ${media.largePhone`
     white-space: unset;
@@ -70,42 +107,51 @@ const _GroupContainer = styled.div`
 `
 
 const _GroupHeading = styled.div`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 0.816em;
-  color: #666;
+  color: #999;
+  padding: 0 2em;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  ${media.largePhone`
+    padding: 0 1em;
+  `}
 `
 
 const _GroupLinks = styled.ul`
   list-style: none;
-  padding: 0px 0 0;
-  margin-bottom: 42px;
-
-  li {
-    margin-bottom: 8px;
-  }
+  padding: 0;
 `
 
 const _PageLink = styled(Link)`
+  font-size: 0.816em;
+  font-weight: 500;
   text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0.3em 0;
+  padding: 0.8em 2em;
+  transition: background-color 0.25s ease;
 
   &:hover {
-    color: #db3d22;
+    background-color: #f3ebe6;
   }
 
   &.active {
     font-weight: 600;
     color: #db3d22;
-    &:after {
-      display: inline-block;
-      margin-left: 8px;
-      content: '◁';
-      font-size: 16px;
-    }
+    background-color: #f3ebe6;
+    border-right: 1px solid #db3d22;
   }
+
+  ${media.largePhone`
+    padding: 1em;
+
+    &.active {
+      border-left: 1px solid #db3d22;
+    }
+  `}
 `
 
 class Sidenav extends Component {
@@ -130,6 +176,23 @@ class Sidenav extends Component {
     return outputPages
   }
 
+  getHTMLPagesInCategory(category, htmlPages) {
+    const outputPages = []
+    category.pages.map((pageID) => {
+      htmlPages.nodes.map((page) => {
+        const pageSlug = page.fields.slug.replace(
+          'docs',
+          page.sourceInstanceName
+        )
+
+        if (pageSlug.includes(pageID)) {
+          outputPages.push(page)
+        }
+      })
+    })
+    return outputPages
+  }
+
   toggleMobileTOC = (boolean) => {
     this.setState((oldState) => {
       return {
@@ -144,21 +207,39 @@ class Sidenav extends Component {
 
     return (
       <_SidenavContainer className={`${isMobileTOCOpen ? '' : 'hide'}`}>
-        <_SidenavTitle onClick={this.toggleMobileTOC}>
-          <_Label>Table of Contents</_Label>
+        <HomeLink href="/">
+          <Logo
+            src={logo}
+            alt="PlanetScale - world's most scalable database clusters with Vitess"
+          />
+          <DocsBadge>Docs</DocsBadge>
+        </HomeLink>
+        <MenuLink onClick={this.toggleMobileTOC}>
           <_Icon
-            className={`fas ${
-              isMobileTOCOpen ? 'fa-angle-up' : 'fa-angle-down'
-            }`}
+            className={`fas ${isMobileTOCOpen ? 'fa-times' : 'fa-bars'}`}
           ></_Icon>
-        </_SidenavTitle>
+        </MenuLink>
+
         <_SidenavList>
+          <_GroupContainer>
+            <_GroupLinks>
+              <_PageLink to="/" activeClassName="active">
+                Documentation Overview
+              </_PageLink>
+            </_GroupLinks>
+          </_GroupContainer>
+
           {this.props.categories.order.map((category, index) => {
             return (
               <SidenavGroup
                 key={index}
                 category={category.name}
+                icon={category.icon}
                 pages={this.getPagesInCategory(category, this.props.docPages)}
+                htmlPages={this.getHTMLPagesInCategory(
+                  category,
+                  this.props.htmlPages
+                )}
               ></SidenavGroup>
             )
           })}
@@ -168,16 +249,28 @@ class Sidenav extends Component {
   }
 }
 
-function SidenavGroup({ category, pages }) {
+function SidenavGroup({ category, icon, pages, htmlPages }) {
   return (
     <_GroupContainer>
-      <_GroupHeading>{category}</_GroupHeading>
+      <_GroupHeading>
+        <_Icon className={`fas fa-${icon}`}></_Icon> {category}
+      </_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {
           return (
             <li key={index}>
-              <_PageLink to={`/${page.fields.slug}`} activeClassName="active">
+              <_PageLink to={`${page.fields.slug}`} activeClassName="active">
                 {page.frontmatter.title}
+              </_PageLink>
+            </li>
+          )
+        })}
+
+        {htmlPages.map((page, index) => {
+          return (
+            <li key={index}>
+              <_PageLink to={`${page.fields.slug}`} activeClassName="active">
+                {page.fields.title}
               </_PageLink>
             </li>
           )
@@ -194,11 +287,12 @@ const query = graphql`
         id
         name
         pages
+        icon
       }
     }
 
     docPages: allMarkdownRemark(
-      filter: { fields: { collection: { in: ["docs", "open-source-docs"] } } }
+      filter: { frontmatter: { category: { ne: null } } }
     ) {
       nodes {
         frontmatter {
@@ -207,6 +301,15 @@ const query = graphql`
         }
         fields {
           slug
+        }
+      }
+    }
+
+    htmlPages: allFile(filter: { extension: { eq: "html" } }) {
+      nodes {
+        fields {
+          slug
+          title
         }
       }
     }
@@ -220,6 +323,7 @@ export default () => (
         <Sidenav
           categories={data.categories}
           docPages={data.docPages}
+          htmlPages={data.htmlPages}
         ></Sidenav>
       )
     }}

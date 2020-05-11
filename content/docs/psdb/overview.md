@@ -3,6 +3,10 @@ title: 'PlanetScaleDB Overview'
 category: 'concepts'
 ---
 
+# PlanetScaleDB Overview
+
+This documents briefly describes PlanetScaleDB and its usage.
+
 ## What is PlanetScaleDB?
 
 PlanetScaleDB is a fully managed, easy-to-use implementation of [Vitess](http://vitess.io), an open source MySQL sharding solution.

@@ -1,11 +1,17 @@
-const slug = require('slug')
 const path = require('path')
 const { createFilePath } = require(`gatsby-source-filesystem`)
+const express = require('express')
+
+exports.onCreateDevServer = ({ app }) => {
+  app.use(express.static('public'))
+}
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
-  if (node.internal.type === 'MarkdownRemark' && node.frontmatter.category) {
-    const { createNodeField } = actions
-    const parent = getNode(node.parent)
+  const { createNodeField } = actions
+  if (
+    node.internal.type === 'MarkdownRemark' &&
+    node.frontmatter.category != null
+  ) {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
@@ -14,11 +20,17 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       // Note: Gatsby's default plugin does not work
       value: slug.substr(0, slug.length - 1),
     })
+  } else if (node.internal.type === 'File' && node.extension === 'html') {
+    createNodeField({
+      node,
+      name: 'slug',
+      value: `${node.sourceInstanceName}/api`,
+    })
 
     createNodeField({
       node,
-      name: 'collection',
-      value: parent.name === 'noop' ? 'noop' : parent.sourceInstanceName,
+      name: 'title',
+      value: `Operator API Reference`,
     })
   }
 }
@@ -28,13 +40,21 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve) => {
     graphql(`
       {
-        allMarkdownRemark {
+        allMarkdownRemark(filter: { frontmatter: { category: { ne: null } } }) {
           edges {
             node {
               fields {
                 slug
-                collection
               }
+            }
+          }
+        }
+
+        allFile(filter: { extension: { eq: "html" } }) {
+          nodes {
+            sourceInstanceName
+            fields {
+              slug
             }
           }
         }
@@ -42,7 +62,7 @@ exports.createPages = ({ graphql, actions }) => {
     `).then((result) => {
       result.data.allMarkdownRemark.edges.forEach((edge) => {
         const { node } = edge
-        if (node && node.fields && node.fields.collection !== 'noop') {
+        if (node && node.fields) {
           createPage({
             path: node.fields.slug,
             component: path.resolve(`./src/templates/docs.js`),
@@ -52,6 +72,18 @@ exports.createPages = ({ graphql, actions }) => {
             },
           })
         }
+      })
+
+      result.data.allFile.nodes.forEach((node) => {
+        createPage({
+          // TODO: Hack, change based on future updates
+          path: node.fields.slug,
+          component: path.resolve(`./src/templates/docs.js`),
+          context: {
+            // Data passed to context is available in page queries as GraphQL variables.
+            slug: node.fields.slug,
+          },
+        })
       })
       resolve()
     })

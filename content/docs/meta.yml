@@ -64,3 +64,4 @@ order:
     pages:
       - vitess-operator/overview
       - vitess-operator/gcp-quickstart
+      - vitess-operator/api

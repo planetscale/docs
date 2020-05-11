@@ -6,9 +6,17 @@ import { media } from '../styles/media'
 
 const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
-  color: ${(props) => (props.inverted ? 'white' : '#222;')};
+  height: 100vh;
+  color: ${(props) => (props.inverted ? '#fff' : '#222;')};
+  background-color: #fff;
   white-space: ${(props) => props.whiteSpace};
   overflow: auto;
+  padding: 2em;
+  border-right: 1px solid #f3ebe6;
+
+  ${media.largePhone`
+    padding: 1em;
+  `}
 
   h1 {
     font-weight: 400;
@@ -17,11 +25,15 @@ const MarkDownContainer = styled.div`
 
   h2 {
     font-weight: 500;
+    margin-top: 1.5em;
+    margin-bottom: 0;
+    border-bottom: 1px solid #eee;
+    padding-bottom: 0.5em;
   }
 
   p {
     font-weight: 400;
-    font-size: 1.15em;
+    font-size: 1em;
     line-height: 1.5em;
     color: ${(props) => (props.inverted ? 'white' : '#444;')};
     margin: 0em;
@@ -34,7 +46,7 @@ const MarkDownContainer = styled.div`
 
   li {
     font-weight: 400;
-    font-size: 1.15em;
+    font-size: 1em;
     margin: 0.5em 0;
     color: ${(props) => (props.inverted ? 'white' : '#222;')};
   }

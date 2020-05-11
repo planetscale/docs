@@ -5,23 +5,31 @@ import { media } from '../styles/media'
 import { Wrapper } from './Layout.Wrapper'
 
 const OverviewContainer = styled(Wrapper)`
-  padding-top: 0;
+  padding: 2em;
+  background-color: #fff;
+  border-right: 1px solid #f3ebe6;
+  height: 100vh;
+  overflow: scroll;
 
   ${media.largePhone`
     padding: 0;
+    height: auto;
+    background-color: unset;
+    padding: 1em;
   `}
 `
 
 const CategoryList = styled.div`
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   grid-template-rows: auto;
   column-gap: 2em;
   row-gap: 2em;
+  margin: 2em 0;
 
   ${media.largePhone`
     display: block;
-    padding: 0 1em;
+    margin: 0;
   `}
 `
 
@@ -37,16 +45,18 @@ const CategoryTitle = styled.div`
 `
 
 const CategoryCard = styled(Link)`
-  background-color: #214746;
-  color: white;
+  background-color: #f3ebe6;
+  color: #4f7273;
   padding: 2em;
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  transition: background-color 0.2s;
+  transition: box-shadow 0.2s, border 0.2s;
+  border: 1px solid #f3ebe6;
 
   &:hover {
-    background-color: #347171;
+    box-shadow: 0px 4px 16px rgba(138, 177, 177, 0.2);
+    border: 1px solid #8f847e;
   }
 
   ${media.largePhone`
@@ -75,6 +85,7 @@ class Overview extends Component {
   render() {
     return (
       <OverviewContainer>
+        <h1>Documentation Overview</h1>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
             return (
@@ -119,7 +130,7 @@ const query = graphql`
     }
 
     docPages: allMarkdownRemark(
-      filter: { fields: { collection: { in: ["docs", "open-source-docs"] } } }
+      filter: { frontmatter: { category: { ne: null } } }
     ) {
       nodes {
         frontmatter {

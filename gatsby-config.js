@@ -82,7 +82,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Poppins:400,500,700'],
+          families: ['Work+Sans:400,500,700'],
         },
       },
     },
@@ -111,6 +111,15 @@ module.exports = {
         name: `open-source-docs`,
         remote: `https://github.com/planetscale/open-source-docs.git`,
         branch: `prod`,
+      },
+    },
+    {
+      resolve: `gatsby-source-git`,
+      options: {
+        name: `vitess-operator`,
+        remote: `https://github.com/planetscale/vitess-operator.git`,
+        patterns: 'docs/api/*.html',
+        branch: `master`,
       },
     },
   ],

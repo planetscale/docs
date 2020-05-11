@@ -3,12 +3,10 @@ import styled from 'styled-components'
 import { media } from '../styles/media'
 
 export const Wrapper = styled.section`
-  box-sizing: border-box;
   margin: 0 auto;
   width: 100%;
   max-width: ${(props) =>
     props.theme && props.theme.sizes && props.theme.sizes.maxWidth};
-  padding: 37px 0;
   z-index: 1;
 
   ${media.largePhone`
@@ -21,7 +19,7 @@ export const _SectionWrapperContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: ${(props) => props.background || 'white'};
+  background-color: ${(props) => props.background || '#F8F6F4'};
 
   ${media.largePhone`
     align-items: stretch;
@@ -53,14 +51,15 @@ export function Section({ children, background, flexDirection, padding }) {
 
 const _DocsWrapperContentBound = styled.section`
   max-width: 1170px;
+  width: 100%;
+  height: 100%;
   display: grid;
-  grid-template-columns: 350px 1fr;
-  padding: 2em 0;
+  grid-template-columns: 300px 1fr;
 
   ${media.largePhone`
     display: flex;
     flex-direction: column;
-    padding: 1.5em;
+    height: 100vh;
   `}
 `
 

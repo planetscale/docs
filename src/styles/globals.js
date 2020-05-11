@@ -9,12 +9,16 @@ export const GlobalStyles = createGlobalStyle`
   }
 
   body {
-    font-family: 'Poppins', sans-serif;
-    background: #1A3938;
+    font-family: 'Work Sans', sans-serif;
     max-width: 100vw;
   }
 
   a {
     color: inherit;
+  }
+
+  h1 {
+    font-weight: 400;
+    margin: 0em 0 0.5em 0;
   }
 `
