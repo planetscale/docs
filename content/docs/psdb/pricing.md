@@ -9,7 +9,7 @@ This document describes the pricing model for the PlanetScale Database.
 
 ## Pricing model
 
-PlanetScale charges you based on the resources your your databases consume: each database has a certain number of instances, including the [database instances](psdb/database-instances) and [analytics instances](psdb/analytics-instances); each of these instances uses a certain amount of computing power, memory, and storage space. You pay an hourly rate for each unit of resources for each instance, multiplied times the number of instances in your database. If your database uses sharding, then this total is multiplied again times the number of shards.
+PlanetScale charges you based on the resources your your databases consume: each database has a certain number of instances, including the [database instances](database-instances) and [analytics instances](analytics-instances); each of these instances uses a certain amount of computing power, memory, and storage space. You pay an hourly rate for each unit of resources for each instance, multiplied times the number of instances in your database. If your database uses sharding, then this total is multiplied again times the number of shards.
 
 ### Example
 

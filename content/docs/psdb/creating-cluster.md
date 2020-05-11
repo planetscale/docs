@@ -53,4 +53,4 @@ When you have selected a name and region for your cluster, click **Create Cluste
 
 ## What's next
 
-Now that you have a cluster, you can [create a database](psdb/creating-database).
+Now that you have a cluster, you can [create a database](creating-database).

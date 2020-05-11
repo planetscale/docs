@@ -9,7 +9,7 @@ This document describes how to encrypt and authenticate the connection between y
 
 ## Overview
 
-By default, every [connection to a PlanetScaleDB database](psdb/connecting-to-db) will use transport encryption if possible, using the [`PREFERRED` SSL mode](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode). If the server cannot establish an encrypted connection, it will fall back to an unencrypted connection.
+By default, every [connection to a PlanetScaleDB database](connecting-to-db) will use transport encryption if possible, using the [`PREFERRED` SSL mode](https://dev.mysql.com/doc/refman/5.7/en/connection-options.html#option_general_ssl-mode). If the server cannot establish an encrypted connection, it will fall back to an unencrypted connection.
 
 To enforce encrypted transport, use the `--ssl-mode=REQUIRED` option in your MySQL connection string.
 
@@ -57,7 +57,7 @@ Note: Include the lines that read `-----BEGIN CERTIFICATE-----` and `-----END CE
 
 ## Step 7. Specify the certificate location in your MySQL connection string.
 
-Update your [MySQL connection configuration file](psdb/connecting-to-db) to include the following line:
+Update your [MySQL connection configuration file](connecting-to-db) to include the following line:
 
 `ssl-ca=/path/to/ca-cert.pem`
 
@@ -65,6 +65,6 @@ Replace `/path/to/ca-cert.pem` with the path to your certificate.
 
 ## See also
 
-- [Connecting to your database](psdb/connecting-to-db)
-- [Allowing access to specific IP addresses](psdb/whitelisting-ips)
+- [Connecting to your database](connecting-to-db)
+- [Allowing access to specific IP addresses](whitelisting-ips)
 - [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).

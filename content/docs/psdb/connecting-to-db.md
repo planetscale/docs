@@ -9,7 +9,7 @@ This document describes how to connect to your database using a MySQL connection
 
 ## Prerequisites
 
-This document assumes you have [created a database](psdb/creating-database).
+This document assumes you have [created a database](creating-database).
 
 This document uses the [MySQL command line client](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) as an example MySQL client; however, you can connect to your database using any MySQL client.
 

@@ -45,5 +45,5 @@ Database instances beyond 3 continue to provide linear increase to read capacity
 
 ## See also
 
-- [Create a database](psdb/creating-database) with multiple database instances
-- [PlanetScaleDB Agreement](psdb/https://planetscale.com/legal/eula)
+- [Create a database](creating-database) with multiple database instances
+- [PlanetScaleDB Agreement](https://planetscale.com/legal/eula)

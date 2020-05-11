@@ -90,4 +90,4 @@ If you deselected **Deploy on creation** in **Step 4** above, you can deploy it 
 ## See also
 
 - Learn more about [sharding](/psdb/sharding-schemes).
-- Read about our [pricing model](/psdb/pricing).
+- Read about our [pricing model](pricing).

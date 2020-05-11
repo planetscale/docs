@@ -50,6 +50,6 @@ The new IP addresses can now connect to your PlanetScaleDB.
 
 ## See also
 
-- [Connecting to your database](psdb/connecting-to-db)
-- [Securing the connection to your database](psdb/secure-connection)
+- [Connecting to your database](connecting-to-db)
+- [Securing the connection to your database](secure-connection)
 - [Using Encrypted Connections](https://dev.mysql.com/doc/refman/5.7/en/encrypted-connections.html) on [mysql.com](https://dev.mysql.com).

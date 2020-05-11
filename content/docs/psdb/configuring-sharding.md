@@ -7,7 +7,7 @@ category: 'setting-up-your-planetscaledb'
 
 This document describes how to configure your database to use multiple shards.
 
-For more information on how sharding works and how to structure your sharding scheme, see [Sharding schemes](psdb/sharding-schemes).
+For more information on how sharding works and how to structure your sharding scheme, see [Sharding schemes](sharding-schemes).
 
 ## Overview
 

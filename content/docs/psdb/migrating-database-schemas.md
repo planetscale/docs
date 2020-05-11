@@ -7,17 +7,17 @@ category: 'using-your-planetscale-database'
 
 This document explains how to migrate your database schema using the schema editor in the PlanetScale Console.
 
-You can also migrate your database schema by [connecting to your database with a MySQL client](psdb/connecting-to-db) and issuing data definition language (DDL) statements. However, PlanetScale recommends using the schema editor because of these benefits:
+You can also migrate your database schema by [connecting to your database with a MySQL client](connecting-to-db) and issuing data definition language (DDL) statements. However, PlanetScale recommends using the schema editor because of these benefits:
 
 - The schema editor ensures that the entire set of schema changes can apply successfully before applying any changes to your database. The schema editor either applies the whole set of submitted changes, or applies no changes at all.
 - The schema editor ensures that the schema change does not lock large tables for long periods. If you need to perform a long-running schema migration on large tables, please contact <support@planetscale.com>.
 - The schema editor makes your new schema immediately visible to all clients. Otherwise, it can take a few minutes before this occurs.
 
-See [Understanding sharding schemes](psdb/understanding-sharding-schemes) for information on configuring your database for horizontal scaling.
+See [Understanding sharding schemes](understanding-sharding-schemes) for information on configuring your database for horizontal scaling.
 
 ## Prerequisites
 
-Before you edit your database schema, you must first [create a database](psdb/creating-database).
+Before you edit your database schema, you must first [create a database](creating-database).
 
 ## Overview
 

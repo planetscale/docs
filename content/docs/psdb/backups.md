@@ -23,7 +23,7 @@ For custom backup requests, please contact <support@planetscale.com>.
 
 ## Each shard has its own backup
 
-If your database uses [sharding](psdb/sharding-schemes), each backup contains data from a single shard. All shards are backed up at 12-hour intervals, but the point in time at which each shard backup occurs may vary across shards in a database.
+If your database uses [sharding](sharding-schemes), each backup contains data from a single shard. All shards are backed up at 12-hour intervals, but the point in time at which each shard backup occurs may vary across shards in a database.
 
 If your database is not sharded, each backup contains all of the data from your database.
 
@@ -33,4 +33,4 @@ When your backup status is **Validated**, it means that an automated test job ha
 
 ## You can access your backups from the console
 
-You can [view your backups and use them to restore your database](psdb/restoring-backups) from the PlanetScale console at any time.
+You can [view your backups and use them to restore your database](restoring-backups) from the PlanetScale console at any time.

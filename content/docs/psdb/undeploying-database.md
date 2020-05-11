@@ -9,7 +9,7 @@ This document describes how to undeploy your database from the PlanetScale conso
 
 ## Prerequisites
 
-This document assumes you have [created a database](psdb/creating-database) and deployed it.
+This document assumes you have [created a database](creating-database) and deployed it.
 
 ## Overview
 

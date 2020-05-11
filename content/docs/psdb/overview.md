@@ -19,4 +19,4 @@ PlanetScaleDB's user interface provides a way to create a MySQL database with fe
 
 ## What's next
 
-[Creating a database](psdb/creating-database)
+[Creating a database](creating-database)

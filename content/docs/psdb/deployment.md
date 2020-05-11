@@ -21,4 +21,4 @@ Because PlanetScaleDB is fully managed, PlanetScale deploys your entire database
 
 ## What's next
 
-- Learn more about [database security](psdb/security-features)
+- Learn more about [database security](security-features)

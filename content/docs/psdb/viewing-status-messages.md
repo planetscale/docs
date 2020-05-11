@@ -9,7 +9,7 @@ This document explains how to view status messages for your clusters and databas
 
 ## Overview
 
-Messages about the status of your [clusters](psdb/clusters) and [databases](psdb/databases) appear in the **Messages** view. These messages contain information about important changes to the status of your database, including the following:
+Messages about the status of your [clusters](clusters) and [databases](databases) appear in the **Messages** view. These messages contain information about important changes to the status of your database, including the following:
 
 - Low disk space
 - Increased latency
