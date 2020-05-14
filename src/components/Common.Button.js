@@ -18,7 +18,7 @@ const styles = `
   background-size: cover;
   padding: 14px 20px;
 
-  ${media.largePhone`
+  ${media.phone`
     width: 100%;
   `}
 `

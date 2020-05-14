@@ -14,7 +14,7 @@ const MarkDownContainer = styled.div`
   box-shadow: 0 0 24px #f3ebe6;
   flex-grow: 2;
 
-  ${media.largePhone`
+  ${media.phone`
     padding: 1em;
   `}
 
@@ -66,7 +66,7 @@ const MarkDownContainer = styled.div`
     box-sizing: border-box;
     border: 1px solid #eee;
 
-    ${media.largePhone`
+    ${media.phone`
       padding: 1rem 0;
       width: 100%;
     `};

@@ -13,7 +13,7 @@ const HomeLink = styled.a`
   padding: 1.5em 2em;
   border-bottom: 1px solid #f3ebe6;
 
-  ${media.largePhone`
+  ${media.phone`
     padding: 0;
     border: 0;
     justify-content: left;
@@ -23,7 +23,7 @@ const HomeLink = styled.a`
 const Logo = styled.img`
   height: 24px;
 
-  ${media.largePhone`
+  ${media.phone`
     height: 24px;
   `}
 `
@@ -37,7 +37,7 @@ const DocsBadge = styled.div`
   padding: 0.666em;
   background-color: #4d9999;
 
-  ${media.largePhone`
+  ${media.phone`
     font-size: 12px;
   `}
 `
@@ -50,7 +50,7 @@ const _SidenavContainer = styled.div`
   position: sticky;
   top: 0em;
 
-  ${media.largePhone`
+  ${media.phone`
     display: flex;
     flex-direction: row;
     border: 0;
@@ -64,7 +64,7 @@ const _SidenavContainer = styled.div`
 const MenuLink = styled.div`
   display: none;
 
-  ${media.largePhone`
+  ${media.phone`
     font-size: 24px;
     display: flex;
     flex-direction: row;
@@ -82,7 +82,7 @@ const _SidenavList = styled.div`
     margin-bottom: 0;
   }
 
-  ${media.largePhone`
+  ${media.phone`
     position: fixed;
     background: #333;
     left: 0;
@@ -103,7 +103,7 @@ const _GroupContainer = styled.div`
   white-space: nowrap;
   margin-bottom: 2.5em;
 
-  ${media.largePhone`
+  ${media.phone`
     white-space: unset;
   `}
 `
@@ -116,7 +116,7 @@ const _GroupHeading = styled.div`
   text-transform: uppercase;
   letter-spacing: 1px;
 
-  ${media.largePhone`
+  ${media.phone`
     padding: 0 1em;
   `}
 `
@@ -146,7 +146,7 @@ const _PageLink = styled(Link)`
     background-color: #f3ebe6;
   }
 
-  ${media.largePhone`
+  ${media.phone`
     padding: 1em;
 
     &.active {

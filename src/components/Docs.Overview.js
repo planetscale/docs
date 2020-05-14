@@ -2,15 +2,14 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
-import { Wrapper } from './Layout.Wrapper'
 
-const OverviewContainer = styled(Wrapper)`
+const OverviewContainer = styled.div`
   padding: 2em;
   background-color: #fff;
   border-radius: 8px;
   box-shadow: 0 0 24px #f3ebe6;
 
-  ${media.largePhone`
+  ${media.phone`
     padding: 0;
     background-color: unset;
     box-shadow: unset;
@@ -25,7 +24,7 @@ const CategoryList = styled.div`
   row-gap: 2em;
   margin: 2em 0;
 
-  ${media.largePhone`
+  ${media.phone`
     display: block;
     margin: 0;
   `}
@@ -62,7 +61,7 @@ const CategoryCard = styled(Link)`
     border: 1px solid #8f847e;
   }
 
-  ${media.largePhone`
+  ${media.phone`
     margin-bottom: 1em;
   `}
 
