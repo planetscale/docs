@@ -8,11 +8,12 @@ const OverviewContainer = styled(Wrapper)`
   padding: 2em;
   background-color: #fff;
   border-radius: 8px;
+  box-shadow: 0 0 24px #f3ebe6;
 
   ${media.largePhone`
     padding: 0;
-    height: auto;
     background-color: unset;
+    box-shadow: unset;
   `}
 `
 
@@ -28,6 +29,10 @@ const CategoryList = styled.div`
     display: block;
     margin: 0;
   `}
+
+  ${media.tablet`
+    display: block;
+  `}
 `
 
 const CategoryIcon = styled.i`
@@ -42,7 +47,7 @@ const CategoryTitle = styled.div`
 `
 
 const CategoryCard = styled(Link)`
-  background-color: #f3ebe6;
+  background-color: #fff;
   color: #4f7273;
   padding: 2em;
   text-decoration: none;
@@ -58,6 +63,10 @@ const CategoryCard = styled(Link)`
   }
 
   ${media.largePhone`
+    margin-bottom: 1em;
+  `}
+
+  ${media.tablet`
     margin-bottom: 1em;
   `}
 `

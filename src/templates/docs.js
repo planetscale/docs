@@ -10,8 +10,8 @@ const _IFrame = styled.iframe`
   width: 100%;
   flex-grow: 2;
   border: 0;
-  border-right: 1px solid #f3ebe6;
   border-radius: 8px;
+  box-shadow: 0 0 24px #f3ebe6;
 `
 
 export default function DocsPage({ data }) {

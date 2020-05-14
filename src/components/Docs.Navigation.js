@@ -29,13 +29,13 @@ const Logo = styled.img`
 `
 
 const DocsBadge = styled.div`
-  color: #8f847e;
+  color: #fff;
   margin-left: 16px;
-  border-radius: 8px;
+  border-radius: 4px;
   text-transform: uppercase;
   font-size: 0.666em;
   padding: 0.666em;
-  background-color: #f3ebe6;
+  background-color: #4d9999;
 
   ${media.largePhone`
     font-size: 12px;
