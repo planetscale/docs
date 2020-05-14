@@ -1,22 +1,17 @@
 import * as React from 'react'
-import { media } from '../styles/media'
 import styled from 'styled-components'
 import Layout from '../components/layout'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
 import { DocsSection } from '../components/Layout.Wrapper'
-import DocsNavigation from '../components/Docs.Navigation'
 import MarkdownContent from '../components/Common.MarkdownContent'
 
 const _IFrame = styled.iframe`
   width: 100%;
-  height: 100%;
+  flex-grow: 2;
   border: 0;
   border-right: 1px solid #f3ebe6;
-
-  ${media.largePhone`
-    border: 0;
-  `}
+  border-radius: 8px;
 `
 
 export default function DocsPage({ data }) {
@@ -30,8 +25,7 @@ export default function DocsPage({ data }) {
           title={frontmatter.title}
           pathname={`${fields.slug}`}
         />
-        <DocsSection flexDirection="row" padding="true">
-          <DocsNavigation></DocsNavigation>
+        <DocsSection>
           <MarkdownContent html={html} />
         </DocsSection>
       </Layout>
@@ -44,8 +38,7 @@ export default function DocsPage({ data }) {
           // title={frontmatter.title}
           pathname={`${fields.slug}`}
         />
-        <DocsSection flexDirection="row" padding="true">
-          <DocsNavigation></DocsNavigation>
+        <DocsSection>
           <_IFrame src={publicURL}></_IFrame>
         </DocsSection>
       </Layout>

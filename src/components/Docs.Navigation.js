@@ -43,10 +43,12 @@ const DocsBadge = styled.div`
 `
 
 const _SidenavContainer = styled.div`
-  border-right: 1px solid #f3ebe6;
+  background-color: #f8f6f4;
   border-left: 1px solid #f3ebe6;
   height: 100vh;
   overflow: auto;
+  position: sticky;
+  top: 0em;
 
   ${media.largePhone`
     display: flex;
@@ -142,7 +144,6 @@ const _PageLink = styled(Link)`
     font-weight: 600;
     color: #db3d22;
     background-color: #f3ebe6;
-    border-right: 1px solid #db3d22;
   }
 
   ${media.largePhone`

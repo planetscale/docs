@@ -7,15 +7,12 @@ import { Wrapper } from './Layout.Wrapper'
 const OverviewContainer = styled(Wrapper)`
   padding: 2em;
   background-color: #fff;
-  border-right: 1px solid #f3ebe6;
-  height: 100vh;
-  overflow: scroll;
+  border-radius: 8px;
 
   ${media.largePhone`
     padding: 0;
     height: auto;
     background-color: unset;
-    padding: 1em;
   `}
 `
 
@@ -53,6 +50,7 @@ const CategoryCard = styled(Link)`
   flex-direction: column;
   transition: box-shadow 0.2s, border 0.2s;
   border: 1px solid #f3ebe6;
+  border-radius: 8px;
 
   &:hover {
     box-shadow: 0px 4px 16px rgba(138, 177, 177, 0.2);

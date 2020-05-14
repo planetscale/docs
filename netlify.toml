@@ -21,6 +21,10 @@
   from = "/psdb/replicas"
   to = "/psdb/database-instances"
 
+[[redirects]]
+  from = "/psdb/db-overview"
+  to = "/psdb/overview"
+
 [[headers]]
   for = "/static/**/*"
   [headers.values]

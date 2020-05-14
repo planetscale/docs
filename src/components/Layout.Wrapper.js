@@ -1,6 +1,7 @@
 import * as React from 'react'
 import styled from 'styled-components'
 import { media } from '../styles/media'
+import DocsNavigation from '../components/Docs.Navigation'
 
 export const Wrapper = styled.section`
   margin: 0 auto;
@@ -12,18 +13,6 @@ export const Wrapper = styled.section`
   ${media.largePhone`
     padding: 2em 1.5em 2em 1.5em;
   `};
-`
-
-export const _SectionWrapperContainer = styled.section`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background-color: ${(props) => props.background || '#F8F6F4'};
-
-  ${media.largePhone`
-    align-items: stretch;
-  `}
 `
 
 export const _SectionWrapperContentBound = styled.section`
@@ -49,6 +38,19 @@ export function Section({ children, background, flexDirection, padding }) {
   )
 }
 
+export const _SectionWrapperContainer = styled.section`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${(props) => props.background || '#F8F6F4'};
+  width: 100vw;
+
+  ${media.largePhone`
+    align-items: stretch;
+  `}
+`
+
 const _DocsWrapperContentBound = styled.section`
   max-width: 1170px;
   width: 100%;
@@ -59,14 +61,34 @@ const _DocsWrapperContentBound = styled.section`
   ${media.largePhone`
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
+  `}
+`
+
+const ContentWrapper = styled.div`
+  padding: 1em;
+  border-left: 1px solid #f3ebe6;
+  border-right: 1px solid #f3ebe6;
+  width: calc(100vw - 300px);
+  max-width: calc(1170px - 300px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  ${media.largePhone`
+    width: 100%;
+    flex-grow: 2;
   `}
 `
 
 export function DocsSection({ children }) {
   return (
     <_SectionWrapperContainer>
-      <_DocsWrapperContentBound>{children}</_DocsWrapperContentBound>
+      <_DocsWrapperContentBound>
+        <DocsNavigation></DocsNavigation>
+        <ContentWrapper>{children}</ContentWrapper>
+      </_DocsWrapperContentBound>
     </_SectionWrapperContainer>
   )
 }

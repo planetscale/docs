@@ -1,18 +1,16 @@
 import * as React from 'react'
-import PropTypes from 'prop-types'
 import styled from 'styled-components'
 
 import { media } from '../styles/media'
 
 const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
-  height: 100vh;
-  color: ${(props) => (props.inverted ? '#fff' : '#222;')};
+  color: #000;
   background-color: #fff;
-  white-space: ${(props) => props.whiteSpace};
+  white-space: pre-line;
   overflow: auto;
   padding: 2em;
-  border-right: 1px solid #f3ebe6;
+  border-radius: 8px;
 
   ${media.largePhone`
     padding: 1em;
@@ -35,7 +33,6 @@ const MarkDownContainer = styled.div`
     font-weight: 400;
     font-size: 1em;
     line-height: 1.5em;
-    color: ${(props) => (props.inverted ? 'white' : '#444;')};
     margin: 0em;
   }
 
@@ -48,7 +45,6 @@ const MarkDownContainer = styled.div`
     font-weight: 400;
     font-size: 1em;
     margin: 0.5em 0;
-    color: ${(props) => (props.inverted ? 'white' : '#222;')};
   }
 
   figure {
@@ -99,34 +95,20 @@ const MarkDownContainer = styled.div`
     background-color: #f7f7f7;
     overflow: scroll;
   }
-
-  ${(props) => props.customCSS};
 `
 
 class MarkdownContent extends React.Component {
   render() {
-    const { style, inverted, customCSS, whiteSpace, html } = this.props
+    const { style, inverted, whiteSpace, html } = this.props
     return (
       <MarkDownContainer
         style={style}
         inverted={inverted}
-        customCSS={customCSS}
         whiteSpace={whiteSpace}
         dangerouslySetInnerHTML={{ __html: html }}
       />
     )
   }
-}
-
-MarkdownContent.defaultProps = {
-  whiteSpace: 'pre-line',
-  customCSS: '',
-}
-
-MarkdownContent.propTypes = {
-  inverted: PropTypes.bool,
-  customCSS: PropTypes.string,
-  whiteSpace: PropTypes.string,
 }
 
 export default MarkdownContent
