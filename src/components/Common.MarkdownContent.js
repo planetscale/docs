@@ -12,6 +12,7 @@ const MarkDownContainer = styled.div`
   padding: 2em;
   border-radius: 8px;
   box-shadow: 0 0 24px #f3ebe6;
+  flex-grow: 2;
 
   ${media.largePhone`
     padding: 1em;
