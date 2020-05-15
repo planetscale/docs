@@ -20,10 +20,12 @@
 [[redirects]]
   from = "/psdb/replicas"
   to = "/psdb/database-instances"
+  status = 301
 
 [[redirects]]
   from = "/psdb/db-overview"
   to = "/psdb/overview"
+  status = 301
 
 [[headers]]
   for = "/static/**/*"
