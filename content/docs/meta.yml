@@ -63,5 +63,6 @@ order:
     description: Automate Vitess deployment and maintenance in your own Kubernetes cluster using our open source operator
     pages:
       - vitess-operator/overview
+      - vitess-operator/aws-quickstart
       - vitess-operator/gcp-quickstart
       - vitess-operator/api
