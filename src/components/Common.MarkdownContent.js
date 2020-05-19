@@ -9,17 +9,16 @@ const MarkDownContainer = styled.div`
   background-color: #fff;
   white-space: pre-line;
   overflow: auto;
-  padding: 2em;
-  border-radius: 8px;
-  box-shadow: 0 0 24px #f3ebe6;
+  padding: 4em;
   flex-grow: 2;
+  max-width: 870px;
 
   ${media.phone`
-    padding: 1em;
+    padding: 2em;
   `}
 
   h1 {
-    font-weight: 400;
+    font-weight: 700;
     margin: 0em 0 0.5em 0;
   }
 

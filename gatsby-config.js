@@ -106,6 +106,12 @@ module.exports = {
     'gatsby-plugin-catch-links',
     'gatsby-plugin-lodash',
     {
+      resolve: `gatsby-plugin-layout`,
+      options: {
+        component: require.resolve(`./src/components/layout`),
+      },
+    },
+    {
       resolve: `gatsby-source-git`,
       options: {
         name: `open-source-docs`,

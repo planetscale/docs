@@ -43,12 +43,11 @@ const DocsBadge = styled.div`
 `
 
 const _SidenavContainer = styled.div`
-  background-color: #f8f6f4;
-  border-left: 1px solid #f3ebe6;
   height: 100vh;
   overflow: auto;
   position: sticky;
   top: 0em;
+  border-right: 1px solid #eee;
 
   ${media.phone`
     display: flex;
@@ -58,6 +57,7 @@ const _SidenavContainer = styled.div`
     height: unset;
     padding: 1.5em 1em;
     z-index: 2;
+    background-color: #fff;
   `}
 `
 
@@ -137,13 +137,22 @@ const _PageLink = styled(Link)`
   transition: background-color 0.25s ease;
 
   &:hover {
-    background-color: #f3ebe6;
+    background: #eee;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(238, 238, 238, 1) 100%
+    );
   }
 
   &.active {
-    font-weight: 600;
-    color: #db3d22;
-    background-color: #f3ebe6;
+    font-weight: 700;
+    background: #eee;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0) 0%,
+      rgba(238, 238, 238, 1) 100%
+    );
   }
 
   ${media.phone`
@@ -224,7 +233,11 @@ class Sidenav extends Component {
         <_SidenavList>
           <_GroupContainer>
             <_GroupLinks>
-              <_PageLink to="/" activeClassName="active">
+              <_PageLink
+                onClick={this.toggleMobileTOC}
+                to="/"
+                activeClassName="active"
+              >
                 Documentation Overview
               </_PageLink>
             </_GroupLinks>
@@ -241,6 +254,7 @@ class Sidenav extends Component {
                   category,
                   this.props.htmlPages
                 )}
+                onClick={this.toggleMobileTOC}
               ></SidenavGroup>
             )
           })}
@@ -250,7 +264,7 @@ class Sidenav extends Component {
   }
 }
 
-function SidenavGroup({ category, icon, pages, htmlPages }) {
+function SidenavGroup({ category, icon, pages, htmlPages, onClick }) {
   return (
     <_GroupContainer>
       <_GroupHeading>
@@ -260,7 +274,11 @@ function SidenavGroup({ category, icon, pages, htmlPages }) {
         {pages.map((page, index) => {
           return (
             <li key={index}>
-              <_PageLink to={`${page.fields.slug}`} activeClassName="active">
+              <_PageLink
+                onClick={onClick}
+                to={`${page.fields.slug}`}
+                activeClassName="active"
+              >
                 {page.frontmatter.title}
               </_PageLink>
             </li>
@@ -270,7 +288,11 @@ function SidenavGroup({ category, icon, pages, htmlPages }) {
         {htmlPages.map((page, index) => {
           return (
             <li key={index}>
-              <_PageLink to={`${page.fields.slug}`} activeClassName="active">
+              <_PageLink
+                onClick={onClick}
+                to={`${page.fields.slug}`}
+                activeClassName="active"
+              >
                 {page.fields.title}
               </_PageLink>
             </li>

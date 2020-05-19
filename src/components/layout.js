@@ -1,14 +1,17 @@
 import '../utils/IE11Pollyfill'
 import React, { Fragment } from 'react'
-import { ThemeProvider } from 'styled-components'
-import { theme } from '../site'
 import { GlobalStyles } from '../styles/globals'
+import { PageContainer, MaxWidthBoundary } from '../components/Layout.Wrapper'
+import DocsNavigation from '../components/Docs.Navigation'
 
 export default ({ children }) => (
-  <ThemeProvider theme={theme}>
-    <Fragment>
-      {children}
-      <GlobalStyles />
-    </Fragment>
-  </ThemeProvider>
+  <Fragment>
+    <PageContainer>
+      <MaxWidthBoundary>
+        <DocsNavigation></DocsNavigation>
+        {children}
+      </MaxWidthBoundary>
+    </PageContainer>
+    <GlobalStyles />
+  </Fragment>
 )

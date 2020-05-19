@@ -4,16 +4,18 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
 
 const OverviewContainer = styled.div`
-  padding: 2em;
+  padding: 4em;
   background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 0 24px #f3ebe6;
+  max-width: 1170px;
 
   ${media.phone`
-    padding: 0;
-    background-color: unset;
-    box-shadow: unset;
+    padding: 2em;
   `}
+`
+
+const H1 = styled.h1`
+  font-weight: 700;
 `
 
 const CategoryList = styled.div`
@@ -41,7 +43,7 @@ const CategoryIcon = styled.i`
 `
 
 const CategoryTitle = styled.div`
-  font-weight: 600;
+  font-weight: 500;
   font-size: 24px;
 `
 
@@ -91,7 +93,7 @@ class Overview extends Component {
   render() {
     return (
       <OverviewContainer>
-        <h1>Documentation Overview</h1>
+        <H1>Documentation Overview</H1>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
             return (
