@@ -10,8 +10,7 @@ const MarkDownContainer = styled.div`
   white-space: pre-line;
   overflow: auto;
   padding: 4em;
-  flex-grow: 2;
-  max-width: 870px;
+  max-width: 90ch;
 
   ${media.phone`
     padding: 2em;

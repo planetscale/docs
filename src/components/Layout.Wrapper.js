@@ -3,27 +3,34 @@ import { media } from '../styles/media'
 
 export const PageContainer = styled.section`
   position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   background-color: #fff;
   width: 100vw;
-
-  ${media.phone`
-    align-items: stretch;
-  `}
-`
-
-export const MaxWidthBoundary = styled.section`
-  max-width: 1170px;
-  width: 100%;
   height: 100%;
-  display: grid;
-  grid-template-columns: 300px 1fr;
+  display: flex;
+  flex-direction: row;
 
   ${media.phone`
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    align-items: stretch;
   `}
+`
+
+export const ContentContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 75vw;
+  min-width: 0;
+
+  ${media.phone`
+    width: 100vw;
+  `}
+`
+
+export const IFrameContainer = styled.iframe`
+  width: 100%;
+  height: 100%;
+  flex-grow: 2;
+  border: 0;
 `

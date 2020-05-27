@@ -2,22 +2,27 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
-import logo from '../../static/planetscale_logo_green_text.svg'
+import logo from '../../static/planetscale_icon_color.svg'
+import backgroundNoise from '../../static/background-noise.png'
 
 const HomeLink = styled.a`
   flex-grow: 2;
   display: flex;
   text-decoration: none;
   align-items: center;
-  justify-content: center;
-  padding: 1.5em 2em;
-  border-bottom: 1px solid #f3ebe6;
+  justify-content: flex-start;
+  border-bottom: 1px solid #e1e1e1;
 
   ${media.phone`
     padding: 0;
     border: 0;
     justify-content: left;
   `}
+`
+
+const LogoContainer = styled.div`
+  padding: 1.5em;
+  border-right: 1px solid #e1e1e1;
 `
 
 const Logo = styled.img`
@@ -29,17 +34,9 @@ const Logo = styled.img`
 `
 
 const DocsBadge = styled.div`
-  color: #fff;
-  margin-left: 16px;
-  border-radius: 4px;
+  margin-left: 1.5rem;
   text-transform: uppercase;
-  font-size: 0.666em;
-  padding: 0.666em;
-  background-color: #4d9999;
-
-  ${media.phone`
-    font-size: 12px;
-  `}
+  font-weight: 500;
 `
 
 const _SidenavContainer = styled.div`
@@ -47,15 +44,20 @@ const _SidenavContainer = styled.div`
   overflow: auto;
   position: sticky;
   top: 0em;
-  border-right: 1px solid #eee;
+  background: #f7f7f7 url(${backgroundNoise}) 0 0 repeat;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
+  border-right: 1px solid #e1e1e1;
+  min-width: 300px;
+  width: 25vw;
 
   ${media.phone`
+    width: 100vw;
     display: flex;
     flex-direction: row;
     border: 0;
     border-bottom: 1px solid #f3ebe6;
     height: unset;
-    padding: 1.5em 1em;
+    padding: 0 1.5em 0 0;
     z-index: 2;
     background-color: #fff;
   `}
@@ -65,11 +67,21 @@ const MenuLink = styled.div`
   display: none;
 
   ${media.phone`
+    position: fixed;
+    bottom: 16px;
+    left: calc(50vw - 30px);
     font-size: 24px;
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #6C5E5A;  
+    justify-content: center;
+    color: #33475B;
+    background-color: rgb(251, 250, 249);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
+    height: 60px;
+    width: 60px;
+    border-radius: 99px;
+    z-index: 3;
   `}
 `
 
@@ -85,16 +97,26 @@ const _SidenavList = styled.div`
   ${media.phone`
     position: fixed;
     background: #333;
+    padding: 2em;
     left: 0;
     bottom: 0;
     height: 100vh;
-    width: 80vw;
+    width: 100vw;
     color: white;
-    transition: all 0.5s;
+    transition: bottom 0.25s ease-in-out, opacity 0.25s ease-in-out 0.125s;
     overflow: scroll;
+    -webkit-overflow-scrolling: touch;
+    opacity: 1;
+    display: block;
 
     ${_SidenavContainer}.hide & {
-      left: -100%;
+      opacity: 0;
+      bottom: -100vh;
+      transition: bottom 0.5s ease-in-out, opacity 0.25s ease-in-out;
+    }
+
+    div:last-child {
+      margin-bottom: calc(60px + 16px + 16px);
     }
   `}
 `
@@ -102,10 +124,6 @@ const _SidenavList = styled.div`
 const _GroupContainer = styled.div`
   white-space: nowrap;
   margin-bottom: 2.5em;
-
-  ${media.phone`
-    white-space: unset;
-  `}
 `
 
 const _GroupHeading = styled.div`
@@ -137,29 +155,20 @@ const _PageLink = styled(Link)`
   transition: background-color 0.25s ease;
 
   &:hover {
-    background: #eee;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(238, 238, 238, 1) 100%
-    );
+    background: #e1e1e1;
   }
 
   &.active {
     font-weight: 700;
-    background: #eee;
-    background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0) 0%,
-      rgba(238, 238, 238, 1) 100%
-    );
+    background: #e1e1e1;
   }
 
   ${media.phone`
     padding: 1em;
+    border-radius: 8px;
 
     &.active {
-      border-left: 1px solid #db3d22;
+      background: #666;
     }
   `}
 `
@@ -218,11 +227,14 @@ class Sidenav extends Component {
     return (
       <_SidenavContainer className={`${isMobileTOCOpen ? '' : 'hide'}`}>
         <HomeLink href="/">
-          <Logo
-            src={logo}
-            alt="PlanetScale - world's most scalable database clusters with Vitess"
-          />
-          <DocsBadge>Docs</DocsBadge>
+          <LogoContainer>
+            <Logo
+              src={logo}
+              alt="PlanetScale - world's most scalable database clusters with Vitess"
+            />
+          </LogoContainer>
+
+          <DocsBadge>PlanetScale Documentation</DocsBadge>
         </HomeLink>
         <MenuLink onClick={this.toggleMobileTOC}>
           <_Icon

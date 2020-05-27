@@ -1,15 +1,8 @@
 import React, { Fragment } from 'react'
-import styled from 'styled-components'
 import { graphql } from 'gatsby'
-import MarkdownContent from '../components/Common.MarkdownContent'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-
-const _IFrame = styled.iframe`
-  width: 100%;
-  height: 100%;
-  flex-grow: 2;
-  border: 0;
-`
+import { IFrameContainer } from '../components/Layout.Wrapper'
+import MarkdownContent from '../components/Common.MarkdownContent'
 
 export default function DocsPage({ data }) {
   const { doc, htmlFile } = data
@@ -33,7 +26,7 @@ export default function DocsPage({ data }) {
           title="Operator API Reference"
           pathname={`${fields.slug}`}
         />
-        <_IFrame src={publicURL}></_IFrame>
+        <IFrameContainer src={publicURL}></IFrameContainer>
       </Fragment>
     )
   }
