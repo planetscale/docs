@@ -94,3 +94,6 @@ To provide a service account to PlanetScale, follow these steps:
     Status: Downloaded newer image for us.gcr.io/planetscale-operator/operator2:latest
     ```
 
+## Next steps
+
++ [Get started with the PSDB Operator on GCP](gcp-quickstart.md)
