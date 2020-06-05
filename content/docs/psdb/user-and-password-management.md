@@ -128,7 +128,7 @@ This opens the **Overview** for your database.
 
 ### Step 7. Enter a new password.
 
-![Enter new password](img/docs/update-password.png)
+![Enter new password](/img/docs/update-password.png)
 
 ### Step 8. Click on the **Update User** button.
 
