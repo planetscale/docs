@@ -33,6 +33,7 @@ order:
       - psdb/connecting-to-db
       - psdb/secure-connection
       - psdb/allowing-ips
+      - psdb/user-and-password-management
   - id: using-planetscaledb
     icon: database
     name: Using PlanetScaleDB
