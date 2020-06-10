@@ -58,6 +58,7 @@ order:
     description: Deploy, manage, and monitor Vitess clusters in your own Kubernetes cluster using our enterprise operator
     pages:
       - psdb-operator/overview
+      - psdb-operator/getting-access
   - id: vitess-operator
     name: Vitess Operator
     icon: hard-hat
