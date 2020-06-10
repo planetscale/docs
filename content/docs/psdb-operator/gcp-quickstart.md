@@ -1,3 +1,4 @@
+---
 title: 'PlanetScaleDB Operator Quickstart on GCP'
 category: 'psdb-operator'
 ---
@@ -12,13 +13,13 @@ This document shows how to use the PlanetScaleDB Operator to deploy a Vitess clu
 
 This guide assumes you have the following components and services:
 
-+ [Access to the PlanetScaleDB Operator](getting-access)
-+ A [GCP service account](https://cloud.google.com/storage/docs/projects#service-accounts) with [access to the PlanetScaleDB Operator](getting-access).
-+ A [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs) (GKE) cluster;
-+ A local `kubectl` client [configured to access the GKE cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl) where you wish to install the operator;
-+ A [Google Cloud Storage (GCS) storage bucket](https://cloud.google.com/storage/docs/creating-buckets);
-+ A [Kubernetes secret matching your service account](https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#step_3_create_service_account_credentials);
-+ A local [installation of `vtctlclient`](https://vitess.io/docs/get-started/kubernetes/#prerequisites).
+- [Access to the PlanetScaleDB Operator](/psdb-operator/getting-access)
+- A [GCP service account](https://cloud.google.com/storage/docs/projects#service-accounts) with [access to the PlanetScaleDB Operator](getting-access).
+- A [Google Kubernetes Engine](https://cloud.google.com/kubernetes-engine/docs) (GKE) cluster;
+- A local `kubectl` client [configured to access the GKE cluster](https://cloud.google.com/kubernetes-engine/docs/how-to/cluster-access-for-kubectl) where you wish to install the operator;
+- A [Google Cloud Storage (GCS) storage bucket](https://cloud.google.com/storage/docs/creating-buckets);
+- A [Kubernetes secret matching your service account](https://cloud.google.com/kubernetes-engine/docs/tutorials/authenticating-to-cloud-platform#step_3_create_service_account_credentials);
+- A local [installation of `vtctlclient`](https://vitess.io/docs/get-started/kubernetes/#prerequisites).
 
 ## Overview
 
@@ -39,11 +40,11 @@ To deploy a Vitess cluster on GCP using the PlanetScaleDB Operator, follow these
 
 Download the following files:
 
-+ [Prometheus configuration file](https://storage.googleapis.com/planetscale-operator/install/prometheus.yaml)
-+ [Operator configuration file](https://storage.googleapis.com/planetscale-operator/install/operator2.yaml)
-+ [Database configuration file](https://storage.googleapis.com/planetscale-operator/examples/exampledb.yaml)
-+ [Example VSchema](https://storage.googleapis.com/planetscale-operator/examples/vschema.json)
-+ [Example SQL schema](https://storage.googleapis.com/planetscale-operator/examples/schema.sql)
+- [Prometheus configuration file](https://storage.googleapis.com/planetscale-operator/install/prometheus.yaml)
+- [Operator configuration file](https://storage.googleapis.com/planetscale-operator/install/operator2.yaml)
+- [Database configuration file](https://storage.googleapis.com/planetscale-operator/examples/exampledb.yaml)
+- [Example VSchema](https://storage.googleapis.com/planetscale-operator/examples/vschema.json)
+- [Example SQL schema](https://storage.googleapis.com/planetscale-operator/examples/schema.sql)
 
 This guide will assume that the above files are in your working directory.
 
@@ -130,11 +131,11 @@ metadata:
 spec:
   backup:
     locations:
-    - gcs:
-        bucket: mybucketname1
-        authSecret:
-          name: gcs-secret
-          key: gcs_key.json
+      - gcs:
+          bucket: mybucketname1
+          authSecret:
+            name: gcs-secret
+            key: gcs_key.json
 ```
 
 Edit the values of 'spec.backup.locations.gcs.bucket', 'spec.backup.locations.gcs.authSecret.name', and 'spec.backup.locations.gcs.authSecret.key' to reflect the values for your storage bucket and the Kubernetes secret for your GCP service account with access to a GCS bucket.
@@ -187,6 +188,7 @@ Use the following command:
 ```console
 kubectl port-forward --address localhost deployment/$(kubectl get deployment --selector="planetscale.com/component=vtctld" -o=jsonpath="{.items..metadata.name}") 15999:15999
 ```
+
 You should now be able to see all of your tablets using the following command:
 
 ```console
@@ -241,7 +243,7 @@ NAME         TYPE          CLUSTER-IP      EXTERNAL-IP      PORT(S)         AGE
 test-vtgate  LoadBalancer  [`cluster_ip`]  [`external_ip`]  3306:32157/TCP  90s
 ```
 
-## Step 10. Connect to your Vitess database using a MySQL client.                     
+## Step 10. Connect to your Vitess database using a MySQL client.
 
 Use the IP from the previous step to connect to your Vitess database using a command like the following:
 

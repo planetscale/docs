@@ -98,4 +98,4 @@ To provide a service account to PlanetScale, follow these steps:
 
 ## Next steps
 
-- [Get started with the PSDB Operator on GCP](gcp-quickstart.md)
+- [Get started with the PSDB Operator on GCP](/psdb-operator/gcp-quickstart)
