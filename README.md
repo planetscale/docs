@@ -1,4 +1,4 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/169b6b58-dbd7-4f25-a4fc-5906221132c8/deploy-status)](https://app.netlify.com/sites/planetscale/deploys)
+[![Netlify Status](https://api.netlify.com/api/v1/badges/169b6b58-dbd7-4f25-a4fc-5906221132c8/deploy-status)](https://app.netlify.com/sites/planetscale/deploys) [![StackShare](http://img.shields.io/badge/tech-stack-0690fa.svg?style=flat)](https://stackshare.io/planetscale/docs-planetscale-com)
 
 # Codebase for docs.planetscale.com
 
