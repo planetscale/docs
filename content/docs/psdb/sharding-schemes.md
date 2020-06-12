@@ -5,7 +5,7 @@ category: 'concepts'
 
 # Sharding schemes
 
-This document explains the basic concept of sharding schemes as used in PlanetScaleDB. PlanetScale is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
+This document explains the basic concept of sharding schemes as used in PlanetScaleDB. PlanetScaleDB is built on Vitess, where sharding schemes are called **VSchemas**; these two terms are equivalent. To learn more about VSchemas, see the open source [Vitess documentation for VSchemas](http://vitess.io/docs/reference/vschema).
 
 <!-- We may want to link out to this doc also/instead: vitess.io/docs/reference/sharding This document contains a table under the "Resharding" section that gives a good run-down on why you would want more shards vs. more replicas. Key takeaways: Splitting shards increases read and write capacity uniformly; merging shards frees up resources; splitting shards can also cool a hot tablet. -->
 
@@ -27,7 +27,7 @@ PlanetScaleDB uses **keyspaces** to divide data into shards: each shard is assig
 
 <!-- We still can't get around using the term 'vindex', because it's baked into the vschema format. Explain. -->
 
-Sharding schemes use JSON format. Each sharding scheme contains at least one key-value pair indicating whether or not the database is sharded; it also contains at least one JSON object, called `tables`, which itself contains one JSON object for each sharded table. Each of these table objects can contain an object called `column_vindexes`, which contains the name of any column(s) in the table that map to a Vindex, along with the name of the Vindex. Finally, it contains a JSON object called `vindexes`, which contains one JSON object for each Vindex on the database; each of these Vindex objects contains a key-value pair called `type`, which specifies the [Vindex type](http://vitess.io/docs/reference/vschema/#predefined-vindexes).
+Sharding schemes use JSON format. Each sharding scheme contains at least one key-value pair indicating whether or not the database is sharded; it also contains at least one JSON object, called `tables`, which itself contains one JSON object for each sharded table. Each of these table objects can contain an object called `columnVindexes`, which contains the name of any column(s) in the table that map to a Vindex, along with the name of the Vindex. Finally, it contains a JSON object called `vindexes`, which contains one JSON object for each Vindex on the database; each of these Vindex objects contains a key-value pair called `type`, which specifies the [Vindex type](http://vitess.io/docs/reference/vschema/#predefined-vindexes).
 
 ### Example sharding scheme
 
@@ -46,7 +46,7 @@ Below is an example sharding scheme. This sharding scheme indicates that the dat
         },
         "tables": {
           "user": {
-            "column_vindexes": [
+            "columnVindexes": [
               {
                 "column": "user_id",
                 "name": "hash"
@@ -63,10 +63,10 @@ The sharding scheme contains, among other things, the [Vindex](http://vitess.io/
 
 ### Example
 
-In the example sharding scheme above, the `user` table object contains an object called `column_vindexes`, which itself contains two key-value pairs: `column` and `name`:
+In the example sharding scheme above, the `user` table object contains an object called `columnVindexes`, which itself contains two key-value pairs: `column` and `name`:
 
 ```
-    "column_vindexes": [
+    "columnVindexes": [
         {
         "column": "user_id",
         "name": "hash"
@@ -74,7 +74,7 @@ In the example sharding scheme above, the `user` table object contains an object
     ]
 ```
 
-The `column_vindexes` object specifies that the `user_id` column maps to a Vindex called `hash`. This means that, at query execution time, your database will use the `WHERE` clause of the SQL query to identify the range of values of `user_id` it needs to return; then, it will use a hash function to compute the keyspace IDs for the desired rows.
+The `columnVindexes` object specifies that the `user_id` column maps to a Vindex called `hash`. This means that, at query execution time, your database will use the `WHERE` clause of the SQL query to identify the range of values of `user_id` it needs to return; then, it will use a hash function to compute the keyspace IDs for the desired rows.
 
 <!-- We should probably revise this to remove any redundancies, and consider how much of this should actually be happening in the vitess.io docs. The user will likely need more information than this, but the VSchema docs at vitess.io are difficult to understand. -->
 
