@@ -34,6 +34,7 @@ order:
       - psdb/secure-connection
       - psdb/allowing-ips
       - psdb/user-and-password-management
+      - psdb/creating-custom-region
   - id: using-planetscaledb
     icon: database
     name: Using PlanetScaleDB
@@ -52,6 +53,7 @@ order:
       - psdb/operational-guidelines
       - psdb/mysql-compatibility
       - psdb/pricing
+      - psdb/custom-region-requirements
   - id: psdb-operator
     name: PlanetScaleDB Operator
     icon: hard-hat

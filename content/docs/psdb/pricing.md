@@ -1,6 +1,6 @@
 ---
 title: 'Pricing'
-category: 'resources'
+category: 'reference'
 ---
 
 # Pricing
