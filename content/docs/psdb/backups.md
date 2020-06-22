@@ -1,6 +1,5 @@
 ---
 title: 'Backups'
-category: 'concepts'
 ---
 
 # Backups

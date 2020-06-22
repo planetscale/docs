@@ -1,6 +1,5 @@
 ---
 title: 'PlanetScaleDB Overview'
-category: 'concepts'
 ---
 
 # PlanetScaleDB Overview

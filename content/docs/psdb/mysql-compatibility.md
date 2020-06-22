@@ -1,6 +1,5 @@
 ---
 title: 'MySQL compatibility'
-category: 'reference'
 ---
 
 # MySQL compatibility

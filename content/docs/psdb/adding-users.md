@@ -1,6 +1,5 @@
 ---
 title: 'Add users to your account'
-category: 'setting-up-your-planetscaledb'
 ---
 
 # Add users to your account

@@ -1,6 +1,5 @@
 ---
 title: 'Configure sharding scheme'
-category: 'setting-up-your-planetscaledb'
 ---
 
 # Configure sharding scheme

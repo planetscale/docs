@@ -36,14 +36,13 @@ export const pageQuery = graphql`
   query DocQuery($slug: String!) {
     doc: markdownRemark(
       fields: { slug: { eq: $slug } }
-      frontmatter: { category: { ne: null } }
+      frontmatter: { title: { ne: "" } }
     ) {
       fields {
         slug
       }
       frontmatter {
         title
-        category
       }
       html
     }

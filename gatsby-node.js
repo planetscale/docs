@@ -8,10 +8,7 @@ exports.onCreateDevServer = ({ app }) => {
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
-  if (
-    node.internal.type === 'MarkdownRemark' &&
-    node.frontmatter.category != null
-  ) {
+  if (node.internal.type === 'MarkdownRemark' && node.frontmatter.title != '') {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     createNodeField({
       node,
@@ -40,7 +37,7 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve) => {
     graphql(`
       {
-        allMarkdownRemark(filter: { frontmatter: { category: { ne: null } } }) {
+        allMarkdownRemark(filter: { frontmatter: { title: { ne: "" } } }) {
           edges {
             node {
               fields {

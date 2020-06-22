@@ -1,6 +1,5 @@
 ---
 title: 'Performance features'
-category: 'concepts'
 ---
 
 # Performance features of PlanetScaleDB

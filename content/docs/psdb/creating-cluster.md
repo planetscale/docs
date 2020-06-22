@@ -1,6 +1,5 @@
 ---
 title: 'Create a cluster'
-category: 'setting-up-your-planetscaledb'
 ---
 
 # Create a cluster

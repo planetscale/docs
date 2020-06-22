@@ -1,6 +1,5 @@
 ---
 title: 'Databases'
-category: 'concepts'
 ---
 
 # Databases

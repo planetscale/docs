@@ -1,6 +1,5 @@
 ---
 title: 'Connect to your database'
-category: 'using-your-planetscaledb'
 ---
 
 # Connect to your database

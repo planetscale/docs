@@ -1,6 +1,5 @@
 ---
 title: 'Create a database'
-category: 'setting-up-your-planetscaledb'
 ---
 
 # Create a database

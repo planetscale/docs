@@ -1,6 +1,5 @@
 ---
 title: 'Migrating database schemas'
-category: 'using-your-planetscale-database'
 ---
 
 # Migrating database schemas

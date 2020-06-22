@@ -1,6 +1,5 @@
 ---
 title: 'Analytics instances'
-category: 'concepts'
 ---
 
 # Analytics instances

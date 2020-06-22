@@ -1,6 +1,5 @@
 ---
 title: 'Operational guidelines'
-category: 'reference'
 ---
 
 # Operational guidelines

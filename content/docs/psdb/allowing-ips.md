@@ -1,6 +1,5 @@
 ---
 title: 'Configure IP address based access'
-category: 'setting-up-your-planetscale-database'
 ---
 
 # Configure IP address based access

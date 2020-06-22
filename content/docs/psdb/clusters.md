@@ -1,6 +1,5 @@
 ---
 title: 'Clusters'
-category: 'concepts'
 ---
 
 # Clusters

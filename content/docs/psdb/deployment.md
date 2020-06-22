@@ -1,6 +1,5 @@
 ---
 title: 'PlanetScaleDB deployment'
-category: 'concepts'
 ---
 
 # Understanding PlanetScaleDB Deployment

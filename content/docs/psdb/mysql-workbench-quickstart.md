@@ -1,6 +1,6 @@
 ---
 title: 'MySQL Workbench Quickstart'
-category: 'getting-started'
+# category: 'getting-started'
 ---
 
 # MySQL Workbench Quickstart

@@ -20,6 +20,15 @@
 - `netlify dev` to start a local server
 - Open `http://localhost:8888` to access the local server instance
 
+## How to add a new document
+
+- All pages in the documentation are markdown files with a frontmatter block on the top. The frontmatter block defines the title of the page.
+- When creating a new page, also create a corresponding entry in `meta.yml` file to define the category and position of the file in the table of contants. The title defined in the frontmatter is also used here to provide the text for the link in the table of contents.
+
+Note: Although it is preferable to have a single title used across the table of contents and the document, there will be times when a longer title needs to be truncated to provide a succinct link text for the navigation list. You can use the smaller title in the frontmatter to enable this behavior.
+
+Note: If you are adding a new document to any of the external repositories, you'd have to edit the `meta.yml` file in this repository as well.
+
 ## Notes
 
 - The main website hosted on webflow embeds the greenhouse job board which uses a custom stylesheet. A copy of it is available in this repository at src/styles/greenhouse.css

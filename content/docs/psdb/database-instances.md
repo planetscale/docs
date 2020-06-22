@@ -1,6 +1,5 @@
 ---
 title: 'Database instances'
-category: 'concepts'
 ---
 
 # Database instances

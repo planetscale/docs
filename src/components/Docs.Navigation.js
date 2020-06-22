@@ -60,6 +60,7 @@ const _SidenavContainer = styled.div`
     padding: 0 1.5em 0 0;
     z-index: 2;
     background-color: #fff;
+    text-shadow: none;
   `}
 `
 
@@ -69,7 +70,7 @@ const MenuLink = styled.div`
   ${media.phone`
     position: fixed;
     bottom: 16px;
-    left: calc(50vw - 30px);
+    right: calc(16px + 60px + 16px);
     font-size: 24px;
     display: flex;
     flex-direction: row;
@@ -327,12 +328,11 @@ const query = graphql`
     }
 
     docPages: allMarkdownRemark(
-      filter: { frontmatter: { category: { ne: null } } }
+      filter: { frontmatter: { title: { ne: "" } } }
     ) {
       nodes {
         frontmatter {
           title
-          category
         }
         fields {
           slug

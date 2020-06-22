@@ -1,6 +1,5 @@
 ---
 title: 'Availability features'
-category: 'concepts'
 ---
 
 # Availability features of PlanetScaleDB

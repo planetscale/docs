@@ -1,6 +1,5 @@
 ---
 title: 'Importing data'
-category: 'using-your-planetscale-database'
 ---
 
 # Importing data into your database

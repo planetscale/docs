@@ -1,18 +1,18 @@
 ---
 title: 'Create a custom region (Beta)'
-category: 'setting-up-your-planetscaledb'
 ---
 
 # Create a cluster in a custom region
 
 This document explains how to create a cluster in a **custom region** using the PlanetScale console. A custom region uses a Kubernetes cluster that you control on a cloud provider, instead of using a PlanetScale-managed private cloud.
+
 <!-- If we create a concept doc for custom cluster, we should link to it here.-->
 
 ## Overview
 
 To create a custom cluster, complete the following steps:
 
-1. Open the **Clusters** view. 
+1. Open the **Clusters** view.
 1. Click **Create Cluster**.
 1. Name your cluster.
 1. Select **Custom Kubernetes Region**.
@@ -89,13 +89,13 @@ provider: "gce"
 
 ## Step 8: Provide script output.
 
-Paste the output of the script from Step 7 into the field under **C: Paste Script Output".
+Paste the output of the script from Step 7 into the field under \*\*C: Paste Script Output".
 
 ## Step 9: Click **Continue**.
 
 ## Step 10: Provide the details for your Backup Store.
 
-PlanetScaleDB requires access to a storage bucket. Provide storage bucket details for yourAmazon S3, GCP Cloud Storage, or Azure Cloud Storage bucket. 
+PlanetScaleDB requires access to a storage bucket. Provide storage bucket details for yourAmazon S3, GCP Cloud Storage, or Azure Cloud Storage bucket.
 
 ## Step 11: Input your **Custom Region Name**.
 
@@ -109,4 +109,4 @@ Your custom region name now appears when you [Create a cluster](creating-cluster
 
 ## What's next
 
-+ [Create a cluster](creating-cluster) 
+- [Create a cluster](creating-cluster)

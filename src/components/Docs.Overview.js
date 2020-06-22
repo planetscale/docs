@@ -138,12 +138,11 @@ const query = graphql`
     }
 
     docPages: allMarkdownRemark(
-      filter: { frontmatter: { category: { ne: null } } }
+      filter: { frontmatter: { title: { ne: "" } } }
     ) {
       nodes {
         frontmatter {
           title
-          category
         }
         fields {
           slug
