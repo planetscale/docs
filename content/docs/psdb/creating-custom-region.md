@@ -64,6 +64,25 @@ wget -O kubernetes-prepare.sh https://staging.planetscalelabs.com/api/kubernetes
 
 Run `kubernetes-prepare.sh`. The script will target the Kubernetes cluster in your current `kubectl` context.
 
+Optionally, you can run the script with either of the following flags:
+
++ `--dry-run`: Review the changes that the script would make to your Kubernetes cluster without making the changes.
++ `--namespace`: Run the script against a specific namespace. The default namespace is the namespace of your current context. The most common value for this namespace is `default`.
+
+For example, the following command outputs the changes that the script would make to the namespace `other-namespace`:
+
+```console
+$ bash kubernetes-prepare.sh --dry-run --namespace other-namespace
+```
+
+The following command runs the script against the namespace in the current `kubectl` context:
+
+```console
+$ bash kubernetes-prepare.sh
+```
+
+Because the script makes changes to your Kubernetes cluster, you must run the script without the `--dry-run` flag before you can create a custom cluster.
+
 You should see output like this:
 
 ```console
@@ -87,6 +106,8 @@ failure_domain:
 provider: "gce"
 ```
 
+For more information about the `kubernetes-prepare.sh` script, see [Custom region requirements](custom-region-requirements).
+
 ## Step 8: Provide script output.
 
 Paste the output of the script from Step 7 into the field under \*\*C: Paste Script Output".
@@ -109,4 +130,5 @@ Your custom region name now appears when you [Create a cluster](creating-cluster
 
 ## What's next
 
-- [Create a cluster](creating-cluster)
++ [Create a cluster](creating-cluster) 
++ Learn about [custom region requirements](custom-region-requirements). 
