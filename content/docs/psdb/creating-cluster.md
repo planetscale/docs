@@ -11,10 +11,10 @@ This document explains how to create a cluster using the PlanetScale console.
 
 To create a cluster, complete the following steps:
 
-1. Create a Cluster.
+1. Open the clusters view.
 1. Click **Create Cluster**.
 1. Name your cluster.
-1. Choose **Single region** or **multi-region and multi-cloud**.
+1. Choose **Single region**, **multi-region and multi-cloud**, or **Custom Kubernetes Region**.
 1. Choose cloud providers and regions.
 1. Click **Create Cluster**.
 
@@ -34,9 +34,9 @@ After clicking **Create Cluster**, you are prompted to name your cluster.
 
 The name of your cluster is prepended with your account name, and must be unique.
 
-## Step 4: Select **Single Region** or **Multi-region and Multi-cloud**
+## Step 4: Select **Single Region**, **Multi-region and Multi-cloud**, or **Custom Kubernetes Region**.
 
-If you want to deploy your database to more than one cloud provider or region, choose **Multi-region and Multi-cloud**.
+If you want to deploy your database to more than one cloud provider or region, choose **Multi-region and Multi-cloud**. If you want to create a cluster in a custom Kubernetes region on a Kubernetes cluster belonging to your organization, choose **Custom Kubernetes Region.**
 
 ## Step 5: Select cloud providers and regions.
 
@@ -46,6 +46,8 @@ If you are creating a **Multi-Region and Multi-Cloud** cluster, select each regi
 
 In order to use more than one region, you must select at least three total regions. You may select multiple regions in a single cloud provider.
 
+If you are creating a cluster in a **Custom Kubernetes Region**, select one of the custom regions that appear. To [create a new custom region](creating-custom-region), click the `Create new custom region` button.
+ 
 ## Step 6: Click **Create Cluster**.
 
 When you have selected a name and region for your cluster, click **Create Cluster**.
