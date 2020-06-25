@@ -52,6 +52,14 @@ If you are creating a cluster in a **Custom Kubernetes Region**, select one of t
 
 When you have selected a name and region for your cluster, click **Create Cluster**.
 
+## Step 7: Enter credentials for default admin user
+
+Under **Create default admin user**, enter the username and password for the default admin user. This user will have administrator privileges for all databases in the cluster.
+
+## Step 8: (Optional) Edit Advanced Parameters
+
+PlanetScaleDB uses default parameters for your cluster that are appropriate for generic workloads. To customize these settings, including hot row protection, default pool size, streaming pool size, transaction pool size, and sharding scheme edit privileges, click **Edit Advanced Parameters**.
+
 ## What's next
 
 Now that you have a cluster, you can [create a database](creating-database).
