@@ -35,6 +35,7 @@ order:
       - psdb/allowing-ips
       - psdb/user-and-password-management
       - psdb/creating-custom-region
+      - psdb/configuring-database-flags
   - id: using-planetscaledb
     icon: database
     name: Using PlanetScaleDB
@@ -54,6 +55,7 @@ order:
       - psdb/mysql-compatibility
       - psdb/pricing
       - psdb/custom-region-requirements
+      - psdb/advanced-cluster-configuration
   - id: psdb-operator
     name: PlanetScaleDB Operator
     icon: hard-hat
