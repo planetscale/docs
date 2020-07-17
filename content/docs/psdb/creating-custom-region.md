@@ -22,6 +22,7 @@ To create a custom cluster, complete the following steps:
 1. Paste the output of the script into the field under **Step 2: Provide details**.
 1. Click **Continue**.
 1. Provide details for Backup Store.
+1. Select a load balancer type.
 1. Name your Custom Region.
 1. Click **Create Custom Region.**
 1. Click **Finish**.
@@ -118,13 +119,21 @@ Paste the output of the script from Step 7 into the field under \*\*C: Paste Scr
 
 PlanetScaleDB requires access to a storage bucket. Provide storage bucket details for yourAmazon S3, GCP Cloud Storage, or Azure Cloud Storage bucket.
 
-## Step 11: Input your **Custom Region Name**.
+## Step 11: Select a load balancer type
 
-## Step 12: Click **Create custom region.**
+Under **Kubernetes Configuration**, click the **Load Balancer** drop-down menu to select **Internal**, **External**, or **None**.
+
++ An **Internal** load balancer does not have a public IP: a client outside the Kubernetes cluster VPC cannot access your database.
++ An **External** load balancer allows clients to connect to your database from outside of the VPC.
++ **None** provides a service that is only accessible from within the same Kubernetes cluster.
+
+## Step 12: Input your **Custom Region Name**.
+
+## Step 13: Click **Create custom region.**
 
 A summary of your custom region will appear.
 
-## Step 13: Review and click **Finish**.
+## Step 14: Review and click **Finish**.
 
 Your custom region name now appears when you [Create a cluster](creating-cluster).
 
