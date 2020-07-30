@@ -46,6 +46,7 @@ order:
       - psdb/undeploying-database
       - psdb/restoring-backups
       - psdb/viewing-status-messages
+      - psdb/viewing-query-logs
   - id: reference
     name: PlanetScaleDB Reference
     icon: info-circle
