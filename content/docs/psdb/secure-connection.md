@@ -5,7 +5,7 @@ category: 'setting-up-your-planetscale-database'
 
 # Securing the connection to your PlanetScaleDB database
 
-This document describes how to encrypt and authenticate the connection between your application and your PlanetScaleDB database using the HTTPS protocol.
+This document describes how to encrypt and authenticate the connection between your application and your PlanetScaleDB database using the TLS protocol.
 
 ## Overview
 

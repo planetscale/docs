@@ -28,7 +28,7 @@ If your database is not sharded, each backup contains all of the data from your 
 
 ## PlanetScale validates your backups
 
-When your backup status is **Validated**, it means that an automated test job has restored an empty database instance from that backup, started it, and resumed replication from the master.
+When your backup status is **Validated**, it means that an automated test job has successfully performed a test restore of your data from this backup.
 
 ## You can access your backups from the console
 
