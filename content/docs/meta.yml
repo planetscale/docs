@@ -21,6 +21,8 @@ order:
       - psdb/database-instances
       - psdb/analytics-instances
       - psdb/backups
+      - psdb/database-links
+      - psdb/compatibility-testing
   - id: setting-up-planetscaleDB
     icon: wrench
     name: Set up PlanetScaleDB
@@ -36,6 +38,7 @@ order:
       - psdb/user-and-password-management
       - psdb/creating-custom-region
       - psdb/configuring-database-flags
+      - psdb/linking-external-database
   - id: using-planetscaledb
     icon: database
     name: Using PlanetScaleDB

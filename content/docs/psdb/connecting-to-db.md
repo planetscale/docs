@@ -4,7 +4,7 @@ title: 'Connect to your database'
 
 # Connect to your database
 
-This document describes how to connect to your database using a MySQL connection string.
+This document describes how to connect to your PlanetScaleDB [database](databases) or [Database Link](database-links) using a MySQL connection string.
 
 ## Prerequisites
 
