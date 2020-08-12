@@ -1,14 +1,14 @@
 ---
-title: 'Database links'
+title: 'Database Links'
 ---
 
 # Database Links
 
-This document explains the basic ideas behind database links in the PlanetScaleDB context.
+This document explains the basic ideas behind Database Links in the PlanetScaleDB context.
 
-## What is a database link?
+## What is a Database Link?
 
-A database link is a PlanetScaleDB database that issues queries against an underlying external MySQL database. You can connect to a database link using a [PlanetScaleDB connection string](connecting-to-db) and issue queries to it; PlanetScaleDB will process these queries as if the database were hosted inside PlanetScaleDB, then issue them against your external database and return any results.
+A Database Link allows you to connect to an external database via PlanetScaleDB. You can connect to a Database Link using a [PlanetScaleDB connection string](connecting-to-db) and issue queries to it; PlanetScaleDB will process these queries as if the database were hosted inside PlanetScaleDB, then issue them against your external database and return any results.
 
 ## Why link a database?
 
@@ -16,7 +16,7 @@ Linking your database to PlanetScaleDB allows you to test the compatibility of y
 
 ## How do databases links work?
 
-When you [link a database](linking-database), you provide connection details for your external database. PlanetScaleDB uses these connection details to connect to your database, and creates a representation of this database inside your PlanetScaleDB cluster, called a *database link*. PlanetScaleDB processes queries to the database link similarly to queries against a fully-hosted [PlanetScaleDB database](databases), and returns similar errors in response to unsupported queries. PlanetScaleDB does not issue any queries or statements to your database beyond those you issue yourself.
+When you [link a database](linking-database), you provide connection details for your external database. PlanetScaleDB uses these connection details to connect to your database, and creates a representation of this database inside your PlanetScaleDB cluster, called a *Database Link*. PlanetScaleDB processes queries to the database link similarly to queries against a fully-hosted [PlanetScaleDB database](databases), and returns similar errors in response to unsupported queries. PlanetScaleDB does not issue any queries or statements to your database beyond those you issue yourself.
 
 The diagram below outlines the fully-hosted PlanetScaleDB architecture:
 
@@ -24,7 +24,7 @@ The diagram below outlines the fully-hosted PlanetScaleDB architecture:
 
 This second diagram outlines the PlanetScaleDB Database Link architecture:
 
-![Fully-hosted PlanetScaleDB architecture diagram](/img/docs/psdb-database-link-architecture-diagram.png)
+![PlanetScaleDB Database Link architecture diagram](/img/docs/psdb-database-link-architecture-diagram.png)
 
 ## How does sharding work with database links?
 
