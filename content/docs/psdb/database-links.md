@@ -14,7 +14,7 @@ A Database Link allows you to connect to an external database via PlanetScaleDB.
 
 Linking your database to PlanetScaleDB allows you to test the compatibility of your database and queries with PlanetScaleDB. Because there are some [limitations to PlanetScaleDB compatibility with MySQL](mysql-compatibility), this feature allows you to test how PlanetScaleDB will respond to common queries from your application.
 
-## How do databases links work?
+## How do database links work?
 
 When you [link a database](linking-database), you provide connection details for your external database. PlanetScaleDB uses these connection details to connect to your database, and creates a representation of this database inside your PlanetScaleDB cluster, called a *Database Link*. PlanetScaleDB processes queries to the database link similarly to queries against a fully-hosted [PlanetScaleDB database](databases), and returns similar errors in response to unsupported queries. PlanetScaleDB does not issue any queries or statements to your database beyond those you issue yourself.
 
