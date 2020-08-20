@@ -46,6 +46,7 @@ order:
     pages:
       - psdb/importing-data
       - psdb/migrating-database-schemas
+      - psdb/reconfiguring-database
       - psdb/undeploying-database
       - psdb/restoring-backups
       - psdb/viewing-status-messages
