@@ -1,22 +1,17 @@
 ---
-title: 'Create a custom region (Beta)'
+title: 'Creating a Custom Kubernetes Region (Beta)'
 ---
 
-# Create a cluster in a custom region
+# Create a cluster in a Custom Kubernetes Region
 
-This document explains how to create a cluster in a **custom region** using the PlanetScale console. A custom region uses a Kubernetes cluster that you control on a cloud provider, instead of using a PlanetScale-managed private cloud.
-
-<!-- If we create a concept doc for custom cluster, we should link to it here.-->
+This document explains how to create a cluster in a **Custom Kubernetes Region** using the PlanetScale console. A Custom Kubernetes Region uses a Kubernetes cluster that you control on a cloud provider, instead of using a PlanetScale-managed private cloud.
 
 ## Overview
 
-To create a custom cluster, complete the following steps:
+To create a cluster in a Custom Kubernetes Region, complete the following steps:
 
-1. Open the **Clusters** view.
-1. Click **Create Cluster**.
-1. Name your cluster.
-1. Select **Custom Kubernetes Region**.
-1. Click **Create new custom region**.
+1. Open the **Custom K8s Regions** view.
+1. Click **Create new Custom Kubernetes Region**.
 1. Download the script.
 1. Execute the script.
 1. Paste the output of the script into the field under **Step 2: Provide details**.
@@ -27,25 +22,13 @@ To create a custom cluster, complete the following steps:
 1. Click **Create Custom Region.**
 1. Click **Finish**.
 
-## Step 1: Open the **Clusters** view.
+## Step 1: Open the **Custom K8s Regions** view.
 
-When you create a PlanetScale.com account, you are prompted to create a cluster. You can also access this view by going to [console.planetscale.com/clusters](https://console.planetscale.com/clusters).
+In the left menu of the [PlanetScaleDB console](https://console.planetscale.com/regions), click **Custom K8s Regions**. You can also access this view by going to [console.planetscale.com/regions](https://console.planetscale.com/regions).
 
-## Step 2: Click **Create Cluster**.
+## Step 2: Click **Add your first custom Kubernetes region**.
 
-## Step 3: Name your cluster.
-
-After clicking **Create Cluster**, you are prompted to name your cluster.
-
-The name of your cluster is prepended with your account name, and must be unique.
-
-## Step 4: Select **Custom Kubernetes Region**.
-
-## Step 5: Click **Create new custom region**.
-
-## Step 6: Download the script.
-
-<!-- We need to update this with more details about what the script does, especially if it makes changes to the user's k8s environment. -->
+## Step 3: Download the script.
 
 This script will output details about your Kubernetes cluster.
 
@@ -61,7 +44,7 @@ To download the script using Wget, use the following command:
 wget -O kubernetes-prepare.sh https://staging.planetscalelabs.com/api/kubernetes-prepare-script
 ```
 
-## Step 7: Execute the script.
+## Step 4: Execute the script.
 
 Run `kubernetes-prepare.sh`. The script will target the Kubernetes cluster in your current `kubectl` context.
 
@@ -107,19 +90,19 @@ failure_domain:
 provider: "gce"
 ```
 
-For more information about the `kubernetes-prepare.sh` script, see [Custom region requirements](custom-region-requirements).
+For more information about the `kubernetes-prepare.sh` script, see [Custom Kubernetes Region requirements](custom-region-requirements).
 
-## Step 8: Provide script output.
+## Step 5: Provide script output.
 
-Paste the output of the script from Step 7 into the field under \*\*C: Paste Script Output".
+Paste the output of the script from Step 7 into the field under **C: Paste Script Output**.
 
-## Step 9: Click **Continue**.
+## Step 6: Click **Continue**.
 
-## Step 10: Provide the details for your Backup Store.
+## Step 7: Provide the details for your Backup Store.
 
 PlanetScaleDB requires access to a storage bucket. Provide storage bucket details for yourAmazon S3, GCP Cloud Storage, or Azure Cloud Storage bucket.
 
-## Step 11: Select a load balancer type
+## Step 8: Select a load balancer type
 
 Under **Kubernetes Configuration**, click the **Load Balancer** drop-down menu to select **Internal**, **External**, or **None**.
 
@@ -127,17 +110,17 @@ Under **Kubernetes Configuration**, click the **Load Balancer** drop-down menu t
 + An **External** load balancer allows clients to connect to your database from outside of the VPC.
 + **None** provides a service that is only accessible from within the same Kubernetes cluster.
 
-## Step 12: Input your **Custom Region Name**.
+## Step 9: Input your **Custom Region Name**.
 
-## Step 13: Click **Create custom region.**
+## Step 10: Click **Create Custom Kubernetes Region.**
 
-A summary of your custom region will appear.
+A summary of your Custom Kubernetes Region will appear.
 
-## Step 14: Review and click **Finish**.
+## Step 11: Review and click **Finish**.
 
-Your custom region name now appears when you [Create a cluster](creating-cluster).
+Your Custom Kubernetes Region name now appears when you [Create a cluster](creating-cluster).
 
 ## What's next
 
 + [Create a cluster](creating-cluster) 
-+ Learn about [custom region requirements](custom-region-requirements). 
++ Learn about [Custom Kubernetes Region requirements](custom-region-requirements). 

@@ -21,6 +21,7 @@ order:
       - psdb/database-instances
       - psdb/analytics-instances
       - psdb/backups
+      - psdb/custom-regions
       - psdb/database-links
       - psdb/compatibility-testing
   - id: setting-up-planetscaleDB
