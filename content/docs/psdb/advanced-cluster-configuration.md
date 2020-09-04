@@ -13,7 +13,7 @@ To update these options, see [Configuring your cluster](configuring-cluster).
 The following advanced configuration options are available for a cluster:
 
 | Option                    | Description                                         | Default |
-|---------------------------|-----------------------------------------------------|---------|
+| ------------------------- | --------------------------------------------------- | ------- |
 | Enable hot row protection | Queue incoming transactions for the same row range. | On      |
 | Sharding scheme DDL       | Allows users to update the sharding scheme.         | admin   |
 | Default pool size         | Query server read pool size for regular queries     | 20      |
@@ -22,5 +22,6 @@ The following advanced configuration options are available for a cluster:
 
 ## See also
 
-+ [Configuring a cluster](configuring-cluster)
-+ [Creating a cluster](creating-cluster)
+- [Configuring a cluster](configuring-cluster)
+- [Creating a cluster](creating-cluster)
+- [Applying Sharding Scheme DDL statements](sharding-scheme-ddl)

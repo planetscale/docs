@@ -62,6 +62,7 @@ order:
       - psdb/pricing
       - psdb/custom-region-requirements
       - psdb/advanced-cluster-configuration
+      - psdb/sharding-scheme-ddl
   - id: psdb-operator
     name: PlanetScaleDB Operator
     icon: hard-hat
