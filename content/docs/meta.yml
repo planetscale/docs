@@ -4,7 +4,7 @@ order:
     name: Getting Started
     description: Learn how to quickly setup PlanetScaleDB to connect to your application
     pages:
-      - psdb/mysql-workbench-quickstart
+      - psdb/managed-quickstart
   - id: concepts
     icon: bullseye
     name: PlanetScaleDB Concepts

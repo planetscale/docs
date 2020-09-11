@@ -1,16 +1,16 @@
 ---
-title: 'MySQL Workbench Quickstart'
+title: 'Quickstart: Fully managed PlanetScaleDB'
 # category: 'getting-started'
 ---
 
-# MySQL Workbench Quickstart
+# Quickstart: Fully managed PlanetScaleDB
 
-This document shows how to get started using PlanetScaleDB. By the end, you will have a working PlanetScaleDB that you can connect to using MySQL Workbench.
+This document shows how to get started using PlanetScaleDB as a fully managed MySQL database. By the end, you will have a working PlanetScaleDB that you can connect to using the MySQL command line tool.
 
 ## Prerequisites
 
-Before beginning this tutorial, you must [install MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing.html).
-
+Before beginning this tutorial, you must have a local installation of the [MySQL command line interface](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+ 
 ## Overview
 
 This quickstart includes the following steps:
@@ -19,7 +19,7 @@ This quickstart includes the following steps:
 2. Create a cluster.
 3. Create a database.
 4. Find the MySQL connection string for your database.
-5. Connect to your database using MySQL Workbench.
+5. Connect to your database using the MySQL command line tool.
 6. Run a query against your database.
 
 ## Step 1. Create a PlanetScale account.
@@ -52,28 +52,55 @@ To find the MySQL connection string for your database, click the **Connect** but
 
 This displays the MySQL connection string for your database. This string contains the hostname, port number, user name, and password for your database. Click **Copy** to copy this string to your clipboard.
 
-## Step 5. Connect to your database using MySQL Workbench.
-
-Open MySQL Workbench and click **New Connection**. In the "Set up a New Connection" dialog box, enter the connection credentials contained in your connection string.
-
 The connection string is formatted as follows:
 
-```
---host [hostname] --port [port number] --user [username] --password=[password]
+```console
+mysql --host {hostname} --port {port number} -p --user {username}
 ```
 
-Click **Okay**. Your database should now appear as a connection in MySQL Workbench, and the SQL Query Tab for your database should open.
+## Step 5. Connect to your database using the MySQL command line tool.
+
+In your console, paste the connection string from your clipboard. Replace `{username}` with your [admin username](creating-database) and press enter. When the `mysql` client prompts you for a password, enter the password for your admin user.
+
+You should see a MySQL shell prompt:
+
+```console
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 83597
+Server version: 5.7.9-Vitess
+
+Copyright (c) 2000, 2020, Oracle and/or its affiliates. All rights reserved.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql>
+```
 
 ## Step 6. Run a query against your database.
 
-In the SQL Query Tab for your database, enter the following query:
+Enter the following query against your PlanetScaleDB database:
 
+```sql
+mysql> SHOW DATABASES;
 ```
-SHOW DATABASES;
+
+You should see a list of all of the databases in your [cluster](clusters):
+
+```sql
+mysql> SHOW DATABASES;
++-----------+
+| Databases |
++-----------+
+| test1     |
+| test3     |
++-----------+
 ```
 
-This query returns the following output:
+## Next steps
 
-![MySQL Workbench Query Tab](/img/docs/mysql-workbench-show-databases-screenshot.png)
-
-<!-- What's next section with links to how-to docs. -->
++ Learn how to [import data](importing-data) into PlanetScaleDB
++ Learn how to [create a database](creating-database) in PlanetScaleDB
