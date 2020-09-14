@@ -38,17 +38,11 @@ This opens the **Overview** for your database.
 
 ## Step 4. Click the **Connect** button.
 
-![Connect button](/img/docs/connect-button.png)
-
-This opens the connection pane.
+This opens the connection pane. This pane shows the MySQL connection string for each region and cloud provider where this database is deployed.
 
 ## Step 5. Click the **Copy** button next to your connection string.
 
-The connection panel displays your MySQL connection string for each region. Click the **Copy** button next to the connection string for the desired region.
-
-![Copy button](/img/docs/connection-string-copy-button.png)
-
-This copies the connection string to your clipboard.
+Click the **Copy** button next to the connection string for the desired region. This copies the connection string to your clipboard.
 
 ## Step 6. Paste the connection string into a MySQL client.
 
@@ -56,7 +50,7 @@ The connection string contains the user credentials for your PlanetScale databas
 
 For example, to connect using the MySQL command line client, you can paste the connection string into a your terminal. It should look like the following:
 
-```
+```console
 mysql --host abcdefghijklmnop-123456789.us-east-1.elb.amazonaws.com --port 3306 --user vtgate-1-user --password=aAbBcCdDeE12345
 ```
 
