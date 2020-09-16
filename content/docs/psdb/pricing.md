@@ -16,4 +16,4 @@ Your database uses .5 Cores of CPU, 512 MiB of RAM, and 10 GiB of storage, for a
 
 ## See also
 
-- Read the [Service Level Agreement](../dbaas/sla) for information on uptime percentage and service credits.
+- Read the [Service Level Agreement](https://www.planetscale.com/legal/planetscaledb-service-level-agreement) for information on uptime percentage and service credits.
