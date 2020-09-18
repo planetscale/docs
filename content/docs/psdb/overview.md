@@ -8,9 +8,9 @@ This documents briefly describes PlanetScaleDB and its usage.
 
 ## What is PlanetScaleDB?
 
-PlanetScaleDB is a fully managed, easy-to-use implementation of [Vitess](http://vitess.io), an open source MySQL sharding solution.
+PlanetScaleDB is a fully managed, easy-to-use implementation of [Vitess](http://vitess.io). Vitess is an open source SQL sharding solution.
 
-Vitess manages MySQL replication and sharding, allowing you to grow your database while maintaining high availability and avoiding the pain of manual resharding. It also protects your database from harmful queries. Vitess can also run on Kubernetes, taking advantage of container management and orchestration. However, configuring Vitess to take advantage of these features and managing a Vitess deployment requires some work and expertise.
+Vitess manages SQL replication and sharding, allowing you to grow your database while maintaining high availability and avoiding the pain of manual resharding. It also protects your database from harmful queries. Vitess can also run on Kubernetes, taking advantage of container management and orchestration. However, configuring Vitess to take advantage of these features and managing a Vitess deployment requires some work and expertise.
 
 ## Why use PlanetScaleDB?
 
