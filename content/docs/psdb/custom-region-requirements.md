@@ -16,6 +16,22 @@ To support a PlanetScale Custom Kubernetes Region, your Kubernetes cluster must 
 - 4 CPUs per node
 - 30GB RAM
 
+## Kubernetes cluster permissions
+
+To create a custom Kubernetes region, you must have permission to create the following resource types:
+
++ In the namespace for your custom region:
+    * ServiceAccount
+    * Role
+    * RoleBinding
+    * Deployment
++ Cluster-wide:
+    * ClusterRole
+    * ClusterRoleBinding
+    * CustomResourceDefinition
+    * PriorityClass
+    * Namespace (only necessary if the desired namespace does not exist)
+
 ## Changes to your Kubernetes cluster
 
 Before you [create a Custom Kubernetes Region](creating-custom-region), you must run the `kubernetes-prepare.sh` script. This script makes the following changes to your Kubernetes cluster:
