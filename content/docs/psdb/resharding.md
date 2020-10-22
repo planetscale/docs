@@ -1,0 +1,73 @@
+---
+title: 'Resharding your database'
+---
+
+# Resharding your database
+
+This document describes how to **reshard** your database. Resharding splits the existing data from your existing shard(s) into new shards using the sharding scheme, then switches traffic to the new shards.
+
+For more information on how sharding works and how to structure your sharding scheme, see [Sharding schemes](sharding-schemes).
+
+## Prerequisites
+
+Before you reshard your database, your database must have the following configurations in place:
+
++ SQL schema
++ [Sharding scheme](https://docs.planetscale.com/psdb/configuring-sharding)
+
+## Overview
+
+PlanetScaleDB allows you to scale your database by splitting the tables across multiple MySQL instances, or **shards**. To increase the number of shards your database uses, you can reshard your database. Resharding splits the data from existing shard(s) to new shards using the sharding scheme. Whenever you are ready, you can switch all database traffic to the new shards. You can switch traffic back to the original shards if necessary. Once the old shards are no longer necessary, you can delete them. Throughout this process, the database continues to serve queries.
+
+To reshard your database, follow these steps:
+
+1. Go to the [PlanetScale console](https://console.planetscale.com).
+1. Open your cluster overview.
+1. Open the database overview.
+1. Click **Reshard**.
+1. Enter the **New shard count**.
+1. Click **Reshard**.
+1. Click **Switch Traffic To Shards**.
+1. Click **Finish Resharding**. 
+
+## Step 1. Go to the [PlanetScale console](https://console.planetscale.com).
+
+This opens the **Clusters Overview**.
+
+## Step 2. Click on your cluster name.
+
+This opens the **Overview** for your cluster.
+
+## Step 3. Click on your database name.
+
+This opens the **Overview** for your database.
+
+## Step 4. Click **Reshard**.
+
+Under **Configuration**, click the **Reshard** button. This will open the **Reshard Database** pane.
+
+## Step 5. Enter the **New shard count**.
+
+In the **Reshard Database** pane, enter the new number of shards for your database. The maximum number of shards is 256.
+
+The change to the hourly cost of your database appears below. During the resharding process, you will be charged for both the original shard configuration and the new shard configuration. After you switch traffic to the new shards, you can delete the old shards to prevent additional charges for these shards.
+
+You cannot reshard to a smaller number of shards.
+
+## Step 6. Click **Reshard**.
+
+This initiates the resharding process. First, PlanetScaleDB copies the data from the old shards to the new ones. Then, it synchronizes the two sets of shards to prepare for switching traffic. Resharding requires more time for larger databases, and may take several hours or even several days for large databases. The status of your new shards appears under **Reshard Status**.
+
+## Step 7. Click **Switch Traffic to Shards**.
+
+When the **Reshard Status** shows that your new shards are ready, this means that all data from your old shards is now present on the new shards and is being kept up-to-date. When you are ready, you can click **Switch Traffic to Shards**. This causes the new shards to begin serving all queries against your database.
+
+When you click the **Switch Traffic to Shards** button, a confirmation dialog appears. When you are ready, click **Switch Traffic**.
+
+Your database continues to serve queries during this process, which may take several minutes.
+
+PlanetScaleDB determines it's safe to switch traffic when all initial data is present on the new shards and the delay to synchronization is less than 10 seconds. Reads switch first, then writes. When the traffic switch is complete, your application is writing to the new shards, and the old shards will be synchronized with the new shards.
+
+## Step 8. Click **Finish Resharding**.
+
+When your new shards are serving traffic, you can click **Finish Resharding** to delete your old shards. This should not affect database availability and prevents further billing for these shards.
