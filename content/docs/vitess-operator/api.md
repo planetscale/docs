@@ -1,12 +1,12 @@
 ---
-title: 'Operator API Reference'
+title: 'Vitess Operator API Reference'
 category: 'vitess-operator'
 contentStyle: 'wide'
 ---
 
-<h1 id="planetscale.com/v2">planetscale.com/v2</h1>
+<h1>Vitess Operator API Reference</h1>
 <p>
-<p>Package v2 contains API Schema definitions for the planetscale.com/v2 API group.</p>
+This page describes all the available fields of CRD APIs implemented by the operator.
 </p>
 <h2>Resource Types</h2>
 <ul><li>
