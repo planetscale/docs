@@ -17,18 +17,6 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       // Note: Gatsby's default plugin does not work
       value: slug.substr(0, slug.length - 1),
     })
-  } else if (node.internal.type === 'File' && node.extension === 'html') {
-    createNodeField({
-      node,
-      name: 'slug',
-      value: `${node.sourceInstanceName}/api`,
-    })
-
-    createNodeField({
-      node,
-      name: 'title',
-      value: `Operator API Reference`,
-    })
   }
 }
 
@@ -43,15 +31,6 @@ exports.createPages = ({ graphql, actions }) => {
               fields {
                 slug
               }
-            }
-          }
-        }
-
-        allFile(filter: { extension: { eq: "html" } }) {
-          nodes {
-            sourceInstanceName
-            fields {
-              slug
             }
           }
         }
@@ -71,17 +50,6 @@ exports.createPages = ({ graphql, actions }) => {
         }
       })
 
-      result.data.allFile.nodes.forEach((node) => {
-        createPage({
-          // TODO: Hack, change based on future updates
-          path: node.fields.slug,
-          component: path.resolve(`./src/templates/docs.js`),
-          context: {
-            // Data passed to context is available in page queries as GraphQL variables.
-            slug: node.fields.slug,
-          },
-        })
-      })
       resolve()
     })
   })

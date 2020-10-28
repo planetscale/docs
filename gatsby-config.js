@@ -119,14 +119,5 @@ module.exports = {
         branch: `prod`,
       },
     },
-    {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `vitess-operator`,
-        remote: `https://github.com/planetscale/vitess-operator.git`,
-        patterns: 'docs/api/*.html',
-        branch: `master`,
-      },
-    },
   ],
 }

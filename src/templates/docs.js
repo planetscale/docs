@@ -15,18 +15,7 @@ export default function DocsPage({ data }) {
           title={frontmatter.title}
           pathname={`${fields.slug}`}
         />
-        <MarkdownContent html={html} />
-      </Fragment>
-    )
-  } else {
-    const { publicURL, fields } = htmlFile
-    return (
-      <Fragment>
-        <TitleAndMetaTags
-          title="Operator API Reference"
-          pathname={`${fields.slug}`}
-        />
-        <IFrameContainer src={publicURL}></IFrameContainer>
+        <MarkdownContent html={html} contentStyle={frontmatter.contentStyle} />
       </Fragment>
     )
   }
@@ -43,15 +32,9 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        contentStyle
       }
       html
-    }
-
-    htmlFile: file(extension: { eq: "html" }, fields: { slug: { eq: $slug } }) {
-      publicURL
-      fields {
-        slug
-      }
     }
   }
 `

@@ -196,23 +196,6 @@ class Sidenav extends Component {
     return outputPages
   }
 
-  getHTMLPagesInCategory(category, htmlPages) {
-    const outputPages = []
-    category.pages.map((pageID) => {
-      htmlPages.nodes.map((page) => {
-        const pageSlug = page.fields.slug.replace(
-          'docs',
-          page.sourceInstanceName
-        )
-
-        if (pageSlug.includes(pageID)) {
-          outputPages.push(page)
-        }
-      })
-    })
-    return outputPages
-  }
-
   toggleMobileTOC = (boolean) => {
     this.setState((oldState) => {
       return {
@@ -263,10 +246,6 @@ class Sidenav extends Component {
                 category={category.name}
                 icon={category.icon}
                 pages={this.getPagesInCategory(category, this.props.docPages)}
-                htmlPages={this.getHTMLPagesInCategory(
-                  category,
-                  this.props.htmlPages
-                )}
                 onClick={this.toggleMobileTOC}
               ></SidenavGroup>
             )
@@ -277,7 +256,7 @@ class Sidenav extends Component {
   }
 }
 
-function SidenavGroup({ category, icon, pages, htmlPages, onClick }) {
+function SidenavGroup({ category, icon, pages, onClick }) {
   return (
     <_GroupContainer>
       <_GroupHeading>
@@ -293,20 +272,6 @@ function SidenavGroup({ category, icon, pages, htmlPages, onClick }) {
                 activeClassName="active"
               >
                 {page.frontmatter.title}
-              </_PageLink>
-            </li>
-          )
-        })}
-
-        {htmlPages.map((page, index) => {
-          return (
-            <li key={index}>
-              <_PageLink
-                onClick={onClick}
-                to={`${page.fields.slug}`}
-                activeClassName="active"
-              >
-                {page.fields.title}
               </_PageLink>
             </li>
           )
@@ -339,15 +304,6 @@ const query = graphql`
         }
       }
     }
-
-    htmlPages: allFile(filter: { extension: { eq: "html" } }) {
-      nodes {
-        fields {
-          slug
-          title
-        }
-      }
-    }
   }
 `
 export default () => (
@@ -358,7 +314,6 @@ export default () => (
         <Sidenav
           categories={data.categories}
           docPages={data.docPages}
-          htmlPages={data.htmlPages}
         ></Sidenav>
       )
     }}

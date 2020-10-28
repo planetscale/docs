@@ -9,7 +9,7 @@ const MarkDownContainer = styled.div`
   white-space: pre-line;
   overflow: auto;
   padding: 4em;
-  max-width: 90ch;
+  max-width: ${(props) => props.maxWidth};
 
   ${media.phone`
     padding: 2em;
@@ -94,14 +94,52 @@ const MarkDownContainer = styled.div`
     background-color: #f7f7f7;
     overflow: scroll;
   }
+
+  table.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+  }
+
+  table.table th,
+  table.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-bottom: none;
+    white-space: normal;
+  }
+
+  table.table thead th {
+    vertical-align: bottom;
+    border-bottom: 2px solid #dee2e6;
+  }
+
+  table.table tbody + tbody {
+    border-top: 2px solid #dee2e6;
+  }
+
+  table.table thead.thead-dark th {
+    color: #fff;
+    background-color: #343a40;
+    border-color: #454d55;
+  }
+
+  table.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
 `
 
 class MarkdownContent extends React.Component {
   render() {
-    const { style, inverted, whiteSpace, html } = this.props
+    const { style, inverted, whiteSpace, html, contentStyle } = this.props
+    let maxWidth = '90ch'
+    if (contentStyle == 'wide') {
+      maxWidth = 'none'
+    }
     return (
       <MarkDownContainer
         style={style}
+        maxWidth={maxWidth}
         inverted={inverted}
         whiteSpace={whiteSpace}
         dangerouslySetInnerHTML={{ __html: html }}
