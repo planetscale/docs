@@ -6,7 +6,7 @@ const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
   color: #000;
   background-color: #fff;
-  white-space: pre-line;
+  white-space: normal;
   overflow: auto;
   padding: 4em;
   max-width: ${(props) => props.maxWidth};
@@ -32,7 +32,6 @@ const MarkDownContainer = styled.div`
     font-weight: 400;
     font-size: 1em;
     line-height: 1.5em;
-    margin: 0em;
   }
 
   ul,

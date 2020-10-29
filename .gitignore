@@ -7,3 +7,7 @@ public/*
 .DS_Store
 yarn-error.log
 .vscode
+# Intellij IDEs
+.idea/*
+.idea
+**/.idea

@@ -72,6 +72,7 @@ order:
     pages:
       - psdb-operator/overview
       - psdb-operator/getting-access
+      - psdb-operator/topology-guide
       - psdb-operator/gcp-quickstart
       - psdb-operator/api
   - id: vitess-operator
