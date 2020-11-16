@@ -18,7 +18,7 @@ To enforce encrypted transport and verify the certificate authority, use the `--
 1. Go to your [PlanetScale console](https://console.planetscale.com).
 1. Click on your cluster.
 1. Click on your database.
-1. Click **Connection Security**.
+1. Click on the **Security** tab.
 1. Click **Copy**.
 1. Save the certificate to a document.
 1. Specify the certificate location in your MySQL connection string.
@@ -37,15 +37,15 @@ This opens the **Overview** for your cluster.
 
 This opens the **Overview** for your database.
 
-## Step 4. Click **Connection Security**.
+## Step 4. Click on the **Security** tab.
 
-![Connection Security tab](/img/docs/connection-security-tab.png)
+![Connection Security tab](/img/docs/certificate-authority-security-tab.png) 
 
 This displays your Certificate Authority certificate.
 
 ## Step 5. Click **Copy**.
 
-![Certificate Authority certificate copy button](/img/docs/ca-cert-copy-button.png)
+![Certificate Authority certificate copy button](/img/docs/copy-certificate-authority-security-tab.png)
 
 ## Step 6. Save the certificate to a document.
 
