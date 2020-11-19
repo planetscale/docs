@@ -41,6 +41,7 @@ order:
       - psdb/creating-custom-region
       - psdb/configuring-database-flags
       - psdb/linking-external-database
+      - psdb/delete-a-cluster
   - id: using-planetscaledb
     icon: database
     name: Using PlanetScaleDB
