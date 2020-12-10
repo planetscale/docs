@@ -46,8 +46,6 @@ If you are creating a **Multi-Region and Multi-Cloud** cluster, select each regi
 
 In order to use more than one region, you must select at least three total regions. You may select multiple regions in a single cloud provider.
 
-If you are creating a cluster in a **Custom Kubernetes Region**, select one of the custom regions that appear. To [create a new custom region](creating-custom-region), click the `Create new custom region` button.
- 
 ## Step 6: Click **Create Cluster**.
 
 When you have selected a name and region for your cluster, click **Create Cluster**.
