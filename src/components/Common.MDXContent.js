@@ -46,6 +46,13 @@ const MarkDownContainer = styled.div`
 
   a {
     color: var(--link);
+    text-decoration: none;
+    border-bottom: 1px solid var(--background1);
+    transition: border-bottom 0.25s ease;
+
+    &:hover {
+      border-bottom: 1px solid var(--link);
+    }
   }
 
   p {

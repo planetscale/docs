@@ -68,7 +68,7 @@ TitleAndMetaTags.defaultProps = {
   schemaOrgJSONLD: {
     '@context': 'http://schema.org',
     '@type': 'Organization',
-    name: 'PlanetScale',
+    name: 'PlanetScale, Inc.',
     url: 'https://docs.planetscale.com',
     sameAs: [
       'https://twitter.com/planetscaledata',
@@ -77,7 +77,8 @@ TitleAndMetaTags.defaultProps = {
     ],
     address: {
       '@type': 'PostalAddress',
-      streetAddress: '278 Hope St',
+      streetAddress: '321 Castro St #200',
+      addressLocality: 'Mountain View',
       addressRegion: 'CA',
       postalCode: '94041',
       addressCountry: 'US',

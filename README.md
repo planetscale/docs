@@ -12,7 +12,7 @@
 - Install homebrew (https://brew.sh/)
 - Install node and npm
 - Install vercel CLI (MacOS: `npm install -g vercel`)
-- Login to netlify via `vercel login`
+- Login to vercel via `vercel login`
 - Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
 - Switch to the repository's folder
 - `npm install` to install all dependencies
