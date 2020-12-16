@@ -1,0 +1,44 @@
+@import '../styles/typography.css';
+
+:root {
+  --background1: #fff;
+  --background2: #fcfcfc;
+  --foreground1: #000;
+  --foreground2: #666;
+  --accent: #eee;
+  --accent2: #ccc;
+  --link: #007bc7;
+  --text: rgb(60, 66, 87);
+  --codeblock: rgb(14, 22, 34);
+  --shadow1: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 13px rgba(0, 0, 0, 0.08);
+  --buttonHoverDelay: 0.15s;
+  --brightness: brightness(100%);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background1: #090909;
+    --background2: #000;
+    --foreground1: rgba(255, 255, 255, 0.9);
+    --foreground2: #aaa;
+    --accent: #1e1e1e;
+    --accent2: #333;
+    --link: #009afa;
+    --text: #ccc;
+    --codeblock: rgb(14, 22, 34);
+    --shadow1: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 13px rgba(0, 0, 0, 0.08);
+    --buttonHoverDelay: 0.15s;
+    --brightness: brightness(85%);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Overpass', sans-serif;
+  max-width: 100vw;
+}

@@ -1,21 +1,20 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import { IFrameContainer } from '../components/Layout.Wrapper'
-import MarkdownContent from '../components/Common.MarkdownContent'
+import MDXContent from '../components/Common.MDXContent'
 
 export default function DocsPage({ data }) {
-  const { doc, htmlFile } = data
+  const { doc } = data
 
   if (doc) {
-    const { frontmatter, html, fields } = doc
+    const { frontmatter, body, fields } = doc
     return (
       <Fragment>
         <TitleAndMetaTags
           title={frontmatter.title}
           pathname={`${fields.slug}`}
         />
-        <MarkdownContent html={html} contentStyle={frontmatter.contentStyle} />
+        <MDXContent body={body}></MDXContent>
       </Fragment>
     )
   }
@@ -23,7 +22,7 @@ export default function DocsPage({ data }) {
 
 export const pageQuery = graphql`
   query DocQuery($slug: String!) {
-    doc: markdownRemark(
+    doc: mdx(
       fields: { slug: { eq: $slug } }
       frontmatter: { title: { ne: "" } }
     ) {
@@ -32,9 +31,8 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
-        contentStyle
       }
-      html
+      body
     }
   }
 `

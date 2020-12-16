@@ -14,11 +14,6 @@ export function TitleAndMetaTags({
       <title>{title + ' - PlanetScale Documentation'}</title>
 
       <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href="/apple-touch-icon.png"
-      />
-      <link
         rel="icon"
         type="image/png"
         sizes="32x32"
@@ -34,25 +29,14 @@ export function TitleAndMetaTags({
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="description" content={description}></meta>
 
-      <script
-        src="https://kit.fontawesome.com/4f3d66bc81.js"
-        crossorigin="anonymous"
-      ></script>
-
-      <meta property="og:url" content={`${url}${pathname}`} />
-      <meta
-        property="og:image"
-        content={`${url}/social_share_placeholder.png`}
-      />
+      <meta property="og:url" content={`${url}/${pathname}`} />
+      <meta property="og:image" content={`${url}/social_share.png`} />
       <meta property="og:type" content={type} />
       <meta property="og:title" content={title + ' - PlanetScale'} />
       <meta property="og:description" content={description} />
 
       <meta name="twitter:url" content={`${url}/${pathname}`} />
-      <meta
-        name="twitter:image"
-        content={`${url}/social_share_placeholder.png`}
-      />
+      <meta name="twitter:image" content={`${url}/social_share.png`} />
       <meta
         name="twitter:title"
         content={title + ' - PlanetScale Documentation'}
@@ -65,17 +49,22 @@ export function TitleAndMetaTags({
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
+
+      <link
+        rel="preload"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-dark-reasonable.min.css"
+        as="style"
+      />
     </Helmet>
   )
 }
 
 TitleAndMetaTags.defaultProps = {
-  url: 'https://docs.planetscale.com',
+  url: 'https://docs.planetscale.com/',
   pathname: '',
-  title: 'Turbocharged MySQL in the Cloud',
+  title: 'PlanetScale - Serverless Database for Developers',
   type: 'website',
-  description:
-    'Turbocharge your MySQL infrastructure with PlanetScale’s products that offer everything from a fully managed cloud service, to tools and support for Vitess.',
+  description: 'Start small and grow to massive scale',
   schemaOrgJSONLD: {
     '@context': 'http://schema.org',
     '@type': 'Organization',

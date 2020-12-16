@@ -5,8 +5,6 @@ import { media } from '../styles/media'
 
 const OverviewContainer = styled.div`
   padding: 4em;
-  background-color: #fff;
-  border-radius: 8px;
   max-width: 1170px;
 
   ${media.phone`
@@ -15,7 +13,15 @@ const OverviewContainer = styled.div`
 `
 
 const H1 = styled.h1`
-  font-weight: 700;
+  font-family: 'Overpass';
+  font-weight: 900;
+  font-size: 3em;
+  margin: 0em 0 1em 0;
+  color: var(--foreground1);
+
+  ${media.phone`
+    font-size: 2.5em;
+  `}
 `
 
 const CategoryList = styled.div`
@@ -36,31 +42,54 @@ const CategoryList = styled.div`
   `}
 `
 
-const CategoryIcon = styled.i`
-  font-size: 32px;
-  margin-bottom: 16px;
-  color: #4d9999;
+const CategoryIllustration = styled.div`
+  width: 100%;
+  height: 200px;
+  border-bottom: 1px solid var(--accent);
+  background-color: var(--background2);
+  background-image: url(${(props) => props.image});
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: transform 0.25s linear;
+
+  ${media.phone`
+    height: 100px;
+  `}
+`
+
+const CategoryContent = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 2em;
 `
 
 const CategoryTitle = styled.div`
-  font-weight: 500;
+  font-weight: 700;
   font-size: 24px;
 `
 
 const CategoryCard = styled(Link)`
-  background-color: #fff;
-  color: #4f7273;
-  padding: 2em;
+  background-color: var(--background1);
+  color: var(--foreground1);
   text-decoration: none;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s, border 0.2s;
-  border: 1px solid #f3ebe6;
-  border-radius: 8px;
+  border: 1px solid var(--accent);
+  border-radius: 2px;
+  transform: scale(1);
+  transition: transform 0.25s linear;
+  overflow: hidden;
 
   &:hover {
     box-shadow: 0px 4px 16px rgba(138, 177, 177, 0.2);
-    border: 1px solid #8f847e;
+    border: 1px solid var(--foreground2);
+    transform: scale(1.025);
+
+    > ${CategoryIllustration} {
+      transform: scale(1.025);
+    }
   }
 
   ${media.phone`
@@ -100,7 +129,8 @@ class Overview extends Component {
               <Category
                 key={index}
                 category={category.name}
-                icon={category.icon}
+                illustration={category.illustration}
+                theme="dark"
                 description={category.description}
                 pages={this.getPagesInCategory(
                   category.pages,
@@ -115,12 +145,16 @@ class Overview extends Component {
   }
 }
 
-function Category({ category, icon, description, pages }) {
+function Category({ category, illustration, theme, description, pages }) {
   return (
-    <CategoryCard to={`/${pages[0].fields.slug}`} activeClassName="active">
-      <CategoryIcon className={`fas fa-${icon}`}></CategoryIcon>
-      <CategoryTitle>{category}</CategoryTitle>
-      <p>{description}</p>
+    <CategoryCard to={`${pages[0].fields.slug}`} activeClassName="active">
+      <CategoryIllustration
+        image={`/img/categories/${illustration}.svg`}
+      ></CategoryIllustration>
+      <CategoryContent>
+        <CategoryTitle>{category}</CategoryTitle>
+        <p>{description}</p>
+      </CategoryContent>
     </CategoryCard>
   )
 }
@@ -130,16 +164,14 @@ const query = graphql`
     categories: docsYaml {
       order {
         id
-        icon
+        illustration
         name
         description
         pages
       }
     }
 
-    docPages: allMarkdownRemark(
-      filter: { frontmatter: { title: { ne: "" } } }
-    ) {
+    docPages: allMdx(filter: { frontmatter: { title: { ne: "" } } }) {
       nodes {
         frontmatter {
           title

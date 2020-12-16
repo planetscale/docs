@@ -204,7 +204,7 @@ VitessImageParams
 <td>
 <p>Image defines parameters that will be used to fill in the default image
 URL template for Vitess containers, including mysqld.</p>
-<p>The template is: {registry}/{repository}:{mysqlFlavor}-{version}.</p>
+<p>The template is: [registry]/[repository]:[mysqlFlavor]-[version].</p>
 <p>Default: Use the current operator version&rsquo;s recommended parameters.</p>
 </td>
 </tr>
@@ -490,7 +490,7 @@ FederationSpec
 other Kubernetes clusters to manage a single Vitess cluster that spans
 multiple Kubernetes clusters.</p>
 <p>To enable federation without customization, specify a non-null, empty
-object (e.g. <code>federation: {}</code>). Only a null or missing value
+object (e.g. <code>federation: []</code>). Only a null or missing value
 (the default) will disable federation.</p>
 <p>WARNING: Migration of an already-deployed PlanetScaleCluster between
 unfederated and federated is currently NOT supported. Federation must be
@@ -671,8 +671,7 @@ map[string]string
 </em>
 </td>
 <td>
-<p>ListenPorts specifies the ports that the ALB will listen on.
-Default: {HTTP: 80} if CertificateARNs is empty; {HTTPS: 443} otherwise.</p>
+<p>ListenPorts specifies the ports that the ALB will listen on. Default: <code>HTTP: 80</code> if CertificateARNs is empty; <code>HTTPS: 443</code> otherwise.</p>
 </td>
 </tr>
 <tr>
@@ -1663,12 +1662,9 @@ SecretSource
 <td>
 <p>CredentialsSecret should link to a JSON credentials file used to connect to the externally managed
 MySQL endpoint. The credentials file is understood and parsed by Vitess and must be in the format:
-{
-&ldquo;username&rdquo;: [
-&ldquo;password&rdquo;
-]
-}
-Vitess always uses the first password in the password array.</p>
+</p>
+<code>username: [password]</code>
+<p>Vitess always uses the first password in the password array.</p>
 </td>
 </tr>
 <tr>
@@ -1759,7 +1755,7 @@ you have.</p>
 <p>If your solution doesn&rsquo;t require the operator to do anything at all, you
 can turn off the default service discovery assumptions without specifying
 any of the fields within by specifying a non-null, empty object
-(e.g. <code>globalServiceDiscovery: {}</code>).</p>
+(e.g. <code>globalServiceDiscovery: []</code>).</p>
 <p>Default: Assume Cilium Cluster Mesh is in use.</p>
 </td>
 </tr>
@@ -1805,7 +1801,7 @@ given region.</p>
 <p>To specify that no per-region lockserver should be used, and that all
 cells should share the global lockserver (if they don&rsquo;t have their own
 per-cell lockserver), specify a non-nil, empty object
-(e.g. <code>regionalLockserver: {}</code>).</p>
+(e.g. <code>regionalLockserver: []</code>).</p>
 <p>Default: Deploy an etcd cluster as the regional lockserver.</p>
 </td>
 </tr>
@@ -1961,7 +1957,7 @@ string
 <p>ClusterDomain is a DNS zone that can be used instead of the standard
 &ldquo;cluster.local&rdquo; zone to resolve the Pod IP of this lockserver instance
 from any Kubernetes cluster by requesting a name of the form
-&ldquo;{podName}.{headlessServiceName}.{namespace}.svc.{clusterDomain}&rdquo;.</p>
+&ldquo;[podName].[headlessServiceName].[namespace].svc.[clusterDomain]&rdquo;.</p>
 <p>Note that this requires some form of cross-Kubernetes DNS solution,
 such as PlanetScale xk-dns.</p>
 <p>Example: &ldquo;aws-uswest1.xk.local&rdquo;.
@@ -2265,8 +2261,8 @@ string
 </td>
 <td>
 <p>PathTemplate is a Go text template used to set the path for each Service.
-Use {{label .Service &ldquo;key&rdquo;}} to expand a label from the Service. For
-example, &lsquo;/{{label .Service &ldquo;component&rdquo;}}/&rsquo; would expand to &lsquo;/foo/&rsquo; if
+Use [[label .Service &ldquo;key&rdquo;]] to expand a label from the Service. For
+example, &lsquo;/[[label .Service &ldquo;component&rdquo;]]/&rsquo; would expand to &lsquo;/foo/&rsquo; if
 the Service has the label &lsquo;component&rsquo; set to the value &lsquo;foo&rsquo;.</p>
 </td>
 </tr>
@@ -2884,7 +2880,7 @@ VitessImageParams
 <td>
 <p>Image defines parameters that will be used to fill in the default image
 URL template for Vitess containers, including mysqld.</p>
-<p>The template is: {registry}/{repository}:{mysqlFlavor}-{version}.</p>
+<p>The template is: [registry]/[repository]:[mysqlFlavor]-[version].</p>
 <p>Default: Use the current operator version&rsquo;s recommended parameters.</p>
 </td>
 </tr>
@@ -3170,7 +3166,7 @@ FederationSpec
 other Kubernetes clusters to manage a single Vitess cluster that spans
 multiple Kubernetes clusters.</p>
 <p>To enable federation without customization, specify a non-null, empty
-object (e.g. <code>federation: {}</code>). Only a null or missing value
+object (e.g. <code>federation: []</code>). Only a null or missing value
 (the default) will disable federation.</p>
 <p>WARNING: Migration of an already-deployed PlanetScaleCluster between
 unfederated and federated is currently NOT supported. Federation must be

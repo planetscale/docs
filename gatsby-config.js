@@ -1,34 +1,23 @@
 module.exports = {
   siteMetadata: {
-    title: 'PlanetScale',
+    title: 'PlanetScale Docs',
     siteUrl: 'https://docs.planetscale.com',
   },
   plugins: [
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `PlanetScale`,
+        name: `PlanetScale Documentation`,
         short_name: `PlanetScale`,
         start_url: `/docs/index`,
         theme_color: `#ffffff`,
         background_color: `#ffffff`,
         display: `standalone`,
         lang: `en`,
-        icon: `static/android-chrome-512x512.png`,
-        icons: [
-          {
-            src: 'static/android-chrome-192x192.png',
-            sizes: '192x192',
-            type: 'image/png',
-          },
-          {
-            src: 'static/android-chrome-512x512.png',
-            sizes: '512x512',
-            type: 'image/png',
-          },
-        ],
+        icon: `static/logo_square.svg`,
       },
     },
+    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
@@ -53,13 +42,6 @@ module.exports = {
       resolve: 'gatsby-plugin-sitemap',
     },
     'gatsby-plugin-react-helmet',
-    {
-      resolve: 'gatsby-plugin-nprogress',
-      options: {
-        color: '#ffffff',
-        showSpinner: false,
-      },
-    },
     'gatsby-plugin-styled-components',
     'gatsby-transformer-json',
     {
@@ -70,39 +52,33 @@ module.exports = {
       },
     },
     'gatsby-transformer-yaml',
-    'gatsby-plugin-netlify',
     {
       resolve: `gatsby-plugin-google-tagmanager`,
       options: {
         id: process.env.GOOGLE_TAG_MANAGER_ID,
-        includeInDevelopment: true,
+        includeInDevelopment: false,
       },
     },
     {
-      resolve: 'gatsby-plugin-web-font-loader',
+      resolve: `gatsby-plugin-webfonts`,
       options: {
-        google: {
-          families: ['Work+Sans:400,500,700'],
+        fonts: {
+          google: [
+            {
+              family: 'Overpass',
+              variants: ['100', '400', '500', '700', '900'],
+              fontDisplay: 'swap',
+              strategy: 'cdn',
+            },
+          ],
         },
+        formats: ['woff2', 'woff'],
+        useMinify: true,
+        usePreload: true,
+        usePreconnect: true,
       },
     },
     `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          `gatsby-remark-copy-linked-files`,
-          {
-            resolve: `gatsby-remark-images`,
-            options: {
-              maxWidth: 650,
-              showCaptions: true,
-              markdownCaptions: true,
-            },
-          },
-        ],
-      },
-    },
     'gatsby-plugin-catch-links',
     'gatsby-plugin-lodash',
     {
@@ -117,6 +93,21 @@ module.exports = {
         name: `open-source-docs`,
         remote: `https://github.com/planetscale/open-source-docs.git`,
         branch: `prod`,
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-mdx',
+      options: {
+        extensions: ['.md', '.mdx'],
+      },
+    },
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src:
+          'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js',
+        crossorigin: 'anonymous',
+        onLoad: `() => hljs.initHighlightingOnLoad()`,
       },
     },
   ],

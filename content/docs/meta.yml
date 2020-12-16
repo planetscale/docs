@@ -1,13 +1,13 @@
 order:
-  - id: getting-started
-    icon: angle-double-right
-    name: Getting Started
+  - id: quickstart
+    illustration: getting-started
+    name: Quickstart
     description: Learn how to quickly setup PlanetScaleDB to connect to your application
     pages:
       - psdb/managed-quickstart
       - psdb/custom-region-quickstart
   - id: concepts
-    icon: bullseye
+    illustration: planetscale-concepts
     name: PlanetScaleDB Concepts
     description: Learn about the different features and options of PlanetScaleDB
     pages:
@@ -26,7 +26,7 @@ order:
       - psdb/database-links
       - psdb/compatibility-testing
   - id: setting-up-planetscaleDB
-    icon: wrench
+    illustration: setup-planetscaledb
     name: Set up PlanetScaleDB
     description: Configure and deploy your database
     pages:
@@ -43,7 +43,7 @@ order:
       - psdb/linking-external-database
       - psdb/delete-a-cluster
   - id: using-planetscaledb
-    icon: database
+    illustration: using-planetscaledb
     name: Using PlanetScaleDB
     description: Connect to your database and make changes to your configuration
     pages:
@@ -57,7 +57,7 @@ order:
       - psdb/viewing-query-logs
   - id: reference
     name: PlanetScaleDB Reference
-    icon: info-circle
+    illustration: planetscaledb-reference
     description: Refer to technical guidelines on operation and compatibility
     pages:
       - psdb/operational-guidelines
@@ -68,7 +68,7 @@ order:
       - psdb/sharding-scheme-ddl
   - id: psdb-operator
     name: PlanetScaleDB Operator
-    icon: hard-hat
+    illustration: planetscaledb-operator
     description: Deploy, manage, and monitor Vitess clusters in your own Kubernetes cluster using our enterprise operator
     pages:
       - psdb-operator/overview
@@ -78,7 +78,7 @@ order:
       - psdb-operator/api
   - id: vitess-operator
     name: Vitess Operator
-    icon: hard-hat
+    illustration: vitess-operator
     description: Automate Vitess deployment and maintenance in your own Kubernetes cluster using our open source operator
     pages:
       - vitess-operator/overview

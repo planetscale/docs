@@ -1136,12 +1136,9 @@ SecretSource
 <td>
 <p>CredentialsSecret should link to a JSON credentials file used to connect to the externally managed
 MySQL endpoint. The credentials file is understood and parsed by Vitess and must be in the format:
-{
-&ldquo;username&rdquo;: [
-&ldquo;password&rdquo;
-]
-}
-Vitess always uses the first password in the password array.</p>
+</p>
+<pre><code>[ username: [password] ]</code></pre>
+<p>Vitess always uses the first password in the password array.</p>
 </td>
 </tr>
 <tr>

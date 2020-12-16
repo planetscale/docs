@@ -1,65 +1,117 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
-import logo from '../../static/planetscale_icon_color.svg'
-import backgroundNoise from '../../static/background-noise.png'
+import { StaticQuery, graphql, Link } from 'gatsby'
+import { switchTheme } from '../site.js'
+import logo_light from '../../static/logo-docs_light.svg'
+import logo_dark from '../../static/logo-docs_dark.svg'
+import icon_sun from '../../static/icons/sun.svg'
+import icon_moon from '../../static/icons/moon.svg'
 
-const HomeLink = styled.a`
-  flex-grow: 2;
+const HomeLinkContainer = styled.div`
   display: flex;
-  text-decoration: none;
+  flex-direction: row;
   align-items: center;
-  justify-content: flex-start;
-  border-bottom: 1px solid #e1e1e1;
+  position: sticky;
+  z-index: 1;
+  top: 0px;
+  border-bottom: 1px solid var(--accent);
+  background-color: var(--background2);
+  width: 100%;
+  height: 86px;
 
   ${media.phone`
+    background-color: var(--background1);
     padding: 0;
     border: 0;
     justify-content: left;
   `}
 `
 
+const HomeLink = styled.a`
+  flex-grow: 2;
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: stretch;
+`
+
+const ToggleSwitch = styled.div`
+  border-radius: 99px;
+  background-color: var(--accent);
+  width: 48px;
+  height: 24px;
+  margin-right: 1.5em;
+  position: relative;
+
+  &::before {
+    content: '';
+    display: block;
+    position: absolute;
+    border-radius: 99px;
+    width: 20px;
+    height: 20px;
+    background-color: var(--background2);
+    background-image: url(${icon_sun});
+    background-repeat: no-repeat;
+    background-size: contain;
+    top: 2px;
+    left: 26px;
+    transition: left var(--buttonHoverDelay) ease;
+  }
+
+  &:hover {
+    box-shadow: inset 0 0 16px var(--accent2);
+    cursor: pointer;
+
+    &::before {
+      box-shadow: var(--shadow1);
+    }
+  }
+
+  &.dark {
+    &::before {
+      background-image: url(${icon_moon});
+      left: 2px;
+    }
+  }
+
+  ${media.phone`
+    box-shadow: none;
+  `}
+`
+
 const LogoContainer = styled.div`
   padding: 1.5em;
-  border-right: 1px solid #e1e1e1;
 `
 
 const Logo = styled.img`
-  height: 24px;
+  height: 32px;
 
   ${media.phone`
     height: 24px;
   `}
 `
 
-const DocsBadge = styled.div`
-  margin-left: 1.5rem;
-  text-transform: uppercase;
-  font-weight: 500;
-`
-
 const _SidenavContainer = styled.div`
   height: 100vh;
   overflow: auto;
-  position: sticky;
   top: 0em;
-  background: #f7f7f7 url(${backgroundNoise}) 0 0 repeat;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);
-  border-right: 1px solid #e1e1e1;
+  position: sticky;
+  border-right: 1px solid var(--accent);
   min-width: 300px;
-  width: 25vw;
+  width: 22vw;
+  background-color: var(--background2);
 
   ${media.phone`
     width: 100vw;
     display: flex;
     flex-direction: row;
     border: 0;
-    border-bottom: 1px solid #f3ebe6;
+    border-bottom: 1px solid var(--accent);
     height: unset;
-    padding: 0 1.5em 0 0;
     z-index: 2;
-    background-color: #fff;
+    background-color: var(--background1);
     text-shadow: none;
   `}
 `
@@ -71,22 +123,20 @@ const MenuLink = styled.div`
     position: fixed;
     bottom: 16px;
     right: calc(16px + 60px + 16px);
-    font-size: 24px;
+    font-size: 18px;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: #33475B;
-    background-color: rgb(251, 250, 249);
+    color: #000;
+    background-color: #fff;
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
     height: 60px;
-    width: 60px;
     border-radius: 99px;
     z-index: 3;
+    padding: 0 1em;
   `}
 `
-
-const _Icon = styled.i``
 
 const _SidenavList = styled.div`
   padding: 0 0 2em;
@@ -97,13 +147,12 @@ const _SidenavList = styled.div`
 
   ${media.phone`
     position: fixed;
-    background: #333;
+    background: var(--background1);
     padding: 2em;
     left: 0;
     bottom: 0;
     height: 100vh;
     width: 100vw;
-    color: white;
     transition: bottom 0.25s ease-in-out, opacity 0.25s ease-in-out 0.125s;
     overflow: scroll;
     -webkit-overflow-scrolling: touch;
@@ -123,17 +172,15 @@ const _SidenavList = styled.div`
 `
 
 const _GroupContainer = styled.div`
-  white-space: nowrap;
   margin-bottom: 2.5em;
 `
 
 const _GroupHeading = styled.div`
-  font-weight: 500;
-  font-size: 0.816em;
-  color: #999;
-  padding: 0 2em;
-  text-transform: uppercase;
+  font-family: 'Overpass';
+  font-weight: bold;
+  padding: 0 1.7em;
   letter-spacing: 1px;
+  color: var(--foreground1);
 
   ${media.phone`
     padding: 0 1em;
@@ -146,30 +193,31 @@ const _GroupLinks = styled.ul`
 `
 
 const _PageLink = styled(Link)`
-  font-size: 0.816em;
-  font-weight: 500;
+  font-size: 14px;
   text-decoration: none;
   display: flex;
   flex-direction: row;
   align-items: center;
   padding: 0.8em 2em;
-  transition: background-color 0.25s ease;
+  color: var(--foreground2);
+  position: relative;
+  transition: background 0.25s ease;
 
   &:hover {
-    background: #e1e1e1;
+    color: var(--link);
+    background: var(--accent);
   }
 
   &.active {
-    font-weight: 700;
-    background: #e1e1e1;
+    color: var(--background1);
+    background-color: var(--foreground1);
   }
 
   ${media.phone`
     padding: 1em;
-    border-radius: 8px;
 
     &.active {
-      background: #666;
+      border-radius: 2px;
     }
   `}
 `
@@ -178,8 +226,19 @@ class Sidenav extends Component {
   constructor(props) {
     super(props)
 
+    this.toggleSwitchRef = React.createRef()
     this.state = {
       isMobileTOCOpen: false,
+      isDarkThemeSet: false,
+    }
+
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      this.state.isDarkThemeSet = true
+      switchTheme('dark')
     }
   }
 
@@ -205,37 +264,71 @@ class Sidenav extends Component {
     })
   }
 
+  toggleTheme = (boolean) => {
+    this.setState((oldState) => {
+      const localDocument = typeof document !== 'undefined' && document
+      if (!oldState.isDarkThemeSet) {
+        switchTheme('dark')
+        localDocument.getElementById('logo').src = logo_dark
+      } else {
+        switchTheme('light')
+        localDocument.getElementById('logo').src = logo_light
+      }
+
+      return {
+        isDarkThemeSet:
+          typeof boolean === 'boolean' ? boolean : !oldState.isDarkThemeSet,
+      }
+    })
+  }
+
+  componentDidMount() {
+    const localDocument = typeof document !== 'undefined' && document
+
+    if (this.state.isDarkThemeSet) {
+      localDocument.getElementById('logo').src = logo_dark
+      this.toggleSwitchRef.current.classList.add('dark')
+    }
+  }
+
   render() {
-    const { isMobileTOCOpen } = this.state
+    const { isMobileTOCOpen, isDarkThemeSet } = this.state
 
     return (
       <_SidenavContainer className={`${isMobileTOCOpen ? '' : 'hide'}`}>
-        <HomeLink href="/">
-          <LogoContainer>
-            <Logo
-              src={logo}
-              alt="PlanetScale - world's most scalable database clusters with Vitess"
-            />
-          </LogoContainer>
-
-          <DocsBadge>PlanetScale Documentation</DocsBadge>
-        </HomeLink>
+        <HomeLinkContainer>
+          <HomeLink href="/">
+            <LogoContainer>
+              <Logo
+                id="logo"
+                src={logo_light}
+                title="PlanetScale - Serverless Database for Developers"
+                alt="PlanetScale's logo"
+              />
+            </LogoContainer>
+          </HomeLink>
+          <ToggleSwitch
+            ref={this.toggleSwitchRef}
+            className={isDarkThemeSet ? 'dark' : ''}
+            onClick={this.toggleTheme}
+          ></ToggleSwitch>
+        </HomeLinkContainer>
         <MenuLink onClick={this.toggleMobileTOC}>
-          <_Icon
-            className={`fas ${isMobileTOCOpen ? 'fa-times' : 'fa-bars'}`}
-          ></_Icon>
+          {isMobileTOCOpen ? 'Close' : 'Menu'}
         </MenuLink>
 
         <_SidenavList>
           <_GroupContainer>
             <_GroupLinks>
-              <_PageLink
-                onClick={this.toggleMobileTOC}
-                to="/"
-                activeClassName="active"
-              >
-                Documentation Overview
-              </_PageLink>
+              <li>
+                <_PageLink
+                  onClick={this.toggleMobileTOC}
+                  to="/"
+                  activeClassName="active"
+                >
+                  Documentation Overview
+                </_PageLink>
+              </li>
             </_GroupLinks>
           </_GroupContainer>
 
@@ -244,7 +337,6 @@ class Sidenav extends Component {
               <SidenavGroup
                 key={index}
                 category={category.name}
-                icon={category.icon}
                 pages={this.getPagesInCategory(category, this.props.docPages)}
                 onClick={this.toggleMobileTOC}
               ></SidenavGroup>
@@ -256,12 +348,10 @@ class Sidenav extends Component {
   }
 }
 
-function SidenavGroup({ category, icon, pages, onClick }) {
+function SidenavGroup({ category, pages, onClick }) {
   return (
     <_GroupContainer>
-      <_GroupHeading>
-        <_Icon className={`fas fa-${icon}`}></_Icon> {category}
-      </_GroupHeading>
+      <_GroupHeading>{category}</_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {
           return (
@@ -288,13 +378,10 @@ const query = graphql`
         id
         name
         pages
-        icon
       }
     }
 
-    docPages: allMarkdownRemark(
-      filter: { frontmatter: { title: { ne: "" } } }
-    ) {
+    docPages: allMdx(filter: { frontmatter: { title: { ne: "" } } }) {
       nodes {
         frontmatter {
           title
@@ -306,6 +393,7 @@ const query = graphql`
     }
   }
 `
+
 export default () => (
   <StaticQuery
     query={query}
