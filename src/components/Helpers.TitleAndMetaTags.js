@@ -51,9 +51,8 @@ export function TitleAndMetaTags({
       </script>
 
       <link
-        rel="preload"
+        rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-dark-reasonable.min.css"
-        as="style"
       />
     </Helmet>
   )

@@ -11,13 +11,11 @@
 
 - Install homebrew (https://brew.sh/)
 - Install node and npm
-- Install vercel CLI (MacOS: `npm install -g vercel`)
-- Login to vercel via `vercel login`
 - Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
 - Switch to the repository's folder
 - `npm install` to install all dependencies
-- `vercel dev` to start a local server
-- Open `http://localhost:3000` to access the local server instance
+- `gatsby develop` to start a local development build
+- Open `http://localhost:8000` to access the local server instance. Check console log to find the actual port.
 
 ## How to add a new document
 

@@ -15,6 +15,9 @@ module.exports = {
         display: `standalone`,
         lang: `en`,
         icon: `static/logo_square.svg`,
+        icon_options: {
+          purpose: 'any maskable',
+        },
       },
     },
     'gatsby-plugin-offline',
