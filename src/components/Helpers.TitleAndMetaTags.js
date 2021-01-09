@@ -11,7 +11,7 @@ export function TitleAndMetaTags({
 }) {
   return (
     <Helmet>
-      <title>{title + ' - PlanetScale Documentation'}</title>
+      <title>{title + ' - Documentation - PlanetScale'}</title>
 
       <link
         rel="icon"
@@ -32,14 +32,17 @@ export function TitleAndMetaTags({
       <meta property="og:url" content={`${url}/${pathname}`} />
       <meta property="og:image" content={`${url}/social_share.png`} />
       <meta property="og:type" content={type} />
-      <meta property="og:title" content={title + ' - PlanetScale'} />
+      <meta
+        property="og:title"
+        content={title + ' - Documentation - PlanetScale'}
+      />
       <meta property="og:description" content={description} />
 
       <meta name="twitter:url" content={`${url}/${pathname}`} />
       <meta name="twitter:image" content={`${url}/social_share.png`} />
       <meta
         name="twitter:title"
-        content={title + ' - PlanetScale Documentation'}
+        content={title + ' - Documentation - PlanetScale'}
       />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:site" content="@planetscaledata" />
