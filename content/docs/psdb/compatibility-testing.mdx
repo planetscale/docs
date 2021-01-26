@@ -8,7 +8,7 @@ This document describes ideas for testing the compatibility of your database and
 
 ## Overview
 
-Because PlanetScaleDB uses Vitess, which supports most but not all MySQL queries, migrating a database to PlanetScaleDB may involve changing some queries. One approach to testing for compatibiility issues is to [create a database link](linking-database.md) for your external database. Linking an external database to your PlanetScaleDB account allows you to test how PlanetScaleDB will behave with your database. PlanetScaleDB will create a database in your cluster, called a [database link](database-links), that sends its queries to your external database. This allows you to test the compatibility of your database with PlanetScaleDB.
+Because PlanetScaleDB uses Vitess, which supports most but not all MySQL queries, migrating a database to PlanetScaleDB may involve changing some queries. One approach to testing for compatibiility issues is to [create a database link](linking-external-database) for your external database. Linking an external database to your PlanetScaleDB account allows you to test how PlanetScaleDB will behave with your database. PlanetScaleDB will create a database in your cluster, called a [database link](database-links), that sends its queries to your external database. This allows you to test the compatibility of your database with PlanetScaleDB.
 
 ## Link a testing or staging environment database
 
@@ -77,7 +77,7 @@ If you encounter errors, you can compare them against known limitations in Plane
 
 ## See also
 
-- [Linking an external database](linking-external-database.md)
-- [Database link requirements](database-link-requirements.md)
+- [Linking an external database](linking-external-database)
+- [Database link requirements](database-links)
 - [Access query logs](viewing-query-logs)
 - [MySQL Compatibility](mysql-compatibility)
