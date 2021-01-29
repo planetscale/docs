@@ -4,11 +4,11 @@ title: 'Compatibility testing with your database (Beta)'
 
 # Compatibility testing with your database
 
-This document describes ideas for testing the compatibility of your database and queries with PlanetScaleDB using your [database link](/psdb/database-links).
+This document describes ideas for testing the compatibility of your database and queries with PlanetScaleDB using your [database link](database-links).
 
 ## Overview
 
-Because PlanetScaleDB uses Vitess, which supports most but not all MySQL queries, migrating a database to PlanetScaleDB may involve changing some queries. One approach to testing for compatibiility issues is to [create a database link](linking-external-database) for your external database. Linking an external database to your PlanetScaleDB account allows you to test how PlanetScaleDB will behave with your database. PlanetScaleDB will create a database in your cluster, called a [database link](/psdb/database-links), that sends its queries to your external database. This allows you to test the compatibility of your database with PlanetScaleDB.
+Because PlanetScaleDB uses Vitess, which supports most but not all MySQL queries, migrating a database to PlanetScaleDB may involve changing some queries. One approach to testing for compatibiility issues is to [create a database link](linking-external-database) for your external database. Linking an external database to your PlanetScaleDB account allows you to test how PlanetScaleDB will behave with your database. PlanetScaleDB will create a database in your cluster, called a [database link](database-links), that sends its queries to your external database. This allows you to test the compatibility of your database with PlanetScaleDB.
 
 ## Link a testing or staging environment database
 
@@ -16,7 +16,7 @@ Database Links do not make changes to your database, other than those resulting 
 
 ## Connect a command line MySQL client to the Database Link.
 
-One way to test out query compatibility is by [connecting to your database link](/psdb/connecting-to-db) using the MySQL command line interface. This allows you to manually test how PlanetScaleDB behaves in response to specific queries, and provides real-time error messages.
+One way to test out query compatibility is by [connecting to your database link](connecting-to-db) using the MySQL command line interface. This allows you to manually test how PlanetScaleDB behaves in response to specific queries, and provides real-time error messages.
 
 For example, you can copy the connection string from your Database Link and past it into a terminal to connect to your database, substituting your user credentials:
 
@@ -64,15 +64,15 @@ See the [Vitess documentation](https://github.com/vitessio/vitess/edit/master/go
 
 Connecting your application to the Database Link can simulate the behavior of PlanetScaleDB in response to the actual queries your application issues. This may require reconfiguring your application to use the connection string from your Database Link. Attempting to use your application while connected to your Database Link should reproduce any errors that are likely to occur after migration.
 
-You may have a log that captures any errors from MySQL. If not, you can [access the query logs](/psdb/viewing-query-logs) for your Database Link inside PlanetScaleDB.
+You may have a log that captures any errors from MySQL. If not, you can [access the query logs](viewing-query-logs) for your Database Link inside PlanetScaleDB.
 
 ## Identify compatibility-related errors
 
-If you encounter errors, you can compare them against known limitations in PlanetScaleDB [compatibility with MySQL](/psdb/mysql-compatibility). If errors arise from compatibility limitations, it may be possible to rewrite queries to make your application compatible with PlanetScaleDB.
+If you encounter errors, you can compare them against known limitations in PlanetScaleDB [compatibility with MySQL](mysql-compatibility). If errors arise from compatibility limitations, it may be possible to rewrite queries to make your application compatible with PlanetScaleDB.
 
 ## Next Steps
 
-- If your testing is successful, consider [importing your data](/psdb/importing-data) into PlanetScaleDB.
+- If your testing is successful, consider [importing your data](importing-data) into PlanetScaleDB.
 - If you encounter compatibility issues during testing, [contact PlanetScale for assistance](https://planetscale.com/support).
 
 ## See also
