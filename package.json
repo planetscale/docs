@@ -21,7 +21,6 @@
     "gatsby-plugin-google-tagmanager": "^2.6.0",
     "gatsby-plugin-html-attributes": "^1.0.5",
     "gatsby-plugin-layout": "^1.5.0",
-    "gatsby-plugin-load-script": "^1.1.0",
     "gatsby-plugin-lodash": "^3.5.0",
     "gatsby-plugin-manifest": "^2.7.0",
     "gatsby-plugin-mdx": "^1.5.0",

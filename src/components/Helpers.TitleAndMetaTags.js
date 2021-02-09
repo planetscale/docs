@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
 
 export function TitleAndMetaTags({
@@ -9,6 +9,51 @@ export function TitleAndMetaTags({
   description,
   schemaOrgJSONLD,
 }) {
+  useEffect(() => {
+    const docSearchScript = document.getElementById('docsearch')
+    const highlightScript = document.getElementById('highlight')
+
+    if (!docSearchScript) {
+      const script = document.createElement('script')
+      script.src =
+        'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
+      script.id = 'docsearch'
+      document.body.appendChild(script)
+
+      script.onload = () => {
+        if (docSearchCallback) docSearchCallback()
+      }
+    }
+
+    if (!highlightScript) {
+      const script = document.createElement('script')
+      script.src =
+        'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js'
+      script.id = 'highlight'
+      document.body.appendChild(script)
+
+      script.onload = () => {
+        if (highlightCallback) highlightCallback()
+      }
+    }
+
+    if (highlightScript && highlightCallback) highlightCallback()
+    if (docSearchScript && docSearchCallback) docSearchCallback()
+  })
+
+  function highlightCallback() {
+    hljs.initHighlightingOnLoad()
+  }
+
+  function docSearchCallback() {
+    docsearch({
+      apiKey: 'c05ee5734758d9d4d948be01d548da67',
+      indexName: 'planetscale',
+      inputSelector: '#searchbox',
+      debug: true,
+    })
+  }
+
   return (
     <Helmet>
       <title>{title + ' - Documentation - PlanetScale'}</title>

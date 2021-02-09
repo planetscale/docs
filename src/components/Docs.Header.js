@@ -82,17 +82,6 @@ const LinkContent = styled.div`
 `
 
 export default function Header() {
-  useEffect(() => {
-    if (typeof docsearch !== 'undefined') {
-      docsearch({
-        apiKey: 'c05ee5734758d9d4d948be01d548da67',
-        indexName: 'planetscale',
-        inputSelector: '#searchbox',
-        debug: true,
-      })
-    }
-  })
-
   return (
     <HeaderContainer>
       <SearchContainer>

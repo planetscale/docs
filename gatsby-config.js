@@ -104,22 +104,5 @@ module.exports = {
         extensions: ['.md', '.mdx'],
       },
     },
-    {
-      resolve: 'gatsby-plugin-load-script',
-      options: {
-        src:
-          'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js',
-        crossorigin: 'anonymous',
-        onLoad: `() => hljs.initHighlightingOnLoad()`,
-      },
-    },
-    {
-      resolve: 'gatsby-plugin-load-script',
-      options: {
-        src:
-          'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js',
-        crossorigin: 'anonymous',
-      },
-    },
   ],
 }
