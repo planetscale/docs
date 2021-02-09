@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { media } from '../styles/media'
 import { MDXProvider } from '@mdx-js/react'
@@ -156,27 +156,24 @@ const MarkDownContainer = styled.div`
   }
 `
 
-class MDXContent extends React.Component {
-  componentDidMount() {
-    document.querySelectorAll('pre > code').forEach((block) => {
-      hljs.highlightBlock(block)
-    })
-  }
+export default function MDXContent({ body }) {
+  useEffect(() => {
+    if (typeof hljs !== 'undefined') {
+      document.querySelectorAll('pre > code').forEach((block) => {
+        hljs.highlightBlock(block)
+      })
+    }
+  })
 
-  render() {
-    const { body } = this.props
-    return (
-      <MarkDownContainer maxWidth="90ch">
-        <MDXProvider
-          components={{
-            pre: CodeBlock,
-          }}
-        >
-          <MDXRenderer>{body}</MDXRenderer>
-        </MDXProvider>
-      </MarkDownContainer>
-    )
-  }
+  return (
+    <MarkDownContainer maxWidth="90ch">
+      <MDXProvider
+        components={{
+          pre: CodeBlock,
+        }}
+      >
+        <MDXRenderer>{body}</MDXRenderer>
+      </MDXProvider>
+    </MarkDownContainer>
+  )
 }
-
-export default MDXContent
