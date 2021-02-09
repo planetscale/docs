@@ -1,4 +1,4 @@
-import * as React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 
 const HeaderContainer = styled.div`
@@ -21,9 +21,7 @@ const SearchContainer = styled.div`
   max-width: 600px;
 `
 
-const SearchBoxLabel = styled.label`
-  display: none;
-`
+const SearchBoxLabel = styled.label``
 
 const SearchBox = styled.input`
   font-family: 'Overpass';
@@ -34,6 +32,7 @@ const SearchBox = styled.input`
   padding: 0.5em;
   width: 100%;
   background-color: var(--background2);
+  color: var(--text);
 
   &:hover {
     box-shadow: var(--shadow1);
@@ -82,27 +81,33 @@ const LinkContent = styled.div`
   }
 `
 
-class Header extends React.Component {
-  render() {
-    return (
-      <HeaderContainer>
-        <SearchContainer>
-          <SearchBoxLabel htmlFor={'searchbox'}>
-            Search documentation
-            <SearchBox
-              id="searchbox"
-              placeholder={'Search documentation'}
-            ></SearchBox>
-          </SearchBoxLabel>
-        </SearchContainer>
-        <LinksContainer>
-          <LinkContainer href={'https://console.planetscale.com'}>
-            <LinkContent>Console ▹</LinkContent>
-          </LinkContainer>
-        </LinksContainer>
-      </HeaderContainer>
-    )
-  }
-}
+export default function Header() {
+  useEffect(() => {
+    if (typeof docsearch !== 'undefined') {
+      docsearch({
+        apiKey: 'c05ee5734758d9d4d948be01d548da67',
+        indexName: 'planetscale',
+        inputSelector: '#searchbox',
+        debug: true,
+      })
+    }
+  })
 
-export default Header
+  return (
+    <HeaderContainer>
+      <SearchContainer>
+        <SearchBoxLabel htmlFor={'searchbox'}>
+          <SearchBox
+            id="searchbox"
+            placeholder={'Search documentation'}
+          ></SearchBox>
+        </SearchBoxLabel>
+      </SearchContainer>
+      <LinksContainer>
+        <LinkContainer href={'https://console.planetscale.com'}>
+          <LinkContent>Console ▹</LinkContent>
+        </LinkContainer>
+      </LinksContainer>
+    </HeaderContainer>
+  )
+}

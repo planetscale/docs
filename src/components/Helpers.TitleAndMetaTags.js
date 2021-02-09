@@ -57,6 +57,11 @@ export function TitleAndMetaTags({
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-dark-reasonable.min.css"
       />
+
+      <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+      />
     </Helmet>
   )
 }

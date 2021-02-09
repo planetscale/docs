@@ -113,5 +113,13 @@ module.exports = {
         onLoad: `() => hljs.initHighlightingOnLoad()`,
       },
     },
+    {
+      resolve: 'gatsby-plugin-load-script',
+      options: {
+        src:
+          'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js',
+        crossorigin: 'anonymous',
+      },
+    },
   ],
 }
