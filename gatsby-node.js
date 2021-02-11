@@ -15,7 +15,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       // Note: The below string manip has been done to remove trailing slashes.
       // Note: Gatsby's default plugin does not work
-      value: slug,
+      value: slug.substr(0, slug.length - 1),
     })
   }
 }
