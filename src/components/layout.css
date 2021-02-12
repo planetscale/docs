@@ -1,4 +1,5 @@
 @import '../styles/typography.css';
+@import '../styles/docsearch.css';
 
 :root {
   --background1: #fff;

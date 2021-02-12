@@ -50,7 +50,16 @@ export function TitleAndMetaTags({
       apiKey: 'c05ee5734758d9d4d948be01d548da67',
       indexName: 'planetscale',
       inputSelector: '#searchbox',
-      debug: true,
+      debug: false,
+      transformData: (hits) => {
+        let newHits = []
+        hits.map((hit) => {
+          if (hit.anchor !== null) {
+            newHits.push(hit)
+          }
+        })
+        return newHits
+      },
     })
   }
 
