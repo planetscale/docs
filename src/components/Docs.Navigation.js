@@ -86,7 +86,7 @@ const LogoContainer = styled.div`
 `
 
 const Logo = styled.img`
-  height: 32px;
+  height: 24px;
 
   ${media.phone`
     height: 24px;
@@ -176,7 +176,7 @@ const _GroupContainer = styled.div`
 `
 
 const _GroupHeading = styled.div`
-  font-family: 'Overpass';
+  font-family: 'Inter';
   font-weight: bold;
   padding: 0 1.7em;
   letter-spacing: 1px;

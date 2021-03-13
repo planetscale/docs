@@ -68,7 +68,7 @@ module.exports = {
         fonts: {
           google: [
             {
-              family: 'Overpass',
+              family: 'Inter',
               variants: ['100', '400', '500', '700', '900'],
               fontDisplay: 'swap',
               strategy: 'cdn',

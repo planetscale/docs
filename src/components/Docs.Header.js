@@ -24,7 +24,7 @@ const SearchContainer = styled.div`
 const SearchBoxLabel = styled.label``
 
 const SearchBox = styled.input`
-  font-family: 'Overpass';
+  font-family: 'Inter';
   border: 1px solid var(--accent);
   font-size: 1.25em;
   border-radius: 2px;
