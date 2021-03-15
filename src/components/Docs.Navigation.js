@@ -3,105 +3,10 @@ import styled from 'styled-components'
 import { media } from '../styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { switchTheme } from '../site.js'
-import logo_light from '../../static/logo-docs_light.svg'
-import logo_dark from '../../static/logo-docs_dark.svg'
-import icon_sun from '../../static/icons/sun.svg'
-import icon_moon from '../../static/icons/moon.svg'
-
-const HomeLinkContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  position: sticky;
-  z-index: 1;
-  top: 0px;
-  border-bottom: 1px solid var(--accent);
-  background-color: var(--background2);
-  width: 100%;
-  height: 86px;
-
-  ${media.phone`
-    background-color: var(--background1);
-    padding: 0;
-    border: 0;
-    justify-content: left;
-  `}
-`
-
-const HomeLink = styled.a`
-  flex-grow: 2;
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-  justify-content: stretch;
-`
-
-const ToggleSwitch = styled.div`
-  border-radius: 99px;
-  background-color: var(--accent);
-  width: 48px;
-  height: 24px;
-  margin-right: 1.5em;
-  position: relative;
-
-  &::before {
-    content: '';
-    display: block;
-    position: absolute;
-    border-radius: 99px;
-    width: 20px;
-    height: 20px;
-    background-color: var(--background2);
-    background-image: url(${icon_sun});
-    background-repeat: no-repeat;
-    background-size: contain;
-    top: 2px;
-    left: 26px;
-    transition: left var(--buttonHoverDelay) ease;
-  }
-
-  &:hover {
-    box-shadow: inset 0 0 16px var(--accent2);
-    cursor: pointer;
-
-    &::before {
-      box-shadow: var(--shadow1);
-    }
-  }
-
-  &.dark {
-    &::before {
-      background-image: url(${icon_moon});
-      left: 2px;
-    }
-  }
-
-  ${media.phone`
-    box-shadow: none;
-  `}
-`
-
-const LogoContainer = styled.div`
-  padding: 1.5em;
-`
-
-const Logo = styled.img`
-  height: 24px;
-
-  ${media.phone`
-    height: 24px;
-  `}
-`
 
 const _SidenavContainer = styled.div`
-  height: 100vh;
-  overflow: auto;
-  top: 0em;
-  position: sticky;
-  border-right: 1px solid var(--accent);
   min-width: 300px;
   width: 22vw;
-  background-color: var(--background2);
 
   ${media.phone`
     width: 100vw;
@@ -178,7 +83,7 @@ const _GroupContainer = styled.div`
 const _GroupHeading = styled.div`
   font-family: 'Inter';
   font-weight: bold;
-  padding: 0 1.7em;
+  padding: 0;
   letter-spacing: 1px;
   color: var(--foreground1);
 
@@ -198,19 +103,18 @@ const _PageLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0.8em 2em;
+  padding: 0.8em 0;
   color: var(--foreground2);
   position: relative;
   transition: background 0.25s ease;
 
   &:hover {
     color: var(--link);
-    background: var(--accent);
   }
 
   &.active {
-    color: var(--background1);
-    background-color: var(--foreground1);
+    color: var(--foreground1);
+    font-weight: 700;
   }
 
   ${media.phone`
@@ -264,55 +168,11 @@ class Sidenav extends Component {
     })
   }
 
-  toggleTheme = (boolean) => {
-    this.setState((oldState) => {
-      const localDocument = typeof document !== 'undefined' && document
-      if (!oldState.isDarkThemeSet) {
-        switchTheme('dark')
-        localDocument.getElementById('logo').src = logo_dark
-      } else {
-        switchTheme('light')
-        localDocument.getElementById('logo').src = logo_light
-      }
-
-      return {
-        isDarkThemeSet:
-          typeof boolean === 'boolean' ? boolean : !oldState.isDarkThemeSet,
-      }
-    })
-  }
-
-  componentDidMount() {
-    const localDocument = typeof document !== 'undefined' && document
-
-    if (this.state.isDarkThemeSet) {
-      localDocument.getElementById('logo').src = logo_dark
-      this.toggleSwitchRef.current.classList.add('dark')
-    }
-  }
-
   render() {
-    const { isMobileTOCOpen, isDarkThemeSet } = this.state
+    const { isMobileTOCOpen } = this.state
 
     return (
       <_SidenavContainer className={`${isMobileTOCOpen ? '' : 'hide'}`}>
-        <HomeLinkContainer>
-          <HomeLink href="/">
-            <LogoContainer>
-              <Logo
-                id="logo"
-                src={logo_light}
-                title="PlanetScale - Serverless Database for Developers"
-                alt="PlanetScale's logo"
-              />
-            </LogoContainer>
-          </HomeLink>
-          <ToggleSwitch
-            ref={this.toggleSwitchRef}
-            className={isDarkThemeSet ? 'dark' : ''}
-            onClick={this.toggleTheme}
-          ></ToggleSwitch>
-        </HomeLinkContainer>
         <MenuLink onClick={this.toggleMobileTOC}>
           {isMobileTOCOpen ? 'Close' : 'Menu'}
         </MenuLink>

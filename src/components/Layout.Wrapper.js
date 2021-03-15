@@ -6,9 +6,9 @@ export const PageContainer = styled.section`
   background-color: var(--background1);
   transition: background-color var(--themeSwitchTime) ease;
   width: 100vw;
-  height: 100%;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-items: center;
 
   ${media.phone`
     display: flex;
@@ -19,16 +19,17 @@ export const PageContainer = styled.section`
 
 export const ContentPanel = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   flex-grow: 2;
-  align-items: center;
+  align-items: flex-start;
+  max-width: 80rem;
 `
 
 export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 75vw;
+  flex-grow: 2;
   min-width: 0;
 
   ${media.phone`

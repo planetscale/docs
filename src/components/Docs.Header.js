@@ -1,13 +1,27 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
+import ThemeSwitcher from './Theme.Switcher'
+import logo_light from '../../static/logo-docs_light.svg'
+import logo_dark from '../../static/logo-docs_dark.svg'
+import { media } from '../styles/media'
 
-const HeaderContainer = styled.div`
-  position: sticky;
-  top: 0;
+const HeaderWrapper = styled.div`
   width: 100%;
-  height: 86px;
   border-bottom: 1px solid var(--accent);
   background-color: var(--background1);
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+`
+
+const HeaderConstrain = styled.div`
+  position: sticky;
+  top: 0;
+  max-width: 80rem;
+  width: 100%;
+  height: 86px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -64,6 +78,25 @@ const LinkContainer = styled.a`
   }
 `
 
+const HomeLink = styled.a`
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: stretch;
+`
+
+const LogoContainer = styled.div`
+  padding: 1.5em;
+`
+
+const Logo = styled.img`
+  height: 24px;
+
+  ${media.phone`
+    height: 24px;
+  `}
+`
+
 const LinkContent = styled.div`
   background-color: var(--background1);
   text-decoration: none;
@@ -83,20 +116,33 @@ const LinkContent = styled.div`
 
 export default function Header() {
   return (
-    <HeaderContainer>
-      <SearchContainer>
-        <SearchBoxLabel htmlFor={'searchbox'}>
-          <SearchBox
-            id="searchbox"
-            placeholder={'Search documentation'}
-          ></SearchBox>
-        </SearchBoxLabel>
-      </SearchContainer>
-      <LinksContainer>
-        <LinkContainer href={'https://console.planetscale.com'}>
-          <LinkContent>Console ▹</LinkContent>
-        </LinkContainer>
-      </LinksContainer>
-    </HeaderContainer>
+    <HeaderWrapper>
+      <HeaderConstrain>
+        <HomeLink href="/">
+          <LogoContainer>
+            <Logo
+              id="logo"
+              src={logo_light}
+              title="PlanetScale - Serverless Database for Developers"
+              alt="PlanetScale's logo"
+            />
+          </LogoContainer>
+        </HomeLink>
+        <ThemeSwitcher></ThemeSwitcher>
+        <SearchContainer>
+          <SearchBoxLabel htmlFor={'searchbox'}>
+            <SearchBox
+              id="searchbox"
+              placeholder={'Search documentation'}
+            ></SearchBox>
+          </SearchBoxLabel>
+        </SearchContainer>
+        <LinksContainer>
+          <LinkContainer href={'https://console.planetscale.com'}>
+            <LinkContent>Console ▹</LinkContent>
+          </LinkContainer>
+        </LinksContainer>
+      </HeaderConstrain>
+    </HeaderWrapper>
   )
 }

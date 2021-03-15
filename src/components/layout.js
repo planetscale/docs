@@ -11,9 +11,9 @@ import './layout.css'
 export default ({ children }) => (
   <Fragment>
     <PageContainer>
-      <DocsNavigation></DocsNavigation>
+      <Header></Header>
       <ContentPanel>
-        <Header></Header>
+        <DocsNavigation></DocsNavigation>
         <ContentContainer>{children}</ContentContainer>
       </ContentPanel>
     </PageContainer>

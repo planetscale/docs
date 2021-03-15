@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
+import { ContentContainer } from '../components/Layout.Wrapper'
 
 const OverviewContainer = styled.div`
   padding: 4em;
@@ -121,7 +122,7 @@ class Overview extends Component {
 
   render() {
     return (
-      <OverviewContainer>
+      <>
         <H1>Documentation Overview</H1>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
@@ -140,7 +141,7 @@ class Overview extends Component {
             )
           })}
         </CategoryList>
-      </OverviewContainer>
+      </>
     )
   }
 }

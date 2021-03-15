@@ -32,7 +32,7 @@ const MarkDownContainer = styled.div`
     font-family: 'Inter';
     font-weight: 700;
     font-size: 2em;
-    margin-top: 2.5em;
+    margin-top: 1.5em;
     margin-bottom: 0;
   }
 
