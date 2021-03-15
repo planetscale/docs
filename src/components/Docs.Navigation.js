@@ -8,6 +8,7 @@ const _SidenavContainer = styled.div`
   min-width: 300px;
   flex-grow: 2;
   margin-top: 3em;
+  margin-right: 6em;
 
   ${media.phone`
     width: 100vw;

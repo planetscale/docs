@@ -7,6 +7,7 @@ import CodeBlock from '../components/Common.CodeBlock'
 
 const MarkDownContainer = styled.div`
   width: 100%; //ie11 bug
+  max-width: 80ch;
   color: var(--foreground1);
   white-space: normal;
   overflow: auto;
@@ -64,7 +65,6 @@ const MarkDownContainer = styled.div`
 
   ul,
   ol {
-    padding: 0 1em;
     white-space: normal;
   }
 
