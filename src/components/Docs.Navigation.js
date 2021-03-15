@@ -87,6 +87,7 @@ const _GroupHeading = styled(Collapsible.Button)`
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
 
   &:before {
     content: '›';
