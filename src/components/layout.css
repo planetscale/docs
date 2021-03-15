@@ -14,6 +14,7 @@
   --shadow1: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 13px rgba(0, 0, 0, 0.08);
   --buttonHoverDelay: 0.15s;
   --brightness: brightness(100%);
+  --logo: url('/logo-docs_light.svg');
 }
 
 @media (prefers-color-scheme: dark) {
@@ -30,6 +31,7 @@
     --shadow1: 0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 13px rgba(0, 0, 0, 0.08);
     --buttonHoverDelay: 0.15s;
     --brightness: brightness(85%);
+    --logo: url('/logo-docs_dark.svg');
   }
 }
 

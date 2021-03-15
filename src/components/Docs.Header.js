@@ -1,8 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
 import ThemeSwitcher from './Theme.Switcher'
-import logo_light from '../../static/logo-docs_light.svg'
-import logo_dark from '../../static/logo-docs_dark.svg'
 import { media } from '../styles/media'
 
 const HeaderWrapper = styled.div`
@@ -85,16 +83,16 @@ const HomeLink = styled.a`
   justify-content: stretch;
 `
 
-const LogoContainer = styled.div`
-  padding: 1.5em;
-`
-
-const Logo = styled.img`
+const Logo = styled.div`
   height: 24px;
+  width: 5rem;
+  background: var(--logo);
+  background-size: contain;
+  background-repeat: no-repeat;
 
   ${media.phone`
     height: 24px;
-  `}
+  `};
 `
 
 const LinkContent = styled.div`
@@ -119,14 +117,7 @@ export default function Header() {
     <HeaderWrapper>
       <HeaderConstrain>
         <HomeLink href="/">
-          <LogoContainer>
-            <Logo
-              id="logo"
-              src={logo_light}
-              title="PlanetScale - Serverless Database for Developers"
-              alt="PlanetScale's logo"
-            />
-          </LogoContainer>
+          <Logo />
         </HomeLink>
         <ThemeSwitcher></ThemeSwitcher>
         <SearchContainer>

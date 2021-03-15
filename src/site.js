@@ -19,6 +19,7 @@ const theme = {
       brightness: 'brightness(100%)',
       shadow1:
         '0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 13px rgba(0, 0, 0, 0.08)',
+      logo: 'url("/logo-docs_light.svg")',
     },
     dark: {
       background1: '#1A1B21',
@@ -33,6 +34,7 @@ const theme = {
       brightness: 'brightness(85%)',
       shadow1:
         '0px 0px 4px rgba(0, 0, 0, 0.04), 0px 4px 13px rgba(0, 0, 0, 0.08)',
+      logo: 'url("/logo-docs_dark.svg")',
     },
   },
 }
@@ -64,4 +66,5 @@ export function switchTheme(themeName) {
   root.style.setProperty('--codeblock', theme.colorMode[themeName].codeblock)
   root.style.setProperty('--brightness', theme.colorMode[themeName].brightness)
   root.style.setProperty('--shadow1', theme.colorMode[themeName].shadow1)
+  root.style.setProperty('--logo', theme.colorMode[themeName].logo)
 }
