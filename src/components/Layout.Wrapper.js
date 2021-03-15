@@ -6,6 +6,7 @@ export const PageContainer = styled.section`
   background-color: var(--background1);
   transition: background-color var(--themeSwitchTime) ease;
   width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -22,7 +23,7 @@ export const ContentPanel = styled.div`
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
-  min-height: 100vh;
+  flex-grow: 2;
   max-width: 80rem;
 `
 

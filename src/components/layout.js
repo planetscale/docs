@@ -6,6 +6,7 @@ import {
 } from '../components/Layout.Wrapper'
 import DocsNavigation from '../components/Docs.Navigation'
 import Header from './Docs.Header'
+import Footer from './Footer'
 import './layout.css'
 
 export default ({ children }) => (
@@ -16,6 +17,7 @@ export default ({ children }) => (
         <DocsNavigation></DocsNavigation>
         <ContentContainer>{children}</ContentContainer>
       </ContentPanel>
+      <Footer></Footer>
     </PageContainer>
   </Fragment>
 )
