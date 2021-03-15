@@ -3,11 +3,12 @@ import styled from 'styled-components'
 import { media } from '../styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { switchTheme } from '../site.js'
+import * as Collapsible from '@radix-ui/react-collapsible'
 
 const _SidenavContainer = styled.div`
   min-width: 300px;
   flex-grow: 2;
-  margin-top: 3em;
+  margin-top: 4em;
   margin-right: 6em;
 
   ${media.phone`
@@ -48,10 +49,6 @@ const MenuLink = styled.div`
 const _SidenavList = styled.div`
   padding: 0 0 2em;
 
-  div:last-child {
-    margin-bottom: 0;
-  }
-
   ${media.phone`
     position: fixed;
     background: var(--background1);
@@ -71,32 +68,53 @@ const _SidenavList = styled.div`
       bottom: -100vh;
       transition: bottom 0.5s ease-in-out, opacity 0.25s ease-in-out;
     }
-
-    div:last-child {
-      margin-bottom: calc(60px + 16px + 16px);
-    }
   `}
 `
 
-const _GroupContainer = styled.div`
-  margin-bottom: 2.5em;
+const _GroupContainer = styled(Collapsible.Root)`
+  margin-bottom: 1.5em;
 `
 
-const _GroupHeading = styled.div`
+const _GroupHeading = styled(Collapsible.Button)`
   font-family: 'Inter';
-  font-weight: bold;
-  padding: 0;
+  font-size: 16px;
   letter-spacing: 1px;
   color: var(--foreground1);
+  background-color: unset;
+  border: unset;
+  padding: 0;
+  margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  &:before {
+    content: '›';
+    display: inline-block;
+    margin-right: 8px;
+    height: 22px;
+  }
+
+  &:active,
+  &:focus {
+    outline: unset;
+    border: unset;
+  }
+
+  &[data-state='open'] {
+    &:before {
+      transform: rotate(90deg);
+    }
+  }
 
   ${media.phone`
     padding: 0 1em;
   `}
 `
 
-const _GroupLinks = styled.ul`
-  list-style: none;
+const _GroupLinks = styled(Collapsible.Content)`
   padding: 0;
+  margin-bottom: 3em;
 `
 
 const _PageLink = styled(Link)`
@@ -105,18 +123,34 @@ const _PageLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  padding: 0.8em 0;
+  margin: 0 0 1.5em 1em;
   color: var(--foreground2);
   position: relative;
   transition: background 0.25s ease;
 
+  &:before {
+    content: ' ';
+    height: 14px;
+    width: 1px;
+    left: -0.8em;
+    position: absolute;
+  }
+
   &:hover {
     color: var(--link);
+
+    &:before {
+      border-left: 1px solid var(--link);
+    }
   }
 
   &.active {
     color: var(--foreground1);
     font-weight: 700;
+
+    &:before {
+      border-left: 1px solid white;
+    }
   }
 
   ${media.phone`
@@ -180,19 +214,13 @@ class Sidenav extends Component {
         </MenuLink>
 
         <_SidenavList>
-          <_GroupContainer>
-            <_GroupLinks>
-              <li>
-                <_PageLink
-                  onClick={this.toggleMobileTOC}
-                  to="/"
-                  activeClassName="active"
-                >
-                  Documentation Overview
-                </_PageLink>
-              </li>
-            </_GroupLinks>
-          </_GroupContainer>
+          <_PageLink
+            onClick={this.toggleMobileTOC}
+            to="/"
+            activeClassName="active"
+          >
+            Documentation Overview
+          </_PageLink>
 
           {this.props.categories.order.map((category, index) => {
             return (
@@ -211,13 +239,23 @@ class Sidenav extends Component {
 }
 
 function SidenavGroup({ category, pages, onClick }) {
+  const isChildActive = (children) => {
+    const url = typeof window !== 'undefined' ? window.location.href : ''
+    const isChildActive = pages.reduce((accumulator, page) => {
+      console.log(url.includes(page.fields.slug))
+      return accumulator || url.includes(page.fields.slug)
+    }, false)
+
+    return isChildActive
+  }
+
   return (
-    <_GroupContainer>
+    <_GroupContainer defaultOpen={isChildActive}>
       <_GroupHeading>{category}</_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {
           return (
-            <li key={index}>
+            <div key={index}>
               <_PageLink
                 onClick={onClick}
                 to={`${page.fields.slug}`}
@@ -225,7 +263,7 @@ function SidenavGroup({ category, pages, onClick }) {
               >
                 {page.frontmatter.title}
               </_PageLink>
-            </li>
+            </div>
           )
         })}
       </_GroupLinks>

@@ -22,6 +22,7 @@ export const ContentPanel = styled.div`
   flex-direction: row;
   align-items: flex-start;
   width: 100%;
+  min-height: 100vh;
   max-width: 80rem;
 `
 
