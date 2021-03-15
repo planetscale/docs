@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from '../styles/media'
-import { ContentContainer } from '../components/Layout.Wrapper'
 
 const OverviewContainer = styled.div`
   padding: 4em;

@@ -6,7 +6,8 @@ import { switchTheme } from '../site.js'
 
 const _SidenavContainer = styled.div`
   min-width: 300px;
-  width: 22vw;
+  flex-grow: 2;
+  margin-top: 3em;
 
   ${media.phone`
     width: 100vw;

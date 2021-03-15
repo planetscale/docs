@@ -10,7 +10,6 @@ const MarkDownContainer = styled.div`
   color: var(--foreground1);
   white-space: normal;
   overflow: auto;
-  padding: 4em;
   max-width: ${(props) => props.maxWidth};
 
   ${media.phone`
@@ -166,7 +165,7 @@ export default function MDXContent({ body }) {
   })
 
   return (
-    <MarkDownContainer maxWidth="90ch">
+    <MarkDownContainer>
       <MDXProvider
         components={{
           pre: CodeBlock,
