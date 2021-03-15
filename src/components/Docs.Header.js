@@ -1,7 +1,11 @@
 import React from 'react'
 import styled from 'styled-components'
-import ThemeSwitcher from './Theme.Switcher'
 import { media } from '../styles/media'
+import {
+  SearchContainer,
+  SearchBoxLabel,
+  SearchBox,
+} from '../components/Searchbar'
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -9,6 +13,7 @@ const HeaderWrapper = styled.div`
   background-color: var(--background1);
   display: flex;
   justify-content: center;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 1;
@@ -27,42 +32,12 @@ const HeaderConstrain = styled.div`
   z-index: 1;
 `
 
-const SearchContainer = styled.div`
-  padding: 0 1.5em;
-  width: 100%;
-  max-width: 600px;
-`
-
-const SearchBoxLabel = styled.label``
-
-const SearchBox = styled.input`
-  font-family: 'Inter';
-  border: 1px solid var(--accent);
-  font-size: 1.25em;
-  border-radius: 2px;
-  outline: 0;
-  padding: 0.5em;
-  width: 100%;
-  background-color: var(--background2);
-  color: var(--text);
-
-  &:hover {
-    box-shadow: var(--shadow1);
-  }
-
-  &:focus {
-    border-color: var(--foreground2);
-    box-shadow: var(--shadow1);
-  }
-
-  &::placeholder {
-    color: var(--foreground2);
-    font-weight: 100;
-  }
+const LeftContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `
 
 const LinksContainer = styled.div`
-  height: 100%;
   display: flex;
   align-items: stretch;
 `
@@ -81,6 +56,7 @@ const HomeLink = styled.a`
   text-decoration: none;
   align-items: center;
   justify-content: stretch;
+  margin-right: 2em;
 `
 
 const Logo = styled.div`
@@ -96,15 +72,14 @@ const Logo = styled.div`
 `
 
 const LinkContent = styled.div`
-  background-color: var(--background1);
   text-decoration: none;
-  border-left: 1px solid var(--accent);
-  height: 100%;
-  padding: 0 1.5em;
+  padding: 0.5em 1.5em;
   display: flex;
   align-items: center;
   white-space: nowrap;
-  transition: background-color var(--buttonHoverDelay) ease;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  font-size: 14px;
 
   &:hover {
     background-color: var(--foreground1);
@@ -116,21 +91,22 @@ export default function Header() {
   return (
     <HeaderWrapper>
       <HeaderConstrain>
-        <HomeLink href="/">
-          <Logo />
-        </HomeLink>
-        <ThemeSwitcher></ThemeSwitcher>
-        <SearchContainer>
-          <SearchBoxLabel htmlFor={'searchbox'}>
-            <SearchBox
-              id="searchbox"
-              placeholder={'Search documentation'}
-            ></SearchBox>
-          </SearchBoxLabel>
-        </SearchContainer>
+        <LeftContainer>
+          <HomeLink href="/">
+            <Logo />
+          </HomeLink>
+          <SearchContainer>
+            <SearchBoxLabel htmlFor={'searchbox'}>
+              <SearchBox
+                id="searchbox"
+                placeholder={'Search documentation'}
+              ></SearchBox>
+            </SearchBoxLabel>
+          </SearchContainer>
+        </LeftContainer>
         <LinksContainer>
           <LinkContainer href={'https://console.planetscale.com'}>
-            <LinkContent>Console ▹</LinkContent>
+            <LinkContent>Console</LinkContent>
           </LinkContainer>
         </LinksContainer>
       </HeaderConstrain>
