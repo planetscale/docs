@@ -4,9 +4,9 @@ import styled from 'styled-components'
 const CodeBlockContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--background1);
-  color: var(--foreground2);
-  border: 1px solid #282a36;
+  background-color: var(--bg-primary);
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
 `
 
 const CodeBlockHeader = styled.div`
@@ -15,12 +15,15 @@ const CodeBlockHeader = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--background1);
+  background-color: var(--bg-primary);
+  border-bottom: 1px solid var(--border-primary);
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
 `
 
 const CodeType = styled.div`
-  font-family: 'JetBrainsMono';
-  color: var(--foreground2);
+  font-family: 'IBM Plex Mono';
+  color: var(--text-primary);
   font-size: 14px;
   text-transform: lowercase;
   padding: 0em 2em;
@@ -29,21 +32,16 @@ const CodeType = styled.div`
 const CopyButton = styled.button`
   padding: 1em;
   border: 0;
-  border-left: 1px solid #282a36;
-  background-color: var(--background1);
-  text-transform: uppercase;
-  font-size: 13px;
-  transition: all var(--buttonHoverDelay) ease;
-  color: var(--foreground2);
+  border-left: 1px solid var(--border-primary);
+  background-color: var(--bg-primary);
+  font-family: 'Inter';
+  font-size: 14px;
+  color: var(--text-secondary);
+  border-top-right-radius: 6px;
 
   &:hover {
-    background-color: var(--codeblock);
-    color: white;
+    background-color: var(--bg-secondary);
     cursor: pointer;
-  }
-
-  &:active {
-    background-color: #e89245;
   }
 `
 
@@ -51,13 +49,15 @@ const CodeBlockContent = styled.pre`
   padding: 2em;
   margin: 0;
   overflow: scroll;
-  background-color: var(--codeblock);
+  background-color: var(--bg-primary);
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 `
 
 const CodeBlockCode = styled.code`
-  font-family: 'JetBrainsMono';
+  font-family: 'IBM Plex Mono';
   font-size: 14px;
-  background: var(--codeblock) !important;
+  background: var(--bg-primary) !important;
 `
 
 class CodeBlock extends React.Component {

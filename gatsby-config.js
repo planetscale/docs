@@ -72,6 +72,12 @@ module.exports = {
               fontDisplay: 'swap',
               strategy: 'cdn',
             },
+            {
+              family: 'IBM+Plex+Mono',
+              variants: ['400'],
+              fontDisplay: 'swap',
+              strategy: 'cdn',
+            },
           ],
         },
         formats: ['woff2', 'woff'],
