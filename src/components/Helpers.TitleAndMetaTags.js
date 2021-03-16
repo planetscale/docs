@@ -13,6 +13,17 @@ export function TitleAndMetaTags({
     const docSearchScript = document.getElementById('docsearch')
     const highlightScript = document.getElementById('highlight')
 
+    if (
+      typeof window !== 'undefined' &&
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches
+    ) {
+      const root = document.querySelector('html')
+      // const pref = root.getAttribute('data-color-scheme') || 'system'
+      // const dark = (isSystemDark && pref === 'system') || pref === 'dark'
+      root.classList.toggle('dark')
+    }
+
     if (!docSearchScript) {
       const script = document.createElement('script')
       script.src =

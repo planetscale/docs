@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { media } from '../styles/media'
+import { media } from './styles/media'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import CodeBlock from '../components/Common.CodeBlock'
+import CodeBlock from './Common.CodeBlock'
+import { ContentBlock } from './Layout.Wrapper'
 
-const MarkDownContainer = styled.div`
+const MarkDownContainer = styled(ContentBlock)`
   width: 100%; //ie11 bug
   max-width: 80ch;
-  color: var(--foreground1);
   white-space: normal;
   overflow: auto;
   max-width: ${(props) => props.maxWidth};
@@ -38,18 +38,17 @@ const MarkDownContainer = styled.div`
   }
 
   a {
-    color: var(--link);
+    color: var(--text-blue);
     text-decoration: none;
-    border-bottom: 1px solid var(--background1);
+    border-bottom: 1px solid var(--bg-primary);
     transition: border-bottom 0.25s ease;
 
     &:hover {
-      border-bottom: 1px solid var(--link);
+      border-bottom: 1px solid var(--text-blue);
     }
   }
 
   p {
-    color: var(--text);
     font-weight: 400;
     font-size: 17px;
     line-height: 1.5em;
@@ -61,7 +60,6 @@ const MarkDownContainer = styled.div`
   }
 
   li {
-    color: var(--text);
     font-weight: 400;
     font-size: 17px;
     line-height: 1.5em;
@@ -80,11 +78,9 @@ const MarkDownContainer = styled.div`
   }
 
   img {
-    padding: 1rem;
     max-width: 100%;
     box-sizing: border-box;
-    border: 1px solid var(--accent);
-    filter: var(--brightness);
+    border-radius: 6px;
 
     ${media.phone`
       padding: 1rem 0;
@@ -136,7 +132,6 @@ const MarkDownContainer = styled.div`
   }
 
   table.table thead.thead-dark th {
-    color: var(--foreground1);
     background-color: var(--background2);
     border-color: var(--accent);
   }

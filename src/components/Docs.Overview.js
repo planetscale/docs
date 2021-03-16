@@ -1,22 +1,13 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import { media } from '../styles/media'
-
-const OverviewContainer = styled.div`
-  padding: 4em;
-  max-width: 1170px;
-
-  ${media.phone`
-    padding: 2em;
-  `}
-`
+import { media } from './styles/media'
+import { ContentBlock } from './Layout.Wrapper'
 
 const H1 = styled.h1`
   font-weight: 900;
   font-size: 3em;
   margin: 0em 0 1em 0;
-  color: var(--foreground1);
 
   ${media.phone`
     font-size: 2.5em;
@@ -44,8 +35,8 @@ const CategoryList = styled.div`
 const CategoryIllustration = styled.div`
   width: 100%;
   height: 200px;
-  border-bottom: 1px solid var(--accent);
-  background-color: var(--background2);
+  border-bottom: 1px solid var(--border-primary);
+  background-color: var(--bg-primary);
   background-image: url(${(props) => props.image});
   background-repeat: no-repeat;
   background-position: center;
@@ -69,22 +60,18 @@ const CategoryTitle = styled.div`
 `
 
 const CategoryCard = styled(Link)`
-  background-color: var(--background1);
-  color: var(--foreground1);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
   text-decoration: none;
   display: flex;
   flex-direction: column;
   transition: box-shadow 0.2s, border 0.2s;
-  border: 1px solid var(--accent);
-  border-radius: 2px;
-  transform: scale(1);
-  transition: transform 0.25s linear;
+  border: 1px solid var(--border-primary);
+  border-radius: 6px;
   overflow: hidden;
 
   &:hover {
-    box-shadow: 0px 4px 16px rgba(138, 177, 177, 0.2);
-    border: 1px solid var(--foreground2);
-    transform: scale(1.025);
+    background-color: var(--bg-secondary);
 
     > ${CategoryIllustration} {
       transform: scale(1.025);
@@ -120,7 +107,7 @@ class Overview extends Component {
 
   render() {
     return (
-      <>
+      <ContentBlock>
         <H1>Documentation Overview</H1>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
@@ -139,12 +126,12 @@ class Overview extends Component {
             )
           })}
         </CategoryList>
-      </>
+      </ContentBlock>
     )
   }
 }
 
-function Category({ category, illustration, theme, description, pages }) {
+function Category({ category, illustration, description, pages }) {
   return (
     <CategoryCard to={`${pages[0].fields.slug}`} activeClassName="active">
       <CategoryIllustration

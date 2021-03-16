@@ -1,11 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
-import { media } from '../styles/media'
+import { media } from './styles/media'
 
 const FooterWrapper = styled.div`
   width: 100%;
-  border-top: 1px solid var(--accent);
-  background-color: var(--background1);
+  border-top: 1px solid var(--border-primary);
   display: flex;
   justify-content: center;
   align-items: center;

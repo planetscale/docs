@@ -1,0 +1,102 @@
+:root {
+  --white: #fff;
+  --black: #000;
+
+  --gray-50: #fbfcfd;
+  --gray-100: #f6f7fb;
+  --gray-200: #ebecf0;
+  --gray-300: #dbdce2;
+  --gray-400: #aeafb8;
+  --gray-500: #6d6d75;
+  --gray-600: #474953;
+  --gray-700: #393941;
+  --gray-800: #272830;
+  --gray-900: #1a1b21;
+
+  --red-400: 245, 106, 113;
+  --red-500: 240, 80, 89;
+  --red-600: 222, 68, 76;
+  --red-700: 198, 52, 60;
+
+  --orange-50: 255, 251, 240;
+  --orange-100: 255, 246, 225;
+  --orange-200: 253, 227, 175;
+  --orange-300: 249, 201, 123;
+  --orange-400: 245, 175, 77;
+  --orange-500: 238, 143, 32;
+  --orange-600: 208, 106, 11;
+  --orange-700: 167, 73, 6;
+  --orange-800: 124, 46, 3;
+  --orange-900: 81, 23, 1;
+
+  --yellow-500: 254, 222, 108;
+
+  --green-50: 240, 255, 244;
+  --green-100: 215, 254, 223;
+  --green-200: 162, 251, 177;
+  --green-300: 99, 242, 116;
+  --green-400: 53, 233, 68;
+  --green-500: 28, 202, 35;
+  --green-600: 17, 167, 22;
+  --green-700: 8, 129, 10;
+  --green-800: 3, 94, 4;
+  --green-900: 0, 61, 0;
+
+  --blue-50: 250, 254, 255;
+  --blue-100: 235, 250, 255;
+  --blue-200: 170, 228, 253;
+  --blue-300: 112, 204, 250;
+  --blue-400: 62, 177, 244;
+  --blue-500: 17, 140, 228;
+  --blue-600: 12, 111, 198;
+  --blue-700: 6, 87, 167;
+  --blue-800: 3, 64, 134;
+  --blue-900: 1, 43, 101;
+
+  --purple-300: 209, 168, 250;
+  --purple-500: 159, 90, 246;
+  --purple-600: 148, 71, 245;
+
+  --pink-500: 205, 90, 246;
+
+  --bg-primary: var(--white);
+  --bg-secondary: var(--gray-50);
+  --bg-tertiary: var(--gray-100);
+  --border-primary: var(--gray-200);
+  --border-secondary: var(--gray-200);
+  --border-action: var(--gray-300);
+  --text-primary: var(--gray-800);
+  --text-secondary: var(--gray-500);
+  --text-blue: rgb(var(--blue-600));
+  --text-purple: rgb(var(--purple-600));
+
+  --logo: url('/logo-docs_light.svg');
+  --logoCompany: url('/logo_planetscale_light.svg');
+}
+
+@define-mixin darkmode {
+  --bg-primary: var(--gray-900);
+  --bg-secondary: var(--gray-800);
+  --bg-tertiary: var(--gray-700);
+  --border-primary: var(--gray-700);
+  --border-secondary: var(--gray-600);
+  --border-action: var(--gray-600);
+  --text-primary: var(--gray-100);
+  --text-secondary: var(--gray-400);
+  --text-blue: rgb(var(--blue-400));
+  --text-purple: rgb(var(--purple-300));
+  --logo: url('/logo-docs_dark.svg');
+  --logoCompany: url('/logo_planetscale_dark.svg');
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    @mixin darkmode;
+  }
+}
+
+@media screen and (prefers-color-scheme: light) {
+  :root.dark {
+    @mixin darkmode;
+  }
+}

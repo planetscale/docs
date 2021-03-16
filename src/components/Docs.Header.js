@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { media } from '../styles/media'
+import { media } from './styles/media'
 import {
   SearchContainer,
   SearchBoxLabel,
@@ -9,8 +9,8 @@ import {
 
 const HeaderWrapper = styled.div`
   width: 100%;
-  border-bottom: 1px solid var(--accent);
-  background-color: var(--background1);
+  border-bottom: 1px solid var(--border-primary);
+  background-color: var(--bg-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -47,7 +47,7 @@ const LeftContainer = styled.div`
     justify-content: space-between;
     padding-bottom: 27px;
     margin-bottom: 27px;
-    border-bottom: 1px solid var(--accent);
+    border-bottom: 1px solid var(--border-primary);
   `}
 `
 
@@ -59,10 +59,10 @@ const RightContainer = styled.div`
 
 const LinkContainer = styled.a`
   text-decoration: none;
-  color: var(--foreground1);
+  color: var(--text-primary);
 
   &:visited {
-    color: var(--foreground1);
+    color: var(--text-primary);
   }
 `
 
@@ -92,13 +92,12 @@ const LinkContent = styled.div`
   display: flex;
   align-items: center;
   white-space: nowrap;
-  border: 1px solid var(--accent);
+  border: 1px solid var(--border-primary);
   border-radius: 6px;
   font-size: 14px;
 
   &:hover {
-    background-color: var(--foreground1);
-    color: var(--background1);
+    background-color: var(--bg-secondary);
   }
 `
 

@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { media } from '../styles/media'
+import { media } from './styles/media'
 
 export const PageContainer = styled.section`
   position: relative;
-  background-color: var(--background1);
+  background-color: var(--bg-primary);
   transition: background-color var(--themeSwitchTime) ease;
   width: 100vw;
   min-height: 100vh;
@@ -32,17 +32,15 @@ export const ContentConstrain = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  /* justify-content: space-between; */
   max-width: 80rem;
 `
 
 export const ContentContainer = styled.div`
+  flex-grow: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  flex-grow: 2;
-  min-width: 0;
-  width: 100%;
+  align-items: center;
   margin-top: 4em;
   margin-bottom: 4em;
 
@@ -53,4 +51,8 @@ export const ContentContainer = styled.div`
   ${media.phone`
     margin: 24px 0;
   `}
+`
+
+export const ContentBlock = styled.div`
+  max-width: 80ch;
 `

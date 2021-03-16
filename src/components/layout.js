@@ -4,8 +4,8 @@ import {
   ContentPanel,
   ContentConstrain,
   ContentContainer,
-} from '../components/Layout.Wrapper'
-import DocsNavigation from '../components/Docs.Navigation'
+} from './Layout.Wrapper'
+import DocsNavigation from './Docs.Navigation'
 import Header from './Docs.Header'
 import Footer from './Footer'
 import './layout.css'

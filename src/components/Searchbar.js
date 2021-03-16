@@ -5,25 +5,20 @@ const SearchContainer = styled.div``
 const SearchBoxLabel = styled.label``
 
 const SearchBox = styled.input`
-  border: 1px solid var(--accent);
+  border: 1px solid var(--border-primary);
   font-size: 14px;
   border-radius: 6px;
   outline: 0;
   padding: 0.5em 1em;
   background-color: #272830;
-  color: var(--text);
-
-  &:hover {
-    box-shadow: var(--shadow1);
-  }
+  color: var(--text-primary);
 
   &:focus {
-    border-color: var(--foreground2);
-    box-shadow: var(--shadow1);
+    border-color: var(--text-blue);
   }
 
   &::placeholder {
-    color: #66676f;
+    color: var(--text-secondary);
     font-weight: 400;
   }
 `

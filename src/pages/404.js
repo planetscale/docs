@@ -12,11 +12,9 @@ const H1 = styled.h1`
   font-weight: 900;
   font-size: 3em;
   margin: 0em 0 1em 0;
-  color: var(--foreground1);
 `
 
 const Text = styled.p`
-  color: var(--foreground2);
   font-weight: 400;
   font-size: 17px;
   line-height: 1.5em;

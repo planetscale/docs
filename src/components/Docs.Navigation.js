@@ -1,13 +1,10 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
-import { media } from '../styles/media'
+import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import { switchTheme } from '../site.js'
 import * as Collapsible from '@radix-ui/react-collapsible'
 
 const _SidenavContainer = styled.div`
-  min-width: 300px;
-  flex-grow: 2;
   margin-top: 4em;
   margin-right: 0em;
 
@@ -44,7 +41,7 @@ const _SidenavList = styled.div`
 
   ${media.tablet`
     position: fixed;
-    background: var(--background1);
+    background: var(--bg-primary);
     padding: 2em;
     left: 0;
     bottom: 0;
@@ -71,7 +68,7 @@ const _GroupContainer = styled(Collapsible.Root)`
 const _GroupHeading = styled(Collapsible.Button)`
   font-size: 16px;
   letter-spacing: 1px;
-  color: var(--foreground1);
+  color: var(--text-secondary);
   background-color: unset;
   border: unset;
   padding: 0;
@@ -134,7 +131,6 @@ const _PageLink = styled(Link)`
   }
 
   &.active {
-    color: var(--foreground1);
     font-weight: 700;
 
     &:before {
@@ -153,14 +149,14 @@ class Sidenav extends Component {
       isDarkThemeSet: false,
     }
 
-    if (
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      this.state.isDarkThemeSet = true
-      switchTheme('dark')
-    }
+    // if (
+    //   typeof window !== 'undefined' &&
+    //   window.matchMedia &&
+    //   window.matchMedia('(prefers-color-scheme: dark)').matches
+    // ) {
+    //   this.state.isDarkThemeSet = true
+    //   switchTheme('dark')
+    // }
   }
 
   getPagesInCategory(category, docPages) {
@@ -223,7 +219,6 @@ function SidenavGroup({ category, pages, onClick }) {
   const isChildActive = (children) => {
     const url = typeof window !== 'undefined' ? window.location.href : ''
     const isChildActive = pages.reduce((accumulator, page) => {
-      console.log(url.includes(page.fields.slug))
       return accumulator || url.includes(page.fields.slug)
     }, false)
 

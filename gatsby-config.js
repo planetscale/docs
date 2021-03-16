@@ -5,22 +5,21 @@ module.exports = {
   },
   plugins: [
     {
-      resolve: `gatsby-plugin-manifest`,
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        name: `PlanetScale Documentation`,
-        short_name: `PlanetScale`,
-        start_url: `/docs/index`,
-        theme_color: `#ffffff`,
-        background_color: `#ffffff`,
-        display: `standalone`,
-        lang: `en`,
-        icon: `static/logo_square.svg`,
+        name: 'PlanetScale Documentation',
+        short_name: 'PlanetScale',
+        start_url: '/docs/index',
+        theme_color: '#ffffff',
+        background_color: '#ffffff',
+        display: 'standalone',
+        lang: 'en',
+        icon: 'static/logo_square.svg',
         icon_options: {
           purpose: 'any maskable',
         },
       },
     },
-    'gatsby-plugin-offline',
     {
       resolve: 'gatsby-plugin-html-attributes',
       options: {
@@ -56,14 +55,14 @@ module.exports = {
     },
     'gatsby-transformer-yaml',
     {
-      resolve: `gatsby-plugin-google-tagmanager`,
+      resolve: 'gatsby-plugin-google-tagmanager',
       options: {
         id: process.env.GOOGLE_TAG_MANAGER_ID,
         includeInDevelopment: false,
       },
     },
     {
-      resolve: `gatsby-plugin-webfonts`,
+      resolve: 'gatsby-plugin-webfonts',
       options: {
         fonts: {
           google: [
@@ -81,7 +80,7 @@ module.exports = {
         usePreconnect: true,
       },
     },
-    `gatsby-plugin-sharp`,
+    'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-lodash',
     {
@@ -104,5 +103,16 @@ module.exports = {
         extensions: ['.md', '.mdx'],
       },
     },
+    {
+      resolve: 'gatsby-plugin-postcss',
+      options: {
+        postCssPlugins: [
+          require('postcss-mixins'),
+          require('postcss-import'),
+          require('postcss-nested'),
+          require('autoprefixer')
+        ]
+      }
+    },    
   ],
 }
