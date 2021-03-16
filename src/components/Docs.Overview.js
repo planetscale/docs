@@ -108,7 +108,7 @@ class Overview extends Component {
   render() {
     return (
       <ContentBlock>
-        <H1>Documentation Overview</H1>
+        <H1>Documentation overview</H1>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
             return (

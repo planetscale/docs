@@ -196,7 +196,7 @@ class Sidenav extends Component {
             to="/"
             activeClassName="active"
           >
-            Documentation Overview
+            Documentation overview
           </_PageLink>
 
           {this.props.categories.order.map((category, index) => {

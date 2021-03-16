@@ -8,7 +8,7 @@ order:
       - psdb/custom-region-quickstart
   - id: concepts
     illustration: planetscale-concepts
-    name: PlanetScaleDB Concepts
+    name: PlanetScaleDB concepts
     description: Learn about the different features and options of PlanetScaleDB
     pages:
       - psdb/overview
@@ -56,7 +56,7 @@ order:
       - psdb/viewing-status-messages
       - psdb/viewing-query-logs
   - id: reference
-    name: PlanetScaleDB Reference
+    name: PlanetScaleDB reference
     illustration: planetscaledb-reference
     description: Refer to technical guidelines on operation and compatibility
     pages:
@@ -67,7 +67,7 @@ order:
       - psdb/advanced-cluster-configuration
       - psdb/sharding-scheme-ddl
   - id: psdb-operator
-    name: PlanetScaleDB Operator
+    name: PlanetScaleDB operator
     illustration: planetscaledb-operator
     description: Deploy, manage, and monitor Vitess clusters in your own Kubernetes cluster using our enterprise operator
     pages:
@@ -77,7 +77,7 @@ order:
       - psdb-operator/gcp-quickstart
       - psdb-operator/api
   - id: vitess-operator
-    name: Vitess Operator
+    name: Vitess operator
     illustration: vitess-operator
     description: Automate Vitess deployment and maintenance in your own Kubernetes cluster using our open source operator
     pages:
