@@ -13,12 +13,7 @@ const MarkDownContainer = styled.div`
   overflow: auto;
   max-width: ${(props) => props.maxWidth};
 
-  ${media.phone`
-    padding: 2em;
-  `}
-
   h1 {
-    font-family: 'Inter';
     font-weight: 900;
     font-size: 3em;
     margin: 0em 0 1em 0;
@@ -29,7 +24,6 @@ const MarkDownContainer = styled.div`
   }
 
   h2 {
-    font-family: 'Inter';
     font-weight: 700;
     font-size: 2em;
     margin-top: 1.5em;
@@ -37,7 +31,6 @@ const MarkDownContainer = styled.div`
   }
 
   h3 {
-    font-family: 'Inter';
     font-weight: 700;
     font-size: 1.2em;
     margin-top: 2.5em;
@@ -56,7 +49,6 @@ const MarkDownContainer = styled.div`
   }
 
   p {
-    font-family: 'Inter';
     color: var(--text);
     font-weight: 400;
     font-size: 17px;
@@ -69,7 +61,6 @@ const MarkDownContainer = styled.div`
   }
 
   li {
-    font-family: 'Inter';
     color: var(--text);
     font-weight: 400;
     font-size: 17px;

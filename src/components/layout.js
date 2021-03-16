@@ -2,6 +2,7 @@ import React, { Fragment } from 'react'
 import {
   PageContainer,
   ContentPanel,
+  ContentConstrain,
   ContentContainer,
 } from '../components/Layout.Wrapper'
 import DocsNavigation from '../components/Docs.Navigation'
@@ -14,8 +15,10 @@ export default ({ children }) => (
     <PageContainer>
       <Header></Header>
       <ContentPanel>
-        <DocsNavigation></DocsNavigation>
-        <ContentContainer>{children}</ContentContainer>
+        <ContentConstrain>
+          <DocsNavigation></DocsNavigation>
+          <ContentContainer>{children}</ContentContainer>
+        </ContentConstrain>
       </ContentPanel>
       <Footer></Footer>
     </PageContainer>

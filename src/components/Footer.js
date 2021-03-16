@@ -12,6 +12,11 @@ const FooterWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
+  padding: 0 64px;
+
+  ${media.phone`
+    padding: 0 24px;
+  `};
 `
 
 const FooterConstrain = styled.div`

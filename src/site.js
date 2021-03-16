@@ -2,7 +2,7 @@ const theme = {
   sizes: {
     tablet: 900,
     phone: 750,
-    maxWidth: '1170px',
+    maxWidth: '80rem',
   },
 
   colorMode: {
@@ -13,7 +13,7 @@ const theme = {
       foreground2: '#555',
       accent: '#ebecf0',
       accent2: '#ccc',
-      link: '#007BC7',
+      link: '#3EB1F4',
       text: '#555',
       codeblock: 'rgb(42, 53, 70)',
       brightness: 'brightness(100%)',
@@ -28,7 +28,7 @@ const theme = {
       foreground2: '#aaa',
       accent: '#393941',
       accent2: '#333',
-      link: '#009AFA',
+      link: '#3EB1F4',
       text: '#ccc',
       codeblock: 'rgb(14,22,34)',
       brightness: 'brightness(85%)',

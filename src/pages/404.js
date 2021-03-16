@@ -9,7 +9,6 @@ const ImageContainer = styled.div`
 `
 
 const H1 = styled.h1`
-  font-family: 'Inter';
   font-weight: 900;
   font-size: 3em;
   margin: 0em 0 1em 0;
@@ -17,7 +16,6 @@ const H1 = styled.h1`
 `
 
 const Text = styled.p`
-  font-family: 'Inter';
   color: var(--foreground2);
   font-weight: 400;
   font-size: 17px;

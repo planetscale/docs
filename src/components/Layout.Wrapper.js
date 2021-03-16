@@ -11,7 +11,7 @@ export const PageContainer = styled.section`
   flex-direction: column;
   align-items: center;
 
-  ${media.phone`
+  ${media.tablet`
     display: flex;
     flex-direction: column;
     align-items: stretch;
@@ -19,11 +19,20 @@ export const PageContainer = styled.section`
 `
 
 export const ContentPanel = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
   width: 100%;
   flex-grow: 2;
+  padding: 0 4rem;
+
+  ${media.phone`
+    padding: 0 24px;
+  `}
+`
+
+export const ContentConstrain = styled.div`
+  margin: 0 auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
   max-width: 80rem;
 `
 
@@ -37,7 +46,11 @@ export const ContentContainer = styled.div`
   margin-top: 4em;
   margin-bottom: 4em;
 
-  ${media.phone`
+  ${media.tablet`
     max-width: 100vw;
+  `}
+
+  ${media.phone`
+    margin: 24px 0;
   `}
 `

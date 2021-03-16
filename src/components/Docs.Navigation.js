@@ -9,25 +9,18 @@ const _SidenavContainer = styled.div`
   min-width: 300px;
   flex-grow: 2;
   margin-top: 4em;
-  margin-right: 6em;
+  margin-right: 0em;
 
-  ${media.phone`
-    width: 100vw;
-    display: flex;
-    flex-direction: row;
-    border: 0;
-    border-bottom: 1px solid var(--accent);
-    height: unset;
+  ${media.tablet`
+    position: fixed;
     z-index: 2;
-    background-color: var(--background1);
-    text-shadow: none;
   `}
 `
 
 const MenuLink = styled.div`
   display: none;
 
-  ${media.phone`
+  ${media.tablet`
     position: fixed;
     bottom: 16px;
     right: calc(16px + 60px + 16px);
@@ -49,7 +42,7 @@ const MenuLink = styled.div`
 const _SidenavList = styled.div`
   padding: 0 0 2em;
 
-  ${media.phone`
+  ${media.tablet`
     position: fixed;
     background: var(--background1);
     padding: 2em;
@@ -76,7 +69,6 @@ const _GroupContainer = styled(Collapsible.Root)`
 `
 
 const _GroupHeading = styled(Collapsible.Button)`
-  font-family: 'Inter';
   font-size: 16px;
   letter-spacing: 1px;
   color: var(--foreground1);
@@ -107,10 +99,6 @@ const _GroupHeading = styled(Collapsible.Button)`
       transform: rotate(90deg);
     }
   }
-
-  ${media.phone`
-    padding: 0 1em;
-  `}
 `
 
 const _GroupLinks = styled(Collapsible.Content)`
@@ -153,14 +141,6 @@ const _PageLink = styled(Link)`
       border-left: 1px solid white;
     }
   }
-
-  ${media.phone`
-    padding: 1em;
-
-    &.active {
-      border-radius: 2px;
-    }
-  `}
 `
 
 class Sidenav extends Component {

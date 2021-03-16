@@ -17,29 +17,44 @@ const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
+  padding: 0 64px;
+
+  ${media.phone`
+    padding: 0 24px;
+  `};
 `
 
 const HeaderConstrain = styled.div`
-  position: sticky;
-  top: 0;
   max-width: 80rem;
   width: 100%;
-  height: 86px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  z-index: 1;
+  padding: 27px 0;
+
+  ${media.phone`
+    flex-direction: column;
+    align-items: stretch;
+  `}
 `
 
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  ${media.phone`
+    justify-content: space-between;
+    padding-bottom: 27px;
+    margin-bottom: 27px;
+    border-bottom: 1px solid var(--accent);
+  `}
 `
 
-const LinksContainer = styled.div`
+const RightContainer = styled.div`
   display: flex;
-  align-items: stretch;
+  align-items: center;
+  justify-content: flex-end;
 `
 
 const LinkContainer = styled.a`
@@ -104,11 +119,11 @@ export default function Header() {
             </SearchBoxLabel>
           </SearchContainer>
         </LeftContainer>
-        <LinksContainer>
-          <LinkContainer href={'https://console.planetscale.com'}>
+        <RightContainer>
+          <LinkContainer href={'https://app.planetscaledb.io'}>
             <LinkContent>Console</LinkContent>
           </LinkContainer>
-        </LinksContainer>
+        </RightContainer>
       </HeaderConstrain>
     </HeaderWrapper>
   )
