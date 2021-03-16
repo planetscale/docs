@@ -70,6 +70,8 @@
   --text-blue: rgb(var(--blue-600));
   --text-purple: rgb(var(--purple-600));
 
+  --tw-shadow: 0 1px 2px 0 rgba(0,0,0,0.05);
+
   --logo: url('/logo-docs_light.svg');
   --logoCompany: url('/logo_planetscale_light.svg');
 }
