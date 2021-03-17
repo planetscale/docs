@@ -42,8 +42,8 @@
 
 /* Main category (eg. Getting Started) */
 .algolia-autocomplete .algolia-docsearch-suggestion--category-header {
-  font-weight: 700 !important;
-  font-size: 18px !important;
+  font-weight: 600 !important;
+  font-size: 1em !important;
   color: var(--text-primary) !important;
 }
 
@@ -64,7 +64,7 @@
 
 /* Description description (eg. Bootstrap currently works...) */
 .algolia-autocomplete .algolia-docsearch-suggestion--text {
-  font-size: 0.8rem !important;
+  font-size: 14px !important;
   color: var(--text-primary) !important;
 }
 

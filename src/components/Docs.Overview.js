@@ -5,13 +5,9 @@ import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 
 const H1 = styled.h1`
-  font-weight: 900;
-  font-size: 3em;
+  font-weight: 600;
+  font-size: 2.441em;
   margin: 0em 0 1em 0;
-
-  ${media.phone`
-    font-size: 2.5em;
-  `}
 `
 
 const CategoryList = styled.div`
@@ -55,8 +51,8 @@ const CategoryContent = styled.div`
 `
 
 const CategoryTitle = styled.div`
-  font-weight: 700;
-  font-size: 24px;
+  font-weight: 600;
+  font-size: 1.563em;
 `
 
 const CategoryCard = styled(Link)`

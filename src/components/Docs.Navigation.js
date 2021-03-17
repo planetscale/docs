@@ -96,7 +96,7 @@ const MenuLink = styled.div`
     position: fixed;
     bottom: 16px;
     right: calc(16px + 60px + 16px);
-    font-size: 18px;
+    font-size: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -123,7 +123,7 @@ const _GroupContainer = styled(Collapsible.Root)`
 `
 
 const _GroupHeading = styled(Collapsible.Button)`
-  font-size: 16px;
+  font-size: 1em;
   letter-spacing: 1px;
   color: var(--text-secondary);
   background-color: unset;
@@ -185,7 +185,7 @@ const _PageLink = styled(Link)`
 
   &.active {
     color: var(--text-primary);
-    font-weight: 700;
+    font-weight: 600;
 
     &:before {
       border-left: 1px solid var(--text-primary);

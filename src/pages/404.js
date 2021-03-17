@@ -9,15 +9,14 @@ const ImageContainer = styled.div`
 `
 
 const H1 = styled.h1`
-  font-weight: 900;
-  font-size: 3em;
+  font-weight: 600;
+  font-size: 2.441em;
   margin: 0em 0 1em 0;
 `
 
 const Text = styled.p`
-  font-weight: 400;
-  font-size: 17px;
-  line-height: 1.5em;
+  font-size: 1em;
+  line-height: 1.75em;
 `
 
 const ContactForm = styled.div`

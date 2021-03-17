@@ -68,7 +68,7 @@ module.exports = {
           google: [
             {
               family: 'Inter',
-              variants: ['100', '400', '500', '700', '900'],
+              variants: ['300', '400', '600'],
               fontDisplay: 'swap',
               strategy: 'cdn',
             },

@@ -14,25 +14,21 @@ const MarkDownContainer = styled(ContentBlock)`
   max-width: ${(props) => props.maxWidth};
 
   h1 {
-    font-weight: 900;
-    font-size: 3em;
+    font-weight: 600;
+    font-size: 2.441em;
     margin: 0em 0 1em 0;
-
-    ${media.phone`
-      font-size: 2.5em;
-    `}
   }
 
   h2 {
-    font-weight: 700;
-    font-size: 2em;
-    margin-top: 1.5em;
-    margin-bottom: 0;
+    font-weight: 600;
+    font-size: 1.563em;
+    margin-top: 2.5em;
+    margin-bottom: 1.5em;
   }
 
   h3 {
-    font-weight: 700;
-    font-size: 1.2em;
+    font-weight: 600;
+    font-size: 1.25em;
     margin-top: 2.5em;
     margin-bottom: 0;
   }
@@ -49,9 +45,8 @@ const MarkDownContainer = styled(ContentBlock)`
   }
 
   p {
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 1.5em;
+    font-size: 1em;
+    line-height: 1.75em;
   }
 
   ul,
@@ -60,9 +55,8 @@ const MarkDownContainer = styled(ContentBlock)`
   }
 
   li {
-    font-weight: 400;
-    font-size: 17px;
-    line-height: 1.5em;
+    font-size: 1em;
+    line-height: 1.75em;
     margin: 1em 0;
   }
 
@@ -105,7 +99,6 @@ const MarkDownContainer = styled(ContentBlock)`
   }
 
   tbody > tr > td {
-    font-weight: 400;
     padding: 10px 40px 10px 0px;
   }
 
