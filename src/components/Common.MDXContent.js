@@ -81,6 +81,7 @@ const MarkDownContainer = styled(ContentBlock)`
     max-width: 100%;
     box-sizing: border-box;
     border-radius: 6px;
+    box-shadow: var(--tw-shadow);
 
     ${media.phone`
       padding: 1rem 0;
