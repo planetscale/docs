@@ -29,10 +29,11 @@ export const ContentPanel = styled.div`
 `
 
 export const ContentConstrain = styled.div`
-  margin: 0 auto;
+  margin: 4em auto;
   display: flex;
   flex-direction: row;
-  /* justify-content: space-between; */
+  align-items: flex-start;
+  position: relative;
   max-width: 80rem;
 `
 
@@ -41,7 +42,6 @@ export const ContentContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 4em;
   margin-bottom: 4em;
 
   ${media.tablet`

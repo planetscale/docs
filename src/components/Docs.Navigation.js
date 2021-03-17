@@ -3,20 +3,91 @@ import styled from 'styled-components'
 import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
+import * as ScrollArea from '@radix-ui/react-scroll-area';
 
 const _SidenavContainer = styled.div`
-  margin-top: 4em;
-  margin-right: 4em;
-  min-width: 300px;
+  position: sticky;
+  top: calc(89px + 4em);
+  margin-right: 2em;
+  padding-right: 2em;
   width: 100%;
-  max-width: 300px;
+  min-width: 350px;
+  max-width: 350px;
+  height: calc(100vh - 89px - 8em);
+  border-right: 1px solid var(--bg-primary);
+  transition: border-color 100ms linear;
+  background: var(--bg-primary);
+
+  &:hover {
+    border-right: 1px solid var(--border-primary);
+  }
 
   ${media.tablet`
-    width: unset;
+    border-right: unset;
+    max-width: unset;
     position: fixed;
+    top: -100vh;
+    left: 0;
     z-index: 2;
+    padding: 0;
+    margin: 0;
+    height: 100vh;
+    padding: 2em;
+
+    &:hover {
+      border-right: unset;
+    }
+
+    &.show {
+      top: 0;
+    }
   `}
 `
+
+const ScrollAreaRoot = styled(ScrollArea.Root)`
+  position: 'relative';
+  z-index: 0;
+  max-width: 100%;
+  height: calc(100vh - 89px - 8em);
+  max-height: 100%;
+
+  &[data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
+    display: none;
+  }
+
+  ${media.tablet`
+    height: 100vh;
+  `}
+`
+
+const StyledScrollbarY = styled(ScrollArea.ScrollbarY)`
+  z-index: 2;
+  position: absolute;
+  user-select: none;
+  transition: 300ms opacity ease;
+  width: 8;
+  right: 0;
+  top: 0;
+  bottom: 0;
+`;
+
+const StyledScrollTrack = styled(ScrollArea.Track)`
+  z-index: -1;
+  position: relative;
+  width: 100%;
+  height: 100%;
+`;
+
+const StyledScrollThumb = styled(ScrollArea.Thumb)`
+  background-color: var(--text-primary);
+  position: absolute;
+  top: 0;
+  left: 0;
+  user-select: none;
+  border-radius: 9999;
+  width: 1px;
+  height: 8px;
+`;
 
 const MenuLink = styled.div`
   display: none;
@@ -40,28 +111,11 @@ const MenuLink = styled.div`
   `}
 `
 
-const _SidenavList = styled.div`
-  padding: 0 0 2em;
+const _SidenavList = styled(ScrollArea.Viewport)`
+  overflow: none;
 
   ${media.tablet`
-    position: fixed;
-    background: var(--bg-primary);
-    padding: 2em;
-    left: 0;
-    bottom: 0;
     height: 100vh;
-    width: 100vw;
-    transition: bottom 0.25s ease-in-out, opacity 0.25s ease-in-out 0.125s;
-    overflow: scroll;
-    -webkit-overflow-scrolling: touch;
-    opacity: 1;
-    display: block;
-
-    ${_SidenavContainer}.hide & {
-      opacity: 0;
-      bottom: -100vh;
-      transition: bottom 0.5s ease-in-out, opacity 0.25s ease-in-out;
-    }
   `}
 `
 
@@ -173,31 +227,39 @@ class Sidenav extends Component {
     const { isMobileTOCOpen } = this.state
 
     return (
-      <_SidenavContainer className={`${isMobileTOCOpen ? '' : 'hide'}`}>
+      <_SidenavContainer className={`${isMobileTOCOpen ? 'show' : ''}`}>
         <MenuLink onClick={this.toggleMobileTOC}>
           {isMobileTOCOpen ? 'Close' : 'Menu'}
         </MenuLink>
 
-        <_SidenavList>
-          <_PageLink
-            onClick={this.toggleMobileTOC}
-            to="/"
-            activeClassName="active"
-          >
-            Documentation overview
-          </_PageLink>
+        <ScrollAreaRoot>
+          <_SidenavList>
+            <_PageLink
+              onClick={this.toggleMobileTOC}
+              to="/"
+              activeClassName="active"
+            >
+              Documentation overview
+            </_PageLink>
 
-          {this.props.categories.order.map((category, index) => {
-            return (
-              <SidenavGroup
-                key={index}
-                category={category.name}
-                pages={this.getPagesInCategory(category, this.props.docPages)}
-                onClick={this.toggleMobileTOC}
-              ></SidenavGroup>
-            )
-          })}
-        </_SidenavList>
+            {this.props.categories.order.map((category, index) => {
+              return (
+                <SidenavGroup
+                  key={index}
+                  category={category.name}
+                  pages={this.getPagesInCategory(category, this.props.docPages)}
+                  onClick={this.toggleMobileTOC}
+                ></SidenavGroup>
+              )
+            })}
+          </_SidenavList>
+
+          <StyledScrollbarY>
+            <StyledScrollTrack>
+              <StyledScrollThumb />
+            </StyledScrollTrack>
+          </StyledScrollbarY>
+        </ScrollAreaRoot>
       </_SidenavContainer>
     )
   }

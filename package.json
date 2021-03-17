@@ -13,6 +13,7 @@
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
     "@radix-ui/react-collapsible": "0.0.7",
+    "@radix-ui/react-scroll-area": "0.0.6",
     "babel-plugin-styled-components": "^1.5.1",
     "core-js": "^3.9.1",
     "details-element-polyfill": "^2.0.1",
