@@ -77,7 +77,7 @@ class CodeBlock extends React.Component {
     return (
       <CodeBlockContainer>
         <CodeBlockHeader>
-          {codeLanguage.length > 0 && <CodeType>{codeLanguage}</CodeType>}
+          <CodeType>{codeLanguage.length > 0 ? codeLanguage : '😅'}</CodeType>
           <CopyButton onClick={this.copyCode}>Copy</CopyButton>
         </CodeBlockHeader>
         <CodeBlockContent>
