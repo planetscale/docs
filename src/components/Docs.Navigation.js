@@ -1,11 +1,11 @@
-import React, { Component } from 'react'
+import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area';
 
-const _SidenavContainer = styled.div`
+const _SidenavContainer = styled(ScrollArea.Root)`
   position: sticky;
   top: calc(89px + 4em);
   margin-right: 2em;
@@ -17,6 +17,13 @@ const _SidenavContainer = styled.div`
   border-right: 1px solid var(--bg-primary);
   transition: border-color 100ms linear;
   background: var(--bg-primary);
+
+  > [data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
+    -webkit-appearance: none;
+    display: none;
+    width: 0;
+    height: 0;
+  }
 
   &:hover {
     border-right: 1px solid var(--border-primary);
@@ -41,22 +48,6 @@ const _SidenavContainer = styled.div`
     &.show {
       top: 0;
     }
-  `}
-`
-
-const ScrollAreaRoot = styled(ScrollArea.Root)`
-  position: 'relative';
-  z-index: 0;
-  max-width: 100%;
-  height: calc(100vh - 89px - 8em);
-  max-height: 100%;
-
-  &[data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
-    display: none;
-  }
-
-  ${media.tablet`
-    height: 100vh;
   `}
 `
 
@@ -87,6 +78,7 @@ const StyledScrollThumb = styled(ScrollArea.Thumb)`
   border-radius: 9999;
   width: 1px;
   height: 8px;
+  will-change: top;
 `;
 
 const MenuLink = styled.div`
@@ -112,7 +104,8 @@ const MenuLink = styled.div`
 `
 
 const _SidenavList = styled(ScrollArea.Viewport)`
-  overflow: none;
+  z-index: 1;
+  position: relative;
 
   ${media.tablet`
     height: 100vh;
@@ -227,12 +220,9 @@ class Sidenav extends Component {
     const { isMobileTOCOpen } = this.state
 
     return (
-      <_SidenavContainer className={`${isMobileTOCOpen ? 'show' : ''}`}>
-        <MenuLink onClick={this.toggleMobileTOC}>
-          {isMobileTOCOpen ? 'Close' : 'Menu'}
-        </MenuLink>
-
-        <ScrollAreaRoot>
+      <Fragment>
+        <MenuLink onClick={this.toggleMobileTOC}>{isMobileTOCOpen ? 'Close' : 'Menu'}</MenuLink>
+        <_SidenavContainer className={`${isMobileTOCOpen ? 'show' : ''}`}>
           <_SidenavList>
             <_PageLink
               onClick={this.toggleMobileTOC}
@@ -259,8 +249,8 @@ class Sidenav extends Component {
               <StyledScrollThumb />
             </StyledScrollTrack>
           </StyledScrollbarY>
-        </ScrollAreaRoot>
-      </_SidenavContainer>
+        </_SidenavContainer>
+      </Fragment>
     )
   }
 }
