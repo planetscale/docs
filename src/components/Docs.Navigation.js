@@ -66,7 +66,6 @@ const _SidenavList = styled.div`
 `
 
 const _GroupContainer = styled(Collapsible.Root)`
-  margin-bottom: 1.5em;
 `
 
 const _GroupHeading = styled(Collapsible.Button)`
