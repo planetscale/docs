@@ -6,9 +6,13 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 
 const _SidenavContainer = styled.div`
   margin-top: 4em;
-  margin-right: 0em;
+  margin-right: 4em;
+  min-width: 300px;
+  width: 100%;
+  max-width: 300px;
 
   ${media.tablet`
+    width: unset;
     position: fixed;
     z-index: 2;
   `}
@@ -73,9 +77,6 @@ const _GroupHeading = styled(Collapsible.Button)`
   border: unset;
   padding: 0;
   margin-bottom: 1em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
   cursor: pointer;
 
   &:before {
@@ -110,13 +111,12 @@ const _PageLink = styled(Link)`
   flex-direction: row;
   align-items: center;
   margin: 0 0 1.5em 1em;
-  color: var(--foreground2);
+  color: var(--text-secondary);
   position: relative;
-  transition: background 0.25s ease;
 
   &:before {
     content: ' ';
-    height: 14px;
+    height: 100%;
     width: 1px;
     left: -0.8em;
     position: absolute;
@@ -131,10 +131,11 @@ const _PageLink = styled(Link)`
   }
 
   &.active {
+    color: var(--text-primary);
     font-weight: 700;
 
     &:before {
-      border-left: 1px solid white;
+      border-left: 1px solid var(--text-primary);
     }
   }
 `
@@ -142,21 +143,9 @@ const _PageLink = styled(Link)`
 class Sidenav extends Component {
   constructor(props) {
     super(props)
-
-    this.toggleSwitchRef = React.createRef()
     this.state = {
       isMobileTOCOpen: false,
-      isDarkThemeSet: false,
     }
-
-    // if (
-    //   typeof window !== 'undefined' &&
-    //   window.matchMedia &&
-    //   window.matchMedia('(prefers-color-scheme: dark)').matches
-    // ) {
-    //   this.state.isDarkThemeSet = true
-    //   switchTheme('dark')
-    // }
   }
 
   getPagesInCategory(category, docPages) {
