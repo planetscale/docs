@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import {
@@ -6,6 +6,7 @@ import {
   SearchBoxLabel,
   SearchBox,
 } from '../components/Searchbar'
+import Cookies from 'js-cookie'
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -102,6 +103,14 @@ const LinkContent = styled.div`
 `
 
 export default function Header() {
+  const [isSignedIn, setSignedInState] = useState(false);
+
+  useEffect(() => {
+    if(typeof Cookies.get('signed_in') !== 'undefined') {
+      setSignedInState(true);
+    }
+  })
+
   return (
     <HeaderWrapper>
       <HeaderConstrain>
@@ -120,7 +129,7 @@ export default function Header() {
         </LeftContainer>
         <RightContainer>
           <LinkContainer href={'https://app.planetscaledb.io'}>
-            <LinkContent>Console</LinkContent>
+            <LinkContent>{isSignedIn ? 'Goto dashboard': 'Sign in'}</LinkContent>
           </LinkContainer>
         </RightContainer>
       </HeaderConstrain>
