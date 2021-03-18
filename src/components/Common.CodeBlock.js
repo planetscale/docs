@@ -6,7 +6,7 @@ const CodeBlockContainer = styled.div`
   flex-direction: column;
   background-color: var(--background1);
   color: var(--foreground2);
-  border: 1px solid #282a36;
+  border: 1px solid #282a37;
 `
 
 const CodeBlockHeader = styled.div`
