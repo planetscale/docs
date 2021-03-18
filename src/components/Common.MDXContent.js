@@ -5,6 +5,7 @@ import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import CodeBlock from './CodeBlock'
 import { ContentBlock } from './Layout.Wrapper'
+import PageInfo from './PageInfo'
 
 const MarkDownContainer = styled(ContentBlock)`
   width: 100%; //ie11 bug
@@ -135,7 +136,7 @@ const MarkDownContainer = styled(ContentBlock)`
   }
 `
 
-export default function MDXContent({ body }) {
+export default function MDXContent({ body, lastUpdatedOn }) {
   useEffect(() => {
     if (typeof hljs !== 'undefined') {
       document.querySelectorAll('pre > code').forEach((block) => {
@@ -153,6 +154,7 @@ export default function MDXContent({ body }) {
       >
         <MDXRenderer>{body}</MDXRenderer>
       </MDXProvider>
+      <PageInfo lastUpdatedOn={lastUpdatedOn}></PageInfo>
     </MarkDownContainer>
   )
 }

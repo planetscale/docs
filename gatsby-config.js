@@ -119,6 +119,6 @@ module.exports = {
           require('autoprefixer')
         ]
       }
-    },    
+    },
   ],
 }

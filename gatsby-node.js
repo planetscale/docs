@@ -1,4 +1,5 @@
 const path = require('path')
+const { execSync } = require("child_process")
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const express = require('express')
 
@@ -10,12 +11,22 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions
   if (node.internal.type === 'Mdx' && node.frontmatter.title != '') {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
+    const gitAuthorTime = execSync(
+      `git log -1 --pretty=format:%aI ${node.fileAbsolutePath}`
+    ).toString();
+
     createNodeField({
       node,
       name: 'slug',
       // Note: The below string manip has been done to remove trailing slashes.
       // Note: Gatsby's default plugin does not work
       value: slug.substr(0, slug.length - 1),
+    })
+
+    createNodeField({
+      node,
+      name: 'lastUpdatedOn',
+      value: gitAuthorTime,
     })
   }
 }

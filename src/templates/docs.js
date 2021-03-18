@@ -15,7 +15,7 @@ export default function DocsPage({ data }) {
           description={frontmatter.title}
           pathname={`${fields.slug}`}
         />
-        <MDXContent body={body}></MDXContent>
+        <MDXContent body={body} lastUpdatedOn={fields.lastUpdatedOn}></MDXContent>
       </Fragment>
     )
   }
@@ -28,6 +28,7 @@ export const pageQuery = graphql`
       frontmatter: { title: { ne: "" } }
     ) {
       fields {
+        lastUpdatedOn
         slug
       }
       frontmatter {
