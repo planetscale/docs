@@ -7,6 +7,7 @@ import {
   SearchBox,
 } from '../components/Searchbar'
 import Cookies from 'js-cookie'
+import { ButtonSecondary } from './Buttons'
 
 const HeaderWrapper = styled.div`
   width: 100%;
@@ -87,21 +88,6 @@ const Logo = styled.div`
   `};
 `
 
-const LinkContent = styled.div`
-  text-decoration: none;
-  padding: 0.5em 1.5em;
-  display: flex;
-  align-items: center;
-  white-space: nowrap;
-  border: 1px solid var(--border-primary);
-  border-radius: 6px;
-  font-size: 14px;
-
-  &:hover {
-    background-color: var(--bg-secondary);
-  }
-`
-
 export default function Header() {
   const [isSignedIn, setSignedInState] = useState(false);
 
@@ -129,7 +115,7 @@ export default function Header() {
         </LeftContainer>
         <RightContainer>
           <LinkContainer href={'https://app.planetscaledb.io'}>
-            <LinkContent>{isSignedIn ? 'Goto dashboard': 'Sign in'}</LinkContent>
+            <ButtonSecondary>{isSignedIn ? 'Goto dashboard': 'Sign in'}</ButtonSecondary>
           </LinkContainer>
         </RightContainer>
       </HeaderConstrain>

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { media } from './styles/media'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import CodeBlock from './Common.CodeBlock'
+import CodeBlock from './CodeBlock'
 import { ContentBlock } from './Layout.Wrapper'
 
 const MarkDownContainer = styled(ContentBlock)`

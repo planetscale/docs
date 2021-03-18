@@ -1,16 +1,17 @@
 import * as React from 'react'
 import styled from 'styled-components'
+import { ButtonSecondary } from './Buttons'
 
 const CodeBlockContainer = styled.div`
   display: flex;
   flex-direction: column;
-  background-color: var(--bg-primary);
   border: 1px solid var(--border-primary);
   border-radius: 6px;
+  box-shadow: var(--tw-shadow);
 `
 
 const CodeBlockHeader = styled.div`
-  padding: 0em;
+  padding: 1em;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -26,14 +27,13 @@ const CodeType = styled.div`
   color: var(--text-primary);
   font-size: 14px;
   text-transform: lowercase;
-  padding: 0em 2em;
 `
 
 const CopyButton = styled.button`
   padding: 1em;
   border: 0;
   border-left: 1px solid var(--border-primary);
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   font-family: 'Inter';
   font-size: 14px;
   color: var(--text-secondary);
@@ -46,10 +46,10 @@ const CopyButton = styled.button`
 `
 
 const CodeBlockContent = styled.pre`
-  padding: 2em;
+  padding: 1em;
   margin: 0;
   overflow: scroll;
-  background-color: var(--bg-primary);
+  background-color: var(--bg-secondary);
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
 `
@@ -57,7 +57,7 @@ const CodeBlockContent = styled.pre`
 const CodeBlockCode = styled.code`
   font-family: 'IBM Plex Mono';
   font-size: 14px;
-  background: var(--bg-primary) !important;
+  background: var(--bg-secondary) !important;
 `
 
 class CodeBlock extends React.Component {
@@ -78,7 +78,7 @@ class CodeBlock extends React.Component {
       <CodeBlockContainer>
         <CodeBlockHeader>
           <CodeType>{codeLanguage.length > 0 ? codeLanguage : '😅'}</CodeType>
-          <CopyButton onClick={this.copyCode}>Copy</CopyButton>
+          <ButtonSecondary onClick={this.copyCode}>Copy</ButtonSecondary>
         </CodeBlockHeader>
         <CodeBlockContent>
           <CodeBlockCode className={codeLanguage}>{children}</CodeBlockCode>
