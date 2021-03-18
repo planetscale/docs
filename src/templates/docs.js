@@ -15,7 +15,11 @@ export default function DocsPage({ data }) {
           description={frontmatter.title}
           pathname={`${fields.slug}`}
         />
-        <MDXContent body={body} lastUpdatedOn={fields.lastUpdatedOn}></MDXContent>
+        <MDXContent
+          body={body}
+          lastUpdatedOn={fields.lastUpdatedOn}
+          slug={fields.slug}
+        ></MDXContent>
       </Fragment>
     )
   }

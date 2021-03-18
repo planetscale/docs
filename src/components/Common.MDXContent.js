@@ -7,6 +7,8 @@ import CodeBlock from './CodeBlock'
 import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 
+const ContentContainer = styled.div``
+
 const MarkDownContainer = styled(ContentBlock)`
   width: 100%; //ie11 bug
   max-width: 80ch;
@@ -136,7 +138,7 @@ const MarkDownContainer = styled(ContentBlock)`
   }
 `
 
-export default function MDXContent({ body, lastUpdatedOn }) {
+export default function MDXContent({ body, lastUpdatedOn, slug }) {
   useEffect(() => {
     if (typeof hljs !== 'undefined') {
       document.querySelectorAll('pre > code').forEach((block) => {
@@ -146,15 +148,17 @@ export default function MDXContent({ body, lastUpdatedOn }) {
   })
 
   return (
-    <MarkDownContainer>
-      <MDXProvider
-        components={{
-          pre: CodeBlock,
-        }}
-      >
-        <MDXRenderer>{body}</MDXRenderer>
-      </MDXProvider>
-      <PageInfo lastUpdatedOn={lastUpdatedOn}></PageInfo>
-    </MarkDownContainer>
+    <ContentContainer>
+      <MarkDownContainer>
+        <MDXProvider
+          components={{
+            pre: CodeBlock,
+          }}
+        >
+          <MDXRenderer>{body}</MDXRenderer>
+        </MDXProvider>
+      </MarkDownContainer>
+      <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>
+    </ContentContainer>
   )
 }
