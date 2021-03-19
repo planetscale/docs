@@ -3,16 +3,15 @@ import styled from 'styled-components'
 import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
-import * as ScrollArea from '@radix-ui/react-scroll-area';
+import * as ScrollArea from '@radix-ui/react-scroll-area'
+import { Menu, Close } from '@styled-icons/material-rounded'
 
 const _SidenavContainer = styled(ScrollArea.Root)`
+  flex-basis: 350px;
   position: sticky;
   top: calc(89px + 4em);
   margin-right: 2em;
   padding-right: 2em;
-  width: 100%;
-  min-width: 350px;
-  max-width: 350px;
   height: calc(100vh - 89px - 8em);
   border-right: 1px solid var(--bg-primary);
   transition: border-color 100ms linear;
@@ -60,14 +59,14 @@ const StyledScrollbarY = styled(ScrollArea.ScrollbarY)`
   right: 0;
   top: 0;
   bottom: 0;
-`;
+`
 
 const StyledScrollTrack = styled(ScrollArea.Track)`
   z-index: -1;
   position: relative;
   width: 100%;
   height: 100%;
-`;
+`
 
 const StyledScrollThumb = styled(ScrollArea.Thumb)`
   background-color: var(--text-primary);
@@ -79,7 +78,7 @@ const StyledScrollThumb = styled(ScrollArea.Thumb)`
   width: 1px;
   height: 8px;
   will-change: top;
-`;
+`
 
 const MenuLink = styled.div`
   display: none;
@@ -88,18 +87,23 @@ const MenuLink = styled.div`
     position: fixed;
     bottom: 16px;
     right: calc(16px + 60px + 16px);
-    font-size: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: #000;
-    background-color: #fff;
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
+    width: 60px;
     height: 60px;
     border-radius: 99px;
     z-index: 3;
     padding: 0 1em;
+
+    > svg {
+      width: 24px;
+      height: 24px;
+    }
   `}
 `
 
@@ -112,8 +116,7 @@ const _SidenavList = styled(ScrollArea.Viewport)`
   `}
 `
 
-const _GroupContainer = styled(Collapsible.Root)`
-`
+const _GroupContainer = styled(Collapsible.Root)``
 
 const _GroupHeading = styled(Collapsible.Button)`
   font-size: 1em;
@@ -221,7 +224,9 @@ class Sidenav extends Component {
 
     return (
       <Fragment>
-        <MenuLink onClick={this.toggleMobileTOC}>{isMobileTOCOpen ? 'Close' : 'Menu'}</MenuLink>
+        <MenuLink onClick={this.toggleMobileTOC}>
+          {isMobileTOCOpen ? <Close /> : <Menu />}
+        </MenuLink>
         <_SidenavContainer className={`${isMobileTOCOpen ? 'show' : ''}`}>
           <_SidenavList>
             <_PageLink

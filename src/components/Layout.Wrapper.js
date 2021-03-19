@@ -38,28 +38,23 @@ export const ContentConstrain = styled.div`
   max-width: 80rem;
 
   ${media.tablet`
-    margin: 4em auto 0em;
+    margin: 4em auto;
   `}
 `
 
 export const ContentContainer = styled.div`
-  width: 100%;
   flex-grow: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 4em;
-
-  ${media.tablet`
-    width: 100%;
-  `}
 
   ${media.phone`
+    align-items: stretch;
+    width: 100%;
     margin: 24px 0;
   `}
 `
 
 export const ContentBlock = styled.div`
-  width: 100%;
   max-width: 80ch;
 `

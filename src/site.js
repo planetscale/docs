@@ -1,8 +1,7 @@
 const theme = {
   sizes: {
-    tablet: 900,
+    tablet: 1200,
     phone: 750,
-    maxWidth: '80rem',
   },
 }
 
