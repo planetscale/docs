@@ -39,7 +39,7 @@ const KeyPressIndicator = styled(ButtonSecondary)`
   position: absolute;
   right: 4px;
   top: 4px;
-  padding: 4px 12px;
+  padding: 4px 10px;
   font-size: 12px;
   color: var(--text-secondary);
   background-color: var(--bg-secondary);
