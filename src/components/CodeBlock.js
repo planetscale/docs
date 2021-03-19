@@ -8,6 +8,7 @@ const CodeBlockContainer = styled.div`
   border: 1px solid var(--border-primary);
   border-radius: 6px;
   box-shadow: var(--tw-shadow);
+  margin: 3em 0;
 `
 
 const CodeBlockHeader = styled.div`
@@ -24,7 +25,7 @@ const CodeBlockHeader = styled.div`
 
 const CodeType = styled.div`
   font-family: 'IBM Plex Mono';
-  color: var(--text-primary);
+  color: var(--text-secondary);
   font-size: 14px;
   text-transform: lowercase;
 `

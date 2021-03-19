@@ -8,7 +8,6 @@ import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 
 const MarkDownContainer = styled(ContentBlock)`
-  width: 100%;
   max-width: 80ch;
   white-space: normal;
   overflow: auto;
