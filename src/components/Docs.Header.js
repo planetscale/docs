@@ -1,11 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
-import {
-  SearchContainer,
-  SearchBoxLabel,
-  SearchBox,
-} from '../components/Searchbar'
+import SearchBar from '../components/Searchbar'
 import Cookies from 'js-cookie'
 import { ButtonSecondary } from './Buttons'
 
@@ -89,11 +85,11 @@ const Logo = styled.div`
 `
 
 export default function Header() {
-  const [isSignedIn, setSignedInState] = useState(false);
+  const [isSignedIn, setSignedInState] = useState(false)
 
   useEffect(() => {
-    if(typeof Cookies.get('signed_in') !== 'undefined') {
-      setSignedInState(true);
+    if (typeof Cookies.get('signed_in') !== 'undefined') {
+      setSignedInState(true)
     }
   })
 
@@ -104,18 +100,13 @@ export default function Header() {
           <HomeLink href="/">
             <Logo />
           </HomeLink>
-          <SearchContainer>
-            <SearchBoxLabel htmlFor={'searchbox'}>
-              <SearchBox
-                id="searchbox"
-                placeholder={'Search documentation'}
-              ></SearchBox>
-            </SearchBoxLabel>
-          </SearchContainer>
+          <SearchBar></SearchBar>
         </LeftContainer>
         <RightContainer>
           <LinkContainer href={'https://app.planetscaledb.io'}>
-            <ButtonSecondary>{isSignedIn ? 'Goto dashboard': 'Sign in'}</ButtonSecondary>
+            <ButtonSecondary>
+              {isSignedIn ? 'Goto dashboard' : 'Sign in'}
+            </ButtonSecondary>
           </LinkContainer>
         </RightContainer>
       </HeaderConstrain>

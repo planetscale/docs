@@ -29,22 +29,6 @@ const CodeType = styled.div`
   text-transform: lowercase;
 `
 
-const CopyButton = styled.button`
-  padding: 1em;
-  border: 0;
-  border-left: 1px solid var(--border-primary);
-  background-color: var(--bg-secondary);
-  font-family: 'Inter';
-  font-size: 14px;
-  color: var(--text-secondary);
-  border-top-right-radius: 6px;
-
-  &:hover {
-    background-color: var(--bg-secondary);
-    cursor: pointer;
-  }
-`
-
 const CodeBlockContent = styled.pre`
   padding: 1em;
   margin: 0;

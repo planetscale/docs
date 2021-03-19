@@ -1,8 +1,10 @@
 import React from 'react'
 import styled from 'styled-components'
+import { media } from './styles/media'
 import { LinkBlock, ButtonSecondary } from './Buttons'
 
 const PageInfoContainer = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -10,22 +12,36 @@ const PageInfoContainer = styled.div`
   border-top: 1px solid var(--border-primary);
   padding-top: 2em;
   margin-top: 2em;
+
+  ${media.phone`
+    align-items: flex-start;
+    flex-direction: column;
+  `}
 `
 
 const LastUpdatedDate = styled.div`
   font-size: 14px;
   color: var(--text-secondary);
+
+  ${media.phone`
+    margin-bottom: 1em;
+  `}
 `
 
 export default function PageInfo({ lastUpdatedOn, slug }) {
-  const lastUpdatedOnUTCString = new Date(
-    Date.parse(lastUpdatedOn)
-  ).toUTCString()
+  var lastUpdatedOnDate = new Date()
+  if (lastUpdatedOn) {
+    lastUpdatedOnDate = new Date(Date.parse(lastUpdatedOn))
+  }
+
+  const options = { month: 'long' }
 
   return (
     <PageInfoContainer>
       <LastUpdatedDate>
-        Last updated on {lastUpdatedOnUTCString}
+        Last updated on{' '}
+        {new Intl.DateTimeFormat('en-US', options).format(lastUpdatedOnDate)}{' '}
+        {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
       </LastUpdatedDate>
       <LinkBlock
         href={`https://github.com/planetscale/docs.public/blob/main/content/docs${slug}.mdx`}

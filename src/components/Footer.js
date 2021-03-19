@@ -8,13 +8,10 @@ const FooterWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  position: sticky;
-  top: 0;
-  z-index: 1;
-  padding: 0 64px;
+  padding: 32px 64px;
 
   ${media.phone`
-    padding: 0 24px;
+    padding: 24px;
   `};
 `
 
@@ -23,17 +20,25 @@ const FooterConstrain = styled.div`
   top: 0;
   max-width: 80rem;
   width: 100%;
-  height: 86px;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
   z-index: 1;
+
+  ${media.phone`
+    flex-direction: column;
+    align-items: flex-start;
+  `}
 `
 
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
+
+  ${media.phone`
+    margin-bottom: 1em;
+  `}
 `
 
 const RightContainer = styled.div`

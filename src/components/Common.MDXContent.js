@@ -7,14 +7,11 @@ import CodeBlock from './CodeBlock'
 import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 
-const ContentContainer = styled.div``
-
 const MarkDownContainer = styled(ContentBlock)`
-  width: 100%; //ie11 bug
+  width: 100%;
   max-width: 80ch;
   white-space: normal;
   overflow: auto;
-  max-width: ${(props) => props.maxWidth};
 
   h1 {
     font-weight: 600;
@@ -148,7 +145,7 @@ export default function MDXContent({ body, lastUpdatedOn, slug }) {
   })
 
   return (
-    <ContentContainer>
+    <ContentBlock>
       <MarkDownContainer>
         <MDXProvider
           components={{
@@ -159,6 +156,6 @@ export default function MDXContent({ body, lastUpdatedOn, slug }) {
         </MDXProvider>
       </MarkDownContainer>
       <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>
-    </ContentContainer>
+    </ContentBlock>
   )
 }
