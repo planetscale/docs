@@ -240,17 +240,8 @@ function SideNav({ categories, docPages }) {
 }
 
 function SidenavGroup({ category, pages, onClick }) {
-  const isChildActive = (children) => {
-    const url = typeof window !== 'undefined' ? window.location.href : ''
-    const isChildActive = pages.reduce((accumulator, page) => {
-      return accumulator || url.includes(page.fields.slug)
-    }, false)
-
-    return isChildActive
-  }
-
   return (
-    <_GroupContainer defaultOpen={isChildActive}>
+    <_GroupContainer defaultOpen={true}>
       <_GroupHeading>{category}</_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {

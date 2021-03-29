@@ -13,6 +13,9 @@ export function TitleAndMetaTags({
     const docSearchScript = document.getElementById('docsearch')
     const highlightScript = document.getElementById('highlight')
 
+    const hlDark = document.querySelector('link[title="solarized-dark"]')
+    const hlLight = document.querySelector('link[title="solarized-light"]')
+
     if (
       typeof window !== 'undefined' &&
       window.matchMedia &&
@@ -20,7 +23,34 @@ export function TitleAndMetaTags({
     ) {
       const root = document.querySelector('html')
       root.classList.toggle('dark')
+
+      if (hlDark && hlLight) {
+        hlLight.setAttribute('disabled', 'disabled')
+        hlDark.removeAttribute('disabled')
+      }
+    } else {
+      const root = document.querySelector('html')
+      root.classList.toggle('light')
+      console.log('light mode')
+      if (hlDark && hlLight) {
+        hlDark.setAttribute('disabled', 'disabled')
+        hlLight.removeAttribute('disabled')
+      }
     }
+
+    window
+      .matchMedia('(prefers-color-scheme: dark)')
+      .addEventListener('change', (e) => {
+        const newColorScheme = e.matches ? 'dark' : 'light'
+        console.log(newColorScheme)
+        if (newColorScheme === 'dark') {
+          hlLight.setAttribute('disabled', 'disabled')
+          hlDark.removeAttribute('disabled')
+        } else {
+          hlDark.setAttribute('disabled', 'disabled')
+          hlLight.removeAttribute('disabled')
+        }
+      })
 
     if (!docSearchScript) {
       const script = document.createElement('script')
@@ -118,7 +148,14 @@ export function TitleAndMetaTags({
 
       <link
         rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-dark-reasonable.min.css"
+        title="solarized-dark"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-dark.min.css"
+      />
+
+      <link
+        rel="stylesheet"
+        title="solarized-light"
+        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-light.min.css"
       />
 
       <link
