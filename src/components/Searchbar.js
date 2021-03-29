@@ -35,10 +35,19 @@ const SearchBox = styled.input`
   }
 `
 
-const KeyPressIndicator = styled(ButtonSecondary)`
+const KeyPressIndicatorWrapper = styled.div`
   position: absolute;
-  right: 4px;
-  top: 4px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  padding-right: 4px;
+`
+
+const KeyPressIndicator = styled(ButtonSecondary)`
   padding: 4px 10px;
   font-size: 12px;
   color: var(--text-secondary);
@@ -84,7 +93,9 @@ export default function SearchBar() {
         ></SearchBox>
       </SearchBoxLabel>
       {isKeyPressIndicatorVisible ? (
-        <KeyPressIndicator>/</KeyPressIndicator>
+        <KeyPressIndicatorWrapper>
+          <KeyPressIndicator>/</KeyPressIndicator>
+        </KeyPressIndicatorWrapper>
       ) : (
         ''
       )}
