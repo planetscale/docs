@@ -116,9 +116,10 @@ module.exports = {
           require('postcss-mixins'),
           require('postcss-import'),
           require('postcss-nested'),
-          require('autoprefixer')
-        ]
-      }
+          require('autoprefixer'),
+        ],
+      },
     },
+    'gatsby-plugin-offline',
   ],
 }

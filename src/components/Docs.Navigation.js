@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component, Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
@@ -7,11 +7,9 @@ import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Menu, Close } from '@styled-icons/material-rounded'
 
 const _SidenavContainer = styled(ScrollArea.Root)`
-  flex-basis: 350px;
+  flex-basis: 300px;
   position: sticky;
   top: calc(89px + 4em);
-  margin-right: 2em;
-  padding-right: 2em;
   height: calc(100vh - 89px - 8em);
   border-right: 1px solid var(--bg-primary);
   transition: border-color 100ms linear;
@@ -189,15 +187,10 @@ const _PageLink = styled(Link)`
   }
 `
 
-class Sidenav extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      isMobileTOCOpen: false,
-    }
-  }
+function SideNav({ categories, docPages }) {
+  const [mobileTOCState, setMobileTOCState] = useState(false)
 
-  getPagesInCategory(category, docPages) {
+  const getPagesInCategory = (category, docPages) => {
     const outputPages = []
     category.pages.map((pageID) => {
       docPages.nodes.map((page) => {
@@ -206,58 +199,44 @@ class Sidenav extends Component {
         }
       })
     })
-
     return outputPages
   }
 
-  toggleMobileTOC = (boolean) => {
-    this.setState((oldState) => {
-      return {
-        isMobileTOCOpen:
-          typeof boolean === 'boolean' ? boolean : !oldState.isMobileTOCOpen,
-      }
-    })
+  const toggleMobileTOC = (boolean) => {
+    setMobileTOCState(!mobileTOCState)
   }
 
-  render() {
-    const { isMobileTOCOpen } = this.state
+  return (
+    <Fragment>
+      <MenuLink onClick={toggleMobileTOC}>
+        {mobileTOCState ? <Close /> : <Menu />}
+      </MenuLink>
+      <_SidenavContainer className={`${mobileTOCState ? 'show' : ''}`}>
+        <_SidenavList>
+          <_PageLink onClick={toggleMobileTOC} to="/" activeClassName="active">
+            Documentation overview
+          </_PageLink>
 
-    return (
-      <Fragment>
-        <MenuLink onClick={this.toggleMobileTOC}>
-          {isMobileTOCOpen ? <Close /> : <Menu />}
-        </MenuLink>
-        <_SidenavContainer className={`${isMobileTOCOpen ? 'show' : ''}`}>
-          <_SidenavList>
-            <_PageLink
-              onClick={this.toggleMobileTOC}
-              to="/"
-              activeClassName="active"
-            >
-              Documentation overview
-            </_PageLink>
+          {categories.order.map((category, index) => {
+            return (
+              <SidenavGroup
+                key={index}
+                category={category.name}
+                pages={getPagesInCategory(category, docPages)}
+                onClick={toggleMobileTOC}
+              ></SidenavGroup>
+            )
+          })}
+        </_SidenavList>
 
-            {this.props.categories.order.map((category, index) => {
-              return (
-                <SidenavGroup
-                  key={index}
-                  category={category.name}
-                  pages={this.getPagesInCategory(category, this.props.docPages)}
-                  onClick={this.toggleMobileTOC}
-                ></SidenavGroup>
-              )
-            })}
-          </_SidenavList>
-
-          <StyledScrollbarY>
-            <StyledScrollTrack>
-              <StyledScrollThumb />
-            </StyledScrollTrack>
-          </StyledScrollbarY>
-        </_SidenavContainer>
-      </Fragment>
-    )
-  }
+        <StyledScrollbarY>
+          <StyledScrollTrack>
+            <StyledScrollThumb />
+          </StyledScrollTrack>
+        </StyledScrollbarY>
+      </_SidenavContainer>
+    </Fragment>
+  )
 }
 
 function SidenavGroup({ category, pages, onClick }) {
@@ -320,10 +299,10 @@ export default () => (
     query={query}
     render={(data) => {
       return (
-        <Sidenav
+        <SideNav
           categories={data.categories}
           docPages={data.docPages}
-        ></Sidenav>
+        ></SideNav>
       )
     }}
   ></StaticQuery>
