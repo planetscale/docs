@@ -55,13 +55,6 @@ module.exports = {
     },
     'gatsby-transformer-yaml',
     {
-      resolve: 'gatsby-plugin-google-tagmanager',
-      options: {
-        id: process.env.GOOGLE_TAG_MANAGER_ID,
-        includeInDevelopment: false,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-webfonts',
       options: {
         fonts: {
@@ -121,5 +114,14 @@ module.exports = {
       },
     },
     'gatsby-plugin-offline',
+    {
+      resolve: `gatsby-plugin-segment-js`,
+      options: {
+        prodKey: `gURNntij37hKxpSUjda9znzNaOxZBG6H`,
+        // devKey: `gURNntij37hKxpSUjda9znzNaOxZBG6H`,
+        trackPage: true,
+        trackPageDelay: 50,
+      },
+    },
   ],
 }
