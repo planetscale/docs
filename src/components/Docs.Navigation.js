@@ -4,21 +4,17 @@ import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import {
-  Menu,
-  Close,
-  ArrowDropDown,
-  ArrowDropRight,
-} from '@styled-icons/remix-line'
+import { Menu, Close, ArrowDropRight } from '@styled-icons/remix-line'
 
 const _SidenavContainer = styled(ScrollArea.Root)`
-  flex-basis: 300px;
+  flex-basis: 350px;
   position: sticky;
-  top: calc(89px + 4em);
+  top: calc(92px + 4em);
   height: calc(100vh - 89px - 8em);
   border-right: 1px solid var(--bg-primary);
   transition: border-color 100ms linear;
   background: var(--bg-primary);
+  padding-right: 2em;
 
   > [data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
     -webkit-appearance: none;

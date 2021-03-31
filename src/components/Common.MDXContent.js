@@ -4,6 +4,7 @@ import { media } from './styles/media'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import CodeBlock from './CodeBlock'
+import SubAnchorLink from './SubAnchorLink'
 import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 
@@ -145,6 +146,7 @@ export default function MDXContent({ body, lastUpdatedOn, slug }) {
         <MDXProvider
           components={{
             pre: CodeBlock,
+            h2: SubAnchorLink,
           }}
         >
           <MDXRenderer>{body}</MDXRenderer>

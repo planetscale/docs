@@ -21,40 +21,39 @@ export const PageContainer = styled.section`
 export const ContentPanel = styled.div`
   width: 100vw;
   flex-grow: 2;
-  padding: 0 4rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: row;
 
   ${media.phone`
     padding: 0 24px;
   `}
 `
 
-export const ContentConstrain = styled.div`
-  margin: 4em auto;
+export const ContentContainer = styled.div`
+  flex-grow: 2;
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: flex-start;
-  position: relative;
-  width: 100%;
-  max-width: 80rem;
+  justify-content: center;
+  margin-left: 4em;
 
   ${media.tablet`
-    margin: 4em auto;
+    align-items: stretch;
+    width: 100%;
+    margin: 0;
   `}
 `
 
-export const ContentContainer = styled.div`
-  flex-grow: 2;
+export const ContentConstrain = styled.div`
   display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  ${media.phone`
-    align-items: stretch;
-    width: 100%;
-    margin: 24px 0;
-  `}
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  position: relative;
 `
 
 export const ContentBlock = styled.div`
-  max-width: 80ch;
+  max-width: 42rem;
 `

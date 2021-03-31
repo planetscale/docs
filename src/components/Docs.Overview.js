@@ -4,6 +4,10 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 
+const OverviewBlock = styled(ContentBlock)`
+  max-width: 120ch;
+`
+
 const H1 = styled.h1`
   font-weight: 600;
   font-size: 2.441em;
@@ -103,7 +107,7 @@ class Overview extends Component {
 
   render() {
     return (
-      <ContentBlock>
+      <OverviewBlock>
         <H1>Documentation overview</H1>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
@@ -122,7 +126,7 @@ class Overview extends Component {
             )
           })}
         </CategoryList>
-      </ContentBlock>
+      </OverviewBlock>
     )
   }
 }

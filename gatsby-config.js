@@ -118,7 +118,6 @@ module.exports = {
       resolve: `gatsby-plugin-segment-js`,
       options: {
         prodKey: `gURNntij37hKxpSUjda9znzNaOxZBG6H`,
-        // devKey: `gURNntij37hKxpSUjda9znzNaOxZBG6H`,
         trackPage: true,
         trackPageDelay: 50,
       },

@@ -14,10 +14,10 @@ export default ({ children }) => (
   <PageContainer>
     <Header></Header>
     <ContentPanel>
-      <ContentConstrain>
-        <DocsNavigation></DocsNavigation>
-        <ContentContainer>{children}</ContentContainer>
-      </ContentConstrain>
+      <DocsNavigation></DocsNavigation>
+      <ContentContainer>
+        <ContentConstrain>{children}</ContentConstrain>
+      </ContentContainer>
     </ContentPanel>
     <Footer></Footer>
   </PageContainer>

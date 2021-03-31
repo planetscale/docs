@@ -23,7 +23,6 @@ const HeaderWrapper = styled.div`
 `
 
 const HeaderConstrain = styled.div`
-  max-width: 80rem;
   width: 100%;
   display: flex;
   flex-direction: row;
