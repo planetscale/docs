@@ -62,6 +62,11 @@ export default function SearchBar() {
     document.addEventListener('keydown', handleKeyDownEvent)
   })
 
+  function handleClickEvent(e) {
+    searchInput.current.focus()
+    setKeyPressIndicatorState(false)
+  }
+
   function handleKeyDownEvent(e) {
     if (e.code === 'Slash' && e.metaKey && searchInput.current) {
       e.preventDefault()
@@ -93,7 +98,7 @@ export default function SearchBar() {
         ></SearchBox>
       </SearchBoxLabel>
       {isKeyPressIndicatorVisible ? (
-        <KeyPressIndicatorWrapper>
+        <KeyPressIndicatorWrapper onClick={handleClickEvent}>
           <KeyPressIndicator>⌘ /</KeyPressIndicator>
         </KeyPressIndicatorWrapper>
       ) : (
