@@ -21,7 +21,7 @@ const SearchBox = styled.input`
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   box-shadow: var(--tw-shadow);
-  width: 200px;
+  width: 230px;
   transition: width 100ms ease-out;
 
   &:focus {
@@ -63,7 +63,7 @@ export default function SearchBar() {
   })
 
   function handleKeyDownEvent(e) {
-    if (e.code === 'Slash' && searchInput.current) {
+    if (e.code === 'Slash' && e.metaKey && searchInput.current) {
       e.preventDefault()
       searchInput.current.focus()
       setKeyPressIndicatorState(false)
@@ -94,7 +94,7 @@ export default function SearchBar() {
       </SearchBoxLabel>
       {isKeyPressIndicatorVisible ? (
         <KeyPressIndicatorWrapper>
-          <KeyPressIndicator>/</KeyPressIndicator>
+          <KeyPressIndicator>⌘ /</KeyPressIndicator>
         </KeyPressIndicatorWrapper>
       ) : (
         ''
