@@ -1,10 +1,15 @@
-import React, { Component, Fragment, useState } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { Menu, Close } from '@styled-icons/material-rounded'
+import {
+  Menu,
+  Close,
+  ArrowDropDown,
+  ArrowDropRight,
+} from '@styled-icons/remix-line'
 
 const _SidenavContainer = styled(ScrollArea.Root)`
   flex-basis: 300px;
@@ -125,12 +130,13 @@ const _GroupHeading = styled(Collapsible.Button)`
   padding: 0;
   margin-bottom: 1em;
   cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 
-  &:before {
-    content: '›';
-    display: inline-block;
-    margin-right: 8px;
-    height: 22px;
+  svg {
+    width: 24px;
+    height: 24px;
   }
 
   &:active,
@@ -140,7 +146,7 @@ const _GroupHeading = styled(Collapsible.Button)`
   }
 
   &[data-state='open'] {
-    &:before {
+    svg {
       transform: rotate(90deg);
     }
   }
@@ -157,33 +163,17 @@ const _PageLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 0 1.5em 1em;
+  margin: 0 0 1.5em 24px;
   color: var(--text-secondary);
   position: relative;
 
-  &:before {
-    content: ' ';
-    height: 100%;
-    width: 1px;
-    left: -0.8em;
-    position: absolute;
-  }
-
   &:hover {
     color: var(--link);
-
-    &:before {
-      border-left: 1px solid var(--link);
-    }
   }
 
   &.active {
     color: var(--text-primary);
     font-weight: 600;
-
-    &:before {
-      border-left: 1px solid var(--text-primary);
-    }
   }
 `
 
@@ -202,7 +192,7 @@ function SideNav({ categories, docPages }) {
     return outputPages
   }
 
-  const toggleMobileTOC = (boolean) => {
+  const toggleMobileTOC = () => {
     setMobileTOCState(!mobileTOCState)
   }
 
@@ -242,7 +232,9 @@ function SideNav({ categories, docPages }) {
 function SidenavGroup({ category, pages, onClick }) {
   return (
     <_GroupContainer defaultOpen={true}>
-      <_GroupHeading>{category}</_GroupHeading>
+      <_GroupHeading>
+        <ArrowDropRight /> {category}
+      </_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {
           return (
