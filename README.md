@@ -14,7 +14,8 @@
 - Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
 - Switch to the repository's folder
 - `npm install` to install all dependencies
-- `vercel dev` to start a local development build
+- `npm install -g gatsby-cli` to install the Gatsby CLI and run `gatsby develop` to start a local development build
+    - Or if you prefer to use Vercel vs Gatsby CLI, then run `vercel dev` to start a local development build
 - Open `http://localhost:3000` to access the local server instance. Check console log to find the actual port.
 
 ## How to add a new document
