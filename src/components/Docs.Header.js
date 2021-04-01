@@ -24,6 +24,7 @@ const HeaderWrapper = styled.div`
 
 const HeaderConstrain = styled.div`
   width: 100%;
+  max-width: 80rem;
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -8,7 +8,9 @@ import SubAnchorLink from './SubAnchorLink'
 import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 
-const MarkDownContainer = styled(ContentBlock)`
+const MarkDownContainer = styled.div`
+  max-width: 600px;
+
   h1 {
     font-weight: 600;
     font-size: 2.441em;

@@ -5,7 +5,7 @@ import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 
 const OverviewBlock = styled(ContentBlock)`
-  max-width: 120ch;
+  flex-basis: calc(600px + 300px);
 `
 
 const H1 = styled.h1`

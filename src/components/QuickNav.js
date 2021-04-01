@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
-import { Link } from 'gatsby'
 
 const QuickNavContainer = styled.ul`
   flex-basis: 300px;
-  margin: 0 0 0 4em;
   padding: 0;
+  margin: 0;
   list-style: none;
   position: sticky;
   top: calc(92px + 4em);
+  background-color: var(--bg-primary);
 
   ${media.phone`
     display: none;

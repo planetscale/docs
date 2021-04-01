@@ -6,7 +6,6 @@ export const PageContainer = styled.section`
   background-color: var(--bg-primary);
   transition: background-color var(--themeSwitchTime) ease;
   width: 100vw;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +18,7 @@ export const PageContainer = styled.section`
 `
 
 export const ContentPanel = styled.div`
+  flex-grow: 2;
   width: 100vw;
   flex-grow: 2;
   padding: 4rem;
@@ -37,7 +37,6 @@ export const ContentContainer = styled.div`
   flex-direction: row;
   align-items: flex-start;
   justify-content: center;
-  margin-left: 4em;
 
   ${media.tablet`
     align-items: stretch;
@@ -46,14 +45,7 @@ export const ContentContainer = styled.div`
   `}
 `
 
-export const ContentConstrain = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: space-between;
-  position: relative;
-`
-
 export const ContentBlock = styled.div`
-  max-width: 42rem;
+  flex-basis: 600px;
+  margin: 0 4em;
 `
