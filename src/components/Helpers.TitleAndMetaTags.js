@@ -31,7 +31,6 @@ export function TitleAndMetaTags({
     } else {
       const root = document.querySelector('html')
       root.classList.toggle('light')
-      console.log('light mode')
       if (hlDark && hlLight) {
         hlDark.setAttribute('disabled', 'disabled')
         hlLight.removeAttribute('disabled')
@@ -42,7 +41,6 @@ export function TitleAndMetaTags({
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', (e) => {
         const newColorScheme = e.matches ? 'dark' : 'light'
-        console.log(newColorScheme)
         if (newColorScheme === 'dark') {
           hlLight.setAttribute('disabled', 'disabled')
           hlDark.removeAttribute('disabled')

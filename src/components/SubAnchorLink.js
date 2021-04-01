@@ -24,7 +24,6 @@ class SubAnchorLink extends React.Component {
       // .replaceAll(' ', '-')
     }
 
-    console.log(kebabText)
     return kebabText
   }
 
