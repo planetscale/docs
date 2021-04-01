@@ -89,14 +89,6 @@ module.exports = {
       },
     },
     {
-      resolve: `gatsby-source-git`,
-      options: {
-        name: `open-source-docs`,
-        remote: `https://github.com/planetscale/open-source-docs.git`,
-        branch: `prod`,
-      },
-    },
-    {
       resolve: 'gatsby-plugin-mdx',
       options: {
         extensions: ['.md', '.mdx'],
