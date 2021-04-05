@@ -84,8 +84,8 @@ const MenuLink = styled.div`
 
   ${media.tablet`
     position: fixed;
-    bottom: 16px;
-    right: calc(16px + 60px + 16px);
+    bottom: 1em;
+    right: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
