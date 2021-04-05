@@ -4,6 +4,7 @@ import { ButtonSecondary } from './Buttons'
 
 const SearchContainer = styled.div`
   position: relative;
+  width: 230px;
 
   &:focus {
     background-color: orange;

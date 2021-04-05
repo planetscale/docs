@@ -12,4 +12,8 @@ body {
   font-weight: 300;
   max-width: 100vw;
   color: var(--text-primary);
+
+  &.prevent-scroll {
+    overflow: hidden;
+  }
 }

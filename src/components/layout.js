@@ -5,8 +5,8 @@ import {
   ContentConstrain,
   ContentContainer,
 } from './Layout.Wrapper'
-import DocsNavigation from './Docs.Navigation'
-import Header from './Docs.Header'
+import DocsNavigation from './Navigation'
+import Header from './Header'
 import Footer from './Footer'
 import './layout.css'
 

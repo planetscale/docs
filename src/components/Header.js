@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
-import SearchBar from '../components/Searchbar'
+import SearchBar from './Searchbar'
 import Cookies from 'js-cookie'
 import { ButtonSecondary } from './Buttons'
 
@@ -19,6 +19,7 @@ const HeaderWrapper = styled.div`
 
   ${media.phone`
     padding: 0 24px;
+    position: unset;
   `};
 `
 
@@ -32,20 +33,23 @@ const HeaderConstrain = styled.div`
   padding: 27px 0;
 
   ${media.phone`
-    flex-direction: column;
-    align-items: stretch;
+    align-items: center;
   `}
 `
+
+const SearchBarWrapper = styled.div``
 
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
 
   ${media.phone`
+    flex-direction: column;
     justify-content: space-between;
-    padding-bottom: 27px;
-    margin-bottom: 27px;
-    border-bottom: 1px solid var(--border-primary);
+
+    > ${SearchBarWrapper} {
+      display: none;
+    }
   `}
 `
 
@@ -78,10 +82,6 @@ const Logo = styled.div`
   background: var(--logo);
   background-size: contain;
   background-repeat: no-repeat;
-
-  ${media.phone`
-    height: 24px;
-  `};
 `
 
 export default function Header() {
@@ -100,7 +100,9 @@ export default function Header() {
           <HomeLink href="/">
             <Logo />
           </HomeLink>
-          <SearchBar></SearchBar>
+          <SearchBarWrapper>
+            <SearchBar />
+          </SearchBarWrapper>
         </LeftContainer>
         <RightContainer>
           <LinkContainer href={'https://app.planetscaledb.io'}>

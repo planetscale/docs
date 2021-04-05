@@ -5,6 +5,12 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Menu, Close, ArrowDropRight } from '@styled-icons/remix-line'
+import SearchBar from './Searchbar'
+
+const _SearchBarContainer = styled.div`
+  padding-bottom: 2em;
+  border-bottom: 1px solid var(--border-primary);
+`
 
 const _SidenavContainer = styled(ScrollArea.Root)`
   flex-basis: 350px;
@@ -23,6 +29,10 @@ const _SidenavContainer = styled(ScrollArea.Root)`
     height: 0;
   }
 
+  > ${_SearchBarContainer} {
+    display: none;
+  }
+
   &:hover {
     border-right: 1px solid var(--border-primary);
   }
@@ -31,13 +41,15 @@ const _SidenavContainer = styled(ScrollArea.Root)`
     border-right: unset;
     max-width: unset;
     position: fixed;
-    top: -100vh;
+    top: -200vh;
     left: 0;
-    z-index: 2;
-    padding: 0;
-    margin: 0;
-    height: 100vh;
+    z-index: 2;    
+    margin: 1em;
+    height: calc(100vh - 2em);
     padding: 2em;
+    border-radius: 6px;
+    background-color: var(--bg-secondary);
+    width: calc(100vw - 2em);
 
     &:hover {
       border-right: unset;
@@ -45,6 +57,14 @@ const _SidenavContainer = styled(ScrollArea.Root)`
 
     &.show {
       top: 0;
+    }
+  `}
+
+  ${media.phone`
+    overflow: hidden;
+
+    > ${_SearchBarContainer} {
+      display: block;
     }
   `}
 `
@@ -95,7 +115,8 @@ const MenuLink = styled.div`
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
     width: 60px;
     height: 60px;
-    border-radius: 99px;
+    border-radius: 6px;
+    border: 1px solid var(--border-primary);
     z-index: 3;
     padding: 0 1em;
 
@@ -111,6 +132,7 @@ const _SidenavList = styled(ScrollArea.Viewport)`
   position: relative;
 
   ${media.tablet`
+    margin: 2em 0;
     height: 100vh;
   `}
 `
@@ -190,6 +212,7 @@ function SideNav({ categories, docPages }) {
 
   const toggleMobileTOC = () => {
     setMobileTOCState(!mobileTOCState)
+    document.body.classList.toggle('prevent-scroll')
   }
 
   return (
@@ -198,6 +221,9 @@ function SideNav({ categories, docPages }) {
         {mobileTOCState ? <Close /> : <Menu />}
       </MenuLink>
       <_SidenavContainer className={`${mobileTOCState ? 'show' : ''}`}>
+        <_SearchBarContainer>
+          <SearchBar></SearchBar>
+        </_SearchBarContainer>
         <_SidenavList>
           <_PageLink onClick={toggleMobileTOC} to="/" activeClassName="active">
             Documentation overview
