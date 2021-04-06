@@ -11,7 +11,7 @@ const QuickNavContainer = styled.ul`
   top: calc(92px + 4em);
   background-color: var(--bg-primary);
 
-  ${media.phone`
+  ${media.col2`
     display: none;
   `}
 `

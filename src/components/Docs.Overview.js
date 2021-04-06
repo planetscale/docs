@@ -5,7 +5,11 @@ import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 
 const OverviewBlock = styled(ContentBlock)`
-  flex-basis: calc(600px + 300px);
+  flex-basis: calc(715px + 300px);
+
+  ${media.phone`
+    flex-basis: unset;
+  `}
 `
 
 const H1 = styled.h1`

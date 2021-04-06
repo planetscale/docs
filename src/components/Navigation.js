@@ -13,6 +13,7 @@ const _SearchBarContainer = styled.div`
 `
 
 const _SidenavContainer = styled(ScrollArea.Root)`
+  width: 0;
   flex-basis: 350px;
   position: sticky;
   top: calc(92px + 4em);
@@ -39,7 +40,6 @@ const _SidenavContainer = styled(ScrollArea.Root)`
 
   ${media.tablet`
     border-right: unset;
-    max-width: unset;
     position: fixed;
     top: -200vh;
     left: 0;
@@ -225,7 +225,11 @@ function SideNav({ categories, docPages }) {
           <SearchBar></SearchBar>
         </_SearchBarContainer>
         <_SidenavList>
-          <_PageLink onClick={toggleMobileTOC} to="/" activeClassName="active">
+          <_PageLink
+            onClick={mobileTOCState ? toggleMobileTOC : ''}
+            to="/"
+            activeClassName="active"
+          >
             Documentation overview
           </_PageLink>
 
@@ -235,7 +239,7 @@ function SideNav({ categories, docPages }) {
                 key={index}
                 category={category.name}
                 pages={getPagesInCategory(category, docPages)}
-                onClick={toggleMobileTOC}
+                onClick={mobileTOCState ? toggleMobileTOC : ''}
               ></SidenavGroup>
             )
           })}

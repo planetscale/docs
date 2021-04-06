@@ -26,7 +26,7 @@ export const ContentPanel = styled.div`
   flex-direction: row;
 
   ${media.phone`
-    padding: 0 24px;
+    padding: 0;
   `}
 `
 
@@ -46,6 +46,12 @@ export const ContentContainer = styled.div`
 `
 
 export const ContentBlock = styled.div`
-  flex-basis: 600px;
+  flex-basis: 715px;
   margin: 0 4em;
+
+  ${media.col2`
+    flex-basis: auto;
+    margin: 2em;
+    min-width: 0;
+  `}
 `

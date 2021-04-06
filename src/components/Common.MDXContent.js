@@ -9,8 +9,6 @@ import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 
 const MarkDownContainer = styled.div`
-  max-width: 600px;
-
   h1 {
     font-weight: 600;
     font-size: 2.441em;
@@ -50,6 +48,7 @@ const MarkDownContainer = styled.div`
   ul,
   ol {
     white-space: normal;
+    padding: 0 1em;
   }
 
   li {
