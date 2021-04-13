@@ -8,14 +8,9 @@ import SubAnchorLink from './SubAnchorLink'
 import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 import ImageBlock from './ImageBlock'
+import HeadingBlock from './HeadingBlock'
 
 const MarkDownContainer = styled.div`
-  h1 {
-    font-weight: 600;
-    font-size: 2.441em;
-    margin: 0em 0 1em 0;
-  }
-
   h2 {
     font-weight: 600;
     font-size: 1.563em;
@@ -122,7 +117,7 @@ const MarkDownContainer = styled.div`
   }
 `
 
-export default function MDXContent({ body, lastUpdatedOn, slug }) {
+export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
   useEffect(() => {
     if (typeof hljs !== 'undefined') {
       document.querySelectorAll('pre > code').forEach((block) => {
@@ -134,6 +129,7 @@ export default function MDXContent({ body, lastUpdatedOn, slug }) {
   return (
     <ContentBlock>
       <MarkDownContainer>
+        <HeadingBlock title={title} />
         <MDXProvider
           components={{
             pre: CodeBlock,

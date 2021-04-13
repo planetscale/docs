@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
+import HeadingBlock from './HeadingBlock'
 
 const OverviewBlock = styled(ContentBlock)`
   flex-basis: calc(715px + 300px);
@@ -10,12 +11,6 @@ const OverviewBlock = styled(ContentBlock)`
   ${media.phone`
     flex-basis: unset;
   `}
-`
-
-const H1 = styled.h1`
-  font-weight: 600;
-  font-size: 2.441em;
-  margin: 0em 0 1em 0;
 `
 
 const CategoryList = styled.div`
@@ -112,7 +107,7 @@ class Overview extends Component {
   render() {
     return (
       <OverviewBlock>
-        <H1>Documentation overview</H1>
+        <HeadingBlock title="Documentation overview" />
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
             return (

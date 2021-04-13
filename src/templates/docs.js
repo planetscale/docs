@@ -17,6 +17,7 @@ export default function DocsPage({ data }) {
           pathname={`${fields.slug}`}
         />
         <MDXContent
+          title={frontmatter.title}
           body={body}
           lastUpdatedOn={fields.lastUpdatedOn}
           slug={fields.slug}
