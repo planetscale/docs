@@ -1,68 +1,25 @@
 order:
-  - id: quickstart
+  - id: category-1
     illustration: getting-started
-    name: Quickstart
-    description: Learn how to quickly setup PlanetScaleDB to connect to your application
+    name: Category 1 Label
+    description: Category 1 brief description for overview card
     pages:
-      - psdb/managed-quickstart
-      - psdb/custom-region-quickstart
-  - id: concepts
+      - psdb/page-template
+  - id: category-2
     illustration: planetscale-concepts
-    name: PlanetScaleDB concepts
-    description: Learn about the different features and options of PlanetScaleDB
+    name: Category 2 Label
+    description: Category 2 brief description for overview card
     pages:
-      - psdb/overview
-      - psdb/availability-features
-      - psdb/performance-features
-      - psdb/security-features
-      - psdb/clusters
-      - psdb/databases
-      - psdb/sharding-schemes
-      - psdb/deployment
-      - psdb/database-instances
-      - psdb/analytics-instances
-      - psdb/backups
-      - psdb/custom-regions
-      - psdb/database-links
-      - psdb/compatibility-testing
-  - id: setting-up-planetscaleDB
+      - psdb/page-template
+  - id: category-3
     illustration: setup-planetscaledb
-    name: Set up PlanetScaleDB
-    description: Configure and deploy your database
+    name: Category 3 Label
+    description: Category 3 brief description for overview card
     pages:
-      - psdb/creating-cluster
-      - psdb/creating-database
-      - psdb/configuring-sharding
-      - psdb/adding-users
-      - psdb/connecting-to-db
-      - psdb/secure-connection
-      - psdb/allowing-ips
-      - psdb/user-and-password-management
-      - psdb/creating-custom-region
-      - psdb/configuring-database-flags
-      - psdb/linking-external-database
-      - psdb/delete-a-cluster
-  - id: using-planetscaledb
+      - psdb/page-template
+  - id: category-4
     illustration: using-planetscaledb
-    name: Using PlanetScaleDB
-    description: Connect to your database and make changes to your configuration
+    name: Category 4 Label
+    description: Category 4 brief description for overview card
     pages:
-      - psdb/importing-data
-      - psdb/migrating-database-schemas
-      - psdb/reconfiguring-database
-      - psdb/resharding
-      - psdb/undeploying-database
-      - psdb/restoring-backups
-      - psdb/viewing-status-messages
-      - psdb/viewing-query-logs
-  - id: reference
-    name: PlanetScaleDB reference
-    illustration: planetscaledb-reference
-    description: Refer to technical guidelines on operation and compatibility
-    pages:
-      - psdb/operational-guidelines
-      - psdb/mysql-compatibility
-      - psdb/pricing
-      - psdb/custom-region-requirements
-      - psdb/advanced-cluster-configuration
-      - psdb/sharding-scheme-ddl
+      - psdb/page-template
