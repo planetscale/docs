@@ -1,6 +1,8 @@
-import * as React from 'react'
+import React from 'react'
+import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { ButtonSecondary } from './Buttons'
+import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
 
 const CodeBlockContainer = styled.div`
   position: relative;
@@ -15,6 +17,8 @@ const CodeBlockContainer = styled.div`
 const CopyButton = styled(ButtonSecondary)`
   font-size: 12px;
 `
+
+const CopyButtonText = styled.span``
 
 const CodeBlockHeader = styled.div`
   padding: 0.5em 1em;
@@ -49,32 +53,39 @@ const CodeBlockCode = styled.code`
   background: var(--bg-primary) !important;
 `
 
-class CodeBlock extends React.Component {
-  copyCode = () => {
-    const { children } = this.props.children.props
+export default function CodeBlock(props) {
+  const { className, children } = props.children.props
+  const [codeLanguage, setCodeLanguage] = useState('')
+  const [copyButtonState, setCopyButtonState] = useState(false)
+
+  useEffect(() => {
+    if (className) {
+      setCodeLanguage(className.split('-')[1])
+    }
+  })
+
+  const copyCode = (e) => {
+    setCopyButtonState(true)
+    setTimeout(() => {
+      setCopyButtonState(false)
+    }, 5000)
     navigator.clipboard.writeText(children)
   }
 
-  render() {
-    const { className, children } = this.props.children.props
-    let codeLanguage = ''
-
-    if (className) {
-      codeLanguage = className.split('-')[1]
-    }
-
-    return (
-      <CodeBlockContainer>
-        <CodeBlockHeader>
-          <CodeType>{codeLanguage.length > 0 ? codeLanguage : '😅'}</CodeType>
-          <CopyButton onClick={this.copyCode}>Copy</CopyButton>
-        </CodeBlockHeader>
-        <CodeBlockContent>
-          <CodeBlockCode className={codeLanguage}>{children}</CodeBlockCode>
-        </CodeBlockContent>
-      </CodeBlockContainer>
-    )
-  }
+  return (
+    <CodeBlockContainer>
+      <CodeBlockHeader>
+        <CodeType>{codeLanguage}</CodeType>
+        <CopyButton onClick={copyCode}>
+          {copyButtonState ? <Check /> : <CheckboxMultipleBlank />}
+          <CopyButtonText>
+            {copyButtonState ? 'Copied!' : 'Copy'}
+          </CopyButtonText>
+        </CopyButton>
+      </CodeBlockHeader>
+      <CodeBlockContent>
+        <CodeBlockCode className={codeLanguage}>{children}</CodeBlockCode>
+      </CodeBlockContent>
+    </CodeBlockContainer>
+  )
 }
-
-export default CodeBlock
