@@ -7,6 +7,7 @@ import CodeBlock from './CodeBlock'
 import SubAnchorLink from './SubAnchorLink'
 import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
+import ImageBlock from './ImageBlock'
 
 const MarkDownContainer = styled.div`
   h1 {
@@ -55,17 +56,6 @@ const MarkDownContainer = styled.div`
     font-size: 1em;
     line-height: 1.75em;
     margin: 1em 0;
-  }
-
-  figure {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-    > figcaption {
-      margin-top: 1em;
-    }
   }
 
   img {
@@ -147,6 +137,7 @@ export default function MDXContent({ body, lastUpdatedOn, slug }) {
         <MDXProvider
           components={{
             pre: CodeBlock,
+            img: ImageBlock,
             h2: SubAnchorLink,
           }}
         >
