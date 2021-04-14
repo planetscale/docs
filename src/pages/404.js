@@ -1,53 +1,24 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-
-const ImageContainer = styled.div`
-  padding: 4em;
-  width: 100%;
-  width: 90ch;
-`
-
-const H1 = styled.h1`
-  font-weight: 600;
-  font-size: 2.441em;
-  margin: 0em 0 1em 0;
-`
+import HeadingBlock from '../components/HeadingBlock'
+import { ContentBlock } from '../components/Layout.Wrapper'
+import { ButtonSecondary } from '../components/Buttons'
+import { Github } from '@styled-icons/remix-line'
 
 const Text = styled.p`
   font-size: 1em;
   line-height: 1.75em;
 `
 
-const ContactForm = styled.div`
-  margin-top: 3em;
-  position: relative;
-  width: 100%;
-  background-color: white;
-  border: 1px solid var(--accent);
-  border-radius: 2px;
-  padding: 2em;
+const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: row;
 `
 
 class NotFoundPage extends Component {
   constructor(props) {
     super(props)
-  }
-
-  componentDidMount() {
-    const script = document.createElement('script')
-    script.src = 'https://js.hsforms.net/forms/v2.js'
-    document.body.appendChild(script)
-
-    script.addEventListener('load', () => {
-      if (window.hbspt) {
-        window.hbspt.forms.create({
-          portalId: '5983949',
-          target: '#contactForm',
-          formId: '1cf9ad70-13c3-42e0-9771-224ab8857854',
-        })
-      }
-    })
   }
 
   render() {
@@ -57,15 +28,23 @@ class NotFoundPage extends Component {
           title="Page Not Found"
           pathname="404"
         ></TitleAndMetaTags>
-        <ImageContainer>
-          <H1>404: Page not found</H1>
+        <ContentBlock overview>
+          <HeadingBlock title="404: Page not found" />
           <Text>
-            What you are looking for does not exist. Use the navigation menu or
-            search keywords above. In case of failure, don't lose hope. Tell us
-            what it is and we might be able to help you.
+            What you are looking probably does not exist. Use the navigation
+            menu or the searchbar to double check. In case of failure, browse
+            our Github repository or open an issue for our team to help you out.
           </Text>
-          <ContactForm id="contactForm"></ContactForm>
-        </ImageContainer>
+          <ButtonContainer>
+            <ButtonSecondary
+              as="a"
+              href="https://github.com/planetscale/docs.public"
+            >
+              <Github />
+              <span>Visit @planetscale/docs.public</span>
+            </ButtonSecondary>
+          </ButtonContainer>
+        </ContentBlock>
       </Fragment>
     )
   }

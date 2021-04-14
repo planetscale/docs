@@ -21,6 +21,7 @@ export const ButtonSecondary = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
+  color: var(--text-primary);
 
   > svg {
     width: 14px;

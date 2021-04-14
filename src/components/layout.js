@@ -11,6 +11,7 @@ export const PageContainer = styled.section`
   background-color: var(--bg-primary);
   transition: background-color var(--themeSwitchTime) ease;
   width: 100vw;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
