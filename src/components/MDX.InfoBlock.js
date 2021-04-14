@@ -26,17 +26,17 @@ const IconContainer = styled.div`
 
 const TextContainer = styled.div`
   font-size: 16px;
-  line-height: 35.6364px;
+  line-height: 24px;
 
   &:before {
     content: '';
-    margin-bottom: -0.75em;
+    margin-bottom: -0.3864em;
     display: table;
   }
 
   &:after {
     content: '';
-    margin-top: -0.75em;
+    margin-top: -0.3864em;
     display: table;
   }
 `
@@ -50,7 +50,7 @@ const ImageBlockContainer = styled.div`
   border: 1px solid var(--border-primary);
   border-radius: 6px;
   margin: 2em 0;
-  padding: 1em;
+  padding: 1.5em 1em;
 
   > ${IconContainer} > svg {
     color: ${(props) =>
