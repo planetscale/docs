@@ -9,7 +9,7 @@ import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 import ImageBlock from './ImageBlock'
 import HeadingBlock from './HeadingBlock'
-import NextBlock from './NextBlock'
+import NextBlock from './MDX.NextBlock'
 import FeedbackBlock from './FeedbackBlock'
 import InfoBlock from './MDX.InfoBlock'
 
