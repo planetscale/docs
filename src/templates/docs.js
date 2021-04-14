@@ -1,6 +1,6 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
-import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import MDXContent from '../components/MDX.Content'
 import QuickNav from '../components/QuickNav'
 

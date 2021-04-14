@@ -1,16 +1,21 @@
+// libs
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import CodeBlock from './CodeBlock'
-import SubAnchorLink from './SubAnchorLink'
 import { ContentBlock } from './Layout.Wrapper'
-import PageInfo from './PageInfo'
-import ImageBlock from './ImageBlock'
+
+// non MDX blocks
 import HeadingBlock from './HeadingBlock'
-import NextBlock from './MDX.NextBlock'
 import FeedbackBlock from './FeedbackBlock'
+import PageInfo from './PageInfo'
+
+// MDX blocks
+import CodeBlock from './MDX.CodeBlock'
+import SubAnchorLink from './MDX.SubAnchorLink'
+import ImageBlock from './MDX.ImageBlock'
+import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
 
 const MarkDownContainer = styled.div`

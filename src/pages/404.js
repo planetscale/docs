@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import styled from 'styled-components'
-import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import HeadingBlock from '../components/HeadingBlock'
 import { ContentBlock } from '../components/Layout.Wrapper'
 import { ButtonSecondary } from '../components/Buttons'
