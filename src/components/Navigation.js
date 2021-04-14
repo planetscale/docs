@@ -246,7 +246,7 @@ function SideNav({ categories, docPages }) {
             to="/"
             activeClassName="active"
           >
-            Documentation overview
+            PlanetScale overview
           </_PageLink>
 
           {categories.order.map((category, index) => {

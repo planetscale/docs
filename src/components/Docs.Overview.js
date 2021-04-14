@@ -4,10 +4,45 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
+import { ButtonPrimary } from './Buttons'
+
+const CalloutCardList = styled.div`
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: auto;
+  column-gap: 2em;
+  row-gap: 2em;
+  margin: 0 0 4em;
+`
+
+const CalloutCard = styled.div`
+  border: 1px solid var(--text-primary);
+  border-radius: 6px;
+  padding: 2em;
+  background-color: var(--bg-secondary);
+  color: var(--text-primary);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  box-shadow: 0 0 16px -64px var(--black);
+`
+
+const CalloutCardHeading = styled.h2`
+  font-size: 1.75em;
+  margin: 0 0 0.5em;
+  padding: 0;
+`
+
+const CalloutCardSubheading = styled.p`
+  font-size: 1em;
+  line-height: 1.5em;
+  margin: 0 0 1.5em;
+  padding: 0;
+`
 
 const CategoryList = styled.div`
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   grid-template-rows: auto;
   column-gap: 2em;
   row-gap: 2em;
@@ -23,22 +58,6 @@ const CategoryList = styled.div`
   `}
 `
 
-const CategoryIllustration = styled.div`
-  width: 100%;
-  height: 200px;
-  border-bottom: 1px solid var(--border-primary);
-  background-color: var(--bg-primary);
-  background-image: url(${(props) => props.image});
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-  transition: transform 0.25s linear;
-
-  ${media.phone`
-    height: 100px;
-  `}
-`
-
 const CategoryContent = styled.div`
   display: flex;
   flex-direction: column;
@@ -50,23 +69,22 @@ const CategoryTitle = styled.div`
   font-size: 1.563em;
 `
 
+const CategorySubTitle = styled.p`
+  margin: 1em 0 0;
+`
+
 const CategoryCard = styled(Link)`
   background-color: var(--bg-primary);
   color: var(--text-primary);
   text-decoration: none;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s, border 0.2s;
   border: 1px solid var(--border-primary);
   border-radius: 6px;
   overflow: hidden;
 
   &:hover {
     background-color: var(--bg-secondary);
-
-    > ${CategoryIllustration} {
-      transform: scale(1.025);
-    }
   }
 
   ${media.phone`
@@ -99,7 +117,28 @@ class Overview extends Component {
   render() {
     return (
       <ContentBlock overview>
-        <HeadingBlock title="Documentation overview" />
+        <HeadingBlock
+          title="PlanetScale overview"
+          subtitle="Get upto speed on using PlanetScale to power your applications. Follow our tutorial to quickly learn the basics of creating and managing a database or learn more about the concepts, CLI and other aspects of the world's first cloud database."
+        />
+        <CalloutCardList>
+          <CalloutCard>
+            <CalloutCardHeading>Get started</CalloutCardHeading>
+            <CalloutCardSubheading>
+              Use this quick tutorial to create a new PlanetScale database, add
+              a schema and run SQL queries on a sample dataset.
+            </CalloutCardSubheading>
+            <ButtonPrimary>Quickstart</ButtonPrimary>
+          </CalloutCard>
+          <CalloutCard>
+            <CalloutCardHeading>Deep Dive</CalloutCardHeading>
+            <CalloutCardSubheading>
+              Learn more about how to effectively use PlanetScale's features to
+              make schema changes a breeze.
+            </CalloutCardSubheading>
+            <ButtonPrimary>Deep dive</ButtonPrimary>
+          </CalloutCard>
+        </CalloutCardList>
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
             return (
@@ -124,13 +163,14 @@ class Overview extends Component {
 
 function Category({ category, illustration, description, pages }) {
   return (
-    <CategoryCard to={`${pages[0].fields.slug}`} activeClassName="active">
-      <CategoryIllustration
-        image={`/img/categories/${illustration}.svg`}
-      ></CategoryIllustration>
+    <CategoryCard
+      to={`${pages[0].fields.slug}`}
+      activeClassName="active"
+      image={`/img/categories/${illustration}.svg`}
+    >
       <CategoryContent>
         <CategoryTitle>{category}</CategoryTitle>
-        <p>{description}</p>
+        <CategorySubTitle>{description}</CategorySubTitle>
       </CategoryContent>
     </CategoryCard>
   )
