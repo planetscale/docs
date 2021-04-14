@@ -32,7 +32,7 @@ const SearchBox = styled.input`
   }
 
   &::placeholder {
-    color: var(--text-secondary);
+    color: var(--gray-500);
   }
 `
 
@@ -49,10 +49,11 @@ const KeyPressIndicatorWrapper = styled.div`
 `
 
 const KeyPressIndicator = styled(ButtonSecondary)`
-  padding: 4px 10px;
+  padding: 4px 8px;
   font-size: 12px;
-  color: var(--text-secondary);
+  color: var(--gray-500);
   background-color: var(--bg-secondary);
+  border: unset;
 `
 
 export default function SearchBar() {

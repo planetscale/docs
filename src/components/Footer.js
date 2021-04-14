@@ -42,7 +42,7 @@ const LeftContainer = styled.div`
 
 const RightContainer = styled.div`
   font-size: 14px;
-  color: var(--text);
+  color: var(--text-secondary);
 `
 
 const HomeLink = styled.a`
@@ -74,9 +74,7 @@ export default function Footer() {
             <Logo />
           </HomeLink>
         </LeftContainer>
-        <RightContainer>
-          Copyright © 2021 PlanetScale Inc. All rights reserved.
-        </RightContainer>
+        <RightContainer>© 2021 PlanetScale Inc.</RightContainer>
       </FooterConstrain>
     </FooterWrapper>
   )

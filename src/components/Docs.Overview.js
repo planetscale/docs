@@ -5,14 +5,6 @@ import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
 
-const OverviewBlock = styled(ContentBlock)`
-  flex-basis: calc(765px + 300px);
-
-  ${media.phone`
-    flex-basis: unset;
-  `}
-`
-
 const CategoryList = styled.div`
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -106,7 +98,7 @@ class Overview extends Component {
 
   render() {
     return (
-      <OverviewBlock>
+      <ContentBlock overview>
         <HeadingBlock title="Documentation overview" />
         <CategoryList>
           {this.props.categories.order.map((category, index) => {
@@ -125,7 +117,7 @@ class Overview extends Component {
             )
           })}
         </CategoryList>
-      </OverviewBlock>
+      </ContentBlock>
     )
   }
 }
