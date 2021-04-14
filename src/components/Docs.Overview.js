@@ -13,6 +13,11 @@ const CalloutCardList = styled.div`
   column-gap: 2em;
   row-gap: 2em;
   margin: 0 0 4em;
+
+  ${media.phone`
+    grid-template-columns: repeat(1, 1fr);
+    margin-bottom: 2em;
+  `}
 `
 
 const CalloutCard = styled.div`
@@ -50,7 +55,6 @@ const CategoryList = styled.div`
 
   ${media.phone`
     display: block;
-    margin: 0;
   `}
 
   ${media.tablet`
