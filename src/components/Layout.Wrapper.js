@@ -20,8 +20,6 @@ export const PageContainer = styled.section`
 export const ContentPanel = styled.div`
   flex-grow: 2;
   width: 100vw;
-  flex-grow: 2;
-  padding: 4rem;
   display: flex;
   flex-direction: row;
 
@@ -46,12 +44,7 @@ export const ContentContainer = styled.div`
 `
 
 export const ContentBlock = styled.div`
-  flex-basis: 715px;
-  margin: 0 4em;
-
-  ${media.col2`
-    flex-basis: auto;
-    margin: 2em;
-    min-width: 0;
-  `}
+  min-width: 0;
+  flex-basis: 765px;
+  padding: 0em 4em;
 `

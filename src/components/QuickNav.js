@@ -4,14 +4,14 @@ import { media } from './styles/media'
 
 const QuickNavContainer = styled.ul`
   flex-basis: 300px;
-  padding: 0;
-  margin: 0;
+  padding: 0 0 0 2em;
+  margin: 2em 0 0;
   list-style: none;
   position: sticky;
-  top: calc(92px + 4em);
-  background-color: var(--bg-primary);
+  top: calc(88px + 2em);
+  border-left: 1px solid var(--border-primary);
 
-  ${media.col2`
+  ${media.tinydesktop`
     display: none;
   `}
 `

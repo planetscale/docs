@@ -12,7 +12,7 @@ const PageInfoContainer = styled.div`
   justify-content: space-between;
   border-top: 1px solid var(--border-primary);
   padding-top: 2em;
-  margin-top: 2em;
+  margin: 2em 0;
 
   ${media.phone`
     align-items: flex-start;

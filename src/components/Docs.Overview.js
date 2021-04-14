@@ -6,7 +6,7 @@ import { ContentBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
 
 const OverviewBlock = styled(ContentBlock)`
-  flex-basis: calc(715px + 300px);
+  flex-basis: calc(765px + 300px);
 
   ${media.phone`
     flex-basis: unset;

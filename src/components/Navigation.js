@@ -14,14 +14,13 @@ const _SearchBarContainer = styled.div`
 
 const _SidenavContainer = styled(ScrollArea.Root)`
   width: 0;
-  flex-basis: 350px;
+  flex-basis: 300px;
   position: sticky;
-  top: calc(92px + 4em);
-  height: calc(100vh - 89px - 8em);
-  border-right: 1px solid var(--bg-primary);
+  top: 88px;
+  height: calc(100vh - 88px);
+  border-right: 1px solid var(--border-primary);
   transition: border-color 100ms linear;
-  background: var(--bg-primary);
-  padding-right: 2em;
+  padding: 2em;
 
   > [data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -32,10 +31,6 @@ const _SidenavContainer = styled(ScrollArea.Root)`
 
   > ${_SearchBarContainer} {
     display: none;
-  }
-
-  &:hover {
-    border-right: 1px solid var(--border-primary);
   }
 
   ${media.tablet`
