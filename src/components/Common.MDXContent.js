@@ -9,6 +9,7 @@ import { ContentBlock } from './Layout.Wrapper'
 import PageInfo from './PageInfo'
 import ImageBlock from './ImageBlock'
 import HeadingBlock from './HeadingBlock'
+import NextBlock from './NextBlock'
 
 const MarkDownContainer = styled.div`
   h2 {
@@ -135,6 +136,7 @@ export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
             pre: CodeBlock,
             img: ImageBlock,
             h2: SubAnchorLink,
+            NextBlock,
           }}
         >
           <MDXRenderer>{body}</MDXRenderer>

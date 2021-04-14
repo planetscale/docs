@@ -10,13 +10,13 @@ order:
     name: Category 2 Label
     description: Category 2 brief description for overview card
     pages:
-      - psdb/page-template
+      - psdb/page-in-category-2
   - id: category-3
     illustration: setup-planetscaledb
     name: Category 3 Label
     description: Category 3 brief description for overview card
     pages:
-      - psdb/page-template
+      - psdb/page-in-category-3
   - id: category-4
     illustration: using-planetscaledb
     name: Category 4 Label
