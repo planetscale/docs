@@ -46,5 +46,9 @@ export const ContentContainer = styled.div`
 export const ContentBlock = styled.div`
   min-width: 0;
   flex-basis: 765px;
-  padding: 0em 4em;
+  padding: 0 4em;
+
+  ${media.phone`
+    padding: 0 2em;
+  `}
 `

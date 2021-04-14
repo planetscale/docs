@@ -34,17 +34,17 @@ const _SidenavContainer = styled(ScrollArea.Root)`
   }
 
   ${media.tablet`
+    visibility: hidden;
     border-right: unset;
     position: fixed;
-    top: -200vh;
-    left: 0;
+    top: 1em;
     z-index: 2;    
     margin: 1em;
-    height: calc(100vh - 2em);
     padding: 2em;
     border-radius: 6px;
-    background-color: var(--bg-secondary);
+    background-color: var(--bg-primary);
     width: calc(100vw - 2em);
+    transition: top 200ms ease-out;
 
     &:hover {
       border-right: unset;
@@ -52,6 +52,7 @@ const _SidenavContainer = styled(ScrollArea.Root)`
 
     &.show {
       top: 0;
+      visibility: visible;
     }
   `}
 
@@ -99,25 +100,24 @@ const MenuLink = styled.div`
 
   ${media.tablet`
     position: fixed;
-    bottom: 1em;
+    bottom: 0em;
     right: 1em;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: var(--text-primary);
-    background-color: var(--bg-secondary);
+    color: var(--white);
+    background-color: rgb(var(--blue-900));
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
-    width: 60px;
-    height: 60px;
-    border-radius: 6px;
-    border: 1px solid var(--border-primary);
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
     z-index: 3;
-    padding: 0 1em;
+    padding: 1em;
+    font-size: 14px;
 
     > svg {
-      width: 24px;
-      height: 24px;
+      width: 14px;
+      margin-right: 0.5em;
     }
   `}
 `
@@ -127,8 +127,7 @@ const _SidenavList = styled(ScrollArea.Viewport)`
   position: relative;
 
   ${media.tablet`
-    margin: 2em 0;
-    height: 100vh;
+    padding: 2em 0;
   `}
 `
 
@@ -190,6 +189,18 @@ const _PageLink = styled(Link)`
   }
 `
 
+const BackgroundFrozen = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  backdrop-filter: blur(8px);
+  opacity: 0.75;
+  background-color: var(--gray-600);
+  z-index: 1;
+`
+
 function SideNav({ categories, docPages }) {
   const [mobileTOCState, setMobileTOCState] = useState(false)
 
@@ -213,8 +224,18 @@ function SideNav({ categories, docPages }) {
   return (
     <Fragment>
       <MenuLink onClick={toggleMobileTOC}>
-        {mobileTOCState ? <Close /> : <Menu />}
+        {mobileTOCState ? (
+          <>
+            <Close />
+            Close
+          </>
+        ) : (
+          <>
+            <Menu /> Menu
+          </>
+        )}
       </MenuLink>
+      {mobileTOCState && <BackgroundFrozen></BackgroundFrozen>}
       <_SidenavContainer className={`${mobileTOCState ? 'show' : ''}`}>
         <_SearchBarContainer>
           <SearchBar></SearchBar>
