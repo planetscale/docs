@@ -10,6 +10,7 @@ import PageInfo from './PageInfo'
 import ImageBlock from './ImageBlock'
 import HeadingBlock from './HeadingBlock'
 import NextBlock from './NextBlock'
+import FeedbackBlock from './FeedbackBlock'
 
 const MarkDownContainer = styled.div`
   h2 {
@@ -142,6 +143,7 @@ export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
           <MDXRenderer>{body}</MDXRenderer>
         </MDXProvider>
       </MarkDownContainer>
+      <FeedbackBlock />
       <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>
     </ContentBlock>
   )
