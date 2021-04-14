@@ -4,22 +4,22 @@ order:
     name: Category 1 Label
     description: Category 1 brief description for overview card
     pages:
-      - psdb/page-template
+      - category-1/page-template
   - id: category-2
     illustration: planetscale-concepts
     name: Category 2 Label
     description: Category 2 brief description for overview card
     pages:
-      - psdb/page-in-category-2
+      - category-2/page-in-category-2
   - id: category-3
     illustration: setup-planetscaledb
     name: Category 3 Label
     description: Category 3 brief description for overview card
     pages:
-      - psdb/page-in-category-3
+      - category-3/page-in-category-3
   - id: category-4
     illustration: using-planetscaledb
     name: Category 4 Label
     description: Category 4 brief description for overview card
     pages:
-      - psdb/page-template
+      - category-4/page-in-category-4
