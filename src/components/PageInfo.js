@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import { LinkBlock, ButtonSecondary } from './Buttons'
+import { Github } from '@styled-icons/remix-line'
 
 const PageInfoContainer = styled.div`
   width: 100%;
@@ -46,7 +47,10 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
       <LinkBlock
         href={`https://github.com/planetscale/docs.public/blob/main/content/docs${slug}.mdx`}
       >
-        <ButtonSecondary>Edit this page on Github</ButtonSecondary>
+        <ButtonSecondary>
+          <Github />
+          <span>Help us improve this page</span>
+        </ButtonSecondary>
       </LinkBlock>
     </PageInfoContainer>
   )
