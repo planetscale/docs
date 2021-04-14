@@ -11,6 +11,7 @@ import ImageBlock from './ImageBlock'
 import HeadingBlock from './HeadingBlock'
 import NextBlock from './NextBlock'
 import FeedbackBlock from './FeedbackBlock'
+import InfoBlock from './MDX.InfoBlock'
 
 const MarkDownContainer = styled.div`
   h2 {
@@ -138,6 +139,7 @@ export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
             img: ImageBlock,
             h2: SubAnchorLink,
             NextBlock,
+            InfoBlock,
           }}
         >
           <MDXRenderer>{body}</MDXRenderer>

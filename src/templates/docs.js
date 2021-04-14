@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/Helpers.TitleAndMetaTags'
-import MDXContent from '../components/Common.MDXContent'
+import MDXContent from '../components/MDX.Content'
 import QuickNav from '../components/QuickNav'
 
 export default function DocsPage({ data }) {
