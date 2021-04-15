@@ -4,6 +4,10 @@ import styled from 'styled-components'
 import { ButtonSecondary } from './Buttons'
 import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
 
+import Highlight, { defaultProps } from 'prism-react-renderer'
+import codeBlockThemeLight from 'prism-react-renderer/themes/vsLight'
+import exoDark from './styles/exoDark'
+
 const CodeBlockContainer = styled.div`
   position: relative;
   display: flex;
@@ -40,27 +44,32 @@ const CodeType = styled.div`
 `
 
 const CodeBlockContent = styled.pre`
-  padding: 1em;
+  padding: 1em 1em 0;
   margin: 0;
   overflow: scroll;
-  background-color: var(--bg-primary);
-  border-radius: 6px;
-`
-
-const CodeBlockCode = styled.code`
   font-family: 'IBM Plex Mono';
   font-size: 14px;
-  background: var(--bg-primary) !important;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
 `
 
 export default function CodeBlock(props) {
   const { className, children } = props.children.props
   const [codeLanguage, setCodeLanguage] = useState('')
   const [copyButtonState, setCopyButtonState] = useState(false)
+  const [customTheme, setCustomTheme] = useState(exoDark)
 
   useEffect(() => {
+    const root = document.querySelector('html')
+
     if (className) {
       setCodeLanguage(className.split('-')[1])
+    }
+
+    if (root.classList.contains('dark')) {
+      setCustomTheme(exoDark)
+    } else {
+      setCustomTheme(codeBlockThemeLight)
     }
   })
 
@@ -83,9 +92,24 @@ export default function CodeBlock(props) {
           </CopyButtonText>
         </CopyButton>
       </CodeBlockHeader>
-      <CodeBlockContent>
-        <CodeBlockCode className={codeLanguage}>{children}</CodeBlockCode>
-      </CodeBlockContent>
+      <Highlight
+        {...defaultProps}
+        theme={customTheme}
+        code={children}
+        language="jsx"
+      >
+        {({ className, style, tokens, getLineProps, getTokenProps }) => (
+          <CodeBlockContent className={className} style={style}>
+            {tokens.map((line, i) => (
+              <div {...getLineProps({ line, key: i })}>
+                {line.map((token, key) => (
+                  <span {...getTokenProps({ token, key })} />
+                ))}
+              </div>
+            ))}
+          </CodeBlockContent>
+        )}
+      </Highlight>
     </CodeBlockContainer>
   )
 }

@@ -11,30 +11,16 @@ export function TitleAndMetaTags({
 }) {
   useEffect(() => {
     const docSearchScript = document.getElementById('docsearch')
-    const highlightScript = document.getElementById('highlight')
-
-    const hlDark = document.querySelector('link[title="solarized-dark"]')
-    const hlLight = document.querySelector('link[title="solarized-light"]')
+    const root = document.querySelector('html')
 
     if (
       typeof window !== 'undefined' &&
       window.matchMedia &&
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
-      const root = document.querySelector('html')
-      root.classList.toggle('dark')
-
-      if (hlDark && hlLight) {
-        hlLight.setAttribute('disabled', 'disabled')
-        hlDark.removeAttribute('disabled')
-      }
+      root.classList.add('dark')
     } else {
-      const root = document.querySelector('html')
-      root.classList.toggle('light')
-      if (hlDark && hlLight) {
-        hlDark.setAttribute('disabled', 'disabled')
-        hlLight.removeAttribute('disabled')
-      }
+      root.classList.remove('dark')
     }
 
     window
@@ -42,11 +28,9 @@ export function TitleAndMetaTags({
       .addEventListener('change', (e) => {
         const newColorScheme = e.matches ? 'dark' : 'light'
         if (newColorScheme === 'dark') {
-          hlLight.setAttribute('disabled', 'disabled')
-          hlDark.removeAttribute('disabled')
+          root.classList.add('dark')
         } else {
-          hlDark.setAttribute('disabled', 'disabled')
-          hlLight.removeAttribute('disabled')
+          root.classList.remove('dark')
         }
       })
 
@@ -61,26 +45,8 @@ export function TitleAndMetaTags({
         if (docSearchCallback) docSearchCallback()
       }
     }
-
-    if (!highlightScript) {
-      const script = document.createElement('script')
-      script.src =
-        'https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.15.9/highlight.min.js'
-      script.id = 'highlight'
-      document.body.appendChild(script)
-
-      script.onload = () => {
-        if (highlightCallback) highlightCallback()
-      }
-    }
-
-    if (highlightScript && highlightCallback) highlightCallback()
     if (docSearchScript && docSearchCallback) docSearchCallback()
   })
-
-  function highlightCallback() {
-    hljs.initHighlightingOnLoad()
-  }
 
   function docSearchCallback() {
     docsearch({
