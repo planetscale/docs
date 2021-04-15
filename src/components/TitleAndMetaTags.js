@@ -112,18 +112,6 @@ export function TitleAndMetaTags({
 
       <link
         rel="stylesheet"
-        title="solarized-dark"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-dark.min.css"
-      />
-
-      <link
-        rel="stylesheet"
-        title="solarized-light"
-        href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.4.0/styles/atom-one-light.min.css"
-      />
-
-      <link
-        rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
       />
     </Helmet>
