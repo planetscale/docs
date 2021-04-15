@@ -43,16 +43,21 @@ const AnchorLink = styled.a`
 
 export default function QuickNav({ subNavPages }) {
   function createKebabCase(text) {
-    return text.toLowerCase()
-    // .replaceAll(':', '')
-    // .replaceAll('.', '')
-    // .replaceAll('(', '')
-    // .replaceAll(' ', '-')
+    return text
+      .toLowerCase()
+      .split(':')
+      .join('')
+      .split('.')
+      .join('')
+      .split('(')
+      .join('')
+      .split(' ')
+      .join('-')
   }
 
   return (
     <QuickNavContainer>
-      <QuickNavHeader>Table of contents</QuickNavHeader>
+      <QuickNavHeader>On this page</QuickNavHeader>
       {subNavPages.length > 0 &&
         subNavPages.map((page) => {
           return (

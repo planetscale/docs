@@ -13,19 +13,12 @@ import PageInfo from './PageInfo'
 
 // MDX blocks
 import CodeBlock from './MDX.CodeBlock'
-import SubAnchorLink from './MDX.SubAnchorLink'
+import AnchorLink from './MDX.AnchorLink'
 import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
 
 const MarkDownContainer = styled.div`
-  h2 {
-    font-weight: 600;
-    font-size: 1.563em;
-    margin-top: 2.5em;
-    margin-bottom: 1.5em;
-  }
-
   h3 {
     font-weight: 600;
     font-size: 1.25em;
@@ -142,7 +135,7 @@ export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
           components={{
             pre: CodeBlock,
             img: ImageBlock,
-            h2: SubAnchorLink,
+            h2: AnchorLink,
             NextBlock,
             InfoBlock,
           }}
