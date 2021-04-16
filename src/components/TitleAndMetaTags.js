@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useRef } from 'react'
+import React, { useContext, useEffect } from 'react'
 import Helmet from 'react-helmet'
 import { ThemeContext } from './styles/themeContext'
 
@@ -13,7 +13,6 @@ export function TitleAndMetaTags({
   const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
-    const docSearchScript = document.getElementById('docsearch')
     const root = document.querySelector('html')
 
     if (
@@ -40,6 +39,10 @@ export function TitleAndMetaTags({
           themeContext.switchTheme('light')
         }
       })
+  }, [themeContext])
+
+  useEffect(() => {
+    const docSearchScript = document.getElementById('docsearch')
 
     if (!docSearchScript) {
       const script = document.createElement('script')
@@ -53,24 +56,26 @@ export function TitleAndMetaTags({
       }
     }
     if (docSearchScript && docSearchCallback) docSearchCallback()
-  }, [themeContext])
+  })
 
   function docSearchCallback() {
-    docsearch({
-      apiKey: 'c05ee5734758d9d4d948be01d548da67',
-      indexName: 'planetscale',
-      inputSelector: '#searchbox',
-      debug: false,
-      transformData: (hits) => {
-        let newHits = []
-        hits.map((hit) => {
-          if (hit.anchor !== null) {
-            newHits.push(hit)
-          }
-        })
-        return newHits
-      },
-    })
+    if (typeof docsearch == 'function') {
+      docsearch({
+        apiKey: 'c05ee5734758d9d4d948be01d548da67',
+        indexName: 'planetscale',
+        inputSelector: '#searchbox',
+        debug: false,
+        transformData: (hits) => {
+          let newHits = []
+          hits.map((hit) => {
+            if (hit.anchor !== null) {
+              newHits.push(hit)
+            }
+          })
+          return newHits
+        },
+      })
+    }
   }
 
   return (
