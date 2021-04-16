@@ -4,7 +4,6 @@ import { media } from './styles/media'
 
 const HeadingWrapper = styled.div`
   margin: 0 0 4em;
-  border-bottom: 1px solid var(--border-primary);
 
   ${media.phone`
     border-bottom: unset;
@@ -12,7 +11,7 @@ const HeadingWrapper = styled.div`
   `}
 `
 
-const HeadingContainer = styled.h1`
+const HeadingContent = styled.h1`
   font-weight: 600;
   font-size: 2.441em;
   margin: 1em 0;
@@ -30,12 +29,17 @@ const SubHeadingContainer = styled.p`
   `}
 `
 
+const CustomHorizontalRule = styled.hr`
+  border: 1px solid var(--border-primary);
+`
+
 export default function HeadingBlock(props) {
   const { title, subtitle } = props
   return (
     <HeadingWrapper>
-      <HeadingContainer>{title}</HeadingContainer>
+      <HeadingContent>{title}</HeadingContent>
       {subtitle && <SubHeadingContainer>{subtitle}</SubHeadingContainer>}
+      {subtitle && <CustomHorizontalRule />}
     </HeadingWrapper>
   )
 }
