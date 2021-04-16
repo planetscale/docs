@@ -13,6 +13,7 @@ import PageInfo from './PageInfo'
 
 // MDX blocks
 import CodeBlock from './MDX.CodeBlock'
+import InlineCodeBlock from './MDX.InlineCodeBlock'
 import AnchorLink from './MDX.AnchorLink'
 import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
@@ -133,7 +134,8 @@ export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
         <HeadingBlock title={title} />
         <MDXProvider
           components={{
-            pre: CodeBlock,
+            code: CodeBlock,
+            inlineCode: InlineCodeBlock,
             img: ImageBlock,
             h2: AnchorLink,
             NextBlock,

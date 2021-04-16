@@ -43,7 +43,7 @@ const CodeType = styled.div`
   text-transform: lowercase;
 `
 
-const CodeBlockContent = styled.pre`
+const CodeBlockContent = styled.code`
   padding: 1em 1em 0;
   margin: 0;
   overflow: scroll;
@@ -53,8 +53,7 @@ const CodeBlockContent = styled.pre`
   border-bottom-right-radius: 6px;
 `
 
-export default function CodeBlock(props) {
-  const { className, children } = props.children.props
+export default function CodeBlock({ className, children }) {
   const [codeLanguage, setCodeLanguage] = useState('')
   const [copyButtonState, setCopyButtonState] = useState(false)
   const [customTheme, setCustomTheme] = useState(exoDark)
