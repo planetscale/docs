@@ -28,7 +28,11 @@ export default function ImageBlock(props) {
   const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
-    setImageURL(src.split('.').join(`_${themeContext.selectedTheme.name}.`))
+    if (src.split('_light').length > 1) {
+      setImageURL(
+        src.split('_light').join(`_${themeContext.selectedTheme.name}`)
+      )
+    }
   }, [themeContext])
 
   return (
