@@ -149,7 +149,6 @@ class Overview extends Component {
               <Category
                 key={index}
                 category={category.name}
-                illustration={category.illustration}
                 theme="dark"
                 description={category.description}
                 pages={this.getPagesInCategory(
@@ -165,13 +164,9 @@ class Overview extends Component {
   }
 }
 
-function Category({ category, illustration, description, pages }) {
+function Category({ category, description, pages }) {
   return (
-    <CategoryCard
-      to={`${pages[0].fields.slug}`}
-      activeClassName="active"
-      image={`/img/categories/${illustration}.svg`}
-    >
+    <CategoryCard to={`${pages[0].fields.slug}`} activeClassName="active">
       <CategoryContent>
         <CategoryTitle>{category}</CategoryTitle>
         <CategorySubTitle>{description}</CategorySubTitle>
@@ -185,7 +180,6 @@ const query = graphql`
     categories: docsYaml {
       order {
         id
-        illustration
         name
         description
         pages
