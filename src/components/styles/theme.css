@@ -62,6 +62,7 @@
   --bg-primary: var(--white);
   --bg-secondary: var(--gray-50);
   --bg-tertiary: var(--gray-100);
+  --bg-blue: rgba(1, 43, 101, 1);
   --border-primary: var(--gray-200);
   --border-secondary: var(--gray-200);
   --border-action: var(--gray-300);
@@ -80,6 +81,7 @@
   --bg-primary: var(--gray-900);
   --bg-secondary: var(--gray-800);
   --bg-tertiary: var(--gray-700);
+  --bg-blue: rgba(3, 64, 134, 0.8);
   --border-primary: var(--gray-700);
   --border-secondary: var(--gray-600);
   --border-action: var(--gray-600);
