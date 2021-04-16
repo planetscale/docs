@@ -1,12 +1,13 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import DocsOverview from '../components/Docs.Overview'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
+import { ThemeProvider } from '../components/styles/themeContext'
 
 export default function Home() {
   return (
-    <Fragment>
+    <ThemeProvider>
       <TitleAndMetaTags title="Overview" pathname="overview" />
       <DocsOverview />
-    </Fragment>
+    </ThemeProvider>
   )
 }

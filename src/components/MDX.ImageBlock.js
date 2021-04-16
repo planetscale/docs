@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
+import { ThemeContext } from './styles/themeContext'
 
 const ImageBlockContainer = styled.figure`
   display: flex;
@@ -23,10 +24,16 @@ const ImageBlockCaption = styled.figcaption`
 
 export default function ImageBlock(props) {
   const { alt, src } = props
+  const [imageURL, setImageURL] = useState(src)
+  const themeContext = useContext(ThemeContext)
+
+  useEffect(() => {
+    setImageURL(src.split('.').join(`_${themeContext.selectedTheme.name}.`))
+  }, [themeContext])
 
   return (
     <ImageBlockContainer>
-      <ImageBlockImage src={src} alt={alt}></ImageBlockImage>
+      <ImageBlockImage src={imageURL} alt={alt}></ImageBlockImage>
       <ImageBlockCaption>{alt}</ImageBlockCaption>
     </ImageBlockContainer>
   )

@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react'
+import React, { useContext, useEffect, useRef } from 'react'
 import Helmet from 'react-helmet'
+import { ThemeContext } from './styles/themeContext'
 
 export function TitleAndMetaTags({
   url,
@@ -9,6 +10,8 @@ export function TitleAndMetaTags({
   description,
   schemaOrgJSONLD,
 }) {
+  const themeContext = useContext(ThemeContext)
+
   useEffect(() => {
     const docSearchScript = document.getElementById('docsearch')
     const root = document.querySelector('html')
@@ -19,8 +22,10 @@ export function TitleAndMetaTags({
       window.matchMedia('(prefers-color-scheme: dark)').matches
     ) {
       root.classList.add('dark')
+      themeContext.switchTheme('dark')
     } else {
       root.classList.remove('dark')
+      themeContext.switchTheme('light')
     }
 
     window
@@ -29,8 +34,10 @@ export function TitleAndMetaTags({
         const newColorScheme = e.matches ? 'dark' : 'light'
         if (newColorScheme === 'dark') {
           root.classList.add('dark')
+          themeContext.switchTheme('dark')
         } else {
           root.classList.remove('dark')
+          themeContext.switchTheme('light')
         }
       })
 
@@ -46,7 +53,7 @@ export function TitleAndMetaTags({
       }
     }
     if (docSearchScript && docSearchCallback) docSearchCallback()
-  })
+  }, [themeContext])
 
   function docSearchCallback() {
     docsearch({

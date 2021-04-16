@@ -1,8 +1,9 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import MDXContent from '../components/MDX.Content'
 import QuickNav from '../components/QuickNav'
+import { ThemeProvider } from '../components/styles/themeContext'
 
 export default function DocsPage({ data }) {
   const { doc } = data
@@ -10,7 +11,7 @@ export default function DocsPage({ data }) {
   if (doc) {
     const { frontmatter, body, fields, headings } = doc
     return (
-      <Fragment>
+      <ThemeProvider>
         <TitleAndMetaTags
           title={frontmatter.title}
           description={frontmatter.title}
@@ -23,7 +24,7 @@ export default function DocsPage({ data }) {
           slug={fields.slug}
         ></MDXContent>
         <QuickNav subNavPages={headings}></QuickNav>
-      </Fragment>
+      </ThemeProvider>
     )
   }
 }

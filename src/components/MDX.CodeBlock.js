@@ -1,9 +1,9 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import { useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { ButtonSecondary } from './Buttons'
 import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
-
+import { ThemeContext } from './styles/themeContext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import codeBlockThemeLight from 'prism-react-renderer/themes/vsLight'
 import exoDark from './styles/exoDark'
@@ -58,20 +58,17 @@ export default function CodeBlock(props) {
   const [codeLanguage, setCodeLanguage] = useState('')
   const [copyButtonState, setCopyButtonState] = useState(false)
   const [customTheme, setCustomTheme] = useState(exoDark)
+  const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
-    const root = document.querySelector('html')
-
     if (className) {
       setCodeLanguage(className.split('-')[1])
     }
 
-    if (root.classList.contains('dark')) {
-      setCustomTheme(exoDark)
-    } else {
-      setCustomTheme(codeBlockThemeLight)
-    }
-  })
+    themeContext.selectedTheme.name === 'dark'
+      ? setCustomTheme(exoDark)
+      : setCustomTheme(codeBlockThemeLight)
+  }, [themeContext])
 
   const copyCode = (e) => {
     setCopyButtonState(true)
