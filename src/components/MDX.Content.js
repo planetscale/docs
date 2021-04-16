@@ -68,36 +68,23 @@ const MarkDownContainer = styled.div`
   }
 
   table {
-    border: 1px solid var(-accent);
-    border-radius: 4px;
-    padding: 0 10px;
-  }
-
-  th {
-    text-align: left;
-  }
-
-  thead > tr > th {
-    border-bottom: 1px solid var(--accent);
-    padding: 1em;
-  }
-
-  tbody > tr > td {
-    padding: 10px 40px 10px 0px;
-  }
-
-  table.table {
+    border: 1px solid var(--border-primary);
+    border-radius: 6px;
+    margin-top: 2em;
     width: 100%;
-    margin-bottom: 1rem;
     color: var(--foreground2);
+    border-spacing: 0;
   }
 
-  table.table th,
-  table.table td {
-    padding: 0.75rem;
-    vertical-align: top;
-    border-bottom: none;
-    white-space: normal;
+  table th,
+  table td {
+    text-align: left;
+    padding: 1em;
+    border-bottom: 1px solid var(--border-primary);
+  }
+
+  table th {
+    border-bottom: 2px solid var(--border-primary);
   }
 
   table.table thead th {
