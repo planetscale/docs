@@ -4,7 +4,7 @@ import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from './styles/media'
 import { ContentBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
-import { ButtonPrimary } from './Buttons'
+import { ButtonSecondary } from './Buttons'
 
 const CalloutCardList = styled.div`
   display: grid;
@@ -24,8 +24,8 @@ const CalloutCard = styled.div`
   border: 1px solid var(--text-primary);
   border-radius: 6px;
   padding: 2em;
-  background-color: var(--bg-secondary);
-  color: var(--text-primary);
+  background-color: var(--text-primary);
+  color: var(--bg-primary);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -132,7 +132,7 @@ class Overview extends Component {
               Use this quick tutorial to create a new PlanetScale database, add
               a schema and run SQL queries on a sample dataset.
             </CalloutCardSubheading>
-            <ButtonPrimary>Quickstart</ButtonPrimary>
+            <ButtonSecondary>Quickstart</ButtonSecondary>
           </CalloutCard>
           <CalloutCard>
             <CalloutCardHeading>Deep Dive</CalloutCardHeading>
@@ -140,7 +140,7 @@ class Overview extends Component {
               Learn more about how to effectively use PlanetScale's features to
               make schema changes a breeze.
             </CalloutCardSubheading>
-            <ButtonPrimary>Deep dive</ButtonPrimary>
+            <ButtonSecondary>Deep dive</ButtonSecondary>
           </CalloutCard>
         </CalloutCardList>
         <CategoryList>
