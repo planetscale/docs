@@ -2,11 +2,9 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 
-const QuickNavContainer = styled.ul`
+const QuickNavContainer = styled.nav`
   flex-basis: 300px;
-  padding: 0;
   margin: 2em 0 0;
-  list-style: none;
   position: sticky;
   top: calc(88px + 2em);
   border-left: 1px solid var(--border-primary);
@@ -14,6 +12,12 @@ const QuickNavContainer = styled.ul`
   ${media.tinydesktop`
     display: none;
   `}
+`
+
+const QuickNavList = styled.ul`
+  list-style: none;
+  padding: 0;
+  margin: 0;
 `
 
 const QuickNavHeader = styled.li`
@@ -92,18 +96,20 @@ export default function QuickNav({ subNavPages }) {
   })
 
   return (
-    <QuickNavContainer id="quicknav">
-      <QuickNavHeader>On this page</QuickNavHeader>
-      {subNavPages.length > 0 &&
-        subNavPages.map((page) => {
-          return (
-            <QuickNavListItem>
-              <AnchorLink href={`#${createKebabCase(page.value)}`}>
-                {page.value}
-              </AnchorLink>
-            </QuickNavListItem>
-          )
-        })}
+    <QuickNavContainer>
+      <QuickNavList id="quicknav">
+        <QuickNavHeader>On this page</QuickNavHeader>
+        {subNavPages.length > 0 &&
+          subNavPages.map((page) => {
+            return (
+              <QuickNavListItem>
+                <AnchorLink href={`#${createKebabCase(page.value)}`}>
+                  {page.value}
+                </AnchorLink>
+              </QuickNavListItem>
+            )
+          })}
+      </QuickNavList>
     </QuickNavContainer>
   )
 }

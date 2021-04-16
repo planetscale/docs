@@ -38,7 +38,7 @@ const CodeBlockHeader = styled.div`
 
 const CodeType = styled.div`
   font-family: 'IBM Plex Mono';
-  color: var(--text-secondary);
+  color: var(--gray-600);
   font-size: 14px;
   text-transform: lowercase;
 `
