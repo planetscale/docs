@@ -105,7 +105,6 @@ module.exports = {
         ],
       },
     },
-    'gatsby-plugin-offline',
     {
       resolve: `gatsby-plugin-segment-js`,
       options: {
