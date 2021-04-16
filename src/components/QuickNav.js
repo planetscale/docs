@@ -1,10 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 
 const QuickNavContainer = styled.ul`
   flex-basis: 300px;
-  padding: 0 0 0 2em;
+  padding: 0;
   margin: 2em 0 0;
   list-style: none;
   position: sticky;
@@ -17,18 +17,26 @@ const QuickNavContainer = styled.ul`
 `
 
 const QuickNavHeader = styled.li`
+  padding: 0 0 0 2em;
   font-size: 12px;
   text-transform: uppercase;
   margin-bottom: 1.5em;
 `
 
 const QuickNavListItem = styled.li`
+  margin-left: -1px;
+  padding: 0 0 0 2em;
   font-size: 12px;
   line-height: 20px;
   color: var(--text-secondary);
+  border-left: 1px solid var(--border-primary);
 
   &:not(:last-child) {
-    margin-bottom: 1em;
+    padding-bottom: 1em;
+  }
+
+  &.active {
+    border-left: 1px solid var(--gray-400);
   }
 `
 
@@ -55,8 +63,36 @@ export default function QuickNav({ subNavPages }) {
       .join('-')
   }
 
+  useEffect(() => {
+    const config = {
+      rootMargin: '-90px 0px 0px 0px',
+      threshold: 0,
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        const id = entry.target.getAttribute('id')
+
+        if (entry.isIntersecting) {
+          console.log(id)
+          document
+            .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
+            .parentElement.classList.add('active')
+        } else if (!entry.isIntersecting) {
+          document
+            .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
+            .parentElement.classList.remove('active')
+        }
+      })
+    }, config)
+
+    document.querySelectorAll('h2[id]').forEach((h2) => {
+      observer.observe(h2)
+    })
+  })
+
   return (
-    <QuickNavContainer>
+    <QuickNavContainer id="quicknav">
       <QuickNavHeader>On this page</QuickNavHeader>
       {subNavPages.length > 0 &&
         subNavPages.map((page) => {
