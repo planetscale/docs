@@ -8,7 +8,8 @@ import { ButtonSecondary } from './Buttons'
 const HeaderWrapper = styled.div`
   width: 100%;
   border-bottom: 1px solid var(--border-primary);
-  background-color: var(--bg-primary);
+  background-color: RGBA(26, 27, 32, 0.85);
+  backdrop-filter: blur(8px);
   display: flex;
   justify-content: center;
   align-items: center;
