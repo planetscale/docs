@@ -85,7 +85,7 @@
   --border-primary: var(--gray-700);
   --border-secondary: var(--gray-600);
   --border-action: var(--gray-600);
-  --text-primary: var(--gray-100);
+  --text-primary: var(--gray-200);
   --text-secondary: var(--gray-400);
   --text-blue: rgb(var(--blue-400));
   --text-purple: rgb(var(--purple-300));

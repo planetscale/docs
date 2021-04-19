@@ -16,24 +16,37 @@ const CodeBlockContainer = styled.div`
   border-radius: 6px;
   box-shadow: var(--tw-shadow);
   margin: 3em 0;
+  padding: 1em 1em 0;
+  max-height: 600px;
 `
 
 const CopyButton = styled(ButtonSecondary)`
   font-size: 12px;
+  background-color: RGBA(21, 21, 21, 0.5);
+  border: unset;
+  padding: 0.75em 1em;
+
+  &:hover {
+    background-color: RGBA(21, 21, 21, 1);
+  }
 `
 
 const CopyButtonText = styled.span``
 
 const CodeBlockHeader = styled.div`
-  padding: 0.5em 1em;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: var(--bg-primary);
-  border-bottom: 1px solid var(--border-primary);
-  border-top-right-radius: 6px;
   border-top-left-radius: 6px;
+  border-top-right-radius: 6px;
+  position: absolute;
+  top: 0em;
+  right: 0em;
+  backdrop-filter: blur(8px);
+  padding: 0.5em 0.5em 0.5em 1em;
+  width: calc(100%);
+  border-bottom: 1px solid var(--border-primary);
 `
 
 const CodeType = styled.div`
@@ -41,16 +54,18 @@ const CodeType = styled.div`
   color: var(--gray-600);
   font-size: 14px;
   text-transform: lowercase;
+  padding-right: 0.5em;
+  margin-right: 0.5em;
 `
 
 const CodeBlockContent = styled.code`
-  padding: 1em 1em 0;
   margin: 0;
   overflow: scroll;
   font-family: 'IBM Plex Mono';
   font-size: 14px;
   border-bottom-left-radius: 6px;
   border-bottom-right-radius: 6px;
+  padding-top: 60px;
 `
 
 export default function CodeBlock({ className, children }) {
