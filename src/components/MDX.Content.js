@@ -106,7 +106,13 @@ const MarkDownContainer = styled.div`
   }
 `
 
-export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
+export default function MDXContent({
+  title,
+  subtitle,
+  body,
+  lastUpdatedOn,
+  slug,
+}) {
   useEffect(() => {
     if (typeof hljs !== 'undefined') {
       document.querySelectorAll('pre > code').forEach((block) => {
@@ -118,7 +124,7 @@ export default function MDXContent({ title, body, lastUpdatedOn, slug }) {
   return (
     <ContentBlock>
       <MarkDownContainer>
-        <HeadingBlock title={title} />
+        <HeadingBlock title={title} subtitle={subtitle} />
         <MDXProvider
           components={{
             code: CodeBlock,

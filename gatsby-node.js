@@ -1,5 +1,5 @@
 const path = require('path')
-const { execSync } = require("child_process")
+const { execSync } = require('child_process')
 const { createFilePath } = require(`gatsby-source-filesystem`)
 const express = require('express')
 
@@ -13,7 +13,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
     const slug = createFilePath({ node, getNode, basePath: `pages` })
     const gitAuthorTime = execSync(
       `git log -1 --pretty=format:%aI ${node.fileAbsolutePath}`
-    ).toString();
+    ).toString()
 
     createNodeField({
       node,

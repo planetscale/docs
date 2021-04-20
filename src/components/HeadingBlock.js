@@ -17,7 +17,7 @@ const HeadingContent = styled.h1`
   margin: 1em 0;
 `
 
-const SubHeadingContainer = styled.p`
+const SubHeadingContainer = styled.div`
   font-size: 1.25em;
   line-height: 1.5em;
   max-width: 69ch;

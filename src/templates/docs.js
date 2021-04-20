@@ -18,6 +18,7 @@ export default function DocsPage({ data }) {
         />
         <MDXContent
           title={frontmatter.title}
+          subtitle={frontmatter.subtitle}
           body={body}
           lastUpdatedOn={fields.lastUpdatedOn}
           slug={fields.slug}
@@ -40,6 +41,7 @@ export const pageQuery = graphql`
       }
       frontmatter {
         title
+        subtitle
       }
       headings(depth: h2) {
         value
