@@ -25,36 +25,15 @@ const FooterConstrain = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-
-  ${media.phone`
-    flex-direction: column;
-    align-items: flex-start;
-  `}
 `
 
-const LeftContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-
-  ${media.phone`
-    margin-bottom: 1em;
-  `}
-`
-
-const RightContainer = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 14px;
+const Copyright = styled.span`
+  font-size: 12px;
   color: var(--text-secondary);
-
-  > :first-child {
-    margin-right: 1em;
-  }
 `
 
 export default function Footer() {
+  // TODO: move to themeContext.js
   const themeOptions = [
     { value: 'system', label: 'System' },
     { value: 'dark', label: 'Dark' },
@@ -64,12 +43,8 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterConstrain>
-        <LeftContainer>
-          <span>© 2021 PlanetScale Inc.</span>
-        </LeftContainer>
-        <RightContainer>
-          <Select options={themeOptions}></Select>
-        </RightContainer>
+        <Copyright>© 2021 PlanetScale Inc.</Copyright>
+        <Select options={themeOptions}></Select>
       </FooterConstrain>
     </FooterWrapper>
   )
