@@ -63,7 +63,7 @@
   --bg-primary-translucent: rgba(255, 255, 255, 0.85);
   --bg-secondary: var(--gray-50);
   --bg-tertiary: var(--gray-100);
-  --bg-blue: rgba(1, 43, 101, 1);
+  --bg-blue: rgba(1, 43, 101, 0.5);
   --border-primary: var(--gray-200);
   --border-secondary: var(--gray-200);
   --border-action: var(--gray-300);

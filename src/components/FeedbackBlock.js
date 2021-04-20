@@ -40,7 +40,7 @@ const IconButton = styled.button`
     cursor: pointer;
 
     > svg {
-      color: var(--text-primary);
+      color: var(--white);
     }
   }
 `
