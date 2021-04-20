@@ -22,12 +22,12 @@ const CodeBlockContainer = styled.div`
 
 const CopyButton = styled(ButtonSecondary)`
   font-size: 12px;
-  background-color: RGBA(21, 21, 21, 0.5);
   border: unset;
+  background-color: unset;
   padding: 0.75em 1em;
 
   &:hover {
-    background-color: RGBA(21, 21, 21, 1);
+    opacity: var(--bg-secondary);
   }
 `
 
