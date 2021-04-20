@@ -29,9 +29,15 @@ export default function ImageBlock(props) {
 
   useEffect(() => {
     if (src.split('_light').length > 1) {
-      setImageURL(
-        src.split('_light').join(`_${themeContext.selectedTheme.name}`)
-      )
+      if (themeContext.selectedTheme.name === 'system') {
+        setImageURL(
+          src.split('_light').join(`_${themeContext.systemTheme.name}`)
+        )
+      } else {
+        setImageURL(
+          src.split('_light').join(`_${themeContext.selectedTheme.name}`)
+        )
+      }
     }
   }, [themeContext])
 

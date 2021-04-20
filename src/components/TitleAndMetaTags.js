@@ -22,9 +22,11 @@ export function TitleAndMetaTags({
       ) {
         root.classList.remove('light')
         root.classList.add('dark')
+        themeContext.updateSystemTheme('dark')
       } else {
         root.classList.remove('dark')
         root.classList.add('light')
+        themeContext.updateSystemTheme('light')
       }
     }
 
@@ -36,9 +38,11 @@ export function TitleAndMetaTags({
           if (newColorScheme === 'dark') {
             root.classList.remove('light')
             root.classList.add('dark')
+            themeContext.updateSystemTheme('dark')
           } else {
             root.classList.remove('dark')
             root.classList.add('light')
+            themeContext.updateSystemTheme('light')
           }
         }
       })

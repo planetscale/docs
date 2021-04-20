@@ -79,7 +79,11 @@ export default function CodeBlock({ className, children }) {
       setCodeLanguage(className.split('-')[1])
     }
 
-    themeContext.selectedTheme.name === 'dark'
+    themeContext.selectedTheme.name === 'system'
+      ? themeContext.systemTheme.name === 'dark'
+        ? setCustomTheme(exoDark)
+        : setCustomTheme(codeBlockThemeLight)
+      : themeContext.selectedTheme.name === 'dark'
       ? setCustomTheme(exoDark)
       : setCustomTheme(codeBlockThemeLight)
   }, [themeContext])
