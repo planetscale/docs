@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
+import { media } from './styles/media'
 import { ThemeContext } from './styles/themeContext'
 
 const ImageBlockContainer = styled.figure`
@@ -15,6 +16,8 @@ const ImageBlockContainer = styled.figure`
 
 const ImageBlockImage = styled.img`
   margin: 0;
+  max-width: 100%;
+  border-radius: 6px;
 `
 
 const ImageBlockCaption = styled.figcaption`

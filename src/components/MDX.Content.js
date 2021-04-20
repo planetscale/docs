@@ -1,7 +1,6 @@
 // libs
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
-import { media } from './styles/media'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { ContentBlock } from './Layout.Wrapper'
@@ -53,18 +52,6 @@ const MarkDownContainer = styled.div`
     font-size: 1em;
     line-height: 1.75em;
     margin: 1em 0;
-  }
-
-  img {
-    max-width: 100%;
-    box-sizing: border-box;
-    border-radius: 6px;
-    box-shadow: var(--tw-shadow);
-
-    ${media.phone`
-      padding: 1rem 0;
-      width: 100%;
-    `};
   }
 
   table {
