@@ -60,6 +60,7 @@
   --pink-500: 205, 90, 246;
 
   --bg-primary: var(--white);
+  --bg-primary-translucent: rgba(255, 255, 255, 0.85);
   --bg-secondary: var(--gray-50);
   --bg-tertiary: var(--gray-100);
   --bg-blue: rgba(1, 43, 101, 1);
@@ -79,6 +80,7 @@
 
 @define-mixin darkmode {
   --bg-primary: var(--gray-900);
+  --bg-primary-translucent: rgba(26, 27, 32, 0.85);
   --bg-secondary: var(--gray-800);
   --bg-tertiary: var(--gray-700);
   --bg-blue: rgba(3, 64, 134, 0.8);

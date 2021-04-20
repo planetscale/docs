@@ -14,29 +14,32 @@ export function TitleAndMetaTags({
 
   useEffect(() => {
     const root = document.querySelector('html')
-
-    if (
-      typeof window !== 'undefined' &&
-      window.matchMedia &&
-      window.matchMedia('(prefers-color-scheme: dark)').matches
-    ) {
-      root.classList.add('dark')
-      themeContext.switchTheme('dark')
-    } else {
-      root.classList.remove('dark')
-      themeContext.switchTheme('light')
+    if (themeContext.selectedTheme.name === 'system') {
+      if (
+        typeof window !== 'undefined' &&
+        window.matchMedia &&
+        window.matchMedia('(prefers-color-scheme: dark)').matches
+      ) {
+        root.classList.remove('light')
+        root.classList.add('dark')
+      } else {
+        root.classList.remove('dark')
+        root.classList.add('light')
+      }
     }
 
     window
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', (e) => {
-        const newColorScheme = e.matches ? 'dark' : 'light'
-        if (newColorScheme === 'dark') {
-          root.classList.add('dark')
-          themeContext.switchTheme('dark')
-        } else {
-          root.classList.remove('dark')
-          themeContext.switchTheme('light')
+        if (themeContext.selectedTheme.name === 'system') {
+          const newColorScheme = e.matches ? 'dark' : 'light'
+          if (newColorScheme === 'dark') {
+            root.classList.remove('light')
+            root.classList.add('dark')
+          } else {
+            root.classList.remove('dark')
+            root.classList.add('light')
+          }
         }
       })
   }, [themeContext])

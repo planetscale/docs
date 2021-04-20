@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
 
+const systemMode = {
+  name: 'system',
+}
+
 const darkMode = {
   name: 'dark',
 }
@@ -10,14 +14,20 @@ const lightMode = {
 
 export const ThemeContext = React.createContext({
   selectedTheme: lightMode,
-  switchTheme: (theme) => {},
+  switchTheme: (themeName) => {},
 })
 
 export function ThemeProvider(props) {
-  const [selectedTheme, setSelectedTheme] = useState(lightMode)
+  const [selectedTheme, setSelectedTheme] = useState(systemMode)
 
   const switchTheme = (theme) => {
-    theme === 'dark' ? setSelectedTheme(darkMode) : setSelectedTheme(lightMode)
+    if (theme === 'dark') {
+      setSelectedTheme(darkMode)
+    } else if (theme == 'light') {
+      setSelectedTheme(lightMode)
+    } else {
+      setSelectedTheme(systemMode)
+    }
   }
 
   return (

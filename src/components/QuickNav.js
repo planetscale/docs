@@ -78,7 +78,6 @@ export default function QuickNav({ subNavPages }) {
         const id = entry.target.getAttribute('id')
 
         if (entry.isIntersecting) {
-          console.log(id)
           document
             .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
             .parentElement.classList.add('active')

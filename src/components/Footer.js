@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
+import Select from './Select'
 
 const FooterWrapper = styled.div`
   width: 100%;
@@ -34,6 +35,7 @@ const FooterConstrain = styled.div`
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
 
   ${media.phone`
     margin-bottom: 1em;
@@ -41,40 +43,33 @@ const LeftContainer = styled.div`
 `
 
 const RightContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   font-size: 14px;
   color: var(--text-secondary);
-`
 
-const HomeLink = styled.a`
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-  justify-content: stretch;
-  margin-right: 2em;
-`
-
-const Logo = styled.div`
-  height: 24px;
-  width: 16rem;
-  background: var(--logoCompany);
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  ${media.phone`
-    height: 24px;
-  `};
+  > :first-child {
+    margin-right: 1em;
+  }
 `
 
 export default function Footer() {
+  const themeOptions = [
+    { value: 'system', label: 'System' },
+    { value: 'dark', label: 'Dark' },
+    { value: 'light', label: 'Light' },
+  ]
+
   return (
     <FooterWrapper>
       <FooterConstrain>
         <LeftContainer>
-          <HomeLink href="/">
-            <Logo />
-          </HomeLink>
+          <span>© 2021 PlanetScale Inc.</span>
         </LeftContainer>
-        <RightContainer>© 2021 PlanetScale Inc.</RightContainer>
+        <RightContainer>
+          <Select options={themeOptions}></Select>
+        </RightContainer>
       </FooterConstrain>
     </FooterWrapper>
   )
