@@ -73,24 +73,6 @@ const MarkDownContainer = styled.div`
   table th {
     border-bottom: 2px solid var(--border-primary);
   }
-
-  table.table thead th {
-    vertical-align: bottom;
-    border-bottom: 2px solid var(--accent);
-  }
-
-  table.table tbody + tbody {
-    border-top: 2px solid var(--accent);
-  }
-
-  table.table thead.thead-dark th {
-    background-color: var(--background2);
-    border-color: var(--accent);
-  }
-
-  table.table-striped tbody tr:nth-of-type(odd) {
-    background-color: rgba(0, 0, 0, 0.05);
-  }
 `
 
 export default function MDXContent({
@@ -100,14 +82,6 @@ export default function MDXContent({
   lastUpdatedOn,
   slug,
 }) {
-  useEffect(() => {
-    if (typeof hljs !== 'undefined') {
-      document.querySelectorAll('pre > code').forEach((block) => {
-        hljs.highlightBlock(block)
-      })
-    }
-  })
-
   return (
     <ContentBlock>
       <MarkDownContainer>
