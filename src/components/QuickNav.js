@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { media } from './styles/media'
 
 const QuickNavContainer = styled.nav`
-  flex-basis: 300px;
+  flex-basis: 215px;
   margin: 2em 0 0;
   position: sticky;
   top: calc(88px + 2em);

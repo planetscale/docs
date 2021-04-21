@@ -20,7 +20,7 @@ const _SidenavContainer = styled(ScrollArea.Root)`
   height: calc(100vh - 88px);
   border-right: 1px solid var(--border-primary);
   transition: border-color 100ms linear;
-  padding: 2em;
+  padding: 2em 0em 2em 0;
 
   > [data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -140,6 +140,7 @@ const _GroupHeading = styled(Collapsible.Button)`
   background-color: unset;
   border: unset;
   padding: 0;
+  margin: 0;
   margin-bottom: 1em;
   cursor: pointer;
   display: flex;
@@ -175,7 +176,7 @@ const _PageLink = styled(Link)`
   display: flex;
   flex-direction: row;
   align-items: center;
-  margin: 0 0 1.5em 24px;
+  margin: 0 0 1.5em 0;
   color: var(--text-secondary);
   position: relative;
 
@@ -275,7 +276,7 @@ function SidenavGroup({ category, pages, onClick }) {
   return (
     <_GroupContainer defaultOpen={true}>
       <_GroupHeading>
-        <ArrowDropRight /> {category}
+        {category} <ArrowDropRight />
       </_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {

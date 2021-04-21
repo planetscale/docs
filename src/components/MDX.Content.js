@@ -1,5 +1,5 @@
 // libs
-import React, { useEffect } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'

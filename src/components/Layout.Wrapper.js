@@ -3,8 +3,12 @@ import { media } from './styles/media'
 
 export const ContentBlock = styled.div`
   min-width: 0;
-  flex-basis: ${(props) => (props.overview ? 'calc(765px + 300px)' : '765px')};
+  flex-basis: ${(props) => (props.overview ? 'calc(765px + 215px)' : '765px')};
   padding: 0 4em;
+
+  ${media.tinydesktop`
+    flex-basis: calc(765px + 215px);
+  `}
 
   ${media.tablet`
     flex-basis: auto;
