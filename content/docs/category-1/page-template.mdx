@@ -197,11 +197,17 @@ Tables use the default markdown syntax. [tablegenerator.com](https://www.tablesg
 | Data        | Data        | Data        | Data        |
 | Bass        | Base        | Bias        | Blaze       |
 
-## Images
+## Theme sensitive images
 
-Images benefit from a brief description which also serves as the `ALT` tag value (will be made independently configurable later).
+Images benefit from a brief description which also serves as the `ALT` tag value (will be made independently configurable later). Theme sensitive images should be added in doubles; one with a `_light` suffix and with `_dark`. The image with the `_light` suffix should be the one that is linked within the markdown. The system will use the `dark` mode image appropriately.
 
 ![Organization dashboard](/img/docs/ps_org_dashboard_light.png)
+
+## Theme agnostic images
+
+Images can also be added to be theme agnostic i.e. they will not change in anyway regardless of page's theme. These images don't have a special suffix format.
+
+![Organization Settings > Members](/img/docs/ps_org_settings_members.png)
 
 ## Info blocks
 
