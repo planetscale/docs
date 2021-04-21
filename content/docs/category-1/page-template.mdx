@@ -5,11 +5,11 @@ subtitle: "An introductory paragraph goes here. It's not needed but can be poten
 
 ## Simple Paragraph
 
-Paragraph with an external link like [here](https://dev.mysql.com/doc/refman/8.0/en/mysql.html).
+Paragraph with an external link like [here](https://dev.mysql.com/doc/refman/8.0/en/mysql.html) with **bold** and _italicized_ inline words. There can also be inline code-blocks such as this: `CODE_SNIPPET`
 
 ## Ordered List
 
-Paragraph with a corresponding ordered list below:
+An ordered list can be constructed as below:
 
 1. List item
 2. List item
@@ -18,9 +18,20 @@ Paragraph with a corresponding ordered list below:
 5. List item
 6. List item
 
+## Unordered list
+
+An unordered list can be constructed as below:
+
+- List item
+- List item
+- List item
+- List item
+- List item
+- List item
+
 ## Single-line code block
 
-Paragraph with **bold** and _italicized_ words and a code block underneath.
+A single-line code block is defined as below. For proper language formatting, providing the language type is necessary.
 
 ```bash
 $mysql --host {hostname} --port {port number} -p --user {username}
@@ -28,7 +39,7 @@ $mysql --host {hostname} --port {port number} -p --user {username}
 
 ## Multi-line code block
 
-Paragraph with inline code text `{username}` and an internal link [page in category 2](/category-2/page-in-category-2) followed by a big code block.
+Multi-line code blocks are defined with the same syntax as single-line code blocks.
 
 ```console
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -47,6 +58,8 @@ mysql>
 ```
 
 ## Multi-line code blocks with scrollable content
+
+Multi-line code blocks only extend to a certain height before being scrollable.
 
 ```javascript
 import React, { useContext } from 'react'
@@ -177,6 +190,8 @@ export default function CodeBlock({ className, children }) {
 
 ## Tables
 
+Tables use the default markdown syntax. [tablegenerator.com](https://www.tablesgenerator.com/markdown_tables) is a nifty little tool to visually create such tables.
+
 | Column Name | Column Mane | Column Noon | Column Moon |
 | ----------- | ----------- | ----------- | ----------- |
 | Data        | Data        | Data        | Data        |
@@ -184,9 +199,13 @@ export default function CodeBlock({ className, children }) {
 
 ## Images
 
+Images benefit from a brief description which also serves as the `ALT` tag value (will be made independently configurable later).
+
 ![Organization dashboard](/img/docs/ps_org_dashboard_light.png)
 
 ## Info blocks
+
+Info blocks come in three flavors: `info`, `warning`, and `tip`.
 
 <InfoBlock type="info">
   This is an info callout with some more text thrown in to simulate a multi-line
