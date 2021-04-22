@@ -16,8 +16,8 @@ const _SidenavContainer = styled(ScrollArea.Root)`
   width: 0;
   flex-basis: 300px;
   position: sticky;
-  top: 88px;
-  height: calc(100vh - 88px);
+  top: 90px;
+  height: calc(100vh - 90px);
   border-right: 1px solid var(--border-primary);
   transition: border-color 100ms linear;
   padding: 2em 0em 2em 0;

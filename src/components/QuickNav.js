@@ -6,7 +6,7 @@ const QuickNavContainer = styled.nav`
   flex-basis: 215px;
   margin: 2em 0 0;
   position: sticky;
-  top: calc(88px + 2em);
+  top: calc(90px + 2em);
   border-left: 1px solid var(--border-primary);
 
   ${media.tinydesktop`

@@ -7,6 +7,7 @@ import { ButtonSecondary } from './Buttons'
 
 const HeaderWrapper = styled.div`
   width: 100%;
+  height: 90px;
   border-bottom: 1px solid var(--border-primary);
   background-color: var(--bg-primary-translucent);
   backdrop-filter: blur(8px);
