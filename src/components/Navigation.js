@@ -4,7 +4,7 @@ import { media } from './styles/media'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { Menu, Close, ArrowDropRight } from '@styled-icons/remix-line'
+import { Menu2, Close, ArrowDropRight } from '@styled-icons/remix-line'
 import SearchBar from './Searchbar'
 
 const _SearchBarContainer = styled.div`
@@ -37,13 +37,13 @@ const _SidenavContainer = styled(ScrollArea.Root)`
     visibility: hidden;
     border-right: unset;
     position: fixed;
-    top: 1em;
+    top: 0;
     z-index: 2;    
-    margin: 1em;
     padding: 2em;
-    border-radius: 6px;
     background-color: var(--bg-primary);
-    width: calc(100vw - 2em);
+    flex-basis: 100vw;
+    width: 90vw;
+    height: 100vh;
     transition: top 200ms ease-out;
 
     &:hover {
@@ -100,24 +100,22 @@ const MenuLink = styled.div`
 
   ${media.tablet`
     position: fixed;
-    bottom: 0em;
-    right: 1em;
+    bottom: 2em;
+    left: 2em;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     color: var(--white);
-    background-color: rgb(var(--blue-900));
+    background-color: var(--bg-tertiary);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
-    border-top-left-radius: 6px;
-    border-top-right-radius: 6px;
+    border-radius: 6px;
     z-index: 3;
     padding: 1em;
     font-size: 14px;
 
     > svg {
       width: 14px;
-      margin-right: 0.5em;
     }
   `}
 `
@@ -225,16 +223,7 @@ function SideNav({ categories, docPages }) {
   return (
     <Fragment>
       <MenuLink onClick={toggleMobileTOC}>
-        {mobileTOCState ? (
-          <>
-            <Close />
-            Close
-          </>
-        ) : (
-          <>
-            <Menu /> Menu
-          </>
-        )}
+        {mobileTOCState ? <Close /> : <Menu2 />}
       </MenuLink>
       {mobileTOCState && <BackgroundFrozen></BackgroundFrozen>}
       <_SidenavContainer className={`${mobileTOCState ? 'show' : ''}`}>

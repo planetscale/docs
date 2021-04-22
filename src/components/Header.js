@@ -20,8 +20,9 @@ const HeaderWrapper = styled.div`
   padding: 0 64px;
 
   ${media.phone`
-    padding: 0 24px;
+    padding: 2em;
     position: unset;
+    height: unset;
   `};
 `
 
@@ -35,6 +36,7 @@ const HeaderConstrain = styled.div`
   padding: 27px 0;
 
   ${media.phone`
+    padding: unset;
     align-items: center;
   `}
 `

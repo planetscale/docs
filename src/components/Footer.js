@@ -12,7 +12,7 @@ const FooterWrapper = styled.div`
   padding: 32px 64px;
 
   ${media.phone`
-    padding: 24px;
+    padding: 2em;
   `};
 `
 
