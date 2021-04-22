@@ -111,7 +111,7 @@ export default function CodeBlock({ className, children }) {
         {...defaultProps}
         theme={customTheme}
         code={children}
-        language="jsx"
+        language={codeLanguage}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <CodeBlockContent className={className} style={style}>
