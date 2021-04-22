@@ -19,6 +19,11 @@ export default function DocsPage({ data }) {
         <MDXContent
           title={frontmatter.title}
           subtitle={frontmatter.subtitle}
+          banner={
+            frontmatter.banner
+              ? frontmatter.banner
+              : '/img/internals/banner_placeholder.png'
+          }
           body={body}
           lastUpdatedOn={fields.lastUpdatedOn}
           slug={fields.slug}
@@ -42,6 +47,7 @@ export const pageQuery = graphql`
       frontmatter {
         title
         subtitle
+        banner
       }
       headings(depth: h2) {
         value

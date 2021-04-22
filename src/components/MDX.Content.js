@@ -79,6 +79,7 @@ const MarkDownContainer = styled.div`
 export default function MDXContent({
   title,
   subtitle,
+  banner,
   body,
   lastUpdatedOn,
   slug,
@@ -86,7 +87,7 @@ export default function MDXContent({
   return (
     <ContentBlock>
       <MarkDownContainer>
-        <HeadingBlock title={title} subtitle={subtitle} />
+        <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
         <MDXProvider
           components={{
             code: CodeBlock,

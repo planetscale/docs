@@ -17,7 +17,7 @@ const AnchorIcon = styled.a`
 const AnchorHeading = styled.h2`
   font-weight: 600;
   font-size: 1.563em;
-  margin: 3em 0 0;
+  margin: 2em 0 0;
 
   > ${AnchorIcon} {
     visibility: hidden;

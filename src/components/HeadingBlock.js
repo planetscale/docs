@@ -21,7 +21,7 @@ const SubHeadingContainer = styled.div`
   font-size: 1.25em;
   line-height: 1.5em;
   max-width: 69ch;
-  padding: 0 0 3em;
+  padding: 0 0 2em;
   margin: 0;
 
   ${media.phone`
@@ -29,17 +29,23 @@ const SubHeadingContainer = styled.div`
   `}
 `
 
+const BannerContainer = styled.img`
+  width: 100%;
+  border-radius: 6px;
+`
+
 const CustomHorizontalRule = styled.hr`
   border: 1px solid var(--border-primary);
 `
 
 export default function HeadingBlock(props) {
-  const { title, subtitle } = props
+  const { title, subtitle, banner } = props
   return (
     <HeadingWrapper>
       <HeadingContent>{title}</HeadingContent>
       {subtitle && <SubHeadingContainer>{subtitle}</SubHeadingContainer>}
-      {subtitle && <CustomHorizontalRule />}
+      {banner && <BannerContainer src={banner}></BannerContainer>}
+      {subtitle && !banner && <CustomHorizontalRule />}
     </HeadingWrapper>
   )
 }
