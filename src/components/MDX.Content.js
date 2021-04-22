@@ -71,6 +71,7 @@ const MarkDownContainer = styled.div`
   }
 
   table th {
+    font-size: 14px;
     border-bottom: 2px solid var(--border-primary);
   }
 `
