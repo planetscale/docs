@@ -65,20 +65,25 @@ const MarkDownContainer = styled.div`
     border-radius: 6px;
     margin-top: 2em;
     width: 100%;
+    font-size: 14px;
     color: var(--foreground2);
     border-spacing: 0;
   }
 
-  table th,
-  table td {
+  table th {
     text-align: left;
+    padding: 1em;
+    color: var(--text-secondary);
+    border-bottom: 2px solid var(--border-primary);
+  }
+
+  table td {
     padding: 1em;
     border-bottom: 1px solid var(--border-primary);
   }
 
-  table th {
-    font-size: 14px;
-    border-bottom: 2px solid var(--border-primary);
+  table tr:last-child td {
+    border-bottom: unset;
   }
 `
 
