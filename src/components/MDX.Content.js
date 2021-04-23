@@ -48,7 +48,13 @@ const MarkDownContainer = styled.div`
     padding: 0 1em;
   }
 
-  li {
+  ol > li {
+    font-size: 1em;
+    line-height: 1.75em;
+    margin: 1em 0.5em;
+  }
+
+  ul > li {
     font-size: 1em;
     line-height: 1.75em;
     margin: 1em 0;
