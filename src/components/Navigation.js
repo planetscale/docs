@@ -38,20 +38,21 @@ const _SidenavContainer = styled(ScrollArea.Root)`
     border-right: unset;
     position: fixed;
     top: 0;
+    left: -90vw;
     z-index: 2;    
     padding: 2em;
     background-color: var(--bg-primary);
     flex-basis: 100vw;
     width: 90vw;
     height: 100vh;
-    transition: top 200ms ease-out;
+    transition: left 100ms ease-out;
 
     &:hover {
       border-right: unset;
     }
 
     &.show {
-      top: 0;
+      left: 0;
       visibility: visible;
     }
   `}
