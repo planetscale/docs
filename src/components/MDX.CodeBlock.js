@@ -16,8 +16,10 @@ const CodeBlockContainer = styled.div`
   border-radius: 6px;
   box-shadow: var(--tw-shadow);
   margin: 3em 0;
-  padding: 1em 1em 0;
-  max-height: 600px;
+
+  > code:not(:last-of-type) {
+    border-bottom: 1px solid var(--border-primary);
+  }
 `
 
 const CopyButton = styled(ButtonSecondary)`
@@ -40,10 +42,6 @@ const CodeBlockHeader = styled.div`
   justify-content: space-between;
   border-top-left-radius: 6px;
   border-top-right-radius: 6px;
-  position: absolute;
-  top: 0em;
-  right: 0em;
-  backdrop-filter: blur(8px);
   padding: 0.5em 0.5em 0.5em 1em;
   width: calc(100%);
   border-bottom: 1px solid var(--border-primary);
@@ -60,16 +58,15 @@ const CodeType = styled.div`
 
 const CodeBlockContent = styled.code`
   margin: 0;
+  padding: 1em;
   overflow: scroll;
   font-family: 'IBM Plex Mono';
   font-size: 14px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  padding-top: 60px;
 `
 
 export default function CodeBlock({ className, children }) {
   const [codeLanguage, setCodeLanguage] = useState('')
+  const [splitOutput, setSplitOutput] = useState([])
   const [copyButtonState, setCopyButtonState] = useState(false)
   const [customTheme, setCustomTheme] = useState(exoDark)
   const themeContext = useContext(ThemeContext)
@@ -77,6 +74,11 @@ export default function CodeBlock({ className, children }) {
   useEffect(() => {
     if (className) {
       setCodeLanguage(className.split('-')[1])
+    }
+
+    if (children.split('------').length === 2) {
+      // this is a cmd + output block
+      setSplitOutput(children.split('------'))
     }
 
     themeContext.selectedTheme.name === 'system'
@@ -93,7 +95,10 @@ export default function CodeBlock({ className, children }) {
     setTimeout(() => {
       setCopyButtonState(false)
     }, 5000)
-    navigator.clipboard.writeText(children)
+
+    navigator.clipboard.writeText(
+      splitOutput.length === 2 ? splitOutput[0].trim() : children
+    )
   }
 
   return (
@@ -107,10 +112,32 @@ export default function CodeBlock({ className, children }) {
           </CopyButtonText>
         </CopyButton>
       </CodeBlockHeader>
+      {splitOutput.length === 2 && (
+        <Highlight
+          {...defaultProps}
+          theme={customTheme}
+          code={splitOutput[0].trim()}
+          language={codeLanguage}
+        >
+          {({ className, style, tokens, getLineProps, getTokenProps }) => (
+            <CodeBlockContent className={className} style={style}>
+              {tokens.map((line, i) => (
+                <div {...getLineProps({ line, key: i })}>
+                  {line.map((token, key) => (
+                    <span {...getTokenProps({ token, key })} />
+                  ))}
+                </div>
+              ))}
+            </CodeBlockContent>
+          )}
+        </Highlight>
+      )}
       <Highlight
         {...defaultProps}
         theme={customTheme}
-        code={children}
+        code={
+          splitOutput.length === 2 ? splitOutput[1].trim() : children.trim()
+        }
         language={codeLanguage}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
