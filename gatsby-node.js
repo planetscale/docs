@@ -70,6 +70,23 @@ exports.createPages = ({ graphql, actions }) => {
   })
 }
 
+exports.createSchemaCustomization = ({ actions, schema }) => {
+  const { createTypes } = actions
+
+  const typedefs = [
+    `type Mdx implements Node {
+      frontmatter: Frontmatter
+    }`,
+    `type Frontmatter @infer {
+      title: String!,
+      subtitle: String!,
+      banner: String
+    }`,
+  ]
+
+  createTypes(typedefs)
+}
+
 exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   if (stage === 'build-html') {
     actions.setWebpackConfig({

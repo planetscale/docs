@@ -19,11 +19,7 @@ export default function DocsPage({ data }) {
         <MDXContent
           title={frontmatter.title}
           subtitle={frontmatter.subtitle}
-          banner={
-            frontmatter.banner
-              ? frontmatter.banner
-              : '/img/internals/banner_placeholder.png'
-          }
+          banner={frontmatter.banner ? frontmatter.banner : ''}
           body={body}
           lastUpdatedOn={fields.lastUpdatedOn}
           slug={fields.slug}
