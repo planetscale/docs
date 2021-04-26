@@ -1,15 +1,15 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const InlineCodeBlockContainer = styled.code`
-  background-color: var(--bg-tertiary);
+const InlineCodeBlockContainer = styled.span`
+  background: var(--bg-tertiary);
   padding: 4px 8px;
+  margin: 0 4px;
   border-radius: 4px;
-  border: 1px solid var(--bg-tertiary);
 
   &:hover {
     cursor: pointer;
-    border: 1px solid var(--bg-blue);
+    background: var(--text-blue);
   }
 `
 
