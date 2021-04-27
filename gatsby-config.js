@@ -14,10 +14,8 @@ module.exports = {
         background_color: '#ffffff',
         display: 'standalone',
         lang: 'en',
-        icon: 'static/logo_square.svg',
-        icon_options: {
-          purpose: 'any maskable',
-        },
+        icon: 'static/favicon_32_dark.png',
+        include_favicon: false,
       },
     },
     {
