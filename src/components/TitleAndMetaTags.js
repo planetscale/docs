@@ -1,6 +1,5 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useEffect } from 'react'
 import Helmet from 'react-helmet'
-import { ThemeContext } from './styles/themeContext'
 
 export function TitleAndMetaTags({
   url,
@@ -11,44 +10,6 @@ export function TitleAndMetaTags({
   banner,
   schemaOrgJSONLD,
 }) {
-  const themeContext = useContext(ThemeContext)
-
-  useEffect(() => {
-    const root = document.querySelector('html')
-    if (themeContext.selectedTheme.name === 'system') {
-      if (
-        typeof window !== 'undefined' &&
-        window.matchMedia &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches
-      ) {
-        root.classList.remove('light')
-        root.classList.add('dark')
-        themeContext.updateSystemTheme('dark')
-      } else {
-        root.classList.remove('dark')
-        root.classList.add('light')
-        themeContext.updateSystemTheme('light')
-      }
-    }
-
-    window
-      .matchMedia('(prefers-color-scheme: dark)')
-      .addEventListener('change', (e) => {
-        if (themeContext.selectedTheme.name === 'system') {
-          const newColorScheme = e.matches ? 'dark' : 'light'
-          if (newColorScheme === 'dark') {
-            root.classList.remove('light')
-            root.classList.add('dark')
-            themeContext.updateSystemTheme('dark')
-          } else {
-            root.classList.remove('dark')
-            root.classList.add('light')
-            themeContext.updateSystemTheme('light')
-          }
-        }
-      })
-  }, [themeContext])
-
   useEffect(() => {
     const docSearchScript = document.getElementById('docsearch')
 

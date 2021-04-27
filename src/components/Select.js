@@ -34,18 +34,12 @@ export default function Select(props) {
 
   const changeTheme = (event) => {
     const inputSelectedThemeName = event.target.value
-    const root = document.querySelector('html')
+
     if (inputSelectedThemeName === 'dark') {
-      root.classList.remove('light')
-      root.classList.add('dark')
       themeContext.switchTheme('dark')
     } else if (inputSelectedThemeName === 'light') {
-      root.classList.remove('dark')
-      root.classList.add('light')
       themeContext.switchTheme('light')
     } else {
-      root.classList.remove('dark')
-      root.classList.remove('light')
       themeContext.switchTheme('system')
     }
   }
