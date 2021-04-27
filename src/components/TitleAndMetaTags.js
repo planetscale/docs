@@ -8,6 +8,7 @@ export function TitleAndMetaTags({
   title,
   type,
   description,
+  banner,
   schemaOrgJSONLD,
 }) {
   const themeContext = useContext(ThemeContext)
@@ -106,7 +107,7 @@ export function TitleAndMetaTags({
       <meta name="description" content={description}></meta>
 
       <meta property="og:url" content={`${url}/${pathname}`} />
-      <meta property="og:image" content={`${url}/social_share.png`} />
+      <meta property="og:image" content={`${url}/${banner}`} />
       <meta property="og:type" content={type} />
       <meta
         property="og:title"
@@ -115,7 +116,7 @@ export function TitleAndMetaTags({
       <meta property="og:description" content={description} />
 
       <meta name="twitter:url" content={`${url}/${pathname}`} />
-      <meta name="twitter:image" content={`${url}/social_share.png`} />
+      <meta name="twitter:image" content={`${url}/${banner}`} />
       <meta
         name="twitter:title"
         content={title + ' - Documentation - PlanetScale'}
@@ -143,6 +144,7 @@ TitleAndMetaTags.defaultProps = {
   title: 'PlanetScale - Serverless Database for Developers',
   type: 'website',
   description: 'Start small and grow to massive scale',
+  banner: '/img/internals/social_share.png',
   schemaOrgJSONLD: {
     '@context': 'http://schema.org',
     '@type': 'Organization',

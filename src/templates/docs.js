@@ -13,7 +13,8 @@ export default function DocsPage({ data }) {
       <Fragment>
         <TitleAndMetaTags
           title={frontmatter.title}
-          description={frontmatter.title}
+          description={frontmatter.subtitle}
+          banner={frontmatter.banner ? frontmatter.banner : ''}
           pathname={`${fields.slug}`}
         />
         <MDXContent
