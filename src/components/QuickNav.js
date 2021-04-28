@@ -24,7 +24,7 @@ const QuickNavHeader = styled.li`
   padding: 0 0 0 2em;
   font-size: 12px;
   text-transform: uppercase;
-  margin-bottom: 1.5em;
+  margin-bottom: 1em;
 `
 
 const QuickNavListItem = styled.li`
@@ -36,7 +36,8 @@ const QuickNavListItem = styled.li`
   border-left: 1px solid var(--border-primary);
 
   &:not(:last-child) {
-    padding-bottom: 1em;
+    padding-bottom: 0.5em;
+    padding-top: 0.5em;
   }
 
   &.active {
