@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
+import { ThemeContext } from './styles/themeContext'
 import Select from './Select'
 
 const FooterWrapper = styled.div`
@@ -33,18 +34,17 @@ const Copyright = styled.span`
 `
 
 export default function Footer() {
-  // TODO: move to themeContext.js
-  const themeOptions = [
-    { value: 'system', label: 'System' },
-    { value: 'dark', label: 'Dark' },
-    { value: 'light', label: 'Light' },
-  ]
+  const themeContext = useContext(ThemeContext)
 
   return (
     <FooterWrapper>
       <FooterConstrain>
         <Copyright>© 2021 PlanetScale Inc.</Copyright>
-        <Select options={themeOptions}></Select>
+        <Select
+          options={themeContext.availableThemes}
+          defaultSelected={themeContext.selectedTheme.name}
+          callback={themeContext.switchTheme}
+        ></Select>
       </FooterConstrain>
     </FooterWrapper>
   )

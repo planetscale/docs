@@ -3,23 +3,28 @@ import { useCookies } from 'react-cookie'
 
 const systemMode = {
   name: 'system',
+  label: 'System',
 }
 
 const darkMode = {
   name: 'dark',
+  label: 'Dark',
 }
 
 const lightMode = {
   name: 'light',
+  label: 'Light',
 }
 
 export const ThemeContext = React.createContext({
+  availableThemes: [systemMode, darkMode, lightMode],
   selectedTheme: lightMode,
   systemTheme: lightMode,
   switchTheme: (themeName) => {},
 })
 
 export function ThemeProvider(props) {
+  const availableThemes = [systemMode, darkMode, lightMode]
   const [selectedTheme, setSelectedTheme] = useState(systemMode)
   const [systemTheme, setSystemTheme] = useState(lightMode)
   const [cookies, setCookie, removeCookie] = useCookies(['theme'])
@@ -38,9 +43,9 @@ export function ThemeProvider(props) {
         window.matchMedia &&
         window.matchMedia('(prefers-color-scheme: dark)').matches
       ) {
-        setSystemTheme(darkMode.name)
+        setSystemTheme(darkMode)
       } else {
-        setSystemTheme(lightMode.name)
+        setSystemTheme(lightMode)
       }
     }
 
@@ -50,9 +55,9 @@ export function ThemeProvider(props) {
         if (selectedTheme.name === systemMode.name) {
           const newColorScheme = e.matches ? darkMode.name : lightMode.name
           if (newColorScheme === darkMode.name) {
-            setSystemTheme(darkMode.name)
+            setSystemTheme(darkMode)
           } else {
-            setSystemTheme(lightMode.name)
+            setSystemTheme(lightMode)
           }
         }
       })
@@ -78,7 +83,9 @@ export function ThemeProvider(props) {
   }
 
   return (
-    <ThemeContext.Provider value={{ selectedTheme, switchTheme, systemTheme }}>
+    <ThemeContext.Provider
+      value={{ availableThemes, selectedTheme, switchTheme, systemTheme }}
+    >
       {props.children}
     </ThemeContext.Provider>
   )

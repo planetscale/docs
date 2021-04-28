@@ -58,13 +58,13 @@ export function TitleAndMetaTags({
         rel="icon"
         type="image/png"
         sizes="32x32"
-        href={`/favicon_32_${themeContext.systemTheme}.png`}
+        href={`/favicon_32_${themeContext.systemTheme.name}.png`}
       />
       <link
         rel="icon"
         type="image/png"
         sizes="16x16"
-        href={`/favicon_16_${themeContext.systemTheme}.png`}
+        href={`/favicon_16_${themeContext.systemTheme.name}.png`}
       />
 
       <meta name="msapplication-TileColor" content="#da532c" />

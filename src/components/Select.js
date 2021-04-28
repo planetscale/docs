@@ -1,6 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
 import styled from 'styled-components'
-import { ThemeContext } from './styles/themeContext'
 import { ArrowDropDown } from '@styled-icons/remix-line'
 
 const SelectContainer = styled.div`
@@ -29,35 +28,16 @@ const CustomSelect = styled.select`
 `
 
 export default function Select(props) {
-  const themeContext = useContext(ThemeContext)
-  const { options } = props
-
-  const changeTheme = (event) => {
-    const inputSelectedThemeName = event.target.value
-
-    if (inputSelectedThemeName === 'dark') {
-      themeContext.switchTheme('dark')
-    } else if (inputSelectedThemeName === 'light') {
-      themeContext.switchTheme('light')
-    } else {
-      themeContext.switchTheme('system')
-    }
-  }
+  const { options, defaultSelected, callback } = props
 
   return (
     <SelectContainer>
-      <CustomSelect onChange={changeTheme}>
+      <CustomSelect
+        onChange={(e) => callback(e.target.value)}
+        value={defaultSelected}
+      >
         {options.map((option) => {
-          return (
-            <option
-              value={option.value}
-              selected={
-                themeContext.selectedTheme.name === option.value ? 'true' : ''
-              }
-            >
-              {option.label}
-            </option>
-          )
+          return <option value={option.name}>{option.label}</option>
         })}
       </CustomSelect>
       <ArrowDropDown />
