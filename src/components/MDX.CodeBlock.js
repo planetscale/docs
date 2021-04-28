@@ -5,8 +5,6 @@ import { ButtonSecondary } from './Buttons'
 import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
 import { ThemeContext } from './styles/themeContext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
-import codeBlockThemeLight from 'prism-react-renderer/themes/vsLight'
-import exoDark from './styles/exoDark'
 
 const CodeBlockContainer = styled.div`
   position: relative;
@@ -65,11 +63,13 @@ const CodeBlockContent = styled.code`
 `
 
 export default function CodeBlock({ className, children }) {
+  const themeContext = useContext(ThemeContext)
   const [codeLanguage, setCodeLanguage] = useState('')
   const [splitOutput, setSplitOutput] = useState([])
   const [copyButtonState, setCopyButtonState] = useState(false)
-  const [customTheme, setCustomTheme] = useState(exoDark)
-  const themeContext = useContext(ThemeContext)
+  const [customTheme, setCustomTheme] = useState(
+    themeContext.getActiveDecomposedMode().codeTheme
+  )
 
   useEffect(() => {
     if (className) {
@@ -81,13 +81,7 @@ export default function CodeBlock({ className, children }) {
       setSplitOutput(children.split('------'))
     }
 
-    themeContext.selectedTheme.name === 'system'
-      ? themeContext.systemTheme.name === 'dark'
-        ? setCustomTheme(exoDark)
-        : setCustomTheme(codeBlockThemeLight)
-      : themeContext.selectedTheme.name === 'dark'
-      ? setCustomTheme(exoDark)
-      : setCustomTheme(codeBlockThemeLight)
+    setCustomTheme(themeContext.getActiveDecomposedMode().codeTheme)
   }, [themeContext])
 
   const copyCode = (e) => {

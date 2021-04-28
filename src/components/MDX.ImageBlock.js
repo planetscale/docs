@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
 import styled from 'styled-components'
-import { media } from './styles/media'
 import { ThemeContext } from './styles/themeContext'
 
 const ImageBlockContainer = styled.figure`
@@ -31,16 +30,9 @@ export default function ImageBlock(props) {
   const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
+    const activeThemeSuffix = themeContext.getActiveDecomposedMode().name
     if (src.split('_light').length > 1) {
-      if (themeContext.selectedTheme.name === 'system') {
-        setImageURL(
-          src.split('_light').join(`_${themeContext.systemTheme.name}`)
-        )
-      } else {
-        setImageURL(
-          src.split('_light').join(`_${themeContext.selectedTheme.name}`)
-        )
-      }
+      setImageURL(src.split('_light').join(`_${activeThemeSuffix}`))
     }
   }, [themeContext])
 

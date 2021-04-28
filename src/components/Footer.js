@@ -42,7 +42,7 @@ export default function Footer() {
         <Copyright>© 2021 PlanetScale Inc.</Copyright>
         <Select
           options={themeContext.availableThemes}
-          defaultSelected={themeContext.selectedTheme.name}
+          defaultSelected={themeContext.getActiveMode().name}
           callback={themeContext.switchTheme}
         ></Select>
       </FooterConstrain>

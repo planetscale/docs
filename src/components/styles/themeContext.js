@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
+import codeBlockThemeLight from 'prism-react-renderer/themes/vsLight'
+import exoDark from './exoDark'
 
 const systemMode = {
   name: 'system',
@@ -9,18 +11,22 @@ const systemMode = {
 const darkMode = {
   name: 'dark',
   label: 'Dark',
+  codeTheme: exoDark,
 }
 
 const lightMode = {
   name: 'light',
   label: 'Light',
+  codeTheme: codeBlockThemeLight,
 }
 
 export const ThemeContext = React.createContext({
-  availableThemes: [systemMode, darkMode, lightMode],
+  availableThemes: [],
   selectedTheme: lightMode,
   systemTheme: lightMode,
   switchTheme: (themeName) => {},
+  getActiveMode: () => {},
+  getActiveDecomposedMode: () => {},
 })
 
 export function ThemeProvider(props) {
@@ -82,9 +88,28 @@ export function ThemeProvider(props) {
     }
   }
 
+  const getActiveMode = () => {
+    return selectedTheme
+  }
+
+  const getActiveDecomposedMode = () => {
+    return selectedTheme.name === 'system'
+      ? systemTheme.name === 'dark'
+        ? darkMode
+        : lightMode
+      : selectedTheme.name === 'dark'
+      ? darkMode
+      : lightMode
+  }
+
   return (
     <ThemeContext.Provider
-      value={{ availableThemes, selectedTheme, switchTheme, systemTheme }}
+      value={{
+        availableThemes,
+        switchTheme,
+        getActiveMode,
+        getActiveDecomposedMode,
+      }}
     >
       {props.children}
     </ThemeContext.Provider>
