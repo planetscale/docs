@@ -71,11 +71,8 @@
   --text-secondary: var(--gray-500);
   --text-blue: rgb(var(--blue-600));
   --text-purple: rgb(var(--purple-600));
-
   --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-
   --logo: url('/logo-docs_light.svg');
-  --logoCompany: url('/logo_planetscale_light.svg');
 }
 
 @define-mixin darkmode {
@@ -92,7 +89,6 @@
   --text-blue: rgb(var(--blue-400));
   --text-purple: rgb(var(--purple-300));
   --logo: url('/logo-docs_dark.svg');
-  --logoCompany: url('/logo_planetscale_dark.svg');
 }
 
 @media screen and (prefers-color-scheme: dark) {
