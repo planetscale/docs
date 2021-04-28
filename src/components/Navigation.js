@@ -107,7 +107,7 @@ const MenuLink = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    color: var(--white);
+    color: var(--text-primary);
     background-color: var(--bg-tertiary);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
     border-radius: 6px;
