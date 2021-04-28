@@ -16,7 +16,7 @@ const CalloutCardList = styled.div`
 
   ${media.phone`
     grid-template-columns: repeat(1, 1fr);
-    margin-bottom: 2em;
+    margin: 2em 0;
   `}
 `
 
