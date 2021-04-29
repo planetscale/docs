@@ -30,7 +30,7 @@ export default function ImageBlock(props) {
   const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
-    const activeThemeSuffix = themeContext.getActiveDecomposedMode().name
+    const activeThemeSuffix = themeContext.getActiveMode().name
     if (src.split('_light').length > 1) {
       setImageURL(src.split('_light').join(`_${activeThemeSuffix}`))
     }

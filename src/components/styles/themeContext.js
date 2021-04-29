@@ -20,19 +20,12 @@ const lightMode = {
   codeTheme: codeBlockThemeLight,
 }
 
-export const ThemeContext = React.createContext({
-  availableThemes: [],
-  selectedTheme: lightMode,
-  systemTheme: lightMode,
-  switchTheme: (themeName) => {},
-  getActiveMode: () => {},
-  getActiveDecomposedMode: () => {},
-})
+export const ThemeContext = React.createContext()
 
 export function ThemeProvider(props) {
   const availableThemes = [systemMode, darkMode, lightMode]
-  const [selectedTheme, setSelectedTheme] = useState(systemMode)
-  const [systemTheme, setSystemTheme] = useState(lightMode)
+  const [selectedMode, setSelectedMode] = useState(systemMode)
+  const [activeSystemMode, setActiveSystemMode] = useState(lightMode)
   const [cookies, setCookie, removeCookie] = useCookies(['theme'])
   let root
 
@@ -43,27 +36,27 @@ export function ThemeProvider(props) {
       switchTheme(cookies.theme)
     }
 
-    if (selectedTheme.name === systemMode.name) {
+    if (selectedMode.name === systemMode.name) {
       if (
         typeof window !== 'undefined' &&
         window.matchMedia &&
         window.matchMedia('(prefers-color-scheme: dark)').matches
       ) {
-        setSystemTheme(darkMode)
+        setActiveSystemMode(darkMode)
       } else {
-        setSystemTheme(lightMode)
+        setActiveSystemMode(lightMode)
       }
     }
 
     window
       .matchMedia('(prefers-color-scheme: dark)')
       .addEventListener('change', (e) => {
-        if (selectedTheme.name === systemMode.name) {
+        if (selectedMode.name === systemMode.name) {
           const newColorScheme = e.matches ? darkMode.name : lightMode.name
           if (newColorScheme === darkMode.name) {
-            setSystemTheme(darkMode)
+            setActiveSystemMode(darkMode)
           } else {
-            setSystemTheme(lightMode)
+            setActiveSystemMode(lightMode)
           }
         }
       })
@@ -73,31 +66,31 @@ export function ThemeProvider(props) {
     if (theme === darkMode.name) {
       root.classList.remove(lightMode.name)
       root.classList.add(darkMode.name)
-      setSelectedTheme(darkMode)
+      setSelectedMode(darkMode)
       setCookie('theme', darkMode.name)
-    } else if (theme == lightMode.name) {
+    } else if (theme === lightMode.name) {
       root.classList.remove(darkMode.name)
       root.classList.add(lightMode.name)
-      setSelectedTheme(lightMode)
+      setSelectedMode(lightMode)
       setCookie('theme', lightMode.name)
     } else {
       root.classList.remove(darkMode.name)
       root.classList.remove(lightMode.name)
-      setSelectedTheme(systemMode)
+      setSelectedMode(systemMode)
       setCookie('theme', systemMode.name)
     }
   }
 
-  const getActiveMode = () => {
-    return selectedTheme
+  const getSelectedMode = () => {
+    return selectedMode
   }
 
-  const getActiveDecomposedMode = () => {
-    return selectedTheme.name === 'system'
-      ? systemTheme.name === 'dark'
+  const getActiveMode = () => {
+    return selectedMode.name === 'system'
+      ? activeSystemMode.name === 'dark'
         ? darkMode
         : lightMode
-      : selectedTheme.name === 'dark'
+      : selectedMode.name === 'dark'
       ? darkMode
       : lightMode
   }
@@ -107,8 +100,8 @@ export function ThemeProvider(props) {
       value={{
         availableThemes,
         switchTheme,
+        getSelectedMode,
         getActiveMode,
-        getActiveDecomposedMode,
       }}
     >
       {props.children}

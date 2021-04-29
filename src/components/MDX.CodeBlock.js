@@ -68,7 +68,7 @@ export default function CodeBlock({ className, children }) {
   const [splitOutput, setSplitOutput] = useState([])
   const [copyButtonState, setCopyButtonState] = useState(false)
   const [customTheme, setCustomTheme] = useState(
-    themeContext.getActiveDecomposedMode().codeTheme
+    themeContext.getActiveMode().codeTheme
   )
 
   useEffect(() => {
@@ -81,7 +81,7 @@ export default function CodeBlock({ className, children }) {
       setSplitOutput(children.split('------'))
     }
 
-    setCustomTheme(themeContext.getActiveDecomposedMode().codeTheme)
+    setCustomTheme(themeContext.getActiveMode().codeTheme)
   }, [themeContext])
 
   const copyCode = (e) => {
