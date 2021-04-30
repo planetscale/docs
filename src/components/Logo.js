@@ -46,7 +46,6 @@ const HomeLink = styled.a`
   text-decoration: none;
   align-items: center;
   justify-content: stretch;
-  margin-right: 2em;
 `
 
 export default function Logo() {
