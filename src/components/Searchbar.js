@@ -4,7 +4,7 @@ import { ButtonSecondary } from './Buttons'
 
 const SearchContainer = styled.div`
   position: relative;
-  width: 230px;
+  width: 330px;
 
   &:focus {
     background-color: orange;
@@ -22,13 +22,13 @@ const SearchBox = styled.input`
   background-color: var(--bg-secondary);
   color: var(--text-primary);
   box-shadow: var(--tw-shadow);
-  width: 230px;
+  width: 330px;
   transition: width 100ms ease-out;
 
   &:focus {
     background-color: var(--bg-primary);
     border-color: var(--text-blue);
-    width: 300px;
+    width: 420px;
   }
 
   &::placeholder {

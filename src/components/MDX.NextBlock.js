@@ -3,18 +3,31 @@ import styled from 'styled-components'
 import { ArrowRightS } from '@styled-icons/remix-line'
 
 const NextBlockContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
-  border-top: 1px solid var(--border-primary);
-  /* border-radius: 6px; */
   margin: 0;
   padding: 2em 0 0;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--border-primary),
+      var(--bg-primary)
+    );
+  }
 `
 
 const NextBlockHeading = styled.h2`
   margin: 0 !important;
   padding: 0 0 1em;
-  /* border-bottom: 1px solid var(--border-primary); */
 `
 
 const NextBlockList = styled.ul`
@@ -27,10 +40,6 @@ const NextBlockListItem = styled.li`
   margin: 0 -1em !important;
   padding: 0 1em;
   border-radius: 6px;
-
-  &:not(:last-of-type) {
-    /* border-bottom: 1px solid var(--border-primary); */
-  }
 
   &:hover {
     background-color: var(--bg-secondary);

@@ -3,13 +3,28 @@ import styled from 'styled-components'
 import { ThumbDown, ThumbUp, StarSmile } from '@styled-icons/remix-line'
 
 const FeedbackBlockContainer = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid var(--border-primary);
   margin-top: 2em;
   padding-top: 2em;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--border-primary),
+      var(--bg-primary)
+    );
+  }
 `
 
 const FeedbackBlockLabel = styled.span`

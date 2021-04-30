@@ -3,6 +3,9 @@ import { graphql } from 'gatsby'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import MDXContent from '../components/MDX.Content'
 import QuickNav from '../components/QuickNav'
+import { ContentBlock, PageContainer } from '../components/Layout.Wrapper'
+import Header from '../components/Header'
+import Footer from '../components/Footer'
 
 export default function DocsPage({ data }) {
   const { doc } = data
@@ -17,15 +20,21 @@ export default function DocsPage({ data }) {
           banner={frontmatter.banner ? frontmatter.banner : ''}
           pathname={`${fields.slug}`}
         />
-        <MDXContent
-          title={frontmatter.title}
-          subtitle={frontmatter.subtitle}
-          banner={frontmatter.banner ? frontmatter.banner : ''}
-          body={body}
-          lastUpdatedOn={fields.lastUpdatedOn}
-          slug={fields.slug}
-        ></MDXContent>
-        <QuickNav subNavPages={headings}></QuickNav>
+        <PageContainer>
+          <Header />
+          <ContentBlock>
+            <MDXContent
+              title={frontmatter.title}
+              subtitle={frontmatter.subtitle}
+              banner={frontmatter.banner ? frontmatter.banner : ''}
+              body={body}
+              lastUpdatedOn={fields.lastUpdatedOn}
+              slug={fields.slug}
+            ></MDXContent>
+            <QuickNav subNavPages={headings}></QuickNav>
+          </ContentBlock>
+          <Footer />
+        </PageContainer>
       </Fragment>
     )
   }

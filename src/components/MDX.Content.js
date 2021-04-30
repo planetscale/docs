@@ -3,12 +3,14 @@ import React from 'react'
 import styled from 'styled-components'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
-import { ContentBlock } from './Layout.Wrapper'
+import { ArticleBlock } from './Layout.Wrapper'
 
 // non MDX blocks
 import HeadingBlock from './HeadingBlock'
 import FeedbackBlock from './FeedbackBlock'
 import PageInfo from './PageInfo'
+
+import Footer from './Footer'
 
 // MDX blocks
 import CodeBlock from './MDX.CodeBlock'
@@ -96,7 +98,7 @@ export default function MDXContent({
   slug,
 }) {
   return (
-    <ContentBlock>
+    <ArticleBlock>
       <MarkDownContainer>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
         <MDXProvider
@@ -114,6 +116,6 @@ export default function MDXContent({
       </MarkDownContainer>
       <FeedbackBlock />
       <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>
-    </ContentBlock>
+    </ArticleBlock>
   )
 }

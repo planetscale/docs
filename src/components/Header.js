@@ -4,11 +4,19 @@ import { media } from './styles/media'
 import SearchBar from './Searchbar'
 import Cookies from 'js-cookie'
 import { ButtonSecondary } from './Buttons'
+import Logo from './Logo'
+
+const ConditionalLogoWrapper = styled.div`
+  display: none;
+
+  ${media.tablet`
+    display: unset;
+  `}
+`
 
 const HeaderWrapper = styled.div`
   width: 100%;
   height: 90px;
-  border-bottom: 1px solid var(--border-primary);
   background-color: var(--bg-primary-translucent);
   backdrop-filter: blur(8px);
   display: flex;
@@ -17,11 +25,26 @@ const HeaderWrapper = styled.div`
   position: sticky;
   top: 0;
   z-index: 1;
-  padding: 0 64px;
+  padding: 0;
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--border-primary),
+      var(--bg-primary)
+    );
+  }
 
   ${media.phone`
     padding: 2em;
-    position: unset;
+    position: relative;
     height: unset;
   `};
 `
@@ -46,6 +69,13 @@ const SearchBarWrapper = styled.div``
 const LeftContainer = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+
+  ${media.tablet`
+  > ${SearchBarWrapper} {
+      margin-left: 1em;
+    }
+  `}
 
   ${media.phone`
     flex-direction: column;
@@ -80,14 +110,6 @@ const HomeLink = styled.a`
   margin-right: 2em;
 `
 
-const Logo = styled.div`
-  height: 24px;
-  width: 5rem;
-  background: var(--logo);
-  background-size: contain;
-  background-repeat: no-repeat;
-`
-
 export default function Header() {
   const [isSignedIn, setSignedInState] = useState(false)
 
@@ -101,9 +123,9 @@ export default function Header() {
     <HeaderWrapper>
       <HeaderConstrain>
         <LeftContainer>
-          <HomeLink href="/">
+          <ConditionalLogoWrapper>
             <Logo />
-          </HomeLink>
+          </ConditionalLogoWrapper>
           <SearchBarWrapper>
             <SearchBar />
           </SearchBarWrapper>

@@ -5,12 +5,27 @@ import { ThemeContext } from './styles/themeContext'
 import Select from './Select'
 
 const FooterWrapper = styled.div`
+  position: relative;
   width: 100%;
-  border-top: 1px solid var(--border-primary);
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 32px 64px;
+  padding: 32px 0;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--border-primary),
+      var(--bg-primary)
+    );
+  }
 
   ${media.phone`
     padding: 2em;

@@ -5,14 +5,29 @@ import { LinkBlock, ButtonSecondary } from './Buttons'
 import { Github } from '@styled-icons/remix-line'
 
 const PageInfoContainer = styled.div`
+  position: relative;
   width: 100%;
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  border-top: 1px solid var(--border-primary);
   padding-top: 2em;
   margin: 2em 0;
+
+  &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(
+      to right,
+      var(--border-primary),
+      var(--bg-primary)
+    );
+  }
 
   ${media.phone`
     align-items: flex-start;

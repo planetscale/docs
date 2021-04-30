@@ -71,6 +71,7 @@
   --text-secondary: var(--gray-500);
   --text-blue: rgb(var(--blue-600));
   --text-purple: rgb(var(--purple-600));
+  --page-shadow: -33px 0 44px 5px rgba(0, 0, 0, 0.02);
   --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   --logo: url('/logo-docs_light.svg');
 }
@@ -88,6 +89,7 @@
   --text-secondary: var(--gray-400);
   --text-blue: rgb(var(--blue-400));
   --text-purple: rgb(var(--purple-300));
+  --page-shadow: -50px 0 100px -50px rgba(0, 0, 0, 0.24);
   --logo: url('/logo-docs_dark.svg');
 }
 

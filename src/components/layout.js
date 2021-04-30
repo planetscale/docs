@@ -2,11 +2,9 @@ import React from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
 import DocsNavigation from './Navigation'
-import Header from './Header'
-import Footer from './Footer'
 import './layout.css'
 
-export const PageContainer = styled.section`
+export const SiteContainer = styled.section`
   position: relative;
   background-color: var(--bg-primary);
   transition: background-color var(--themeSwitchTime) ease;
@@ -23,18 +21,7 @@ export const PageContainer = styled.section`
   `}
 `
 
-export const ContentPanel = styled.div`
-  flex-grow: 2;
-  width: 100vw;
-  display: flex;
-  flex-direction: row;
-
-  ${media.phone`
-    padding: 0;
-  `}
-`
-
-export const ContentContainer = styled.div`
+export const WidthConstrain = styled.div`
   flex-grow: 2;
   position: relative;
   display: flex;
@@ -51,14 +38,10 @@ export const ContentContainer = styled.div`
 `
 
 export default ({ children }) => (
-  <PageContainer>
-    <Header></Header>
-    <ContentPanel>
-      <ContentContainer>
-        <DocsNavigation></DocsNavigation>
-        {children}
-      </ContentContainer>
-    </ContentPanel>
-    <Footer></Footer>
-  </PageContainer>
+  <SiteContainer>
+    <WidthConstrain>
+      <DocsNavigation></DocsNavigation>
+      {children}
+    </WidthConstrain>
+  </SiteContainer>
 )

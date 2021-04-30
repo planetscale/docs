@@ -12,7 +12,6 @@ const CodeBlockContainer = styled.div`
   flex-direction: column;
   border: 1px solid var(--border-primary);
   border-radius: 6px;
-  box-shadow: var(--tw-shadow);
   margin: 3em 0;
 
   > code:not(:last-of-type) {
@@ -60,6 +59,9 @@ const CodeBlockContent = styled.code`
   overflow: scroll;
   font-family: 'IBM Plex Mono';
   font-size: 14px;
+  border-bottom-left-radius: 6px;
+  border-bottom-right-radius: 6px;
+  border-radius: ${(props) => (props.command ? '0' : '')};
 `
 
 export default function CodeBlock({ className, children }) {
@@ -114,7 +116,7 @@ export default function CodeBlock({ className, children }) {
           language={codeLanguage}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
-            <CodeBlockContent className={className} style={style}>
+            <CodeBlockContent command className={className} style={style}>
               {tokens.map((line, i) => (
                 <div {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (

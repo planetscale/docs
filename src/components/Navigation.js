@@ -6,21 +6,39 @@ import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Menu2, Close, ArrowDropRight } from '@styled-icons/remix-line'
 import SearchBar from './Searchbar'
+import Logo from './Logo'
+
+const ConditionalLogoWrapper = styled.div`
+  ${media.tablet`
+    display: none;
+  `}
+`
 
 const _SearchBarContainer = styled.div`
+  position: relative;
   padding-bottom: 2em;
-  border-bottom: 1px solid var(--border-primary);
+
+  &:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    display: block;
+    height: 1px;
+    width: 100%;
+    background: linear-gradient(to right, var(--border-primary), white);
+  }
 `
 
 const _SidenavContainer = styled(ScrollArea.Root)`
   width: 0;
   flex-basis: 300px;
   position: sticky;
-  top: 90px;
+  top: 0px;
   height: calc(100vh - 90px);
-  border-right: 1px solid var(--border-primary);
   transition: border-color 100ms linear;
-  padding: 2em 0em 2em 0;
+  padding: 2em;
+  padding-right: 0;
 
   > [data-radix-scroll-area-viewport-position]::-webkit-scrollbar {
     -webkit-appearance: none;
@@ -228,6 +246,9 @@ function SideNav({ categories, docPages }) {
       </MenuLink>
       {mobileTOCState && <BackgroundFrozen></BackgroundFrozen>}
       <_SidenavContainer className={`${mobileTOCState ? 'show' : ''}`}>
+        <ConditionalLogoWrapper>
+          <Logo />
+        </ConditionalLogoWrapper>
         <_SearchBarContainer>
           <SearchBar></SearchBar>
         </_SearchBarContainer>

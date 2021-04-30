@@ -2,9 +2,11 @@ import React, { Component } from 'react'
 import styled from 'styled-components'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { media } from './styles/media'
-import { ContentBlock } from './Layout.Wrapper'
+import { PageContainer, ArticleBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
 import { ButtonSecondary } from './Buttons'
+import Header from './Header'
+import Footer from './Footer'
 
 const CalloutCardList = styled.div`
   display: grid;
@@ -120,46 +122,50 @@ class Overview extends Component {
 
   render() {
     return (
-      <ContentBlock overview>
-        <HeadingBlock
-          title="PlanetScale overview"
-          subtitle="Get upto speed on using PlanetScale to power your applications. Follow our tutorial to quickly learn the basics of creating and managing a database or learn more about the concepts, CLI and other aspects of the world's first cloud database."
-        />
-        <CalloutCardList>
-          <CalloutCard>
-            <CalloutCardHeading>Get started</CalloutCardHeading>
-            <CalloutCardSubheading>
-              Use this quick tutorial to create a new PlanetScale database, add
-              a schema and run SQL queries on a sample dataset.
-            </CalloutCardSubheading>
-            <ButtonSecondary>Quickstart</ButtonSecondary>
-          </CalloutCard>
-          <CalloutCard>
-            <CalloutCardHeading>Deep Dive</CalloutCardHeading>
-            <CalloutCardSubheading>
-              Learn more about how to effectively use PlanetScale's features to
-              make schema changes a breeze.
-            </CalloutCardSubheading>
-            <ButtonSecondary>Deep dive</ButtonSecondary>
-          </CalloutCard>
-        </CalloutCardList>
-        <CategoryList>
-          {this.props.categories.order.map((category, index) => {
-            return (
-              <Category
-                key={index}
-                category={category.name}
-                theme="dark"
-                description={category.description}
-                pages={this.getPagesInCategory(
-                  category.pages,
-                  this.props.docPages
-                )}
-              ></Category>
-            )
-          })}
-        </CategoryList>
-      </ContentBlock>
+      <PageContainer>
+        <Header />
+        <ArticleBlock>
+          <HeadingBlock
+            title="PlanetScale overview"
+            subtitle="Get upto speed on using PlanetScale to power your applications. Follow our tutorial to quickly learn the basics of creating and managing a database or learn more about the concepts, CLI and other aspects of the world's first cloud database."
+          />
+          <CalloutCardList>
+            <CalloutCard>
+              <CalloutCardHeading>Get started</CalloutCardHeading>
+              <CalloutCardSubheading>
+                Use this quick tutorial to create a new PlanetScale database,
+                add a schema and run SQL queries on a sample dataset.
+              </CalloutCardSubheading>
+              <ButtonSecondary>Quickstart</ButtonSecondary>
+            </CalloutCard>
+            <CalloutCard>
+              <CalloutCardHeading>Deep Dive</CalloutCardHeading>
+              <CalloutCardSubheading>
+                Learn more about how to effectively use PlanetScale's features
+                to make schema changes a breeze.
+              </CalloutCardSubheading>
+              <ButtonSecondary>Deep dive</ButtonSecondary>
+            </CalloutCard>
+          </CalloutCardList>
+          <CategoryList>
+            {this.props.categories.order.map((category, index) => {
+              return (
+                <Category
+                  key={index}
+                  category={category.name}
+                  theme="dark"
+                  description={category.description}
+                  pages={this.getPagesInCategory(
+                    category.pages,
+                    this.props.docPages
+                  )}
+                ></Category>
+              )
+            })}
+          </CategoryList>
+        </ArticleBlock>
+        <Footer />
+      </PageContainer>
     )
   }
 }
