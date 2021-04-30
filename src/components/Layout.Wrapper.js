@@ -38,7 +38,7 @@ export const ContentBlock = styled.div`
 export const ArticleBlock = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: 637px;
+  flex-basis: ${(props) => (props.overview ? 'auto' : '637px')};
   min-width: 0;
 
   ${media.tinydesktop`

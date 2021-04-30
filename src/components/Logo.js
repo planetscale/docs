@@ -41,10 +41,20 @@ const LogoImage = styled.div`
   background-repeat: no-repeat;
 `
 
+const HomeLink = styled.a`
+  display: flex;
+  text-decoration: none;
+  align-items: center;
+  justify-content: stretch;
+  margin-right: 2em;
+`
+
 export default function Logo() {
   return (
     <LogoContainer>
-      <LogoImage />
+      <HomeLink href="/">
+        <LogoImage />
+      </HomeLink>
     </LogoContainer>
   )
 }
