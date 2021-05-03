@@ -1,38 +1,36 @@
 import React from 'react'
-import styled from 'styled-components'
-import { styled as stitchesStyled } from '@stitches/react'
-import { media } from './styles/media'
+import { styled as stitchesStyled } from './styles/stitches.config'
 
-const HeadingWrapper = styled.div`
-  margin: 0 0 4em;
+const HeadingWrapper = stitchesStyled('div', {
+  margin: '0 0 4em',
 
-  ${media.phone`
-    border-bottom: unset;
-    margin-bottom: 0;
-  `}
-`
+  '@phone': {
+    borderBottom: 'unset',
+    marginBottom: 0,
+  },
+})
 
-const HeadingContent = styled.h1`
-  font-weight: 600;
-  font-size: 2.441em;
-  margin: 1em 0;
-`
+const HeadingContent = stitchesStyled('h1', {
+  fontWeight: '600',
+  fontSize: '2.441em',
+  margin: '1em 0',
+})
 
-const SubHeadingContainer = styled.div`
-  font-size: 1.25em;
-  line-height: 1.5em;
-  max-width: 69ch;
-  padding: 0 0 2em;
-  margin: 0;
+const SubHeadingContainer = stitchesStyled('div', {
+  fontSize: '1.25em',
+  lineHeight: '1.5em',
+  maxWidth: '69ch',
+  padding: '0 0 2em',
+  margin: 0,
 
-  ${media.phone`
-    padding-bottom: 2em;
-  `}
-`
+  '@phone': {
+    paddingBottom: '2em',
+  },
+})
 
-const CustomHorizontalRule = styled.hr`
-  border: 1px solid var(--border-primary);
-`
+const CustomHorizontalRule = stitchesStyled('hr', {
+  border: '1px solid var(--border-primary)',
+})
 
 const BannerImage = stitchesStyled('img', {
   width: '100%',
