@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
+import { styled as stitchesStyled } from '@stitches/react'
 import { media } from './styles/media'
 
 const HeadingWrapper = styled.div`
@@ -29,14 +30,14 @@ const SubHeadingContainer = styled.div`
   `}
 `
 
-const BannerContainer = styled.img`
-  width: 100%;
-  border-radius: 6px;
-`
-
 const CustomHorizontalRule = styled.hr`
   border: 1px solid var(--border-primary);
 `
+
+const BannerImage = stitchesStyled('img', {
+  width: '100%',
+  borderRadius: 6,
+})
 
 export default function HeadingBlock(props) {
   const { title, subtitle, banner } = props
@@ -44,7 +45,7 @@ export default function HeadingBlock(props) {
     <HeadingWrapper>
       <HeadingContent>{title}</HeadingContent>
       {subtitle && <SubHeadingContainer>{subtitle}</SubHeadingContainer>}
-      {banner && <BannerContainer src={banner}></BannerContainer>}
+      {banner && <BannerImage src={banner}></BannerImage>}
       {subtitle && !banner && <CustomHorizontalRule />}
     </HeadingWrapper>
   )
