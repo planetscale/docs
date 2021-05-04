@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
+import { Menu3 } from '@styled-icons/remix-line/Menu3'
 
 const QuickNavContainer = styled.nav`
   flex-basis: 215px;
@@ -25,6 +26,15 @@ const QuickNavHeader = styled.li`
   font-size: 12px;
   text-transform: uppercase;
   margin-bottom: 1em;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  > svg {
+    color: var(--text-secondary);
+    width: 14px;
+    margin-right: 6px;
+  }
 `
 
 const QuickNavListItem = styled.li`
@@ -98,7 +108,10 @@ export default function QuickNav({ subNavPages }) {
   return (
     <QuickNavContainer>
       <QuickNavList id="quicknav">
-        <QuickNavHeader>On this page</QuickNavHeader>
+        <QuickNavHeader>
+          <Menu3 />
+          On this page
+        </QuickNavHeader>
         {subNavPages.length > 0 &&
           subNavPages.map((page) => {
             return (
