@@ -92,7 +92,7 @@ export default function QuickNav({ subNavPages }) {
           document
             .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
             .parentElement.classList.add('active')
-        } else if (!entry.isIntersecting) {
+        } else {
           document
             .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
             .parentElement.classList.remove('active')

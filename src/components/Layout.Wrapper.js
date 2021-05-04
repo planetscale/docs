@@ -18,15 +18,15 @@ export const PageContainer = styled.div`
 `
 
 export const ContentBlock = styled.div`
+  position: relative;
   display: flex;
   flex-direction: row;
-  position: relative;
-  min-width: 0;
-  flex-basis: calc(685px + 215px);
+  width: 900px;
   justify-content: space-between;
   align-items: flex-start;
 
   ${media.tinydesktop`
+    width: unset;
     flex-basis: auto;
   `}
 
@@ -38,10 +38,13 @@ export const ContentBlock = styled.div`
 export const ArticleBlock = styled.div`
   display: flex;
   flex-direction: column;
-  flex-basis: ${(props) => (props.overview ? 'auto' : '637px')};
+  width: ${(props) => (props.overview ? 'auto' : '637px')};
   min-width: 0;
+  z-index: 2;
+  overflow: visible;
 
   ${media.tinydesktop`
+    width: unset;
     flex-basis: auto;
   `}
 `
