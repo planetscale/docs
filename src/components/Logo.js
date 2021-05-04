@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { media } from './styles/media'
+import { ThemeContext } from './styles/themeContext'
 
 const LogoContainer = styled.div`
   position: relative;
@@ -33,12 +34,9 @@ const LogoContainer = styled.div`
   `}
 `
 
-const LogoImage = styled.div`
+const LogoImage = styled.img`
   height: 24px;
   width: 5rem;
-  background: var(--logo);
-  background-size: contain;
-  background-repeat: no-repeat;
 `
 
 const HomeLink = styled.a`
@@ -49,10 +47,19 @@ const HomeLink = styled.a`
 `
 
 export default function Logo() {
+  const themeContext = useContext(ThemeContext)
+  const [imageURL, setImageURL] = useState(
+    themeContext.getActiveMode().codeTheme
+  )
+
+  useEffect(() => {
+    setImageURL(themeContext.getActiveMode().logo)
+  }, [themeContext])
+
   return (
     <LogoContainer>
       <HomeLink href="/">
-        <LogoImage role="img" alt="PlanetScale docs logo" />
+        <LogoImage src={imageURL} alt="PlanetScale docs logo" />
       </HomeLink>
     </LogoContainer>
   )

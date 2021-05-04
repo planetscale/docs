@@ -1,5 +1,4 @@
-import React, { useContext } from 'react'
-import { useState, useEffect } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import styled from 'styled-components'
 import { ButtonSecondary } from './Buttons'
 import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'

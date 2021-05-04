@@ -11,12 +11,14 @@ const systemMode = {
 const darkMode = {
   name: 'dark',
   label: 'Dark',
+  logo: '/logo-docs_dark.svg',
   codeTheme: exoDark,
 }
 
 const lightMode = {
   name: 'light',
   label: 'Light',
+  logo: '/logo-docs_light.svg',
   codeTheme: codeBlockThemeLight,
 }
 
