@@ -52,7 +52,7 @@ export default function Logo() {
   return (
     <LogoContainer>
       <HomeLink href="/">
-        <LogoImage />
+        <LogoImage role="img" alt="PlanetScale docs logo" />
       </HomeLink>
     </LogoContainer>
   )

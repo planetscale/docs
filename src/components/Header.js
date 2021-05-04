@@ -102,14 +102,6 @@ const LinkContainer = styled.a`
   }
 `
 
-const HomeLink = styled.a`
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-  justify-content: stretch;
-  margin-right: 2em;
-`
-
 export default function Header() {
   const [isSignedIn, setSignedInState] = useState(false)
 
