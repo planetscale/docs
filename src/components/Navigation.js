@@ -57,7 +57,7 @@ const _SidenavContainer = styled(ScrollArea.Root)`
     position: fixed;
     top: 0;
     left: -90vw;
-    z-index: 2;    
+    z-index: 3;    
     padding: 2em;
     background-color: var(--bg-primary);
     flex-basis: 100vw;
@@ -129,7 +129,7 @@ const MenuLink = styled.div`
     background-color: var(--bg-tertiary);
     box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px;
     border-radius: 6px;
-    z-index: 3;
+    z-index: 4;
     padding: 1em;
     font-size: 14px;
 
@@ -140,7 +140,7 @@ const MenuLink = styled.div`
 `
 
 const _SidenavList = styled(ScrollArea.Viewport)`
-  z-index: 1;
+  z-index: 3;
   position: relative;
 
   ${media.tablet`
@@ -216,7 +216,7 @@ const BackgroundFrozen = styled.div`
   backdrop-filter: blur(8px);
   opacity: 0.75;
   background-color: var(--gray-600);
-  z-index: 1;
+  z-index: 3;
 `
 
 function SideNav({ categories, docPages }) {
