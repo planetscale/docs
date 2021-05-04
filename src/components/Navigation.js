@@ -249,9 +249,11 @@ function SideNav({ categories, docPages }) {
         <ConditionalLogoWrapper>
           <Logo />
         </ConditionalLogoWrapper>
-        <_SearchBarContainer>
-          <SearchBar></SearchBar>
-        </_SearchBarContainer>
+        {mobileTOCState && (
+          <_SearchBarContainer>
+            <SearchBar></SearchBar>
+          </_SearchBarContainer>
+        )}
         <_SidenavList>
           <_PageLink
             onClick={mobileTOCState ? toggleMobileTOC : ''}
