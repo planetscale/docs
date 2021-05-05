@@ -1,17 +1,18 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 
-const InlineCodeBlockContainer = styled.span`
-  background: var(--bg-tertiary);
-  padding: 4px 8px;
-  margin: 0 4px;
-  border-radius: 4px;
+const InlineCodeBlockContainer = styled('code', {
+  background: 'var(--bg-tertiary)',
+  padding: '4px 8px',
+  margin: '0 4px',
+  borderRadius: '4px',
 
-  &:hover {
-    cursor: pointer;
-    background: var(--text-blue);
-  }
-`
+  '&:hover': {
+    cursor: 'pointer',
+    color: 'var(--white)',
+    background: 'var(--text-blue)',
+  },
+})
 
 export default function InlineCodeBlock({ children }) {
   const copyToClipboard = (e) => {
@@ -19,7 +20,7 @@ export default function InlineCodeBlock({ children }) {
   }
 
   return (
-    <InlineCodeBlockContainer as="code" onClick={copyToClipboard}>
+    <InlineCodeBlockContainer onClick={copyToClipboard}>
       {children}
     </InlineCodeBlockContainer>
   )
