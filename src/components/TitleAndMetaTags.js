@@ -21,7 +21,8 @@ export function TitleAndMetaTags({
       script.src =
         'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
       script.id = 'docsearch'
-      document.body.appendChild(script)
+      script.defer = true
+      document.head.appendChild(script)
 
       script.onload = () => {
         if (docSearchCallback) docSearchCallback()
