@@ -247,7 +247,9 @@ function SideNav({ categories, docPages }) {
       <MenuLink onClick={toggleMobileTOC}>
         {mobileTOCState ? <Close /> : <Menu2 />}
       </MenuLink>
-      {mobileTOCState && <BackgroundFrozen></BackgroundFrozen>}
+      {mobileTOCState && (
+        <BackgroundFrozen onClick={toggleMobileTOC}></BackgroundFrozen>
+      )}
       <_SidenavContainer className={`${mobileTOCState ? 'show' : ''}`}>
         <ConditionalLogoWrapper>
           <Logo />
