@@ -95,8 +95,15 @@ export function TitleAndMetaTags({
       </script>
 
       <link
+        rel="preload"
+        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+        as="style"
+      />
+      <link
         rel="stylesheet"
         href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
+        media="print"
+        onload="this.media='all'"
       />
     </Helmet>
   )
