@@ -26,7 +26,11 @@ const _SearchBarContainer = styled.div`
     display: block;
     height: 1px;
     width: 100%;
-    background: linear-gradient(to right, var(--border-primary), white);
+    background: linear-gradient(
+      to right,
+      var(--border-primary),
+      var(--bg-primary)
+    );
   }
 `
 
