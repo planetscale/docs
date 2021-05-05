@@ -48,9 +48,7 @@ const HomeLink = styled.a`
 
 export default function Logo() {
   const themeContext = useContext(ThemeContext)
-  const [imageURL, setImageURL] = useState(
-    themeContext.getActiveMode().codeTheme
-  )
+  const [imageURL, setImageURL] = useState(themeContext.getActiveMode().logo)
 
   useEffect(() => {
     setImageURL(themeContext.getActiveMode().logo)
