@@ -37,7 +37,11 @@ export default function Select(props) {
         value={defaultSelected}
       >
         {options.map((option) => {
-          return <option value={option.name}>{option.label}</option>
+          return (
+            <option key={option.name} value={option.name}>
+              {option.label}
+            </option>
+          )
         })}
       </CustomSelect>
       <ArrowDropDown />

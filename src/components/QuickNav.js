@@ -115,7 +115,7 @@ export default function QuickNav({ subNavPages }) {
         {subNavPages.length > 0 &&
           subNavPages.map((page) => {
             return (
-              <QuickNavListItem>
+              <QuickNavListItem key={`#${createKebabCase(page.value)}`}>
                 <AnchorLink href={`#${createKebabCase(page.value)}`}>
                   {page.value}
                 </AnchorLink>

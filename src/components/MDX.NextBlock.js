@@ -72,7 +72,7 @@ export default function NextBlock(props) {
       <NextBlockList>
         {steps.map((step) => {
           return (
-            <NextBlockListItem>
+            <NextBlockListItem key={step.link}>
               <NextBlockListItemLink href={step.link}>
                 <span>{step.text}</span>
                 <ArrowRightS />
