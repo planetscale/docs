@@ -19,7 +19,7 @@ const SearchBox = styled.input`
   border-radius: 6px;
   outline: 0;
   padding: 0.5em 1em;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary-translucent);
   color: var(--text-primary);
   box-shadow: var(--tw-shadow);
   width: 330px;
@@ -52,7 +52,7 @@ const KeyPressIndicator = styled(ButtonSecondary)`
   padding: 4px 8px;
   font-size: 12px;
   color: var(--gray-500);
-  background-color: var(--bg-secondary);
+  background-color: unset;
   border: unset;
 `
 
