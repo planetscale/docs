@@ -46,6 +46,11 @@ const HeaderWrapper = styled.div`
     padding: 2em;
     position: relative;
     height: unset;
+    border-bottom: 1px solid var(--border-primary);
+
+    &:after {
+      content: unset;
+    }
   `};
 `
 

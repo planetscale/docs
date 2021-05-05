@@ -29,6 +29,11 @@ const FooterWrapper = styled.div`
 
   ${media.phone`
     padding: 2em;
+    border-top: 1px solid var(--border-primary);
+
+    &:after {
+      content: unset;
+    }
   `};
 `
 
