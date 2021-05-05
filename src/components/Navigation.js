@@ -55,11 +55,10 @@ const _SidenavContainer = styled(ScrollArea.Root)`
   }
 
   ${media.tablet`
-    visibility: hidden;
     border-right: unset;
     position: fixed;
     top: 0;
-    left: -90vw;
+    left: -100vw;
     z-index: 5;    
     padding: 2em;
     background-color: var(--bg-primary);
@@ -74,7 +73,6 @@ const _SidenavContainer = styled(ScrollArea.Root)`
 
     &.show {
       left: 0;
-      visibility: visible;
     }
   `}
 
