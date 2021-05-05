@@ -152,9 +152,11 @@ const _SidenavList = styled(ScrollArea.Viewport)`
 const _GroupContainer = styled(Collapsible.Root)``
 
 const _GroupHeading = styled(Collapsible.Button)`
-  font-size: 1em;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
   letter-spacing: 1px;
-  color: var(--text-secondary);
+  color: var(--text-tertiary);
   background-color: unset;
   border: unset;
   padding: 0;
@@ -259,7 +261,7 @@ function SideNav({ categories, docPages }) {
         )}
         <_SidenavList>
           <_PageLink
-            onClick={mobileTOCState ? toggleMobileTOC : ''}
+            onClick={mobileTOCState ? toggleMobileTOC : () => {}}
             to="/"
             activeClassName="active"
           >
@@ -272,7 +274,7 @@ function SideNav({ categories, docPages }) {
                 key={index}
                 category={category.name}
                 pages={getPagesInCategory(category, docPages)}
-                onClick={mobileTOCState ? toggleMobileTOC : ''}
+                onClick={mobileTOCState ? toggleMobileTOC : () => {}}
               ></SidenavGroup>
             )
           })}
