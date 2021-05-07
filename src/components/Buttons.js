@@ -24,7 +24,7 @@ export const ButtonPrimary = styled('button', {
   alignItems: 'center',
   color: 'var(--bg-primary)',
 
-  '> svg': {
+  '& svg': {
     width: '14px',
     marginRight: '8px',
     color: 'var(--text-secondary)',
@@ -46,12 +46,12 @@ export const ButtonSecondary = styled('button', {
   cursor: 'pointer',
   display: 'flex',
   flexdirection: 'row',
-  alignitems: 'center',
+  alignItems: 'center',
   color: 'var(--text-primary)',
 
-  '> svg': {
+  '& svg': {
     width: '14px',
-    marginright: '8px',
+    marginRight: '8px',
     color: 'var(--text-secondary)',
   },
 
