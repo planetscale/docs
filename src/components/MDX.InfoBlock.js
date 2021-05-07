@@ -54,7 +54,7 @@ const ImageBlockContainer = styled('div', {
 
   variants: {
     type: {
-      info: {
+      note: {
         [`> ${IconContainer} > svg`]: {
           color: 'rgb(var(--green-600))',
         },
@@ -79,7 +79,7 @@ export default function InfoBlock(props) {
   return (
     <ImageBlockContainer type={type}>
       <IconContainer>
-        {type === 'info' && <File4 />}
+        {type === 'note' && <File4 />}
         {type === 'warning' && <AlarmWarning />}
         {type === 'tip' && <Star />}
       </IconContainer>
