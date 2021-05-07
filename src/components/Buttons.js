@@ -1,61 +1,61 @@
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 
-export const LinkBlock = styled.a`
-  text-decoration: none;
-  color: var(--text-primary);
+export const LinkBlock = styled('a', {
+  textDecoration: 'none',
+  color: 'var(--text-primary)',
 
-  &:visited {
-    color: var(--text-primary);
-  }
-`
+  '&:visited': {
+    color: 'var(--text-primary)',
+  },
+})
 
-export const ButtonPrimary = styled.button`
-  text-decoration: none;
-  padding: 0.7em 1.5em;
-  white-space: nowrap;
-  border: 1px solid var(--text-primary);
-  background-color: var(--text-primary);
-  border-radius: 6px;
-  font-size: 1em;
-  font-weight: 600;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: var(--bg-primary);
+export const ButtonPrimary = styled('button', {
+  textDecoration: 'none',
+  padding: '0.7em 1.5em',
+  whiteSpace: 'nowrap',
+  border: '1px solid var(--text-primary)',
+  backgroundColor: 'var(--text-primary)',
+  borderRadius: '6px',
+  fontSize: '1em',
+  fontWeight: '600',
+  cursor: 'pointer',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  color: 'var(--bg-primary)',
 
-  > svg {
-    width: 14px;
-    margin-right: 8px;
-    color: var(--text-secondary);
-  }
+  '> svg': {
+    width: '14px',
+    marginRight: '8px',
+    color: 'var(--text-secondary)',
+  },
 
-  &:hover {
-    background-color: var(--bg-secondary);
-  }
-`
+  '&:hover': {
+    backgroundColor: 'var(--bg-secondary)',
+  },
+})
 
-export const ButtonSecondary = styled.button`
-  text-decoration: none;
-  padding: 0.5em 1em;
-  white-space: nowrap;
-  border: 1px solid var(--border-primary);
-  background-color: var(--bg-primary);
-  border-radius: 6px;
-  font-size: 14px;
-  cursor: pointer;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  color: var(--text-primary);
+export const ButtonSecondary = styled('button', {
+  textDecoration: 'unset',
+  padding: '0.5em 1em',
+  whitespace: 'nowrap',
+  border: '1px solid var(--border-primary)',
+  backgroundColor: 'var(--bg-primary)',
+  borderRadius: '6px',
+  fontSize: '14px',
+  cursor: 'pointer',
+  display: 'flex',
+  flexdirection: 'row',
+  alignitems: 'center',
+  color: 'var(--text-primary)',
 
-  > svg {
-    width: 14px;
-    margin-right: 8px;
-    color: var(--text-secondary);
-  }
+  '> svg': {
+    width: '14px',
+    marginright: '8px',
+    color: 'var(--text-secondary)',
+  },
 
-  &:hover {
-    background-color: var(--bg-secondary);
-  }
-`
+  '&:hover': {
+    backgroundColor: 'var(--bg-secondary)',
+  },
+})

@@ -1,6 +1,6 @@
 // libs
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { MDXProvider } from '@mdx-js/react'
 import { MDXRenderer } from 'gatsby-plugin-mdx'
 import { ArticleBlock } from './Layout.Wrapper'
@@ -10,8 +10,6 @@ import HeadingBlock from './HeadingBlock'
 import FeedbackBlock from './FeedbackBlock'
 import PageInfo from './PageInfo'
 
-import Footer from './Footer'
-
 // MDX blocks
 import CodeBlock from './MDX.CodeBlock'
 import InlineCodeBlock from './MDX.InlineCodeBlock'
@@ -20,74 +18,73 @@ import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
 
-const MarkDownContainer = styled.div`
-  h3 {
-    font-weight: 600;
-    font-size: 1.25em;
-    margin-top: 2.5em;
-    margin-bottom: 0;
-  }
+const MarkDownContainer = styled('div', {
+  '& h3': {
+    fontWeight: '600',
+    fontSize: '1.25em',
+    marginTop: '2.5em',
+    marginBottom: '0',
+  },
 
-  a {
-    color: var(--text-blue);
-    text-decoration: none;
-    border-bottom: 1px solid var(--bg-primary);
-    transition: border-bottom 0.25s ease;
+  '& a': {
+    color: 'var(--text-blue)',
+    textDecoration: 'none',
+    borderBottom: '1px solid var(--bg-primary)',
+    transition: 'border-bottom 0.25s ease',
 
-    &:hover {
-      border-bottom: 1px solid var(--text-blue);
-    }
-  }
+    '&:hover': {
+      borderBottom: '1px solid var(--text-blue)',
+    },
+  },
 
-  p {
-    font-size: 1em;
-    line-height: 1.75em;
-  }
+  '& p': {
+    fontSize: '1em',
+    lineHeight: '1.75em',
+  },
 
-  ul,
-  ol {
-    white-space: normal;
-    padding: 0 1em;
-  }
+  '& ul, ol': {
+    whitespace: 'normal',
+    padding: '0 1em',
+  },
 
-  ol > li {
-    font-size: 1em;
-    line-height: 1.75em;
-    margin: 1em 0.5em;
-  }
+  '& ol > li': {
+    fontSize: '1em',
+    lineHeight: '1.75em',
+    margin: '1em 0.5em',
+  },
 
-  ul > li {
-    font-size: 1em;
-    line-height: 1.75em;
-    margin: 1em 0;
-  }
+  '& ul > li': {
+    fontSize: '1em',
+    lineHeight: '1.75em',
+    margin: '1em 0',
+  },
 
-  table {
-    border: 1px solid var(--border-primary);
-    border-radius: 6px;
-    margin-top: 2em;
-    width: 100%;
-    font-size: 14px;
-    color: var(--foreground2);
-    border-spacing: 0;
-  }
+  '& table': {
+    border: '1px solid var(--border-primary)',
+    borderRadius: '6px',
+    marginTop: '2em',
+    width: '100%',
+    fontSize: '14px',
+    color: 'var(--foreground2)',
+    borderSpacing: '0',
+  },
 
-  table th {
-    text-align: left;
-    padding: 1em;
-    color: var(--text-secondary);
-    border-bottom: 2px solid var(--border-primary);
-  }
+  '& table th': {
+    textAlign: 'left',
+    padding: '1em',
+    color: 'var(--text-secondary)',
+    borderBottom: '2px solid var(--border-primary)',
+  },
 
-  table td {
-    padding: 1em;
-    border-bottom: 1px solid var(--border-primary);
-  }
+  '& table td': {
+    padding: '1em',
+    borderBottom: '1px solid var(--border-primary)',
+  },
 
-  table tr:last-child td {
-    border-bottom: unset;
-  }
-`
+  '& table tr:last-child td': {
+    borderBottom: 'unset',
+  },
+})
 
 export default function MDXContent({
   title,

@@ -1,67 +1,64 @@
 import React from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { ArrowRightS } from '@styled-icons/remix-line'
 
-const NextBlockContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  margin: 0;
-  padding: 2em 0 0;
+const NextBlockContainer = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  margin: '0',
+  padding: '2em 0 0',
 
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      var(--border-primary),
-      var(--bg-primary)
-    );
-  }
-`
+  '&:after': {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    content: '',
+    display: 'block',
+    height: '1px',
+    width: '100%',
+    background:
+      'linear-gradient(to right,var(--border-primary),var(--bg-primary))',
+  },
+})
 
-const NextBlockHeading = styled.h2`
-  margin: 0 !important;
-  padding: 0 0 1em;
-`
+const NextBlockHeading = styled('h2', {
+  margin: '0 !important',
+  padding: '0 0 1em',
+})
 
-const NextBlockList = styled.ul`
-  list-style: none;
-  padding: 0 !important;
-  margin: 0 !important;
-`
+const NextBlockList = styled('ul', {
+  listStyle: 'none',
+  padding: '0 !important',
+  margin: '0 !important',
+})
 
-const NextBlockListItem = styled.li`
-  margin: 0 -1em !important;
-  padding: 0 1em;
-  border-radius: 6px;
+const NextBlockListItem = styled('li', {
+  margin: '0 -1em !important',
+  padding: '0 1em',
+  borderRadius: '6px',
 
-  &:hover {
-    background-color: var(--bg-secondary);
-  }
-`
+  '&:hover': {
+    backgroundColor: 'var(--bg-secondary)',
+  },
+})
 
-const NextBlockListItemLink = styled.a`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5em 0;
-  border-bottom: 0 !important;
+const NextBlockListItemLink = styled('a', {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  padding: '0.5em 0',
+  borderBottom: '0 !important',
 
-  > svg {
-    width: 1em;
-  }
+  '> svg': {
+    width: '1em',
+  },
 
-  &:hover {
-    border-bottom: 0 !important;
-  }
-`
+  '&:hover': {
+    borderBottom: '0 !important',
+  },
+})
 
 export default function NextBlock(props) {
   const { steps } = props

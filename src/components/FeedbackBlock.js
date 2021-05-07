@@ -1,71 +1,68 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { ThumbDown, ThumbUp, StarSmile } from '@styled-icons/remix-line'
 
-const FeedbackBlockContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 2em;
-  padding-top: 2em;
+const FeedbackBlockContainer = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'center',
+  marginTop: '2em',
+  paddingTop: '2em',
 
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      var(--border-primary),
-      var(--bg-primary)
-    );
-  }
-`
+  '&:after': {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    content: '',
+    display: 'block',
+    height: '1px',
+    width: '100%',
+    background:
+      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+  },
+})
 
-const FeedbackBlockLabel = styled.span`
-  font-size: 14px;
-  color: var(--text-secondary);
-`
+const FeedbackBlockLabel = styled('span', {
+  fontSize: '14px',
+  color: 'var(--text-secondary)',
+})
 
-const IconButton = styled.button`
-  background-color: unset;
-  border: unset;
-  border-radius: 50%;
-  padding: 4px 7px;
-  transition: transform 200ms ease;
+const IconButton = styled('button', {
+  backgroundColor: 'unset',
+  border: 'unset',
+  borderRadius: '50%',
+  padding: '4px 7px',
+  transition: 'transform 200ms ease',
 
-  > svg {
-    width: 1.75em;
-    height: 2.25em;
-    color: var(--text-secondary);
+  '> svg': {
+    width: '1.75em',
+    height: '2.25em',
+    color: 'var(--text-secondary)',
 
-    &:not(:last-child) {
-      margin-right: 1em;
-    }
-  }
+    '&:not(:last-child)': {
+      marginRight: '1em',
+    },
+  },
 
-  &:hover {
-    transform: scale(1.2);
-    background-color: var(--bg-blue);
-    cursor: pointer;
+  '&:hover': {
+    transform: 'scale(1.2)',
+    backgroundColor: 'var(--bg-blue)',
+    cursor: 'pointer',
 
-    > svg {
-      color: var(--white);
-    }
-  }
-`
+    '> svg': {
+      color: 'var(--white)',
+    },
+  },
+})
 
-const FeedbackBlockReactions = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  font-size: 14px;
-`
+const FeedbackBlockReactions = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  fontSize: '14px',
+})
 
 export default function FeedbackBlock() {
   const pageURL = typeof window !== 'undefined' ? window.location.href : ''

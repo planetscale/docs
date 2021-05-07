@@ -1,67 +1,74 @@
 import React, { useContext, useState, useEffect } from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { ButtonSecondary } from './Buttons'
 import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
 import { ThemeContext } from './styles/themeContext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 
-const CodeBlockContainer = styled.div`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border-primary);
-  border-radius: 6px;
-  margin: 3em 0;
+const CodeBlockContainer = styled('div', {
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'column',
+  border: '1px solid var(--border-primary)',
+  borderRadius: '6px',
+  margin: '3em 0',
 
-  > code:not(:last-of-type) {
-    border-bottom: 1px solid var(--border-primary);
-  }
-`
+  '> code:not(:last-of-type)': {
+    borderBottom: '1px solid var(--border-primary)',
+  },
+})
 
-const CopyButton = styled(ButtonSecondary)`
-  font-size: 12px;
-  border: unset;
-  background-color: unset;
-  padding: 0.75em 1em;
+const CopyButton = styled(ButtonSecondary, {
+  fontSize: '12px',
+  border: 'unset',
+  backgroundColor: 'unset',
+  padding: '0.75em 1em',
 
-  &:hover {
-    opacity: var(--bg-secondary);
-  }
-`
+  '&:hover': {
+    opacity: 'var(--bg-secondary)',
+  },
+})
 
-const CopyButtonText = styled.span``
+const CopyButtonText = styled('span', {})
 
-const CodeBlockHeader = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  border-top-left-radius: 6px;
-  border-top-right-radius: 6px;
-  padding: 0.5em 0.5em 0.5em 1em;
-  width: calc(100%);
-  border-bottom: 1px solid var(--border-primary);
-`
+const CodeBlockHeader = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  borderTopLeftRadius: '6px',
+  borderTopRightRadius: '6px',
+  padding: '0.5em 0.5em 0.5em 1em',
+  width: 'calc(100%)',
+  borderBottom: '1px solid var(--border-primary)',
+})
 
-const CodeType = styled.div`
-  font-family: 'IBM Plex Mono';
-  color: var(--gray-600);
-  font-size: 14px;
-  text-transform: lowercase;
-  padding-right: 0.5em;
-  margin-right: 0.5em;
-`
+const CodeType = styled('div', {
+  fontFamily: 'IBM Plex Mono',
+  color: 'var(--gray-600)',
+  fontSize: '14px',
+  textTransform: 'lowercase',
+  paddingRight: '0.5em',
+  marginRight: '0.5em',
+})
 
-const CodeBlockContent = styled.code`
-  margin: 0;
-  padding: 1em;
-  overflow: scroll;
-  font-family: 'IBM Plex Mono';
-  font-size: 14px;
-  border-bottom-left-radius: 6px;
-  border-bottom-right-radius: 6px;
-  border-radius: ${(props) => (props.command ? '0' : '')};
-`
+const CodeBlockContent = styled('code', {
+  margin: '0',
+  padding: '1em',
+  overflow: 'scroll',
+  fontFamily: 'IBM Plex Mono',
+  fontSize: '14px',
+  borderBottomLeftRadius: '6px',
+  borderBottomRightRadius: '6px',
+
+  variants: {
+    command: {
+      true: {
+        borderRadius: '0',
+      },
+    },
+  },
+})
 
 export default function CodeBlock({ className, children }) {
   const themeContext = useContext(ThemeContext)

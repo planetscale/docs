@@ -1,68 +1,67 @@
 import React, { useEffect } from 'react'
-import styled from 'styled-components'
-import { media } from './styles/media'
+import { styled } from './styles/stitches.config'
 import { Menu3 } from '@styled-icons/remix-line/Menu3'
 
-const QuickNavContainer = styled.nav`
-  flex-basis: 215px;
-  margin: 2em 0 0;
-  position: sticky;
-  top: calc(90px + 2em);
-  border-left: 1px solid var(--border-primary);
+const QuickNavContainer = styled('nav', {
+  flexBasis: '215px',
+  margin: '2em 0 0',
+  position: 'sticky',
+  top: 'calc(90px + 2em)',
+  borderLeft: '1px solid var(--border-primary)',
 
-  ${media.tinydesktop`
-    display: none;
-  `}
-`
+  '@tinyDesktop': {
+    display: 'none',
+  },
+})
 
-const QuickNavList = styled.ul`
-  list-style: none;
-  padding: 0;
-  margin: 0;
-`
+const QuickNavList = styled('ul', {
+  listStyle: 'none',
+  padding: '0',
+  margin: '0',
+})
 
-const QuickNavHeader = styled.li`
-  padding: 0 0 0 2em;
-  font-size: 12px;
-  text-transform: uppercase;
-  margin-bottom: 1em;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
+const QuickNavHeader = styled('li', {
+  padding: '0 0 0 2em',
+  fontSize: '12px',
+  textTransform: 'uppercase',
+  marginBottom: '1em',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
 
-  > svg {
-    color: var(--text-secondary);
-    width: 14px;
-    margin-right: 6px;
-  }
-`
+  '> svg': {
+    color: 'var(--text-secondary)',
+    width: '14px',
+    marginRight: '6px',
+  },
+})
 
-const QuickNavListItem = styled.li`
-  margin-left: -1px;
-  padding: 0 0 0 2em;
-  font-size: 12px;
-  line-height: 20px;
-  color: var(--text-secondary);
-  border-left: 1px solid var(--border-primary);
+const QuickNavListItem = styled('li', {
+  marginLeft: '-1px',
+  padding: '0 0 0 2em',
+  fontSize: '12px',
+  lineHeight: '20px',
+  color: 'var(--text-secondary)',
+  borderLeft: '1px solid var(--border-primary)',
 
-  &:not(:last-child) {
-    padding-bottom: 0.5em;
-    padding-top: 0.5em;
-  }
+  '&:not(:last-child)': {
+    paddingBottom: '0.5em',
+    paddingTop: '0.5em',
+  },
 
-  &.active {
-    border-left: 1px solid var(--gray-400);
-  }
-`
+  '&.active': {
+    borderLeft: '1px solid var(--gray-400)',
+  },
+})
 
-const AnchorLink = styled.a`
-  color: var(--text-secondary);
-  text-decoration: unset;
+const AnchorLink = styled('a', {
+  color: 'var(--text-secondary)',
+  textDecoration: 'unset',
 
-  &:hover {
-    color: var(--text-primary);
-  }
-`
+  '&:hover': {
+    color: 'var(--text-primary)',
+  },
+})
 
 export default function QuickNav({ subNavPages }) {
   function createKebabCase(text) {

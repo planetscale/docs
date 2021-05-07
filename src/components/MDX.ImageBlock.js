@@ -1,9 +1,8 @@
 import React, { useEffect, useState, useContext } from 'react'
-import styled from 'styled-components'
-import { styled as stitchesStyled } from './styles/stitches.config'
+import { styled } from './styles/stitches.config'
 import { ThemeContext } from './styles/themeContext'
 
-const ImageBlockContainer = stitchesStyled('figure', {
+const ImageBlockContainer = styled('figure', {
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',
@@ -28,16 +27,16 @@ const ImageBlockContainer = stitchesStyled('figure', {
   },
 })
 
-const ImageBlockImage = styled.img`
-  margin: 0;
-  max-width: 100%;
-  border-radius: 6px;
-`
+const ImageBlockImage = styled('img', {
+  margin: 0,
+  maxWidth: '100%',
+  borderRadius: '6px',
+})
 
-const ImageBlockCaption = styled.figcaption`
-  font-size: 12px;
-  color: var(--text-secondary);
-`
+const ImageBlockCaption = styled('figcaption', {
+  fontSize: '12px',
+  color: 'var(--text-secondary)',
+})
 
 export default function ImageBlock(props) {
   const { alt, src } = props

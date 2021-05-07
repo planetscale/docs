@@ -1,60 +1,56 @@
 import React, { useEffect, useState } from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { ButtonSecondary } from './Buttons'
 
-const SearchContainer = styled.div`
-  position: relative;
-  width: 330px;
+const SearchContainer = styled('div', {
+  position: 'relative',
+  width: '330px',
+})
 
-  &:focus {
-    background-color: orange;
-  }
-`
+const SearchBoxLabel = styled('label', {})
 
-const SearchBoxLabel = styled.label``
+const SearchBox = styled('input', {
+  border: '1px solid var(--border-action)',
+  fontSize: '14px',
+  borderRadius: '6px',
+  outline: '0',
+  padding: '0.5em 1em',
+  backgroundColor: 'var(--bg-primary-translucent)',
+  color: 'var(--text-primary)',
+  boxShadow: 'var(--tw-shadow)',
+  width: '330px',
+  transition: 'width 100ms ease-out',
 
-const SearchBox = styled.input`
-  border: 1px solid var(--border-action);
-  font-size: 14px;
-  border-radius: 6px;
-  outline: 0;
-  padding: 0.5em 1em;
-  background-color: var(--bg-primary-translucent);
-  color: var(--text-primary);
-  box-shadow: var(--tw-shadow);
-  width: 330px;
-  transition: width 100ms ease-out;
+  '&:focus': {
+    backgroundColor: 'var(--bg-primary)',
+    borderColor: 'var(--text-blue)',
+    width: '420px',
+  },
 
-  &:focus {
-    background-color: var(--bg-primary);
-    border-color: var(--text-blue);
-    width: 420px;
-  }
+  '&::placeholder': {
+    color: 'var(--gray-500)',
+  },
+})
 
-  &::placeholder {
-    color: var(--gray-500);
-  }
-`
+const KeyPressIndicatorWrapper = styled('div', {
+  position: 'absolute',
+  top: '0',
+  left: '0',
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'row-reverse',
+  alignItems: 'center',
+  paddingRight: '4px',
+})
 
-const KeyPressIndicatorWrapper = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row-reverse;
-  align-items: center;
-  padding-right: 4px;
-`
-
-const KeyPressIndicator = styled(ButtonSecondary)`
-  padding: 4px 8px;
-  font-size: 12px;
-  color: var(--gray-500);
-  background-color: unset;
-  border: unset;
-`
+const KeyPressIndicator = styled(ButtonSecondary, {
+  padding: '4px 8px',
+  fontSize: '12px',
+  color: 'var(--gray-500)',
+  backgroundColor: 'unset',
+  border: 'unset',
+})
 
 export default function SearchBar() {
   const [isKeyPressIndicatorVisible, setKeyPressIndicatorState] = useState(true)

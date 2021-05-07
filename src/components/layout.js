@@ -1,41 +1,40 @@
 import React from 'react'
-import styled from 'styled-components'
-import { media } from './styles/media'
+import { styled } from './styles/stitches.config'
 import DocsNavigation from './Navigation'
 import './layout.css'
 
-export const SiteContainer = styled.section`
-  position: relative;
-  background-color: var(--bg-primary);
-  transition: background-color var(--themeSwitchTime) ease;
-  width: 100vw;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+export const SiteContainer = styled('section', {
+  position: 'relative',
+  backgroundColor: 'var(--bg-primary)',
+  transition: 'backgroundColor var(--themeSwitchTime) ease',
+  width: '100vw',
+  minHeight: '100vh',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
 
-  ${media.tablet`
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-  `}
-`
+  '@tablet': {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'stretch',
+  },
+})
 
-export const WidthConstrain = styled.div`
-  flex-grow: 2;
-  position: relative;
-  display: flex;
-  flex-direction: row;
-  align-items: flex-start;
-  justify-content: center;
+export const WidthConstrain = styled('div', {
+  flexGrow: '2',
+  position: 'relative',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
 
-  ${media.tablet`
-    flex-direction: column;
-    align-items: stretch;
-    width: 100%;
-    margin: 0;
-  `}
-`
+  '@tablet': {
+    flexDirection: 'column',
+    alignItems: 'stretch',
+    width: '100%',
+    margin: '0',
+  },
+})
 
 export default ({ children }) => (
   <SiteContainer>

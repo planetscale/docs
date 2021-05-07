@@ -1,50 +1,47 @@
 import React, { useContext, useState, useEffect } from 'react'
-import styled from 'styled-components'
-import { media } from './styles/media'
+import { styled } from './styles/stitches.config'
+
 import { ThemeContext } from './styles/themeContext'
 
-const LogoContainer = styled.div`
-  position: relative;
-  width: 100%;
-  padding-bottom: 2em;
-  margin-bottom: 2em;
+const LogoContainer = styled('div', {
+  position: 'relative',
+  width: '100%',
+  paddingBottom: '2em',
+  marginBottom: '2em',
 
-  &:after {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      var(--border-primary),
-      var(--bg-primary)
-    );
-  }
+  '&:after': {
+    position: 'absolute',
+    bottom: '0',
+    left: '0',
+    content: '',
+    display: 'block',
+    height: '1px',
+    width: '100%',
+    background:
+      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+  },
 
-  ${media.tablet`
-    padding: unset;
-    margin: unset;
-    
-    &:after {
-      display: none;
-    }
-  `}
-`
+  '@tablet': {
+    padding: 'unset',
+    margin: 'unset',
 
-const LogoImage = styled.img`
-  height: 24px;
-  width: 5rem;
-`
+    '&:after': {
+      display: 'none',
+    },
+  },
+})
 
-const HomeLink = styled.a`
-  display: flex;
-  text-decoration: none;
-  align-items: center;
-  justify-content: stretch;
-`
+const LogoImage = styled('img', {
+  height: '24px',
+  width: '5rem',
+})
+
+const HomeLink = styled('a', {
+  display: 'flex',
+  textDecoration: 'none',
+  alignItems: 'center',
+  justifyContent: 'stretch',
+})
 
 export default function Logo() {
   const themeContext = useContext(ThemeContext)

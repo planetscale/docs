@@ -1,106 +1,105 @@
 import React, { Component } from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { StaticQuery, graphql, Link } from 'gatsby'
-import { media } from './styles/media'
 import { PageContainer, ArticleBlock, ContentBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
 import { ButtonSecondary } from './Buttons'
 import Header from './Header'
 import Footer from './Footer'
 
-const CalloutCardList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: auto;
-  column-gap: 2em;
-  row-gap: 2em;
-  margin: 0 0 4em;
+const CalloutCardList = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(2, 1fr)',
+  gridTemplateRows: 'auto',
+  columnGap: '2em',
+  rowGap: '2em',
+  margin: '0 0 4em',
 
-  ${media.phone`
-    grid-template-columns: repeat(1, 1fr);
-    margin: 2em 0;
-  `}
-`
+  '@phone': {
+    gridTemplateColumns: 'repeat(1, 1fr)',
+    margin: '2em 0',
+  },
+})
 
-const CalloutCard = styled.div`
-  border: 1px solid var(--text-primary);
-  border-radius: 6px;
-  padding: 2em;
-  background-color: var(--text-primary);
-  color: var(--bg-primary);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  box-shadow: 0 0 16px -64px var(--black);
-`
+const CalloutCard = styled('div', {
+  border: '1px solid var(--text-primary)',
+  borderRadius: '6px',
+  padding: '2em',
+  backgroundColor: 'var(--text-primary)',
+  color: 'var(--bg-primary)',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  boxShadow: '0 0 16px -64px var(--black)',
+})
 
-const CalloutCardHeading = styled.h2`
-  font-size: 1.75em;
-  margin: 0 0 0.5em;
-  padding: 0;
-`
+const CalloutCardHeading = styled('h2', {
+  fontSize: '1.75em',
+  margin: '0 0 0.5em',
+  padding: '0',
+})
 
-const CalloutCardSubheading = styled.p`
-  font-size: 1em;
-  line-height: 1.5em;
-  margin: 0 0 1.5em;
-  padding: 0;
-`
+const CalloutCardSubheading = styled('p', {
+  fontSize: '1em',
+  lineHeight: '1.5em',
+  margin: '0 0 1.5em',
+  padding: '0',
+})
 
-const CategoryList = styled.div`
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: auto;
-  column-gap: 2em;
-  row-gap: 2em;
-  margin: 2em 0;
+const CategoryList = styled('div', {
+  display: 'grid',
+  gridTemplateColumns: 'repeat(1, 1fr)',
+  gridTemplateRows: 'auto',
+  columnGap: '2em',
+  rowGap: '2em',
+  margin: '2em 0',
 
-  ${media.phone`
-    display: block;
-  `}
+  '@phone': {
+    display: 'block',
+  },
 
-  ${media.tablet`
-    display: block;
-  `}
-`
+  '@tablet': {
+    display: 'block',
+  },
+})
 
-const CategoryContent = styled.div`
-  display: flex;
-  flex-direction: column;
-  padding: 2em;
-`
+const CategoryContent = styled('div', {
+  display: 'flex',
+  flexDirection: 'column',
+  padding: '2em',
+})
 
-const CategoryTitle = styled.div`
-  font-weight: 600;
-  font-size: 1.563em;
-`
+const CategoryTitle = styled('div', {
+  fontWeight: '600',
+  fontSize: '1.563em',
+})
 
-const CategorySubTitle = styled.p`
-  margin: 1em 0 0;
-`
+const CategorySubTitle = styled('p', {
+  margin: '1em 0 0',
+})
 
-const CategoryCard = styled(Link)`
-  background-color: var(--bg-primary);
-  color: var(--text-primary);
-  text-decoration: none;
-  display: flex;
-  flex-direction: column;
-  border: 1px solid var(--border-primary);
-  border-radius: 6px;
-  overflow: hidden;
+const CategoryCard = styled(Link, {
+  backgroundColor: 'var(--bg-primary)',
+  color: 'var(--text-primary)',
+  textDecoration: 'none',
+  display: 'flex',
+  flexDirection: 'column',
+  border: '1px solid var(--border-primary)',
+  borderRadius: '6px',
+  overflow: 'hidden',
 
-  &:hover {
-    background-color: var(--bg-secondary);
-  }
+  '&:hover': {
+    backgroundColor: 'var(--bg-secondary)',
+  },
 
-  ${media.phone`
-    margin-bottom: 1em;
-  `}
+  '@phone': {
+    marginBottom: '1em',
+  },
 
-  ${media.tablet`
-    margin-bottom: 1em;
-  `}
-`
+  '@tablet': {
+    marginBottom: '1em',
+  },
+})
 
 class Overview extends Component {
   constructor(props) {
@@ -206,6 +205,7 @@ const query = graphql`
     }
   }
 `
+
 export default () => (
   <StaticQuery
     query={query}

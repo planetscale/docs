@@ -1,42 +1,42 @@
 import * as React from 'react'
-import styled from 'styled-components'
+import { styled } from './styles/stitches.config'
 import { Links } from '@styled-icons/remix-line'
 
-const AnchorIcon = styled.a`
-  margin-left: 0.5em;
+const AnchorIcon = styled('a', {
+  marginLeft: '0.5em',
 
-  > svg {
-    width: 16px;
-  }
+  '> svg': {
+    width: '16px',
+  },
 
-  &:hover {
-    border: unset !important;
-  }
-`
+  '&:hover': {
+    border: 'unset !important',
+  },
+})
 
-const AnchorHeading = styled.h2`
-  font-weight: 600;
-  font-size: 1.563em;
-  margin: 2em 0 0;
+const AnchorHeading = styled('h2', {
+  fontWeight: '600',
+  fontSize: '1.563em',
+  margin: '2em 0 0',
 
-  > ${AnchorIcon} {
-    visibility: hidden;
-    height: 1.563em;
-  }
+  [`& ${AnchorIcon}`]: {
+    visibility: 'hidden',
+    height: '1.563em',
+  },
 
-  &:target:before {
-    content: '';
-    display: block;
-    height: 120px;
-    margin: -120px 0 0;
-  }
+  '&:target:before': {
+    content: '',
+    display: 'block',
+    height: '120px',
+    margin: '-120px 0 0',
+  },
 
-  &:hover {
-    > ${AnchorIcon} {
-      visibility: visible;
-    }
-  }
-`
+  '&:hover': {
+    [`& ${AnchorIcon}`]: {
+      visibility: 'visible',
+    },
+  },
+})
 
 class AnchorLink extends React.Component {
   createKebabCase = (text) => {

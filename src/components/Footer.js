@@ -1,57 +1,53 @@
 import React, { useContext } from 'react'
-import styled from 'styled-components'
-import { media } from './styles/media'
+import { styled } from './styles/stitches.config'
 import { ThemeContext } from './styles/themeContext'
 import Select from './Select'
 
-const FooterWrapper = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 32px 0;
+const FooterWrapper = styled('div', {
+  position: 'relative',
+  width: '100%',
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  padding: '32px 0',
 
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      var(--border-primary),
-      var(--bg-primary)
-    );
-  }
+  '&:after': {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    content: '',
+    display: 'block',
+    height: '1px',
+    width: '100%',
+    background:
+      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+  },
 
-  ${media.phone`
-    padding: 2em;
-    border-top: 1px solid var(--border-primary);
+  '@phone': {
+    padding: '2em',
+    borderTop: '1px solid var(--border-primary)',
 
-    &:after {
-      content: unset;
-    }
-  `};
-`
+    '&:after': {
+      content: 'unset',
+    },
+  },
+})
 
-const FooterConstrain = styled.div`
-  position: sticky;
-  top: 0;
-  max-width: 80rem;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-`
+const FooterConstrain = styled('div', {
+  position: 'sticky',
+  top: '0',
+  maxWidth: '80rem',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+})
 
-const Copyright = styled.span`
-  font-size: 12px;
-  color: var(--text-secondary);
-`
+const Copyright = styled('span', {
+  fontSize: '12px',
+  color: 'var(--text-secondary)',
+})
 
 export default function Footer() {
   const themeContext = useContext(ThemeContext)

@@ -1,48 +1,44 @@
 import React from 'react'
-import styled from 'styled-components'
-import { media } from './styles/media'
+import { styled } from './styles/stitches.config'
 import { LinkBlock, ButtonSecondary } from './Buttons'
 import { Github } from '@styled-icons/remix-line'
 
-const PageInfoContainer = styled.div`
-  position: relative;
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  padding-top: 2em;
-  margin: 2em 0;
+const PageInfoContainer = styled('div', {
+  position: 'relative',
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  paddingTop: '2em',
+  margin: '2em 0',
 
-  &:after {
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: '';
-    display: block;
-    height: 1px;
-    width: 100%;
-    background: linear-gradient(
-      to right,
-      var(--border-primary),
-      var(--bg-primary)
-    );
-  }
+  '&:after': {
+    position: 'absolute',
+    top: '0',
+    left: '0',
+    content: '',
+    display: 'block',
+    height: '1px',
+    width: '100%',
+    background:
+      'linear-gradient(to right,var(--border-primary),var(--bg-primary))',
+  },
 
-  ${media.phone`
-    align-items: flex-start;
-    flex-direction: column;
-  `}
-`
+  '@phone': {
+    alignItems: 'flex-start',
+    flexDirection: 'column',
+  },
+})
 
-const LastUpdatedDate = styled.div`
-  font-size: 14px;
-  color: var(--text-secondary);
+const LastUpdatedDate = styled('div', {
+  fontSize: '14px',
+  color: 'var(--text-secondary)',
 
-  ${media.phone`
-    margin-bottom: 1em;
-  `}
-`
+  '@phone': {
+    marginBottom: '1em',
+  },
+})
 
 export default function PageInfo({ lastUpdatedOn, slug }) {
   var lastUpdatedOnDate = new Date()
