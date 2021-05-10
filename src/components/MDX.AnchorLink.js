@@ -19,6 +19,10 @@ const AnchorHeading = styled('h2', {
   fontSize: '1.563em',
   margin: '2em 0 0',
 
+  '&:first-of-type': {
+    margin: '0',
+  },
+
   [`& ${AnchorIcon}`]: {
     visibility: 'hidden',
     height: '1.563em',

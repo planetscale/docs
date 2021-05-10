@@ -13,10 +13,12 @@ export const PageContainer = styled('div', {
 
   '@phone': {
     padding: '0',
+    flexGrow: '2',
   },
 })
 
 export const ContentBlock = styled('div', {
+  flexGrow: '2',
   position: 'relative',
   display: 'flex',
   flexDirection: 'row',

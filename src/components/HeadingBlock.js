@@ -2,11 +2,8 @@ import React from 'react'
 import { styled as stitchesStyled } from './styles/stitches.config'
 
 const HeadingWrapper = stitchesStyled('div', {
-  margin: '0 0 4em',
-
   '@phone': {
     borderBottom: 'unset',
-    marginBottom: 0,
   },
 })
 
@@ -28,13 +25,10 @@ const SubHeadingContainer = stitchesStyled('div', {
   },
 })
 
-const CustomHorizontalRule = stitchesStyled('hr', {
-  border: '1px solid var(--border-primary)',
-})
-
 const BannerImage = stitchesStyled('img', {
   width: '100%',
   borderRadius: 6,
+  margin: '0 0 4em',
 })
 
 export default function HeadingBlock(props) {
@@ -44,7 +38,6 @@ export default function HeadingBlock(props) {
       <HeadingContent>{title}</HeadingContent>
       {subtitle && <SubHeadingContainer>{subtitle}</SubHeadingContainer>}
       {banner && <BannerImage src={banner}></BannerImage>}
-      {subtitle && !banner && <CustomHorizontalRule />}
     </HeadingWrapper>
   )
 }

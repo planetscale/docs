@@ -25,7 +25,7 @@ export const WidthConstrain = styled('div', {
   position: 'relative',
   display: 'flex',
   flexDirection: 'row',
-  alignItems: 'flex-start',
+  alignItems: 'stretch',
   justifyContent: 'center',
 
   '@tablet': {
