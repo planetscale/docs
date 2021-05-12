@@ -6,15 +6,15 @@ import QuickNav from '../components/QuickNav'
 import { ContentBlock, PageContainer } from '../components/Layout.Wrapper'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
-import Layout from '../components/layout'
+import LayoutV1 from '../components/layout_v1'
 
-export default function DocsPage({ data }) {
+export default function DocsV1Page({ data }) {
   const { doc } = data
 
   if (doc) {
     const { frontmatter, body, fields, headings } = doc
     return (
-      <Layout>
+      <LayoutV1>
         <TitleAndMetaTags
           title={frontmatter.title}
           description={frontmatter.subtitle ? frontmatter.subtitle : ''}
@@ -36,13 +36,13 @@ export default function DocsPage({ data }) {
           </ContentBlock>
           <Footer />
         </PageContainer>
-      </Layout>
+      </LayoutV1>
     )
   }
 }
 
 export const pageQuery = graphql`
-  query DocQuery($slug: String!) {
+  query DocsV1Query($slug: String!) {
     doc: mdx(
       fields: { slug: { eq: $slug } }
       frontmatter: { title: { ne: "" } }

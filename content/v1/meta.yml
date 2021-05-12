@@ -1,0 +1,73 @@
+order:
+  - id: quickstart
+    name: Quickstart
+    description: Learn how to quickly setup PlanetScaleDB to connect to your application
+    pages:
+      - quickstart/managed-quickstart
+  - id: concepts
+    name: Concepts
+    description: Learn about the different features and options of PlanetScaleDB
+    pages:
+      - concepts/overview
+      - concepts/availability-features
+      - concepts/performance-features
+      - concepts/security-features
+      - concepts/clusters
+      - concepts/databases
+      - concepts/sharding-schemes
+      - concepts/deployment
+      - concepts/database-instances
+      - concepts/analytics-instances
+      - concepts/backups
+      - concepts/database-links
+      - concepts/compatibility-testing
+  - id: setup
+    name: Setup
+    description: Configure and deploy your database
+    pages:
+      - setup/creating-cluster
+      - setup/creating-database
+      - setup/configuring-sharding
+      - setup/adding-users
+      - setup/connecting-to-db
+      - setup/secure-connection
+      - setup/allowing-ips
+      - setup/user-and-password-management
+      - setup/linking-external-database
+      - setup/delete-a-cluster
+  - id: use
+    name: Use
+    description: Connect to your database and make changes to your configuration
+    pages:
+      - use/importing-data
+      - use/migrating-database-schemas
+      - use/reconfiguring-database
+      - use/resharding
+      - use/undeploying-database
+      - use/restoring-backups
+      - use/viewing-status-messages
+      - use/viewing-query-logs
+  - id: reference
+    name: Reference
+    description: Refer to technical guidelines on operation and compatibility
+    pages:
+      - reference/operational-guidelines
+      - reference/mysql-compatibility
+      - reference/pricing
+      - reference/advanced-cluster-configuration
+      - reference/sharding-scheme-ddl
+  - id: psdb-operator
+    name: PlanetScaleDB Operator
+    description: Deploy, manage, and monitor Vitess clusters in your own Kubernetes cluster using our enterprise operator
+    pages:
+      - psdb-operator/overview
+      - psdb-operator/getting-access
+      - psdb-operator/topology-guide
+      - psdb-operator/gcp-quickstart
+  - id: vitess-operator
+    name: Vitess Operator
+    description: Automate Vitess deployment and maintenance in your own Kubernetes cluster using our open source operator
+    pages:
+      - vitess-operator/overview
+      - vitess-operator/aws-quickstart
+      - vitess-operator/gcp-quickstart

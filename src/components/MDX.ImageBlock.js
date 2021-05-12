@@ -10,7 +10,7 @@ const ImageBlockContainer = styled('figure', {
   border: '1px solid var(--border-primary)',
   borderRadius: '6px',
   margin: '2em 0',
-  paddingBottom: '1em',
+  padding: '1em',
   backgroundColor: 'var(--bg-primary)',
   width: '100%',
   transition: 'width 242ms ease-in',

@@ -1,0 +1,50 @@
+---
+title: 'Viewing query logs'
+subtitle: 'This document describes how to view recent queries against your database using the PlanetScaleDB console.'
+---
+
+## Prerequisites
+
+This document assumes you have [created a database](creating-database) and [connected to your database](connecting-to-db).
+
+## Overview
+
+To view recent queries against your database, follow these steps:
+
+1. Go to the [PlanetScale console](https://console.planetscale.com).
+1. Click on your cluster.
+1. Click on your database.
+1. Select the region under **Vitess Gateway Status**.
+1. In the right hand side of the **Executor** section, click **Current Query Log**.
+1. View the query log.
+
+## Step 1. Open PlanetScale console
+
+This opens the **Clusters Overview**.
+
+## Step 2. Click on your cluster name
+
+This opens the **Overview** for your cluster.
+
+## Step 3. Click on your database name
+
+This opens the **Overview** for your database.
+
+## Step 4. Under Vitess Gateway Status, click the cloud provider region
+
+PlanetScaleDB creates a [Vitess VTGate component](https://vitess.io/docs/concepts/vtgate/) for each cloud provider region for your database. Click the cloud provider region to view the query log for that region. This opens the status dashboard for one of the Vitess VTGate components in that region.
+
+## Step 5. In the right hand side of the Executor section, click Current Query Logs
+
+Your browser will take about ten seconds to load this page, because the dashboard is sampling the current queries.
+
+## Step 6. View the query log
+
+A table appears that displays a list of queries and details for each query. These are the queries that the gateway receives during the sampling period after you request the logs.
+
+Because this log only shows the queries to one of several VTGate components for this cloud provider region, it may not contain all queries against this region during the sampling period.
+
+## See also
+
+- [Connecting to your database](connecting-to-db)
+- [MySQL compatibility](mysql-compatibility)

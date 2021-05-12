@@ -1,0 +1,83 @@
+---
+title: 'Topology Guide'
+---
+
+There are two different types of lockservers you can configure: global or cell-local.
+
+Let's discuss how Vitess uses global vs local topology.
+
+Vitess only uses the global lockserver for shared state that must be consistent across all cells of all regions.
+This is because, in a multi-region Vitess cluster, the global lockserver is typically backed by
+a quorum of members spread across regions, and using this cross-region quorum for
+all topology information would incur unnecessary latency in many cases.
+Examples of topology information that must be globally consistent include keyspace, shard, and VSchema records.
+
+PSDB Operator also relies on global topology when it needs to coordinate global consensus around topology registration and pruning, resharding, and master failover in federated (multi-region) deployments.
+
+In contrast, Vitess uses cell-local topology to store state that's only relevant to that specific cell.
+Examples of this kind of state include the addresses of tablets in that cell
+and copies of keyspace and VSchema records (SrvKeyspace and SrvVSchema, respectively)
+used by vtgates running in that cell.
+
+## Global Lockserver
+
+You can set up a global lockserver in one of two ways:
+
+1. As an external lockserver that is already deployed.
+2. As an etcd lockserver that PSDB operator deploys on a user's behalf.
+
+The most common way that people set up a global lockserver is to allow PSDB operator to deploy the lockserver on their behalf. Let's walk through how that works.
+
+### Deployed Lockserver
+
+You'll define the globalLockserver key on the spec key for your PlanetScaleCluster top-level CRD. You will choose the `etcd` field to indicate that you would like PSDB operator to deploy an etcd-based global lockserver on your behalf.
+
+```yaml
+spec:
+  globalLockserver:
+    etcd: {}
+```
+
+By leaving this as an empty object, you will allow PSDB operator to deploy an etcd-based lockserver using sane defaults. You can override these defaults by filling out optional fields to specify how you want your lockserver to be configured.
+
+To read more about what various fields do and learn how to set them, please refer to the [API reference documentation](/psdb-operator/api).
+
+### External Lockserver
+
+If you have an externally managed lockserver, use the `external` key instead of the `etcd` key of the `globalLockserver` object.
+
+```yaml
+spec:
+  globalLockserver:
+    external:
+      implementation: etcd2
+      address: http://my-etcd-hostname:2379
+      rootPath: /custom/path/prefix
+```
+
+To read more about what various fields do and learn how to set them, please refer to the [API reference documentation](/psdb-operator/api).
+
+## Local Lockserver
+
+Cell-local lockservers are optional. By default, if you don't configure a lockserver for a given cell, the data for that cell
+will be stored in the global lockserver. Sharing the global lockserver in this way is usually sufficient for single-region clusters
+and reduces unnecessary overhead.
+
+If you do want to set up per-cell lockservers, which are recommended for multi-region clusters, you can add an EtcdLockserverTemplate to your cell
+templates like such:
+
+```yaml
+spec:
+  cells:
+    - name: cellName
+      zone: az
+      lockserver:
+        etcd: {}
+```
+
+Filling out the rest of this is the same as filling out the
+EtcdLockserverTemplate for deploying a global lockserver. There is one caveat to keep
+in mind for filling out the EtcdLockserverTemplate for a cell local lockserver. When supplying the `dataVolumeClaimTemplate` portion, you must set a storageClassName for a StorageClass that's configured to only provision volumes in the availability zone that corresponds to the Vitess Cell.
+
+There is a simpler alternative, which is to set `volumeBindingMode: WaitForFirstConsumer` in the StorageClass. This allows you to use the same
+StorageClass for any availability zone.

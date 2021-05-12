@@ -20,13 +20,21 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       // Note: The below string manip has been done to remove trailing slashes.
       // Note: Gatsby's default plugin does not work
-      value: slug.substr(0, slug.length - 1),
+      value: node.fileAbsolutePath.includes('v1')
+        ? '/v1' + slug.substr(0, slug.length - 1)
+        : slug.substr(0, slug.length - 1),
     })
 
     createNodeField({
       node,
       name: 'lastUpdatedOn',
       value: gitAuthorTime,
+    })
+
+    createNodeField({
+      node,
+      name: 'directory',
+      value: node.fileAbsolutePath.includes('v1') ? 'v1' : 'docs',
     })
   }
 }
@@ -36,7 +44,12 @@ exports.createPages = ({ graphql, actions }) => {
   return new Promise((resolve) => {
     graphql(`
       {
-        allMdx(filter: { frontmatter: { title: { ne: "" } } }) {
+        allMdx(
+          filter: {
+            frontmatter: { title: { ne: "" } }
+            fields: { directory: { eq: "docs" } }
+          }
+        ) {
           edges {
             node {
               id
@@ -67,6 +80,45 @@ exports.createPages = ({ graphql, actions }) => {
 
       resolve()
     })
+
+    graphql(`
+      {
+        allMdx(
+          filter: {
+            frontmatter: { title: { ne: "" } }
+            fields: { directory: { eq: "v1" } }
+          }
+        ) {
+          edges {
+            node {
+              id
+              frontmatter {
+                title
+              }
+              fields {
+                slug
+              }
+            }
+          }
+        }
+      }
+    `).then((result) => {
+      result.data.allMdx.edges.forEach((edge) => {
+        const { node } = edge
+        if (node && node.fields) {
+          createPage({
+            path: node.fields.slug,
+            component: path.resolve(`./src/templates/docsv1.js`),
+            context: {
+              // Data passed to context is available in page queries as GraphQL variables.
+              slug: node.fields.slug,
+            },
+          })
+        }
+      })
+
+      resolve()
+    })
   })
 }
 
@@ -79,7 +131,7 @@ exports.createSchemaCustomization = ({ actions, schema }) => {
     }`,
     `type Frontmatter @infer {
       title: String!,
-      subtitle: String!,
+      subtitle: String,
       banner: String
     }`,
   ]

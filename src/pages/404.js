@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { styled } from '../components/styles/stitches.config'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import HeadingBlock from '../components/HeadingBlock'
@@ -9,6 +9,7 @@ import {
 } from '../components/Layout.Wrapper'
 import { ButtonSecondary } from '../components/Buttons'
 import { Github } from '@styled-icons/remix-line'
+import Layout from '../components/layout'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 
@@ -25,7 +26,7 @@ class NotFoundPage extends Component {
 
   render() {
     return (
-      <Fragment>
+      <Layout>
         <TitleAndMetaTags
           title="Page Not Found"
           pathname="404"
@@ -51,7 +52,7 @@ class NotFoundPage extends Component {
           </ContentBlock>
           <Footer />
         </PageContainer>
-      </Fragment>
+      </Layout>
     )
   }
 }

@@ -33,7 +33,7 @@ module.exports = {
           {
             userAgent: '*',
             allow: '/',
-            disallow: '/admin',
+            disallow: '/v1/',
           },
         ],
       },
@@ -49,6 +49,13 @@ module.exports = {
       options: {
         name: 'docs',
         path: `${__dirname}/content/docs/`,
+      },
+    },
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'v1',
+        path: `${__dirname}/content/v1/`,
       },
     },
     'gatsby-transformer-yaml',
@@ -80,12 +87,6 @@ module.exports = {
     'gatsby-plugin-sharp',
     'gatsby-plugin-catch-links',
     'gatsby-plugin-lodash',
-    {
-      resolve: `gatsby-plugin-layout`,
-      options: {
-        component: require.resolve(`./src/components/layout`),
-      },
-    },
     {
       resolve: 'gatsby-plugin-mdx',
       options: {

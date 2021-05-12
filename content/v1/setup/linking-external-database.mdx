@@ -1,0 +1,69 @@
+---
+title: 'Linking an external database (Beta)'
+subtitle: 'This document explains how to link an external database to your PlanetScaleDB account.'
+---
+
+## Prerequisites
+
+- Before you can link an external database, you must first [create a cluster](/psdb/creating-cluster).
+
+- Your external database must use MySQL version 5.6 or above.
+- Your external database must allow a PlanetScaleDB IP address to connect to the database. If your external database refuses connections from external IP addresses by default, you must have permission to whitelist an IP.
+
+You must have the following details for your external database:
+
+- Host domain or IP address
+- Port number
+- Valid user credentials
+
+## Overview
+
+Linking an external database to your PlanetScaleDB account allows you to test how PlanetScaleDB will behave with your database. PlanetScaleDB will create a database in your cluster, called a [database link](database-links), that sends its queries to your external database. This allows you to test the compatibility of your database with PlanetScaleDB.
+
+To link an external database, complete the following steps:
+
+## Step 1: Open the Overview page for a cluster
+
+When you create a new cluster, this page opens automatically. Otherwise, log in to the [PlanetScale console](https://console.planetscale.com/).
+
+![Clusters view](/img/v1/clusters-view.png)
+
+## Step 2: Select a cluster
+
+Click on the name of the cluster where PlanetScaleDB will create your database link. This will open the overview for the cluster.
+
+## Step 3: Click Link Database
+
+Under **Create your first link**, click the **Link Database** button.
+
+This opens the **Link External Database** pane.
+
+## Step 4: Enter your external database details
+
+In the **Link External Database** pane, enter the details for your external database.
+
+## Step 5: (Optional) Click Test Connection
+
+PlanetScaleDB will attempt to connect to your external database from the default cloud provider and region for your cluster. If the connection fails, follow Step 7 below.
+
+## Step 6: Select regions
+
+Select a region from the **Region Deployment** card. You can choose from the regions and cloud providers that this cluster supports. This is the region where the PlanetScaleDB components for your linked database reside.
+
+## Step 7: (Optional) Add the IP addresses for your region to the IP access list for your external database
+
+This step is only necessary if your external database does not accept connections from external IP addressesby default.
+
+A list of IP addresses appears at the bottom of the **Region Deployment** section. Add these IP addresses to the IP access list for your external database.
+
+## Step 8: Name your database link
+
+Under **Link Name**, provide a name for this database link.
+
+## Step 9: Click the Link button
+
+PlanetScaleDB connects to your external database. Your linked database will appear under **Links** in the **Clusters** overview.
+
+## See also
+
+- Learn more about [database links](database-links).

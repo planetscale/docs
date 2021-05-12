@@ -1,6 +1,5 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { styled } from './styles/stitches.config'
-
 import { ThemeContext } from './styles/themeContext'
 
 const LogoContainer = styled('div', {
@@ -8,6 +7,9 @@ const LogoContainer = styled('div', {
   width: '100%',
   paddingBottom: '2em',
   marginBottom: '2em',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
 
   '&:after': {
     position: 'absolute',
@@ -36,14 +38,24 @@ const LogoImage = styled('img', {
   width: '5rem',
 })
 
-const HomeLink = styled('a', {
+const LinkContainer = styled('a', {
   display: 'flex',
   textDecoration: 'none',
   alignItems: 'center',
   justifyContent: 'stretch',
 })
 
-export default function Logo() {
+const V1Badge = styled('div', {
+  backgroundColor: 'var(--bg-tertiary)',
+  color: 'var(--text-secondary)',
+  marginLeft: '1em',
+  padding: '0.25em 0.5em',
+  borderRadius: '6px',
+  fontSize: '12px',
+  fontWeight: '900',
+})
+
+export default function Logo({ version }) {
   const themeContext = useContext(ThemeContext)
   const [imageURL, setImageURL] = useState(themeContext.getActiveMode().logo)
 
@@ -53,9 +65,16 @@ export default function Logo() {
 
   return (
     <LogoContainer>
-      <HomeLink href="/">
+      <LinkContainer href="/">
         <LogoImage src={imageURL} alt="PlanetScale docs logo" />
-      </HomeLink>
+      </LinkContainer>
+      {version === 'v1' ? (
+        <LinkContainer href="/v1">
+          <V1Badge>V1</V1Badge>
+        </LinkContainer>
+      ) : (
+        ''
+      )}
     </LogoContainer>
   )
 }

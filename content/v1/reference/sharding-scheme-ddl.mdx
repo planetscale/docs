@@ -1,0 +1,93 @@
+---
+title: 'Update sharding scheme using DDL statements'
+---
+
+Before you can execute Sharding Scheme DDL statements in the MySQL terminal, you must grant the user sharding scheme DDL privileges via the [Advanced Cluster Configuration](configuring-cluster) option.
+
+## Overview
+
+This will cover some common use-cases for editing your Sharding Scheme:
+
+1. How to Create a Primary Vindex
+1. How to add a Vindex to a Table
+1. How to Add a Secondary Vindex
+1. How to Add a Sequence
+
+## Creating a Primary Vindex
+
+```sql
+alter vschema create vindex VINDEX_NAME using VINDEX_TYPE
+```
+
+This command creates a Vindex called `VINDEX_NAME` of type `VINDEX_TYPE`. The full list of predefined Vindex types can be found in the open source [Vitess documentation for Vindexes](https://vitess.io/docs/reference/features/vindexes/)
+
+## How to add a Vindex to Table
+
+```sql
+alter vschema on TABLE_NAME add vindex VINDEX_NAME(`TABLE_COLUMN`)
+```
+
+This command adds the Vindex called `VINDEX_NAME` to the table `TABLE_NAME` on the column `TABLE_COLUMN`. In order to do this, the Vindex you are trying to add to the table already needs to exist.
+
+## How to add a Secondary Vindex
+
+[Secondary Vindexes](https://vitess.io/docs/reference/features/vindexes/#secondary-vindexes) are additional Vindexes that are not the Primary Vindex. When applied from one column against another column of a table, they provide an optimization for WHERE clauses such that only the target shards where the data is present need to be queried.
+
+To illustrate how to add a secondary Vindex, assume the that the current database already has a user table:
+
+```sql
+create table user(user_id bigint, name varchar(128), primary key(user_id));
+```
+
+To create a secondary Vindex for the `name` column against the `user_id` column, a lookup table needs to be created:
+
+```sql
+create table name_user_idx(name varchar(128), user_id bigint, primary key(name, user_id));
+```
+
+The lookup table contains only the two columns that are to be Vindexed against (`name` and `user_id`), and the primary key definition is a combination of those columns.
+
+Next, create the Vindex and assign the appropriate `table`, `from`, `to`, and `owner` parameters:
+
+```sql
+alter vschema create vindex name_user_idx using lookup_hash with table=name_user_idx, from=name, to=user_id, owner=user
+```
+
+Finally, add `name_user_idx` Vindex onto the `name` column of the `user` table:
+
+```sql
+alter vschema on employees add vindex name_user_idx(`name`);
+```
+
+The resulting Sharding Scheme on your sharded keyspace should look like so:
+
+```json
+{
+  "sharded": true,
+  "vindexes": {
+    "name_user_idx": {
+      "type": "lookup_hash",
+      "params": {
+        "from": "name",
+        "table": "name_user_idx",
+        "to": "user_id"
+      },
+      "owner": "user"
+    }
+  },
+  "tables": {
+    "user": {
+      "columnVindexes": [
+        {
+          "name": "name_user_idx",
+          "columns": ["name"]
+        }
+      ]
+    }
+  }
+}
+```
+
+## How to add a Sequence
+
+It is currently not possible to add a sequence via DDL statements. See the [Vitess documentation](https://vitess.io/docs/reference/features/vitess-sequences/) for defining a Sequence in the VSchema.
