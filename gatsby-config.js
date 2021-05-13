@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'PlanetScale Docs',
-    siteUrl: 'https://docs.planetscale.com',
+    siteUrl: 'https://docs.planetscaledb.io',
   },
   plugins: [
     {
@@ -39,7 +39,10 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-sitemap',
+      resolve: 'gatsby-plugin-advanced-sitemap',
+      options: {
+        exclude: [/(\/)v1(\/)(.*)/],
+      },
     },
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-styled-components',
