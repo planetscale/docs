@@ -41,7 +41,7 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-advanced-sitemap',
       options: {
-        exclude: ['/404', '/dev-404-page', '/404.html', /(\/)v1(\/)(.*)/],
+        exclude: ['/404', '/dev-404-page', '/404.html', /(\/)v1(\/).*/],
       },
     },
     'gatsby-plugin-react-helmet',
