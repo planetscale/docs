@@ -64,6 +64,7 @@ order:
       - psdb-operator/getting-access
       - psdb-operator/topology-guide
       - psdb-operator/gcp-quickstart
+      - psdb-operator/api
   - id: vitess-operator
     name: Vitess Operator
     description: Automate Vitess deployment and maintenance in your own Kubernetes cluster using our open source operator
@@ -71,3 +72,4 @@ order:
       - vitess-operator/overview
       - vitess-operator/aws-quickstart
       - vitess-operator/gcp-quickstart
+      - vitess-operator/api
