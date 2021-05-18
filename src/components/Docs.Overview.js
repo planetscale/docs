@@ -126,25 +126,23 @@ class Overview extends Component {
         <ContentBlock>
           <ArticleBlock overview>
             <HeadingBlock
-              title="PlanetScale overview"
-              subtitle="Get upto speed on using PlanetScale to power your applications. Follow our tutorial to quickly learn the basics of creating and managing a database or learn more about the concepts, CLI and other aspects of the world's first cloud database."
+              title="PlanetScale Overview"
+              subtitle="PlanetScale is the only serverless database platform you can start in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database, or learn more about the concepts, like branching, that make our database platform unique."
             />
             <CalloutCardList>
               <CalloutCard>
                 <CalloutCardHeading>Get started</CalloutCardHeading>
                 <CalloutCardSubheading>
-                  Use this quick tutorial to create a new PlanetScale database,
-                  add a schema and run SQL queries on a sample dataset.
+                  Use these quick tutorials to create a new PlanetScale
+                  database, add a schema and run SQL queries on a sample
+                  dataset.
                 </CalloutCardSubheading>
-                <ButtonSecondary>Quickstart</ButtonSecondary>
-              </CalloutCard>
-              <CalloutCard>
-                <CalloutCardHeading>Deep Dive</CalloutCardHeading>
-                <CalloutCardSubheading>
-                  Learn more about how to effectively use PlanetScale's features
-                  to make schema changes a breeze.
-                </CalloutCardSubheading>
-                <ButtonSecondary>Deep dive</ButtonSecondary>
+                <ButtonSecondary
+                  as="a"
+                  href="/tutorial/connect-any-application"
+                >
+                  Getting Started
+                </ButtonSecondary>
               </CalloutCard>
             </CalloutCardList>
             <CategoryList>

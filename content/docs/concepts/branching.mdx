@@ -1,0 +1,85 @@
+---
+title: 'Branching'
+subtitle: "Branching is a core PlanetScale feature that makes non-blocking schema changes possible."
+---
+## Branching Overview
+**Branching** is a core PlanetScale feature that makes [non-blocking schema changes](nonblocking-schema-changes) possible. In PlanetScale, a database branch is a separate database that is deployed with a copy of the `main` database's schema. All database schema changes must occur on a development database branch before being deployed to production.
+
+To match a developer's workflow, PlanetScale uses a branching model similar to [Git](https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging). Creating a database branch allows developers to create an exact copy of their production database schema. Developers can use that branch to test the implemented schema changes. Once developers have tested their changes, they can safely apply the schema changes to their production database.
+
+Branching enables schema changes to happen online, asynchronously. (Online means it won't block production or inserts and selects on your database.) Database branching speeds up development by allowing developers to iterate quickly without worrying about impacting their production environment. 
+
+## Development vs. Production branches
+
+PlanetScale provides two types of branches, **Production** (`main`) and **Development** branches. Production branches are intended for use in production, cannot be deleted, and can only be updated using deploy requests. Development branches are a separate database with a copy of the `main` branch's schema. Developers can make schema changes in Development branches, test locally, and open a deploy request for deploying their changes to the production database. 
+
+<InfoBlock type="note">
+  A note: Data from the main database is not copied to the developer's Development branch.
+</InfoBlock>
+
+### Creating Branches
+The default `main` branch is your production database. To safely make a change to main, simply create a new branch and name it by running the following command:
+
+```bash
+pscale branch create <database> <branch>
+```
+
+### Listing Branches
+To see a list of all the branches for a given database, run the following command: 
+
+```bash
+pscale branch list <database>
+```
+
+### Deploying Branches
+After making schema changes to a stable branch, the deployment phase begins. A deployment takes the changes made to a branch and applies them to the `main` branch. 
+
+Create a _deploy request_ by running this command:
+```bash
+pscale deploy-request create <database> <branch>
+```
+
+To _deploy the deploy request_, run the following command:
+```bash
+pscale deploy-request deploy <database> <deploy-request-number>
+```
+
+<InfoBlock type="tip">
+Tip: PlanetScale also provides the ability to have teammates comment and review deploy requests.
+</InfoBlock>
+
+### Deleting Branches 
+If you no longer need to make schema changes or are done testing against your branch, you can safely delete it.
+```bash
+pscale branch delete <database> <branch>
+```
+
+### Resolving Conflicts in Branches
+Schema conflicts occur when your Deployment branch has conflicting changes with the Production branch. Perhaps a teammate has made different changes to the same column or the same table as you. Or perhaps someone deleted a table you were working on! 
+
+Solve schema conflicts by creating a new branch from `main` and reapplying the schema changes.  
+
+### Viewing Diff in Branches
+Run the following command to view the schema differences between the local Development branch and the Production branch (main): 
+```bash
+pscale branch diff <database> <branch>
+```
+
+### Viewing Branch Schema
+Run the following command to show the schema of a branch:
+```bash
+pscale branch schema <database> <branch>
+```
+
+### Need help?
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
+ 
+
+<NextBlock
+  steps={[
+    {
+      text: 'Non-Blocking Schema Changes',
+      link: '/concepts/nonblocking-schema-changes',
+    }
+  ]}
+></NextBlock>

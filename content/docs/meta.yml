@@ -1,21 +1,22 @@
 order:
-  - id: category-1
-    name: Category 1 Label
-    description: Category 1 brief description for overview card
+  - id: concepts
+    name: Concepts
+    description: Explore key concepts of the PlanetScale database platform.
     pages:
-      - category-1/page-template
-  - id: category-2
-    name: Category 2 Label
-    description: Category 2 brief description for overview card
+      - concepts/branching
+      - concepts/nonblocking-schema-changes
+      - concepts/security
+      
+  - id: tutorial
+    name: Tutorials
+    description: Learn the basics with our hands-on tutorials.
     pages:
-      - category-2/page-in-category-2
-  - id: category-3
-    name: Category 3 Label
-    description: Category 3 brief description for overview card
+      - tutorial/connect-any-app
+      - tutorial/connect-rails-app
+      - tutorial/connect-nodejs-app
+
+  - id: reference
+    name: Reference
+    description: Learn how to set up your PlanetScale development environment, CLI, and more!
     pages:
-      - category-3/page-in-category-3
-  - id: category-4
-    name: Category 4 Label
-    description: Category 4 brief description for overview card
-    pages:
-      - category-4/page-in-category-4
+      - reference/planetscale-environment-setup

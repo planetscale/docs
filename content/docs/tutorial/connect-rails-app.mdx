@@ -1,0 +1,238 @@
+---
+title: 'Connect Rails app to PlanetScale'
+subtitle: ""
+---
+
+## Introduction
+In this tutorial, we’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. We’ll perform a simple table migration from our local Rails application to our PlanetScale database, and then merge that schema request into our production branch using PlanetScale's CLI.
+
+### Prerequisites
+- Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/). 
+- Install the [PlanetScale CLI](https://github.com/planetscale/cli).
+- Authenticate the CLI with the following command: 
+```bash
+pscale auth login 
+```
+
+## Create a Rails project 
+To connect a Rails application to PlanetScale, we start by creating a sample Rails project named blog and installing the libraries we'll need to connect to our PlanetScale database. 
+
+To begin, open the command line and follow these steps:
+
+1. Run the following command to create a rails app named blog: 
+```bash
+rails new blog
+```
+
+2. Change into the directory you created for your `Blog` Rails app:
+```bash
+cd blog
+```
+
+3. Let's add some gems to our Gemfile: 
+
+- Update your source Gemfile by running the following command from the blog directory: 
+```bash
+blog$ vim Gemfile 
+```
+
+- Add the following requirements in your Gemfile: 
+```bash
+gem "planetscale"
+gem "mysql2"
+```
+
+4. Now we need to install our Gemfile dependencies:
+```bash
+blog$ bundle exec bundle install
+```
+
+At this point, we have accomplished two things: we've created a rails project called _blog_ and installed the libraries that we'll need to connect to our PlanetScale database. Now it’s time to create a PlanetScale Database.
+
+## Create a PlanetScale Database
+
+1. Using the `pscale` shell, we're going to create a new database named "blog":
+```bash
+blog$ pscale database create blog
+```
+
+That's it! Because we're a Rails app, we can go into the web UI and enable "Automatic Rails Migrations" in the Database's settings page.
+
+## Configure Rails and PlanetScale
+
+Now that the `planetscale` gem is installed, let's configure our application to talk to PlanetScale.
+
+1. First, we can use the Rails generator to add the appropriate configuration to our new app (substituting in your organization name):
+```bash
+blog$ bundle exec rails generate planetscale:install --organization $ORG_NAME
+```
+
+2. Next, we can open `config/database.yml` and configure our `development` database settings:
+```bash
+development:
+  <<: *default
+  adapter: mysql2
+  username: root
+  host: 127.0.0.1
+  port: 3305
+  database: blog
+```
+
+This will tell your Rails app to connect to the proxy our PlanetScale gem will automatically boot up. 
+
+## Migrating your database
+
+Here is the fun stuff: now that your application is configured to talk to PlanetScale, we can create our first [non-blocking schema change](../concepts/nonblocking-schema-changes)!
+
+1. First, create a development PlanetScale branch and switch to it:
+```bash
+blog$ pscale branch create blog add-users-table
+```
+
+2. Then, "switch" to that branch. This configures the proxy to use your new development branch:
+```bash
+blog$ pscale branch switch add-users-table --database blog
+```
+
+3. Now, let's create our normal Rails migration. We can call it `CreateUsers`: 
+```bash
+blog$ rails generate migration CreateUsers 
+```
+
+2. This rails command begins the migration for our table that is currently empty and generates a ruby file that’ll be named something like this: 
+```bash
+create db migrate/834743749_create_users.rb  
+```
+
+3. We can fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**. 
+```bash
+class CreateUsers < ActiveRecord::Migration[6.1]
+    def change
+        create_table :users do |t|
+        t.string :name 
+        t.string :email 
+        t.timestamps 
+    end 
+  end
+end
+```
+
+3. Let's run our migration:  
+```bash
+blog$ bundle exec rails db:migrate 
+```
+
+<InfoBlock type="tip">
+A Note: If you run into a proxy ERROR stating that address is already in use, run the following command: `spring stop`. (Spring is a Ruby library that pre-loads and runs all of our code into memory, detecting when our source code has changed.). Then, try the above command again.
+</InfoBlock>
+
+4. Now give it a whirl to make sure we can query the new table. Using the `pscale` cli:
+```bash
+blog$ pscale shell blog add-users-table
+blog/add-users-table> show tables;
++----------------------+
+| Tables_in_blog       |
++----------------------+
+| ar_internal_metadata |
+| schema_migrations    |
+| users                |
++----------------------+
+blog/add-users-table> describe users;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint       | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| created_at | datetime(6)  | NO   |     | NULL    |                |
+| updated_at | datetime(6)  | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+```
+
+## Deploying your Migration
+
+Now that your Rails migration is live on a PlanetScale branch, lets get it back into main. 
+
+1. Using the CLI, create a Deploy Request:
+```bash
+blog$ pscale deploy-request create blog add-users-table
+Deploy request #1 successfully created.
+```
+
+2. Look at the diff to make sure things seem right:
+```bash
+blog$ pscale deploy-request diff blog 1
+-- ar_internal_metadata --
++CREATE TABLE `ar_internal_metadata` (
++  `key` varchar(255) NOT NULL,
++  `value` varchar(255) DEFAULT NULL,
++  `created_at` datetime(6) NOT NULL,
++  `updated_at` datetime(6) NOT NULL,
++  PRIMARY KEY (`key`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- schema_migrations --
++CREATE TABLE `schema_migrations` (
++  `version` varchar(255) NOT NULL,
++  PRIMARY KEY (`version`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- users --
++CREATE TABLE `users` (
++  `id` bigint NOT NULL AUTO_INCREMENT,
++  `name` varchar(255) DEFAULT NULL,
++  `email` varchar(255) DEFAULT NULL,
++  `created_at` datetime(6) NOT NULL,
++  `updated_at` datetime(6) NOT NULL,
++  PRIMARY KEY (`id`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+3. Merge it into `main`!
+```bash
+blog$ pscale deploy-request deploy blog 1
+Successfully deployed b0lr4nphv6y3 from add-users-table to main.
+```
+
+4. Take a look at what `main` looks like
+```bash
+blog$ pscale shell blog main
+blog/main> show tables;
++----------------------+
+| Tables_in_blog       |
++----------------------+
+| ar_internal_metadata |
+| schema_migrations    |
+| users                |
++----------------------+
+blog/main> select * from schema_migrations;
++----------------+
+| version        |
++----------------+
+| 20210517233759 |
++----------------+
+blog/main> describe users;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint       | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| created_at | datetime(6)  | NO   |     | NULL    |                |
+| updated_at | datetime(6)  | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+```
+
+5. Tell the client to switch back to `main`:
+```bash
+blog$ pscale branch switch main
+```
+
+Congratulations! You're ready to develop your Rails application against PlanetScale.
+
+### Summary
+In this tutorial, we created a simple Rails application named _blog_ and connected it to PlanetScale’s database and branching environments. We performed a schema migration from our Rails application to a PlanetScale development branch, and then merged that branch back into production. We saw that PlanetScale rolled our schema change out, and copied over the record of Rails' schema migration as well.
+
+### What's next?
+Now that you've successfully connected your Rails app to PlanetScale, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. 
+
+### Need help?
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
