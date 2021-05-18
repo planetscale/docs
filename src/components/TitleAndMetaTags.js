@@ -111,7 +111,7 @@ export function TitleAndMetaTags({
 }
 
 TitleAndMetaTags.defaultProps = {
-  url: 'https://docs.planetscaledb.io',
+  url: 'https://docs.planetscale.com',
   pathname: '',
   title: 'PlanetScale - Serverless Database for Developers',
   type: 'website',
@@ -121,7 +121,7 @@ TitleAndMetaTags.defaultProps = {
     '@context': 'http://schema.org',
     '@type': 'Organization',
     name: 'PlanetScale, Inc.',
-    url: 'https://docs.planetscaledb.io',
+    url: 'https://docs.planetscale.com',
     sameAs: [
       'https://twitter.com/planetscaledata',
       'https://www.facebook.com/planetscaledata',

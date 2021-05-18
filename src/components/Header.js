@@ -124,7 +124,7 @@ export default function Header() {
           </SearchBarWrapper>
         </LeftContainer>
         <RightContainer>
-          <LinkContainer href={'https://app.planetscaledb.io'}>
+          <LinkContainer href={'https://app.planetscale.com'}>
             <ButtonSecondary>
               {isSignedIn ? 'Goto dashboard' : 'Sign in'}
             </ButtonSecondary>

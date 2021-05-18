@@ -1,7 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'PlanetScale Docs',
-    siteUrl: 'https://docs.planetscaledb.io',
+    siteUrl: 'https://docs.planetscale.com',
   },
   plugins: [
     {
