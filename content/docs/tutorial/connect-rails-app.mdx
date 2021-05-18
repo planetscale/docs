@@ -37,7 +37,7 @@ blog$ vim Gemfile
 ```
 
 - Add the following requirements in your Gemfile: 
-```bash
+```ruby
 gem "planetscale"
 gem "mysql2"
 ```
@@ -68,7 +68,7 @@ blog$ bundle exec rails generate planetscale:install --organization $ORG_NAME
 ```
 
 2. Next, we can open `config/database.yml` and configure our `development` database settings:
-```bash
+```yaml
 development:
   <<: *default
   adapter: mysql2
@@ -105,7 +105,7 @@ create db migrate/834743749_create_users.rb
 ```
 
 3. We can fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**. 
-```bash
+```ruby
 class CreateUsers < ActiveRecord::Migration[6.1]
     def change
         create_table :users do |t|
