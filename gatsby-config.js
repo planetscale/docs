@@ -115,6 +115,5 @@ module.exports = {
         trackPageDelay: 50,
       },
     },
-    'gatsby-plugin-remove-serviceworker',
   ],
 }

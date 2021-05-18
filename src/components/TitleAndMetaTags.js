@@ -14,21 +14,19 @@ export function TitleAndMetaTags({
   const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
-    const docSearchScript = document.getElementById('docsearch')
-
-    if (!docSearchScript) {
-      const script = document.createElement('script')
-      script.src =
-        'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
-      script.id = 'docsearch'
-      script.defer = true
-      document.head.appendChild(script)
-
-      script.onload = () => {
-        if (docSearchCallback) docSearchCallback()
-      }
-    }
-    if (docSearchScript && docSearchCallback) docSearchCallback()
+    // const docSearchScript = document.getElementById('docsearch')
+    // if (!docSearchScript) {
+    //   const script = document.createElement('script')
+    //   script.src =
+    //     'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
+    //   script.id = 'docsearch'
+    //   script.defer = true
+    //   document.head.appendChild(script)
+    //   script.onload = () => {
+    //     if (docSearchCallback) docSearchCallback()
+    //   }
+    // }
+    // if (docSearchScript && docSearchCallback) docSearchCallback()
   })
 
   function docSearchCallback() {
@@ -95,7 +93,7 @@ export function TitleAndMetaTags({
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
 
-      <link
+      {/* <link
         rel="preload"
         href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
         as="style"
@@ -105,7 +103,7 @@ export function TitleAndMetaTags({
         href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
         media="print"
         onload="this.media='all'"
-      />
+      /> */}
     </Helmet>
   )
 }
