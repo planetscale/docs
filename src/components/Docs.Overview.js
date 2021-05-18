@@ -127,21 +127,19 @@ class Overview extends Component {
           <ArticleBlock overview>
             <HeadingBlock
               title="PlanetScale Overview"
-              subtitle="PlanetScale is the only serverless database platform you can start in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database, or learn more about the concepts, like branching, that make our database platform unique."
+              subtitle="PlanetScale is a MySQL compatible, serverless database platform powered by Vitess. Get started in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database; or learn more about the concepts, like branching, that make our database platform unique."
             />
             <CalloutCardList>
               <CalloutCard>
                 <CalloutCardHeading>Get started</CalloutCardHeading>
                 <CalloutCardSubheading>
-                  Use these quick tutorials to create a new PlanetScale
-                  database, add a schema and run SQL queries on a sample
-                  dataset.
+                  To interact with PlanetScale and manage your databases, you can set up your development environment and install the pscale CLI.
                 </CalloutCardSubheading>
                 <ButtonSecondary
                   as="a"
-                  href="/tutorial/connect-any-application"
+                  href="/reference/planetscale-environment-setup"
                 >
-                  Getting Started
+                  Get Started
                 </ButtonSecondary>
               </CalloutCard>
             </CalloutCardList>
