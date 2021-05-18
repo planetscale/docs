@@ -321,7 +321,12 @@ const query = graphql`
       }
     }
 
-    docPages: allMdx(filter: { frontmatter: { title: { ne: "" } } }) {
+    docPages: allMdx(
+      filter: {
+        frontmatter: { title: { ne: "" } }
+        fields: { directory: { eq: "v1" } }
+      }
+    ) {
       nodes {
         frontmatter {
           title
