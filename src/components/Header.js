@@ -126,7 +126,7 @@ export default function Header() {
         <RightContainer>
           <LinkContainer href={'https://app.planetscale.com'}>
             <ButtonSecondary>
-              {isSignedIn ? 'Goto dashboard' : 'Sign in'}
+              {isSignedIn ? 'Go to dashboard' : 'Sign in'}
             </ButtonSecondary>
           </LinkContainer>
         </RightContainer>
