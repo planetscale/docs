@@ -119,9 +119,9 @@ export default function Header() {
           <ConditionalLogoWrapper>
             <Logo />
           </ConditionalLogoWrapper>
-          <SearchBarWrapper>
+          {/* <SearchBarWrapper>
             <SearchBar />
-          </SearchBarWrapper>
+          </SearchBarWrapper> */}
         </LeftContainer>
         <RightContainer>
           <LinkContainer href={'https://app.planetscale.com'}>
