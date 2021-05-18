@@ -16,7 +16,6 @@
     "@radix-ui/react-scroll-area": "0.0.11",
     "@stitches/react": "^0.1.9",
     "@styled-icons/remix-line": "^10.18.0",
-    "babel-plugin-styled-components": "^1.5.1",
     "core-js": "^3.12.1",
     "details-element-polyfill": "^2.0.1",
     "gatsby": "^3.5.0",
@@ -34,7 +33,6 @@
     "gatsby-plugin-segment-js": "^3.6.1",
     "gatsby-plugin-sharp": "^3.5.0",
     "gatsby-plugin-sitemap": "^3.3.0",
-    "gatsby-plugin-styled-components": "^4.5.0",
     "gatsby-plugin-webfonts": "^2.1.0",
     "gatsby-remark-copy-linked-files": "^3.2.0",
     "gatsby-remark-images": "^4.2.0",
@@ -55,8 +53,7 @@
     "react-visibility-sensor": "^5.0.2",
     "save": "^2.3.2",
     "slug": "^4.1.0",
-    "styled-components": "^5.3.0",
-    "styled-normalize": "^8.0.7"
+    "styled-components": "^5.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.2.5",
