@@ -1,6 +1,11 @@
 {
   "redirects": [
     {
+      "source": "/overview",
+      "destination": "/",
+      "permanent": true
+    },
+    {
       "source": "/psdb/managed-quickstart",
       "destination": "/v1/quickstart/managed-quickstart",
       "permanent": true
