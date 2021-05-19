@@ -1,4 +1,4 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useContext } from 'react'
 import Helmet from 'react-helmet'
 import { ThemeContext } from './styles/themeContext'
 
@@ -12,42 +12,6 @@ export function TitleAndMetaTags({
   schemaOrgJSONLD,
 }) {
   const themeContext = useContext(ThemeContext)
-
-  useEffect(() => {
-    // const docSearchScript = document.getElementById('docsearch')
-    // if (!docSearchScript) {
-    //   const script = document.createElement('script')
-    //   script.src =
-    //     'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
-    //   script.id = 'docsearch'
-    //   script.defer = true
-    //   document.head.appendChild(script)
-    //   script.onload = () => {
-    //     if (docSearchCallback) docSearchCallback()
-    //   }
-    // }
-    // if (docSearchScript && docSearchCallback) docSearchCallback()
-  })
-
-  function docSearchCallback() {
-    if (typeof docsearch == 'function') {
-      docsearch({
-        apiKey: 'c05ee5734758d9d4d948be01d548da67',
-        indexName: 'planetscale',
-        inputSelector: '#searchbox',
-        debug: false,
-        transformData: (hits) => {
-          let newHits = []
-          hits.map((hit) => {
-            if (hit.anchor !== null) {
-              newHits.push(hit)
-            }
-          })
-          return newHits
-        },
-      })
-    }
-  }
 
   return (
     <Helmet>
@@ -92,18 +56,6 @@ export function TitleAndMetaTags({
       <script type="application/ld+json">
         {JSON.stringify(schemaOrgJSONLD)}
       </script>
-
-      {/* <link
-        rel="preload"
-        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-        as="style"
-      />
-      <link
-        rel="stylesheet"
-        href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-        media="print"
-        onload="this.media='all'"
-      /> */}
     </Helmet>
   )
 }
