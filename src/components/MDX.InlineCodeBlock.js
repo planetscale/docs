@@ -6,6 +6,7 @@ const InlineCodeBlockContainer = styled('code', {
   padding: '4px 8px',
   margin: '0 4px',
   borderRadius: '4px',
+  lineHeight: '28px',
 
   '&:hover': {
     cursor: 'pointer',

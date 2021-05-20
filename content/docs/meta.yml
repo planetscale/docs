@@ -20,3 +20,4 @@ order:
     description: Learn how to set up your PlanetScale development environment, CLI, and more!
     pages:
       - reference/planetscale-environment-setup
+      - reference/planetscale-cli
