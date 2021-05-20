@@ -44,7 +44,29 @@ const FooterConstrain = styled('div', {
   justifyContent: 'space-between',
 })
 
-const Copyright = styled('span', {
+const LeftContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+
+  '> a': {
+    marginRight: '8px',
+  },
+})
+
+const LinkBlock = styled('a', {
+  fontSize: '12px',
+  color: 'var(--text-blue)',
+  textDecoration: 'none',
+  borderBottom: '1px solid var(--bg-primary)',
+  transition: 'border-bottom 0.25s ease',
+
+  '&:hover': {
+    borderBottom: '1px solid var(--text-blue)',
+  },
+})
+
+const Copyright = styled('div', {
   fontSize: '12px',
   color: 'var(--text-secondary)',
 })
@@ -55,7 +77,15 @@ export default function Footer() {
   return (
     <FooterWrapper>
       <FooterConstrain>
-        <Copyright>© 2021 PlanetScale Inc.</Copyright>
+        <LeftContainer>
+          <LinkBlock href="https://www.planetscale.com/legal/privacy">
+            Privacy
+          </LinkBlock>
+          <LinkBlock href="https://www.planetscale.com/legal/siteterms">
+            Terms
+          </LinkBlock>
+          <Copyright>© 2021 PlanetScale Inc.</Copyright>
+        </LeftContainer>
         <Select
           options={themeContext.availableThemes}
           defaultSelected={themeContext.getSelectedMode().name}
