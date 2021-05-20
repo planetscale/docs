@@ -49,6 +49,10 @@ const QuickNavListItem = styled('li', {
     paddingTop: '0.5em',
   },
 
+  '&:last-child': {
+    paddingTop: '0.5em',
+  },
+
   '&.active': {
     borderLeft: '1px solid var(--gray-400)',
   },
