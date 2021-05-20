@@ -97,6 +97,10 @@ export function ThemeProvider(props) {
       : lightMode
   }
 
+  const getActiveSystemMode = () => {
+    return activeSystemMode.name === 'dark' ? darkMode : lightMode
+  }
+
   return (
     <ThemeContext.Provider
       value={{
@@ -104,6 +108,7 @@ export function ThemeProvider(props) {
         switchTheme,
         getSelectedMode,
         getActiveMode,
+        getActiveSystemMode,
       }}
     >
       {props.children}
