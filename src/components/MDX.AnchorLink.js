@@ -65,7 +65,7 @@ class AnchorLink extends React.Component {
   render() {
     const { children, heading, category } = this.props
 
-    return category !== undefined ? (
+    return category !== 'api' ? (
       <AnchorHeading as={heading} id={`${this.createKebabCase(children)}`}>
         {children}
         <AnchorIcon href={`#${this.createKebabCase(children)}`}>

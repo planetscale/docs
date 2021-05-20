@@ -31,7 +31,7 @@ export default function DocsV1Page({ data }) {
               body={body}
               lastUpdatedOn={fields.lastUpdatedOn}
               slug={fields.slug}
-              catgegory={frontmatter.category}
+              category={frontmatter.category === 'api' ? 'api' : undefined}
             ></MDXContent>
             {!frontmatter.category && (
               <QuickNav subNavPages={headings}></QuickNav>
