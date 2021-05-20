@@ -60,7 +60,8 @@ export const pageQuery = graphql`
         subtitle
         banner
       }
-      headings(depth: h2) {
+      headings {
+        depth
         value
       }
       body

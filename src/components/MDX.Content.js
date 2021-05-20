@@ -93,6 +93,7 @@ export default function MDXContent({
   body,
   lastUpdatedOn,
   slug,
+  category,
 }) {
   return (
     <ArticleBlock>
@@ -103,7 +104,12 @@ export default function MDXContent({
             code: CodeBlock,
             inlineCode: InlineCodeBlock,
             img: ImageBlock,
-            h2: AnchorLink,
+            h2: (props) => (
+              <AnchorLink {...props} heading="h2" category={category} />
+            ),
+            h3: (props) => (
+              <AnchorLink {...props} heading="h3" category={category} />
+            ),
             NextBlock,
             InfoBlock,
           }}

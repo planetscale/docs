@@ -1,6 +1,6 @@
 ---
 title: 'Vitess Operator API Reference'
-category: 'vitess-operator'
+category: 'api'
 ---
 
 <h1>Vitess Operator API Reference</h1>

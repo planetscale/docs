@@ -14,7 +14,7 @@ const AnchorIcon = styled('a', {
   },
 })
 
-const AnchorHeading = styled('h2', {
+const AnchorHeading = styled('div', {
   fontWeight: '600',
   fontSize: '1.563em',
   margin: '2em 0 0',
@@ -63,12 +63,19 @@ class AnchorLink extends React.Component {
   }
 
   render() {
-    const { children } = this.props
+    const { children, heading, category } = this.props
 
-    return (
-      <AnchorHeading id={`${this.createKebabCase(children)}`}>
+    return category !== undefined ? (
+      <AnchorHeading as={heading} id={`${this.createKebabCase(children)}`}>
         {children}
         <AnchorIcon href={`#${this.createKebabCase(children)}`}>
+          <Links />
+        </AnchorIcon>
+      </AnchorHeading>
+    ) : (
+      <AnchorHeading as={heading}>
+        {children}
+        <AnchorIcon>
           <Links />
         </AnchorIcon>
       </AnchorHeading>

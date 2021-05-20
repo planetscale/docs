@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScaleDB Operator API Reference'
-category: 'psdb-operator'
+category: 'api'
 ---
 
 <h1>PlanetScaleDB Operator API Reference</h1>

@@ -52,6 +52,10 @@ const QuickNavListItem = styled('li', {
   '&.active': {
     borderLeft: '1px solid var(--gray-400)',
   },
+
+  '&.depth-3': {
+    paddingLeft: '32px',
+  },
 })
 
 const AnchorLink = styled('a', {
@@ -102,6 +106,10 @@ export default function QuickNav({ subNavPages }) {
     document.querySelectorAll('h2[id]').forEach((h2) => {
       observer.observe(h2)
     })
+
+    document.querySelectorAll('h3[id]').forEach((h3) => {
+      observer.observe(h3)
+    })
   })
 
   return (
@@ -114,7 +122,10 @@ export default function QuickNav({ subNavPages }) {
         {subNavPages.length > 0 &&
           subNavPages.map((page) => {
             return (
-              <QuickNavListItem key={`#${createKebabCase(page.value)}`}>
+              <QuickNavListItem
+                className={`depth-${page.depth}`}
+                key={`#${createKebabCase(page.value)}`}
+              >
                 <AnchorLink href={`#${createKebabCase(page.value)}`}>
                   {page.value}
                 </AnchorLink>

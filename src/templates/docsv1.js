@@ -31,8 +31,11 @@ export default function DocsV1Page({ data }) {
               body={body}
               lastUpdatedOn={fields.lastUpdatedOn}
               slug={fields.slug}
+              catgegory={frontmatter.category}
             ></MDXContent>
-            <QuickNav subNavPages={headings}></QuickNav>
+            {!frontmatter.category && (
+              <QuickNav subNavPages={headings}></QuickNav>
+            )}
           </ContentBlock>
           <Footer />
         </PageContainer>
@@ -55,6 +58,7 @@ export const pageQuery = graphql`
         title
         subtitle
         banner
+        category
       }
       headings(depth: h2) {
         value
