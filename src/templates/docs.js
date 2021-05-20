@@ -18,7 +18,11 @@ export default function DocsPage({ data }) {
         <TitleAndMetaTags
           title={frontmatter.title}
           description={frontmatter.subtitle ? frontmatter.subtitle : ''}
-          banner={frontmatter.banner ? frontmatter.banner : ''}
+          banner={
+            frontmatter.banner
+              ? frontmatter.banner
+              : '/img/internals/social_share.png'
+          }
           pathname={`${fields.slug}`}
         />
         <PageContainer>
