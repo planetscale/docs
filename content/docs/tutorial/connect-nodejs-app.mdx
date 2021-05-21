@@ -10,28 +10,28 @@ In this tutorial, we'll create a simple Node.js and Express.js application and c
 - Install [Node.js](https://nodejs.org/en/download/).
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command: 
-```bash
+```zsh
 pscale auth login 
 ```
 
-### Set up the example Node.js app
+## Set up the example Node.js app
 1. Create a new database with the following command: 
-```bash
+```zsh
 pscale database create my-app
 ```
 
 2. Clone this repository:
-```bash
+```zsh
 git clone https://github.com/planetscale/express-example.git
 ```
-3. Run `cd express-example`
+3. Run `cd express-example`.
 
-3. Run `npm install`
+3. Run `npm install`.
 
-### Connect to PlanetScale with Express.js
+## Connect to PlanetScale with Express.js
 
 1. Use `pscale` to create a connection to your database and start the app with the following command: 
-```bash
+```zsh
 pscale connect your-db-name main --execute 'node app.js'
 ```
 
@@ -41,11 +41,11 @@ Tip: Running pscale connect with the execute flag will pass a DATABASE_URL to th
 
 Congratulations! You successfully connected your Node.js and Express.js application to a PlanetScale database.  
 
-### Summary
+## Summary
 In this tutorial, we created a simple Node.js and Express.js application and connected it to PlanetScale's database and branching environments. 
 
-### What's next?
+## What's next?
 Now that you've successfully connected your Node.js app to PlanetScale, it's time to make schema changes to your tables and [deploy your application](https://github.com/planetscale/express-example#deploying-to-heroku)! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. 
 
-### Need help?
+## Need help?
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.

@@ -1,11 +1,11 @@
 ---
-title: 'Non-blocking Schema Changes'
-subtitle: "Non-Blocking Schema Changes in PlanetScale powers a schema change workflow that allows users to update database tables without locking or causing downtime for production databases."
+title: 'Non-Blocking Schema Changes'
+subtitle: "Non-Blocking Schema Changes in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases."
 ---
 ## Non-blocking Schema Changes Overview
 
 <InfoBlock type="tip">
-Tip: To make Non-Blocking Schema Changes in PlanetScale, you'll first need a basic understanding of branching, the core PlanetScale feature that provide schema changes. Our branching concepts page is a great place to start.
+Tip: To make Non-Blocking Schema Changes in PlanetScale, you'll first need a basic understanding of <a href="https://docs.planetscale.com/concepts/branching">branching</a>, the core PlanetScale feature that provide schema changes. Our branching concepts page is a great place to start.
 </InfoBlock> 
 
 **Non-Blocking Schema Changes** in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases. 
@@ -45,17 +45,17 @@ The PlanetScale command-line tool (CLI) runs an interactive shell equipped with 
 A basic Non-Blocking Schema Change workflow in PlanetScale might look like this:
 
 1. Create a database: 
-```bash
+```zsh
  pscale database create <database> 
 ```
 
 2. Create a development branch:
-```bash
+```zsh
 pscale branch create <database> <branch>
 ```
 
 3. Make a schema change on this branch:
-```bash
+```zsh
  	pscale shell <database> <branch>
  ```
 
@@ -64,12 +64,12 @@ Tip: A schema change is any change you make to the tables in your database envir
 </InfoBlock> 
 
 <InfoBlock type="warning">
-Important: You can only apply direct schema changes to the development branch, not to main.
+Important: You can only apply direct schema changes to the development branch, not to `main`.
 </InfoBlock> 
 
 Here is a sample CREATE table schema change you could try using:
 
-```bash
+```zsh
 CREATE TABLE `reminders` (
   `id` bigint NOT NULL AUTO_INCREMENT,
   `body` varchar(1024) NOT NULL,
@@ -83,7 +83,7 @@ CREATE TABLE `reminders` (
 4. Test changes on branch locally.   
 
 5. Create a deployment request by running:
-```bash
+```zsh
 pscale deploy-request create <database> <branch>
 ```
 
@@ -94,24 +94,24 @@ PlanetScale displays the difference between what is currently in the `main` bran
 7. Deploy the deploy request.
 
 - To _deploy_ the **deploy request** created in _Step 5_, run the following command:
-```bash
+```zsh
 pscale deploy-request deploy <database> <deploy-request-number> 
 ```
 
 - To find your `deploy-request-number`, simply run:
-```bash 
+```zsh 
 pscale deploy-request list <database> 
 ```
 Copy the value from `NUMBER` and use that digit as your `deploy-request-number`. 
 
 
-### Limitations
+## Limitations
 PlanetScale's Non-Blocking Schema Changes' workflow doesn't support `FOREIGN KEYs` in users' databases.
 
 PlanetScale determined that the production safety that Non-Blocking Schema Changes provide are worth this technical tradeoff. [Learn more](http://code.openark.org/blog/mysql/the-problem-with-mysql-foreign-key-constraints-in-online-schema-changes).
 
 
-### Need help?
+## Need help?
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
 
 

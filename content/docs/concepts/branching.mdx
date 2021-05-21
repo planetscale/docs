@@ -18,16 +18,16 @@ PlanetScale provides two types of branches, **Production** (`main`) and **Develo
 </InfoBlock>
 
 ### Creating Branches
-The default `main` branch is your production database. To safely make a change to main, simply create a new branch and name it by running the following command:
+The default `main` branch is your production database. To safely make a change to `main`, simply create a new branch and name it by running the following command:
 
-```bash
+```zsh
 pscale branch create <database> <branch>
 ```
 
 ### Listing Branches
 To see a list of all the branches for a given database, run the following command: 
 
-```bash
+```zsh
 pscale branch list <database>
 ```
 
@@ -35,12 +35,12 @@ pscale branch list <database>
 After making schema changes to a stable branch, the deployment phase begins. A deployment takes the changes made to a branch and applies them to the `main` branch. 
 
 Create a _deploy request_ by running this command:
-```bash
+```zsh
 pscale deploy-request create <database> <branch>
 ```
 
 To _deploy the deploy request_, run the following command:
-```bash
+```zsh
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
@@ -50,7 +50,7 @@ Tip: PlanetScale also provides the ability to have teammates comment and review 
 
 ### Deleting Branches 
 If you no longer need to make schema changes or are done testing against your branch, you can safely delete it.
-```bash
+```zsh
 pscale branch delete <database> <branch>
 ```
 
@@ -60,18 +60,18 @@ Schema conflicts occur when your Deployment branch has conflicting changes with 
 Solve schema conflicts by creating a new branch from `main` and reapplying the schema changes.  
 
 ### Viewing Diff in Branches
-Run the following command to view the schema differences between the local Development branch and the Production branch (main): 
-```bash
+Run the following command to view the schema differences between the local Development branch and the Production branch (`main`): 
+```zsh
 pscale branch diff <database> <branch>
 ```
 
 ### Viewing Branch Schema
 Run the following command to show the schema of a branch:
-```bash
+```zsh
 pscale branch schema <database> <branch>
 ```
 
-### Need help?
+## Need help?
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
  
 

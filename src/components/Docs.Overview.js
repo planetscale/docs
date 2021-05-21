@@ -127,7 +127,7 @@ class Overview extends Component {
           <ArticleBlock overview>
             <HeadingBlock
               title="PlanetScale Overview"
-              subtitle="PlanetScale is a MySQL compatible, serverless database platform powered by Vitess. Get started in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database; or learn more about the concepts, like branching, that make our database platform unique."
+              subtitle="PlanetScale is a MySQL compatible, serverless database platform powered by Vitess. Get started in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database; or learn more about the concepts, like database branching, that make our platform unique."
             />
             <CalloutCardList>
               <CalloutCard>
