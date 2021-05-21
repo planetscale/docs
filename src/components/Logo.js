@@ -49,20 +49,24 @@ const V1Badge = styled('div', {
   backgroundColor: 'var(--bg-tertiary)',
   color: 'var(--text-secondary)',
   marginLeft: '1em',
-  padding: '0.5em 1em',
+  padding: '0.42em 1em',
   borderRadius: '99px',
   fontSize: '12px',
   fontWeight: '500',
+  letterSpacing: '0.05em',
+  fontFamily: 'IBM Plex Mono',
 })
 
 const BetaBadge = styled('div', {
   backgroundImage: 'linear-gradient(to bottom left,var(--tw-gradient-stops))',
   color: '#fff',
   marginLeft: '1em',
-  padding: '0.5em 1em',
+  padding: '0.42em 1em',
   borderRadius: '99px',
   fontSize: '12px',
   fontWeight: '500',
+  letterSpacing: '0.05em',
+  fontFamily: 'IBM Plex Mono',
 })
 
 export default function Logo({ version }) {
