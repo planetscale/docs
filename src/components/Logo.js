@@ -55,6 +55,16 @@ const V1Badge = styled('div', {
   fontWeight: '900',
 })
 
+const BetaBadge = styled('div', {
+  backgroundColor: '#765AE2',
+  color: '#fff',
+  marginLeft: '1em',
+  padding: '0.25em 0.5em',
+  borderRadius: '6px',
+  fontSize: '12px',
+  fontWeight: '900',
+})
+
 export default function Logo({ version }) {
   const themeContext = useContext(ThemeContext)
   const [imageURL, setImageURL] = useState(themeContext.getActiveMode().logo)
@@ -73,7 +83,9 @@ export default function Logo({ version }) {
           <V1Badge>V1</V1Badge>
         </LinkContainer>
       ) : (
-        ''
+        <LinkContainer href="/v1">
+          <BetaBadge>Beta</BetaBadge>
+        </LinkContainer>
       )}
     </LogoContainer>
   )
