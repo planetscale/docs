@@ -49,20 +49,20 @@ const V1Badge = styled('div', {
   backgroundColor: 'var(--bg-tertiary)',
   color: 'var(--text-secondary)',
   marginLeft: '1em',
-  padding: '0.25em 0.5em',
-  borderRadius: '6px',
+  padding: '0.5em 1em',
+  borderRadius: '99px',
   fontSize: '12px',
-  fontWeight: '900',
+  fontWeight: '500',
 })
 
 const BetaBadge = styled('div', {
-  backgroundColor: '#765AE2',
+  backgroundImage: 'linear-gradient(to bottom left,var(--tw-gradient-stops))',
   color: '#fff',
   marginLeft: '1em',
-  padding: '0.25em 0.5em',
-  borderRadius: '6px',
+  padding: '0.5em 1em',
+  borderRadius: '99px',
   fontSize: '12px',
-  fontWeight: '900',
+  fontWeight: '500',
 })
 
 export default function Logo({ version }) {
@@ -83,7 +83,7 @@ export default function Logo({ version }) {
           <V1Badge>V1</V1Badge>
         </LinkContainer>
       ) : (
-        <LinkContainer href="/v1">
+        <LinkContainer href="/">
           <BetaBadge>Beta</BetaBadge>
         </LinkContainer>
       )}

@@ -54,8 +54,10 @@
   --blue-900: 1, 43, 101;
 
   --purple-300: 209, 168, 250;
-  --purple-500: 159, 90, 246;
-  --purple-600: 148, 71, 245;
+  --purple-400: #9276ff;
+  --purple-500: #8668fa;
+  --purple-600: #7d5ff0;
+  --purple-700: #6a4ddb;
 
   --pink-500: 205, 90, 246;
 
@@ -74,6 +76,11 @@
   --text-purple: rgb(var(--purple-600));
   --page-shadow: -33px 0 44px 5px rgba(0, 0, 0, 0.02);
   --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  --tw-gradient-from: var(--purple-500);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-to, hsla(0, 0%, 100%, 0));
+  --tw-gradient-to: var(--purple-700);
 }
 
 @define-mixin darkmode {
