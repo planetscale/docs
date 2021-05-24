@@ -14,6 +14,7 @@ order:
       - tutorial/connect-any-app
       - tutorial/connect-rails-app
       - tutorial/connect-nodejs-app
+      - tutorial/deploy-to-heroku
 
   - id: reference
     name: Reference

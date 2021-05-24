@@ -1,0 +1,87 @@
+---
+title: 'Deploy to Heroku'
+subtitle: ''
+---
+
+## Introduction
+In this tutorial, we're going to deploy an application to Heroku. If you already have a built app that's running locally, go ahead and use that one for this tutorial.
+
+## Prerequisites
+- Install the [PlanetScale CLI](https://github.com/planetscale/cli).
+- Authenticate the CLI with the following command:
+```zsh
+pscale auth login
+```
+- Setup your application to connect to MySQL using the `DATABASE_URL` environment variable.
+
+## Deploy to Heroku
+Let's use the `pscale` CLI on Heroku to establish a secure connection to your database.
+
+1. Create a PlanetScale service token:
+
+```zsh
+pscale service-token create
+```
+
+Take note of the service token **name** and **value** it returns to you.
+
+2. Grant that token access to your database:
+
+```zsh
+pscale service-token add-access your-token-name connect_production_branch --database your-db-name
+```
+
+3. Set config vars for your Heroku application:
+
+```
+heroku config:set PLANETSCALE_ORG=your-org-name
+heroku config:set PLANETSCALE_SERVICE_TOKEN_NAME=your-token-name
+heroku config:set PLANETSCALE_SERVICE_TOKEN=your-token-value
+```
+
+<InfoBlock type="note">
+  A Note: You'll use your <em>service token</em> to authenticate to your
+  database.
+</InfoBlock>
+
+4. Add the custom binaries buildpack to your Heroku application:
+
+```
+heroku buildpacks:add https://github.com/tonyta/heroku-buildpack-custom-binaries#v1.0.0
+```
+
+5. Add `.custom_binaries` file to the root of your repository with the following:
+
+```zsh
+pscale: https://github.com/planetscale/cli/releases/download/v0.36.0/pscale_0.36.0_linux_amd64.tar.gz
+```
+
+This command will install the `pscale` CLI into your Heroku application.
+
+<InfoBlock type="tip">
+  Tip: Find the <a href="https://github.com/planetscale/cli/releases">latest CLI release here</a>.
+</InfoBlock>
+
+6. Add a `Procfile` that initiates your app using pscale:
+```
+web: pscale connect your-db-name main --execute 'node app.js'
+```
+
+<InfoBlock type="tip">
+  Tip: Heroku runs this command when starting the app.
+</InfoBlock>
+
+As you can see, we chose to use the sample Node.js and Express.js app we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial. That said, this tutorial is language agnostic and may be used with any language.
+
+7. Push to Heroku and you'll have a working app.
+
+Congratulations! You successfully deployed an application to Heroku.
+
+## Summary
+In this tutorial, we deployed a simple application to Heroku. We chose to use the sample Node.js and Express.js app we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial. That said, this tutorial is language agnostic and may be used with any language.
+
+## What's next?
+Now that you've successfully deployed an application to Heroku, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+
+## Need help?
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
