@@ -58,6 +58,7 @@
   "devDependencies": {
     "autoprefixer": "^10.2.5",
     "extract-text-webpack-plugin": "^3.0.2",
+    "gatsby-plugin-remove-trailing-slashes": "^3.5.0",
     "npm-check": "^5.9.2",
     "postcss": "^8.2.15",
     "postcss-import": "^14.0.2",

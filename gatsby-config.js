@@ -114,6 +114,7 @@ module.exports = {
         trackPageDelay: 50,
       },
     },
+    'gatsby-plugin-remove-trailing-slashes',
     {
       resolve: `gatsby-plugin-offline`,
       options: {
@@ -124,14 +125,16 @@ module.exports = {
               handler: `NetworkFirst`,
             },
             {
-              urlPattern: /^https?:.*\/page-data\/.*\/(page-data|app-data)\.json$/,
+              urlPattern:
+                /^https?:.*\/page-data\/.*\/(page-data|app-data)\.json$/,
               handler: `NetworkFirst`,
               options: {
                 networkTimeoutSeconds: 1,
               },
             },
             {
-              urlPattern: /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
+              urlPattern:
+                /^https?:.*\.(png|jpg|jpeg|webp|svg|gif|tiff|js|woff|woff2|json|css)$/,
               handler: `NetworkFirst`,
             },
             {

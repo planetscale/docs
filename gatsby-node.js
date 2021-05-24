@@ -20,9 +20,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
       name: 'slug',
       // Note: The below string manip has been done to remove trailing slashes.
       // Note: Gatsby's default plugin does not work
-      value: node.fileAbsolutePath.includes('v1')
-        ? '/v1' + slug.substr(0, slug.length - 1)
-        : slug.substr(0, slug.length - 1),
+      value: node.fileAbsolutePath.includes('v1') ? '/v1' + slug : slug,
     })
 
     createNodeField({
