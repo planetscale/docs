@@ -1,7 +1,7 @@
 import { styled } from './styles/stitches.config'
 
 export const PageContainer = styled('div', {
-  flexBasis: 'calc(765px + 215px)',
+  flexBasis: 'calc(745px + 215px)',
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '4em',
@@ -22,7 +22,7 @@ export const ContentBlock = styled('div', {
   position: 'relative',
   display: 'flex',
   flexDirection: 'row',
-  width: '900px',
+  width: '880px',
   justifyContent: 'space-between',
   alignItems: 'flex-start',
 
@@ -40,7 +40,7 @@ export const ArticleBlock = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   minWidth: '0',
-  width: '637px',
+  width: '617px',
   zIndex: '2',
   overflow: 'visible',
 

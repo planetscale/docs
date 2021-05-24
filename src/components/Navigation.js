@@ -31,7 +31,7 @@ const _SearchBarContainer = styled('div', {
 })
 
 const _SidenavContainer = styled(ScrollArea.Root, {
-  width: '300px',
+  width: '320px',
   position: 'sticky',
   top: '0px',
   height: 'calc(100vh - 90px)',
