@@ -1,6 +1,6 @@
 import { createCss } from '@stitches/react'
 
-export const { styled, css } = createCss({
+export const { styled, css, getCssString } = createCss({
   media: {
     tinyDesktop: '(max-width: 1400px)',
     tablet: '(max-width: 1200px)',
