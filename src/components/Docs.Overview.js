@@ -13,7 +13,7 @@ const CalloutCardList = styled('div', {
   gridTemplateRows: 'auto',
   columnGap: '2em',
   rowGap: '2em',
-  margin: '0 0 4em',
+  margin: '0 0 2em',
 
   '@phone': {
     gridTemplateColumns: 'repeat(1, 1fr)',
@@ -133,7 +133,9 @@ class Overview extends Component {
               <CalloutCard>
                 <CalloutCardHeading>Get started</CalloutCardHeading>
                 <CalloutCardSubheading>
-                  To interact with PlanetScale and manage your databases, you can set up your development environment and install the pscale CLI.
+                  To interact with PlanetScale and manage your databases, you
+                  can set up your development environment and install the pscale
+                  CLI.
                 </CalloutCardSubheading>
                 <ButtonSecondary
                   as="a"
