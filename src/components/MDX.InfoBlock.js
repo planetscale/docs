@@ -66,7 +66,7 @@ const ImageBlockContainer = styled('div', {
       },
       tip: {
         [`> ${IconContainer} > svg`]: {
-          color: 'rgb(var(--blue-500))',
+          color: 'var(--purple-500)',
         },
       },
     },
