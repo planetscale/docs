@@ -45,6 +45,7 @@ const MarkDownContainer = styled('div', {
   '& ul, ol': {
     whitespace: 'normal',
     padding: '0 1em',
+    margin: '0 0 2em',
   },
 
   '& ol > li': {

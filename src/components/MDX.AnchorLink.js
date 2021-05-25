@@ -17,10 +17,10 @@ const AnchorIcon = styled('a', {
 const AnchorHeading = styled('div', {
   fontWeight: '600',
   fontSize: '1.563em',
-  margin: '2em 0 0',
+  margin: '2em 0 2em',
 
   '&:first-of-type': {
-    margin: '0',
+    margin: '0 0 2em',
   },
 
   [`& ${AnchorIcon}`]: {

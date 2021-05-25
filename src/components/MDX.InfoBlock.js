@@ -49,7 +49,7 @@ const ImageBlockContainer = styled('div', {
   color: 'var(--text-secondary)',
   border: '1px solid var(--border-primary)',
   borderRadius: '6px',
-  margin: '2em 0',
+  margin: '0 0 2em',
   padding: '1.5em 1em',
 
   variants: {
