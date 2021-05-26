@@ -20,7 +20,7 @@
     "details-element-polyfill": "^2.0.1",
     "gatsby": "^3.5.0",
     "gatsby-link": "^3.5.0",
-    "gatsby-plugin-advanced-sitemap": "^1.6.0",
+    "gatsby-plugin-advanced-sitemap": "^2.0.0",
     "gatsby-plugin-catch-links": "^3.5.0",
     "gatsby-plugin-html-attributes": "^1.0.5",
     "gatsby-plugin-lodash": "^4.5.0",
