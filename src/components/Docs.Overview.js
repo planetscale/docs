@@ -9,7 +9,7 @@ import Footer from './Footer'
 
 const CalloutCardList = styled('div', {
   display: 'grid',
-  gridTemplateColumns: 'repeat(2, 1fr)',
+  gridTemplateColumns: 'repeat(1, 1fr)',
   gridTemplateRows: 'auto',
   columnGap: '2em',
   rowGap: '2em',
@@ -25,7 +25,9 @@ const CalloutCard = styled('div', {
   border: '1px solid var(--text-primary)',
   borderRadius: '6px',
   padding: '2em',
-  backgroundColor: 'var(--text-primary)',
+  background: 'url(/img/internals/get_started.png) var(--text-primary)',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'top right',
   color: 'var(--bg-primary)',
   display: 'flex',
   flexDirection: 'column',
@@ -44,6 +46,7 @@ const CalloutCardSubheading = styled('p', {
   lineHeight: '1.5em',
   margin: '0 0 1.5em',
   padding: '0',
+  maxWidth: '50ch',
 })
 
 const CategoryList = styled('div', {
