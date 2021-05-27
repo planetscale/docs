@@ -142,7 +142,7 @@ const _SidenavList = styled(ScrollArea.Viewport, {
   position: 'relative',
 
   '@tablet': {
-    padding: '2em 0',
+    padding: '2em 0 6em',
   },
 })
 
@@ -250,11 +250,11 @@ function SideNav({ categories, docPages }) {
         <ConditionalLogoWrapper>
           <Logo />
         </ConditionalLogoWrapper>
-        {mobileTOCState && (
+        {/* {mobileTOCState && (
           <_SearchBarContainer>
             <SearchBar></SearchBar>
           </_SearchBarContainer>
-        )}
+        )} */}
         <_SidenavList>
           <_PageLink
             onClick={mobileTOCState ? toggleMobileTOC : () => {}}
