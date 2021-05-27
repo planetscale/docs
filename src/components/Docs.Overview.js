@@ -1,7 +1,8 @@
-import React, { Component } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import { styled } from './styles/stitches.config'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { PageContainer, ArticleBlock, ContentBlock } from './Layout.Wrapper'
+import { ThemeContext } from './styles/themeContext'
 import HeadingBlock from './HeadingBlock'
 import { ButtonSecondary } from './Buttons'
 import Header from './Header'
@@ -13,7 +14,7 @@ const CalloutCardList = styled('div', {
   gridTemplateRows: 'auto',
   columnGap: '2em',
   rowGap: '2em',
-  margin: '0 0 2em',
+  margin: '0 0 1em',
 
   '@phone': {
     gridTemplateColumns: 'repeat(1, 1fr)',
@@ -66,6 +67,11 @@ const CategoryList = styled('div', {
   },
 })
 
+const CategoryImage = styled('img', {
+  height: '100%',
+  maxWidth: '130px',
+})
+
 const CategoryContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
@@ -82,11 +88,12 @@ const CategorySubTitle = styled('p', {
 })
 
 const CategoryCard = styled(Link, {
-  backgroundColor: 'var(--bg-primary)',
+  backgroundColor: 'var(--bg-secondary)',
   color: 'var(--text-primary)',
   textDecoration: 'none',
   display: 'flex',
-  flexDirection: 'column',
+  flexDirection: 'row',
+  alignItems: 'center',
   border: '1px solid var(--border-primary)',
   borderRadius: '6px',
   overflow: 'hidden',
@@ -104,12 +111,8 @@ const CategoryCard = styled(Link, {
   },
 })
 
-class Overview extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  getPagesInCategory(categoryPages, docPages) {
+function Overview({ categories, docPages }) {
+  const getPagesInCategory = (categoryPages, docPages) => {
     const outputPages = []
     categoryPages.map((pageID) => {
       docPages.nodes.map((page) => {
@@ -122,59 +125,65 @@ class Overview extends Component {
     return outputPages
   }
 
-  render() {
-    return (
-      <PageContainer>
-        <Header />
-        <ContentBlock>
-          <ArticleBlock overview>
-            <HeadingBlock
-              title="PlanetScale Overview"
-              subtitle="PlanetScale is a MySQL compatible, serverless database platform powered by Vitess. Get started in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database; or learn more about the concepts, like database branching, that make our platform unique."
-            />
-            <CalloutCardList>
-              <CalloutCard>
-                <CalloutCardHeading>Get started</CalloutCardHeading>
-                <CalloutCardSubheading>
-                  To interact with PlanetScale and manage your databases, you
-                  can set up your development environment and install the pscale
-                  CLI.
-                </CalloutCardSubheading>
-                <ButtonSecondary
-                  as="a"
-                  href="/reference/planetscale-environment-setup"
-                >
-                  Get Started
-                </ButtonSecondary>
-              </CalloutCard>
-            </CalloutCardList>
-            <CategoryList>
-              {this.props.categories.order.map((category, index) => {
-                return (
-                  <Category
-                    key={index}
-                    category={category.name}
-                    theme="dark"
-                    description={category.description}
-                    pages={this.getPagesInCategory(
-                      category.pages,
-                      this.props.docPages
-                    )}
-                  ></Category>
-                )
-              })}
-            </CategoryList>
-          </ArticleBlock>
-        </ContentBlock>
-        <Footer />
-      </PageContainer>
-    )
-  }
+  return (
+    <PageContainer>
+      <Header />
+      <ContentBlock>
+        <ArticleBlock overview>
+          <HeadingBlock
+            title="PlanetScale Overview"
+            subtitle="PlanetScale is a MySQL compatible, serverless database platform powered by Vitess. Get started in seconds and scale indefinitely. Follow our tutorials to quickly learn the basics of creating and managing a database; or learn more about the concepts, like database branching, that make our platform unique."
+          />
+          <CalloutCardList>
+            <CalloutCard>
+              <CalloutCardHeading>Get started</CalloutCardHeading>
+              <CalloutCardSubheading>
+                To interact with PlanetScale and manage your databases, you can
+                set up your development environment and install the pscale CLI.
+              </CalloutCardSubheading>
+              <ButtonSecondary
+                as="a"
+                href="/reference/planetscale-environment-setup"
+              >
+                Get Started
+              </ButtonSecondary>
+            </CalloutCard>
+          </CalloutCardList>
+          <CategoryList>
+            {categories.order.map((category, index) => {
+              return (
+                <Category
+                  key={index}
+                  category={category.name}
+                  theme="dark"
+                  description={category.description}
+                  image={category.image}
+                  pages={getPagesInCategory(category.pages, docPages)}
+                ></Category>
+              )
+            })}
+          </CategoryList>
+        </ArticleBlock>
+      </ContentBlock>
+      <Footer />
+    </PageContainer>
+  )
 }
 
-function Category({ category, description, pages }) {
+function Category({ category, description, image, pages }) {
+  const themeContext = useContext(ThemeContext)
+  const [imageURL, setImageURL] = useState(image)
+
+  useEffect(() => {
+    const activeThemeSuffix = themeContext.getActiveMode().name
+    if (image.split('_light').length > 1) {
+      setImageURL(image.split('_light').join(`_${activeThemeSuffix}`))
+    }
+  }, [themeContext])
+
   return (
     <CategoryCard to={`${pages[0].fields.slug}`} activeClassName="active">
+      <CategoryImage src={imageURL}></CategoryImage>
       <CategoryContent>
         <CategoryTitle>{category}</CategoryTitle>
         <CategorySubTitle>{description}</CategorySubTitle>
@@ -190,6 +199,7 @@ const query = graphql`
         id
         name
         description
+        image
         pages
       }
     }

@@ -2,14 +2,16 @@ order:
   - id: concepts
     name: Concepts
     description: Explore key concepts of the PlanetScale database platform.
+    image: '/img/internals/category_concepts_light.png'
     pages:
       - concepts/branching
       - concepts/nonblocking-schema-changes
       - concepts/security
-      
+
   - id: tutorial
     name: Tutorials
     description: Learn the basics with our hands-on tutorials.
+    image: '/img/internals/category_tutorials_light.png'
     pages:
       - tutorial/connect-any-app
       - tutorial/connect-rails-app
@@ -19,6 +21,7 @@ order:
   - id: reference
     name: Reference
     description: Learn how to set up your PlanetScale development environment, CLI, and more!
+    image: '/img/internals/category_reference_light.png'
     pages:
       - reference/planetscale-environment-setup
       - reference/planetscale-cli
