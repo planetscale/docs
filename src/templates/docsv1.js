@@ -4,7 +4,7 @@ import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import MDXContent from '../components/MDX.Content'
 import QuickNav from '../components/QuickNav'
 import { ContentBlock, PageContainer } from '../components/Layout.Wrapper'
-import Header from '../components/Header'
+import Header from '../components/HeaderV1'
 import Footer from '../components/Footer'
 import LayoutV1 from '../components/layout_v1'
 

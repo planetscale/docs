@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { styled } from './styles/stitches.config'
-import SearchBar from './Searchbar'
-import Cookies from 'js-cookie'
 import { ButtonSecondary } from './Buttons'
 import Logo from './Logo'
 
@@ -104,14 +102,6 @@ const LinkContainer = styled('a', {
 })
 
 export default function Header() {
-  const [isSignedIn, setSignedInState] = useState(false)
-
-  useEffect(() => {
-    if (typeof Cookies.get('signed_in') !== 'undefined') {
-      setSignedInState(true)
-    }
-  })
-
   return (
     <HeaderWrapper>
       <HeaderConstrain>
@@ -119,15 +109,10 @@ export default function Header() {
           <ConditionalLogoWrapper>
             <Logo />
           </ConditionalLogoWrapper>
-          <SearchBarWrapper>
-            <SearchBar />
-          </SearchBarWrapper>
         </LeftContainer>
         <RightContainer>
-          <LinkContainer href={'https://app.planetscale.com'}>
-            <ButtonSecondary>
-              {isSignedIn ? 'Go to dashboard' : 'Sign in'}
-            </ButtonSecondary>
+          <LinkContainer href={'https://console.planetscale.com'}>
+            <ButtonSecondary>Sign In</ButtonSecondary>
           </LinkContainer>
         </RightContainer>
       </HeaderConstrain>

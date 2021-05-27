@@ -3,7 +3,7 @@ import { styled } from './styles/stitches.config'
 import { StaticQuery, graphql, Link } from 'gatsby'
 import { PageContainer, ArticleBlock, ContentBlock } from './Layout.Wrapper'
 import HeadingBlock from './HeadingBlock'
-import Header from './Header'
+import Header from './HeaderV1'
 import Footer from './Footer'
 
 const CategoryList = styled('div', {
