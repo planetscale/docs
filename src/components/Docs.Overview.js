@@ -67,8 +67,14 @@ const CategoryList = styled('div', {
   },
 })
 
+const CategoryImageContainer = styled('div', {
+  '@phone': {
+    paddingBottom: '0.5em',
+    borderBottom: '1px solid var(--border-primary)',
+  },
+})
+
 const CategoryImage = styled('img', {
-  height: '100%',
   maxWidth: '130px',
 })
 
@@ -76,6 +82,10 @@ const CategoryContent = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   padding: '2em',
+
+  '@phone': {
+    padding: '1em',
+  },
 })
 
 const CategoryTitle = styled('div', {
@@ -104,6 +114,8 @@ const CategoryCard = styled(Link, {
 
   '@phone': {
     marginBottom: '1em',
+    flexDirection: 'column',
+    alignItems: 'stretch',
   },
 
   '@tablet': {
@@ -183,7 +195,9 @@ function Category({ category, description, image, pages }) {
 
   return (
     <CategoryCard to={`${pages[0].fields.slug}`} activeClassName="active">
-      <CategoryImage src={imageURL}></CategoryImage>
+      <CategoryImageContainer>
+        <CategoryImage src={imageURL}></CategoryImage>
+      </CategoryImageContainer>
       <CategoryContent>
         <CategoryTitle>{category}</CategoryTitle>
         <CategorySubTitle>{description}</CategorySubTitle>
