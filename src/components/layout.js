@@ -1,8 +1,7 @@
-import React, { useLayoutEffect } from 'react'
+import React from 'react'
 import { styled } from './styles/stitches.config'
 import DocsNavigation from './Navigation'
 import './layout.css'
-import { getCssString } from './styles/stitches.config'
 
 export const SiteContainer = styled('section', {
   position: 'relative',
@@ -38,14 +37,6 @@ export const WidthConstrain = styled('div', {
 })
 
 export default function Layout({ children }) {
-  useLayoutEffect(() => {
-    const style = document.createElement('style')
-    style.id = 'stitches'
-    style.key = 'stitches'
-    style.dangerouslySetInnerHTML = { __html: getCssString() }
-    document.head.appendChild(style)
-  })
-
   return (
     <SiteContainer>
       <WidthConstrain>
