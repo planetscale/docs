@@ -44,25 +44,19 @@ heroku config:set PLANETSCALE_SERVICE_TOKEN=your-token-value
   database.
 </InfoBlock>
 
-4. Add the custom binaries buildpack to your Heroku application:
+4. Add the PlanetScale buildpack to your Heroku application:
 
 ```
-heroku buildpacks:add https://github.com/tonyta/heroku-buildpack-custom-binaries#v1.0.0
+heroku buildpacks:add https://github.com/planetscale/heroku-buildpack-planetscale
 ```
 
-5. Add `.custom_binaries` file to the root of your repository with the following:
-
-```zsh
-pscale: https://github.com/planetscale/cli/releases/download/v0.36.0/pscale_0.36.0_linux_amd64.tar.gz
-```
-
-This command will install the `pscale` CLI into your Heroku application.
+This command will install the latest `pscale` CLI into your Heroku application. You can specify a CLI version by setting `PLANETSCALE_CLI_VERSION`
 
 <InfoBlock type="tip">
-  Tip: Find the <a href="https://github.com/planetscale/cli/releases">latest CLI release here</a>.
+  Tip: Find the latest <a href="https://github.com/planetscale/cli/releases">CLI releases here</a>.
 </InfoBlock>
 
-6. Add a `Procfile` that initiates your app using pscale:
+5. Add a `Procfile` that initiates your app using pscale:
 ```
 web: pscale connect your-db-name main --execute 'node app.js'
 ```
@@ -73,7 +67,7 @@ web: pscale connect your-db-name main --execute 'node app.js'
 
 As you can see, we chose to use the sample Node.js and Express.js app we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial. That said, this tutorial is language agnostic and may be used with any language.
 
-7. Push to Heroku and you'll have a working app.
+6. Push to Heroku and you'll have a working app.
 
 Congratulations! You successfully deployed an application to Heroku.
 
