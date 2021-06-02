@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from './styles/stitches.config'
 import { ButtonSecondary } from './Buttons'
+import SearchBar from './Searchbar'
 import Logo from './Logo'
 
 const ConditionalLogoWrapper = styled('div', {
@@ -63,7 +64,9 @@ const HeaderConstrain = styled('div', {
   },
 })
 
-const SearchBarWrapper = styled('div', {})
+const SearchBarWrapper = styled('div', {
+  visibility: 'hidden',
+})
 
 const LeftContainer = styled('div', {
   display: 'flex',
@@ -109,6 +112,9 @@ export default function Header() {
           <ConditionalLogoWrapper>
             <Logo />
           </ConditionalLogoWrapper>
+          <SearchBarWrapper>
+            <SearchBar />
+          </SearchBarWrapper>
         </LeftContainer>
         <RightContainer>
           <LinkContainer href={'https://console.planetscale.com'}>
