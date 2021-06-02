@@ -33,7 +33,7 @@ cd blog
 
 - Update your source _Gemfile_ by running the following command from the _blog_ directory: 
 ```zsh
-blog$ vim _Gemfile_ 
+blog$ vim Gemfile 
 ```
 
 - Add the following requirements in your Ruby _Gemfile_: 
@@ -44,7 +44,7 @@ gem "mysql2"
 
 4. Install our _Gemfile_ dependencies:
 ```zsh
-blog$ bundle exec bundle install
+blog$ bundle install
 ```
 
 At this point, we have accomplished two things: we've created a rails project called _blog_ and installed the libraries that we'll need to connect to our PlanetScale database. Now it’s time to create a PlanetScale Database.
@@ -102,9 +102,7 @@ blog$ rails generate migration CreateUsers
 ```
 
 4. This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this: 
-```zsh
-create db migrate/834743749_create_users.rb  
-```
+`create db migrate/834743749_create_users.rb`
 
 5. We can fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**. 
 ```ruby
