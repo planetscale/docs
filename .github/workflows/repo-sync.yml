@@ -1,6 +1,7 @@
 name: Repo Sync
 
 on:
+  workflow_dispatch:
   schedule:
     - cron: '*/15 * * * *' # every 15 minutes. set to whatever interval you like
 
