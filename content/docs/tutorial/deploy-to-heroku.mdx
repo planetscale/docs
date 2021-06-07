@@ -4,7 +4,7 @@ subtitle: ''
 ---
 
 ## Introduction
-In this tutorial, we're going to deploy an application to Heroku. If you already have a built app that's running locally, go ahead and use that one for this tutorial.
+In this tutorial, we're going to deploy an application with a PlanetScale database to Heroku. If you already have an application running locally, you can use it for this tutorial.
 
 ## Prerequisites
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
@@ -56,7 +56,7 @@ This command will install the latest `pscale` CLI into your Heroku application. 
   Tip: Find the latest <a href="https://github.com/planetscale/cli/releases">CLI releases here</a>.
 </InfoBlock>
 
-5. Add a `Procfile` that initiates your app using pscale:
+5. Add a `Procfile` that initiates your application using pscale:
 ```
 web: pscale connect your-db-name main --execute 'node app.js'
 ```
@@ -65,14 +65,18 @@ web: pscale connect your-db-name main --execute 'node app.js'
   Tip: Heroku runs this command when starting the app.
 </InfoBlock>
 
-As you can see, we chose to use the sample Node.js and Express.js app we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial. That said, this tutorial is language agnostic and may be used with any language.
+As you can see, we chose to use the sample Node.js and Express.js application we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial.  
+
+<InfoBlock type="note">
+This tutorial is language agnostic and may be used with any language.
+</InfoBlock>
 
 6. Push to Heroku and you'll have a working app.
 
 Congratulations! You successfully deployed an application to Heroku.
 
 ## Summary
-In this tutorial, we deployed a simple application to Heroku. We chose to use the sample Node.js and Express.js app we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial. That said, this tutorial is language agnostic and may be used with any language.
+In this tutorial, we deployed an application that was connected to a PlanetScale database to Heroku. We chose to use the sample Node.js and Express.js application we built in our previous [Connect Node.js App](connect-nodejs-app) tutorial. That said, you could use any local application you've made and use it to connect to a PlanetScale database.
 
 ## What's next?
 Now that you've successfully deployed an application to Heroku, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
