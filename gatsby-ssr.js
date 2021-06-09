@@ -14,15 +14,15 @@ export const wrapRootElement = ({ element }) => {
 export const onRenderBody = ({ setHeadComponents }) => {
   // This inlines styles into the header. It breaks when running gatsby in development mode.
   // So we only run it in the production build.
-  if (process.env.NODE_ENV == "production") {
-    setHeadComponents([
-      <style
-        id="stitches"
-        key="stitches"
-        dangerouslySetInnerHTML={{
-          __html: getCssString(),
-        }}
-      />,
-    ])
-  }
+  // if (process.env.NODE_ENV == "production") {
+  //   setHeadComponents([
+  //     <style
+  //       id="stitches"
+  //       key="stitches"
+  //       dangerouslySetInnerHTML={{
+  //         __html: getCssString(),
+  //       }}
+  //     />,
+  //   ])
+  // }
 }
