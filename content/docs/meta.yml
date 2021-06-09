@@ -17,6 +17,7 @@ order:
       - tutorial/connect-rails-app
       - tutorial/connect-nodejs-app
       - tutorial/deploy-to-heroku
+      - tutorial/automatic-rails-migrations
 
   - id: reference
     name: Reference
