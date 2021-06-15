@@ -14,12 +14,12 @@
 - Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
 - Switch to the repository's folder
 - Install package dependencies with `npm install`
-- Execute `npm run develop` to start a local gatsby server
-- Open `http://localhost:3000` to access the local server instance. Check terminal to find the actual port being used by your gatsby local server.
+- Execute `npx next dev` to start a local nextJS server
+- Open `http://localhost:3000` to access the local server instance. Check terminal to find the actual port being used by your nextJS local server.
 
 ## How to add a new document
 
-- All pages in the documentation are markdown files with a frontmatter block on the top. The frontmatter block defines the title of the page.
+- All pages in the documentation are markdown (.mdx) files with a frontmatter block on the top. The frontmatter block defines the title of the page.
 - When creating a new page, also create a corresponding entry in `meta.json` file to define the category and position of the file in the table of contants.
 
 ## Notes
