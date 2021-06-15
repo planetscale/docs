@@ -237,11 +237,6 @@ export default function Navigation() {
         <ConditionalLogoWrapper>
           <Logo version="v1" />
         </ConditionalLogoWrapper>
-        {/* {mobileTOCState && (
-          <_SearchBarContainer>
-            <SearchBar></SearchBar>
-          </_SearchBarContainer>
-        )} */}
         <_SidenavList>
           <_PageLink
             onClick={mobileTOCState ? toggleMobileTOC : () => {}}

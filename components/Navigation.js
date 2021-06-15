@@ -3,7 +3,6 @@ import { styled } from '../stitches.config'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Menu2, Close, ArrowDropRight } from '@styled-icons/remix-line'
-import SearchBar from './Searchbar'
 import Logo from './Logo'
 import meta from '../content/docs/meta.json'
 import CustomLink from './CustomLink'
@@ -240,11 +239,6 @@ export default function Navigation() {
         <ConditionalLogoWrapper>
           <Logo />
         </ConditionalLogoWrapper>
-        {/* {mobileTOCState && (
-          <_SearchBarContainer>
-            <SearchBar></SearchBar>
-          </_SearchBarContainer>
-        )} */}
         <_SidenavList>
           <PageLink
             onClick={mobileTOCState ? toggleMobileTOC : () => {}}
