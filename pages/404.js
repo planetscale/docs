@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { styled } from '../stitches.config'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import HeadingBlock from '../components/HeadingBlock'
@@ -37,10 +37,10 @@ export default function NotFoundPage() {
             <ButtonContainer>
               <ButtonSecondary
                 as="a"
-                href="https://github.com/planetscale/docs.public"
+                href="https://github.com/planetscale/docs"
               >
                 <Github />
-                <span>Visit @planetscale/docs.public</span>
+                <span>Visit @planetscale/docs</span>
               </ButtonSecondary>
             </ButtonContainer>
           </ArticleBlock>

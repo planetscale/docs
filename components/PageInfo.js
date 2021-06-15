@@ -56,7 +56,7 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
         {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
       </LastUpdatedDate>
       <LinkBlock
-        href={`https://github.com/planetscale/docs.public/blob/main/content/docs${slug}.mdx`}
+        href={`https://github.com/planetscale/docs/blob/main/content/docs/${slug}.mdx`}
       >
         <ButtonSecondary>
           <Github />
