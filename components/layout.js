@@ -39,7 +39,7 @@ export default function Layout({ children }) {
   return (
     <SiteContainer>
       <WidthConstrain>
-        <Navigation></Navigation>
+        <Navigation version="v2"></Navigation>
         {children}
       </WidthConstrain>
     </SiteContainer>

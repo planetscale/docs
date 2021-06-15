@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from '../stitches.config'
-import NavigationV1 from './Navigation_v1'
+import Navigation from './Navigation'
 
 export const SiteContainer = styled('section', {
   position: 'relative',
@@ -38,7 +38,7 @@ export const WidthConstrain = styled('div', {
 const Layout = ({ children }) => (
   <SiteContainer>
     <WidthConstrain>
-      <NavigationV1></NavigationV1>
+      <Navigation version="v1"></Navigation>
       {children}
     </WidthConstrain>
   </SiteContainer>
