@@ -5,6 +5,7 @@ import * as ScrollArea from '@radix-ui/react-scroll-area'
 import { Menu2, Close, ArrowDropRight } from '@styled-icons/remix-line'
 import Logo from './Logo'
 import meta from '../content/docs/meta.json'
+import meta_v1 from '../content/v1/meta.json'
 import CustomLink from './CustomLink'
 
 const ConditionalLogoWrapper = styled('div', {
@@ -219,8 +220,9 @@ const BackgroundFrozen = styled('div', {
   zIndex: '4',
 })
 
-export default function Navigation() {
+export default function Navigation({ version }) {
   const [mobileTOCState, setMobileTOCState] = useState(false)
+  const toc = version === 'v2' ? meta : meta_v1
 
   const toggleMobileTOC = () => {
     setMobileTOCState(!mobileTOCState)
@@ -237,21 +239,22 @@ export default function Navigation() {
       )}
       <_SidenavContainer className={mobileTOCState ? 'show' : ''}>
         <ConditionalLogoWrapper>
-          <Logo />
+          <Logo version={version} />
         </ConditionalLogoWrapper>
         <_SidenavList>
           <PageLink
             onClick={mobileTOCState ? toggleMobileTOC : () => {}}
-            href="/"
+            href={version === 'v1' ? '/v1' : '/'}
             activeClassName="active"
           >
             PlanetScale overview
           </PageLink>
 
-          {meta.order.map((category, index) => {
+          {toc.order.map((category, index) => {
             return (
               <SidenavGroup
                 key={index}
+                version={version}
                 categoryID={category.id}
                 category={category.name}
                 pages={category.pages}
@@ -271,7 +274,7 @@ export default function Navigation() {
   )
 }
 
-function SidenavGroup({ categoryID, category, pages, onClick }) {
+function SidenavGroup({ version, categoryID, category, pages, onClick }) {
   return (
     <_GroupContainer defaultOpen={true}>
       <_GroupHeading>
@@ -279,10 +282,16 @@ function SidenavGroup({ categoryID, category, pages, onClick }) {
       </_GroupHeading>
       <_GroupLinks>
         {pages.map((page, index) => {
+          const href =
+            version === 'v1'
+              ? `/v1/${categoryID}/${page['route']}`
+              : `/${categoryID}/${page['route']}`
+
           return (
             <CustomLink
               onClick={onClick}
-              href={`/${categoryID}/${page['route']}`}
+              version={version}
+              href={href}
               activeClassName="active"
               key={index}
             >
