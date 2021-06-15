@@ -1,0 +1,103 @@
+:root {
+  --white: #fff;
+  --black: #000;
+
+  --gray-50: #fbfcfd;
+  --gray-100: #f6f7fb;
+  --gray-200: #ebecf0;
+  --gray-300: #dbdce2;
+  --gray-400: #aeafb8;
+  --gray-500: #6d6d75;
+  --gray-600: #474953;
+  --gray-700: #393941;
+  --gray-800: #272830;
+  --gray-900: #1a1b21;
+
+  --red-400: 245, 106, 113;
+  --red-500: 240, 80, 89;
+  --red-600: 222, 68, 76;
+  --red-700: 198, 52, 60;
+
+  --orange-50: 255, 251, 240;
+  --orange-100: 255, 246, 225;
+  --orange-200: 253, 227, 175;
+  --orange-300: 249, 201, 123;
+  --orange-400: 245, 175, 77;
+  --orange-500: 238, 143, 32;
+  --orange-600: 208, 106, 11;
+  --orange-700: 167, 73, 6;
+  --orange-800: 124, 46, 3;
+  --orange-900: 81, 23, 1;
+
+  --yellow-500: 254, 222, 108;
+
+  --green-50: 240, 255, 244;
+  --green-100: 215, 254, 223;
+  --green-200: 162, 251, 177;
+  --green-300: 99, 242, 116;
+  --green-400: 53, 233, 68;
+  --green-500: 28, 202, 35;
+  --green-600: 17, 167, 22;
+  --green-700: 8, 129, 10;
+  --green-800: 3, 94, 4;
+  --green-900: 0, 61, 0;
+
+  --blue-50: 250, 254, 255;
+  --blue-100: 235, 250, 255;
+  --blue-200: 170, 228, 253;
+  --blue-300: 112, 204, 250;
+  --blue-400: 62, 177, 244;
+  --blue-500: 17, 140, 228;
+  --blue-600: 12, 111, 198;
+  --blue-700: 6, 87, 167;
+  --blue-800: 3, 64, 134;
+  --blue-900: 1, 43, 101;
+
+  --purple-300: 209, 168, 250;
+  --purple-400: #9276ff;
+  --purple-500: #8668fa;
+  --purple-600: #7d5ff0;
+  --purple-700: #6a4ddb;
+
+  --pink-500: 205, 90, 246;
+
+  --bg-primary: var(--white);
+  --bg-primary-translucent: rgba(255, 255, 255, 0.85);
+  --bg-secondary: var(--gray-50);
+  --bg-tertiary: var(--gray-100);
+  --bg-blue: rgba(1, 43, 101, 0.5);
+  --border-primary: var(--gray-200);
+  --border-secondary: var(--gray-200);
+  --border-action: var(--gray-300);
+  --text-primary: var(--gray-800);
+  --text-secondary: var(--gray-500);
+  --text-tertiary: var(--gray-400);
+  --text-blue: rgb(var(--blue-600));
+  --text-purple: rgb(var(--purple-600));
+  --page-shadow: -33px 0 44px 5px rgba(0, 0, 0, 0.02);
+  --tw-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+  --tw-gradient-from: var(--purple-500);
+  --tw-gradient-stops: var(--tw-gradient-from),
+    var(--tw-gradient-to, hsla(0, 0%, 100%, 0));
+  --tw-gradient-to: var(--purple-700);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --bg-primary: var(--gray-900);
+    --bg-primary-translucent: rgba(26, 27, 32, 0.85);
+    --bg-secondary: var(--gray-800);
+    --bg-tertiary: var(--gray-700);
+    --bg-blue: rgba(3, 64, 134, 0.8);
+    --border-primary: var(--gray-700);
+    --border-secondary: var(--gray-600);
+    --border-action: var(--gray-600);
+    --text-primary: var(--gray-200);
+    --text-secondary: var(--gray-400);
+    --text-tertiary: var(--gray-500);
+    --text-blue: rgb(var(--blue-400));
+    --text-purple: rgb(var(--purple-300));
+    --page-shadow: -50px 0 100px -50px rgba(0, 0, 0, 0.24);
+  }
+}

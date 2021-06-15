@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /v1/
+Sitemap: https://docs.planetscale.com/sitemap.xml
+Host: https://docs.planetscale.com

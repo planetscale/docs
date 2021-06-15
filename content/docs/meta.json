@@ -1,0 +1,50 @@
+{
+  "order": [
+    {
+      "id": "concepts",
+      "name": "Concepts",
+      "description": "Explore key concepts of the PlanetScale database platform.",
+      "image": "/img/internals/category_concepts_light.png",
+      "pages": [
+        { "route": "branching", "display": "Branching" },
+        {
+          "route": "nonblocking-schema-changes",
+          "display": "Non-Blocking Schema Changes"
+        },
+        { "route": "security", "display": "Security" }
+      ]
+    },
+    {
+      "id": "tutorial",
+      "name": "Tutorial",
+      "description": "Learn the basics with our hands-on tutorials.",
+      "image": "/img/internals/category_tutorials_light.png",
+      "pages": [
+        { "route": "connect-any-application", "display": "Connect to any app" },
+        { "route": "connect-rails-app", "display": "Connect to a Rails app" },
+        {
+          "route": "connect-nodejs-app",
+          "display": "Connect to a Node.js app"
+        },
+        { "route": "deploy-to-heroku", "display": "Deploy to Heroku" },
+        {
+          "route": "automatic-rails-migrations",
+          "display": "Automatic Rails Migrations"
+        }
+      ]
+    },
+    {
+      "id": "reference",
+      "name": "Reference",
+      "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        {
+          "route": "planetscale-environment-setup",
+          "display": "PlanetScale environment set up"
+        },
+        { "route": "planetscale-cli", "display": "PlanetScale CLI" }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "order": [
+    {
+      "id": "quickstart",
+      "name": "Quickstart",
+      "description": "Learn how to quickly setup PlanetScaleDB to connect to your application.",
+      "pages": [
+        {
+          "route": "managed-quickstart",
+          "display": "Fully managed PlanetScaleDB"
+        }
+      ]
+    },
+    {
+      "id": "concepts",
+      "name": "Concepts",
+      "description": "Learn the basics with our hands-on tutorials.",
+      "pages": [
+        { "route": "overview", "display": "Overview" },
+        {
+          "route": "availability-features",
+          "display": "Availability Features"
+        },
+        {
+          "route": "performance-features",
+          "display": "Performance Features"
+        },
+        { "route": "security-features", "display": "Security Features" },
+        {
+          "route": "clusters",
+          "display": "Clusters"
+        },
+        {
+          "route": "databases",
+          "display": "Databases"
+        },
+        {
+          "route": "sharding-schemes",
+          "display": "Sharding Schemes"
+        },
+        {
+          "route": "deployment",
+          "display": "Deployment"
+        },
+        {
+          "route": "database-instances",
+          "display": "Database Instances"
+        },
+        {
+          "route": "analytics-instances",
+          "display": "Analytics Instances"
+        },
+        {
+          "route": "backups",
+          "display": "Backups"
+        },
+        {
+          "route": "database-links",
+          "display": "Database Links"
+        },
+        {
+          "route": "compatibility-testing",
+          "display": "Compatibility Testing"
+        }
+      ]
+    },
+    {
+      "id": "setup",
+      "name": "Setup",
+      "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
+      "pages": [
+        {
+          "route": "creating-cluster",
+          "display": "Creating Cluster"
+        },
+        { "route": "creating-database", "display": "Creating Database" },
+        { "route": "configuring-sharding", "display": "Configuring Sharding" },
+        { "route": "adding-users", "display": "Adding Users" },
+        { "route": "connecting-to-db", "display": "Connecting to Database" },
+        { "route": "secure-connection", "display": "Secure Connection" },
+        { "route": "allowing-ips", "display": "Allowing IPs" },
+        {
+          "route": "user-and-password-management",
+          "display": "User and Password Management"
+        },
+        {
+          "route": "linking-external-database",
+          "display": "Linking External Database"
+        },
+        { "route": "delete-a-cluster", "display": "Delete a Cluster" }
+      ]
+    },
+    {
+      "id": "use",
+      "name": "Use",
+      "description": "Learn how to quickly setup PlanetScaleDB to connect to your application.",
+      "pages": [
+        { "route": "importing-data", "display": "Importing Data" },
+        {
+          "route": "migrating-database-schemas",
+          "display": "Migrating Database Schemas"
+        },
+        {
+          "route": "reconfiguring-database",
+          "display": "Reconfiguring Database"
+        },
+        { "route": "resharding", "display": "Resharding" },
+        { "route": "undeploying-database", "display": "Undeploying Database" },
+        { "route": "restoring-backups", "display": "Restoring Backups" },
+        {
+          "route": "viewing-status-messages",
+          "display": "Viewing Status Messages"
+        },
+        { "route": "viewing-query-logs", "display": "Viewing Query Logs" }
+      ]
+    },
+    {
+      "id": "reference",
+      "name": "Reference",
+      "description": "Learn how to quickly setup PlanetScaleDB to connect to your application.",
+      "pages": [
+        {
+          "route": "operational-guidelines",
+          "display": "Operational Guidelines"
+        },
+        { "route": "mysql-compatibility", "display": "MySQL Compatibility" },
+        { "route": "pricing", "display": "Pricing" },
+        {
+          "route": "advanced-cluster-configuration",
+          "display": "Advanced Cluster Configuration"
+        },
+        { "route": "sharding-scheme-ddl", "display": "Sharding Scheme DDL" }
+      ]
+    },
+    {
+      "id": "psdb-operator",
+      "name": "PSDB Operator",
+      "description": "Learn how to quickly setup PlanetScaleDB to connect to your application.",
+      "pages": [
+        { "route": "overview", "display": "Overview" },
+        { "route": "getting-access", "display": "Getting Access" },
+        { "route": "topology-guide", "display": "Topology Guide" },
+        { "route": "gcp-quickstart", "display": "GCP Quickstart" },
+        { "route": "api", "display": "API" }
+      ]
+    },
+    {
+      "id": "vitess-operator",
+      "name": "Vitess Operator",
+      "description": "Learn how to quickly setup PlanetScaleDB to connect to your application.",
+      "pages": [
+        { "route": "overview", "display": "Overview" },
+        { "route": "aws-quickstart", "display": "AWS Quickstart" },
+        { "route": "gcp-quickstart", "display": "GCP Quickstart" },
+        { "route": "api", "display": "API" }
+      ]
+    }
+  ]
+}
