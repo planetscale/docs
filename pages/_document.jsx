@@ -15,7 +15,7 @@ export default class Document extends NextDocument {
             id="stitches"
             dangerouslySetInnerHTML={{ __html: getCssString() }}
           />
-          <script src="sw.js"></script>
+          <script src="/sw.js"></script>
         </Head>
         <body>
           <Main />
