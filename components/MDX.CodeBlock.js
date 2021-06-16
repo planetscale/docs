@@ -4,6 +4,7 @@ import { ButtonSecondary } from './Buttons'
 import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
 import { ThemeContext } from './themeContext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
+import Prism from 'prism-react-renderer/prism'
 
 const CodeBlockContainer = styled('div', {
   position: 'relative',
@@ -73,6 +74,7 @@ const CodeBlockContent = styled('code', {
 export default function CodeBlock({ className, children }) {
   const themeContext = useContext(ThemeContext)
   const [codeLanguage, setCodeLanguage] = useState('')
+  const [internalCodeLanguage, setInternalCodeLanguage] = useState('')
   const [splitOutput, setSplitOutput] = useState([])
   const [copyButtonState, setCopyButtonState] = useState(false)
   const [customTheme, setCustomTheme] = useState(
@@ -80,8 +82,18 @@ export default function CodeBlock({ className, children }) {
   )
 
   useEffect(() => {
+    ;(typeof global !== 'undefined' ? global : window).Prism = Prism
+    require('prismjs/components/prism-ruby.min')
+    require('prismjs/components/prism-bash.min')
+
     if (className) {
-      setCodeLanguage(className.split('-')[1])
+      const codeLanguage = className.split('-')[1]
+      if (codeLanguage === 'zsh') {
+        setInternalCodeLanguage('bash')
+      } else {
+        setInternalCodeLanguage(codeLanguage)
+      }
+      setCodeLanguage(codeLanguage)
     }
 
     if (children.split('------').length === 2) {
@@ -119,7 +131,7 @@ export default function CodeBlock({ className, children }) {
           {...defaultProps}
           theme={customTheme}
           code={splitOutput[0].trim()}
-          language={codeLanguage}
+          language={internalCodeLanguage}
         >
           {({ className, style, tokens, getLineProps, getTokenProps }) => (
             <CodeBlockContent command className={className} style={style}>
@@ -140,7 +152,7 @@ export default function CodeBlock({ className, children }) {
         code={
           splitOutput.length === 2 ? splitOutput[1].trim() : children.trim()
         }
-        language={codeLanguage}
+        language={internalCodeLanguage}
       >
         {({ className, style, tokens, getLineProps, getTokenProps }) => (
           <CodeBlockContent className={className} style={style}>
