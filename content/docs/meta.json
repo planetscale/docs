@@ -11,7 +11,8 @@
           "route": "nonblocking-schema-changes",
           "display": "Non-Blocking Schema Changes"
         },
-        { "route": "security", "display": "Security" }
+        { "route": "security", "display": "Security" },
+        { "route": "billing", "display": "Billing" }
       ]
     },
     {
