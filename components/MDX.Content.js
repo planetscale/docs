@@ -17,6 +17,7 @@ import AnchorLink from './MDX.AnchorLink'
 import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
+import TableBlock from './MDX.TableBlock'
 
 const MarkDownContainer = styled('div', {
   '& h3': {
@@ -59,32 +60,6 @@ const MarkDownContainer = styled('div', {
     lineHeight: '1.75em',
     margin: '1em 0',
   },
-
-  '& table': {
-    border: '1px solid var(--border-primary)',
-    borderRadius: '6px',
-    marginTop: '2em',
-    width: '100%',
-    fontSize: '14px',
-    color: 'var(--foreground2)',
-    borderSpacing: '0',
-  },
-
-  '& table th': {
-    textAlign: 'left',
-    padding: '1em',
-    color: 'var(--text-secondary)',
-    borderBottom: '2px solid var(--border-primary)',
-  },
-
-  '& table td': {
-    padding: '1em',
-    borderBottom: '1px solid var(--border-primary)',
-  },
-
-  '& table tr:last-child td': {
-    borderBottom: 'unset',
-  },
 })
 
 export default function MDXContent({
@@ -102,6 +77,7 @@ export default function MDXContent({
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
         <MDXRemote
           components={{
+            table: TableBlock,
             code: CodeBlock,
             inlineCode: InlineCodeBlock,
             img: ImageBlock,
