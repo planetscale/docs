@@ -32,11 +32,13 @@ pscale service-token add-access your-token-name connect_production_branch --data
 ```
 
 3. Set config vars for your Heroku application:
+<br>**Updated Terms of Service for Heroku** as of 06/22/2021 <br> See Heroku: [Updated Terms of Service](https://dashboard.heroku.com/terms-of-service)
+<br>*required flag:* [[-a], [--app] APP]  *app to run command against*
 
 ```
-heroku config:set PLANETSCALE_ORG=your-org-name
-heroku config:set PLANETSCALE_SERVICE_TOKEN_NAME=your-token-name
-heroku config:set PLANETSCALE_SERVICE_TOKEN=your-token-value
+heroku config:set PLANETSCALE_ORG=your-org-name --app <MY-APP> 
+heroku config:set PLANETSCALE_SERVICE_TOKEN_NAME=your-token-name --app <MY-APP>
+heroku config:set PLANETSCALE_SERVICE_TOKEN=your-token-value --app <MY-APP>
 ```
 
 <InfoBlock type="note">
