@@ -46,7 +46,6 @@ const InfoBlockContainer = styled('div', {
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
-  color: '$textSecondary',
   border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '0 0 2em',
