@@ -169,6 +169,87 @@ const globalStyles = global({
       overflow: 'hidden',
     },
   },
+
+  '.algolia-autocomplete .ds-dropdown-menu': {
+    width: '500px !important',
+    borderRadius: '6px !important',
+  },
+
+  '.algolia-autocomplete .ds-dropdown-menu::before': {
+    display: 'none !important',
+  },
+
+  '.ds-suggestions': {
+    margin: 'unset !important',
+  },
+
+  '.algolia-autocomplete .ds-suggestion': {
+    padding: '1em !important',
+    background: '$bgPrimary !important',
+    margin: '0 !important',
+  },
+
+  '.algolia-autocomplete .ds-suggestion.ds-cursor': {
+    backgroundColor: '$bgSecondary !important',
+  },
+
+  '.algolia-autocomplete .ds-suggestion:hover': {
+    backgroundColor: '$borderPrimary !important',
+  },
+
+  '.algolia-docsearch-suggestion': {
+    background: 'transparent !important',
+    textDecoration: 'none !important',
+  },
+
+  '.algolia-docsearch-suggestion--wrapper .algolia-docsearch-suggestion--content':
+    {
+      width: '100% !important',
+      float: 'none !important',
+      position: 'unset !important',
+      backgroundColor: 'unset !important',
+      padding: '4px 0 !important',
+    },
+
+  '.algolia-autocomplete .algolia-docsearch-suggestion--category-header': {
+    fontWeight: '500 !important',
+    fontSize: '1em !important',
+    color: '$textPrimary !important',
+    borderColor: '$borderPrimary !important',
+  },
+
+  '.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-column': {
+    display: 'none !important',
+  },
+
+  '.algolia-autocomplete .algolia-docsearch-suggestion--subcategory-inline': {
+    display: 'none !important',
+  },
+
+  '.algolia-autocomplete .algolia-docsearch-suggestion--title': {
+    color: '$textPrimary !important',
+    fontWeight: '300 !important',
+    fontSize: '14px !important',
+  },
+
+  '.algolia-autocomplete .algolia-docsearch-suggestion--text': {
+    fontSize: '14px !important',
+    color: '$textPrimary !important',
+  },
+
+  '.algolia-autocomplete .algolia-docsearch-suggestion--highlight': {
+    color: '$textBlue !important',
+  },
+
+  '.ds-dataset-1': {
+    borderColor: '$borderPrimary !important',
+    background: '$bgPrimary !important',
+    padding: '0 !important',
+  },
+
+  '.algolia-docsearch-footer': {
+    display: 'none !important',
+  },
 })
 
 globalStyles()

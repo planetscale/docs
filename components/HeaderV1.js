@@ -15,7 +15,7 @@ const ConditionalLogoWrapper = styled('div', {
 const HeaderWrapper = styled('div', {
   width: '100%',
   height: '90px',
-  backgroundColor: 'var(--bg-primary-translucent)',
+  backgroundColor: '$bgPrimary',
   backdropFilter: 'blur(8px)',
   display: 'flex',
   justifyContent: 'center',

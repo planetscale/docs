@@ -122,8 +122,8 @@ const MenuLink = styled('div', {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'var(--bg-primary)',
-    backgroundColor: 'var(--text-primary)',
+    color: '$bgPrimary',
+    backgroundColor: '$textPrimary',
     boxShadow:
       'rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px',
     borderRadius: '6px',
@@ -215,7 +215,7 @@ const BackgroundFrozen = styled('div', {
   height: '100vh',
   backdropFilter: 'blur(8px)',
   opacity: '0.75',
-  backgroundColor: 'var(--gray-600)',
+  backgroundColor: '$bgSecondary',
   zIndex: '4',
 })
 

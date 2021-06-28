@@ -30,13 +30,13 @@ const MarkDownContainer = styled('div', {
   },
 
   '& a': {
-    color: 'var(--text-blue)',
+    color: '$textBlue',
     textDecoration: 'none',
     borderBottom: '1px solid $bgPrimary',
     transition: 'border-bottom 0.25s ease',
 
     '&:hover': {
-      borderBottom: '1px solid var(--text-blue)',
+      borderBottom: '1px solid $textBlue',
     },
   },
 
