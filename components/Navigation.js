@@ -123,8 +123,8 @@ const MenuLink = styled('div', {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'var(--text-primary)',
-    backgroundColor: 'var(--bg-tertiary)',
+    color: 'var(--bg-primary)',
+    backgroundColor: 'var(--text-primary)',
     boxShadow:
       'rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px',
     borderRadius: '6px',
