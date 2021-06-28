@@ -57,7 +57,8 @@ const V1Badge = styled('div', {
 })
 
 const BetaBadge = styled('div', {
-  backgroundImage: 'linear-gradient(to bottom left,var(--tw-gradient-stops))',
+  backgroundImage:
+    'linear-gradient(to bottom left, $gradientFrom, $gradientTo)',
   backgroundColor: '$textPurple',
   color: '#fff',
   marginLeft: '1em',

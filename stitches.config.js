@@ -101,6 +101,9 @@ export const { styled, getCssString, theme, global } = createCss({
       textRed: colorSwatches.red600,
       textRedDisabled: colorSwatches.red600,
       textPurple: colorSwatches.purple600,
+
+      gradientFrom: colorSwatches.purple500,
+      gradientTo: colorSwatches.purple700,
     },
     fonts: {
       primary: 'Inter, sans-serif',
