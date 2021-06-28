@@ -10,25 +10,24 @@ const SearchContainer = styled('div', {
 const SearchBoxLabel = styled('label', {})
 
 const SearchBox = styled('input', {
-  border: '1px solid var(--border-action)',
+  border: '1px solid $borderPrimary',
   fontSize: '14px',
   borderRadius: '6px',
   outline: '0',
   padding: '0.5em 1em',
-  backgroundColor: 'var(--bg-primary-translucent)',
-  color: 'var(--text-primary)',
-  boxShadow: 'var(--tw-shadow)',
+  color: '$textPrimary',
+  backgroundColor: '$bgPrimary',
   width: '330px',
   transition: 'width 100ms ease-out',
 
   '&:focus': {
-    backgroundColor: 'var(--bg-primary)',
-    borderColor: 'var(--text-blue)',
+    backgroundColor: '$bgPrimary',
+    borderColor: '$textBlue',
     width: '420px',
   },
 
   '&::placeholder': {
-    color: 'var(--gray-500)',
+    color: '$textSecondary',
   },
 })
 
@@ -47,7 +46,7 @@ const KeyPressIndicatorWrapper = styled('div', {
 const KeyPressIndicator = styled(ButtonSecondary, {
   padding: '4px 8px',
   fontSize: '12px',
-  color: 'var(--gray-500)',
+  color: '$textSecondary',
   backgroundColor: 'unset',
   border: 'unset',
 })

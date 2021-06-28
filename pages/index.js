@@ -29,17 +29,16 @@ const CalloutCardList = styled('div', {
 })
 
 const CalloutCard = styled('div', {
-  border: '1px solid var(--text-primary)',
+  border: '1px solid $textPrimary',
   borderRadius: '6px',
   padding: '2em',
-  background: 'url(/img/internals/get_started.png) var(--text-primary)',
+  background: 'url(/img/internals/get_started.png) $textPrimary',
   backgroundRepeat: 'no-repeat',
   backgroundPosition: 'top right',
-  color: 'var(--bg-primary)',
+  color: '$bgPrimary',
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  boxShadow: '0 0 16px -64px var(--black)',
 })
 
 const CalloutCardHeading = styled('h2', {
@@ -76,7 +75,7 @@ const CategoryList = styled('div', {
 const CategoryImageContainer = styled('div', {
   '@phone': {
     paddingBottom: '0.5em',
-    borderBottom: '1px solid var(--border-primary)',
+    borderBottom: '1px solid $borderPrimary',
   },
 })
 
@@ -104,18 +103,18 @@ const CategorySubTitle = styled('p', {
 })
 
 const CategoryCard = styled('a', {
-  backgroundColor: 'var(--bg-secondary)',
-  color: 'var(--text-primary)',
+  backgroundColor: '$bgSecondary',
+  color: '$textPrimary',
   textDecoration: 'none',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  border: '1px solid var(--border-primary)',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   overflow: 'hidden',
 
   '&:hover': {
-    backgroundColor: 'var(--bg-secondary)',
+    borderColor: '$borderSecondary',
   },
 
   '@phone': {

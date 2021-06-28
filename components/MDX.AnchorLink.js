@@ -15,7 +15,7 @@ const AnchorIcon = styled('a', {
 })
 
 const AnchorHeading = styled('div', {
-  fontWeight: '600',
+  fontWeight: '$2',
   fontSize: '1.563em',
   margin: '2em 0 2em',
 

@@ -49,18 +49,18 @@ const CategorySubTitle = styled('p', {
 })
 
 const CategoryCard = styled('a', {
-  backgroundColor: 'var(--bg-secondary)',
-  color: 'var(--text-primary)',
+  backgroundColor: '$bgSecondary',
+  color: '$textPrimary',
   textDecoration: 'none',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  border: '1px solid var(--border-primary)',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   overflow: 'hidden',
 
   '&:hover': {
-    backgroundColor: 'var(--bg-secondary)',
+    backgroundColor: '$bgSecondary',
   },
 
   '@phone': {
@@ -110,7 +110,7 @@ export default function Overview() {
 function Category({ categoryID, categoryName, description, pages }) {
   return (
     <CategoryCard
-      href={`${categoryID}/${pages[0]['route']}`}
+      href={`/v1/${categoryID}/${pages[0]['route']}`}
       className="active"
     >
       <CategoryContent>

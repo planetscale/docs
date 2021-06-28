@@ -6,24 +6,23 @@ const TableContainer = styled('div', {
 })
 
 const Table = styled('table', {
-  border: '1px solid var(--border-primary)',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   marginTop: '2em',
   width: '100%',
   fontSize: '14px',
-  color: 'var(--foreground2)',
   borderSpacing: '0',
 
   '& th': {
     textAlign: 'left',
     padding: '1em',
-    color: 'var(--text-secondary)',
-    borderBottom: '2px solid var(--border-primary)',
+    color: '$textSecondary',
+    borderBottom: '2px solid $borderPrimary',
   },
 
   '& td': {
     padding: '1em',
-    borderBottom: '1px solid var(--border-primary)',
+    borderBottom: '1px solid $borderPrimary',
   },
 
   '& tr:last-child td': {

@@ -5,7 +5,6 @@ export const PageContainer = styled('div', {
   display: 'flex',
   flexDirection: 'column',
   paddingLeft: '4em',
-  boxShadow: 'var(--page-shadow)',
 
   '@tinyDesktop': {
     padding: '0 4em',

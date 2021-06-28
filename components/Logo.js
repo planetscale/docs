@@ -19,8 +19,7 @@ const LogoContainer = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
   },
 
   '@tablet': {
@@ -46,19 +45,21 @@ const LinkContainer = styled('a', {
 })
 
 const V1Badge = styled('div', {
-  backgroundColor: 'var(--bg-tertiary)',
-  color: 'var(--text-secondary)',
+  backgroundColor: '$bgSecondary',
+  color: '$textSecondary',
   marginLeft: '1em',
   padding: '0.42em 1em',
   borderRadius: '99px',
   fontSize: '12px',
   fontWeight: '500',
   letterSpacing: '0.05em',
-  fontFamily: 'IBM Plex Mono',
+  fontFamily: '$mono',
 })
 
 const BetaBadge = styled('div', {
-  backgroundImage: 'linear-gradient(to bottom left,var(--tw-gradient-stops))',
+  backgroundImage:
+    'linear-gradient(to bottom left, $gradientFrom, $gradientTo)',
+  backgroundColor: '$textPurple',
   color: '#fff',
   marginLeft: '1em',
   padding: '0.42em 1em',
@@ -66,7 +67,7 @@ const BetaBadge = styled('div', {
   fontSize: '12px',
   fontWeight: '500',
   letterSpacing: '0.05em',
-  fontFamily: 'IBM Plex Mono',
+  fontFamily: '$mono',
 })
 
 export default function Logo({ version }) {
@@ -80,7 +81,7 @@ export default function Logo({ version }) {
   return (
     <LogoContainer>
       <LinkContainer href="/">
-        <LogoImage src={imageURL} alt="PlanetScale docs logo" />
+        <LogoImage src={imageURL} alt="PlanetScale documentation logo" />
       </LinkContainer>
       {version === 'v1' ? (
         <LinkContainer href="/v1">

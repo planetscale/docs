@@ -1,4 +1,3 @@
-import '../styles/layout.css'
 import { ThemeProvider } from '../components/themeContext'
 import { IdProvider } from '@radix-ui/react-id'
 import Head from 'next/head'

@@ -41,13 +41,13 @@ const TextContainer = styled('div', {
   },
 })
 
-const ImageBlockContainer = styled('div', {
+const InfoBlockContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
-  color: 'var(--text-secondary)',
-  border: '1px solid var(--border-primary)',
+  color: '$textSecondary',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '0 0 2em',
   padding: '1.5em 1em',
@@ -55,18 +55,24 @@ const ImageBlockContainer = styled('div', {
   variants: {
     type: {
       note: {
+        borderColor: '$textGreen',
+
         [`> ${IconContainer} > svg`]: {
-          color: 'rgb(var(--green-600))',
+          color: '$textGreen',
         },
       },
       warning: {
+        borderColor: '$textOrange',
+
         [`> ${IconContainer} > svg`]: {
-          color: 'rgb(var(--orange-500))',
+          color: '$textOrange',
         },
       },
       tip: {
+        borderColor: '$textPurple',
+
         [`> ${IconContainer} > svg`]: {
-          color: 'var(--purple-500)',
+          color: '$textPurple',
         },
       },
     },
@@ -77,7 +83,7 @@ export default function InfoBlock(props) {
   const { type, children } = props
 
   return (
-    <ImageBlockContainer type={type}>
+    <InfoBlockContainer type={type}>
       <IconContainer>
         {type === 'note' && <File4 />}
         {type === 'warning' && <AlarmWarning />}
@@ -85,6 +91,6 @@ export default function InfoBlock(props) {
       </IconContainer>
 
       <TextContainer>{children}</TextContainer>
-    </ImageBlockContainer>
+    </InfoBlockContainer>
   )
 }

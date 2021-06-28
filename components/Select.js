@@ -6,12 +6,18 @@ const SelectContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  border: '1px solid var(--border-primary)',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   padding: '0.25em 0.5em 0.25em 1em',
 
+  '&:hover': {
+    backgroundColor: '$bgSecondary',
+    borderColor: '$borderSecondary',
+  },
+
   '> svg': {
     width: '24px',
+    color: '$textPrimary',
   },
 })
 
@@ -20,7 +26,7 @@ const CustomSelect = styled('select', {
   background: 'unset',
   border: 'unset',
   fontSize: '12px',
-  color: 'var(--text-primary)',
+  color: '$textPrimary',
 
   '&:focus': {
     outline: 'unset',

@@ -3,7 +3,7 @@ import { Check } from '@styled-icons/remix-line'
 import { styled } from '../stitches.config'
 
 const InlineCodeBlockContainer = styled('code', {
-  background: 'var(--bg-tertiary)',
+  background: '$bgSecondary',
   padding: '4px 8px',
   margin: '0 4px',
   borderRadius: '4px',
@@ -11,8 +11,8 @@ const InlineCodeBlockContainer = styled('code', {
 
   '&:hover': {
     cursor: 'pointer',
-    color: 'var(--white)',
-    background: 'var(--text-blue)',
+    color: '$bgPrimary',
+    background: '$textBlue',
   },
 })
 

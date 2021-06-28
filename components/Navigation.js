@@ -26,8 +26,7 @@ const _SearchBarContainer = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right,var(--border-primary),var(--bg-primary))',
+    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
   },
 })
 
@@ -58,7 +57,7 @@ const _SidenavContainer = styled(ScrollArea.Root, {
     left: '-100vw',
     zIndex: '5',
     padding: '2em',
-    backgroundColor: 'var(--bg-primary)',
+    backgroundColor: '$bgPrimary',
     flexBasis: '100vw',
     width: '90vw',
     height: '100vh',
@@ -101,7 +100,7 @@ const StyledScrollTrack = styled(ScrollArea.Track, {
 })
 
 const StyledScrollThumb = styled(ScrollArea.Thumb, {
-  backgroundColor: 'var(--text-primary)',
+  backgroundColor: '$textPrimary',
   position: 'absolute',
   top: '0',
   left: '0',
@@ -123,8 +122,8 @@ const MenuLink = styled('div', {
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    color: 'var(--bg-primary)',
-    backgroundColor: 'var(--text-primary)',
+    color: '$bgPrimary',
+    backgroundColor: '$textPrimary',
     boxShadow:
       'rgba(0, 0, 0, 0.1) 0px 1px 6px, rgba(0, 0, 0, 0.2) 0px 2px 24px',
     borderRadius: '6px',
@@ -154,7 +153,7 @@ const _GroupHeading = styled(Collapsible.Button, {
   fontWeight: '700',
   textTransform: 'uppercase',
   letterSpacing: '1px',
-  color: 'var(--text-tertiary)',
+  color: '$textPrimary',
   backgroundColor: 'unset',
   border: 'unset',
   padding: '0',
@@ -194,16 +193,16 @@ const PageLink = styled('a', {
   flexDirection: 'row',
   alignItems: 'center',
   margin: '0 0 1.5em 0',
-  color: 'var(--text-secondary)',
+  color: '$textSecondary',
   position: 'relative',
 
   '&:hover': {
-    color: 'var(--link)',
+    color: '$textBlue',
     cursor: 'pointer',
   },
 
   '&.active': {
-    color: 'var(--text-primary)',
+    color: '$textPrimary',
     fontWeight: '600',
   },
 })
@@ -216,7 +215,7 @@ const BackgroundFrozen = styled('div', {
   height: '100vh',
   backdropFilter: 'blur(8px)',
   opacity: '0.75',
-  backgroundColor: 'var(--gray-600)',
+  backgroundColor: '$bgSecondary',
   zIndex: '4',
 })
 

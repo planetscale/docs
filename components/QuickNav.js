@@ -7,7 +7,7 @@ const QuickNavContainer = styled('nav', {
   margin: '2em 0 0',
   position: 'sticky',
   top: 'calc(90px + 2em)',
-  borderLeft: '1px solid var(--border-primary)',
+  borderLeft: '1px solid $borderPrimary',
 
   '@tinyDesktop': {
     display: 'none',
@@ -21,6 +21,7 @@ const QuickNavList = styled('ul', {
 })
 
 const QuickNavHeader = styled('li', {
+  color: '$textPrimary',
   padding: '0 0 0 2em',
   fontSize: '12px',
   textTransform: 'uppercase',
@@ -30,7 +31,7 @@ const QuickNavHeader = styled('li', {
   alignItems: 'center',
 
   '> svg': {
-    color: 'var(--text-secondary)',
+    color: '$textSecondary',
     width: '14px',
     marginRight: '6px',
   },
@@ -41,8 +42,8 @@ const QuickNavListItem = styled('li', {
   padding: '0 0 0 2em',
   fontSize: '12px',
   lineHeight: '20px',
-  color: 'var(--text-secondary)',
-  borderLeft: '1px solid var(--border-primary)',
+  color: '$textSecondary',
+  borderLeft: '1px solid $borderPrimary',
 
   '&:not(:last-child)': {
     paddingBottom: '0.5em',
@@ -54,7 +55,7 @@ const QuickNavListItem = styled('li', {
   },
 
   '&.active': {
-    borderLeft: '1px solid var(--gray-400)',
+    borderLeft: '1px solid $textPrimary',
   },
 
   '&.depth-3': {
@@ -63,11 +64,11 @@ const QuickNavListItem = styled('li', {
 })
 
 const AnchorLink = styled('a', {
-  color: 'var(--text-secondary)',
+  color: '$textSecondary',
   textDecoration: 'unset',
 
   '&:hover': {
-    color: 'var(--text-primary)',
+    color: '$textPrimary',
   },
 })
 

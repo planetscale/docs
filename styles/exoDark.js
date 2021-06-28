@@ -1,8 +1,4 @@
 var theme = {
-  plain: {
-    color: 'var(--text-secondary)',
-    backgroundColor: 'unset',
-  },
   styles: [
     {
       types: ['prolog'],

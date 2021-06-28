@@ -2,6 +2,8 @@ import React from 'react'
 import { styled as stitchesStyled } from '../stitches.config'
 
 const HeadingWrapper = stitchesStyled('div', {
+  color: '$textPrimary',
+
   '@phone': {
     borderBottom: 'unset',
   },
