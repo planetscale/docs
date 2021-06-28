@@ -95,15 +95,16 @@ export default function QuickNav({ subNavPages }) {
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         const id = entry.target.getAttribute('id')
+        const element = document.querySelector(
+          `ul#quicknav > li > a[href="#${id}"]`
+        )
 
-        if (entry.isIntersecting) {
-          document
-            .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
-            .parentElement.classList.add('active')
-        } else {
-          document
-            .querySelector(`ul#quicknav > li > a[href="#${id}"]`)
-            .parentElement.classList.remove('active')
+        console.log(element)
+
+        if (entry.isIntersecting && element !== null) {
+          element.parentElement.classList.add('active')
+        } else if (element !== null) {
+          element.parentElement.classList.remove('active')
         }
       })
     }, config)
