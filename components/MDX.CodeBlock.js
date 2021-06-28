@@ -102,7 +102,7 @@ export default function CodeBlock({ className, children }) {
     setCopyButtonState(true)
     setTimeout(() => {
       setCopyButtonState(false)
-    }, 5000)
+    }, 3000)
 
     navigator.clipboard.writeText(
       splitOutput.length === 2 ? splitOutput[0].trim() : children
