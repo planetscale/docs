@@ -19,13 +19,12 @@ const FooterWrapper = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
   },
 
   '@phone': {
     padding: '2em',
-    borderTop: '1px solid var(--border-primary)',
+    borderTop: '1px solid $borderPrimary',
 
     '&:after': {
       content: 'unset',
@@ -56,19 +55,19 @@ const LeftContainer = styled('div', {
 
 const LinkBlock = styled('a', {
   fontSize: '12px',
-  color: 'var(--text-blue)',
+  color: '$textBlue',
   textDecoration: 'none',
-  borderBottom: '1px solid var(--bg-primary)',
+  borderBottom: '1px solid $bgPrimary',
   transition: 'border-bottom 0.25s ease',
 
   '&:hover': {
-    borderBottom: '1px solid var(--text-blue)',
+    borderBottom: '1px solid $textBlue',
   },
 })
 
 const Copyright = styled('div', {
   fontSize: '12px',
-  color: 'var(--text-secondary)',
+  color: '$textSecondary',
 })
 
 export default function Footer() {

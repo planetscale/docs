@@ -16,7 +16,7 @@ const ConditionalLogoWrapper = styled('div', {
 const HeaderWrapper = styled('div', {
   width: '100%',
   height: '90px',
-  backgroundColor: 'var(--bg-primary-translucent)',
+  backgroundColor: '$bgPrimaryTranslucent',
   backdropFilter: 'blur(8px)',
   display: 'flex',
   justifyContent: 'center',
@@ -34,15 +34,14 @@ const HeaderWrapper = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
   },
 
   '@phone': {
     padding: '2em',
     position: 'relative',
     height: 'unset',
-    borderBottom: '1px solid var(--border-primary)',
+    borderBottom: '1px solid $borderPrimary',
 
     '&:after': {
       content: 'unset',
@@ -96,10 +95,10 @@ const RightContainer = styled('div', {
 
 const LinkContainer = styled('a', {
   textDecoration: 'none',
-  color: 'var(--text-primary)',
+  color: '$textPrimary',
 
   '&:visited': {
-    color: 'var(--text-primary)',
+    color: '$textPrimary',
   },
 })
 

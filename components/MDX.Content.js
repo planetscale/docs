@@ -20,6 +20,8 @@ import InfoBlock from './MDX.InfoBlock'
 import TableBlock from './MDX.TableBlock'
 
 const MarkDownContainer = styled('div', {
+  color: '$textPrimary',
+
   '& h3': {
     fontWeight: '600',
     fontSize: '1.25em',
@@ -30,7 +32,7 @@ const MarkDownContainer = styled('div', {
   '& a': {
     color: 'var(--text-blue)',
     textDecoration: 'none',
-    borderBottom: '1px solid var(--bg-primary)',
+    borderBottom: '1px solid $bgPrimary',
     transition: 'border-bottom 0.25s ease',
 
     '&:hover': {

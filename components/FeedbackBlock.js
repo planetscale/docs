@@ -19,14 +19,13 @@ const FeedbackBlockContainer = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right, var(--border-primary), var(--bg-primary))',
+    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
   },
 })
 
 const FeedbackBlockLabel = styled('span', {
   fontSize: '14px',
-  color: 'var(--text-secondary)',
+  color: '$textSecondary',
 })
 
 const IconButton = styled('button', {
@@ -39,7 +38,7 @@ const IconButton = styled('button', {
   '> svg': {
     width: '1.75em',
     height: '2.25em',
-    color: 'var(--text-secondary)',
+    color: '$textSecondary',
 
     '&:not(:last-child)': {
       marginRight: '1em',
@@ -48,11 +47,11 @@ const IconButton = styled('button', {
 
   '&:hover': {
     transform: 'scale(1.2)',
-    backgroundColor: 'var(--bg-blue)',
+    backgroundColor: '$textBlue',
     cursor: 'pointer',
 
     '> svg': {
-      color: 'var(--white)',
+      color: '$textPrimary',
     },
   },
 })

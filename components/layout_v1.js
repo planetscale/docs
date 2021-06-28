@@ -1,10 +1,11 @@
-import React from 'react'
-import { styled } from '../stitches.config'
+import React, { useContext } from 'react'
+import { styled, darkTheme } from '../stitches.config'
 import Navigation from './Navigation'
+import { ThemeContext } from './themeContext'
 
 export const SiteContainer = styled('section', {
   position: 'relative',
-  backgroundColor: 'var(--bg-primary)',
+  backgroundColor: '$bgPrimary',
   transition: 'backgroundColor var(--themeSwitchTime) ease',
   width: '100vw',
   minHeight: '100vh',
@@ -35,13 +36,17 @@ export const WidthConstrain = styled('div', {
   },
 })
 
-const Layout = ({ children }) => (
-  <SiteContainer>
-    <WidthConstrain>
-      <Navigation version="v1"></Navigation>
-      {children}
-    </WidthConstrain>
-  </SiteContainer>
-)
+export default function Layout({ children }) {
+  const themeContext = useContext(ThemeContext)
 
-export default Layout
+  return (
+    <SiteContainer
+      className={themeContext.getActiveMode().name === 'dark' ? darkTheme : ''}
+    >
+      <WidthConstrain>
+        <Navigation version="v1"></Navigation>
+        {children}
+      </WidthConstrain>
+    </SiteContainer>
+  )
+}

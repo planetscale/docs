@@ -7,11 +7,11 @@ const ImageBlockContainer = styled('figure', {
   flexDirection: 'column',
   justifyContent: 'center',
   alignItems: 'center',
-  border: '1px solid var(--border-primary)',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '2em 0',
   padding: '1em',
-  backgroundColor: 'var(--bg-primary)',
+  backgroundColor: '$bgPrimary',
   width: '100%',
   transition: 'width 242ms ease-in',
   cursor: 'zoom-in',
@@ -34,8 +34,9 @@ const ImageBlockImage = styled('img', {
 })
 
 const ImageBlockCaption = styled('figcaption', {
+  marginTop: '1em',
   fontSize: '12px',
-  color: 'var(--text-secondary)',
+  color: '$textSecondary',
 })
 
 export default function ImageBlock(props) {

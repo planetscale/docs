@@ -46,8 +46,8 @@ const ImageBlockContainer = styled('div', {
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
-  color: 'var(--text-secondary)',
-  border: '1px solid var(--border-primary)',
+  color: '$textSecondary',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '0 0 2em',
   padding: '1.5em 1em',
@@ -56,17 +56,17 @@ const ImageBlockContainer = styled('div', {
     type: {
       note: {
         [`> ${IconContainer} > svg`]: {
-          color: 'rgb(var(--green-600))',
+          color: '$textGreen',
         },
       },
       warning: {
         [`> ${IconContainer} > svg`]: {
-          color: 'rgb(var(--orange-500))',
+          color: '$textOrange',
         },
       },
       tip: {
         [`> ${IconContainer} > svg`]: {
-          color: 'var(--purple-500)',
+          color: '$textPurple',
         },
       },
     },

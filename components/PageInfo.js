@@ -21,8 +21,7 @@ const PageInfoContainer = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right,var(--border-primary),var(--bg-primary))',
+    background: 'linear-gradient(to right,$borderPrimary,$bgPrimary)',
   },
 
   '@phone': {
@@ -33,7 +32,7 @@ const PageInfoContainer = styled('div', {
 
 const LastUpdatedDate = styled('div', {
   fontSize: '14px',
-  color: 'var(--text-secondary)',
+  color: '$textSecondary',
 
   '@phone': {
     marginBottom: '1em',

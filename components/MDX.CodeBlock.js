@@ -10,24 +10,19 @@ const CodeBlockContainer = styled('div', {
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  border: '1px solid var(--border-primary)',
+  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '3em 0',
+  backgroundColor: '$bgPrimary',
 
   '> code:not(:last-of-type)': {
-    borderBottom: '1px solid var(--border-primary)',
+    borderBottom: '1px solid $borderPrimary',
   },
 })
 
 const CopyButton = styled(ButtonSecondary, {
   fontSize: '12px',
-  border: 'unset',
-  backgroundColor: 'unset',
   padding: '0.75em 1em',
-
-  '&:hover': {
-    opacity: 'var(--bg-secondary)',
-  },
 })
 
 const CopyButtonText = styled('span', {})
@@ -41,12 +36,11 @@ const CodeBlockHeader = styled('div', {
   borderTopRightRadius: '6px',
   padding: '0.5em 0.5em 0.5em 1em',
   width: 'calc(100%)',
-  borderBottom: '1px solid var(--border-primary)',
+  borderBottom: '1px solid $borderPrimary',
 })
 
 const CodeType = styled('div', {
-  fontFamily: 'IBM Plex Mono',
-  color: 'var(--gray-600)',
+  fontFamily: '$mono',
   fontSize: '14px',
   textTransform: 'lowercase',
   paddingRight: '0.5em',
@@ -57,7 +51,7 @@ const CodeBlockContent = styled('code', {
   margin: '0',
   padding: '1em',
   overflow: 'scroll',
-  fontFamily: 'IBM Plex Mono',
+  fontFamily: '$mono',
   fontSize: '14px',
   borderBottomLeftRadius: '6px',
   borderBottomRightRadius: '6px',

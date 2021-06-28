@@ -17,8 +17,7 @@ const NextBlockContainer = styled('div', {
     display: 'block',
     height: '1px',
     width: '100%',
-    background:
-      'linear-gradient(to right,var(--border-primary),var(--bg-primary))',
+    background: 'linear-gradient(to right,$borderPrimary,$bgPrimary)',
   },
 })
 
@@ -39,7 +38,7 @@ const NextBlockListItem = styled('li', {
   borderRadius: '6px',
 
   '&:hover': {
-    backgroundColor: 'var(--bg-secondary)',
+    backgroundColor: '$bgSecondary',
   },
 })
 
