@@ -34,8 +34,6 @@ const FooterWrapper = styled('div', {
 })
 
 const FooterConstrain = styled('div', {
-  position: 'sticky',
-  top: '0',
   maxWidth: '80rem',
   width: '100%',
   display: 'flex',
