@@ -257,7 +257,7 @@ export default function Navigation({ version }) {
                 categoryID={category.id}
                 category={category.name}
                 pages={category.pages}
-                clickHandler={toggleMobileTOC}
+                onClick={mobileTOCState ? toggleMobileTOC : () => {}}
               ></SidenavGroup>
             )
           })}
@@ -273,11 +273,7 @@ export default function Navigation({ version }) {
   )
 }
 
-function SidenavGroup({ version, categoryID, category, pages, clickHandler }) {
-  const handleClick = () => {
-    clickHandler()
-  }
-
+function SidenavGroup({ version, categoryID, category, pages, onClick }) {
   return (
     <_GroupContainer defaultOpen={true}>
       <_GroupHeading>
@@ -292,12 +288,13 @@ function SidenavGroup({ version, categoryID, category, pages, clickHandler }) {
 
           return (
             <CustomLink
+              onClick={onClick}
               version={version}
               href={href}
               activeClassName="active"
               key={index}
             >
-              <PageLink onClick={handleClick}>{page['display']}</PageLink>
+              <PageLink>{page['display']}</PageLink>
             </CustomLink>
           )
         })}

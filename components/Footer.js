@@ -40,11 +40,6 @@ const FooterConstrain = styled('div', {
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-
-  '@phone': {
-    flexDirection: 'column',
-    alignItems: 'flex-end',
-  },
 })
 
 const LeftContainer = styled('div', {
@@ -54,10 +49,6 @@ const LeftContainer = styled('div', {
 
   '> a': {
     marginRight: '8px',
-  },
-
-  '@phone': {
-    marginBottom: '1em',
   },
 })
 
