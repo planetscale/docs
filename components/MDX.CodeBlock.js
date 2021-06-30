@@ -13,7 +13,7 @@ const CodeBlockContainer = styled('div', {
   border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '3em 0',
-  backgroundColor: '$bgPrimary',
+  backgroundColor: '$bgSecondary',
 
   '> code:not(:last-of-type)': {
     borderBottom: '1px solid $borderPrimary',
@@ -23,6 +23,11 @@ const CodeBlockContainer = styled('div', {
 const CopyButton = styled(ButtonSecondary, {
   fontSize: '12px',
   padding: '0.75em 1em',
+  backgroundColor: '$bgSecondary',
+
+  '&:hover': {
+    backgroundColor: '$bgPrimary',
+  },
 })
 
 const CopyButtonText = styled('span', {})
@@ -55,6 +60,7 @@ const CodeBlockContent = styled('code', {
   fontSize: '14px',
   borderBottomLeftRadius: '6px',
   borderBottomRightRadius: '6px',
+  backgroundColor: 'unset !important',
 
   variants: {
     command: {

@@ -40,6 +40,13 @@ const AnchorHeading = styled('div', {
       visibility: 'visible',
     },
   },
+
+  '@tablet': {
+    [`& ${AnchorIcon}`]: {
+      visibility: 'unset',
+      height: '1.563em',
+    },
+  },
 })
 
 class AnchorLink extends React.Component {
