@@ -99,8 +99,6 @@ export default function QuickNav({ subNavPages }) {
           `ul#quicknav > li > a[href="#${id}"]`
         )
 
-        console.log(element)
-
         if (entry.isIntersecting && element !== null) {
           element.parentElement.classList.add('active')
         } else if (element !== null) {
