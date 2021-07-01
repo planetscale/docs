@@ -40,7 +40,7 @@ const ImageBlockCaption = styled('figcaption', {
 })
 
 export default function ImageBlock(props) {
-  const { alt, src } = props
+  const { alt, src, embed } = props
   const [imageURL, setImageURL] = useState(src)
   const themeContext = useContext(ThemeContext)
 
@@ -75,9 +75,15 @@ export default function ImageBlock(props) {
   }
 
   return (
-    <ImageBlockContainer onClick={onClickHandler}>
-      <ImageBlockImage src={imageURL} alt={alt}></ImageBlockImage>
-      <ImageBlockCaption>{alt}</ImageBlockCaption>
-    </ImageBlockContainer>
+    <>
+      {embed ? (
+        <ImageBlockImage src={imageURL} alt={alt}></ImageBlockImage>
+      ) : (
+        <ImageBlockContainer onClick={onClickHandler}>
+          <ImageBlockImage src={imageURL} alt={alt}></ImageBlockImage>
+          <ImageBlockCaption>{alt}</ImageBlockCaption>
+        </ImageBlockContainer>
+      )}
+    </>
   )
 }

@@ -1,0 +1,161 @@
+---
+title: 'Deploy to Vercel'
+subtitle: "Let's try out the new PlanetScale integration for Vercel!"
+---
+
+## Introduction
+
+In this tutorial, we're going to deploy a Next.js application with a PlanetScale database to Vercel, using the PlanetScale integration for Vercel. As a bonus, we've included the sample application code in this tutorial. We'll walk you step-by-step through creating a new PlanetScale database, deploying your application to Vercel, and using the Vercel integration. Excited? Let's go!
+
+## Prerequisites
+
+- Install the [PlanetScale CLI](https://github.com/planetscale/cli).
+- Authenticate the CLI with the following command:
+
+```zsh
+pscale auth login
+```
+
+## Setup a PlanetScale database
+
+Now we're ready to start our adventure. Let's begin by setting up our PlanetScale database with a small sample table.
+
+1. Create a new PlanetScale _database_:
+
+```zsh
+pscale database create <database>
+```
+
+2. Create a new `development` branch:
+
+```zsh
+pscale branch create <database> <branch>
+```
+
+3. Connect to your database to make a [non-blocking schema change](/concepts/nonblocking-schema-changes):
+
+```zsh
+pscale shell <database> <branch>
+```
+
+4. Create the following example table:
+
+```SQL
+CREATE TABLE users (
+  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  email varchar(255) NOT NULL,
+  password varchar(255) NOT NULL,
+  name varchar(255)
+);
+```
+
+5. Create a **deployment request** by running:
+```zsh
+pscale deploy-request create <database> <branch>
+```
+
+6. _Deploy_ the **deploy request**:
+```zsh
+pscale deploy-request deploy <database> <deploy-request-number> 
+```
+
+  - To find your `deploy-request-number`, simply run:
+  ```zsh 
+  pscale deploy-request list <database> 
+  ```
+  Copy the value from `NUMBER` and use that digit as your `deploy-request-number`. 
+
+
+7. Merge your `development` branch into `main`:
+```zsh
+pscale deploy-request deploy <database> <deploy-request-number>
+```
+
+
+## Deploy to Vercel
+
+We mentioned earlier that we had included a sample Next.js application in this tutorial for you to deploy to Vercel. This demo application creates a `user` with a _name_, _email address_, and _password_. In this section, we're going to connect the `Git` repository of our sample application to **Vercel**.
+
+1. Click the following **Vercel Deploy** button:
+
+<a
+  class="embed"
+  target="_blank"
+  href="https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fplanetscale%2Fvercel-integration-example&project-name=vercel-integration-example&repository-name=vercel-integration-example&integration-ids=oac_ni8CGiTU3oM25q1k2L6unVMp"
+>
+  <img embed="true" src="https://vercel.com/button" target="_blank" alt="Deploy with Vercel" />
+</a>
+
+Vercel offers the option to clone our repository into GitHub, GitLab, or Bitbucket. In this tutorial, we're using GitHub.
+
+2. Click the _Create_ button to create your new `Git` repository.
+
+
+## Add Vercel integration
+
+We're almost done! The final thing we need to do is add a _Vercel_ integration to our PlanetScale database.
+
+1. Click the **Add** button to add the PlanetScale integration to this _Vercel project_.
+
+<InfoBlock type="tip">
+Tip: Make sure you pick the same <b>database</b> that you created in the earlier part of this tutorial, so that it has the right schema. 
+</InfoBlock>
+
+This step automatically runs your first **Vercel** _deployment_.
+
+<InfoBlock type="tip">
+Tip: Every push to <b>main</b> will automatically deploy your application in Vercel.
+</InfoBlock>
+
+
+The great news is that the PlanetScale **Vercel integration** automatically handles creating all your service tokens and environment variables:
+
+```
+PLANETSCALE_DB
+PLANETSCALE_ORG
+PLANETSCALE_TOKEN
+PLANETSCALE_TOKEN_NAME
+```
+
+<InfoBlock type="note">
+  <em>A note...</em>
+  <div>
+    <b>Removing Vercel integrations:</b>
+    <ul>
+      <li>
+        Environment variables are removed from all projects tied to the
+        integration.
+      </li>
+      <li>
+        All service tokens are destroyed and your application will no longer be
+        able to connect to your PlanetScale database.
+      </li>
+    </ul>
+    <b>Updating Vercel integration permissions:</b>
+    <ul>
+      <li>Old service tokens are removed in deleted projects.</li>
+      <li>
+        New service tokens are created and environment variables are added to
+        the project(s).
+      </li>
+      <li>
+        New projects should have access to the PlanetScale database tied to the
+        integration after installation is done.
+      </li>
+    </ul>
+  </div>
+</InfoBlock>
+
+All done! Congratulations on successfully deploying your application with a PlanetScale database to Vercel.
+
+## Summary
+
+In this tutorial, we deployed a Next.js application that was connected to a PlanetScale database to Vercel. We chose to use the sample Next.js application we built in this tutorial and then used it to connect to a PlanetScale database.
+
+## What's next?
+
+Now that you've successfully deployed an application to Vercel, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+
+## Need help?
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.

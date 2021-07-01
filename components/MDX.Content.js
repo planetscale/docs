@@ -38,6 +38,10 @@ const MarkDownContainer = styled('div', {
     '&:hover': {
       borderBottom: '1px solid $textBlue',
     },
+
+    '&.embed': {
+      borderBottom: 'unset !important',
+    },
   },
 
   '& p': {
@@ -48,7 +52,7 @@ const MarkDownContainer = styled('div', {
   '& ul, ol': {
     whitespace: 'normal',
     padding: '0 1em',
-    margin: '0 0 2em',
+    margin: '0 0 1em',
   },
 
   '& ol > li': {
