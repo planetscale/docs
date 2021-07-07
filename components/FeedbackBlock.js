@@ -79,8 +79,9 @@ export default function FeedbackBlock() {
   })
 
   const logFeedback = (feedbackDelta, e) => {
-    window.analytics.track('Page Feedback', {
+    window.analytics.track('page-feedback', {
       feedback: feedbackDelta,
+      url: pageURL,
     })
 
     sessionStorage.setItem(pageURL, true)
