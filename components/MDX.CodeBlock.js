@@ -46,10 +46,11 @@ const CodeBlockHeader = styled('div', {
 
 const CodeType = styled('div', {
   fontFamily: '$mono',
-  fontSize: '14px',
+  fontSize: '12px',
   textTransform: 'lowercase',
   paddingRight: '0.5em',
   marginRight: '0.5em',
+  color: '$textSecondary',
 })
 
 const CodeBlockContent = styled('code', {
