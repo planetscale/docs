@@ -55,6 +55,7 @@ const InfoBlockContainer = styled('div', {
     type: {
       note: {
         borderColor: '$textGreen',
+        backgroundColor: '$textGreenTranslucent',
 
         [`> ${IconContainer} > svg`]: {
           color: '$textGreen',
@@ -62,6 +63,7 @@ const InfoBlockContainer = styled('div', {
       },
       warning: {
         borderColor: '$textOrange',
+        backgroundColor: '$textOrangeTranslucent',
 
         [`> ${IconContainer} > svg`]: {
           color: '$textOrange',
@@ -69,6 +71,7 @@ const InfoBlockContainer = styled('div', {
       },
       tip: {
         borderColor: '$textPurple',
+        backgroundColor: '$textPurpleTranslucent',
 
         [`> ${IconContainer} > svg`]: {
           color: '$textPurple',
