@@ -61,6 +61,17 @@ const FeedbackBlockReactions = styled('div', {
   flexDirection: 'row',
   alignItems: 'center',
   fontSize: '14px',
+  color: '$textSecondary',
+
+  '> svg': {
+    width: '1.5em',
+    height: '2.25em',
+    color: '$textSecondary',
+
+    '&:not(:last-child)': {
+      marginRight: '0.5em',
+    },
+  },
 })
 
 export default function FeedbackBlock() {
@@ -75,6 +86,8 @@ export default function FeedbackBlock() {
   useEffect(() => {
     if (sessionStorage.getItem(pageURL)) {
       setFeedbackProvided(sessionStorage.getItem(pageURL))
+    } else {
+      setFeedbackProvided(false)
     }
   })
 
