@@ -47,11 +47,11 @@ const IconButton = styled('button', {
 
   '&:hover': {
     transform: 'scale(1.2)',
-    backgroundColor: '$textBlue',
+    backgroundColor: '$textBlueTranslucent',
     cursor: 'pointer',
 
     '> svg': {
-      color: '$textPrimary',
+      color: '$textBlue',
     },
   },
 })
