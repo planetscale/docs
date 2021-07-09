@@ -11,6 +11,7 @@
           "route": "nonblocking-schema-changes",
           "display": "Non-Blocking Schema Changes"
         },
+        { "route": "mfa", "display": "Multi-Factor Authentication" },
         { "route": "security", "display": "Security" },
         { "route": "billing", "display": "Billing" }
       ]
