@@ -1,7 +1,7 @@
 import React from 'react'
-import { styled as stitchesStyled } from '../stitches.config'
+import { styled } from '../stitches.config'
 
-const HeadingWrapper = stitchesStyled('div', {
+const HeadingWrapper = styled('div', {
   color: '$textPrimary',
 
   '@phone': {
@@ -9,13 +9,13 @@ const HeadingWrapper = stitchesStyled('div', {
   },
 })
 
-const HeadingContent = stitchesStyled('h1', {
+const HeadingContent = styled('h1', {
   fontWeight: '600',
   fontSize: '2.441em',
   margin: '1em 0',
 })
 
-const SubHeadingContainer = stitchesStyled('div', {
+const SubHeadingContainer = styled('div', {
   fontSize: '1.25em',
   lineHeight: '1.5em',
   maxWidth: '69ch',
@@ -27,7 +27,7 @@ const SubHeadingContainer = stitchesStyled('div', {
   },
 })
 
-const BannerImage = stitchesStyled('img', {
+const BannerImage = styled('img', {
   width: '100%',
   borderRadius: 6,
   margin: '0 0 4em',
