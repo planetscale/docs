@@ -2,8 +2,8 @@
 
 <img width="1380" alt="CleanShot 2021-05-27 at 16 00 47@2x" src="https://user-images.githubusercontent.com/623670/120054072-a19f0700-bfe2-11eb-9de3-3afb03fe6866.png">
 
-
 ## Docs and Engineering review processes
+
 Engineering and Docs partnered to create and implement the following processes for _including doc PRs_ as **part of each release**. The following new processes and guidelines enable us to ship spectacular Docs that truly address our user's needs. Ready to turn PlanetScale Docs into a delightful user experience? Let's go, team! 😁✌🏽
 
 - **Documentation review response time should be no more than 1-business day.**
@@ -52,8 +52,10 @@ _NOTE: If you feel a specific doc is important to add and also have all of the i
 - All pages in the documentation are markdown (.mdx) files with a frontmatter block on the top. The frontmatter block defines the title of the page.
 - When creating a new page, also create a corresponding entry in `meta.json` file to define the category and position of the file in the table of contants.
 
+### How to add a theme sensitive asset (image)
+
+- An image can be added with corresponding `light` and `dark` equivalents by having two assets: `ASSET_NAME_light.png` and `ASSET_NAME_dark.png`.
+
 ### Notes
 
 - Search is powered by [DocSearch](https://docsearch.algolia.com/). PlanetScale's configuration on DocSearch can be viewed [here](https://github.com/algolia/docsearch-configs/blob/master/configs/planetscale.json)
-
-
