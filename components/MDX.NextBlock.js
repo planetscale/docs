@@ -6,7 +6,7 @@ const NextBlockContainer = styled('div', {
   position: 'relative',
   display: 'flex',
   flexDirection: 'column',
-  margin: '0',
+  margin: '4em 0 0',
   padding: '2em 0 0',
 
   '&:after': {

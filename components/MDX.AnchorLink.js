@@ -17,11 +17,7 @@ const AnchorIcon = styled('a', {
 const AnchorHeading = styled('div', {
   fontWeight: '$2',
   fontSize: '1.563em',
-  margin: '2em 0 2em',
-
-  '&:first-of-type': {
-    margin: '0 0 2em',
-  },
+  margin: '3em 0 1em',
 
   [`& ${AnchorIcon}`]: {
     visibility: 'hidden',

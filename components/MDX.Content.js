@@ -22,10 +22,14 @@ import TableBlock from './MDX.TableBlock'
 const MarkDownContainer = styled('div', {
   color: '$textPrimary',
 
+  '& h2:first-of-type': {
+    marginTop: '1em',
+  },
+
   '& h3': {
     fontWeight: '600',
     fontSize: '1.25em',
-    marginTop: '2.5em',
+    marginTop: '2em',
     marginBottom: '0',
   },
 

@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import { useRouter } from 'next/router'
 import Page from '../components/SegmentPageTracker'
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
@@ -43,5 +43,3 @@ function MyApp({ Component, pageProps }) {
     </ThemeProvider>
   )
 }
-
-export default MyApp
