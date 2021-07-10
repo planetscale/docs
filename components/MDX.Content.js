@@ -81,27 +81,22 @@ export default function MDXContent({
   slug,
   category,
 }) {
+  const components = {
+    table: TableBlock,
+    code: CodeBlock,
+    inlineCode: InlineCodeBlock,
+    img: ImageBlock,
+    h2: (props) => <AnchorLink {...props} heading="h2" category={category} />,
+    h3: (props) => <AnchorLink {...props} heading="h3" category={category} />,
+    NextBlock,
+    InfoBlock,
+  }
+
   return (
     <ArticleBlock>
       <MarkDownContainer>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
-        <MDXRemote
-          components={{
-            table: TableBlock,
-            code: CodeBlock,
-            inlineCode: InlineCodeBlock,
-            img: ImageBlock,
-            h2: (props) => (
-              <AnchorLink {...props} heading="h2" category={category} />
-            ),
-            h3: (props) => (
-              <AnchorLink {...props} heading="h3" category={category} />
-            ),
-            NextBlock,
-            InfoBlock,
-          }}
-          {...body}
-        ></MDXRemote>
+        <MDXRemote {...body} components={components} lazy />
       </MarkDownContainer>
       <FeedbackBlock />
       <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>
