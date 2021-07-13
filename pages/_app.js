@@ -3,8 +3,9 @@ import { IdProvider } from '@radix-ui/react-id'
 import Head from 'next/head'
 import { useEffect } from 'react'
 import { useRouter } from 'next/router'
+import Page from '../components/SegmentPageTracker'
 
-function MyApp({ Component, pageProps }) {
+export default function App({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
@@ -35,10 +36,10 @@ function MyApp({ Component, pageProps }) {
             onLoad="this.media='all'"
           />
         </Head>
-        <Component {...pageProps} />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
       </IdProvider>
     </ThemeProvider>
   )
 }
-
-export default MyApp

@@ -14,11 +14,13 @@ export function TitleAndMetaTags({
   const themeContext = useContext(ThemeContext)
 
   useEffect(() => {
-    navigator.serviceWorker.getRegistrations().then((registrations) => {
-      for (let registration of registrations) {
-        registration.unregister()
-      }
-    })
+    if ('serviceworker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        for (let registration of registrations) {
+          registration.unregister()
+        }
+      })
+    }
   })
 
   useEffect(() => {

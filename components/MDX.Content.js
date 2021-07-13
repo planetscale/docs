@@ -22,10 +22,14 @@ import TableBlock from './MDX.TableBlock'
 const MarkDownContainer = styled('div', {
   color: '$textPrimary',
 
+  '& h2:first-of-type': {
+    marginTop: '1em',
+  },
+
   '& h3': {
     fontWeight: '600',
     fontSize: '1.25em',
-    marginTop: '2.5em',
+    marginTop: '2em',
     marginBottom: '0',
   },
 
@@ -77,27 +81,22 @@ export default function MDXContent({
   slug,
   category,
 }) {
+  const components = {
+    table: TableBlock,
+    code: CodeBlock,
+    inlineCode: InlineCodeBlock,
+    img: ImageBlock,
+    h2: (props) => <AnchorLink {...props} heading="h2" category={category} />,
+    h3: (props) => <AnchorLink {...props} heading="h3" category={category} />,
+    NextBlock,
+    InfoBlock,
+  }
+
   return (
     <ArticleBlock>
       <MarkDownContainer>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
-        <MDXRemote
-          components={{
-            table: TableBlock,
-            code: CodeBlock,
-            inlineCode: InlineCodeBlock,
-            img: ImageBlock,
-            h2: (props) => (
-              <AnchorLink {...props} heading="h2" category={category} />
-            ),
-            h3: (props) => (
-              <AnchorLink {...props} heading="h3" category={category} />
-            ),
-            NextBlock,
-            InfoBlock,
-          }}
-          {...body}
-        ></MDXRemote>
+        <MDXRemote {...body} components={components} lazy />
       </MarkDownContainer>
       <FeedbackBlock />
       <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>

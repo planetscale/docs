@@ -96,11 +96,19 @@ export const { styled, getCssString, theme, global } = createCss({
       textPrimary: colorSwatches.gray900,
       textSecondary: colorSwatches.gray600,
       textBlue: colorSwatches.blue600,
+      textBlueTranslucent: colorSwatches.blue600.concat('10'),
+
       textGreen: colorSwatches.green700,
+      textGreenTranslucent: colorSwatches.green700.concat('10'),
+
       textOrange: colorSwatches.orange600,
+      textOrangeTranslucent: colorSwatches.orange600.concat('10'),
+
       textRed: colorSwatches.red600,
       textRedDisabled: colorSwatches.red600,
+
       textPurple: colorSwatches.purple600,
+      textPurpleTranslucent: colorSwatches.purple600.concat('10'),
 
       gradientFrom: colorSwatches.purple500,
       gradientTo: colorSwatches.purple700,
@@ -135,11 +143,18 @@ export const darkTheme = theme('dark', {
     textPrimary: colorSwatches.gray050,
     textSecondary: colorSwatches.gray300,
     textBlue: colorSwatches.blue400,
+    textBlueTranslucent: colorSwatches.blue400.concat('30'),
+
     textGreen: colorSwatches.green500,
+    textGreenTranslucent: colorSwatches.green500.concat('30'),
+
     textOrange: colorSwatches.orange300,
+    textOrangeTranslucent: colorSwatches.orange300.concat('30'),
+
     textRed: colorSwatches.red500,
     textRedDisabled: colorSwatches.red500,
     textPurple: colorSwatches.purple400,
+    textPurpleTranslucent: colorSwatches.purple400.concat('30'),
   },
 })
 
