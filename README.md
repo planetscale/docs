@@ -55,6 +55,7 @@ _NOTE: If you feel a specific doc is important to add and also have all of the i
 ### How to add a theme sensitive asset (image)
 
 - An image can be added with corresponding `light` and `dark` equivalents by having two assets: `ASSET_NAME_light.png` and `ASSET_NAME_dark.png`.
+- The image link to be used in a `.mdx` document needs to be the `light` version of the asset i.e. `ASSET_NAME_light.png`.
 
 ### Notes
 
