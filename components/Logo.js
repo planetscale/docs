@@ -1,6 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { styled } from '../stitches.config'
 import { ThemeContext } from './themeContext'
+import Link from 'next/link'
 
 const LogoContainer = styled('div', {
   position: 'relative',
@@ -80,17 +81,23 @@ export default function Logo({ version }) {
 
   return (
     <LogoContainer>
-      <LinkContainer href="/">
-        <LogoImage src={imageURL} alt="PlanetScale documentation logo" />
-      </LinkContainer>
+      <Link href="/" passHref>
+        <LinkContainer>
+          <LogoImage src={imageURL} alt="PlanetScale documentation logo" />
+        </LinkContainer>
+      </Link>
       {version === 'v1' ? (
-        <LinkContainer href="/v1">
-          <V1Badge>V1</V1Badge>
-        </LinkContainer>
+        <Link href="/v1" passHref>
+          <LinkContainer href="/v1">
+            <V1Badge>V1</V1Badge>
+          </LinkContainer>
+        </Link>
       ) : (
-        <LinkContainer href="/">
-          <BetaBadge>Beta</BetaBadge>
-        </LinkContainer>
+        <Link href="/" passHref>
+          <LinkContainer href="/">
+            <BetaBadge>Beta</BetaBadge>
+          </LinkContainer>
+        </Link>
       )}
     </LogoContainer>
   )

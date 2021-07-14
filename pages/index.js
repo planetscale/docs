@@ -13,6 +13,7 @@ import { ButtonSecondary } from '../components/Buttons'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { ThemeContext } from '../components/themeContext'
+import Link from 'next/link'
 
 const CalloutCardList = styled('div', {
   display: 'grid',
@@ -148,12 +149,9 @@ export default function Overview() {
                   can set up your development environment and install the pscale
                   CLI.
                 </CalloutCardSubheading>
-                <ButtonSecondary
-                  as="a"
-                  href="/reference/planetscale-environment-setup"
-                >
-                  Get Started
-                </ButtonSecondary>
+                <Link href="/reference/planetscale-environment-setup" passhref>
+                  <ButtonSecondary as="a">Get Started</ButtonSecondary>
+                </Link>
               </CalloutCard>
             </CalloutCardList>
             <CategoryList>
@@ -190,17 +188,16 @@ function Category({ categoryID, categoryName, description, image, pages }) {
   }, [themeContext])
 
   return (
-    <CategoryCard
-      href={`${categoryID}/${pages[0]['route']}`}
-      className="active"
-    >
-      <CategoryImageContainer>
-        <CategoryImage src={imageURL}></CategoryImage>
-      </CategoryImageContainer>
-      <CategoryContent>
-        <CategoryTitle>{categoryName}</CategoryTitle>
-        <CategorySubTitle>{description}</CategorySubTitle>
-      </CategoryContent>
-    </CategoryCard>
+    <Link href={`${categoryID}/${pages[0]['route']}`} passHref>
+      <CategoryCard className="active">
+        <CategoryImageContainer>
+          <CategoryImage src={imageURL}></CategoryImage>
+        </CategoryImageContainer>
+        <CategoryContent>
+          <CategoryTitle>{categoryName}</CategoryTitle>
+          <CategorySubTitle>{description}</CategorySubTitle>
+        </CategoryContent>
+      </CategoryCard>
+    </Link>
   )
 }
