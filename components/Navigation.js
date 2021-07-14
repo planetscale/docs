@@ -7,6 +7,7 @@ import Logo from './Logo'
 import meta from '../content/docs/meta.json'
 import meta_v1 from '../content/v1/meta.json'
 import CustomLink from './CustomLink'
+import Link from 'next/link'
 
 const ConditionalLogoWrapper = styled('div', {
   '@tablet': {
@@ -241,14 +242,14 @@ export default function Navigation({ version }) {
           <Logo version={version} />
         </ConditionalLogoWrapper>
         <_SidenavList>
-          <PageLink
-            onClick={mobileTOCState ? toggleMobileTOC : () => {}}
-            href={version === 'v1' ? '/v1' : '/'}
-            activeClassName="active"
-          >
-            PlanetScale overview
-          </PageLink>
-
+          <Link href={version === 'v1' ? '/v1' : '/'} passhref>
+            <PageLink
+              onClick={mobileTOCState ? toggleMobileTOC : () => {}}
+              activeClassName="active"
+            >
+              PlanetScale overview
+            </PageLink>
+          </Link>
           {toc.order.map((category, index) => {
             return (
               <SidenavGroup

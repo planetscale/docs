@@ -11,6 +11,7 @@ import {
 import HeadingBlock from '../../components/HeadingBlock'
 import Header from '../../components/HeaderV1'
 import Footer from '../../components/Footer'
+import Link from 'next/link'
 
 const CategoryList = styled('div', {
   display: 'grid',
@@ -109,14 +110,13 @@ export default function Overview() {
 
 function Category({ categoryID, categoryName, description, pages }) {
   return (
-    <CategoryCard
-      href={`/v1/${categoryID}/${pages[0]['route']}`}
-      className="active"
-    >
-      <CategoryContent>
-        <CategoryTitle>{categoryName}</CategoryTitle>
-        <CategorySubTitle>{description}</CategorySubTitle>
-      </CategoryContent>
-    </CategoryCard>
+    <Link href={`/v1/${categoryID}/${pages[0]['route']}`} passHref>
+      <CategoryCard className="active">
+        <CategoryContent>
+          <CategoryTitle>{categoryName}</CategoryTitle>
+          <CategorySubTitle>{description}</CategorySubTitle>
+        </CategoryContent>
+      </CategoryCard>
+    </Link>
   )
 }

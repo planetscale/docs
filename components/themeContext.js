@@ -69,17 +69,17 @@ export function ThemeProvider(props) {
       root.classList.remove(lightMode.name)
       root.classList.add(darkMode.name)
       setSelectedMode(darkMode)
-      setCookie('theme', darkMode.name)
+      setCookie('theme', darkMode.name, { path: '/' })
     } else if (theme === lightMode.name) {
       root.classList.remove(darkMode.name)
       root.classList.add(lightMode.name)
       setSelectedMode(lightMode)
-      setCookie('theme', lightMode.name)
+      setCookie('theme', lightMode.name, { path: '/' })
     } else {
       root.classList.remove(darkMode.name)
       root.classList.remove(lightMode.name)
       setSelectedMode(systemMode)
-      setCookie('theme', systemMode.name)
+      setCookie('theme', systemMode.name, { path: '/' })
     }
   }
 
