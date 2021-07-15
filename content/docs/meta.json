@@ -15,6 +15,7 @@
         { "route": "mfa", "display": "Multi-Factor Authentication" },
         {  "route":  "sso",  "display":  "Single Sign-On"  },
         { "route": "security", "display": "Security" },
+        { "route": "audit-log", "display": "Audit Log" },
         { "route": "billing", "display": "Billing" }
       ]
     },
