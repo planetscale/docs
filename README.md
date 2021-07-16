@@ -2,36 +2,6 @@
 
 <img width="1380" alt="CleanShot 2021-05-27 at 16 00 47@2x" src="https://user-images.githubusercontent.com/623670/120054072-a19f0700-bfe2-11eb-9de3-3afb03fe6866.png">
 
-## Docs and Engineering review processes
-
-Engineering and Docs partnered to create and implement the following processes for _including doc PRs_ as **part of each release**. The following new processes and guidelines enable us to ship spectacular Docs that truly address our user's needs. Ready to turn PlanetScale Docs into a delightful user experience? Let's go, team! 😁✌🏽
-
-- **Documentation review response time should be no more than 1-business day.**
-
-  - If at all possible, engineers should balance reviews across the team requested so that no one person or group of people does most of the work.
-
-  - When working on a new feature, shipping documentation for each feature should be part of the overall feature work/success criteria.
-
-- **Features and Documentation should go live at the same time, side-by-side, not one after another.**
-
-  - Leadership must align Product and Engineering on which features are prioritized for release so that both docs and new features are shipped simultaneously.
-
-- **Documentation can start with an async "brain dump" from an engineering representative to kick off the process.**
-
-  - These should happen within the same 1-business day turnaround.
-
-### How are Doc issues labeled and prioritized?
-
-- **P3:** Low priority; "nice to have"
-
-- **P2:** This is something we need but don't have all of the information yet; "next in line."
-
-- **P1:** This is the first thing in line, and we have all of the information needed to start the Documentation.
-
-_NOTE: If you feel a specific doc is important to add and also have all of the information, feel free to add the P1 label directly._
-
----
-
 ## Internals
 
 - NextJS
