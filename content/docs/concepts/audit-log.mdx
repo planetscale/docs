@@ -4,55 +4,40 @@ subtitle: "Search your organization's Audit Log to review member actions and eve
 ---
 
 ## Overview
+
 The organization audit log grants organization administrators access to review `actions` performed by individual members of the organization. In addition, each audit log includes `events` detailing who performed the `action` and when it happened.
 
 Audit log events are retained for 15 days in your PlanetScale account.
 
 <InfoBlock type="note">
-A note: Organization audit log access is limited to organization administrators.
+  A note: Organization audit log access is limited to organization
+  administrators.
 </InfoBlock>
 
-
 ## Review your organization audit log
-You can review your organization audit log under your PlanetScale `organization` settings:`app.planetscale.com/<org>/settings/audit-log`. 
+
+You can review your organization audit log under your PlanetScale `organization` settings:`app.planetscale.com/<org>/settings/audit-log`.
 
 Once there, you can filter the audit log by `Actor` and/or `Action`.
 
-Clicking and expanding individual log `event` names empowers you to investigate additional metadata that can provide broader context around what changed. 
+Clicking and expanding individual log `event` names empowers you to investigate additional metadata that can provide broader context around what changed.
 
 ![Click to expand individual log events.](/img/docs/audit-log-event.png)
 
-
 ## Audited organization events
+
 You can track the following organization `events` in your PlanetScale account:
 
-| PlanetScale organization events |
-|---------------------------------|
-| branch.created                  |
-| branch.deleted                  |
-| database.created                |
-| database.deleted                |
-| deploy_request.approved         |
-| deploy_request.closed           |
-| deploy_request.created          |
-| deploy_request.deleted          |
-| deploy_request.queued           |
-| deploy_request.unqueued         |
-| integration.created             |
-| integration.deleted             |
-| organization_invitation.created |
-| organization_invitation.deleted |
-| organization_membership.created |
-| organization.joined             |
-| organization.removed_member     |
-| organization.disabled_sso       |
-| organization.enabled_sso        |
-| organization.updated_role       |
-| service_token.created           |
-| service_token.deleted           |
-| service_token.granted_access    |
-
-
+| PlanetScale organization events | Actions                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| branch                          | created <br/><br/> deleted                                                                              |
+| database                        | created <br/><br/> deleted                                                                              |
+| deploy_request                  | approved <br/><br/> closed <br/><br/> created <br/><br/> deleted <br/><br/> queued <br/><br/> unqueued  |
+| integration                     | created <br/><br/> deleted                                                                              |
+| organization_invitation         | created <br/><br/> deleted                                                                              |
+| organization_membership         | created                                                                                                 |
+| organization                    | joined <br/><br/> removed_member <br/><br/> disabled_sso <br/><br/> enabled_sso <br/><br/> updated_role |
+| service_token                   | created <br/><br/> deleted <br/><br/> granted_access                                                    |
 
 ## Need help?
 
