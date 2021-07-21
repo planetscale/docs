@@ -43,6 +43,10 @@ const CopyButton = styled(ButtonSecondary, {
       color: '$textBlue',
     },
   },
+
+  '&.disabled': {
+    pointerEvents: 'none',
+  },
 })
 
 const CopyButtonText = styled('span', {})
@@ -133,7 +137,10 @@ export default function CodeBlock({ className, children }) {
     <CodeBlockContainer>
       <CodeBlockHeader>
         <CodeType>{codeLanguage}</CodeType>
-        <CopyButton onClick={copyCode}>
+        <CopyButton
+          onClick={copyCode}
+          className={copyButtonState ? 'disabled' : ''}
+        >
           {copyButtonState ? <Check /> : <CheckboxMultipleBlank />}
           <CopyButtonText>
             {copyButtonState ? 'Copied!' : 'Copy'}
