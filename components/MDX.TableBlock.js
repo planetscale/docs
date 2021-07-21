@@ -23,6 +23,11 @@ const Table = styled('table', {
   '& tbody > tr': {
     '&:hover': {
       backgroundColor: '$bgSecondary',
+
+      '& code': {
+        color: '$textBlue',
+        backgroundColor: '$textBlueTranslucent',
+      },
     },
   },
 
