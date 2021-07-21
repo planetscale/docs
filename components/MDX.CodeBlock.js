@@ -22,8 +22,18 @@ const CodeBlockContainer = styled('div', {
 
 const CopyButton = styled(ButtonSecondary, {
   fontSize: '12px',
-  padding: '0.75em 1em',
+  padding: '1em',
+  border: 'unset',
+  borderLeft: '1px solid $borderPrimary',
   backgroundColor: '$bgSecondary',
+  borderRadius: 'unset',
+  borderTopRightRadius: '6px',
+  color: '$textSecondary',
+
+  '& svg': {
+    width: '14px',
+    marginRight: '8px',
+  },
 
   '&:hover': {
     backgroundColor: '$bgPrimary',
@@ -39,7 +49,7 @@ const CodeBlockHeader = styled('div', {
   justifyContent: 'space-between',
   borderTopLeftRadius: '6px',
   borderTopRightRadius: '6px',
-  padding: '0.5em 0.5em 0.5em 1em',
+  padding: '0 0 0 1em',
   width: 'calc(100%)',
   borderBottom: '1px solid $borderPrimary',
 })
@@ -48,8 +58,6 @@ const CodeType = styled('div', {
   fontFamily: '$mono',
   fontSize: '12px',
   textTransform: 'lowercase',
-  paddingRight: '0.5em',
-  marginRight: '0.5em',
   color: '$textSecondary',
 })
 

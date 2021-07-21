@@ -12,6 +12,7 @@ export const LinkBlock = styled('a', {
 export const ButtonSecondary = styled('button', {
   textDecoration: 'unset',
   padding: '0.5em 1em',
+  margin: '0',
   whitespace: 'nowrap',
   border: '1px solid $borderPrimary',
   backgroundColor: '$bgPrimary',
