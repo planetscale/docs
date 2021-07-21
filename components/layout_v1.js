@@ -6,7 +6,6 @@ import { ThemeContext } from './themeContext'
 export const SiteContainer = styled('section', {
   position: 'relative',
   backgroundColor: '$bgPrimary',
-  transition: 'background-color 500ms ease',
   width: '100vw',
   minHeight: '100vh',
   display: 'flex',
