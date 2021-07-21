@@ -1,11 +1,12 @@
 # docs.planetscale.com
 
-<img width="1380" alt="CleanShot 2021-05-27 at 16 00 47@2x" src="https://user-images.githubusercontent.com/623670/120054072-a19f0700-bfe2-11eb-9de3-3afb03fe6866.png">
+<img width="1413" alt="CleanShot 2021-07-21 at 16 20 19@2x" src="https://user-images.githubusercontent.com/623670/126571869-a90c4abe-b1e1-4b75-a335-9f4ffe0e0d8f.png">
 
 ## Internals
 
-- NextJS
-- Deployed via Vercel
+- [NextJS](https://nextjs.org/)
+- [Stitches](https://stitches.dev/)
+- [Radix](https://radix-ui.com/)
 
 ### How to setup local development (on MacOS)
 
@@ -14,7 +15,7 @@
 - Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
 - Switch to the repository's folder
 - Install package dependencies with `npm install`
-- Execute `npx next dev` to start a local nextJS server
+- Execute `npx next dev` or `npm run develop` to start a local nextJS server
 - Open `http://localhost:3000` to access the local server instance. Check terminal to find the actual port being used by your nextJS local server.
 
 ### How to add a new document
@@ -30,3 +31,4 @@
 ### Notes
 
 - Search is powered by [DocSearch](https://docsearch.algolia.com/). PlanetScale's configuration on DocSearch can be viewed [here](https://github.com/algolia/docsearch-configs/blob/master/configs/planetscale.json)
+- Sitemap is only generated during a build and is not checked in to the repo.
