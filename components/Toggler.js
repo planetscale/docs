@@ -2,7 +2,6 @@ import React, { useContext } from 'react'
 import { styled } from '../stitches.config'
 import { ThemeContext } from './themeContext'
 import * as RadioGroup from '@radix-ui/react-radio-group'
-import { Settings, Moon, Sun } from '@styled-icons/remix-line'
 
 const StyledRadioGroupRoot = styled(RadioGroup.Root, {
   border: '1px solid $borderPrimary',
@@ -71,18 +70,14 @@ export default function Toggler() {
       value={themeContext.getSelectedMode().name}
       onValueChange={themeContext.switchTheme}
     >
-      <StyledRadioItem value="system" onCheckedChange={handleRadioItem}>
-        <StyledIndicator />
-        <Settings />
-      </StyledRadioItem>
-      <StyledRadioItem value="light" onCheckedChange={handleRadioItem}>
-        <StyledIndicator />
-        <Sun />
-      </StyledRadioItem>
-      <StyledRadioItem value="dark" onCheckedChange={handleRadioItem}>
-        <StyledIndicator />
-        <Moon />
-      </StyledRadioItem>
+      {themeContext.availableThemes.map((theme) => {
+        return (
+          <StyledRadioItem value={theme.name} onCheckedChange={handleRadioItem}>
+            <StyledIndicator />
+            {theme.icon}
+          </StyledRadioItem>
+        )
+      })}
     </StyledRadioGroupRoot>
   )
 }
