@@ -36,7 +36,12 @@ const CopyButton = styled(ButtonSecondary, {
   },
 
   '&:hover': {
-    backgroundColor: '$bgPrimary',
+    backgroundColor: '$textBlueTranslucent',
+    color: '$textBlue',
+
+    '& svg': {
+      color: '$textBlue',
+    },
   },
 })
 
