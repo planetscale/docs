@@ -46,7 +46,6 @@ const InfoBlockContainer = styled('div', {
   flexDirection: 'row',
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
-  border: '1px solid $borderPrimary',
   borderRadius: '6px',
   margin: '2em 0 2em',
   padding: '1.5em 1em',
@@ -54,7 +53,6 @@ const InfoBlockContainer = styled('div', {
   variants: {
     type: {
       note: {
-        borderColor: '$textGreen',
         backgroundColor: '$textGreenTranslucent',
 
         [`> ${IconContainer} > svg`]: {
@@ -62,7 +60,6 @@ const InfoBlockContainer = styled('div', {
         },
       },
       warning: {
-        borderColor: '$textOrange',
         backgroundColor: '$textOrangeTranslucent',
 
         [`> ${IconContainer} > svg`]: {
@@ -70,7 +67,6 @@ const InfoBlockContainer = styled('div', {
         },
       },
       tip: {
-        borderColor: '$textPurple',
         backgroundColor: '$textPurpleTranslucent',
 
         [`> ${IconContainer} > svg`]: {
