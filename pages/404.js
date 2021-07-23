@@ -8,7 +8,7 @@ import {
   ArticleBlock,
 } from '../components/Layout.Wrapper'
 import { ButtonSecondary } from '../components/Buttons'
-import { Github } from '@styled-icons/remix-line'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
 import Layout from '../components/layout'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
@@ -39,7 +39,7 @@ export default function NotFoundPage() {
                 as="a"
                 href="https://github.com/planetscale/docs"
               >
-                <Github />
+                <GitHubLogoIcon />
                 <span>Visit @planetscale/docs</span>
               </ButtonSecondary>
             </ButtonContainer>
