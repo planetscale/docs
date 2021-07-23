@@ -15,22 +15,6 @@ const ConditionalLogoWrapper = styled('div', {
   },
 })
 
-const _SearchBarContainer = styled('div', {
-  position: 'relative',
-  paddingBottom: '2em',
-
-  '&:after': {
-    position: 'absolute',
-    bottom: '0',
-    left: '0',
-    content: '',
-    display: 'block',
-    height: '1px',
-    width: '100%',
-    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
-  },
-})
-
 const _SidenavContainer = styled(ScrollArea.Root, {
   width: '320px',
   position: 'sticky',
@@ -45,10 +29,6 @@ const _SidenavContainer = styled(ScrollArea.Root, {
     display: 'none',
     width: '0',
     height: '0',
-  },
-
-  [`> ${_SearchBarContainer}`]: {
-    display: 'none',
   },
 
   '@tablet': {
@@ -75,10 +55,6 @@ const _SidenavContainer = styled(ScrollArea.Root, {
 
   '@phone': {
     overflow: 'hidden',
-
-    [`> ${_SearchBarContainer}`]: {
-      display: 'block',
-    },
   },
 })
 

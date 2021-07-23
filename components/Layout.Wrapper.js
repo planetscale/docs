@@ -52,7 +52,10 @@ export const ArticleBlock = styled('div', {
   },
 
   '@tinyDesktop': {
-    width: 'unset',
     flexBasis: 'auto',
+  },
+
+  '@tablet': {
+    width: 'unset',
   },
 })

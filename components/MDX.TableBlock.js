@@ -20,7 +20,24 @@ const Table = styled('table', {
     borderBottom: '2px solid $borderPrimary',
   },
 
+  '& tbody > tr': {
+    '& code': {
+      fontSize: '1em',
+      backgroundColor: '$textPurpleTranslucent',
+    },
+
+    '&:hover': {
+      backgroundColor: '$bgSecondary',
+
+      '& code': {
+        color: '$textBlue',
+        backgroundColor: '$textBlueTranslucent',
+      },
+    },
+  },
+
   '& td': {
+    verticalAlign: 'top',
     padding: '1em',
     borderBottom: '1px solid $borderPrimary',
   },

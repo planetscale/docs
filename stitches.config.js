@@ -86,7 +86,7 @@ export const { styled, getCssString, theme, global } = createCss({
   theme: {
     colors: {
       bgPrimary: colorSwatches.white,
-      bgPrimaryTranslucent: 'rgba(255, 255, 255, 0.85)',
+      bgPrimaryTranslucent: colorSwatches.white.concat('85'),
       bgSecondary: colorSwatches.gray050,
       bgTertiary: colorSwatches.gray100,
 
@@ -133,7 +133,7 @@ export const { styled, getCssString, theme, global } = createCss({
 export const darkTheme = theme('dark', {
   colors: {
     bgPrimary: colorSwatches.gray900,
-    bgPrimaryTranslucent: 'rgba(26, 27, 32, 0.85)',
+    bgPrimaryTranslucent: colorSwatches.gray900.concat('85'),
     bgSecondary: colorSwatches.gray800,
     bgTertiary: colorSwatches.gray700,
 

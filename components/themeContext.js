@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import codeBlockThemeLight from 'prism-react-renderer/themes/vsLight'
 import exoDark from '../styles/exoDark'
+import { Settings, Moon, Sun } from '@styled-icons/remix-line'
 
 const systemMode = {
   name: 'system',
   label: 'System',
+  icon: <Settings />,
 }
 
 const darkMode = {
   name: 'dark',
   label: 'Dark',
+  icon: <Moon />,
   logo: '/logo-docs_dark.svg',
   codeTheme: exoDark,
 }
@@ -18,6 +21,7 @@ const darkMode = {
 const lightMode = {
   name: 'light',
   label: 'Light',
+  icon: <Sun />,
   logo: '/logo-docs_light.svg',
   codeTheme: codeBlockThemeLight,
 }
@@ -25,7 +29,7 @@ const lightMode = {
 export const ThemeContext = React.createContext()
 
 export function ThemeProvider(props) {
-  const availableThemes = [systemMode, darkMode, lightMode]
+  const availableThemes = [systemMode, lightMode, darkMode]
   const [selectedMode, setSelectedMode] = useState(systemMode)
   const [activeSystemMode, setActiveSystemMode] = useState(lightMode)
   const [cookies, setCookie, removeCookie] = useCookies(['theme'])

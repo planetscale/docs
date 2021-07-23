@@ -36,7 +36,7 @@ const MarkDownContainer = styled('div', {
   '& a': {
     color: '$textBlue',
     textDecoration: 'none',
-    borderBottom: '1px solid $bgPrimary',
+    borderBottom: '1px solid transparent',
     transition: 'border-bottom 0.25s ease',
 
     '&:hover': {
@@ -55,7 +55,7 @@ const MarkDownContainer = styled('div', {
 
   '& ul, ol': {
     whitespace: 'normal',
-    padding: '0 1em',
+    padding: '0 1em 0 1.1em',
     margin: '0 0 1em',
   },
 

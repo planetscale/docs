@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { styled, darkTheme } from '../stitches.config'
 import Navigation from '../components/Navigation'
 import { ThemeContext } from './themeContext'
@@ -6,7 +6,6 @@ import { ThemeContext } from './themeContext'
 export const SiteContainer = styled('section', {
   position: 'relative',
   backgroundColor: '$bgPrimary',
-  transition: 'background-color 500ms ease',
   width: '100vw',
   minHeight: '100vh',
   display: 'flex',
@@ -37,7 +36,12 @@ export const WidthConstrain = styled('div', {
 })
 
 export default function Layout({ children }) {
+  const [mounted, setMounted] = useState(false)
   const themeContext = useContext(ThemeContext)
+
+  useEffect(() => setMounted(true), [])
+
+  if (!mounted) return null
 
   return (
     <SiteContainer
