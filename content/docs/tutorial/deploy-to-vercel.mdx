@@ -50,27 +50,30 @@ CREATE TABLE users (
 ```
 
 5. Create a **deployment request** by running:
+
 ```zsh
 pscale deploy-request create <database> <branch>
 ```
 
 6. _Deploy_ the **deploy request**:
-```zsh
-pscale deploy-request deploy <database> <deploy-request-number> 
-```
 
-  - To find your `deploy-request-number`, simply run:
-  ```zsh 
-  pscale deploy-request list <database> 
-  ```
-  Copy the value from `NUMBER` and use that digit as your `deploy-request-number`. 
-
-
-7. Merge your `development` branch into `main`:
 ```zsh
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
+- To find your `deploy-request-number`, simply run:
+
+```zsh
+pscale deploy-request list <database>
+```
+
+Copy the value from `NUMBER` and use that digit as your `deploy-request-number`.
+
+7. Merge your `development` branch into `main`:
+
+```zsh
+pscale deploy-request deploy <database> <deploy-request-number>
+```
 
 ## Deploy to Vercel
 
@@ -83,13 +86,17 @@ We mentioned earlier that we had included a sample Next.js application in this t
   target="_blank"
   href="https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fplanetscale%2Fvercel-integration-example&project-name=vercel-integration-example&repository-name=vercel-integration-example&integration-ids=oac_ni8CGiTU3oM25q1k2L6unVMp"
 >
-  <img embed="true" src="https://vercel.com/button" target="_blank" alt="Deploy with Vercel" />
+  <img
+    embed="true"
+    src="https://vercel.com/button"
+    target="_blank"
+    alt="Deploy with Vercel"
+  />
 </a>
 
 Vercel offers the option to clone our repository into GitHub, GitLab, or Bitbucket. In this tutorial, we're using GitHub.
 
 2. Click the _Create_ button to create your new `Git` repository.
-
 
 ## Add Vercel integration
 
@@ -98,15 +105,16 @@ We're almost done! The final thing we need to do is add a _Vercel_ integration t
 1. Click the **Add** button to add the PlanetScale integration to this _Vercel project_.
 
 <InfoBlock type="tip">
-Tip: Make sure you pick the same <b>database</b> that you created in the earlier part of this tutorial, so that it has the right schema. 
+  Make sure you pick the same <b>database</b> that you created in the earlier
+  part of this tutorial, so that it has the right schema.
 </InfoBlock>
 
 This step automatically runs your first **Vercel** _deployment_.
 
 <InfoBlock type="tip">
-Tip: Every push to <b>main</b> will automatically deploy your application in Vercel.
+  Every push to <b>main</b> will automatically deploy your application in
+  Vercel.
 </InfoBlock>
-
 
 The great news is that the PlanetScale **Vercel integration** automatically handles creating all your service tokens and environment variables:
 
@@ -118,7 +126,7 @@ PLANETSCALE_TOKEN_NAME
 ```
 
 <InfoBlock type="note">
-  <em>A note...</em>
+  <br />
   <div>
     <b>Removing Vercel integrations:</b>
     <ul>
@@ -131,6 +139,7 @@ PLANETSCALE_TOKEN_NAME
         able to connect to your PlanetScale database.
       </li>
     </ul>
+    <br />
     <b>Updating Vercel integration permissions:</b>
     <ul>
       <li>Old service tokens are removed in deleted projects.</li>

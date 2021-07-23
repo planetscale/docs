@@ -4,8 +4,8 @@ subtitle: 'To ensure PlanetScale works well with a traditional Rails development
 ---
 
 <InfoBlock type="tip">
-  Tip: If you are using PlanetScale with a Rails application, go into the web UI
-  and enable "Automatic Rails Migrations" in your database settings page. When
+  If you are using PlanetScale with a Rails application, go into the web UI and
+  enable "Automatic Rails Migrations" in your database settings page. When
   enabled, this setting updates the <em>schema_migrations</em> table each time
   you branch with the latest migration. If disabled, running{' '}
   <em>rake db:migrate</em> will try to run all migrations every time, instead of
@@ -27,9 +27,9 @@ From a high level, running `rake db:migrate` does the following:
 - Any migration that doesn’t appear in the `schema_migrations` table is considered pending, and is executed against the database with the schema changes in the file.
 
 <InfoBlock type="tip">
-  Tip: When you merge a deploy request in PlanetScale, the{' '}
-  <em>schema_migrations</em> table in <em>main</em> gets automatically updated
-  with the migrations from your branch.
+  When you merge a deploy request in PlanetScale, the <em>schema_migrations</em>{' '}
+  table in <em>main</em> gets automatically updated with the migrations from
+  your branch.
 </InfoBlock>
 
 ## Prerequisites
@@ -138,9 +138,7 @@ Rails queries `schema_migrations` to ensure your `create_users` migration alread
 
 You did it! You successfully ran automatic Rails migrations in PlanetScale.
 
-<InfoBlock type="note">
-  A note: Support for other frameworks is coming soon!
-</InfoBlock>
+<InfoBlock type="note">Support for other frameworks is coming soon!</InfoBlock>
 
 ## Summary
 

@@ -16,8 +16,8 @@ Branching enables schema changes to happen online, asynchronously. (Online means
 PlanetScale provides two types of branches, **Production** (`main`) and **Development** branches. Production branches are intended for use in production, cannot be deleted, and can only be updated using deploy requests. Development branches are a separate database with a copy of the `main` branch's schema. Developers can make schema changes in Development branches, test locally, and open a deploy request for deploying their changes to the production database.
 
 <InfoBlock type="note">
-  A note: Data from the main database is not copied to the developer's
-  Development branch.
+  Data from the main database is not copied to the developer's Development
+  branch.
 </InfoBlock>
 
 ![PlanetScale Branching Flow Diagram](/img/docs/ps_branching_diagram_light.png)
@@ -55,8 +55,8 @@ pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
 <InfoBlock type="tip">
-  Tip: PlanetScale also provides the ability to have teammates comment and
-  review deploy requests.
+  PlanetScale also provides the ability to have teammates comment and review
+  deploy requests.
 </InfoBlock>
 
 ### Deleting Branches
