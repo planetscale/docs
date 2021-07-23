@@ -41,6 +41,7 @@ const MarkDownContainer = styled('div', {
 
     '&:hover': {
       borderBottom: '1px solid $textBlue',
+      backgroundColor: '$textBlueTranslucent',
     },
 
     '&.embed': {

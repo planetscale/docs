@@ -55,6 +55,7 @@ const NextBlockListItemLink = styled('a', {
   },
 
   '&:hover': {
+    backgroundColor: 'unset !important',
     borderBottom: '0 !important',
   },
 })
