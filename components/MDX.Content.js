@@ -18,6 +18,7 @@ import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
 import TableBlock from './MDX.TableBlock'
+import { MDXHyperlinkHelper } from './Hyperlink'
 
 const MarkDownContainer = styled('div', {
   color: '$textPrimary',
@@ -31,22 +32,6 @@ const MarkDownContainer = styled('div', {
     fontSize: '1.25em',
     marginTop: '2em',
     marginBottom: '0',
-  },
-
-  '& a': {
-    color: '$textBlue',
-    textDecoration: 'none',
-    borderBottom: '1px solid transparent',
-    transition: 'border-bottom 0.25s ease',
-
-    '&:hover': {
-      borderBottom: '1px solid $textBlue',
-      backgroundColor: '$textBlueTranslucent',
-    },
-
-    '&.embed': {
-      borderBottom: 'unset !important',
-    },
   },
 
   '& p': {
@@ -83,6 +68,7 @@ export default function MDXContent({
   category,
 }) {
   const components = {
+    a: MDXHyperlinkHelper,
     table: TableBlock,
     code: CodeBlock,
     inlineCode: InlineCodeBlock,

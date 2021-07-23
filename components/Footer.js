@@ -1,5 +1,6 @@
 import React from 'react'
 import { styled } from '../stitches.config'
+import { Hyperlink } from './Hyperlink'
 import Toggler from './Toggler'
 
 const FooterWrapper = styled('div', {
@@ -59,18 +60,6 @@ const LeftContainer = styled('div', {
   },
 })
 
-const LinkBlock = styled('a', {
-  fontSize: '12px',
-  color: '$textBlue',
-  textDecoration: 'none',
-  borderBottom: '1px solid $bgPrimary',
-  transition: 'border-bottom 0.25s ease',
-
-  '&:hover': {
-    borderBottom: '1px solid $textBlue',
-  },
-})
-
 const Copyright = styled('div', {
   fontSize: '12px',
   color: '$textSecondary',
@@ -81,12 +70,18 @@ export default function Footer() {
     <FooterWrapper>
       <FooterConstrain>
         <LeftContainer>
-          <LinkBlock href="https://www.planetscale.com/legal/privacy">
+          <Hyperlink
+            type="secondary"
+            href="https://www.planetscale.com/legal/privacy"
+          >
             Privacy
-          </LinkBlock>
-          <LinkBlock href="https://www.planetscale.com/legal/siteterms">
+          </Hyperlink>
+          <Hyperlink
+            type="secondary"
+            href="https://www.planetscale.com/legal/siteterms"
+          >
             Terms
-          </LinkBlock>
+          </Hyperlink>
           <Copyright>© 2021 PlanetScale Inc.</Copyright>
         </LeftContainer>
         <Toggler />

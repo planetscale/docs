@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '../stitches.config'
 import { ArrowRightS } from '@styled-icons/remix-line'
+import { Hyperlink } from './Hyperlink'
 
 const NextBlockContainer = styled('div', {
   position: 'relative',
@@ -42,7 +43,7 @@ const NextBlockListItem = styled('li', {
   },
 })
 
-const NextBlockListItemLink = styled('a', {
+const NextBlockListItemLink = styled(Hyperlink, {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
