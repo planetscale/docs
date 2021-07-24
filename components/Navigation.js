@@ -138,8 +138,8 @@ const _GroupHeading = styled(Collapsible.Button, {
   backgroundColor: 'unset',
   border: 'unset',
   padding: '0',
-  margin: '0',
-  marginBottom: '1em',
+  marginTop: '4em',
+  marginBottom: '1.5em',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
@@ -161,10 +161,7 @@ const _GroupHeading = styled(Collapsible.Button, {
   },
 })
 
-const _GroupLinks = styled(Collapsible.Content, {
-  padding: '0',
-  marginBottom: '3em',
-})
+const _GroupLinks = styled(Collapsible.Content, {})
 
 const PageLink = styled('a', {
   fontSize: '14px',
