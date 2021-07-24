@@ -42,7 +42,7 @@ const FooterConstrain = styled('div', {
 
   '@phone': {
     flexDirection: 'column',
-    alignItems: 'flex-end',
+    alignItems: 'flex-start',
   },
 })
 

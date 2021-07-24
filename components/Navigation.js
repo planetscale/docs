@@ -39,21 +39,21 @@ const _SidenavContainer = styled(ScrollArea.Root, {
     borderRight: 'unset',
     position: 'fixed',
     top: '0',
-    left: '-100vw',
+    right: '-100vw',
     zIndex: '5',
     padding: '2em',
     backgroundColor: '$bgPrimary',
     flexBasis: '100vw',
     width: '90vw',
     height: '100vh',
-    transition: 'left 100ms ease-out',
+    transition: 'right 100ms ease-out',
 
     '&:hover': {
       borderRight: 'unset',
     },
 
     '&.show': {
-      left: '0',
+      right: '0',
     },
   },
 
@@ -98,7 +98,7 @@ const MenuLink = styled('div', {
   '@tablet': {
     position: 'fixed',
     bottom: '2em',
-    left: '2em',
+    right: '2em',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
