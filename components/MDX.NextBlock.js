@@ -1,6 +1,6 @@
 import React from 'react'
 import { styled } from '../stitches.config'
-import { ArrowRightS } from '@styled-icons/remix-line'
+import { ChevronRightIcon } from '@radix-ui/react-icons'
 import { Hyperlink } from './Hyperlink'
 
 const NextBlockContainer = styled('div', {
@@ -73,7 +73,7 @@ export default function NextBlock(props) {
             <NextBlockListItem key={step.link}>
               <NextBlockListItemLink href={step.link}>
                 <span>{step.text}</span>
-                <ArrowRightS />
+                <ChevronRightIcon />
               </NextBlockListItemLink>
             </NextBlockListItem>
           )

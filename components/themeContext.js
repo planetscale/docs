@@ -2,18 +2,18 @@ import React, { useEffect, useState } from 'react'
 import { useCookies } from 'react-cookie'
 import codeBlockThemeLight from 'prism-react-renderer/themes/vsLight'
 import exoDark from '../styles/exoDark'
-import { Settings, Moon, Sun } from '@styled-icons/remix-line'
+import { GearIcon, SunIcon, MoonIcon } from '@radix-ui/react-icons'
 
 const systemMode = {
   name: 'system',
   label: 'System',
-  icon: <Settings />,
+  icon: <GearIcon />,
 }
 
 const darkMode = {
   name: 'dark',
   label: 'Dark',
-  icon: <Moon />,
+  icon: <MoonIcon />,
   logo: '/logo-docs_dark.svg',
   codeTheme: exoDark,
 }
@@ -21,7 +21,7 @@ const darkMode = {
 const lightMode = {
   name: 'light',
   label: 'Light',
-  icon: <Sun />,
+  icon: <SunIcon />,
   logo: '/logo-docs_light.svg',
   codeTheme: codeBlockThemeLight,
 }

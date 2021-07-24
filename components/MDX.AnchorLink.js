@@ -1,9 +1,10 @@
 import * as React from 'react'
 import { styled } from '../stitches.config'
-import { Links } from '@styled-icons/remix-line'
+import { Link2Icon } from '@radix-ui/react-icons'
 
 const AnchorIcon = styled('a', {
   marginLeft: '0.5em',
+  color: '$textBlue',
 
   '> svg': {
     width: '16px',
@@ -72,14 +73,14 @@ class AnchorLink extends React.Component {
       <AnchorHeading as={heading} id={`${this.createKebabCase(children)}`}>
         {children}
         <AnchorIcon href={`#${this.createKebabCase(children)}`}>
-          <Links />
+          <Link2Icon />
         </AnchorIcon>
       </AnchorHeading>
     ) : (
       <AnchorHeading as={heading}>
         {children}
         <AnchorIcon>
-          <Links />
+          <Link2Icon />
         </AnchorIcon>
       </AnchorHeading>
     )

@@ -2,7 +2,11 @@ import React, { Fragment, useState } from 'react'
 import { styled } from '../stitches.config'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { Menu2, Close, ArrowDropRight } from '@styled-icons/remix-line'
+import {
+  HamburgerMenuIcon,
+  Cross1Icon,
+  TriangleRightIcon,
+} from '@radix-ui/react-icons'
 import Logo from './Logo'
 import meta from '../content/docs/meta.json'
 import meta_v1 from '../content/v1/meta.json'
@@ -142,8 +146,7 @@ const _GroupHeading = styled(Collapsible.Button, {
   alignItems: 'center',
 
   svg: {
-    width: '24px',
-    height: '24px',
+    marginLeft: '2px',
   },
 
   '&:active, &:focus': {
@@ -205,10 +208,62 @@ export default function Navigation({ version }) {
     document.body.classList.toggle('prevent-scroll')
   }
 
+  function generateCategoryLabel({}) {}
+
+  function generatePageLink({}) {}
+
+  function recursiveMap(leaves) {
+    leaves.map((leaf, index) => {
+      if (leaf === 'page') {
+        return (
+          <SidenavGroup
+            key={index}
+            version={version}
+            categoryID={category.id}
+            category={category.name}
+            pages={category.pages}
+            clickHandler={mobileTOCState ? toggleMobileTOC : () => {}}
+          ></SidenavGroup>
+        )
+      } else {
+        recursiveMap(leaf)
+      }
+    })
+  }
+
+  function SidenavGroup({ categoryID, category, pages, clickHandler }) {
+    return (
+      <_GroupContainer defaultOpen={true}>
+        <_GroupHeading>
+          {category} <TriangleRightIcon />
+        </_GroupHeading>
+        <_GroupLinks>
+          {pages.map((page, index) => {
+            const href =
+              version === 'v1'
+                ? `/v1/${categoryID}/${page['route']}`
+                : `/${categoryID}/${page['route']}`
+
+            return (
+              <CustomLink
+                version={version}
+                href={href}
+                activeClassName="active"
+                key={index}
+              >
+                <PageLink onClick={clickHandler}>{page['display']}</PageLink>
+              </CustomLink>
+            )
+          })}
+        </_GroupLinks>
+      </_GroupContainer>
+    )
+  }
+
   return (
     <Fragment>
       <MenuLink onClick={toggleMobileTOC}>
-        {mobileTOCState ? <Close /> : <Menu2 />}
+        {mobileTOCState ? <Cross1Icon /> : <HamburgerMenuIcon />}
       </MenuLink>
       {mobileTOCState && (
         <BackgroundFrozen onClick={toggleMobileTOC}></BackgroundFrozen>
@@ -230,7 +285,6 @@ export default function Navigation({ version }) {
             return (
               <SidenavGroup
                 key={index}
-                version={version}
                 categoryID={category.id}
                 category={category.name}
                 pages={category.pages}
@@ -247,34 +301,5 @@ export default function Navigation({ version }) {
         </StyledScrollbarY>
       </_SidenavContainer>
     </Fragment>
-  )
-}
-
-function SidenavGroup({ version, categoryID, category, pages, clickHandler }) {
-  return (
-    <_GroupContainer defaultOpen={true}>
-      <_GroupHeading>
-        {category} <ArrowDropRight />
-      </_GroupHeading>
-      <_GroupLinks>
-        {pages.map((page, index) => {
-          const href =
-            version === 'v1'
-              ? `/v1/${categoryID}/${page['route']}`
-              : `/${categoryID}/${page['route']}`
-
-          return (
-            <CustomLink
-              version={version}
-              href={href}
-              activeClassName="active"
-              key={index}
-            >
-              <PageLink onClick={clickHandler}>{page['display']}</PageLink>
-            </CustomLink>
-          )
-        })}
-      </_GroupLinks>
-    </_GroupContainer>
   )
 }

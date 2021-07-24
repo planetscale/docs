@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import { styled } from '../stitches.config'
-import { Menu3 } from '@styled-icons/remix-line/Menu3'
+import { ListBulletIcon } from '@radix-ui/react-icons'
 
 const QuickNavContainer = styled('nav', {
   flexBasis: '215px',
@@ -120,7 +120,7 @@ export default function QuickNav({ subNavPages }) {
     <QuickNavContainer>
       <QuickNavList id="quicknav">
         <QuickNavHeader>
-          <Menu3 />
+          <ListBulletIcon />
           On this page
         </QuickNavHeader>
         {subNavPages.length > 0 &&

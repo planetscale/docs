@@ -1,34 +1,21 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { styled } from '../stitches.config'
-import { File4, AlarmWarning, Star } from '@styled-icons/remix-line'
+import {
+  FileIcon,
+  ExclamationTriangleIcon,
+  StarIcon,
+} from '@radix-ui/react-icons'
 
 const LabelContainer = styled('div', {
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
-  marginBottom: '1em',
+  marginBottom: '1.5em',
 })
 
 const IconContainer = styled('div', {
   marginRight: '0.5em',
-  fontSize: '14px',
-  lineHeight: '24.1818px',
-
-  '&:before': {
-    content: '',
-    marginBottom: '-0.5em',
-    display: 'table',
-  },
-
-  '&:after': {
-    content: '',
-    marginTop: '-0.5em',
-    display: 'table',
-  },
-
-  '> svg': {
-    width: '16px',
-  },
+  height: '15px',
 })
 
 const TextContainer = styled('div', {
@@ -109,9 +96,9 @@ export default function InfoBlock(props) {
     <InfoBlockContainer type={type}>
       <LabelContainer>
         <IconContainer>
-          {type === 'note' && <File4 />}
-          {type === 'warning' && <AlarmWarning />}
-          {type === 'tip' && <Star />}
+          {type === 'note' && <FileIcon />}
+          {type === 'warning' && <ExclamationTriangleIcon />}
+          {type === 'tip' && <StarIcon />}
         </IconContainer>
         {type === 'note' && <Label>Note</Label>}{' '}
         {type === 'warning' && <Label>Warning</Label>}{' '}
