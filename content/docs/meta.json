@@ -7,7 +7,6 @@
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
         { "route": "branching", "display": "Branching" },
-        { "route": "regions", "display": "Regions" },
         {
           "route": "nonblocking-schema-changes",
           "display": "Non-Blocking Schema Changes"
