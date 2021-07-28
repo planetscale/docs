@@ -35,6 +35,6 @@ export const Hyperlink = styled('a', {
   },
 })
 
-export function MDXHyperlinkHelper({ type, children }) {
-  return <Hyperlink type={type}>{children}</Hyperlink>
+export function MDXHyperlinkHelper({ type, href, children }) {
+  return <Hyperlink type={type} href={href}>{children}</Hyperlink>
 }
