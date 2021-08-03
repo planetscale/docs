@@ -37,6 +37,10 @@
         {
           "route": "automatic-rails-migrations",
           "display": "Automatic Rails Migrations"
+        },
+        {
+          "route": "change-unique-key",
+          "display": "Change Single Unique Key"
         }
       ]
     },
