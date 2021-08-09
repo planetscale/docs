@@ -4,22 +4,26 @@ subtitle: "Three step process for changing a table's single unique or primary ke
 ---
 
 ## Overview
-To migrate data safely and [without downtime](/concepts/nonblocking-schema-changes), PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. This requirement can cause difficulty if, for example, you attempt to ALTER the primary key of a table with no other unique indexes.
+To migrate data safely and [without downtime](/concepts/nonblocking-schema-changes), PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. This requirement can cause difficulty if, for example, you attempt to ALTER the primary key of a table with no other unique keys.
 
 If you attempt to deploy such a schema change, the deploy request will fail with the error `All tables must have at least one unique, not-null key that remains unchanged during the migration`.
+
+<InfoBlock type="note">
+  This example adds a temporary unique key but you could also use a unique index or create the temporary key by adding a unique constraint.
+</InfoBlock>
 
 ## How to change a table's single unique key
 Altering a single unique key can be accomplished in 3 steps. Each step is a [separate deploy request](/concepts/branching#deploying-branches).
 
-1. Add a temporary unique key. To change a lone unique key you will first need to add another unique index that PlanetScale can use during the migration. In a new branch, add a new index on a unique column or combination of columns. The indexed columns should not contain null values.
+1. Add a temporary unique key. To change a lone unique key you will first need to add another unique key that PlanetScale can use during the migration. In a new branch, add a new key on a unique column or combination of columns. The target columns should not contain null values.
 
     ```
-    CREATE UNIQUE INDEX idx_unique_id ON table_name (`column`,`column2`);
+    ALTER TABLE table_name ADD UNIQUE KEY temp_unique_key (`column`,`column2`);
     ```
 
     Deploy this change via a Deploy Request.
 
-2. Alter the original key. Now that you have a second unique index, you can alter the original key. In a new branch, apply your intended schema change.
+2. Alter the original key. Now that you have a second unique key, you can alter the original key. In a new branch, apply your intended schema change.
 
     Our example drops the existing primary key and replaces it with a compound primary key.
 
@@ -29,12 +33,12 @@ Altering a single unique key can be accomplished in 3 steps. Each step is a [sep
 
     Deploy this change via a Deploy Request.
 
-3. Drop the temporary unique key. After the primary key has been updated, you can remove the temporary unique index that you added in Step 1.
+3. Drop the temporary unique key. After the primary key has been updated, you can remove the temporary unique key that you added in Step 1.
 
-    In a new branch, drop the temporary index.
+    In a new branch, drop the temporary key.
 
     ```
-    DROP index idx_unique_id ON table_name;
+    ALTER TABLE table_name DROP KEY temp_unique_key;
     ```
 
     Once this deploy request has been deployed, you will have changed your table's unique primary key and removed the temporary unique key created in step 1.
