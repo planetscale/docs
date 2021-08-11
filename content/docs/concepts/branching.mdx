@@ -89,6 +89,19 @@ Run the following command to show the schema of a branch:
 pscale branch schema <database> <branch>
 ```
 
+## Automatically Copy Migration Data
+
+PlanetScale branches can help you to never lose track of migrations that have been performed on a database.
+
+Many frameworks and migration tools keep track of data schema changes in a migration table. When turned on, PlanetScale will automatically copy migration table metadata from your `development` branch to the `main` branch as part of our deployment process.
+
+To turn on for your database, go to the web app:
+1. Go into the Settings for your database
+2. Enable "Automatically copy migration data"
+3. Select one of the migration frameworks: Rails/Phoenix, Django, .NET, Prisma, Prisma, Sequelize, or Other, which allows you to specify a custom table name
+  
+You can see how this works in this [Rails migration tutorial](/tutorial/automatic-rails-migrations).
+
 ## Need help?
 
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.

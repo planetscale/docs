@@ -4,10 +4,10 @@ subtitle: 'To ensure PlanetScale works well with a traditional Rails development
 ---
 
 <InfoBlock type="tip">
-  If you are using PlanetScale with a Rails application, go into the web UI and
-  enable "Automatic Rails Migrations" in your database settings page. When
-  enabled, this setting updates the <em>schema_migrations</em> table each time
-  you branch with the latest migration. If disabled, running{' '}
+  If you are using PlanetScale with a Rails application, go to your database's Settings page in 
+  the web app and enable "Automatic schema migrations." Select "Rails/Phoenix" as the migration framework.
+  When enabled, this setting updates the <em>schema_migrations</em> 
+  table each time you branch with the latest migration. If disabled, running{' '}
   <em>rake db:migrate</em> will try to run all migrations every time, instead of
   only the latest one.
 </InfoBlock>
@@ -15,6 +15,8 @@ subtitle: 'To ensure PlanetScale works well with a traditional Rails development
 ## Introduction
 
 In this tutorial, we’re going to learn how to run automatic Rails migrations in PlanetScale as part of our deployment process.
+
+<InfoBlock type="note">Automatic schema migrations work with any migration tool, not just Rails. Specifiy the migration table name in your database's Settings page.</InfoBlock>
 
 ### Quick Intro to Rails Migrations
 
@@ -137,8 +139,6 @@ Rails queries `schema_migrations` to ensure your `create_users` migration alread
 6. Open a deploy request for your `add-index-to-users` branch, so that you can deploy these changes to `main`.
 
 You did it! You successfully ran automatic Rails migrations in PlanetScale.
-
-<InfoBlock type="note">Support for other frameworks is coming soon!</InfoBlock>
 
 ## Summary
 

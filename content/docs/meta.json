@@ -40,6 +40,10 @@
           "display": "Automatic Rails Migrations"
         },
         {
+          "route": "automatic-prisma-migrations",
+          "display": "Automatic Prisma Migrations"
+        },
+        {
           "route": "change-unique-key",
           "display": "Change Single Unique Key"
         }
