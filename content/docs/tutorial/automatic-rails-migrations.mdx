@@ -5,7 +5,7 @@ subtitle: 'To ensure PlanetScale works well with a traditional Rails development
 
 <InfoBlock type="tip">
   If you are using PlanetScale with a Rails application, go to your database's Settings page in 
-  the web app and enable "Automatic schema migrations." Select "Rails/Phoenix" as the migration framework.
+  the web app and enable "Automatically copy migration data." Select "Rails/Phoenix" as the migration framework.
   When enabled, this setting updates the <em>schema_migrations</em> 
   table each time you branch with the latest migration. If disabled, running{' '}
   <em>rake db:migrate</em> will try to run all migrations every time, instead of
