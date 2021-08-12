@@ -10,6 +10,10 @@ To interact with PlanetScale and manage your databases, you can use the `pscale`
 - Manage your deploy requests
 - ...and more!
 
+<InfoBlock type="note">
+  <inlineCode>pscale</inlineCode> can use the MySQL command-line client to quickly open an interactive shell for a database branch. Optional instructions for installing the MySQL client can be found for each platform below.
+</InfoBlock>
+
 ### Mac instructions
 To install the PlanetScale CLI on a Mac, we recommend using Homebrew. 
 
@@ -22,15 +26,15 @@ brew -v
 3. If you don't see "Homebrew" and a version number, then download and [install Homebrew](https://brew.sh/). 
 4. Once you've installed Homebrew, repeat _Step 2_ to verify.
 
-**Installing via Homebrew Tap**
+**Installing via Homebrew**
 - Run the following command:
 ```zsh
 brew install planetscale/tap/pscale
 ```
 
-- Upgrade to the latest version:
+- To install the MySQL command-line client:
 ```zsh
-brew up
+brew install mysql-client
 ```
 
 ### Linux instructions
@@ -39,13 +43,35 @@ brew up
 
 Download the .deb or .rpm from the [releases](https://github.com/planetscale/cli/releases/latest) page and install with `sudo dpkg -i` and `sudo rpm -i` respectively.
 
+The MySQL command-line client can be installed via your package manager.
+
+- Debian-based distributions:
+```
+sudo apt-get install mysql-client
+```
+
+- RPM-based distributions:
+```
+sudo yum install community-mysql
+```
+
 **Manually**
 
 Download the pre-compiled binaries from the [releases](https://github.com/planetscale/cli/releases/latest) page and copy to the desired location. 
 
+Instructions for installing the MySQL client on other Linux distributions can be found in the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html).
+
 ### Windows instructions
 
-`pscale` is available as downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page. Download this and unzip the `pscale.exe` file into the folder of your choice. Then, run it from `cmd.exe` or whatever terminal you regularly use.
+`pscale` is available as downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page. Download the latest Windows release and unzip the `pscale.exe` file into the folder of your choice. Then, run it from PowerShell or whatever terminal you regularly use.
+
+The MySQL command-line client is available in the [Windows MySQL Installer](https://dev.mysql.com/doc/refman/8.0/en/windows-installation.html). To launch `pscale shell` you will need to have the `mysql.exe` executable's directory in your shell's PATH.
+
+In PowerShell, add that directory to your current shell's PATH:
+
+```powershell
+$env:path += ";C:\Program Files\MySQL\MySQL Server 8.0\bin"
+```
 
 ## Using the PlanetScale CLI
 
@@ -56,7 +82,7 @@ pscale --help
 
 Verify that you're using the latest version: 
 ```zsh
-$ pscale version
+pscale version
 ```
 
 You're all set!
