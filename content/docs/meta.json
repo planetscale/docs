@@ -22,8 +22,8 @@
       ]
     },
     {
-      "id": "tutorial",
-      "name": "Tutorial",
+      "id": "tutorials",
+      "name": "Tutorials",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [

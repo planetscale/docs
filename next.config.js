@@ -18,4 +18,13 @@ module.exports = {
 
     return config
   },
+  async redirects() {
+    return [
+      {
+        source: '/tutorial/:slug*',
+        destination: '/tutorials/:slug*', // Matched parameters can be used in the destination
+        permanent: true,
+      },
+    ]
+  },
 }
