@@ -7,6 +7,7 @@
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
         { "route": "branching", "display": "Branching" },
+        { "route": "connection-strings", "display": "Connection Strings" },
         { "route": "regions", "display": "Regions" },
         {
           "route": "nonblocking-schema-changes",
@@ -59,7 +60,9 @@
           "route": "planetscale-environment-setup",
           "display": "PlanetScale environment set up"
         },
-        { "route": "planetscale-cli", "display": "PlanetScale CLI" }
+        { "route": "planetscale-cli", "display": "PlanetScale CLI" },
+        { "route": "planetscale-security", "display": "PlanetScale Security" }
+
       ]
     }
   ]

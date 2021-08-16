@@ -13,6 +13,7 @@ In this tutorial, we'll create a simple Node.js and Express.js application and c
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
+
 ```zsh
 pscale auth login
 ```
@@ -37,6 +38,7 @@ git clone https://github.com/planetscale/express-example.git
 
 ## Connect to PlanetScale with Express.js
 
+### Using pscale connect
 1. Use `pscale` to create a connection to your database and start the app with the following command:
 
 ```zsh
@@ -51,9 +53,44 @@ pscale connect your-db-name main --execute 'node app.js'
 
 Congratulations! You successfully connected your Node.js and Express.js application to a PlanetScale database.
 
+### Using a connection string.
+
+You can also create passwords in the PlanetScale UI as documented [here](/concepts/connection-strings#creating-a-password).
+
+#### Using the CLI to create a connection string
+1. Using the `pscale` CLI, create a new password for the `main` branch of your database:
+
+```zsh
+pscale password create your-db-name main production-password
+```
+2. Take note of the values it returns to you.
+
+``` bash
+Password production-password was successfully created.
+Please save the values below as they will not be shown again
+
+  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
+ --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
+  production-password   jp71f987awnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+```
+
+3. Create your `DatabaseURL` in the following format : 
+```
+"mysql://<USERNAME>:<PLAIN TEXT PASSWORD>@<ACCESS HOST URL>/<your-db-name>?sslmode=require"
+```
+
+4. Run your application with your DATABASE_URL
+
+``` bash
+DATABASE_URL=<VALUE FROM STEP 3> node app.js
+```
 ## Summary
 
 In this tutorial, we created a simple Node.js and Express.js application and connected it to PlanetScale's database and branching environments.
+
+## Further Reading
+If you're interested in learning how to secure your application when connecting to PlanetScale, 
+please read [Connecting to PlanetScale securely](/reference/planetscale-security)
 
 ## What's next?
 

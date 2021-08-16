@@ -4,7 +4,8 @@ subtitle: ""
 ---
 
 ## Introduction
-In this tutorial, you'll learn how to connect any application to your PlanetScale database.
+In this tutorial, you'll learn how to connect any application to your PlanetScale database, with Passwords
+or Client Certificates.
 
 ## Prerequisites
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
@@ -13,6 +14,38 @@ In this tutorial, you'll learn how to connect any application to your PlanetScal
 pscale auth login
 ```
 ## Connect to your Database
+### Connect using Passwords
+
+You can also create passwords in the PlanetScale UI as documented [here](/concepts/connection-strings#creating-a-password)
+
+#### Using the CLI to create a password
+1. Run the following command in the CLI to create a password for your branch
+
+```
+pscale password create your-db-name main production-password
+```
+
+2. Take note of the values it returns to you.
+
+``` bash
+Password production-password was successfully created.
+Please save the values below as they will not be shown again
+
+  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
+ --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
+  production-password   jp71f987awnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+```
+
+3. In your application's mysql `config`, use the following to connect:
+    - **host:** `<ACCESS HOST URL>`
+    - **port:** `3306`
+    - **user:** `<USERNAME>`
+    - **password:** `<PLAIN TEXT>`
+    - **database:** your-db-name
+
+4. Ensure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information. 
+
+### Connect using Client Certificates
 You can use the `pscale connect` command to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to.
 
 1. Run the following command in the CLI:
@@ -30,46 +63,14 @@ This establishes a secure connection and opens a port on your local machine that
     - **password:** leave this blank
     - **database:** your-db-name
 
-## Use Planetscale in production
-In production, we recommend using the `DATABASE_URL` environment variable in your application's configuration for connecting to PlanetScale.
-
-1. Run the following command in the CLI:
-```
-pscale connect your-db-name main --execute "node app.js"
-```
-You can use the `pscale connect` command with the `--execute` command as a wrapper for your application. This will set the `DATABASE_URL` environment variable, making it available to your app. The `--execute` flag should be set to the command that starts up your application.
-
-2. Feel free to check out the [full example node application here](https://github.com/planetscale/express-example).
-
-3. Find the latest release of `pscale` CLI for your production environment [here](https://github.com/planetscale/cli/releases).
-
-
-## Authentication in production
-You will need to create a service token for use in your production environment.
-
-1. Create a PlanetScale service token:
-```
-pscale service-token create
-```
-
-Take note of the service token's **name** and **value** returned to you.
-
-2. Grant that token access to your database:
-```
-pscale service-token add-access your-token-name connect_production_branch --database your-db-name
-```
-
-3. Set the following environment variables in your production environment:
-```
-PLANETSCALE_ORG=your-org-name
-PLANETSCALE_SERVICE_TOKEN_NAME=your-token-name
-PLANETSCALE_SERVICE_TOKEN=your-token-value
-```
-
-That's it! Now when running the `pscale connect` command in production, the CLI will use the service token set in your environment variables for authentication.
-
 ## Summary
-In this tutorial, we learned how to use `pscale connect` to establish a connection to our database, and how to use the `--execute` flag to set a `DATABASE_URL` for our application.
+In this tutorial, we learned :
+1. how to use `pscale connect` to establish a connection to our database, and how to use the `--execute` flag to set a `DATABASE_URL` for our application.
+2. how to use `pscale password` to create a password to connect to our database.
+
+## Further Reading
+If you're interested in learning how to secure your application when connecting to PlanetScale, 
+please read [Connecting to PlanetScale securely](/reference/planetscale-security)
 
 ## What's next?
 Now that you've successfully connected your application to PlanetScale, it's time to make schema changes to your tables and deploy your application! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables, without locking or causing downtime for production databases. 
