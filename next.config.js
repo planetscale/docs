@@ -25,6 +25,11 @@ module.exports = {
         destination: '/tutorials/:slug*', // Matched parameters can be used in the destination
         permanent: true,
       },
+      {
+        source: '/reference/planetscale-security',
+        destination: '/reference/secure-connections',
+        permanent: true,
+      },
     ]
   },
 }
