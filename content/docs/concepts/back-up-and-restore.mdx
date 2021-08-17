@@ -1,0 +1,72 @@
+---
+title: 'Back Up and Restore'
+subtitle: 'Create, schedule, and restore backups for your PlanetScale databases.'
+---
+
+## Overview
+PlanetScale provides the ability to create, schedule, and restore backups for production and development database branches. 
+
+<InfoBlock  type="note">
+A note: Daily backups of database branches are included free of charge for all databases.
+</InfoBlock>
+
+## View backups
+To view backups for either `main` or your _development_ branches, go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+
+Once there, you'll find additional details about your backup history.
+
+## Create manual backups
+In addition to the daily default backups that PlanetScale schedules for your database branches, you can create additional **manual** backups.
+
+1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+
+2. Click the **Create manual backup** button. 
+
+This will bring up a pop-up modal that prompts you to _name_ your **backup** and select how long you wish to keep the backup.
+
+![Manual backup pop-up modal](/img/docs/settings-backup-modal.png)
+
+3. Click the **Backup up now** button to finish the backup and close the pop-up modal. 
+
+## Schedule backups
+You can schedule additional backups for both your `main` and _development_ branches.
+
+1. Go to your database backups settings page: `app.planetscale.com/<org>/<database>/settings/backups`.
+
+2. Click the **New schedule** button. 
+
+This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
+
+![Schedule backup pop-up modal](/img/docs/backup-schedule-modal.png)
+
+3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal. 
+
+
+## Restore from a backup
+To restore a backup to a new branch, click on the individual backup to see the option to restore them.
+ 
+1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+
+2. Select the backup you wish to restore.
+
+3. Click the **Restore backup** button.
+
+This will bring up a pop-up modal that prompts you to name your branch.
+
+![Restore backup pop-up modal](/img/docs/restore-backup-modal.png)
+
+4. Click the **Restore backup** button to finish restoring your backup and to close the pop-up modal. 
+
+
+## Need help?
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
+
+
+<NextBlock
+  steps={[
+    {
+      text: 'Audit Log',
+      link: '/concepts/audit-log',
+    },
+  ]}
+></NextBlock>

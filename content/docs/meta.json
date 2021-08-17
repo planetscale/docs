@@ -19,7 +19,8 @@
         { "route": "security", "display": "Security" },
         { "route": "audit-log", "display": "Audit log" },
         { "route": "security-log", "display": "Security log" },
-        { "route": "billing", "display": "Billing" }
+        { "route": "billing", "display": "Billing" },
+        { "route": "back-up-and-restore", "display": "Back Up and Restore" }
       ]
     },
     {
