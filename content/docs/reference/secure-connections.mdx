@@ -54,17 +54,17 @@ Below we have listed common paths on which the CA root store can be found in var
 
 On Linux, the path to the system CA roots depends on the distribution that you are using.
 
-#### Debian / Ubuntu / Gentoo / Arch
+#### Debian / Ubuntu / Gentoo / Arch / Slackware
 
-This path also applies to Debian or Ubuntu derivatives.
+This path also applies to Debian or Ubuntu derivatives. You need to make sure the `ca-certificates` package is installed.
 
 ```
 /etc/ssl/certs/ca-certificates.crt
 ```
 
-#### RedHat / Fedora / CentOS / Vercel
+#### RedHat / Fedora / CentOS / Mageia / Vercel
 
-This path also applies to RedHat or Fedora derivatives like Amazon Linux. This is the path to use for applications deployed on Vercel.
+This path also applies to RedHat or Fedora derivatives like Amazon Linux and Oracle Linux. This is the path to use for applications deployed on Vercel.
 
 ```
 /etc/pki/tls/certs/ca-bundle.crt
@@ -86,9 +86,9 @@ This also applies to OpenSUSE derivatives.
 /etc/ssl/ca-bundle.pem
 ```
 
-#### MacOS
+#### MacOS / FreeBSD / OpenBSD
 
-MacOS provides an extracted version of the system roots on disk that can be used for the CA roots.
+MacOS provides an extracted version of the system roots on disk that can be used for the CA roots. On FreeBSD you need to install the `ca_root_nss` package for this path to be available.
 
 ```
 /etc/ssl/cert.pem
