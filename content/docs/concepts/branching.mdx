@@ -11,6 +11,10 @@ To match a developer's workflow, PlanetScale uses a branching model similar to [
 
 Branching enables schema changes to happen online, asynchronously. (Online means it won't block production or inserts and selects on your database.) Database branching speeds up development by allowing developers to iterate quickly without worrying about impacting their production environment.
 
+<InfoBlock type="tip">
+  You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt schema changes in a production branch. Create a development branch and start your changes there.
+</InfoBlock>
+
 ## Development vs. Production branches
 
 PlanetScale provides two types of branches, **Production** (`main`) and **Development** branches. Production branches are intended for use in production, cannot be deleted, and can only be updated using deploy requests. Development branches are a separate database with a copy of the `main` branch's schema. Developers can make schema changes in Development branches, test locally, and open a deploy request for deploying their changes to the production database.
