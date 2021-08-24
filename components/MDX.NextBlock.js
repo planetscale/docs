@@ -66,7 +66,7 @@ export default function NextBlock(props) {
 
   return (
     <NextBlockContainer>
-      <NextBlockHeading>Next Steps</NextBlockHeading>
+      <NextBlockHeading>Next steps</NextBlockHeading>
       <NextBlockList>
         {steps.map((step) => {
           return (

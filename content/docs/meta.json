@@ -7,20 +7,23 @@
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
         { "route": "branching", "display": "Branching" },
-        { "route": "connection-strings", "display": "Connection Strings" },
+        { "route": "connection-strings", "display": "Connection strings" },
         { "route": "regions", "display": "Regions" },
         {
           "route": "nonblocking-schema-changes",
-          "display": "Non-Blocking Schema Changes"
+          "display": "Non-blocking schema changes"
         },
-        { "route": "authentication-methods", "display": "Authentication Methods" },
-        { "route": "mfa", "display": "Multi-Factor Authentication" },
-        {  "route":  "sso",  "display":  "Single Sign-On"  },
+        {
+          "route": "authentication-methods",
+          "display": "Authentication methods"
+        },
+        { "route": "mfa", "display": "Multi-factor authentication" },
+        { "route": "sso", "display": "Single sign-on" },
         { "route": "security", "display": "Security" },
         { "route": "audit-log", "display": "Audit log" },
         { "route": "security-log", "display": "Security log" },
         { "route": "billing", "display": "Billing" },
-        { "route": "back-up-and-restore", "display": "Back Up and Restore" }
+        { "route": "back-up-and-restore", "display": "Back up and restore" }
       ]
     },
     {
@@ -63,7 +66,6 @@
         },
         { "route": "planetscale-cli", "display": "PlanetScale CLI" },
         { "route": "secure-connections", "display": "Secure Connections" }
-
       ]
     }
   ]
