@@ -39,15 +39,18 @@ cd blog
 
 ```ruby
 gem "mysql2"
+```
+
 4. Then run `bundle install`
 
-At this point, we have accomplished two things: we've created a rails project called _blog_ and installed the libraries that we'll need to connect to our PlanetScale database. Now it’s time to create a PlanetScale Database.
+At this point, we have accomplished two things: we've created a rails project called _blog_ and installed the libraries that we'll need to connect to our PlanetScale database. Now it’s time to create a PlanetScale database.
 
-## Create a PlanetScale Database & password
+## Create a PlanetScale database & password
 
 You can also create passwords in the PlanetScale UI as documented [here](/concepts/connection-strings#creating-a-password)
 
 ### Using the CLI to create a connection string
+
 1. Using the `pscale` CLI, create a new database named _blog_:
 
 ```zsh
@@ -62,7 +65,7 @@ pscale password create blog main production-password
 
 3. Take note of the values it returns to you.
 
-``` bash
+```bash
 Password production-password was successfully created.
 Please save the values below as they will not be shown again
 
@@ -71,7 +74,7 @@ Please save the values below as they will not be shown again
   production-password   jp71f987awnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
 ```
 
-That's it! Because this is a Rails app, we can go into the web UI and enable "Automatic Rails Migrations" in the database's settings page.
+That's it! Because this is a Rails app, we can go into the web UI and enable "Automatic Rails migrations" in the database's settings page.
 
 ## Configure Rails and PlanetScale
 
@@ -101,7 +104,8 @@ development:
 The `sslca` configuration option depends on your operating system and distribution. See [CA root configuration](/reference/planetscale-security#ca-root-configuration) for more information.
 
 <InfoBlock type="note">
-  This will tell your Rails app to connect to your PlanetScale database with the password you created above.
+  This will tell your Rails app to connect to your PlanetScale database with the
+  password you created above.
 </InfoBlock>
 
 ## Migrate your database
@@ -185,7 +189,7 @@ blog/add-users-table> describe users;
 +------------+--------------+------+-----+---------+----------------+
 ```
 
-## Deploy your Migration
+## Deploy your migration
 
 Now that your Rails migration is live on a PlanetScale branch, let's get it back into `main`.
 
@@ -278,8 +282,9 @@ Congratulations! You're ready to develop your Rails application against PlanetSc
 
 In this tutorial, we created a simple Rails application named _blog_ and connected it to PlanetScale’s database and branching environments. We performed a schema migration from our Rails application to a PlanetScale development branch, and then merged that branch back into production. We saw that PlanetScale rolled our schema change out, and copied over the record of Rails' schema migration as well.
 
-## Further Reading
-If you're interested in learning how to secure your application when connecting to PlanetScale, 
+## Further reading
+
+If you're interested in learning how to secure your application when connecting to PlanetScale,
 please read [Connecting to PlanetScale securely](/reference/planetscale-security)
 
 ## What's next?

@@ -42,15 +42,15 @@
         { "route": "deploy-to-heroku", "display": "Deploy to Heroku" },
         {
           "route": "automatic-rails-migrations",
-          "display": "Automatic Rails Migrations"
+          "display": "Automatic Rails migrations"
         },
         {
           "route": "automatic-prisma-migrations",
-          "display": "Automatic Prisma Migrations"
+          "display": "Automatic Prisma migrations"
         },
         {
           "route": "change-unique-key",
-          "display": "Change Single Unique Key"
+          "display": "Change single unique key"
         }
       ]
     },
@@ -65,7 +65,7 @@
           "display": "PlanetScale environment set up"
         },
         { "route": "planetscale-cli", "display": "PlanetScale CLI" },
-        { "route": "secure-connections", "display": "Secure Connections" }
+        { "route": "secure-connections", "display": "Secure connections" }
       ]
     }
   ]

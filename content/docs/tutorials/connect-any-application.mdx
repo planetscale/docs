@@ -1,25 +1,31 @@
 ---
 title: 'Connect any app'
-subtitle: ""
+subtitle: ''
 ---
 
 ## Introduction
-In this tutorial, you'll learn how to connect any application to your PlanetScale database, with Passwords
-or Client Certificates.
+
+In this tutorial, you'll learn how to connect any application to your PlanetScale database, with passwords
+or client certificates.
 
 ## Prerequisites
+
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
+
 ```zsh
 pscale auth login
 ```
-## Connect to your Database
-### Connect using Passwords
+
+## Connect to your database
+
+### Connect using passwords
 
 You can also create passwords in the PlanetScale UI as documented [here](/concepts/connection-strings#creating-a-password)
 
 #### Using the CLI to create a password
-1. Run the following command in the CLI to create a password for your branch
+
+1. Run the following command in the CLI to create a password for your branch.
 
 ```
 pscale password create your-db-name main production-password
@@ -27,7 +33,7 @@ pscale password create your-db-name main production-password
 
 2. Take note of the values it returns to you.
 
-``` bash
+```bash
 Password production-password was successfully created.
 Please save the values below as they will not be shown again
 
@@ -37,43 +43,52 @@ Please save the values below as they will not be shown again
 ```
 
 3. In your application's mysql `config`, use the following to connect:
-    - **host:** `<ACCESS HOST URL>`
-    - **port:** `3306`
-    - **user:** `<USERNAME>`
-    - **password:** `<PLAIN TEXT>`
-    - **database:** your-db-name
 
-4. Ensure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information. 
+   - **host:** `<ACCESS HOST URL>`
+   - **port:** `3306`
+   - **user:** `<USERNAME>`
+   - **password:** `<PLAIN TEXT>`
+   - **database:** your-db-name
 
-### Connect using Client Certificates
+4. Ensure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.
+
+### Connect using client certificates
+
 You can use the `pscale connect` command to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to.
 
 1. Run the following command in the CLI:
+
 ```
 pscale connect your-db-name main
-``` 
+```
+
 This establishes a secure connection and opens a port on your local machine that you can use to connect any MySQL client.
 
 2. Take note of the address it returns to you. By default it is `127.0.0.1:3306`. The CLI will use a different port if `3306` is unavailable.
 
 3. In your application's mysql `config`, use the following to connect:
-    - **host:** `127.0.0.1`
-    - **port:** `3306` (the value returned to you by pscale connect)
-    - **user:** `root`
-    - **password:** leave this blank
-    - **database:** your-db-name
+   - **host:** `127.0.0.1`
+   - **port:** `3306` (the value returned to you by pscale connect)
+   - **user:** `root`
+   - **password:** leave this blank
+   - **database:** your-db-name
 
 ## Summary
+
 In this tutorial, we learned :
+
 1. how to use `pscale connect` to establish a connection to our database, and how to use the `--execute` flag to set a `DATABASE_URL` for our application.
 2. how to use `pscale password` to create a password to connect to our database.
 
-## Further Reading
-If you're interested in learning how to secure your application when connecting to PlanetScale, 
+## Further reading
+
+If you're interested in learning how to secure your application when connecting to PlanetScale,
 please read [Connecting to PlanetScale securely](/reference/planetscale-security)
 
 ## What's next?
-Now that you've successfully connected your application to PlanetScale, it's time to make schema changes to your tables and deploy your application! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables, without locking or causing downtime for production databases. 
+
+Now that you've successfully connected your application to PlanetScale, it's time to make schema changes to your tables and deploy your application! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables, without locking or causing downtime for production databases.
 
 ## Need help?
+
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
