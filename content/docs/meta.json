@@ -65,7 +65,9 @@
           "display": "PlanetScale environment set up"
         },
         { "route": "planetscale-cli", "display": "PlanetScale CLI" },
-        { "route": "secure-connections", "display": "Secure connections" }
+        { "route": "secure-connections", "display": "Secure connections" },
+        { "route": "service-tokens", "display": "Service tokens" }
+
       ]
     }
   ]
