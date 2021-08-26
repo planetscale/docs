@@ -51,6 +51,10 @@
         {
           "route": "change-unique-key",
           "display": "Change single unique key"
+        },
+        {
+          "route": "operating-without-foreign-keys",
+          "display": "Operating without FK constraints"
         }
       ]
     },
