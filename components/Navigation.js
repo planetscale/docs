@@ -9,7 +9,6 @@ import {
 } from '@radix-ui/react-icons'
 import Logo from './Logo'
 import meta from '../content/docs/meta.json'
-import meta_v1 from '../content/v1/meta.json'
 import CustomLink from './CustomLink'
 import Link from 'next/link'
 
@@ -198,7 +197,7 @@ const BackgroundFrozen = styled('div', {
 
 export default function Navigation({ version }) {
   const [mobileTOCState, setMobileTOCState] = useState(false)
-  const toc = version === 'v2' ? meta : meta_v1
+  const toc = meta
 
   const toggleMobileTOC = () => {
     setMobileTOCState(!mobileTOCState)
