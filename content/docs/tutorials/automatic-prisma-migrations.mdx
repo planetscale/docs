@@ -136,13 +136,17 @@ Our first example migration flow went well, but what happens when you need to ru
 
 Let’s take a look:
 
-1. Delete your previous `shadow` branch:
+1. Delete your previous `shadow` and `initial-setup` branches:
 
 ```zsh
 pscale branch delete prisma-playground shadow
 ```
 
-Since shadow databases are created and deleted automatically each time you run a development-focused Prisma command, we need to also delete shadow _development_ branches in PlanetScale too.
+```zsh
+pscale branch delete prisma-playground initial-setup
+```
+
+Since shadow databases are created and deleted automatically each time you run a development-focused Prisma command, we need to delete shadow _development_ branches in PlanetScale.
 
 2. Create two _development_ branches from `main`, `add-subtitle-to-posts` and `shadow`:
 
@@ -154,12 +158,12 @@ pscale branch create prisma-playground add-subtitle-to-posts
 pscale branch create prisma-playground shadow
 ```
 
-As part of creating that branch, PlanetScale copies _every_ piece of data from `main`’s `_prisma_migrations` table over to your new development branch.
+As part of creating that branch, PlanetScale copies _every_ row from `main`’s `_prisma_migrations` table over to your new development branch.
 
-3. Connect to the two branches:
+3. Close the existing proxy connections and connect to the two new branches:
 
 ```zsh
-pscale connect prisma-playground initial-setup --port 3309
+pscale connect prisma-playground add-subtitle-to-posts --port 3309
 ```
 
 And in another terminal:
@@ -168,13 +172,7 @@ And in another terminal:
 pscale connect prisma-playground shadow --port 3310
 ```
 
-4. In another terminal, switch to your newly created development branch, `add-subtitle-to-posts`:
-
-```zsh
-pscale branch switch add-subtitle-to-posts --database prisma-playground
-```
-
-5. In the `/schema/schema.prisma` file, update the `Post` model:
+4. In the `prisma/schema.prisma` file, update the `Post` model:
 
 You can add a new `subtitle` field:
 
@@ -182,7 +180,7 @@ You can add a new `subtitle` field:
 subtitle  String   @db.VarChar(255)
 ```
 
-6. Create another Prisma migration for your table and call it `add-subtitle-to-posts`:
+5. Create another Prisma migration for your table and call it `add-subtitle-to-posts`:
 
 ```zsh
 npx prisma migrate dev --name add-subtitle-to-posts
@@ -190,11 +188,11 @@ npx prisma migrate dev --name add-subtitle-to-posts
 
 Prisma migrate checks `_prisma_migrations` to ensure your `create_users` migration already ran and proceeds to only run your new migration. In some cases, it might detect drift depending on your change.
 
-7. Open a deploy request for your `add-subtitle-to-posts` branch, so that you can deploy these changes to `main`.
+6. Open a deploy request for your `add-subtitle-to-posts` branch, so that you can deploy these changes to `main`.
 
 You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
-8. Once the deploy request is merged, you can see the migration in your main branch's `_prisma_migrations` table:
+7. Once the deploy request is merged, you can see the migration in your main branch's `_prisma_migrations` table:
 
 ```zsh
 pscale shell prisma-playground main
