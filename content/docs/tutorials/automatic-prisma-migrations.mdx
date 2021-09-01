@@ -155,7 +155,7 @@ pscale branch create prisma-playground add-subtitle-to-posts
 ```
 
 ```zsh
-pscale branch create prisma-playground shadow
+pscale branch create prisma-playground shadow-2
 ```
 
 As part of creating that branch, PlanetScale copies _every_ row from `main`’s `_prisma_migrations` table over to your new development branch.
@@ -169,7 +169,7 @@ pscale connect prisma-playground add-subtitle-to-posts --port 3309
 And in another terminal:
 
 ```zsh
-pscale connect prisma-playground shadow --port 3310
+pscale connect prisma-playground shadow-2 --port 3310
 ```
 
 4. In the `prisma/schema.prisma` file, update the `Post` model:
