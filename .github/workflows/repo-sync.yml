@@ -3,7 +3,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/10 * * * *' # every 10 minutes. set to whatever interval you like
+    - cron: '06 */6 * * *' # every 10 minutes. set to whatever interval you like
 
 jobs:
   repo-sync:
@@ -23,4 +23,4 @@ jobs:
         with:
           source_branch: ${{ secrets.INTERMEDIATE_BRANCH }}
           destination_branch: main
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT }}
