@@ -1,7 +1,7 @@
 import React from 'react'
 import { styled } from '../stitches.config'
 import { LinkBlock, ButtonSecondary } from './Buttons'
-import { Github } from '@styled-icons/remix-line'
+import { GitHubLogoIcon } from '@radix-ui/react-icons'
 
 const PageInfoContainer = styled('div', {
   position: 'relative',
@@ -58,7 +58,7 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
         href={`https://github.com/planetscale/docs/blob/main/content/docs/${slug}.mdx`}
       >
         <ButtonSecondary>
-          <Github />
+          <GitHubLogoIcon />
           <span>Help us improve this page</span>
         </ButtonSecondary>
       </LinkBlock>

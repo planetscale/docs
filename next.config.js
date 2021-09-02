@@ -18,4 +18,28 @@ module.exports = {
 
     return config
   },
+  async redirects() {
+    return [
+      {
+        source: '/tutorial/:slug*',
+        destination: '/tutorials/:slug*', // Matched parameters can be used in the destination
+        permanent: true,
+      },
+      {
+        source: '/v1/vitess-operator/:match*',
+        destination: 'https://github.com/planetscale/vitess-operator/tree/main/docs',
+        permanent: true,
+      },
+      {
+        source: '/v1/:match*',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/reference/planetscale-security',
+        destination: '/reference/secure-connections',
+        permanent: true,
+      },
+    ]
+  },
 }

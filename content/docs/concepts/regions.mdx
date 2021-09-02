@@ -1,0 +1,72 @@
+---
+title: 'Regions'
+subtitle: 'Selecting a region during database and branch creation.'
+---
+
+## Overview
+
+PlanetScale currently offers database deployment in three regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy branches in the region closest to your location to help reduce latency when interacting with the database.
+
+## Available regions
+
+Currently, the following regions are supported, with their respective slugs:
+
+- US East (Northern Virginia) - `us-east`
+- US West (Oregon) - `us-west`
+- EU West (Dublin, Ireland) - `eu-west`
+
+More regions are going to be added in the future.
+
+## Selecting the database region
+
+PlanetScale allows you to select the region for the main branch of your database during database creation. By default, all database branches created within this database will also be created in this region.
+![Select your database region.](/img/docs/database-region.png)
+
+You can also select the region while creating a database via the CLI by using
+the `--region` flag with the region's slug.
+
+<InfoBlock type="note">
+  If you do not select a region during database creation using the CLI, it will
+  be set to US East.
+</InfoBlock>{' '}
+
+Here's an example command for creating a database with a different region:
+
+```shell
+pscale database create my-production-database --region us-west
+```
+
+## Selecting the branch region
+
+PlanetScale allows you to select a region for development branches during
+creation as well. By default, it is set to the same region as its database.
+
+![Select your branch region.](/img/docs/branch-region.png)
+
+You can also select the region while creating a branch via the CLI by using the
+`--region` flag with the region's slug.
+
+Here's an example command for creating a branch with a different region:
+
+```shell
+pscale branch create my-production-database add-tables --region eu-west
+```
+
+## Restricting the branch regions
+
+Organization administrators can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ settings in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
+
+![Restrict your branches to one region.](/img/docs/restrict-branch-region.png)
+
+## Need help?
+
+Get help from PlanetScale's [support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
+
+<NextBlock
+  steps={[
+    {
+      text: 'Non-blocking schema changes',
+      link: '/concepts/nonblocking-schema-changes',
+    },
+  ]}
+></NextBlock>

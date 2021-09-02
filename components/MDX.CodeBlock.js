@@ -1,7 +1,7 @@
 import React, { useContext, useState, useEffect } from 'react'
 import { styled } from '../stitches.config'
 import { ButtonSecondary } from './Buttons'
-import { CheckboxMultipleBlank, Check } from '@styled-icons/remix-line'
+import { CopyIcon, CheckIcon } from '@radix-ui/react-icons'
 import { ThemeContext } from './themeContext'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import Prism from 'prism-react-renderer/prism'
@@ -141,7 +141,7 @@ export default function CodeBlock({ className, children }) {
           onClick={copyCode}
           className={copyButtonState ? 'disabled' : ''}
         >
-          {copyButtonState ? <Check /> : <CheckboxMultipleBlank />}
+          {copyButtonState ? <CheckIcon /> : <CopyIcon />}
           <CopyButtonText>
             {copyButtonState ? 'Copied!' : 'Copy'}
           </CopyButtonText>

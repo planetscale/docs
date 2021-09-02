@@ -1,32 +1,26 @@
 import React from 'react'
 import { styled } from '../stitches.config'
-import { File4, AlarmWarning, Star } from '@styled-icons/remix-line'
+import {
+  FileIcon,
+  ExclamationTriangleIcon,
+  StarIcon,
+} from '@radix-ui/react-icons'
+
+const LabelContainer = styled('div', {
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  marginBottom: '1.5em',
+})
 
 const IconContainer = styled('div', {
-  marginRight: '1em',
-  fontSize: '14px',
-  lineHeight: '24.1818px',
-
-  '&:before': {
-    content: '',
-    marginBottom: '-0.5em',
-    display: 'table',
-  },
-
-  '&:after': {
-    content: '',
-    marginTop: '-0.5em',
-    display: 'table',
-  },
-
-  '> svg': {
-    width: '16px',
-  },
+  marginRight: '0.5em',
+  height: '15px',
 })
 
 const TextContainer = styled('div', {
   fontSize: '16px',
-  lineHeight: '24px',
+  lineHeight: '26px',
 
   '&:before': {
     content: '',
@@ -41,9 +35,15 @@ const TextContainer = styled('div', {
   },
 })
 
+const Label = styled('span', {
+  fontWeight: '$2',
+  fontSize: '14px',
+  paddingTop: '2px',
+})
+
 const InfoBlockContainer = styled('div', {
   display: 'flex',
-  flexDirection: 'row',
+  flexDirection: 'column',
   justifyContent: 'flex-start',
   alignItems: 'flex-start',
   borderRadius: '6px',
@@ -55,21 +55,33 @@ const InfoBlockContainer = styled('div', {
       note: {
         backgroundColor: '$textGreenTranslucent',
 
-        [`> ${IconContainer} > svg`]: {
+        [`${IconContainer} > svg`]: {
+          color: '$textGreen',
+        },
+
+        [`${Label}`]: {
           color: '$textGreen',
         },
       },
       warning: {
         backgroundColor: '$textOrangeTranslucent',
 
-        [`> ${IconContainer} > svg`]: {
+        [`${IconContainer} > svg`]: {
+          color: '$textOrange',
+        },
+
+        [`${Label}`]: {
           color: '$textOrange',
         },
       },
       tip: {
         backgroundColor: '$textPurpleTranslucent',
 
-        [`> ${IconContainer} > svg`]: {
+        [`${IconContainer} > svg`]: {
+          color: '$textPurple',
+        },
+
+        [`${Label}`]: {
           color: '$textPurple',
         },
       },
@@ -82,11 +94,16 @@ export default function InfoBlock(props) {
 
   return (
     <InfoBlockContainer type={type}>
-      <IconContainer>
-        {type === 'note' && <File4 />}
-        {type === 'warning' && <AlarmWarning />}
-        {type === 'tip' && <Star />}
-      </IconContainer>
+      <LabelContainer>
+        <IconContainer>
+          {type === 'note' && <FileIcon />}
+          {type === 'warning' && <ExclamationTriangleIcon />}
+          {type === 'tip' && <StarIcon />}
+        </IconContainer>
+        {type === 'note' && <Label>Note</Label>}{' '}
+        {type === 'warning' && <Label>Warning</Label>}{' '}
+        {type === 'tip' && <Label>Tip</Label>}
+      </LabelContainer>
 
       <TextContainer>{children}</TextContainer>
     </InfoBlockContainer>

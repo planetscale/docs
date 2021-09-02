@@ -1,0 +1,296 @@
+---
+title: 'Connect a Rails app'
+subtitle: ''
+---
+
+## Introduction
+
+In this tutorial, we’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. First, we’ll perform a simple table migration from our local Rails application to our PlanetScale database. Then we'll merge that schema request into our production branch using PlanetScale's CLI.
+
+## Prerequisites
+
+- Install [Ruby](https://www.ruby-lang.org/en/documentation/installation/).
+- Install the [PlanetScale CLI](https://github.com/planetscale/cli).
+- Authenticate the CLI with the following command:
+
+```zsh
+pscale auth login
+```
+
+## Create a Rails project
+
+To connect a Rails application to a PlanetScale database, we start by creating a sample Rails project named _blog_ and installing the libraries we'll need to connect to our PlanetScale database.
+
+Open the command line and follow these steps:
+
+1. Create a rails app named _blog_ by running the following command:
+
+```zsh
+rails new blog
+```
+
+2. Change into the directory you just created, the `blog` Rails app:
+
+```zsh
+cd blog
+```
+
+3. Next, add the `mysql2` gem to your _Gemfile_:
+
+```ruby
+gem "mysql2"
+```
+
+4. Then run `bundle install`
+
+At this point, we have accomplished two things: we've created a rails project called _blog_ and installed the libraries that we'll need to connect to our PlanetScale database. Now it’s time to create a PlanetScale database.
+
+## Create a PlanetScale database & password
+
+You can also create passwords in the PlanetScale UI as documented [here](/concepts/connection-strings#creating-a-password)
+
+### Using the CLI to create a connection string
+
+1. Using the `pscale` CLI, create a new database named _blog_:
+
+```zsh
+pscale database create blog
+```
+
+2. Using the `pscale` CLI, create a new database password for the `main` branch of your database named _blog_:
+
+```zsh
+pscale password create blog main production-password
+```
+
+3. Take note of the values it returns to you.
+
+```bash
+Password production-password was successfully created.
+Please save the values below as they will not be shown again
+
+  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
+ --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
+  production-password   jp71f987awnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+```
+
+That's it! Because this is a Rails app, we can go into the web UI and enable "Automatic Rails migrations" in the database's settings page.
+
+## Configure Rails and PlanetScale
+
+Now that the `mysql2` gem is installed, let's configure our application to talk to PlanetScale.
+
+1. Use the Rails generator to add the appropriate configuration to our new app (substituting in your organization name):
+
+```zsh
+bundle exec rails generate planetscale:install --organization $ORG_NAME
+```
+
+2. Open `config/database.yml` and configure our `development` database settings:
+
+```yaml
+development:
+  <<: *default
+  adapter: mysql2
+  username: <USERNAME>
+  host: <ACCESS HOST URL>
+  port: 3306
+  password: <PLAIN TEXT>
+  database: blog
+  ssl_mode: :verify_identity
+  sslca: "/etc/ssl/certs/ca-certificates.crt"
+```
+
+The `sslca` configuration option depends on your operating system and distribution. See [CA root configuration](/reference/planetscale-security#ca-root-configuration) for more information.
+
+<InfoBlock type="note">
+  This will tell your Rails app to connect to your PlanetScale database with the
+  password you created above.
+</InfoBlock>
+
+## Migrate your database
+
+Here comes the fun stuff! Now that your application is configured to talk to PlanetScale, we can create our first [non-blocking schema change](../concepts/nonblocking-schema-changes).
+
+1. Create a development PlanetScale branch and switch to it:
+
+```zsh
+pscale branch create blog add-users-table
+```
+
+2. Switch to your newly created branch:
+
+```zsh
+pscale branch switch add-users-table --database blog
+```
+
+This configures the proxy to use your new development branch.
+
+3. Create a normal Rails migration and call it `CreateUsers`:
+
+```zsh
+rails generate migration CreateUsers
+```
+
+4. This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this:
+   `create db migrate/834743749_create_users.rb`
+
+5. We can fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**.
+
+```ruby
+class CreateUsers < ActiveRecord::Migration[6.1]
+    def change
+        create_table :users do |t|
+        t.string :name
+        t.string :email
+        t.timestamps
+    end
+  end
+end
+```
+
+6. Let's run our migration:
+
+```zsh
+bin/rails db:migrate
+```
+
+<InfoBlock type="tip">
+  If you run into a proxy ERROR stating that address is already in use, run the
+  following command: <em>spring stop</em>. (Spring is a Ruby library that
+  pre-loads and runs all of our code into memory, detecting when our source code
+  has changed.) Then, try the above command again.
+</InfoBlock>
+
+7. Now give it a whirl to make sure we can query the new table with our `pscale` cli:
+
+```zsh
+pscale shell blog add-users-table
+```
+
+```sql
+blog/add-users-table> show tables;
++----------------------+
+| Tables_in_blog       |
++----------------------+
+| ar_internal_metadata |
+| schema_migrations    |
+| users                |
++----------------------+
+blog/add-users-table> describe users;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint       | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| created_at | datetime(6)  | NO   |     | NULL    |                |
+| updated_at | datetime(6)  | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+```
+
+## Deploy your migration
+
+Now that your Rails migration is live on a PlanetScale branch, let's get it back into `main`.
+
+1. Create a _Deploy Request_ in the CLI:
+
+```zsh
+pscale deploy-request create blog add-users-table
+Deploy request #1 successfully created.
+```
+
+2. Look at the `diff` to make sure things seem right:
+
+```zsh
+pscale deploy-request diff blog 1
+-- ar_internal_metadata --
++CREATE TABLE `ar_internal_metadata` (
++  `key` varchar(255) NOT NULL,
++  `value` varchar(255) DEFAULT NULL,
++  `created_at` datetime(6) NOT NULL,
++  `updated_at` datetime(6) NOT NULL,
++  PRIMARY KEY (`key`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- schema_migrations --
++CREATE TABLE `schema_migrations` (
++  `version` varchar(255) NOT NULL,
++  PRIMARY KEY (`version`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+-- users --
++CREATE TABLE `users` (
++  `id` bigint NOT NULL AUTO_INCREMENT,
++  `name` varchar(255) DEFAULT NULL,
++  `email` varchar(255) DEFAULT NULL,
++  `created_at` datetime(6) NOT NULL,
++  `updated_at` datetime(6) NOT NULL,
++  PRIMARY KEY (`id`)
++) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+```
+
+3. Merge it into `main`:
+
+```zsh
+pscale deploy-request deploy blog 1
+Successfully deployed b0lr4nphv6y3 from add-users-table to main.
+```
+
+4. Take a look at what `main` looks like:
+
+```zsh
+pscale shell blog main
+```
+
+```sql
+blog/main> show tables;
++----------------------+
+| Tables_in_blog       |
++----------------------+
+| ar_internal_metadata |
+| schema_migrations    |
+| users                |
++----------------------+
+
+blog/main> select * from schema_migrations;
++----------------+
+| version        |
++----------------+
+| 20210517233759 |
++----------------+
+
+blog/main> describe users;
++------------+--------------+------+-----+---------+----------------+
+| Field      | Type         | Null | Key | Default | Extra          |
++------------+--------------+------+-----+---------+----------------+
+| id         | bigint       | NO   | PRI | NULL    | auto_increment |
+| name       | varchar(255) | YES  |     | NULL    |                |
+| email      | varchar(255) | YES  |     | NULL    |                |
+| created_at | datetime(6)  | NO   |     | NULL    |                |
+| updated_at | datetime(6)  | NO   |     | NULL    |                |
++------------+--------------+------+-----+---------+----------------+
+```
+
+5. Tell the client to switch back to `main`:
+
+```zsh
+pscale branch switch main
+```
+
+Congratulations! You're ready to develop your Rails application against PlanetScale.
+
+## Summary
+
+In this tutorial, we created a simple Rails application named _blog_ and connected it to PlanetScale’s database and branching environments. We performed a schema migration from our Rails application to a PlanetScale development branch, and then merged that branch back into production. We saw that PlanetScale rolled our schema change out, and copied over the record of Rails' schema migration as well.
+
+## Further reading
+
+If you're interested in learning how to secure your application when connecting to PlanetScale,
+please read [Connecting to PlanetScale securely](/reference/planetscale-security)
+
+## What's next?
+
+Now that you've successfully connected your Rails app to PlanetScale, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+
+## Need help?
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.

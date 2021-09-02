@@ -72,7 +72,7 @@ export default function Toggler() {
     >
       {themeContext.availableThemes.map((theme) => {
         return (
-          <StyledRadioItem value={theme.name} onCheckedChange={handleRadioItem}>
+          <StyledRadioItem key={theme.name} value={theme.name} onCheckedChange={handleRadioItem}>
             <StyledIndicator />
             {theme.icon}
           </StyledRadioItem>

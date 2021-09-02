@@ -7,36 +7,55 @@
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
         { "route": "branching", "display": "Branching" },
+        { "route": "connection-strings", "display": "Connection strings" },
+        { "route": "regions", "display": "Regions" },
         {
           "route": "nonblocking-schema-changes",
-          "display": "Non-Blocking Schema Changes"
+          "display": "Non-blocking schema changes"
         },
-        { "route": "authentication-methods", "display": "Authentication Methods" },
-        { "route": "mfa", "display": "Multi-Factor Authentication" },
-        {  "route":  "sso",  "display":  "Single Sign-On"  },
+        {
+          "route": "authentication-methods",
+          "display": "Authentication methods"
+        },
+        { "route": "mfa", "display": "Multi-factor authentication" },
+        { "route": "sso", "display": "Single sign-on" },
         { "route": "security", "display": "Security" },
         { "route": "audit-log", "display": "Audit log" },
         { "route": "security-log", "display": "Security log" },
-        { "route": "billing", "display": "Billing" }
+        { "route": "query-statistics", "display": "Query statistics" },
+        { "route": "billing", "display": "Billing" },
+        { "route": "back-up-and-restore", "display": "Back up and restore" }
       ]
     },
     {
-      "id": "tutorial",
-      "name": "Tutorial",
+      "id": "tutorials",
+      "name": "Tutorials",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
-        { "route": "connect-any-application", "display": "Connect to any app" },
-        { "route": "connect-rails-app", "display": "Connect to a Rails app" },
+        { "route": "connect-any-application", "display": "Connect any app" },
+        { "route": "connect-rails-app", "display": "Connect a Rails app" },
         {
           "route": "connect-nodejs-app",
-          "display": "Connect to a Node.js app"
+          "display": "Connect a Node.js app"
         },
         { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
         { "route": "deploy-to-heroku", "display": "Deploy to Heroku" },
         {
           "route": "automatic-rails-migrations",
-          "display": "Automatic Rails Migrations"
+          "display": "Automatic Rails migrations"
+        },
+        {
+          "route": "automatic-prisma-migrations",
+          "display": "Automatic Prisma migrations"
+        },
+        {
+          "route": "change-unique-key",
+          "display": "Change single unique key"
+        },
+        {
+          "route": "operating-without-foreign-keys",
+          "display": "Operating without FK constraints"
         }
       ]
     },
@@ -50,7 +69,10 @@
           "route": "planetscale-environment-setup",
           "display": "PlanetScale environment set up"
         },
-        { "route": "planetscale-cli", "display": "PlanetScale CLI" }
+        { "route": "planetscale-cli", "display": "PlanetScale CLI" },
+        { "route": "secure-connections", "display": "Secure connections" },
+        { "route": "service-tokens", "display": "Service tokens" }
+
       ]
     }
   ]

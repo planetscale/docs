@@ -1,6 +1,7 @@
 import React from 'react'
 import { styled } from '../stitches.config'
-import { ArrowRightS } from '@styled-icons/remix-line'
+import { ChevronRightIcon } from '@radix-ui/react-icons'
+import { Hyperlink } from './Hyperlink'
 
 const NextBlockContainer = styled('div', {
   position: 'relative',
@@ -42,7 +43,7 @@ const NextBlockListItem = styled('li', {
   },
 })
 
-const NextBlockListItemLink = styled('a', {
+const NextBlockListItemLink = styled(Hyperlink, {
   display: 'flex',
   flexDirection: 'row',
   justifyContent: 'space-between',
@@ -55,6 +56,7 @@ const NextBlockListItemLink = styled('a', {
   },
 
   '&:hover': {
+    backgroundColor: 'unset !important',
     borderBottom: '0 !important',
   },
 })
@@ -64,14 +66,14 @@ export default function NextBlock(props) {
 
   return (
     <NextBlockContainer>
-      <NextBlockHeading>Next Steps</NextBlockHeading>
+      <NextBlockHeading>Next steps</NextBlockHeading>
       <NextBlockList>
         {steps.map((step) => {
           return (
             <NextBlockListItem key={step.link}>
               <NextBlockListItemLink href={step.link}>
                 <span>{step.text}</span>
-                <ArrowRightS />
+                <ChevronRightIcon />
               </NextBlockListItemLink>
             </NextBlockListItem>
           )

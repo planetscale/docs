@@ -2,10 +2,13 @@ import React, { Fragment, useState } from 'react'
 import { styled } from '../stitches.config'
 import * as Collapsible from '@radix-ui/react-collapsible'
 import * as ScrollArea from '@radix-ui/react-scroll-area'
-import { Menu2, Close, ArrowDropRight } from '@styled-icons/remix-line'
+import {
+  HamburgerMenuIcon,
+  Cross1Icon,
+  TriangleRightIcon,
+} from '@radix-ui/react-icons'
 import Logo from './Logo'
 import meta from '../content/docs/meta.json'
-import meta_v1 from '../content/v1/meta.json'
 import CustomLink from './CustomLink'
 import Link from 'next/link'
 
@@ -35,21 +38,21 @@ const _SidenavContainer = styled(ScrollArea.Root, {
     borderRight: 'unset',
     position: 'fixed',
     top: '0',
-    left: '-100vw',
+    right: '-100vw',
     zIndex: '5',
     padding: '2em',
     backgroundColor: '$bgPrimary',
     flexBasis: '100vw',
     width: '90vw',
     height: '100vh',
-    transition: 'left 100ms ease-out',
+    transition: 'right 100ms ease-out',
 
     '&:hover': {
       borderRight: 'unset',
     },
 
     '&.show': {
-      left: '0',
+      right: '0',
     },
   },
 
@@ -94,7 +97,7 @@ const MenuLink = styled('div', {
   '@tablet': {
     position: 'fixed',
     bottom: '2em',
-    left: '2em',
+    right: '2em',
     display: 'flex',
     flexDirection: 'row',
     alignItems: 'center',
@@ -134,16 +137,15 @@ const _GroupHeading = styled(Collapsible.Button, {
   backgroundColor: 'unset',
   border: 'unset',
   padding: '0',
-  margin: '0',
-  marginBottom: '1em',
+  marginTop: '4em',
+  marginBottom: '1.5em',
   cursor: 'pointer',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
 
   svg: {
-    width: '24px',
-    height: '24px',
+    marginLeft: '2px',
   },
 
   '&:active, &:focus': {
@@ -158,10 +160,7 @@ const _GroupHeading = styled(Collapsible.Button, {
   },
 })
 
-const _GroupLinks = styled(Collapsible.Content, {
-  padding: '0',
-  marginBottom: '3em',
-})
+const _GroupLinks = styled(Collapsible.Content, {})
 
 const PageLink = styled('a', {
   fontSize: '14px',
@@ -198,17 +197,69 @@ const BackgroundFrozen = styled('div', {
 
 export default function Navigation({ version }) {
   const [mobileTOCState, setMobileTOCState] = useState(false)
-  const toc = version === 'v2' ? meta : meta_v1
+  const toc = meta
 
   const toggleMobileTOC = () => {
     setMobileTOCState(!mobileTOCState)
     document.body.classList.toggle('prevent-scroll')
   }
 
+  function generateCategoryLabel({}) {}
+
+  function generatePageLink({}) {}
+
+  function recursiveMap(leaves) {
+    leaves.map((leaf, index) => {
+      if (leaf === 'page') {
+        return (
+          <SidenavGroup
+            key={index}
+            version={version}
+            categoryID={category.id}
+            category={category.name}
+            pages={category.pages}
+            clickHandler={mobileTOCState ? toggleMobileTOC : () => {}}
+          ></SidenavGroup>
+        )
+      } else {
+        recursiveMap(leaf)
+      }
+    })
+  }
+
+  function SidenavGroup({ categoryID, category, pages, clickHandler }) {
+    return (
+      <_GroupContainer defaultOpen={true}>
+        <_GroupHeading>
+          {category} <TriangleRightIcon />
+        </_GroupHeading>
+        <_GroupLinks>
+          {pages.map((page, index) => {
+            const href =
+              version === 'v1'
+                ? `/v1/${categoryID}/${page['route']}`
+                : `/${categoryID}/${page['route']}`
+
+            return (
+              <CustomLink
+                version={version}
+                href={href}
+                activeClassName="active"
+                key={index}
+              >
+                <PageLink onClick={clickHandler}>{page['display']}</PageLink>
+              </CustomLink>
+            )
+          })}
+        </_GroupLinks>
+      </_GroupContainer>
+    )
+  }
+
   return (
     <Fragment>
       <MenuLink onClick={toggleMobileTOC}>
-        {mobileTOCState ? <Close /> : <Menu2 />}
+        {mobileTOCState ? <Cross1Icon /> : <HamburgerMenuIcon />}
       </MenuLink>
       {mobileTOCState && (
         <BackgroundFrozen onClick={toggleMobileTOC}></BackgroundFrozen>
@@ -230,7 +281,6 @@ export default function Navigation({ version }) {
             return (
               <SidenavGroup
                 key={index}
-                version={version}
                 categoryID={category.id}
                 category={category.name}
                 pages={category.pages}
@@ -247,34 +297,5 @@ export default function Navigation({ version }) {
         </StyledScrollbarY>
       </_SidenavContainer>
     </Fragment>
-  )
-}
-
-function SidenavGroup({ version, categoryID, category, pages, clickHandler }) {
-  return (
-    <_GroupContainer defaultOpen={true}>
-      <_GroupHeading>
-        {category} <ArrowDropRight />
-      </_GroupHeading>
-      <_GroupLinks>
-        {pages.map((page, index) => {
-          const href =
-            version === 'v1'
-              ? `/v1/${categoryID}/${page['route']}`
-              : `/${categoryID}/${page['route']}`
-
-          return (
-            <CustomLink
-              version={version}
-              href={href}
-              activeClassName="active"
-              key={index}
-            >
-              <PageLink onClick={clickHandler}>{page['display']}</PageLink>
-            </CustomLink>
-          )
-        })}
-      </_GroupLinks>
-    </_GroupContainer>
   )
 }

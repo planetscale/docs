@@ -20,6 +20,26 @@ export default function App({ Component, pageProps }) {
     }
   }, [])
 
+  useEffect(() => {
+    const path = window.location.hash
+    if (path && path.includes('#')) {
+      setTimeout(() => {
+        const scrolled = document.documentElement.scrollTop !== 0
+        if (scrolled) return
+
+        const id = path.replace('#', '')
+        const el = window.document.getElementById(id)
+        if (!el) return
+
+        const r = el.getBoundingClientRect()
+        window.top.scroll({
+          top: pageYOffset + r.top - 100, // 100 for page header height
+          behavior: 'smooth',
+        })
+      }, 600)
+    }
+  }, [])
+
   return (
     <ThemeProvider>
       <IdProvider>

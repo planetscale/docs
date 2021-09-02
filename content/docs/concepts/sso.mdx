@@ -1,27 +1,33 @@
 ---
-title: 'Single Sign-On'
-subtitle: 'Enable Single Sign-On (SSO) for increased account security.'
+title: 'Single sign-on'
+subtitle: 'Enable single sign-on (SSO) for increased account security.'
 ---
 
 ## Overview
-Single Sign-On (SSO) provides additional account security by allowing company administrators to require the use of an identity provider when logging into PlanetScale. Users only need to sign in once with a single set of credentials _(i.e. password and email)_ to access all of their tools and applications upon joining the company.
+
+Single sign-on (SSO) provides additional account security by allowing company administrators to require the use of an identity provider when logging into PlanetScale. Users only need to sign in once with a single set of credentials _(i.e. password and email)_ to access all of their tools and applications upon joining the company.
 
 Furthermore, SSO allows an administrator to revoke someone’s access to all tools and applications from a single place when they leave a team or the company.
 
-<InfoBlock  type="note">
-<b>A note:</b> SSO is only available as an <em>add-on</em> or as part of an <a href="https://docs.planetscale.com/concepts/billing#planetscale-plans">Enterprise plan</a>.
+<InfoBlock type="note">
+  SSO is only available as an <em>add-on</em> or as part of an{' '}
+  <a href="https://docs.planetscale.com/concepts/billing#planetscale-plans">
+    Enterprise plan
+  </a>
+  .
 </InfoBlock>
 
-
 ## Enable SSO for your organization
+
 [Contact](https://www.planetscale.com/contact) our sales team to get SSO enabled for your `organization`.
 
-  
 ### Setup
+
 When SSO is set up for your `organization`, all non-admin members are removed from the `organization`. Each `organization` [member](https://app.planetscale.com/planetscale/settings/members) must re-authenticate using SSO before they're automatically added back to the `organization`.
 
-<InfoBlock  type="note">
-<b>A note:</b> Organization administrators always remain in the <em>organization</em>, so they can configure SSO without losing access to the <em>organization</em>.
+<InfoBlock type="note">
+  Organization administrators always remain in the <em>organization</em>, so
+  they can configure SSO without losing access to the <em>organization</em>.
 </InfoBlock>
 
 After SSO has been enabled for your account, you can configure it under your PlanetScale `organization` settings: `app.planetscale.com/<org>/settings/sso`.
@@ -30,22 +36,20 @@ After SSO has been enabled for your account, you can configure it under your Pla
 
 Users can create multiple PlanetScale `organizations` _(i.e. work, personal, etc.)_, using the same email address, but that email address can only be associated with one SSO-enabled `organization`.
 
-
 ## Disabling SSO
+
 When SSO is disabled for an `organization`, users can login with the password they initially set for their PlanetScale account. If they don't know their password, users can go through the password reset flow to regain access to their account.
 
 Should a user lose access to the email address associated with that `organization`, they'll also lose access to their account after SSO is disabled.
 
-
 ## Need help?
+
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
-
-
 
 <NextBlock
   steps={[
     {
-      text: 'Authentication Methods',
+      text: 'Authentication methods',
       link: '/concepts/authentication-methods',
     },
   ]}

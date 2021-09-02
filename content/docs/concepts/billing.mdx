@@ -4,57 +4,63 @@ subtitle: 'PlanetScale pricing was designed for transparency and scalability. Ou
 ---
 
 ## Overview
+
 At PlanetScale, we believe that you should only pay for what you use.
 
 PlanetScale charges for database usage, `reads`/`writes`, and storage. You'll never have to over-provision resources or pay for resources that stand idle.
 
 In addition, PlanetScale applies billing plans at the **database level**, allowing users to have _free_ and _paid_ databases within the same account.
 
-### PlanetScale charges on three factors:
-- **Reads**: inspecting rows during a query or mutation of any kind to your PlanetScale databases.
-- **Writes**: adding new information or changing existing information in your PlanetScale databases. 
-- **Storage**: data saved in the form of tables, columns, rows, and their corresponding relationships. 
+### PlanetScale charges on three factors
 
-## PlanetScale Plans
+- **Reads**: inspecting rows during a query or mutation of any kind to your PlanetScale databases.
+- **Writes**: adding new information or changing existing information in your PlanetScale databases.
+- **Storage**: data saved in the form of tables, columns, rows, and their corresponding relationships.
+
+## PlanetScale plans
+
 There is no minimum cost to deploy a PlanetScale database; you are only charged for your usage, as outlined below:
 
-|                      | Developer:<br />Free | Scaler:<br />Pay as you grow | Enterprise: <br />Custom |
-|----------------------|----------------------|------------------------------|--------------------------|
+|                      | Developer:<br />free | Scaler:<br />pay as you grow | Enterprise: <br />custom |
+| -------------------- | -------------------- | ---------------------------- | ------------------------ |
 | **Storage**          | 10GB                 | $1.25 per 1GB                | Configurable             |
 | **Read rows/month**  | 100m                 | $15 per 100m                 | Configurable             |
 | **Write rows/month** | 10m                  | $15 per 10m                  | Configurable             |
-| **Branches**         | 3                    | _Unlimited_                  | _Unlimited_              |
+| **Branches**         | 3 per database       | 10 per database              | _Unlimited_              |
 
 You have the option to upgrade/downgrade between the `Developer`_(free)_ and `Scaler` plans. Upgrading to the `Scaler`_(pay as you scale)_ plan merely requires adding your credit card information to your billing page. For more information about the `Enterprise` plan, please [contact](https://www.planetscale.com/contact) our sales team.
 
-<br />
 <InfoBlock type="note">
-  A note: The total charge for a PlanetScale <em>database</em> includes the charge for usage on <b>database branches</b>.
+  The total charge for a PlanetScale <em>database</em> includes the charge for
+  usage on <b>database branches</b>.
 </InfoBlock>
 
+## Find your database billing page
 
-## Find your database billing page 
 Each PlanetScale database has its own billing page, from which you can:
- - Enter/update your credit card information. 
- - Upgrade/downgrade between billing plans. 
- - See a history of your invoices, as well as the current invoice. 
 
-PlanetScale itemizes the database usage in your invoices each month. Invoices live under the database’s billing page:`/organization/database/settings/usage`. 
+- Enter/update your credit card information.
+- Upgrade/downgrade between billing plans.
+- See a history of your invoices, as well as the current invoice.
+
+PlanetScale itemizes the database usage in your invoices each month. Invoices live under the database’s billing page:`/organization/database/settings/usage`.
 
 **PlanetScale invoice details:**
- - Invoices provide line items for both usage and discounts received.
 
- - Each line item shows both metric and database branch level granularity. (i.e. **Rows** _read_ for `main` branch, **rows** _read_ for `your-test-branch`, etc.)
+- Invoices provide line items for both usage and discounts received.
 
- - Storage per branch has two line items:
-    - One for storage usage.
-    - One for prorated discounts, if the branch existed for a smaller time period than the billing period.
+- Each line item shows both metric and database branch level granularity. (i.e. **rows** _read_ for `main` branch, **rows** _read_ for `your-test-branch`, etc.)
 
- - Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
+- Storage per branch has two line items:
 
+  - One for storage usage.
+  - One for prorated discounts, if the branch existed for a smaller time period than the billing period.
+
+- Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
 
 ## Download invoice
-You have the option to download invoices as a _PDF_ or _CSV_ file. 
+
+You have the option to download invoices as a _PDF_ or _CSV_ file.
 
 Go to `Organization > Database > Settings > Usage` and search the billing page for the _Invoices_ section.
 
@@ -62,23 +68,24 @@ Go to `Organization > Database > Settings > Usage` and search the billing page f
 ![Organization > Database > Settings > Usage](/img/docs/downloadInvoice.png)
 
 <InfoBlock type="note">
-  A note: PlanetScale generates both current and past invoices. Even for the <b>free</b> plan! You can see the cost had you not been on the developer plan.
+  PlanetScale generates both current and past invoices. Even for the <b>free</b>{' '}
+  plan! You can see the cost had you not been on the developer plan.
 </InfoBlock>
-
 
 ## Usage and usage limits
+
 Each PlanetScale plan provides different feature and usage limits. If you accidentally surpass your plan's limits, you'll receive a warning notification and your database will be marked as in overage. If you do not upgrade your plan within 7 days of receiving the notification, PlanetScale will "degrade service" to your database by putting it into `read only` mode. At this point, all `writes` are disabled and all _migrations_ are halted.
 
-When placed in `read only` mode, the databases you have deployed in PlanetScale and any data they contain, are not impacted by this change. `Writes` are disabled, and all branch/database creation is temporarily halted. 
+When placed in `read only` mode, the databases you have deployed in PlanetScale and any data they contain, are not impacted by this change. `Writes` are disabled, and all branch/database creation is temporarily halted.
 
 <InfoBlock type="warning">
-  Warning: Your PlanetScale service only gets throttled if your usage exceeds the limits designated within your plan.
+  Your PlanetScale service only gets throttled if your usage exceeds the limits
+  designated within your plan.
 </InfoBlock>
 
-
 ## Need help?
-Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
 
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
 
 <NextBlock
   steps={[

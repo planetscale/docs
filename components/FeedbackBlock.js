@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from 'react'
 import { styled } from '../stitches.config'
-import { ThumbDown, ThumbUp, StarSmile } from '@styled-icons/remix-line'
+import {
+  CheckCircledIcon,
+  CrossCircledIcon,
+  FaceIcon,
+} from '@radix-ui/react-icons'
 
 const FeedbackBlockContainer = styled('div', {
   position: 'relative',
@@ -107,15 +111,15 @@ export default function FeedbackBlock() {
       {!feedbackProvided ? (
         <FeedbackBlockReactions>
           <IconButton onClick={(e) => logFeedback(feedbackValues.PLUS, e)}>
-            <ThumbUp />
+            <CheckCircledIcon />
           </IconButton>
           <IconButton onClick={(e) => logFeedback(feedbackValues.MINUS, e)}>
-            <ThumbDown />
+            <CrossCircledIcon />
           </IconButton>
         </FeedbackBlockReactions>
       ) : (
         <FeedbackBlockReactions>
-          <StarSmile />
+          <FaceIcon />
           <span>Thank you!</span>
         </FeedbackBlockReactions>
       )}
