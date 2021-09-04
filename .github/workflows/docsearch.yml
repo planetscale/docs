@@ -1,0 +1,16 @@
+name: Update Search Index
+
+on:
+  workflow_dispatch:
+
+jobs:
+  repo-sync:
+    name: Repo Sync
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: darrenjennings/algolia-docsearch-action@e3b8c5540e90a964b
+        with:
+          algolia_application_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
+          file: 'algolia/planetscale-config.json'
