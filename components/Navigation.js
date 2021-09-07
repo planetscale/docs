@@ -247,7 +247,7 @@ export default function Navigation({ version }) {
                 activeClassName="active"
                 key={index}
               >
-                <PageLink onClick={clickHandler}>{page['display']}</PageLink>
+                <PageLink href={href} onClick={clickHandler}>{page['display']}</PageLink>
               </CustomLink>
             )
           })}
