@@ -1,5 +1,7 @@
 {
-  "index_name": "planetscale",
+  "index_name": "planetscale-docs",
+  "js_render": true,
+  "js_wait": 2,
   "start_urls": [
     "https://docs.planetscale.com/"
   ],
@@ -15,5 +17,6 @@
     "lvl4": "section h5",
     "lvl5": "section h6",
     "text": "section p, section li"
-  }
+  },
+  "nb_hits": 4991
 }

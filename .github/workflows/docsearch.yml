@@ -2,15 +2,24 @@ name: Update Search Index
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  repo-sync:
-    name: Repo Sync
+  update-docsearch:
+    name: Update DocSearch
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: darrenjennings/algolia-docsearch-action@e3b8c5540e90a964b
-        with:
-          algolia_application_id: ${{ secrets.ALGOLIA_APPLICATION_ID }}
-          algolia_api_key: ${{ secrets.ALGOLIA_API_KEY }}
-          file: 'algolia/planetscale-config.json'
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Update DocSearch
+        env:
+          ALGOLIA_APP_ID: ${{ secrets.ALGOLIA_APPLICATION_ID }}
+          ALGOLIA_API_KEY: ${{ secrets.ALGOLIA_API_KEY }}
+        run: |
+          docker run \
+            --env ALGOLIA_APP_ID=${ALGOLIA_APP_ID} \
+            --env ALGOLIA_API_KEY=${ALGOLIA_API_KEY} \
+            --env "CONFIG=$(cat ./algolia/planetscale-config.json | jq -r tostring)" \
+            algolia/docsearch-scraper

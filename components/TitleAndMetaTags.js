@@ -42,8 +42,9 @@ export function TitleAndMetaTags({
   function docSearchCallback() {
     if (typeof docsearch == 'function') {
       docsearch({
-        apiKey: 'c05ee5734758d9d4d948be01d548da67',
-        indexName: 'planetscale',
+        appId: 'BPNL9VRVWI',
+        apiKey: '4e224ba0c25e61356926e32048d5a110',
+        indexName: 'planetscale-docs',
         inputSelector: '#searchbox',
         debug: false,
         transformData: (hits) => {
