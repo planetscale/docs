@@ -12,6 +12,15 @@
           "value": "s-maxage=1, stale-while-revalidate=59"
         }
       ]
+    },
+    {
+      "source": "/(.*.svg)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000"
+        }
+      ]
     }
   ],
   "redirects": [
