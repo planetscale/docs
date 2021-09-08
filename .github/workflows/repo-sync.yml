@@ -17,7 +17,7 @@ jobs:
           source_repo: ${{ secrets.SOURCE_REPO }}
           source_branch: main
           destination_branch: ${{ secrets.INTERMEDIATE_BRANCH }}
-          github_token: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.PAT }}
       - uses: repo-sync/pull-request@v2
         name: Create pull request
         with:
