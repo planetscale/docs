@@ -10,6 +10,7 @@ import {
 } from '../components/Layout.Wrapper'
 import HeadingBlock from '../components/HeadingBlock'
 import { ButtonSecondary } from '../components/Buttons'
+import Image from 'next/image'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import { ThemeContext } from '../components/themeContext'
@@ -78,10 +79,6 @@ const CategoryImageContainer = styled('div', {
     paddingBottom: '0.5em',
     borderBottom: '1px solid $borderPrimary',
   },
-})
-
-const CategoryImage = styled('img', {
-  maxWidth: '130px',
 })
 
 const CategoryContent = styled('div', {
@@ -191,7 +188,7 @@ function Category({ categoryID, categoryName, description, image, pages }) {
     <Link href={`${categoryID}/${pages[0]['route']}`} passHref>
       <CategoryCard className="active">
         <CategoryImageContainer>
-          <CategoryImage src={imageURL}></CategoryImage>
+          <Image src={imageURL} alt={description} width={130} height={130} />
         </CategoryImageContainer>
         <CategoryContent>
           <CategoryTitle>{categoryName}</CategoryTitle>
