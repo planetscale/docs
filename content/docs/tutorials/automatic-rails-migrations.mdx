@@ -110,7 +110,7 @@ Let’s take a look:
 $pscale branch create blog add-index-to-users
 ```
 
-As part of creating that branch, PlanetScale copies _every_ piece of data from `main`’s `schema_migrations` table over to your new development branch.
+As part of creating that branch, PlanetScale copies _every_ row from `main`’s `schema_migrations` table over to your new development branch.
 
 2. Switch to your newly created development branch, `add-index-to-users`:
 
@@ -150,7 +150,7 @@ In this tutorial, we learned how to conduct our first automatic Rails migration 
 
 ## What's next?
 
-Now that you've successfully conducted your first automatic Rails migration in PlanetScale and know how to handle future migrations, it's time to deploy your application with a PlanetScale database! Let's learn how to [deploy an application with a PlanetScale database to Heroku](/tutorial/deploy-to-heroku). You can even use this same Rails application that's already running locally for that tutorial.
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables, without locking or causing downtime for production databases.
 
 ## Need help?
 

@@ -26,6 +26,11 @@ module.exports = {
         permanent: true,
       },
       {
+        source: '/tutorials/deploy-to-heroku',
+        destination: '/tutorials/connect-any-application',
+        permanent: true,
+      },
+      {
         source: '/v1/vitess-operator/:match*',
         destination: 'https://github.com/planetscale/vitess-operator/tree/main/docs',
         permanent: true,
