@@ -13,6 +13,7 @@
           "route": "nonblocking-schema-changes",
           "display": "Non-blocking schema changes"
         },
+        { "route": "web-console", "display": "Web console" },
         {
           "route": "authentication-methods",
           "display": "Authentication methods"
