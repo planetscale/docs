@@ -76,7 +76,21 @@ Instructions for installing the MySQL client on other Linux distributions can be
 
 ### Windows instructions
 
-`pscale` is available as downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page. Download the latest Windows release and unzip the `pscale.exe` file into the folder of your choice. Then, run it from PowerShell or whatever terminal you regularly use.
+On Windows, `pscale` is available via [scoop](https://scoop.sh/), and as a downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page:
+
+```
+scoop bucket add pscale https://github.com/planetscale/scoop-bucket.git
+scoop install pscale
+```
+
+To upgrade to the latest version:
+
+```
+scoop update pscale
+```
+
+**Installation via binary**
+Download the latest [Windows release](https://github.com/planetscale/cli/releases/latest) and unzip the `pscale.exe` file into the folder of your choice. Then, run it from PowerShell or whatever terminal you regularly use.
 
 The MySQL command-line client is available in the [Windows MySQL Installer](https://dev.mysql.com/doc/refman/8.0/en/windows-installation.html). To launch `pscale shell` you will need to have the `mysql.exe` executable's directory in your shell's PATH.
 
