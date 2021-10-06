@@ -1,0 +1,9 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M18.0005 14L28.5 3.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-secondary'
+    d="M17.3337 6H8C6.89543 6 6 6.89543 6 8V24C6 25.1046 6.89543 26 8 26H24C25.1046 26 26 25.1046 26 24V15"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M29 11.6666V4C29 3.44772 28.5523 3 28 3H20.3335" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round" />
+</svg>

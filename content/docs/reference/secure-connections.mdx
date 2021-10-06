@@ -1,21 +1,22 @@
 ---
 title: 'Connecting to PlanetScale securely'
-subtitle: "How to connect to PlanetScale securely when using connection strings."
+subtitle: 'How to connect to PlanetScale securely when using connection strings.'
 ---
 
 ## Connecting to PlanetScale securely
 
 When you are using passwords to connect to PlanetScale, it is essential to correctly validate the server side certificate that PlanetScale provides. If you don't configure it properly, your connection will be vulnerable to man-in-the-middle attacks. The server certificates that PlanetScale uses are signed by a commonly available system root. How to configure this properly depends on the client you are using to connect to MySQL.
 
-<InfoBlock type="note">
-We don't guarantee we will continue to sign our certificates using the same CA. We reserve the right to change our CA but guarantee that we will use one that is provided on all common systems by default.
+<InfoBlock type='note'>
+  We don't guarantee we will continue to sign our certificates using the same CA. We reserve the right to change our CA
+  but guarantee that we will use one that is provided on all common systems by default.
 </InfoBlock>
 
 ## MySQL command line client
 
 With the MySQL command line client, you need to use the `VERIFY_IDENTITY` mode and provide the path to the system roots on your system. The examples below use the most common Linux configuration, but the path might be different in your case. Please check the [CA root configuration](#ca-root-configuration) below to find the appropriate path for your operating system and distribution.
 
-```zsh
+```
 mysql --ssl-mode=VERIFY_IDENTITY --ssl-ca=/etc/ssl/certs/ca-certificates.crt
 ```
 
@@ -33,11 +34,11 @@ A [Certificate Authority (CA)](https://en.wikipedia.org/wiki/Certificate_authori
 
 ### Why is a Certificate Authority (CA) needed for TLS / SSL?
 
-Encryption alone won't provide trust, only confidentiality. Without a way to verify the entity at the other end of a secure connection, you risk establishing an encrypted connection to a malicious party. This means that  TLS / SSL only provides real security when certificates are validated against specific trusted Certificate Authorities.
+Encryption alone won't provide trust, only confidentiality. Without a way to verify the entity at the other end of a secure connection, you risk establishing an encrypted connection to a malicious party. This means that TLS / SSL only provides real security when certificates are validated against specific trusted Certificate Authorities.
 
 ### What is a CA root store?
 
-In day-to-day browsing you don't need to specify which CAs to trust, your operating system and / or browser come with a list of trusted authorities. These trusted authorities verify the identities of domain owners creating HTTPS certificates, and sign those certificates so that you can trust them as well.  The root store of certificates from Certificate Authorities is a collection of certificates that are trusted to sign other certificates.
+In day-to-day browsing you don't need to specify which CAs to trust, your operating system and / or browser come with a list of trusted authorities. These trusted authorities verify the identities of domain owners creating HTTPS certificates, and sign those certificates so that you can trust them as well. The root store of certificates from Certificate Authorities is a collection of certificates that are trusted to sign other certificates.
 
 ### Why do I need to care about a CA when connecting to PlanetScale?
 
@@ -50,6 +51,7 @@ Many other drivers don't automatically load the system roots. Most notably, the 
 Below we have listed common paths on which the CA root store can be found in various operating systems and distributions. Only configure this path if your driver absolutely needs it and it won't work without it. If you are using a driver where the system roots are loaded by default, such as Go, Java or .NET, we strongly recommend not configuring this option and depending on the default behavior of your driver.
 
 ### CA root configuration
+
 #### Linux
 
 On Linux, the path to the system CA roots depends on the distribution that you are using.
@@ -100,10 +102,10 @@ Windows does not provide a file with the CA roots that can be used by your drive
 
 If you are using a language that requires specifying the CA root path, like C or PHP, the [`curl`](https://curl.se) project provides an extracted bundle of root certificates from the [Mozilla CA Certificate program](https://wiki.mozilla.org/CA). You can download the bundle at [https://curl.se/docs/caextract.html](https://curl.se/docs/caextract.html). Once you download the file, you can point at it with the correct configuration options for the driver that you are using.
 
-<InfoBlock type="note">
-We strongly discourage downloading only the current CA that we are using, as PlanetScale reserves the right to change our CA. We will however always use a CA that is commonly available.
+<InfoBlock type='note'>
+  We strongly discourage downloading only the current CA that we are using, as PlanetScale reserves the right to change
+  our CA. We will however always use a CA that is commonly available.
 </InfoBlock>
-
 
 ## Need help?
 

@@ -1,6 +1,5 @@
 import React, { useEffect, useContext } from 'react'
 import Head from 'next/head'
-import { ThemeContext } from './themeContext'
 
 export function TitleAndMetaTags({
   url,
@@ -11,8 +10,6 @@ export function TitleAndMetaTags({
   banner,
   schemaOrgJSONLD,
 }) {
-  const themeContext = useContext(ThemeContext)
-
   useEffect(() => {
     if ('serviceworker' in navigator) {
       navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -63,19 +60,6 @@ export function TitleAndMetaTags({
   return (
     <Head>
       <title>{title + ' - Documentation - PlanetScale'}</title>
-
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="32x32"
-        href={`/favicon_32_${themeContext.getActiveSystemMode().name}.png`}
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        sizes="16x16"
-        href={`/favicon_16_${themeContext.getActiveSystemMode().name}.png`}
-      />
 
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="description" content={description}></meta>

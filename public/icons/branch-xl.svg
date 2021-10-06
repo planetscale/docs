@@ -1,0 +1,13 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-tertiary' d="M22 14.6666V8.99997C22 7.8954 21.1046 6.99997 20 6.99997V6.99997"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  <path
+    d="M16 4C16 2.89543 16.8954 2 18 2H26C27.1046 2 28 2.89543 28 4V12C28 13.1046 27.1046 14 26 14H18C16.8954 14 16 13.1046 16 12V4Z"
+    stroke="currentColor" stroke-width="2" />
+  <path d="M22 14.3334V20C22 21.1046 21.1046 22 20 22H18" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" />
+  <path className='icon-color-secondary' fill-rule="evenodd" clip-rule="evenodd"
+    d="M10 10C10.5523 10 11 10.4477 11 11V17H12C13.6569 17 15 18.3431 15 20V24C15 25.6569 13.6569 27 12 27H11V30C11 30.5523 10.5523 31 10 31C9.44772 31 9 30.5523 9 30V27H8C6.34315 27 5 25.6569 5 24V20C5 18.3431 6.34315 17 8 17H9V11C9 10.4477 9.44772 10 10 10ZM10 25H12C12.5523 25 13 24.5523 13 24V20C13 19.4477 12.5523 19 12 19H8C7.44772 19 7 19.4477 7 20V24C7 24.5523 7.44772 25 8 25H10Z"
+    fill="currentColor" />
+  <circle cx="10" cy="7" r="1" fill="currentColor" />
+</svg>

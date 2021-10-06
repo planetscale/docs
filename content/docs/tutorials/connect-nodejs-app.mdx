@@ -13,7 +13,7 @@ In this tutorial, we'll create a simple Node.js and Express.js application and c
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```zsh
+```
 pscale auth login
 ```
 
@@ -21,13 +21,13 @@ pscale auth login
 
 1. Create a new database with the following command:
 
-```zsh
+```
 pscale database create my-app
 ```
 
 2. Clone this repository:
 
-```zsh
+```
 git clone https://github.com/planetscale/express-example.git
 ```
 
@@ -41,14 +41,13 @@ git clone https://github.com/planetscale/express-example.git
 
 1. Use `pscale` to create a connection to your database and start the app with the following command:
 
-```zsh
+```
 pscale connect your-db-name main --execute 'node app.js'
 ```
 
-<InfoBlock type="tip">
-  Running pscale connect with the execute flag will pass a DATABASE_URL to the
-  node application, enabling it to connect to PlanetScale. Don't forget to look
-  in app.js to see how the DATABASE_URL is used.
+<InfoBlock type='tip'>
+  Running pscale connect with the execute flag will pass a DATABASE_URL to the node application, enabling it to connect
+  to PlanetScale. Don't forget to look in app.js to see how the DATABASE_URL is used.
 </InfoBlock>
 
 Congratulations! You successfully connected your Node.js and Express.js application to a PlanetScale database.
@@ -61,13 +60,13 @@ You can also create passwords in the PlanetScale UI as documented [here](/concep
 
 1. Using the `pscale` CLI, create a new password for the `main` branch of your database:
 
-```zsh
+```
 pscale password create your-db-name main production-password
 ```
 
 2. Take note of the values it returns to you.
 
-```bash
+```
 Password production-password was successfully created.
 Please save the values below as they will not be shown again
 
@@ -84,7 +83,7 @@ Please save the values below as they will not be shown again
 
 4. Run your application with your DATABASE_URL
 
-```bash
+```
 DATABASE_URL=<VALUE FROM STEP 3> node app.js
 ```
 

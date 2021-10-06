@@ -1,0 +1,12 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-secondary'
+    d="M8 3C8 2.44772 8.44772 2 9 2H15C15.5523 2 16 2.44772 16 3V5C16 5.55228 15.5523 6 15 6H9C8.44772 6 8 5.55228 8 5V3Z"
+    stroke="currentColor" stroke-width="1.5" />
+  <path
+    d="M8 4.75C8.41421 4.75 8.75 4.41421 8.75 4C8.75 3.58579 8.41421 3.25 8 3.25V4.75ZM16 3.25C15.5858 3.25 15.25 3.58579 15.25 4C15.25 4.41421 15.5858 4.75 16 4.75V3.25ZM19.25 6V20H20.75V6H19.25ZM18 21.25H6V22.75H18V21.25ZM4.75 20V6H3.25V20H4.75ZM6 4.75H8V3.25H6V4.75ZM16 4.75H18V3.25H16V4.75ZM6 21.25C5.30964 21.25 4.75 20.6904 4.75 20H3.25C3.25 21.5188 4.48122 22.75 6 22.75V21.25ZM19.25 20C19.25 20.6904 18.6904 21.25 18 21.25V22.75C19.5188 22.75 20.75 21.5188 20.75 20H19.25ZM20.75 6C20.75 4.48122 19.5188 3.25 18 3.25V4.75C18.6904 4.75 19.25 5.30964 19.25 6H20.75ZM4.75 6C4.75 5.30964 5.30964 4.75 6 4.75V3.25C4.48122 3.25 3.25 4.48122 3.25 6H4.75Z"
+    fill="currentColor" />
+  <path d="M10 10L7.00003 13L10 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path d="M14 10L17 13L14 16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+    stroke-linejoin="round" />
+</svg>

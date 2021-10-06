@@ -1,7 +1,5 @@
 // libs
 import React from 'react'
-import { styled } from '../stitches.config'
-import { ArticleBlock } from './Layout.Wrapper'
 
 import { MDXRemote } from 'next-mdx-remote'
 
@@ -18,45 +16,7 @@ import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
 import TableBlock from './MDX.TableBlock'
-import { MDXHyperlinkHelper } from './Hyperlink'
-
-const MarkDownContainer = styled('div', {
-  color: '$textPrimary',
-
-  '& h2:first-of-type': {
-    marginTop: '1em',
-  },
-
-  '& h3': {
-    fontWeight: '600',
-    fontSize: '1.25em',
-    marginTop: '2em',
-    marginBottom: '0',
-  },
-
-  '& p': {
-    fontSize: '1em',
-    lineHeight: '1.75em',
-  },
-
-  '& ul, ol': {
-    whitespace: 'normal',
-    padding: '0 1em 0 1.1em',
-    margin: '0 0 1em',
-  },
-
-  '& ol > li': {
-    fontSize: '1em',
-    lineHeight: '1.75em',
-    margin: '1em 0.5em',
-  },
-
-  '& ul > li': {
-    fontSize: '1em',
-    lineHeight: '1.75em',
-    margin: '1em 0',
-  },
-})
+import Link from 'next/link'
 
 export default function MDXContent({
   title,
@@ -68,7 +28,7 @@ export default function MDXContent({
   category,
 }) {
   const components = {
-    a: MDXHyperlinkHelper,
+    a: Link,
     table: TableBlock,
     code: CodeBlock,
     inlineCode: InlineCodeBlock,
@@ -80,13 +40,11 @@ export default function MDXContent({
   }
 
   return (
-    <ArticleBlock>
-      <MarkDownContainer>
-        <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
-        <MDXRemote {...body} components={components} lazy />
-      </MarkDownContainer>
+    <div className="mdx-content">
+      <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
+      <MDXRemote {...body} components={components} lazy />
       <FeedbackBlock />
       <PageInfo lastUpdatedOn={lastUpdatedOn} slug={slug}></PageInfo>
-    </ArticleBlock>
+    </div>
   )
 }

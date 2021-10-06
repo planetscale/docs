@@ -1,9 +1,6 @@
 import { getAllPosts, getPostBySlug } from '../../lib/post'
 import MDXContent from '../../components/MDX.Content'
 import { TitleAndMetaTags } from '../../components/TitleAndMetaTags'
-import { ContentBlock, PageContainer } from '../../components/Layout.Wrapper'
-import Header from '../../components/Header'
-import QuickNav from '../../components/QuickNav'
 import Footer from '../../components/Footer'
 import Layout from '../../components/layout'
 import { serialize } from 'next-mdx-remote/serialize'
@@ -21,21 +18,15 @@ export default function Post({ frontmatter, headings, body, fields }) {
         }
         pathname={`${fields.slug}`}
       />
-      <PageContainer>
-        <Header />
-        <ContentBlock>
-          <MDXContent
-            title={frontmatter.title}
-            subtitle={frontmatter.subtitle ? frontmatter.subtitle : ''}
-            banner={frontmatter.banner ? frontmatter.banner : ''}
-            body={body}
-            lastUpdatedOn={fields.lastUpdatedOn}
-            slug={fields.slug}
-          ></MDXContent>
-          <QuickNav subNavPages={headings}></QuickNav>
-        </ContentBlock>
-        <Footer />
-      </PageContainer>
+      <MDXContent
+        title={frontmatter.title}
+        subtitle={frontmatter.subtitle ? frontmatter.subtitle : ''}
+        banner={frontmatter.banner ? frontmatter.banner : ''}
+        body={body}
+        lastUpdatedOn={fields.lastUpdatedOn}
+        slug={fields.slug}
+      ></MDXContent>
+      <Footer />
     </Layout>
   )
 }

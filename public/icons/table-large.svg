@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-secondary' fill-rule="evenodd" clip-rule="evenodd"
+    d="M22 10.75H12.75V15.25H22.0625V16.75H12.75V22H11.25V16.75H2V15.25H11.25V10.75H2V9.25H22V10.75Z"
+    fill="currentColor" />
+  <path
+    d="M2 4C2 2.89543 2.89543 2 4 2H20C21.1046 2 22 2.89543 22 4V20C22 21.1046 21.1046 22 20 22H4C2.89543 22 2 21.1046 2 20V4Z"
+    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

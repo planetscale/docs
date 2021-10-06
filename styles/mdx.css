@@ -1,0 +1,83 @@
+.mdx-content {
+  h1 + div {
+    @apply !mt-0;
+  }
+
+  h4,
+  h5,
+  h6 {
+    @apply mb-2;
+    @apply font-semibold;
+  }
+
+  p {
+    @apply leading-relaxed;
+    @apply mb-2;
+  }
+
+  ol {
+    @apply list-decimal;
+    @apply list-outside;
+    @apply pl-2;
+    @apply mb-2;
+  }
+
+  li:not(:last-child) {
+    @apply mb-1.5;
+  }
+
+  ul {
+    @apply list-disc;
+    @apply list-outside;
+    @apply pl-2;
+    @apply mb-2;
+  }
+
+  table {
+    @apply mb-4;
+  }
+
+  code {
+    @apply font-mono;
+    @apply text-purple;
+    @apply font-medium;
+    @apply break-words;
+  }
+
+  .info-block code {
+    @apply text-primary;
+  }
+
+  .token.plain {
+    @apply text-primary;
+  }
+
+  .token.string {
+    @apply !text-green;
+  }
+
+  .token.keyword {
+    @apply !text-purple;
+  }
+
+  .token.number {
+    @apply !text-orange;
+  }
+
+  .token.operator {
+    @apply !text-green;
+  }
+
+  .token.function {
+    @apply !text-green;
+  }
+
+  .token.punctuation {
+    @apply !text-secondary;
+  }
+
+  .token.variable {
+    @apply !font-medium;
+    @apply !text-primary;
+  }
+}

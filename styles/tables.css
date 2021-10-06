@@ -1,0 +1,78 @@
+table {
+  @apply min-w-full;
+  @apply border-separate !important;
+  border-spacing: 0;
+}
+
+th {
+  @apply font-medium;
+  @apply text-secondary;
+  @apply text-left;
+  @apply text-sm;
+  @apply px-2;
+  @apply py-1;
+  @apply border-t;
+  @apply border-b;
+  @apply bg-secondary;
+}
+
+th:first-child {
+  @apply border-l;
+  @apply rounded-l;
+}
+
+th:last-child {
+  @apply border-r;
+  @apply rounded-r;
+}
+
+td {
+  @apply text-left;
+  @apply px-2;
+  @apply py-2;
+  @apply border-b;
+}
+
+tr.no-border td {
+  @apply border-b-0;
+}
+
+dl {
+  @apply grid;
+  @apply grid-cols-3;
+}
+
+dt {
+  @apply py-1.5;
+  @apply font-medium;
+  @apply border-b;
+  @apply text-secondary;
+  @apply col-span-1;
+}
+
+dd {
+  @apply py-1.5;
+  @apply border-b;
+  @apply col-span-2;
+}
+
+.table-toolbar {
+  @apply sm:flex items-center justify-between;
+  @apply px-2 py-1;
+  @apply border;
+  @apply -mb-px;
+  @apply rounded-t;
+  @apply text-sm;
+}
+
+.table-toolbar ~ table {
+  th:first-child {
+    @apply rounded-tl-none;
+    @apply rounded-bl;
+  }
+
+  th:last-child {
+    @apply rounded-tr-none;
+    @apply rounded-br;
+  }
+}

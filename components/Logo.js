@@ -1,104 +1,22 @@
-import React, { useContext, useState, useEffect } from 'react'
-import { styled } from '../stitches.config'
-import { ThemeContext } from './themeContext'
-import Link from 'next/link'
+import React from 'react'
 
-const LogoContainer = styled('div', {
-  position: 'relative',
-  width: '100%',
-  paddingBottom: '2em',
-  marginBottom: '2em',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-
-  '&:after': {
-    position: 'absolute',
-    bottom: '0',
-    left: '0',
-    content: '',
-    display: 'block',
-    height: '1px',
-    width: '100%',
-    background: 'linear-gradient(to right, $borderPrimary, $bgPrimary)',
-  },
-
-  '@tablet': {
-    padding: 'unset',
-    margin: 'unset',
-
-    '&:after': {
-      display: 'none',
-    },
-  },
-})
-
-const LogoImage = styled('img', {
-  height: '24px',
-  width: '5rem',
-})
-
-const LinkContainer = styled('a', {
-  display: 'flex',
-  textDecoration: 'none',
-  alignItems: 'center',
-  justifyContent: 'stretch',
-})
-
-const V1Badge = styled('div', {
-  backgroundColor: '$bgSecondary',
-  color: '$textSecondary',
-  marginLeft: '1em',
-  padding: '0.42em 1em',
-  borderRadius: '99px',
-  fontSize: '12px',
-  fontWeight: '500',
-  letterSpacing: '0.05em',
-  fontFamily: '$mono',
-})
-
-const BetaBadge = styled('div', {
-  backgroundImage:
-    'linear-gradient(to bottom left, $gradientFrom, $gradientTo)',
-  backgroundColor: '$textPurple',
-  color: '#fff',
-  marginLeft: '1em',
-  padding: '0.42em 1em',
-  borderRadius: '99px',
-  fontSize: '12px',
-  fontWeight: '500',
-  letterSpacing: '0.05em',
-  fontFamily: '$mono',
-})
-
-export default function Logo({ version }) {
-  const themeContext = useContext(ThemeContext)
-  const [imageURL, setImageURL] = useState(themeContext.getActiveMode().logo)
-
-  useEffect(() => {
-    setImageURL(themeContext.getActiveMode().logo)
-  }, [themeContext])
-
+const Logo = () => {
+  const width = 41
+  const height = 32
   return (
-    <LogoContainer>
-      <Link href="/" passHref>
-        <LinkContainer>
-          <LogoImage src={imageURL} alt="PlanetScale documentation logo" />
-        </LinkContainer>
-      </Link>
-      {version === 'v1' ? (
-        <Link href="/v1" passHref>
-          <LinkContainer href="/v1">
-            <V1Badge>V1</V1Badge>
-          </LinkContainer>
-        </Link>
-      ) : (
-        <Link href="/" passHref>
-          <LinkContainer href="/">
-            <BetaBadge>Beta</BetaBadge>
-          </LinkContainer>
-        </Link>
-      )}
-    </LogoContainer>
+    <svg
+      width={width}
+      height={height}
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 41 32"
+    >
+      <path
+        fill="currentColor"
+        d="M39.386 0l-7.238 7.403C29.378 3.05 24.594.18 19.177.18c-4.13 0-8.014 1.672-10.918 4.721-2.892 3.029-4.487 7.046-4.487 11.316 0 1.093.102 2.166.317 3.207a28.011 28.011 0 00-2.31 2.745c-1.85 2.566-2.26 4.49-1.217 5.71.154.189.634.694 1.564.778.082.01.154.01.235.01 1.493 0 3.343-1.125 5.48-3.354l16.978-17.32-1.186-1.23L7.38 23.345a13.864 13.864 0 01-1.932-7.119c0-3.817 1.421-7.403 4.007-10.106 2.587-2.713 6.042-4.206 9.722-4.206 4.957 0 9.312 2.692 11.745 6.73l-12.92 13.219c-.84.862-1.892 1.924-2.659 3.112-1.39 2.135-1.083 3.723-.777 4.47l.01.02c.358.831.972 1.494 1.78 1.936.92.494 1.85.567 2.79.599h.04a15.249 15.249 0 0010.959-4.637c2.934-2.987 4.549-6.983 4.549-11.232a16.2 16.2 0 00-1.666-7.182L40.57 1.23 39.386 0zM2.36 26.942h-.01c-.286 0-.43-.105-.47-.137l-.041-.052c-.327-.379-.164-1.504 1.288-3.534.49-.694 1.043-1.335 1.492-1.85.389 1.114.9 2.187 1.534 3.217-2.065 2.03-3.251 2.356-3.793 2.356zm26.598-.8c-2.596 2.65-6.072 4.123-9.762 4.133-.93-.031-1.503-.105-2.055-.41a2.277 2.277 0 01-1.022-1.093c-.409-1.052.307-2.335.634-2.84.675-1.04 1.656-2.04 2.443-2.839l12.573-12.85a14.529 14.529 0 011.247 5.899c-.02 3.786-1.451 7.34-4.058 10z"
+      />
+    </svg>
   )
 }
+
+export default Logo

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16">
+  <path className='icon-color-tertiary' stroke="currentColor" d="M3.724 6.683l3.22-2.018a2 2 0 012.124 0l3.225 2.018"/>
+  <path className='icon-color-secondary' stroke="currentColor" stroke-linecap="round" d="M2.5 8.616l4.439 2.781a2 2 0 002.123 0l4.445-2.781"/>
+  <path stroke="currentColor" stroke-linecap="round" d="M2.5 11.413l4.439 2.781a2 2 0 002.123 0l4.445-2.781"/>
+  <path stroke="currentColor" d="M2.97 6a1 1 0 010-1.694l3.965-2.485a2 2 0 012.123 0l3.97 2.485a1 1 0 010 1.693l-3.97 2.485a2 2 0 01-2.123 0L2.97 5.999z"/>
+</svg>

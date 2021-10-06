@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  stroke-linecap="round" stroke-linejoin="round" />
+  <path className='icon-color-tertiary'
+    d="M2.71875 20.6406C2.71875 21.1929 2.27103 21.6406 1.71875 21.6406C1.16647 21.6406 0.71875 21.1929 0.71875 20.6406C0.71875 20.0883 1.16647 19.6406 1.71875 19.6406C2.27103 19.6406 2.71875 20.0883 2.71875 20.6406Z"
+    fill="currentColor" />
+  <path className='icon-color-tertiary'
+    d="M4.85938 24.8281C4.85938 25.3804 4.41166 25.8281 3.85938 25.8281C3.30709 25.8281 2.85938 25.3804 2.85938 24.8281C2.85938 24.2758 3.30709 23.8281 3.85938 23.8281C4.41166 23.8281 4.85938 24.2758 4.85938 24.8281Z"
+    fill="currentColor" />
+  <path className='icon-color-secondary'
+    d="M8.17188 28.1406C8.17188 28.6929 7.72416 29.1406 7.17188 29.1406C6.61959 29.1406 6.17188 28.6929 6.17188 28.1406C6.17188 27.5883 6.61959 27.1406 7.17188 27.1406C7.72416 27.1406 8.17188 27.5883 8.17188 28.1406Z"
+    fill="currentColor" />
+  <path
+    d="M12.3594 30.2812C12.3594 30.8335 11.9117 31.2812 11.3594 31.2812C10.8071 31.2812 10.3594 30.8335 10.3594 30.2812C10.3594 29.729 10.8071 29.2812 11.3594 29.2812C11.9117 29.2812 12.3594 29.729 12.3594 30.2812Z"
+    fill="currentColor" />
+  <path className='icon-color-secondary' d="M16 8V16L20.5 19" stroke="currentColor" stroke-width="2"
+    stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M16 31C24.2843 31 31 24.2843 31 16C31 7.71573 24.2843 1 16 1C7.71573 1 1 7.71573 1 16" stroke="currentColor"
+    stroke-width="2" stroke-linecap="round" />
+</svg>

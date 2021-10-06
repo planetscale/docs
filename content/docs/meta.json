@@ -6,6 +6,7 @@
       "description": "Explore key concepts of the PlanetScale database platform.",
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
+        { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
         { "route": "branching", "display": "Branching" },
         { "route": "connection-strings", "display": "Connection strings" },
         { "route": "regions", "display": "Regions" },
@@ -34,6 +35,7 @@
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
+        { "route": "planetscale-quick-start-guide", "display": "PlanetScale quick start guide" },
         { "route": "connect-any-application", "display": "Connect any app" },
         { "route": "connect-rails-app", "display": "Connect a Rails app" },
         {

@@ -3,14 +3,11 @@ title: 'Automatic Prisma migrations'
 subtitle: 'To ensure PlanetScale works well with the Prisma development process, we implemented the ability to automatically copy Prisma migration metadata as part of our deployment process.'
 ---
 
-<InfoBlock type="tip">
-  If you are using PlanetScale with Prisma, go to your database's Settings page
-  in the web app and enable "Automatically copy migration data." Select "Prisma"
-  as the migration framework. When enabled, this setting updates the{' '}
-  <inlineCode>_prisma_migrations</inlineCode> table each time you branch with
-  the latest migration. If disabled, running{' '}
-  <inlineCode>prisma migrate dev</inlineCode> will try to run all migrations
-  every time, instead of only the latest one.
+<InfoBlock type='tip'>
+  If you are using PlanetScale with Prisma, go to your database's Settings page in the web app and enable "Automatically
+  copy migration data." Select "Prisma" as the migration framework. When enabled, this setting updates the{' '}
+  <inlineCode>_prisma_migrations</inlineCode> table each time you branch with the latest migration. If disabled, running{' '}
+  <inlineCode>prisma migrate dev</inlineCode> will try to run all migrations every time, instead of only the latest one.
 </InfoBlock>
 
 ## Introduction
@@ -21,11 +18,9 @@ In this tutorial, we’re going to learn how to run automatic Prisma migrations 
 
 From a high level, [Prisma Migrate](https://www.prisma.io/docs/concepts/components/prisma-migrate) is a imperative database schema migration tool that enables you to keep your database in sync with your Prisma schema as it evovles.
 
-<InfoBlock type="tip">
-  When you merge a deploy request in PlanetScale, the{' '}
-  <inlineCode>_prisma_migrations</inlineCode> table in{' '}
-  <inlineCode>main</inlineCode> gets automatically updated with the migrations
-  from your branch.
+<InfoBlock type='tip'>
+  When you merge a deploy request in PlanetScale, the <inlineCode>_prisma_migrations</inlineCode> table in{' '}
+  <inlineCode>main</inlineCode> gets automatically updated with the migrations from your branch.
 </InfoBlock>
 
 ## Prerequisites for this tutorial
@@ -34,7 +29,7 @@ From a high level, [Prisma Migrate](https://www.prisma.io/docs/concepts/componen
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```zsh
+```
 pscale auth login
 ```
 
@@ -46,7 +41,7 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 
 1. Create a new _prisma-playground_ database:
 
-```zsh
+```
 pscale db create prisma-playground
 ```
 
@@ -54,11 +49,11 @@ Make sure to go into your database's Settings page to turn on "Automatically cop
 
 2. Create two _development_ branches from `main`, `initial-setup` and `shadow`:
 
-```zsh
+```
 pscale branch create prisma-playground initial-setup
 ```
 
-```zsh
+```
 pscale branch create prisma-playground shadow
 ```
 
@@ -77,19 +72,19 @@ SHADOW_DATABASE_URL="mysql://root@127.0.0.1:3310/prisma-playground"
 
 4. Connect to the two branches:
 
-```zsh
+```
 pscale connect prisma-playground initial-setup --port 3309
 ```
 
 And in another terminal:
 
-```zsh
+```
 pscale connect prisma-playground shadow --port 3310
 ```
 
 5. In another terminal, use the `prisma migrate dev` command to generate and apply migrations:
 
-```zsh
+```
 npx prisma migrate dev --name init
 ```
 
@@ -97,20 +92,16 @@ This Prisma command replays the existing migration history in the shadow databas
 
 The `prisma migrate dev` command will create a SQL file like `prisma/migrations/20210806002614_init/migration.sql` (the exact folder will match the current timestamp and name).
 
-<InfoBlock type="tip">
-  You can learn more about the <inlineCode>prisma migrate dev</inlineCode>{' '}
-  command in the{' '}
-  <a href="https://www.prisma.io/docs/concepts/components/prisma-migrate#development-environments">
-    Prisma docs
-  </a>
-  .
+<InfoBlock type='tip'>
+  You can learn more about the <inlineCode>prisma migrate dev</inlineCode> command in the{' '}
+  <a href='https://www.prisma.io/docs/concepts/components/prisma-migrate#development-environments'>Prisma docs</a>.
 </InfoBlock>
 
 Along with the creation of new tables (User, Post, Profile), `20210806002614_init` (the exact string will match the current timestamp) has been inserted into the `_prisma_migrations` table on your `initial_setup` development branch.
 
 6. Open a deploy request for your `initial-setup` branch, so that you can deploy your changes to `main`:
 
-```zsh
+```
 pscale deploy-request create prisma-playground initial-setup
 ```
 
@@ -120,7 +111,7 @@ This step creates the `User`, `Post`, and `Profile` tables in production. Once m
 
 7. Once the deploy request is merged, you can see the migration in your main branch's `_prisma_migrations` table:
 
-```zsh
+```
 pscale shell prisma-playground main
 ```
 
@@ -138,11 +129,11 @@ Let’s take a look:
 
 1. Delete your previous `shadow` and `initial-setup` branches:
 
-```zsh
+```
 pscale branch delete prisma-playground shadow
 ```
 
-```zsh
+```
 pscale branch delete prisma-playground initial-setup
 ```
 
@@ -150,11 +141,11 @@ Since shadow databases are created and deleted automatically each time you run a
 
 2. Create two _development_ branches from `main`, `add-subtitle-to-posts` and `shadow`:
 
-```zsh
+```
 pscale branch create prisma-playground add-subtitle-to-posts
 ```
 
-```zsh
+```
 pscale branch create prisma-playground shadow-2
 ```
 
@@ -162,13 +153,13 @@ As part of creating that branch, PlanetScale copies _every_ row from `main`’s 
 
 3. Close the existing proxy connections and connect to the two new branches:
 
-```zsh
+```
 pscale connect prisma-playground add-subtitle-to-posts --port 3309
 ```
 
 And in another terminal:
 
-```zsh
+```
 pscale connect prisma-playground shadow-2 --port 3310
 ```
 
@@ -182,7 +173,7 @@ subtitle  String   @db.VarChar(255)
 
 5. Create another Prisma migration for your table and call it `add-subtitle-to-posts`:
 
-```zsh
+```
 npx prisma migrate dev --name add-subtitle-to-posts
 ```
 
@@ -194,7 +185,7 @@ You can complete the deploy request either in the web app or with the `pscale de
 
 7. Once the deploy request is merged, you can see the migration in your main branch's `_prisma_migrations` table:
 
-```zsh
+```
 pscale shell prisma-playground main
 ```
 

@@ -1,0 +1,5 @@
+a {
+  @apply text-blue;
+  @apply transition-colors;
+  @apply focus-visible-ring;
+}

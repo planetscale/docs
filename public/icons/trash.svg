@@ -1,0 +1,11 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-secondary' d="M6.5 14.5L6 5.5" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-secondary' d="M9.5 14.5L10 5.5" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path
+    d="M2.5835 3.5L3.42375 13.583C3.46694 14.1013 3.90021 14.5 4.4203 14.5H11.58C12.1001 14.5 12.5334 14.1013 12.5766 13.583L13.4168 3.5"
+    stroke="currentColor" stroke-linecap="round" />
+  <path d="M1.5 3.5H14.5" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M10.5 3.5V2C10.5 1.44772 10.0523 1 9.5 1H6.5C5.94772 1 5.5 1.44772 5.5 2V3.5" stroke="currentColor" />
+</svg>

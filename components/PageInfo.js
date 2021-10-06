@@ -1,43 +1,5 @@
 import React from 'react'
-import { styled } from '../stitches.config'
-import { LinkBlock, ButtonSecondary } from './Buttons'
-import { GitHubLogoIcon } from '@radix-ui/react-icons'
-
-const PageInfoContainer = styled('div', {
-  position: 'relative',
-  width: '100%',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'center',
-  justifyContent: 'space-between',
-  paddingTop: '2em',
-  margin: '2em 0',
-
-  '&:after': {
-    position: 'absolute',
-    top: '0',
-    left: '0',
-    content: '',
-    display: 'block',
-    height: '1px',
-    width: '100%',
-    background: 'linear-gradient(to right,$borderPrimary,$bgPrimary)',
-  },
-
-  '@phone': {
-    alignItems: 'flex-start',
-    flexDirection: 'column',
-  },
-})
-
-const LastUpdatedDate = styled('div', {
-  fontSize: '14px',
-  color: '$textSecondary',
-
-  '@phone': {
-    marginBottom: '1em',
-  },
-})
+import Link from 'next/link'
 
 export default function PageInfo({ lastUpdatedOn, slug }) {
   var lastUpdatedOnDate = new Date()
@@ -48,20 +10,14 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
   const options = { month: 'long' }
 
   return (
-    <PageInfoContainer>
-      <LastUpdatedDate>
-        Last updated on{' '}
-        {new Intl.DateTimeFormat('en-US', options).format(lastUpdatedOnDate)}{' '}
+    <div className='flex flex-col sm:flex-row sm:items-center justify-between pb-4 border-b mb-4'>
+      <div className='text-secondary mb-1 sm:mb-0'>
+        Last updated on {new Intl.DateTimeFormat('en-US', options).format(lastUpdatedOnDate)}{' '}
         {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
-      </LastUpdatedDate>
-      <LinkBlock
-        href={`https://github.com/planetscale/docs/blob/main/content/docs/${slug}.mdx`}
-      >
-        <ButtonSecondary>
-          <GitHubLogoIcon />
-          <span>Help us improve this page</span>
-        </ButtonSecondary>
-      </LinkBlock>
-    </PageInfoContainer>
+      </div>
+      <Link href={`https://github.com/planetscale/docs/blob/main/content/docs/${slug}.mdx`}>
+        <a>Help us improve this page</a>
+      </Link>
+    </div>
   )
 }

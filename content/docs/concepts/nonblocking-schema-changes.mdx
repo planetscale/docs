@@ -5,12 +5,10 @@ subtitle: 'Non-blocking schema changes in PlanetScale provide a schema change wo
 
 ## Overview
 
-<InfoBlock type="tip">
-  To make non-blocking schema changes in PlanetScale, you'll first need a basic
-  understanding of{' '}
-  <a href="https://docs.planetscale.com/concepts/branching">branching</a>, the
-  core PlanetScale feature that provide schema changes. Our branching concepts
-  page is a great place to start.
+<InfoBlock type='tip'>
+  To make non-blocking schema changes in PlanetScale, you'll first need a basic understanding of{' '}
+  <a href='https://docs.planetscale.com/concepts/branching'>branching</a>, the core PlanetScale feature that provide
+  schema changes. Our branching concepts page is a great place to start.
 </InfoBlock>{' '}
 
 **Non-blocking schema changes** in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.
@@ -40,9 +38,9 @@ When you hit deploy, it doesn't mean that PlanetScale can immediately apply your
 
 5. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production database.
 
-<InfoBlock type="note">
-  PlanetScale makes sure not to exhaust your resources; the deployment may be
-  throttled to avoid any impact on production queries.
+<InfoBlock type='note'>
+  PlanetScale makes sure not to exhaust your resources; the deployment may be throttled to avoid any impact on
+  production queries.
 </InfoBlock>{' '}
 
 ![PlanetScale non-blocking schema changes diagram](/img/docs/ps_nbsc_diagram_light.png)
@@ -55,32 +53,28 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
 
 1. Create a database:
 
-```zsh
+```
  pscale database create <database>
 ```
 
 2. Create a development branch:
 
-```zsh
+```
 pscale branch create <database> <branch>
 ```
 
 3. Make a schema change on this branch:
 
-```zsh
+```
  	pscale shell <database> <branch>
 ```
 
-<InfoBlock type="tip">
-  A schema change is any change you make to the tables in your database
-  environment created within the PlanetScale branch. (i.e., create, drop, and
-  alter statements )
+<InfoBlock type='tip'>
+  A schema change is any change you make to the tables in your database environment created within the PlanetScale
+  branch. (i.e., create, drop, and alter statements )
 </InfoBlock>{' '}
 
-<InfoBlock type="warning">
-  You can only apply direct schema changes to the development branch, not to
-  `main`.
-</InfoBlock>{' '}
+<InfoBlock type='warning'>You can only apply direct schema changes to the development branch, not to `main`.</InfoBlock>{' '}
 
 Here is a sample CREATE table schema change you could try using:
 
@@ -99,7 +93,7 @@ CREATE TABLE `reminders` (
 
 5. Create a deployment request by running:
 
-```zsh
+```
 pscale deploy-request create <database> <branch>
 ```
 
@@ -111,13 +105,13 @@ PlanetScale displays the difference between what is currently in the `main` bran
 
 - To _deploy_ the **deploy request** created in _Step 5_, run the following command:
 
-```zsh
+```
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
 - To find your `deploy-request-number`, simply run:
 
-```zsh
+```
 pscale deploy-request list <database>
 ```
 
@@ -135,7 +129,7 @@ Get help from [PlanetScale's support team](https://www.planetscale.com/support),
   steps={[
     {
       text: 'Branching',
-      link: '/concepts/branching',
-    },
+      link: '/concepts/branching'
+    }
   ]}
 ></NextBlock>
