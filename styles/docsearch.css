@@ -1,0 +1,81 @@
+// Docsearch theming
+
+.algolia-autocomplete {
+  @apply w-full;
+}
+
+.ds-dropdown-menu {
+  @apply w-full;
+  @apply p-2;
+  @apply mt-2;
+  @apply bg-primary;
+  @apply border;
+  @apply rounded;
+  @apply shadow-lg;
+}
+
+.algolia-docsearch-suggestion--category-header {
+  @apply pb-1;
+  @apply pl-1;
+  @apply font-semibold;
+  @apply text-primary;
+
+  :not(.algolia-docsearch-suggestion__main) > & {
+    @apply hidden;
+  }
+
+  .ds-suggestion:not(:first-child) & {
+    @apply pt-sm;
+    @apply mt-sm;
+    @apply border-t;
+  }
+}
+
+.algolia-docsearch-suggestion--content {
+  @apply py-1;
+  @apply px-2;
+  @apply -mx-1;
+  @apply rounded;
+
+  .ds-cursor & {
+    @apply bg-secondary;
+  }
+}
+
+.algolia-docsearch-suggestion {
+  @apply block;
+  @apply no-underline;
+}
+
+.algolia-docsearch-suggestion--subcategory-column {
+  @apply hidden;
+}
+
+.algolia-docsearch-suggestion--subcategory-inline {
+  @apply inline;
+  @apply text-blue;
+  @apply font-medium;
+
+  &::after {
+    @apply px-sm;
+    content: '/';
+  }
+}
+
+.algolia-docsearch-suggestion--title {
+  @apply inline;
+  @apply text-primary;
+}
+
+.algolia-docsearch-suggestion--text {
+  @apply text-secondary;
+}
+
+.algolia-docsearch-suggestion--highlight {
+  @apply text-primary;
+  @apply bg-yellow-100;
+}
+
+.algolia-docsearch-footer {
+  @apply hidden;
+}

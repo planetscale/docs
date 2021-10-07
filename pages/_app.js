@@ -46,7 +46,7 @@ export default function App({ Component, pageProps }) {
         const r = el.getBoundingClientRect()
         window.top.scroll({
           top: pageYOffset + r.top - 100, // 100 for page header height
-          behavior: 'smooth',
+          behavior: 'smooth'
         })
       }, 600)
     }
@@ -66,24 +66,9 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
-        <link
-          rel="shortcut icon"
-          href={favicon}
-          sizes="any"
-          type="image/svg+xml"
-        />
+        <link rel='shortcut icon' href={favicon} sizes='any' type='image/svg+xml' />
 
-        <link
-          rel="preload"
-          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-          as="style"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-          media="print"
-          onLoad="this.media='all'"
-        />
+        <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
       </Head>
       <Page>
         <Component {...pageProps} />
