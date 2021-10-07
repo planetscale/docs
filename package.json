@@ -28,6 +28,7 @@
     "query-string": "^7.0.0",
     "react": "latest",
     "react-cookie": "^4.0.3",
+    "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "latest",
     "react-helmet": "^6.1.0",
     "react-inlinesvg": "^2.3.0",
