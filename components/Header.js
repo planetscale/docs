@@ -60,16 +60,22 @@ export default function Header() {
           </div>
 
           <div
-            className={classNames('col-start-1 row-start-3 md:col-start-2 md:row-start-1 md:flex', {
-              hidden: !showMobileNav
-            })}
+            className={classNames(
+              'col-start-1 col-span-2 md:col-span-1 pt-3 md:pt-0 row-start-3 md:col-start-2 md:row-start-1 md:flex',
+              {
+                hidden: !showMobileNav
+              }
+            )}
           >
             <SearchBar />
           </div>
           <div
-            className={classNames('col-start-1 row-start-2 md:row-start-1 md:col-start-3 md:justify-end md:flex', {
-              hidden: !showMobileNav
-            })}
+            className={classNames(
+              'col-start-1 row-start-2 pt-5 md:pt-0 md:row-start-1 md:col-start-3 md:justify-end md:flex',
+              {
+                hidden: !showMobileNav
+              }
+            )}
           >
             <ButtonLink href='https://auth.planetscale.com/sign-up' variant='secondary' className='mr-2'>
               Get started
@@ -81,7 +87,7 @@ export default function Header() {
           <div className='relative z-50 flex justify-end col-start-2 row-start-1 align-center md:hidden'>
             <button
               aria-label='Open navigation menu'
-              className='appearance-none focus:outline-none'
+              className='flex appearance-none focus:outline-none'
               onClick={toggleMobileNav}
             >
               <HamburgerMenu open={showMobileNav} />
