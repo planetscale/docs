@@ -16,7 +16,7 @@ export default function Overview() {
         Learn how to use PlanetScale, the serverless database, to power your application.
       </p>
 
-      <div className='p-3 mb-3 border border-purple-100 rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
+      <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
         <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
           <SVG src='/img/internals/flow-diagram.svg' width='720' height={'auto'} className='max-w-full' />
         </div>
