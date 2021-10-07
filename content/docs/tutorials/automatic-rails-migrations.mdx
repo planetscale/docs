@@ -41,7 +41,7 @@ From a high level, running `rake db:migrate` does the following:
 - Authenticate the CLI with the following command:
 
 ```
-$pscale auth login
+pscale auth login
 ```
 
 ## Execute first Rails migration in PlanetScale
@@ -53,19 +53,19 @@ Let's begin with an example flow for running Rails migrations in PlanetScale:
 1. Create an `add-users-table` development branch from `main` and name your database _blog_:
 
 ```
-$pscale branch create blog add-users-table
+pscale branch create blog add-users-table
 ```
 
 2. Switch to your newly created development branch, `add-users-table`:
 
 ```
-$pscale branch switch add-users-table --database blog
+pscale branch switch add-users-table --database blog
 ```
 
 3. Create a Rails migration and call it `CreateUsers`:
 
 ```
-$rails generate migration CreateUsers
+rails generate migration CreateUsers
 ```
 
 This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this: `20200405103635_create_users.rb`.
@@ -103,7 +103,7 @@ Let’s take a look:
 1. Create an `add-index-to-users` new development branch from `main`:
 
 ```
-$pscale branch create blog add-index-to-users
+pscale branch create blog add-index-to-users
 ```
 
 As part of creating that branch, PlanetScale copies _every_ row from `main`’s `schema_migrations` table over to your new development branch.
@@ -111,13 +111,13 @@ As part of creating that branch, PlanetScale copies _every_ row from `main`’s 
 2. Switch to your newly created development branch, `add-index-to-users`:
 
 ```
-$pscale branch switch add-index-to-users --database blog
+pscale branch switch add-index-to-users --database blog
 ```
 
 3. Create another Rails migration for your table and call it `CreateUsersIndex`:
 
 ```
-$rails generate migration CreateUsersIndex
+rails generate migration CreateUsersIndex
 ```
 
 This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this: `20300405103635_create_users_index.rb`.
