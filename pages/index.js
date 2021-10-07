@@ -1,6 +1,5 @@
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 import Layout from '../components/layout'
-import meta from '../content/docs/meta.json'
 import Footer from '../components/Footer'
 import Link from 'next/link'
 import ButtonLink from '../components/ButtonLink'
@@ -18,7 +17,9 @@ export default function Overview() {
       </p>
 
       <div className='p-3 mb-3 border border-purple-100 rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
-        <SVG src='/img/internals/flow-diagram.svg' width='720' height='auto' className='max-w-full mb-2' />
+        <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
+          <SVG src='/img/internals/flow-diagram.svg' width='720' height={'auto'} className='max-w-full' />
+        </div>
 
         <h2 className='mb-1 text-xl font-semibold'>The PlanetScale workflow</h2>
         <p className='mb-2'>
