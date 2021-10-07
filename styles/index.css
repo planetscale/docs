@@ -9,6 +9,7 @@
 @import 'links';
 @import 'tables';
 @import 'theme';
+@import 'docsearch';
 @import '404';
 
 body {
