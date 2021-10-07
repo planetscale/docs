@@ -1,66 +1,13 @@
 import * as React from 'react'
-import { styled } from '../stitches.config'
-import { Link2Icon } from '@radix-ui/react-icons'
-
-const AnchorIcon = styled('a', {
-  marginLeft: '0.5em',
-  color: '$textBlue',
-
-  '> svg': {
-    width: '16px',
-  },
-
-  '&:hover': {
-    border: 'unset !important',
-  },
-})
-
-const AnchorHeading = styled('div', {
-  fontWeight: '$2',
-  fontSize: '1.563em',
-  margin: '3em 0 1em',
-
-  [`& ${AnchorIcon}`]: {
-    visibility: 'hidden',
-    height: '1.563em',
-  },
-
-  '&:target:before': {
-    content: '',
-    display: 'block',
-    height: '120px',
-    margin: '-120px 0 0',
-  },
-
-  '&:hover': {
-    [`& ${AnchorIcon}`]: {
-      visibility: 'visible',
-    },
-  },
-
-  '@tablet': {
-    [`& ${AnchorIcon}`]: {
-      visibility: 'unset',
-      height: '1.563em',
-    },
-  },
-})
+import classNames from 'classnames'
+import Footer from './Footer'
 
 class AnchorLink extends React.Component {
   createKebabCase = (text) => {
     let kebabText = ''
 
     if (text && text.toLowerCase) {
-      kebabText = text
-        .toLowerCase()
-        .split(':')
-        .join('')
-        .split('.')
-        .join('')
-        .split('(')
-        .join('')
-        .split(' ')
-        .join('-')
+      kebabText = text.toLowerCase().split(':').join('').split('.').join('').split('(').join('').split(' ').join('-')
     }
 
     return kebabText
@@ -70,19 +17,36 @@ class AnchorLink extends React.Component {
     const { children, heading, category } = this.props
 
     return category !== 'api' ? (
-      <AnchorHeading as={heading} id={`${this.createKebabCase(children)}`}>
-        {children}
-        <AnchorIcon href={`#${this.createKebabCase(children)}`}>
-          <Link2Icon />
-        </AnchorIcon>
-      </AnchorHeading>
+      <a className='text-primary' href={`#${this.createKebabCase(children)}`}>
+        <h1
+          className={classNames('font-semibold', {
+            'text-2l mb-3 mt-4': heading === 'h1',
+            'text-xl mb-2 mt-3': heading === 'h2',
+            'text-lg mb-2 mt-3': heading === 'h3',
+            'text-base mb-1 mt-2': heading === 'h4',
+            'text-base mb-1 mt-2': heading === 'h5',
+            'text-sm mb-1 mt-2': heading === 'h6'
+          })}
+          as={heading}
+          id={`${this.createKebabCase(children)}`}
+        >
+          {children}
+        </h1>
+      </a>
     ) : (
-      <AnchorHeading as={heading}>
+      <h1
+        className={classNames('font-semibold', {
+          'text-2l mb-3 mt-4': heading === 'h1',
+          'text-xl mb-2 mt-3': heading === 'h2',
+          'text-lg mb-2 mt-3': heading === 'h3',
+          'text-base mb-1 mt-2': heading === 'h4',
+          'text-base mb-1 mt-2': heading === 'h5',
+          'text-sm mb-1 mt-2': heading === 'h6'
+        })}
+        as={heading}
+      >
         {children}
-        <AnchorIcon>
-          <Link2Icon />
-        </AnchorIcon>
-      </AnchorHeading>
+      </h1>
     )
   }
 }

@@ -1,0 +1,82 @@
+input[type='checkbox'] {
+  @apply checked:bg-blue-500;
+  @apply dark:bg-secondary;
+  @apply dark:checked:bg-blue-500;
+  @apply dark:checked:border-blue-500;
+  @apply border-gray-300;
+  @apply dark:border-gray-600;
+  @apply focus-ring;
+
+  &:indeterminate {
+    @apply bg-blue-500;
+    @apply border-blue-500;
+  }
+
+  &:disabled {
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+  }
+}
+
+input[type='radio'] {
+  @apply checked:bg-blue-500;
+  @apply dark:bg-secondary;
+  @apply dark:checked:bg-blue-500;
+  @apply dark:checked:border-blue-500;
+  @apply border-gray-300;
+  @apply dark:border-gray-600;
+  @apply focus-ring;
+
+  &:disabled {
+    @apply border-gray-200;
+    @apply dark:border-gray-700;
+  }
+}
+
+label {
+  @apply inline-block;
+  @apply mb-1.5;
+  @apply leading-none;
+  @apply text-primary;
+  @apply font-semibold;
+}
+
+select {
+  @apply text-base;
+  /* The built-in rule in the @tailwindcss/forms plugin doesn't work with our
+   * CSS vars, so overriding this to use our gray-500 (#737373) */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23737373' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+}
+
+/* These styles are here because of problems with dark mode focus styles
+ * when they are in Textarea.module.css*/
+textarea {
+  @apply border-secondary;
+  @apply text-base;
+}
+
+textarea:not(:read-only) {
+  @apply focus-ring;
+}
+
+@layer utilities {
+  .focus-ring {
+    @apply focus:ring-2;
+    @apply focus:outline-none;
+    @apply focus:ring-offset-0;
+    @apply focus:ring-blue-200;
+    @apply dark:focus:ring-blue-800;
+    @apply focus:border-blue-500;
+    @apply focus:shadow-none;
+  }
+
+  .focus-visible-ring {
+    @apply focus-visible:ring-2;
+    @apply focus-visible:outline-none;
+    @apply focus-visible:ring-offset-0;
+    @apply focus-visible:ring-blue-200;
+    @apply dark:focus-visible:ring-blue-800;
+    @apply focus-visible:border-blue-500;
+    @apply focus-visible:shadow-none;
+  }
+}

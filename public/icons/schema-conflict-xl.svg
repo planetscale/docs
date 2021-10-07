@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-tertiary' d="M20 4H28C29.1046 4 30 4.89543 30 6V26C30 27.1046 29.1046 28 28 28H20"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  <path className='icon-color-secondary'
+    d="M16 23.3333V28C16 29.1046 15.1046 30 14 30H3.99998C2.89541 30 1.99998 29.1046 1.99998 28V4C1.99998 2.89543 2.89541 2 3.99998 2H14C15.1046 2 16 2.89543 16 4V8.66665"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  <path d="M16 13V16" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path
+    d="M17 19C17 19.5523 16.5523 20 16 20C15.4477 20 15 19.5523 15 19C15 18.4477 15.4477 18 16 18C16.5523 18 17 18.4477 17 19Z"
+    fill="currentColor" />
+  <path d="M23 16C23 19.866 19.866 23 16 23C12.134 23 9 19.866 9 16C9 12.134 12.134 9 16 9C19.866 9 23 12.134 23 16Z"
+    stroke="currentColor" stroke-width="2" />
+  <path d="M6 16H8.99998" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path className='icon-color-secondary'
+    d="M27 16C27 16.5523 26.5523 17 26 17C25.4477 17 25 16.5523 25 16C25 15.4477 25.4477 15 26 15C26.5523 15 27 15.4477 27 16Z"
+    fill="currentColor" />
+</svg>

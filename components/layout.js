@@ -1,56 +1,18 @@
-import React, { useState, useContext, useEffect } from 'react'
-import { styled, darkTheme } from '../stitches.config'
+import Header from '../components/Header'
 import Navigation from '../components/Navigation'
-import { ThemeContext } from './themeContext'
-
-export const SiteContainer = styled('section', {
-  position: 'relative',
-  backgroundColor: '$bgPrimary',
-  width: '100vw',
-  minHeight: '100vh',
-  display: 'flex',
-  flexDirection: 'column',
-  alignItems: 'center',
-
-  '@tablet': {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'stretch',
-  },
-})
-
-export const WidthConstrain = styled('div', {
-  flexGrow: '2',
-  position: 'relative',
-  display: 'flex',
-  flexDirection: 'row',
-  alignItems: 'stretch',
-  justifyContent: 'center',
-
-  '@tablet': {
-    flexDirection: 'column',
-    alignItems: 'stretch',
-    width: '100%',
-    margin: '0',
-  },
-})
 
 export default function Layout({ children }) {
-  const [mounted, setMounted] = useState(false)
-  const themeContext = useContext(ThemeContext)
-
-  useEffect(() => setMounted(true), [])
-
-  if (!mounted) return null
-
   return (
-    <SiteContainer
-      className={themeContext.getActiveMode().name === 'dark' ? darkTheme : ''}
-    >
-      <WidthConstrain>
-        <Navigation version="v2"></Navigation>
-        {children}
-      </WidthConstrain>
-    </SiteContainer>
+    <div className="flex flex-col h-screen mx-auto">
+      <Header />
+      <main className="flex flex-col flex-1 w-full px-3 py-4 md:py-8 mx-auto max-w-7xl sm:px-6 lg:px-8">
+        <div className="flex flex-col h-full md:flex-row">
+          <div className="hidden md:block flex-shrink-0 w-full md:w-1/3 md:pr-4 lg:pr-8 xl:pr-12">
+            <Navigation />
+          </div>
+          <div className="flex-1 relative min-w-0">{children}</div>
+        </div>
+      </main>
+    </div>
   )
 }

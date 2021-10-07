@@ -1,0 +1,64 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@import 'mdx';
+@import 'fonts';
+@import 'forms';
+@import 'icons';
+@import 'links';
+@import 'tables';
+@import 'theme';
+@import '404';
+
+body {
+  @apply text-base;
+  @apply text-primary;
+  @apply bg-primary;
+  @apply antialiased;
+
+  /* Inter font fix for safari text wrap bug */
+  letter-spacing: 0.000001px;
+}
+
+/* These summary rules need to be separate like this, otherwise FF won't work right. */
+summary {
+  @apply list-none;
+}
+
+summary::marker {
+  @apply hidden;
+}
+
+summary::-webkit-details-marker {
+  @apply hidden;
+}
+
+b,
+strong {
+  @apply font-semibold;
+}
+
+.bg-gradient-purple {
+  @apply bg-gradient-to-bl;
+  @apply from-purple-500;
+  @apply to-purple-700;
+}
+
+@layer utilities {
+  .bg-blur {
+    backdrop-filter: blur(8px);
+  }
+}
+
+.algolia-autocomplete {
+  @apply !w-full;
+}
+
+/*
+ *
+ * If you're thinking about putting styles here, please don't without checking
+ * with Jason or Derek. Styles should almost always go in the component or in a
+ * cooresponding CSS module.
+ *
+ */

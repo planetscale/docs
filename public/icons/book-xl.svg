@@ -1,0 +1,20 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-tertiary' d="M6 11H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M20 15H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M6 15H12" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M6 19H8" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M20 19H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M20 11H26" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path
+    d="M2 7C2 5.89543 2.89543 5 4 5H12C14.2091 5 16 6.79086 16 9V9V28L15.9117 27.7351C15.3672 26.1017 13.8387 25 12.117 25H4C2.89543 25 2 24.1046 2 23V7Z"
+    stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+  <path
+    d="M30 7C30 5.89543 29.1046 5 28 5H20C17.7909 5 16 6.79086 16 9V9V28L16.0883 27.7351C16.6328 26.1017 18.1613 25 19.883 25H28C29.1046 25 30 24.1046 30 23V7Z"
+    stroke="currentColor" stroke-width="2" stroke-linejoin="round" />
+</svg>

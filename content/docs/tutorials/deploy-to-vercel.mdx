@@ -12,7 +12,7 @@ In this tutorial, we're going to deploy a Next.js application with a PlanetScale
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```zsh
+```
 pscale auth login
 ```
 
@@ -22,19 +22,19 @@ Now we're ready to start our adventure. Let's begin by setting up our PlanetScal
 
 1. Create a new PlanetScale _database_:
 
-```zsh
+```
 pscale database create <database>
 ```
 
 2. Create a new `development` branch:
 
-```zsh
+```
 pscale branch create <database> <branch>
 ```
 
 3. Connect to your database to make a [non-blocking schema change](/concepts/nonblocking-schema-changes):
 
-```zsh
+```
 pscale shell <database> <branch>
 ```
 
@@ -51,19 +51,19 @@ CREATE TABLE `users` (
 
 5. Create a **deployment request** by running:
 
-```zsh
+```
 pscale deploy-request create <database> <branch>
 ```
 
 6. _Deploy_ the **deploy request**:
 
-```zsh
+```
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
 - To find your `deploy-request-number`, simply run:
 
-```zsh
+```
 pscale deploy-request list <database>
 ```
 
@@ -71,7 +71,7 @@ Copy the value from `NUMBER` and use that digit as your `deploy-request-number`.
 
 7. Merge your `development` branch into `main`:
 
-```zsh
+```
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
@@ -82,16 +82,11 @@ We mentioned earlier that we had included a sample Next.js application in this t
 1. Click the following **Vercel Deploy** button:
 
 <a
-  type="embed"
-  target="_blank"
-  href="https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fplanetscale%2Fvercel-integration-example&project-name=vercel-integration-example&repository-name=vercel-integration-example&integration-ids=oac_ni8CGiTU3oM25q1k2L6unVMp"
+  type='embed'
+  target='_blank'
+  href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fplanetscale%2Fvercel-integration-example&project-name=vercel-integration-example&repository-name=vercel-integration-example&integration-ids=oac_ni8CGiTU3oM25q1k2L6unVMp'
 >
-  <img
-    embed="true"
-    src="https://vercel.com/button"
-    target="_blank"
-    alt="Deploy with Vercel"
-  />
+  <img embed='true' src='https://vercel.com/button' target='_blank' alt='Deploy with Vercel' />
 </a>
 
 Vercel offers the option to clone our repository into GitHub, GitLab, or Bitbucket. In this tutorial, we're using GitHub.
@@ -104,16 +99,15 @@ We're almost done! The final thing we need to do is add a _Vercel_ integration t
 
 1. Click the **Add** button to add the PlanetScale integration to this _Vercel project_.
 
-<InfoBlock type="tip">
-  Make sure you pick the same <b>database</b> that you created in the earlier
-  part of this tutorial, so that it has the right schema.
+<InfoBlock type='tip'>
+  Make sure you pick the same <b>database</b> that you created in the earlier part of this tutorial, so that it has the
+  right schema.
 </InfoBlock>
 
 This step automatically runs your first **Vercel** _deployment_.
 
-<InfoBlock type="tip">
-  Every push to <b>main</b> will automatically deploy your application in
-  Vercel.
+<InfoBlock type='tip'>
+  Every push to <b>main</b> will automatically deploy your application in Vercel.
 </InfoBlock>
 
 Once added, the integration creates a service token for your PlanetScale database and adds the necessary [environment variables](https://vercel.com/docs/environment-variables) to your **Vercel** project:
@@ -129,30 +123,23 @@ PLANETSCALE_TOKEN
 PLANETSCALE_TOKEN_NAME
 ```
 
-<InfoBlock type="note">
+<InfoBlock type='note'>
   <div>
     <b>Removing Vercel integrations:</b>
     <ul>
+      <li>Environment variables are removed from all projects tied to the integration.</li>
       <li>
-        Environment variables are removed from all projects tied to the
-        integration.
-      </li>
-      <li>
-        All service tokens are destroyed and your application will no longer be
-        able to connect to your PlanetScale database.
+        All service tokens are destroyed and your application will no longer be able to connect to your PlanetScale
+        database.
       </li>
     </ul>
     <br />
     <b>Updating Vercel integration permissions:</b>
     <ul>
       <li>Old service tokens are removed in deleted projects.</li>
+      <li>New service tokens are created and environment variables are added to the project(s).</li>
       <li>
-        New service tokens are created and environment variables are added to
-        the project(s).
-      </li>
-      <li>
-        New projects should have access to the PlanetScale database tied to the
-        integration after installation is done.
+        New projects should have access to the PlanetScale database tied to the integration after installation is done.
       </li>
     </ul>
   </div>

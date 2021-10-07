@@ -3,23 +3,20 @@ title: 'Automatic Rails migrations'
 subtitle: 'To ensure PlanetScale works well with a traditional Rails development process, we implemented the ability to automatically copy Rails migration metadata as part of our deployment process.'
 ---
 
-<InfoBlock type="tip">
-  If you are using PlanetScale with a Rails application, go to your database's
-  Settings page in the web app and enable "Automatically copy migration data."
-  Select "Rails/Phoenix" as the migration framework. When enabled, this setting
-  updates the <em>schema_migrations</em> table each time you branch with the 
-  latest migration. If disabled, running <em>
-    rake db:migrate
-  </em> will try to run all migrations every time, instead of only the latest one.
+<InfoBlock type='tip'>
+  If you are using PlanetScale with a Rails application, go to your database's Settings page in the web app and enable
+  "Automatically copy migration data." Select "Rails/Phoenix" as the migration framework. When enabled, this setting
+  updates the <em>schema_migrations</em> table each time you branch with the latest migration. If disabled, running{' '}
+  <em>rake db:migrate</em> will try to run all migrations every time, instead of only the latest one.
 </InfoBlock>
 
 ## Introduction
 
 In this tutorial, we’re going to learn how to run automatic Rails migrations in PlanetScale as part of our deployment process.
 
-<InfoBlock type="note">
-  Automatic schema migrations work with any migration tool, not just Rails.
-  Specify the migration table name in your database's Settings page.
+<InfoBlock type='note'>
+  Automatic schema migrations work with any migration tool, not just Rails. Specify the migration table name in your
+  database's Settings page.
 </InfoBlock>
 
 ### Quick introduction to Rails migrations
@@ -32,10 +29,9 @@ From a high level, running `rake db:migrate` does the following:
 - Rails runs a query against the `schema_migrations` table to see which migrations have and haven't been run.
 - Any migration that doesn’t appear in the `schema_migrations` table is considered pending, and is executed against the database with the schema changes in the file.
 
-<InfoBlock type="tip">
-  When you merge a deploy request in PlanetScale, the <em>schema_migrations</em>{' '}
-  table in <em>main</em> gets automatically updated with the migrations from
-  your branch.
+<InfoBlock type='tip'>
+  When you merge a deploy request in PlanetScale, the <em>schema_migrations</em> table in <em>main</em> gets
+  automatically updated with the migrations from your branch.
 </InfoBlock>
 
 ## Prerequisites
@@ -44,8 +40,8 @@ From a high level, running `rake db:migrate` does the following:
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```zsh
-$pscale auth login
+```
+pscale auth login
 ```
 
 ## Execute first Rails migration in PlanetScale
@@ -56,20 +52,20 @@ Let's begin with an example flow for running Rails migrations in PlanetScale:
 
 1. Create an `add-users-table` development branch from `main` and name your database _blog_:
 
-```zsh
-$pscale branch create blog add-users-table
+```
+pscale branch create blog add-users-table
 ```
 
 2. Switch to your newly created development branch, `add-users-table`:
 
-```zsh
-$pscale branch switch add-users-table --database blog
+```
+pscale branch switch add-users-table --database blog
 ```
 
 3. Create a Rails migration and call it `CreateUsers`:
 
-```zsh
-$rails generate migration CreateUsers
+```
+rails generate migration CreateUsers
 ```
 
 This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this: `20200405103635_create_users.rb`.
@@ -106,22 +102,22 @@ Let’s take a look:
 
 1. Create an `add-index-to-users` new development branch from `main`:
 
-```bash
-$pscale branch create blog add-index-to-users
+```
+pscale branch create blog add-index-to-users
 ```
 
-As part of creating that branch, PlanetScale copies _every_ piece of data from `main`’s `schema_migrations` table over to your new development branch.
+As part of creating that branch, PlanetScale copies _every_ row from `main`’s `schema_migrations` table over to your new development branch.
 
 2. Switch to your newly created development branch, `add-index-to-users`:
 
-```bash
-$pscale branch switch add-index-to-users --database blog
+```
+pscale branch switch add-index-to-users --database blog
 ```
 
 3. Create another Rails migration for your table and call it `CreateUsersIndex`:
 
-```bash
-$rails generate migration CreateUsersIndex
+```
+rails generate migration CreateUsersIndex
 ```
 
 This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this: `20300405103635_create_users_index.rb`.
@@ -150,7 +146,7 @@ In this tutorial, we learned how to conduct our first automatic Rails migration 
 
 ## What's next?
 
-Now that you've successfully conducted your first automatic Rails migration in PlanetScale and know how to handle future migrations, it's time to deploy your application with a PlanetScale database! Let's learn how to [deploy an application with a PlanetScale database to Heroku](/tutorial/deploy-to-heroku). You can even use this same Rails application that's already running locally for that tutorial.
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables, without locking or causing downtime for production databases.
 
 ## Need help?
 

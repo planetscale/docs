@@ -11,29 +11,24 @@ To match a developer's workflow, PlanetScale uses a branching model similar to [
 
 Branching enables schema changes to happen online, asynchronously. (Online means it won't block production or inserts and selects on your database.) Database branching speeds up development by allowing developers to iterate quickly without worrying about impacting their production environment.
 
-<InfoBlock type="tip">
-  You'll see a{' '}
-  <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if
-  you attempt schema changes in a production branch. Create a development branch
-  and start your changes there.
+<InfoBlock type='tip'>
+  You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt schema changes
+  in a production branch. Create a development branch and start your changes there.
 </InfoBlock>
 
 ## Development vs. production branches
 
 PlanetScale provides two types of branches, **production** (`main`) and **development** branches. Production branches are intended for use in production, cannot be deleted, and can only be updated using deploy requests. Development branches are a separate database with a copy of the `main` branch's schema. Developers can make schema changes in Development branches, test locally, and open a deploy request for deploying their changes to the production database.
 
-<InfoBlock type="note">
-  Data from the main database is not copied to the developer's development
-  branch.
-</InfoBlock>
+<InfoBlock type='note'>Data from the main database is not copied to the developer's development branch.</InfoBlock>
 
-![PlanetScale Branching Flow Diagram](/img/docs/ps_branching_diagram_light.png)
+![PlanetScale branching flow diagram](/img/docs/ps_branching_diagram_light.png)
 
 ### Creating branches
 
 The default `main` branch is your production database. To safely make a change to `main`, simply create a new branch and name it by running the following command:
 
-```zsh
+```
 pscale branch create <database> <branch>
 ```
 
@@ -41,7 +36,7 @@ pscale branch create <database> <branch>
 
 To see a list of all the branches for a given database, run the following command:
 
-```zsh
+```
 pscale branch list <database>
 ```
 
@@ -51,26 +46,25 @@ After making schema changes to a stable branch, the deployment phase begins. A d
 
 Create a deploy request by running this command:
 
-```zsh
+```
 pscale deploy-request create <database> <branch>
 ```
 
 To deploy the deploy request, run the following command:
 
-```zsh
+```
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
-<InfoBlock type="tip">
-  PlanetScale also provides the ability to have teammates comment and review
-  deploy requests.
+<InfoBlock type='tip'>
+  PlanetScale also provides the ability to have teammates comment and review deploy requests.
 </InfoBlock>
 
 ### Deleting branches
 
 If you no longer need to make schema changes or are done testing against your branch, you can safely delete it.
 
-```zsh
+```
 pscale branch delete <database> <branch>
 ```
 
@@ -84,7 +78,7 @@ Solve schema conflicts by creating a new branch from `main` and reapplying the s
 
 Run the following command to view the schema differences between the local development branch and the production branch (`main`):
 
-```zsh
+```
 pscale branch diff <database> <branch>
 ```
 
@@ -92,7 +86,7 @@ pscale branch diff <database> <branch>
 
 Run the following command to show the schema of a branch:
 
-```zsh
+```
 pscale branch schema <database> <branch>
 ```
 
@@ -118,11 +112,11 @@ Get help from [PlanetScale's support team](https://www.planetscale.com/support),
   steps={[
     {
       text: 'Non-blocking schema changes',
-      link: '/concepts/nonblocking-schema-changes',
+      link: '/concepts/nonblocking-schema-changes'
     },
     {
       text: 'Regions',
-      link: '/concepts/regions',
-    },
+      link: '/concepts/regions'
+    }
   ]}
 ></NextBlock>

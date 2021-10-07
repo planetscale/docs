@@ -1,0 +1,8 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-secondary' d="M15 19C15 20.6569 13.6569 22 12 22C10.3431 22 9 20.6569 9 19"
+    stroke="currentColor" stroke-width="1.5" />
+  <path
+    d="M19 10V13.1477C19 13.3808 19.0408 13.6121 19.1204 13.8312L20.2681 16.9874C20.6239 17.9657 19.8994 19 18.8585 19H5.14155C4.1006 19 3.37612 17.9657 3.73186 16.9874L4.95438 13.6255C4.98456 13.5425 5 13.4549 5 13.3665V9.00004C5 5.13405 8.13401 2.00004 12 2.00004V2.00004C12.3367 1.99838 12.6562 2.00896 13 2.05866"
+    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle className='text-blue' cx="18" cy="5" r="3" fill="currentColor" />
+</svg>

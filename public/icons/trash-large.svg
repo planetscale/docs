@@ -1,0 +1,12 @@
+<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-secondary' d="M10 22L9 8.5" stroke="currentColor" stroke-width="1.5"
+    stroke-linecap="round" stroke-linejoin="round" />
+  <path className='icon-color-secondary' d="M14 22L15 8.5" stroke="currentColor" stroke-width="1.5"
+    stroke-linecap="round" stroke-linejoin="round" />
+  <path
+    d="M4 5.5L5.33464 20.1811C5.42829 21.2112 6.29202 22 7.32643 22H16.6736C17.708 22 18.5717 21.2112 18.6654 20.1811L20 5.5"
+    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+  <path d="M2.5 5H21.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M16 5.25V3C16 2.44772 15.5523 2 15 2H9C8.44772 2 8 2.44772 8 3V5.25" stroke="currentColor"
+    stroke-width="1.5" />
+</svg>

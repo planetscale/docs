@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M8.89463 8.87048C6.0121 10.5378 4.06372 13.0006 2.74677 14.8964C2.28614 15.5596 2.28547 16.4393 2.74608 17.1024C4.94138 20.2629 8.89169 24.9999 16 24.9999C18.8571 24.9999 21.204 24.2347 23.1318 23.1141"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path className='icon-color-secondary'
+    d="M26.4337 20.5429C26.6138 20.363 26.7881 20.1818 26.9568 20C27.8813 19.0037 28.6363 17.9918 29.253 17.1041C29.7136 16.441 29.7147 15.5606 29.2541 14.8975C27.0588 11.737 23.1085 7 16.0002 7C14.9775 7 14.0202 7.09805 13.124 7.27536"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <path
+    d="M12 15.9999C12 18.2091 13.7909 19.9999 16 19.9999C17.1006 19.9999 18.0973 19.5555 18.8205 18.8362L13.1716 13.1715C12.4477 13.8954 12 14.8954 12 15.9999Z"
+    fill="currentColor" />
+  <path d="M27 27L5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

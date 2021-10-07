@@ -1,6 +1,5 @@
 import React from 'react'
 import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
-import { getCssString } from '../stitches.config'
 import * as snippet from '@segment/snippet'
 
 const {
@@ -8,6 +7,7 @@ const {
   ANALYTICS_WRITE_KEY = 'gURNntij37hKxpSUjda9znzNaOxZBG6H',
   NODE_ENV = 'development',
 } = process.env
+
 export default class Document extends NextDocument {
   renderSnippet() {
     const opts = {
@@ -28,15 +28,10 @@ export default class Document extends NextDocument {
     return (
       <Html lang="en">
         <Head>
-          <link
-            href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono&family=Inter:wght@300;400;600&display=swap"
-            rel="stylesheet"
-          />
-          <style
-            id="stitches"
-            dangerouslySetInnerHTML={{ __html: getCssString() }}
-          />
+          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
+          <meta content="#262626" name="theme-color" />
           <script src="/sw.js"></script>
+          <link rel="mask-icon" href="/favicon.svg" color="#262626" />
           <script dangerouslySetInnerHTML={{ __html: this.renderSnippet() }} />
         </Head>
         <body>

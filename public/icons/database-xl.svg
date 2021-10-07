@@ -1,0 +1,19 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <g clip-path="url(#clip0)">
+    <path className='icon-color-secondary' d="M4 17L13.2265 23.151C14.906 24.2707 17.094 24.2707 18.7735 23.151L28 17"
+      stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+    <path d="M4 23L12.6718 28.7812C14.6872 30.1248 17.3128 30.1248 19.3282 28.7812L28 23" stroke="currentColor"
+      stroke-width="2" stroke-linecap="round" />
+    <path className='icon-color-tertiary'
+      d="M7.44775 13.3668L13.878 9.33162C15.1759 8.51715 16.825 8.51569 18.1243 9.32786L24.586 13.3668"
+      stroke="currentColor" stroke-width="2" />
+    <path
+      d="M5.30375 11.5059C4.07586 10.7077 4.09392 8.90399 5.33755 8.13061L13.8875 2.81362C15.1809 2.0093 16.8188 2.0093 18.1122 2.81362L26.6621 8.13061C27.9058 8.904 27.9238 10.7077 26.6959 11.5059L18.1798 17.0414C16.8542 17.903 15.1455 17.903 13.8199 17.0414L5.30375 11.5059Z"
+      stroke="currentColor" stroke-width="1.99817" />
+  </g>
+  <defs>
+    <clipPath id="clip0">
+      <rect width="32" height="32" fill="white" />
+    </clipPath>
+  </defs>
+</svg>

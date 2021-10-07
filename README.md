@@ -1,13 +1,3 @@
-# docs.planetscale.com
-
-<img width="1413" alt="CleanShot 2021-07-21 at 16 20 19@2x" src="https://user-images.githubusercontent.com/623670/126571869-a90c4abe-b1e1-4b75-a335-9f4ffe0e0d8f.png">
-
-## Internals
-
-- [NextJS](https://nextjs.org/)
-- [Stitches](https://stitches.dev/)
-- [Radix](https://radix-ui.com/)
-
 ## Local development setup
 
 ### MacOS
@@ -26,11 +16,6 @@
 
 - All pages in the documentation are markdown (.mdx) files with a frontmatter block on the top. The frontmatter block defines the title and (optionally) a subtitle and/or banner for the page.
 - When creating a new document, also create a corresponding entry in `meta.json` to define the category and position of the document's link in the navigation list.
-
-### Add a theme sensitive asset (image)
-
-- An image can be added with corresponding `light` and `dark` equivalents by having two assets: `ASSET_NAME_light.png` and `ASSET_NAME_dark.png`.
-- The image link to be used in a `.mdx` document needs to be the `light` version of the asset i.e. `ASSET_NAME_light.png`.
 
 ## Notes
 

@@ -1,0 +1,13 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-secondary'
+    d="M2.5 8.55322L6.9386 11.3348C7.58779 11.7417 8.41235 11.7419 9.06176 11.3354L11.9941 9.49998"
+    stroke="currentColor" stroke-linecap="round" />
+  <path className='icon-color-tertiary'
+    d="M2.49321 11.3835L7.46251 14.4977C7.78711 14.7011 8.19938 14.7013 8.52409 14.498L13.4999 11.3835"
+    stroke="currentColor" stroke-linecap="round" />
+  <path
+    d="M9.33241 2L9.05787 1.82815C8.40845 1.42167 7.5839 1.4219 6.9347 1.82874L2.97003 4.31333C2.3453 4.70484 2.3453 5.61499 2.97003 6.00649L6.9347 8.49109C7.5839 8.89792 8.40845 8.89815 9.05787 8.49167L10.5 7.58901"
+    stroke="currentColor" stroke-linecap="round" />
+  <path d="M12 1.99999L12 5.99999" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M10 3.99999L14 3.99999" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" />
+</svg>

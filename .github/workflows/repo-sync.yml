@@ -3,7 +3,7 @@ name: Repo Sync
 on:
   workflow_dispatch:
   schedule:
-    - cron: '*/10 * * * *' # every 10 minutes. set to whatever interval you like
+    - cron: '10 */6 * * *'
 
 jobs:
   repo-sync:
@@ -11,6 +11,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - uses: repo-sync/github-sync@v2
         name: Sync repo to branch
         with:

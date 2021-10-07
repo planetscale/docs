@@ -1,0 +1,9 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M13.5 2.5C14.0523 2.5 14.5 2.94772 14.5 3.5L14.5 12.5C14.5 13.0523 14.0523 13.5 13.5 13.5L2.5 13.5C1.94771 13.5 1.5 13.0523 1.5 12.5L1.5 3.5C1.5 2.94771 1.94772 2.5 2.5 2.5L13.5 2.5Z"
+    stroke="currentColor" stroke-linecap="round" />
+  <path className='icon-color-secondary' d="M5 6L7 8L5 10" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M8.5 10H11" stroke="currentColor" stroke-linecap="round"
+    stroke-linejoin="round" />
+</svg>

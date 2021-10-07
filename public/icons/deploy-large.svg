@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24">
+    <path stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M8.045 15.955l2.347 5.126a1.5 1.5 0 002.604.219l2.408-3.541a2 2 0 00.346-1.125V14.25M8.045 15.955l-5.126-2.347a1.5 1.5 0 01-.219-2.604l3.54-2.408a2 2 0 011.126-.346H9.75"/>
+    <path stroke="currentColor" stroke-width="1.5" d="M18.58 11.99a9.274 9.274 0 003.323-8.898v0a1.237 1.237 0 00-.995-.995v0a9.287 9.287 0 00-8.902 3.317l-4.516 5.62a3.236 3.236 0 00-.181 3.8v0a6.451 6.451 0 001.855 1.855v0a3.222 3.222 0 003.781-.181l5.636-4.519z"/>
+    <circle r="1.5" fill="currentColor" transform="scale(-1 1) rotate(-45 1.658 23.313)"/>
+    <path className='icon-color-secondary' fill="currentColor" d="M5.786 18.26a2.597 2.597 0 00-3.673 0 2.973 2.973 0 00-.816 1.865v1.625a1 1 0 001 1h1.625a2.966 2.966 0 001.864-.816 2.597 2.597 0 000-3.673z"/>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path
+    d="M20 4L3.99999 4C2.89542 4 1.99999 4.89543 1.99999 6L2 25C2 26.1046 2.89543 27 4 27L28 27C29.1046 27 30 26.1046 30 25L30 11"
+    stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+  <circle className='text-blue' cx="27" cy="5" r="4" fill="currentColor" />
+  <path className='icon-color-secondary' d="M10 12L14 16L10 20" stroke="currentColor" stroke-width="2.00001"
+    stroke-linecap="round" stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M17 20H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <circle className='icon-color-tertiary' cx="6" cy="8" r="1" fill="currentColor" />
+  <circle className='icon-color-tertiary' cx="9" cy="8" r="1" fill="currentColor" />
+</svg>

@@ -1,0 +1,17 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path className='icon-color-tertiary' d="M13 14H15" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M13 18H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <path className='icon-color-tertiary' d="M13 22H22" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+    stroke-linejoin="round" />
+  <circle className='icon-color-secondary' cx="9" cy="14" r="1" fill="currentColor" />
+  <circle className='icon-color-secondary' cx="9" cy="18" r="1" fill="currentColor" />
+  <circle className='icon-color-secondary' cx="9" cy="22" r="1" fill="currentColor" />
+  <path className='icon-color-secondary'
+    d="M10 4C10 2.89543 10.8954 2 12 2H20C21.1046 2 22 2.89543 22 4V5.99999C22 7.10456 21.1046 7.99999 20 7.99999H12C10.8954 7.99999 10 7.10456 10 5.99999V4Z"
+    stroke="currentColor" stroke-width="2" />
+  <path
+    d="M9.66665 6C10.2189 6 10.6666 5.55228 10.6666 5C10.6666 4.44772 10.2189 4 9.66665 4V6ZM22.3333 4C21.781 4 21.3333 4.44772 21.3333 5C21.3333 5.55228 21.781 6 22.3333 6V4ZM26 7V28H28V7H26ZM25 29H7V31H25V29ZM6 28V7H4V28H6ZM7 6H9.66665V4H7V6ZM22.3333 6H25V4H22.3333V6ZM7 29C6.44771 29 6 28.5523 6 28H4C4 29.6569 5.34315 31 7 31V29ZM26 28C26 28.5523 25.5523 29 25 29V31C26.6569 31 28 29.6569 28 28H26ZM28 7C28 5.34315 26.6569 4 25 4V6C25.5523 6 26 6.44771 26 7H28ZM6 7C6 6.44772 6.44772 6 7 6V4C5.34315 4 4 5.34314 4 7H6Z"
+    fill="currentColor" />
+</svg>

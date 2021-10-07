@@ -6,6 +6,7 @@
       "description": "Explore key concepts of the PlanetScale database platform.",
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
+        { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
         { "route": "branching", "display": "Branching" },
         { "route": "connection-strings", "display": "Connection strings" },
         { "route": "regions", "display": "Regions" },
@@ -13,6 +14,7 @@
           "route": "nonblocking-schema-changes",
           "display": "Non-blocking schema changes"
         },
+        { "route": "web-console", "display": "Web console" },
         {
           "route": "authentication-methods",
           "display": "Authentication methods"
