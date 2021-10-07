@@ -69,7 +69,7 @@ export default function Overview() {
       <h2 className='mb-1 text-xl font-semibold'>Tutorials</h2>
 
       <div className='grid grid-cols-1 gap-3 lg:grid-cols-3'>
-        <Link href='/tutorials/automatic-rails-migrations'>
+        <Link href='/tutorials/connect-rails-app'>
           <a className='flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
             <SVG src='/img/internals/ruby-logo.svg' height={32} width='auto' className='mb-2' />
             <h3 className='text-lg font-semibold text-primary mb-sm'>Ruby on Rails</h3>
