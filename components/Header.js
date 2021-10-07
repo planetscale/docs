@@ -71,7 +71,7 @@ export default function Header() {
           </div>
           <div
             className={classNames(
-              'col-start-1 row-start-2 pt-5 md:pt-0 md:row-start-1 md:col-start-3 md:justify-end md:flex',
+              'col-start-1 col-span-2 md:col-span-1 row-start-2 pt-5 md:pt-0 md:row-start-1 md:col-start-3 md:justify-end md:flex',
               {
                 hidden: !showMobileNav
               }
