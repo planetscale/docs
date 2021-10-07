@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from 'react'
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import Prism from 'prism-react-renderer/prism'
 import Icon from './Icon'
+import CopyButton from './CopyButton'
 
 export default function CodeBlock({ className, children }) {
   const [codeLanguage, setCodeLanguage] = useState('')
@@ -30,32 +31,19 @@ export default function CodeBlock({ className, children }) {
     }
   }, [])
 
-  const copyCode = (e) => {
-    setCopyButtonState(true)
-    setTimeout(() => {
-      setCopyButtonState(false)
-    }, 3000)
-
-    navigator.clipboard.writeText(
-      splitOutput.length === 2 ? splitOutput[0].trim() : children
-    )
-  }
-
   return (
-    <div className="max-w-full border rounded mt-2 mb-4">
-      <div className="flex items-center justify-between px-2 py-1 bg-secondary rounded-t border-b">
-        <span className="font-sans text-secondary">{codeLanguage}</span>
-        <span>
-          <Icon name="clipboard" />
-        </span>
+    <div className='max-w-full mt-2 mb-4 border rounded'>
+      <div className='flex items-center justify-between px-2 border-b rounded-t py-sm bg-secondary'>
+        <span className='font-sans text-secondary'>{codeLanguage}</span>
+        <CopyButton
+          value={splitOutput.length === 2 ? splitOutput[0].trim() : children.trim()}
+          ariaLabel={'Copy snippet'}
+          title={'Copy snippet'}
+        />
       </div>
-      <div className="p-2 w-full overflow-x-auto">
+      <div className='w-full p-2 overflow-x-auto'>
         {splitOutput.length === 2 && (
-          <Highlight
-            {...defaultProps}
-            code={splitOutput[0].trim()}
-            language={internalCodeLanguage}
-          >
+          <Highlight {...defaultProps} code={splitOutput[0].trim()} language={internalCodeLanguage}>
             {({ tokens, getLineProps, getTokenProps }) => (
               <div>
                 {tokens.map((line, i) => (
@@ -71,9 +59,7 @@ export default function CodeBlock({ className, children }) {
         )}
         <Highlight
           {...defaultProps}
-          code={
-            splitOutput.length === 2 ? splitOutput[1].trim() : children.trim()
-          }
+          code={splitOutput.length === 2 ? splitOutput[1].trim() : children.trim()}
           language={internalCodeLanguage}
         >
           {({ tokens, getLineProps, getTokenProps }) => (
