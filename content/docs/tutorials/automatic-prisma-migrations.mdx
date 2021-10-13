@@ -90,7 +90,7 @@ npx prisma migrate dev --name init
 
 This Prisma command replays the existing migration history in the shadow database, applies pending migrations, generates a new migration from any changes you made, applies all unapplicated migrations to the development branch, and updates the `_prisma_migrations` table.
 
-The `prisma migrate dev` command will create a SQL file like `prisma/migrations/20210806002614_init/migration.sql` (the exact folder will match the current timestamp and name).
+The `prisma migrate dev` command will create a SQL file like `prisma/migrations/20210806002614_init/migration.sql` (the exact folder will match the current timestamp and name). If your account doesn't have a databased named `prisma-playground` yet, you should run `npx prisma db push`.
 
 <InfoBlock type='tip'>
   You can learn more about the <inlineCode>prisma migrate dev</inlineCode> command in the{' '}
