@@ -35,6 +35,7 @@
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
+        { "route": "planetscale-quick-start-guide", "display": "PlanetScale quick start guide" },
         { "route": "connect-any-application", "display": "Connect any app" },
         { "route": "connect-rails-app", "display": "Connect a Rails app" },
         {

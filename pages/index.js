@@ -34,6 +34,15 @@ export default function Overview() {
       </div>
 
       <div className='grid grid-cols-1 gap-3 mb-4 lg:grid-cols-2'>
+        <Link href='/tutorials/planetscale-quick-start-guide'>
+          <a className='h-full p-3 border rounded hover:bg-secondary'>
+            <Icon name='rocket' size='large' className='mb-2 text-blue' />
+            <h3 className='text-lg font-semibold text-primary mb-sm'>PlanetScale quick start guide</h3>
+            <p className='text-secondary'>
+              Deploy a database and learn the basics of using PlanetScale with an example.{' '}
+            </p>
+          </a>
+        </Link>
         <Link href='/concepts/branching'>
           <a className='h-full p-3 border rounded hover:bg-secondary'>
             <Icon name='branch' size='large' className='mb-2 text-blue' />
@@ -53,15 +62,6 @@ export default function Overview() {
             <Icon name='schema-change' size='large' className='mb-2 text-blue' />
             <h3 className='text-lg font-semibold text-primary mb-sm'>Non-blocking schema changes</h3>
             <p className='text-secondary'>Deploy schema changes without downtime or locking.</p>
-          </a>
-        </Link>
-        <Link href='/reference/planetscale-cli'>
-          <a className='h-full p-3 border rounded hover:bg-secondary'>
-            <Icon name='terminal' size='large' className='mb-2 text-blue' />
-            <h3 className='text-lg font-semibold text-primary mb-sm'>PlanetScale CLI</h3>
-            <p className='text-secondary'>
-              Create branches, open deploy requests, and deploy schema changes from your terminal.
-            </p>
           </a>
         </Link>
       </div>
