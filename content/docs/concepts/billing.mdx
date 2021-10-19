@@ -1,75 +1,112 @@
 ---
 title: 'Billing'
-subtitle: 'PlanetScale pricing was designed for transparency and scalability. Our serverless pricing model means only paying for what you use.'
+subtitle: 'PlanetScale pricing was designed for transparency and scalability.'
 ---
 
 ## Overview
 
-At PlanetScale, we believe that you should only pay for what you use.
-
-PlanetScale charges for database usage, `reads`/`writes`, and storage. You'll never have to over-provision resources or pay for resources that stand idle.
-
-In addition, PlanetScale applies billing plans at the **database level**, allowing users to have _free_ and _paid_ databases within the same account.
+PlanetScale offers a free Developer plan with a generous 25GB of storage. Our paid Scaler plan is priced based on the number of `reads`/`writes` and storage, with an additional monthly flat fee. This scalable, pay-as-you-grow model means you'll never have to over-provision resources.
 
 ### PlanetScale charges on three factors
 
-- **Reads**: inspecting rows during a query or mutation of any kind to your PlanetScale databases.
-- **Writes**: adding new information or changing existing information in your PlanetScale databases.
-- **Storage**: data saved in the form of tables, columns, rows, and their corresponding relationships.
+- **Reads**: Inspecting rows during a query or mutation of any kind to your PlanetScale databases.
+- **Writes**: Adding new information or changing existing information in your PlanetScale databases.
+- **Storage**: Data saved in the form of tables, columns, rows, and their corresponding relationships.
 
 ## PlanetScale plans
 
-There is no minimum cost to deploy a PlanetScale database; you are only charged for your usage, as outlined below:
+PlanetScale applies billing plans at the **database level**. You can create several databases under one account/organization. The charges for usage will be scoped to each database, so each database will have its own separate billing page.
+
+We offer three plans, outlined below:
 
 |                      | Developer:<br />free | Scaler:<br />pay as you grow | Enterprise: <br />custom |
 | -------------------- | -------------------- | ---------------------------- | ------------------------ |
-| **Storage**          | 10GB                 | $1.25 per 1GB                | Configurable             |
-| **Read rows/month**  | 100m                 | $15 per 100m                 | Configurable             |
-| **Write rows/month** | 10m                  | $15 per 10m                  | Configurable             |
+| **Storage**          | 25GB                 | 25GB free + $1.25 per additional 1GB               | Configurable             |
+| **Read rows/month**  | 100m                 | 100m free + $1.50 per additional 10m                 | Configurable             |
+| **Write rows/month** | 10m                  | 10m free + $1.50 per additional 1m                  | Configurable             |
 | **Branches**         | 3 per database       | 10 per database              | _Unlimited_              |
-
-You have the option to upgrade/downgrade between the `Developer`_(free)_ and `Scaler` plans. Upgrading to the `Scaler`_(pay as you scale)_ plan merely requires adding your credit card information to your billing page. For more information about the `Enterprise` plan, please [contact](https://www.planetscale.com/contact) our sales team.
+| **Monthly fee**      | $0/mo                | $29 per database                    | Contact us               |
 
 <InfoBlock type="note">
-  The total charge for a PlanetScale <em>database</em> includes the charge for
-  usage on <b>database branches</b>.
+  You are limited to 1 free database per organization.
 </InfoBlock>
 
-## Find your database billing page
+All plans are billed on a **monthly basis**. You have the option to upgrade/downgrade between the `Developer` and `Scaler` plans, as long as you don't exceed one free database per organization. Upgrading to the `Scaler` plan simply requires adding your credit card information to your billing page.
 
-Each PlanetScale database has its own billing page, from which you can:
+For more information about the `Enterprise` plan, please [contact](https://www.planetscale.com/contact) our sales team. 
 
-- Enter/update your credit card information.
-- Upgrade/downgrade between billing plans.
-- See a history of your invoices, as well as the current invoice.
+<InfoBlock type="note">
+  Plans are priced <b>per database</b>. The total charge for a PlanetScale <em>database</em> includes the charge for
+  usage on <b>database branches</b>. In other words, the total reads, writes, and storage used by each branch of your database will determine the final monthly price.
+</InfoBlock>
 
-PlanetScale itemizes the database usage in your invoices each month. Invoices live under the database’s billing page:`/organization/database/settings/usage`.
+## Plan Add-ons
 
-**PlanetScale invoice details:**
+To make sure our plans work for your unique use case, we also offer options to customize your Scaler plan.
 
-- Invoices provide line items for both usage and discounts received.
+### Branch packs
 
-- Each line item shows both metric and database branch level granularity. (i.e. **rows** _read_ for `main` branch, **rows** _read_ for `your-test-branch`, etc.)
+The Scaler plan comes with 10 branches per database. You can add additional branches to your Scaler plan in **packs of 5** for an extra $25/mo per pack.
 
-- Storage per branch has two line items:
+**To add a branch pack to a database:**
 
-  - One for storage usage.
-  - One for prorated discounts, if the branch existed for a smaller time period than the billing period.
+1. Go to [your billing page for that database](#find-your-database-billing-page)
+2. Select the number of branch packs you'd like to add
+3. Click "Save".
 
-- Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
+![Billing page branch pack add-ons](/img/docs/branch-pack-add-ons.png)
 
-## Download invoice
+### User scheduled backups
+
+We run automatic daily backups for every branch for free. You can [schedule additional backups yourself](/concepts/back-up-and-restore#create-manual-backups) as needed.
+
+For additional user-scheduled backups, we charge $0.023 per GB per month.
+
+## Database billing page
+
+Each database has it's own billing page, from which you can:
+
+- Enter/update your credit card information
+- Upgrade/downgrade between billing plans
+- See a history of your invoices, as well as the current invoice
+- Customize your add-ons
+
+**To find your billing page:**
+
+1. Go to your [PlanetScale dashboard](https://app.planetscale.com)
+2. Select the database
+3. Click on "Settings" in the top nav
+4. Click on "Usage and billing" in the side nav
+
+### PlanetScale invoice details
+
+Invoices provide line items for both usage and discounts received. Each line item shows both **metric and database branch level** granularity. 
+
+For example, you may have the following line items:
+
+- Rows _read_ for `main` branch
+- Rows _read_ for `your-test-branch`
+
+In addition, storage per branch has two line items:
+  - One for storage **usage**
+  - One for prorated discounts, if the branch existed for a smaller time period than the billing period
+
+Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
+
+### Download an invoice
 
 You have the option to download invoices as a _PDF_ or _CSV_ file.
 
-Go to `Organization > Database > Settings > Usage` and search the billing page for the _Invoices_ section.
+To download an invoice, go to [your billing page](#find-your-database-billing-page) (`Organization > Database > Settings > Usage`) and scroll down to the _Invoices_ section.
+
+Click on the arrow on the right next to the invoice you want to download. It will expand and you'll see the option to download at the bottom.
 
 ![Expand each invoice to download them.](/img/docs/monthlyInvoices.png)
-![Organization > Database > Settings > Usage](/img/docs/downloadInvoice.png)
+![Option to download as PDF or CSV](/img/docs/downloadInvoice.png)
 
 <InfoBlock type="note">
   PlanetScale generates both current and past invoices. Even for the <b>free</b>{' '}
-  plan! You can see the cost had you not been on the developer plan.
+  plan! You can see the cost had you not been on the Developer plan.
 </InfoBlock>
 
 ## Usage and usage limits
