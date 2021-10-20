@@ -5,7 +5,9 @@ subtitle: 'Selecting a region during database and branch creation.'
 
 ## Overview
 
-PlanetScale currently offers database deployment in three regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy branches in the region closest to your location to help reduce latency when interacting with the database.
+PlanetScale currently offers database deployment in multiple regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy branches in the region closest to your location to help reduce latency when interacting with the database.
+
+If you have questions about how to measure latency please [get in touch](https://planetscale.com/support) with PlanetScale.
 
 ## Available regions
 
@@ -30,6 +32,9 @@ the `--region` flag with the region's slug.
   If you do not select a region during database creation using the CLI, it will
   be set to US East.
 </InfoBlock>{' '}
+
+<InfoBlock type="tip">
+  Be sure to measure the latency from your location to each region.
 
 Here's an example command for creating a database with a different region:
 
