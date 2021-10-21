@@ -1,35 +1,41 @@
 ---
-title: 'PlanetScale quick start guide'
+title: 'PlanetScale Quick Start Guide'
 subtitle: 'Get started with PlanetScale in just a few minutes'
 ---
 
-## Introduction
+## Overview
 
-The following steps will guide you through creating a database, making a schema change, inserting data, and promoting your database branch to production. 
+The following guide will show you how to:
 
-You can follow this guide using either the PlanetScale application or the PlanetScale CLI. 
+- Create a database with PlanetScale
+- Make a schema change
+- Insert data
+- Promote your database branch to production
+
+This guide is split up so that you can either follow it in the [PlanetScale application dashboard](#quick-start-with-the-planetscale-application) or using the [PlanetScale CLI](#quick-start-with-the-planetscale-cli). 
 
 ## Quick Start with the PlanetScale application
 
-### Create an account 
+### Create an account
 
-To complete this guide, you will need to sign up for a PlanetScale account. 
+To complete this guide, you will need to [sign up for a PlanetScale account](https://auth.planetscale.com/sign-up). 
 
-You can sign up here: https://auth.planetscale.com/sign-up using an email address or your GitHub account. 
+You can sign up for a free account using an email address or your GitHub account. 
 
-### Create a database 
+### Create a database
 
-To create your first database, click the "Create a database" button on your organization's overview page. 
+To create your first database, follow these steps:
 
-Name your database and select a [region](/concepts/regions) near you or your application's hosting location for the lowest latency. 
+- Click the "Create a database" button on your organization's overview page.
+- Name your database using lowercase, alphanumeric characters. You may also use dashes or underscores. 
+- Select a [region](/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
+- Finally, click the "Create database" button to deploy your database.
 
-![Create database modal](/img/docs/quickstart-create-database.png)
+![Create database modal](/img/docs/quickstart-create-database.png) 
 
-Click the "Create database" button to deploy your database. 
+Your database will be created with an **initial development branch**, `main`, which you will use to apply a schema change and insert data.
 
-Your database will be created with an initial development branch `main` which you will use to apply a schema change and insert data.
-
-### Add a schema to your database 
+### Add a schema to your database
 
 From your new database's overview page, click on the "Branches" tab in the database navigation. This will bring you to the branch page for your database.
 
@@ -72,73 +78,107 @@ Run the following command to confirm the user has been added to the table:
 SELECT * FROM users;
 ```
 
+You can see the schema by running:
+
+```sql
+DESCRIBE users;
+```
+
+If you click on the "Schema" tab in the database navigation and click the "Refresh schema" button, you'll see the new users table that you just created.
+
 ### Promote your database branch to production
 
-When you created your PlanetScale database, a development branch named `main` was automatically created. A development branch is intended for applying schema changes and is not intended for use in production. 
+When you created your PlanetScale database, a development branch named `main` was automatically created.
 
-A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes (CREATE, ALTER, and DELETE) are not allowed on production branches to prevent accidental data loss. 
+<InfoBlock type="note">
+  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>. 
+</InfoBlock>
 
-Once you are happy with the changes you have made to your initial development branch `main`, you can promote it to a production branch.
+A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes, such as `CREATE`, `ALTER`, and `DELETE`, are **not allowed** on production branches to prevent accidental data loss. 
 
-From the console page, click "Overview" in the navigation. This will take you to the overview page for your `main` branch.
+Once you are happy with the changes you have made to your development branch, you can promote it to a production branch.
+
+To promote a branch to production:
+
+- Click "Overview" in the navigation and you'll see a banner with information about promoting to production.
 
 ![Create database modal](/img/docs/quickstart-promote-branch-overview.png)
 
-Click the "Promote Branch" button to open the promote branch modal. To finalize the branch promotion click the "Promote branch" button in the modal.
+- Click the "Promote branch" button.
+- In the modal that opens, select the branch you want to promote to production
+- Finally, click "Promote branch"
 
-You have now successfully promoted your `main` branch to production, completing this quick start guide. You now have a production ready database.
+You have now successfully promoted your development branch to production, which provides:
+
+- Protection from direct schema changes
+- High availability
+- Automatic daily scheduled backups
 
 ### What's next?
 
-Learn how to [connect to your database](https://docs.planetscale.com/concepts/connection-strings) using connection strings.  
+Now that you've created a database, applied schema changes, added data, and promoted your branch to production, it's time to connect to your application.
 
+You can use our [Connect Any Application tutorial](/tutorials/connect-any-application) for a general step-by-step approach, or head straight to our [Connection Strings documentation](https://docs.planetscale.com/concepts/connection-strings) for more information about creating connection strings.
 
 ## Quick Start with the PlanetScale CLI
 
 ### Download and install the PlanetScale CLI  
 
-To complete the following quickstart guide, you will need to download and install the PlanetScale CLI. 
-
-Follow the instructions [here](https://github.com/planetscale/cli#installation) for downloading and installing the CLI. 
+First, [download and install the PlanetScale CLI](https://github.com/planetscale/cli#installation).
 
 ### Create an account 
 
-Once you have installed the PlanetScale CLI, you can create a PlanetScale account. 
+You will also need a PlanetScale account. You can [sign up for a free PlanetScale account here](https://auth.planetscale.com/sign-up) or follow the steps below to create an account straight from the CLI.
 
-Run the following command to sign up for a new account. 
+To sign up for a new account, run the following command in your terminal:
 
 ```
 pscale signup
 ```
 
+You'll be prompted to enter your email address, create a new password, and confirm your password. To finalize registration, click on the confirmation link that was sent to your email.
+
+![PlanetScale account signup through CLI](/img/docs/quickstart-cli-pscale-signup.png)
+
 ### Sign in to your account
 
-Use the following command to sign in to your new PlanetScale account. 
+To sign in to your new PlanetScale account, enter the following:
 
 ```
 pscale auth login
 ```
 
+You'll be taken to a screen in the browser where you'll be asked to confirm the code displayed in your terminal. If the confirmation codes match, click the "Confirm code" button in your browser. 
+
+You should receive the message "Successfully logged in" in your terminal. You can now close the confirmation page in the browser and proceed in the terminal.
+
 ### Create a database
 
 Now that you have signed into PlanetScale using the CLI, you can create a database.
 
-Use the command below to create a database. If you do not specify a region, your database will automatically be deployed to US East - Northern Virginia.
+Issue the following command to create a database:
 
 ```
-pscale database create <database name> --region <region slug>
+pscale database create databasename --region regionslug
 ```
 
-Your database will deploy with an initial development branch `main` which you will use to apply a schema change and insert data.
+- **databasename** &mdash; The name of your database must use lowercase, alphanumeric characters with dashes and underscores only.
+- **regionslug** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](https://docs.planetscale.com/concepts/regions#available-regions).
+
+<InfoBlock type="note">
+  If you do not specify a region, your database will automatically be deployed to <b>US East - Northern Virginia</b>. 
+</InfoBlock>
+
+Your database will deploy with an initial development branch, `main`, which you will use to apply a schema change and insert data.
 
 ### Add a schema to your database 
 
-To add a schema to your database, you will need to connect to MySQL using the pscale shell. 
+To add a schema to your database, you will need to connect to MySQL using the `pscale` shell. 
 
 Run the following command:
 
 ```
-pscale shell <database name> main
+pscale shell databasename main
 ```
 
 You are now connected to your `main` branch and can run MySQL queries against it. 
@@ -158,6 +198,14 @@ You can confirm that the table has been added by running the following command:
 ```sql
 SHOW TABLES;
 ```
+
+To see the `users` table schema, run the following:
+
+```sql
+DESCRIBE users;
+```
+
+![PlanetScale CLI - MySQL shell](/img/docs/quickstart-cli-pscale-shell.png)
 
 ### Insert data into your database
 
@@ -180,17 +228,26 @@ Exit the shell by typing `exit`.
 
 ### Promote your database branch to production
 
-When you created your PlanetScale database, a development branch named ‘main’ was automatically created. A development branch is intended for applying schema changes and is not intended for use in production. 
+When you created your PlanetScale database, a development branch named `main` was automatically created. A development branch is intended for applying schema changes and is not intended for use in production. 
 
-A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes (CREATE, ALTER, and DELETE) are not allowed on production branches to prevent accidental data loss. 
+A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes, like `CREATE`, `ALTER`, and `DELETE`, are not allowed on production branches to prevent accidental data loss. 
 
-Once you are happy with the changes you have made to your initial development branch ‘main’, you can promote it to a production branch.
+Once you are happy with the changes you have made to your initial development branch, ‘main’, you can promote it to a production branch by running the following:
 
 ```
-pscale branch promote <database name> main
+pscale branch promote databasename main
 ```
-You have now successfully promoted your `main` branch to production, completing this quick start guide. You now have a production ready database.
+
+You should get the following response: "Branch main in databasename was successfully promoted."
+
+You have now successfully promoted your `main` branch to production, which provides:
+
+- Protection from direct schema changes
+- High availability
+- Automatic daily scheduled backups
 
 ### What's next?
 
-Learn how to [connect to your database](https://docs.planetscale.com/concepts/connection-strings) using connection strings.  
+Now that you've created a database, applied schema changes, added data, and promoted your branch to production, it's time to connect to your application.
+
+You can use our [Connect Any Application tutorial](/tutorials/connect-any-application) for a general step-by-step approach, or head straight to our [Connection Strings documentation](https://docs.planetscale.com/concepts/connection-strings) for more information about creating connection strings.
