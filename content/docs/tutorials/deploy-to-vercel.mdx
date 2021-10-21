@@ -57,10 +57,6 @@ pscale deploy-request create <database> <branch>
 
 6. _Deploy_ the **deploy request**:
 
-```
-pscale deploy-request deploy <database> <deploy-request-number>
-```
-
 - To find your `deploy-request-number`, simply run:
 
 ```
@@ -69,11 +65,20 @@ pscale deploy-request list <database>
 
 Copy the value from `NUMBER` and use that digit as your `deploy-request-number`.
 
-7. Merge your `development` branch into `main`:
+This will deploy your `development` branch changes into `main`:
 
 ```
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
+7. (Optional) Delete your just merged feature branch:
+
+If you are working in a **feature branch workflow**, you may want to delete the old branches:
+
+```
+pscale branch delete <database> <branch>
+```
+
+_Note_: it could ask you for confirmation unless you provide the `--force` flag
 
 ## Deploy to Vercel
 
