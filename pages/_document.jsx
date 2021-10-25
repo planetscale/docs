@@ -5,7 +5,7 @@ import * as snippet from '@segment/snippet'
 const {
   // This write key is associated with https://segment.com/nextjs-example/sources/nextjs.
   ANALYTICS_WRITE_KEY = 'gURNntij37hKxpSUjda9znzNaOxZBG6H',
-  NODE_ENV = 'development',
+  NODE_ENV = 'development'
 } = process.env
 
 export default class Document extends NextDocument {
@@ -14,7 +14,7 @@ export default class Document extends NextDocument {
       apiKey: ANALYTICS_WRITE_KEY,
       // note: the page option only covers SSR tracking.
       // Page.js is used to track other events using `window.analytics.page()`
-      page: true,
+      page: true
     }
 
     if (NODE_ENV === 'development') {
@@ -26,12 +26,12 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <Html lang="en">
+      <Html lang='en' className='dark'>
         <Head>
-          <meta content="IE=edge" httpEquiv="X-UA-Compatible" />
-          <meta content="#262626" name="theme-color" />
-          <script src="/sw.js"></script>
-          <link rel="mask-icon" href="/favicon.svg" color="#262626" />
+          <meta content='IE=edge' httpEquiv='X-UA-Compatible' />
+          <meta content='#262626' name='theme-color' />
+          <script src='/sw.js'></script>
+          <link rel='mask-icon' href='/favicon.svg' color='#262626' />
           <script dangerouslySetInnerHTML={{ __html: this.renderSnippet() }} />
         </Head>
         <body>

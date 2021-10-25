@@ -56,7 +56,8 @@ export default function App({ Component, pageProps }) {
     const root = document.querySelector('html')
     const pref = root.getAttribute('data-color-scheme') || 'system'
     const dark = (isSystemDark && pref === 'system') || pref === 'dark'
-    root.classList.toggle('dark', dark)
+    // Uncomment this if we go back to light + dark modes
+    // root.classList.toggle('dark', dark)
   }
 
   function colorSchemeChanged(event) {
@@ -67,7 +68,6 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <link rel='shortcut icon' href={favicon} sizes='any' type='image/svg+xml' />
-
         <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
       </Head>
       <Page>
