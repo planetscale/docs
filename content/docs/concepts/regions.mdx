@@ -5,7 +5,9 @@ subtitle: 'Selecting a region during database and branch creation.'
 
 ## Overview
 
-PlanetScale currently offers database deployment in three regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy branches in the region closest to your location to help reduce latency when interacting with the database.
+PlanetScale currently offers database deployment in multiple regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy development branches in the region closest to your own location to reduce latency when working with the branch.
+
+A number of resources exist to help find which region has the lowest latency from your location – such as [CloudPing](https://www.cloudping.co/grid#).
 
 ## Available regions
 
@@ -55,7 +57,7 @@ pscale branch create my-production-database add-tables --region eu-west
 
 ## Restricting the branch regions
 
-Organization administrators can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ settings in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
+Organization administrators can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
 
 ![Restrict your branches to one region.](/img/docs/restrict-branch-region.png)
 
