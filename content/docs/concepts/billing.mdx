@@ -5,7 +5,7 @@ subtitle: 'PlanetScale pricing was designed for transparency and scalability.'
 
 ## Overview
 
-PlanetScale offers a free *Developer* plan with a generous **25GB of storage**. Our paid *Scaler* plan is priced based on the number of `reads`/`writes` and amount of storage, with an additional monthly flat fee. This scalable, pay-as-you-grow model means you'll never have to over-provision resources.
+PlanetScale offers a free *Developer* plan with a generous **10GB of storage**. At $29 per month, our paid *Scaler* plan comes with 25GB storage, 500m row `reads`, and 50m row `writes`, with the option to pay for additional usage and storage as you go. This scalable, pay-as-you-grow model means you'll never have to over-provision resources.
 
 ### PlanetScale charges on three factors
 
@@ -17,17 +17,19 @@ PlanetScale offers a free *Developer* plan with a generous **25GB of storage**. 
 
 PlanetScale applies billing plans at the **database level**. You can create several databases under one account/organization. The usage charges will be scoped to each database, so each database will have its own separate billing page.
 
-We offer three plans, outlined below:
+We offer three plans, summarized below:
 
 |                      | **Developer**: Free  | **Scaler**: Pay as you grow    | **Enterprise**: Custom                      |
 | -------------------- | -------------------- | ------------------------------- | --------------------------------------------- |
 | **Storage/month**    | 10GB                 | 25GB + $1.25 per additional 1GB | Configurable                                  |
-| **Read rows/month**  | 100m                 | 500m + $1.50 per additional 10m | Configurable                                  |
-| **Write rows/month** | 10m                  | 50m + $1.50 per additional 1m   | Configurable                                  |
+| **Row reads/month**  | 100m                 | 500m + $1.50 per additional 10m | Configurable                                  |
+| **Row writes/month** | 10m                  | 50m + $1.50 per additional 1m   | Configurable                                  |
 | **Branches**         | 3 per database       | 10 per database                 | _Unlimited_                                   |
+| **Audit log retention**|  5 days            | 15 days                         | Configurable                                  |
 | **Connections**      | 1,000                | 10,000                          | Configurable                                  |
-| **Automated Backups**| Daily                | Every 12 hours                  | Configurable                                  |
-| **Support**          | Community            | Email                           | Premium                                       |
+| **Automated Backups**| Once daily           | Every 12 hours                  | Configurable                                  |
+| **Autoscaling**      | Not include          | Included                        | Configurable                                  |
+| **Support**          | Community            | Ticketing                       | Premium                                       |
 | **Monthly fee**      | $0                   | $29 per database                | [Contact us](https://planetscale.com/contact) |
 
 <InfoBlock type="note">
@@ -40,7 +42,7 @@ For more information about the `Enterprise` plan, please [contact our sales team
 
 <InfoBlock type="note">
   Plans are priced <b>per database</b>. The total charge for a PlanetScale <em>database</em> includes the charge for
-  usage on <b>database branches</b>. In other words, the total reads, writes, and storage used by each branch of your database will determine the final monthly price.
+  usage on <b>database branches</b>. In other words, the total `reads`, `writes`, and storage used by each branch of your database will determine the final monthly price.
 </InfoBlock>
 
 ## Plan add-ons
@@ -63,7 +65,7 @@ The Scaler plan comes with 10 branches per database. You can add additional bran
 
 We run automatic daily backups for every branch for free. On the Scaler plan, we run automated backups every 12 hours.
 
-You can also [schedule additional backups yourself](/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, we charge $0.023 per GB per month.
+You can also [schedule additional backups yourself](/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, we charge **$0.023 per GB** per month.
 
 ## Database billing page
 
@@ -76,7 +78,7 @@ Each database has its own billing page, from which you can:
 **To find your billing page:**
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com)
-2. Select the database
+2. Select the database whose billing page you want to view
 3. Click on "Settings" in the top nav
 4. Click on "Usage and billing" in the side nav
 
