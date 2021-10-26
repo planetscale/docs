@@ -14,8 +14,8 @@ An organization is essentially a container for your databases, settings, and mem
 We currently support three different roles in your organization:
 
 - [`Organization Member`](#organization-member) &mdash; Can perform limited actions in an organization and all databases in that organization
-- `Database Administrator` &mdash; Can perform all actions in the database that they administrate
-- `Organization Administrator` &mdash; Can perform all actions in an organization and on all databases in an organization
+- [`Database Administrator`](#database-administrator) &mdash; Can perform all actions in the database that they administrate
+- [`Organization Administrator`](#organization-administrator) &mdash; Can perform all actions in an organization and on all databases in an organization
 
 Each role has a set or permissions assigned to it which determine what actions that role is allowed to take within an organization or database.
 
@@ -113,6 +113,18 @@ An Organization Administrator has all of the ["Organization-level permissions" t
 | `create_production_service_token_grant` | some description |
 
 ## Assign roles to members
+
+You can follow the steps below to assign roles to your members.
+
+- In the [PlanetScale dashboard](https://app.planetscale.com/), click on the Settings tab in the top navigation. 
+- Click on "Members" in the sidebar on the left.
+- From here, you can click on the dropdown on the right under the "Role" column to select the role you want to apply to each member.
+
+You can also invite new members to your organization and assign roles once they accept their invitation. New members will be added with the [`Organization Member`](#organization-member) role by default.
+
+<InfoBlock type="note">
+  Member role management is issued at the organization level. Each organization in your account may have different members with different access levels.
+</InfoBlock>
 
 ## Need help?
 
