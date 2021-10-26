@@ -54,7 +54,9 @@
 
 .algolia-docsearch-suggestion--highlight {
   @apply text-primary;
+  @apply dark:text-gray-900;
   @apply bg-yellow-100;
+  @apply dark:bg-yellow-300;
 }
 
 .algolia-docsearch-footer {
