@@ -17,14 +17,18 @@ Use `pscale [command] [command]` to start up the `pscale` CLI in your terminal.
 
 | **Command**      | **Subcommands/Options**                                      |
 | ---------------- | ------------------------------------------------------------ |
+| `audit-log`      | List audit logs                                              |
 | `auth`           | Login, logout, refresh your authentication                   |
 | `backup`         | Create, read, destroy, and update branch backups             |
 | `branch`         | Create, delete, and manage branches                          |
+| `completion`     | Generate completion script for your shell                    |
 | `connect`        | Create a secure connection to the given database and branch  |
 | `database`       | Create, read, destroy, and update databases                  |
 | `deploy-request` | Create, approve, diff, and manage deploy requests            |
 | `help`           | Help about any command                                       |
 | `org`            | Modify and manage organization options                       |
+| `password`       | Create, list, and delete branch passwords                    |
+| `region`         | List regions                                                 |
 | `service-token`  | Create, get, and list service tokens                         |
 | `shell`          | Open a MySQL shell instance to the given database and branch |
 | `signup`         | Sign up for a new PlanetScale account                        |
@@ -40,6 +44,7 @@ You may use the following flags with the PlanetScale CLI commands.
 | `--debug`                     | Enable debug mode                                                                       |
 | `-f, --format string`         | Show output in specific format. Possible values: _[human, json, csv] (default "human")_ |
 | `-h, --help`                  | Get more information about a command                                                    |
+| `--no-color`                  | Disable color output                                                                    |
 | `--service-token string`      | Service Token for authenticating                                                        |
 | `--service-token-name string` | The Service Token name for authenticating                                               |
 | `--version`                   | Show pscale version. Verify that you're using the latest version                        |
