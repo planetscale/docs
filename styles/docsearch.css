@@ -1,0 +1,64 @@
+// Docsearch theming
+
+.algolia-autocomplete {
+  @apply w-full;
+}
+
+.ds-dropdown-menu {
+  @apply w-full;
+  @apply p-2;
+  @apply mt-2;
+  @apply bg-primary;
+  @apply border;
+  @apply rounded;
+  @apply shadow-lg;
+}
+
+.algolia-docsearch-suggestion--category-header {
+  @apply hidden;
+}
+
+.algolia-docsearch-suggestion--content {
+  @apply py-1;
+  @apply px-2;
+  @apply -mx-1;
+  @apply rounded;
+
+  .ds-cursor & {
+    @apply bg-secondary;
+  }
+}
+
+.algolia-docsearch-suggestion {
+  @apply block;
+  @apply no-underline;
+}
+
+.algolia-docsearch-suggestion--subcategory-column {
+  @apply hidden;
+}
+
+.algolia-docsearch-suggestion--subcategory-inline {
+  @apply hidden;
+}
+
+.algolia-docsearch-suggestion--title {
+  @apply block;
+  @apply text-blue;
+  @apply font-semibold;
+}
+
+.algolia-docsearch-suggestion--text {
+  @apply text-secondary;
+}
+
+.algolia-docsearch-suggestion--highlight {
+  @apply text-primary;
+  @apply dark:text-gray-900;
+  @apply bg-yellow-100;
+  @apply dark:bg-yellow-300;
+}
+
+.algolia-docsearch-footer {
+  @apply hidden;
+}

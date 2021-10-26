@@ -30,7 +30,8 @@ export default function Header() {
       >
         Skip to content
       </a>
-      <div className='relative z-40 py-3 border-b bg-primary text-primary mx-auto w-full'>
+      <div className='relative z-40 w-full py-3 mx-auto border-b bg-primary text-primary'>
+        {/* Overlay */}
         <div
           className={classNames('md:hidden duration-300 fixed z-30 inset-0 transition-opacity', {
             'opacity-0 pointer-events-none': !showMobileNav,
@@ -40,31 +41,9 @@ export default function Header() {
         >
           <div className='absolute inset-0 bg-primary'></div>
         </div>
-        <div
-          className={classNames('w-full absolute px-3 sm:px-6 z-50 top-12 duration-300 transition-opacity', {
-            'opacity-0 pointer-events-none': !showMobileNav,
-            'opacity-100 pointer-events-auto': showMobileNav
-          })}
-        >
-          <div className='flex md:hidden flex-col sm:flex-row-reverse sm:items-center justify-between mb-4'>
-            <span className='mb-3 sm:mb-0'>
-              <ButtonLink href='https://auth.planetscale.com/sign-up' variant='secondary' className='mr-2 sm:mr-1'>
-                Get started
-              </ButtonLink>
-              <ButtonLink href='https://app.planetscale.com/' variant='secondary'>
-                {isSignedIn ? 'Go to dashboard' : 'Sign in'}
-              </ButtonLink>
-            </span>
-            <span className='flex-1 sm:mr-4 '>
-              <SearchBar />
-            </span>
-          </div>
-          <div className='w-full sm:w-1/2 md:hidden'>
-            <Navigation />
-          </div>
-        </div>
-        <header className='z-50 relative flex items-center justify-between max-w-7xl px-3 sm:px-6 lg:px-8 mx-auto'>
-          <div className='flex items-center w-2/5 md:w-1/3 pr-4'>
+
+        <header className='relative z-50 grid items-center grid-cols-2 px-3 mx-auto md:grid-cols-3 md:grid-rows-1 max-w-7xl sm:px-6 lg:px-8'>
+          <div className='flex items-center col-start-1 row-start-1'>
             <Link href='/'>
               <a className='rounded text-primary' aria-label='Go to documentation homepage'>
                 <Logo />
@@ -80,25 +59,48 @@ export default function Header() {
             </div>
           </div>
 
-          <div className='flex-grow justify-between items-center flex-none hidden md:flex'>
-            <SearchBar />
-            <span>
-              <ButtonLink href='https://auth.planetscale.com/sign-up' variant='secondary' className='mr-2'>
-                Get started
-              </ButtonLink>
-              <ButtonLink href='https://app.planetscale.com/' variant='secondary'>
-                {isSignedIn ? 'Go to dashboard' : 'Sign in'}
-              </ButtonLink>
-            </span>
-          </div>
-          <button
-            aria-label='Open navigation menu'
-            className='relative z-50 flex appearance-none focus:outline-none md:hidden'
-            onClick={toggleMobileNav}
+          <div
+            className={classNames(
+              'col-start-1 col-span-2 md:col-span-1 pt-3 md:pt-0 row-start-3 md:col-start-2 md:row-start-1 md:flex',
+              {
+                hidden: !showMobileNav
+              }
+            )}
           >
-            <HamburgerMenu open={showMobileNav} />
-          </button>
+            <SearchBar />
+          </div>
+          <div
+            className={classNames(
+              'col-start-1 col-span-2 md:col-span-1 row-start-2 pt-5 md:pt-0 md:row-start-1 md:col-start-3 md:justify-end md:flex',
+              {
+                hidden: !showMobileNav
+              }
+            )}
+          >
+            <ButtonLink href='https://auth.planetscale.com/sign-up' variant='secondary' className='mr-2'>
+              Get started
+            </ButtonLink>
+            <ButtonLink href='https://app.planetscale.com/' variant='secondary'>
+              {isSignedIn ? 'Go to dashboard' : 'Sign in'}
+            </ButtonLink>
+          </div>
+          <div className='relative z-50 flex justify-end col-start-2 row-start-1 align-center md:hidden'>
+            <button
+              aria-label='Open navigation menu'
+              className='flex appearance-none focus:outline-none'
+              onClick={toggleMobileNav}
+            >
+              <HamburgerMenu open={showMobileNav} />
+            </button>
+          </div>
         </header>
+        <div
+          className={classNames('relative z-40 w-full px-3 pt-3 sm:px-6 lg:px-8 sm:w-1/2 md:hidden', {
+            hidden: !showMobileNav
+          })}
+        >
+          <Navigation />
+        </div>
       </div>
     </>
   )

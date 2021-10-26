@@ -16,7 +16,6 @@ import ImageBlock from './MDX.ImageBlock'
 import NextBlock from './MDX.NextBlock'
 import InfoBlock from './MDX.InfoBlock'
 import TableBlock from './MDX.TableBlock'
-import Link from 'next/link'
 
 export default function MDXContent({
   title,
@@ -28,7 +27,6 @@ export default function MDXContent({
   category,
 }) {
   const components = {
-    a: Link,
     table: TableBlock,
     code: CodeBlock,
     inlineCode: InlineCodeBlock,
