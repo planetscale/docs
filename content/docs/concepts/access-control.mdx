@@ -27,46 +27,38 @@ You can find the complete set of permissions available to an Organization Member
 
 #### Organization-level permissions
 
-| Permissions | Description |
+| Permissions              | Description                  |
 | ------------------------ | ---------------------------- |
 | `show_service_token` | View a service token in an organization |
 | `list_service_tokens` | View all service tokens in an organization |
 | `create_service_token` | Create a service token in an organization |
 | `destroy_service_token` | Delete a service token in an organization |
-| `list_service_token_grants` | View all service token grants |
-| `show_service_token_grant` | some description |
-| `create_service_token_grant` | some description |
-| `destroy_service_token_grant` | some description |
-| `update_service_token_grant` | some description |
-| `show_organization` | some description |
-| `list_organization_members` | some description |
-| `show_organization_member` | some description |
-| `list_organization_audit_logs` | some description |
-| `update_integration` | some description |
-| `list_databases` | some description |
-| `show_database` | some description |
-| `create_database` | some description |
-| `list_service_tokens` | some description |
-| `create_service_token` | some description |
-| `destroy_service_token` | some description |
-| `list_service_token_grants` | some description |
-| `show_service_token_grant` | some description |
-| `create_service_token_grant` | some description |
-| `destroy_service_token_grant` | some description |
-| `update_service_token_grant` | some description |
+| `list_service_token_grants` | View all service token grants in an organization |
+| `show_service_token_grant` | Show all service token grants in an organization |
+| `create_service_token_grant` | Create a service token grant in an organization |
+| `destroy_service_token_grant` | Delete a service token grant in an organization |
+| `update_service_token_grant` | Update a service token grant in an organization |
+| `show_organization` | View an organization |
+| `list_organization_members` | View all members in an organization |
+| `show_organization_member` | View a member in an organization |
+| `list_organization_audit_logs` | View all audit logs in an organization |
+| `update_integration` | Update an integration in an organization |
+| `list_databases` | View all databases in an organization |
+| `show_database` | View a database in an organization |
+| `create_database` | Create a new database in an organization |
 
 #### Database-level permissions
 
-| Permissions | Description |
+| Permissions              | Description                  |
 | ------------------------ | ---------------------------- |
-| `list_database_members` | some description |
-| `show_database_members` | some description |
-| `request_deploy` | some description |
-| `show_branch` | some description |
-| `show_database` | some description |
-| `create_branch` | some description |
-| `destroy_branch` | some description |
-| `list_query_stats` | some description |
+| `list_database_members` | View all members of all databases in an organization |
+| `show_database_members` | View a member of all databases in an organization |
+| `request_deploy` | Create a deploy request for all databases in an organization |
+| `show_branch` | View a branch for all databases in an organization |
+| `show_database` | View all databases in an organization  |
+| `create_branch` | Create a branch for all databases in an organization |
+| `destroy_branch` | Delete a branch for all databases in an organization |
+| `list_query_stats` | View query statistics for all databases in an organization |
 
 ### Database Administrator
 
@@ -80,14 +72,14 @@ A Database Administrator has all of the ["Database-level permissions" that an Or
 
 | Permissions | Description |
 | ------------------------ | ---------------------------- |
-| `update_database` | some description |
-| `destroy_database` | some description |
-| `add_database_member` | some description |
-| `remove_database_member` | some description |
-| `update_database_member` | some description |
-| `promote_branch` | some description |
-| `destroy_production_branch` | some description |
-| `update_database_billing` | some description |
+| `update_database` | Update a specific database |
+| `destroy_database` | Delete a specific database |
+| `add_database_member` | Add a member to a specific database |
+| `remove_database_member` | Remove a member from a specific database |
+| `update_database_member` | Update a member of a specific database |
+| `promote_branch` | Promote a branch of a specific database |
+| `destroy_production_branch` | Delete the production branch of a specific database |
+| `update_database_billing` | Update the billing of a specific database |
 
 ### Organization Administrator
 
@@ -99,20 +91,20 @@ An Organization Administrator has all of the ["Organization-level permissions" t
 
 | Permissions | Description |
 | ------------------------ | ---------------------------- |
-| `update_organization` | some description |
-| `destroy_organization` | some description |
-| `update_organization_member` | some description |
-| `remove_organization_member` | some description |
-| `invite_organization_member` | some description |
-| `cancel_organization_invite` | some description |
-| `list_organization_invitations` | some description |
-| `update_sso` | some description |
-| `list_billing_sources` | some description |
-| `add_billing_source` | some description |
-| `list_billing_summaries` | some description |
-| `list_organization_invoices` | some description |
-| `download_organization_invoice` | some description |
-| `create_production_service_token_grant` | some description |
+| `update_organization` | Update an organization |
+| `destroy_organization` | Delete an organization |
+| `update_organization_member` | Update a member of an organization |
+| `remove_organization_member` | Remove a member from an organization |
+| `invite_organization_member` | Invite a member to an organization |
+| `cancel_organization_invite` | Cancel a member invitation to an organization |
+| `list_organization_invitations` | View all organization invitations |
+| `update_sso` | Update Single-Sign On settings in an organization |
+| `list_billing_sources` | View all billing sources |
+| `add_billing_source` | Create a new billing source |
+| `list_billing_summaries` | View all billing summaries |
+| `list_organization_invoices` | View all organization invoices |
+| `download_organization_invoice` | Download an organization invoice |
+| `create_production_service_token_grant` | Create a production service token grant |
 
 ## Assign organization roles to members
 
