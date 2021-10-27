@@ -51,14 +51,18 @@ You can find the complete set of permissions available to an Organization Member
 
 | Permissions              | Description                  |
 | ------------------------ | ---------------------------- |
-| `list_database_members` | View all members of all databases in an organization |
-| `show_database_members` | View a member of all databases in an organization |
-| `request_deploy` | Create a deploy request for all databases in an organization |
-| `show_branch` | View a branch for all databases in an organization |
-| `show_database` | View all databases in an organization  |
-| `create_branch` | Create a branch for all databases in an organization |
-| `destroy_branch` | Delete a branch for all databases in an organization |
-| `list_query_stats` | View query statistics for all databases in an organization |
+| `list_database_members` | View all members of a database in an organization |
+| `show_database_members` | View a member of a database in an organization |
+| `request_deploy` | Create a deploy request for a database in an organization |
+| `show_branch` | View a branch for a database in an organization |
+| `show_database` | View a database in an organization  |
+| `create_branch` | Create a branch for a database in an organization |
+| `destroy_branch` | Delete a branch for a database in an organization |
+| `list_query_stats` | View query statistics for a database in an organization |
+
+<InfoBlock type="note">
+  These database-level permissions apply to all databases within an organization.
+</InfoBlock>
 
 ### Database Administrator
 
@@ -104,7 +108,7 @@ An Organization Administrator has all of the ["Organization-level permissions" t
 | `list_billing_summaries` | View all billing summaries |
 | `list_organization_invoices` | View all organization invoices |
 | `download_organization_invoice` | Download an organization invoice |
-| `create_production_service_token_grant` | Create a production service token grant |
+| `create_production_service_token_grant` | Create a production service token |
 
 ## Assign organization roles to members
 
