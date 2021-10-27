@@ -72,7 +72,7 @@ You can find the complete set of permissions available to an Organization Member
 
 A member with the `Database Administrator` role can perform all actions on the database for which they were assigned the `Database Administrator` role.
 
-This role is assigned at the **database level** and therefore **does not** have any organization-level permissions. If you want to [grant a member access to manage one or several databases](#assign-roles-at-a-database-level), but not the organization, then this is the role you want.
+This role is assigned at the **database level** and therefore **does not** have any organization-level permissions. If you want to [grant a member _full_ access to manage one or several databases](#assign-roles-at-a-database-level), but not the organization, then this is the role you want.
 
 #### Database-level permissions
 
@@ -131,6 +131,10 @@ You can also invite new members to your organization and assign roles once they 
 ## Assign roles at a database level
 
 To assign a member the role of `Database Administrator`, follow the steps outlined below. You must be an Organization Administrator or an existing Database Administrator to manage the `Database Administrator` role. 
+
+<InfoBlock type="note">
+  Members that create a database are automatically assigned the role of <inlineCode>Database Administrator</inlineCode> for that database.
+</InfoBlock>
 
 - In the [PlanetScale dashboard](https://app.planetscale.com/), click on the name of the database you want to add a Database Administrator to.
 - Click on the "Settings" tab in the top navigation.
