@@ -85,7 +85,7 @@
       "pages": [
         {
           "route": "support-overview",
-          "display": "PlanetScale Support Overview"
+          "display": "PlanetScale Support overview"
         }
       ]
     }
