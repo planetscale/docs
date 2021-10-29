@@ -46,6 +46,6 @@
     "postcss-mixins": "^7.0.3",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.3.0",
-    "tailwindcss": "^2.2.15"
+    "tailwindcss": "^2.2.19"
   }
 }
