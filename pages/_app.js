@@ -22,17 +22,6 @@ export default function App({ Component, pageProps }) {
   const [favicon, setFavicon] = useState('/favicon_system.svg')
 
   useEffect(() => {
-    const onChange = (event) => {
-      setFavicon(`/favicon_${event.matches ? 'dark' : 'light'}.svg`)
-      colorSchemeChanged(event)
-    }
-    const query = window.matchMedia('(prefers-color-scheme: dark)')
-    query.addEventListener('change', onChange)
-    syncColorScheme(query.matches)
-    return () => query.removeEventListener('change', onChange)
-  }, [])
-
-  useEffect(() => {
     const path = window.location.hash
     if (path && path.includes('#')) {
       setTimeout(() => {
@@ -45,7 +34,7 @@ export default function App({ Component, pageProps }) {
 
         const r = el.getBoundingClientRect()
         window.top.scroll({
-          top: pageYOffset + r.top - 100, // 100 for page header height
+          top: scrollY + r.top - 100, // 100 for page header height
           behavior: 'smooth'
         })
       }, 600)
@@ -67,7 +56,6 @@ export default function App({ Component, pageProps }) {
     <>
       <Head>
         <link rel='shortcut icon' href={favicon} sizes='any' type='image/svg+xml' />
-
         <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
       </Head>
       <Page>
