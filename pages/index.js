@@ -18,7 +18,7 @@ export default function Overview() {
 
       <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
         <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
-          <SVG src='/img/internals/flow-diagram.svg' width='720' height={'auto'} className='max-w-full' />
+          <SVG src='/img/internals/flow-diagram.svg' width='720' height='139' className='max-w-full' />
         </div>
 
         <h2 className='mb-1 text-xl font-semibold'>The PlanetScale workflow</h2>
@@ -80,7 +80,7 @@ export default function Overview() {
         <Link href='/tutorials/connect-rails-app'>
           <a className='flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
             <div className='inline-block h-[32px]'>
-              <SVG src='/img/internals/ruby-logo.svg' height={32} width='auto' className='mb-2' />
+              <SVG src='/img/internals/ruby-logo.svg' height={32} width={32} className='mb-2' />
             </div>
             <h3 className='text-lg font-semibold text-primary mb-sm'>Ruby on Rails</h3>
             <p className='text-secondary'>Learn how to connect your Rails app to a PlanetScale database.</p>
@@ -92,7 +92,7 @@ export default function Overview() {
               <SVG
                 src='/img/internals/vercel-logo.svg'
                 height={32}
-                width='auto'
+                width={37}
                 className='mb-2 text-black dark:text-white'
               />
             </div>
@@ -103,12 +103,7 @@ export default function Overview() {
         <Link href='/tutorials/automatic-prisma-migrations'>
           <a className='flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
             <div className='inline-block h-[32px]'>
-              <SVG
-                src='/img/internals/prisma-logo.svg'
-                height={32}
-                width='auto'
-                className='mb-2 text-[#163C53] dark:text-white'
-              />
+              <SVG src='/img/internals/prisma-logo.svg' height={32} className='mb-2 text-[#163C53] dark:text-white' />
             </div>
             <h3 className='text-lg font-semibold text-primary mb-sm'>Prisma</h3>
             <p className='text-secondary'>Learn how to use PlanetScale's automatic migrations with Prisma.</p>
