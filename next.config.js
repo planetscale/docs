@@ -7,7 +7,6 @@ module.exports = withMDX({
 })
 
 module.exports = {
-  webpack5: false,
   eslint: {
     ignoreDuringBuilds: true,
   },
