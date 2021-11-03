@@ -29,7 +29,7 @@
     "eslint-plugin-react": "^7.25.1",
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
-    "postcss-mixins": "^7.0.3",
+    "postcss-mixins": "^8.1.0",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.3.0",
     "tailwindcss": "^2.2.19"
