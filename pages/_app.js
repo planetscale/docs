@@ -22,6 +22,19 @@ export default function App({ Component, pageProps }) {
   const [favicon, setFavicon] = useState('/favicon_system.svg')
 
   useEffect(() => {
+    const onChange = (event) => {
+      setFavicon(`/favicon_${event.matches ? 'dark' : 'light'}.svg`)
+      colorSchemeChanged(event)
+    }
+    const query = window.matchMedia('(prefers-color-scheme: dark)')
+    if (query.addEventListener) {
+      query.addEventListener('change', onChange)
+    }
+    syncColorScheme(query.matches)
+    return () => query.removeEventListener('change', onChange)
+  }, [])
+
+  useEffect(() => {
     const path = window.location.hash
     if (path && path.includes('#')) {
       setTimeout(() => {
