@@ -22,6 +22,7 @@
         { "route": "mfa", "display": "Multi-factor authentication" },
         { "route": "sso", "display": "Single sign-on" },
         { "route": "security", "display": "Security" },
+        { "route": "access-control", "display": "Access control" },
         { "route": "audit-log", "display": "Audit log" },
         { "route": "security-log", "display": "Security log" },
         { "route": "query-statistics", "display": "Query statistics" },
@@ -43,7 +44,6 @@
           "display": "Connect a Node.js app"
         },
         { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
-        { "route": "deploy-to-heroku", "display": "Deploy to Heroku" },
         {
           "route": "automatic-rails-migrations",
           "display": "Automatic Rails migrations"

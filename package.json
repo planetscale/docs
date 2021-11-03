@@ -11,17 +11,17 @@
     "@mdx-js/loader": "^1.6.22",
     "@mdx-js/mdx": "^1.6.22",
     "@mdx-js/react": "^1.6.22",
-    "@next/mdx": "^10.2.3",
-    "@segment/snippet": "^4.14.2",
+    "@next/mdx": "^12.0.2",
+    "@segment/snippet": "^4.15.3",
     "classnames": "^2.3.1",
-    "core-js": "^3.12.1",
+    "core-js": "^3.19.0",
     "date-fns": "^2.16.1",
     "details-element-polyfill": "^2.0.1",
     "gray-matter": "^4.0.3",
-    "js-cookie": "^2.2.1",
+    "js-cookie": "^3.0.1",
     "lodash": "^4.17.21",
     "next": "latest",
-    "next-mdx-remote": "^3.0.2",
+    "next-mdx-remote": "^3.0.7",
     "polished": "^4.1.2",
     "prism-react-renderer": "^1.2.0",
     "prismjs": "^1.25.0",
@@ -38,14 +38,14 @@
     "slug": "^4.1.0"
   },
   "devDependencies": {
-    "autoprefixer": "^10.3.4",
+    "autoprefixer": "^10.4.0",
     "extract-text-webpack-plugin": "^3.0.2",
     "npm-check": "^5.9.2",
-    "postcss": "^8.3.6",
+    "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
-    "postcss-mixins": "^7.0.3",
+    "postcss-mixins": "^8.1.0",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.3.0",
-    "tailwindcss": "^2.2.15"
+    "tailwindcss": "^2.2.19"
   }
 }

@@ -1,7 +1,6 @@
 {
   "index_name": "planetscale-docs",
-  "js_render": true,
-  "js_wait": 2,
+  "js_render": false,
   "start_urls": [
     "https://docs.planetscale.com/"
   ],
