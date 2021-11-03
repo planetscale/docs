@@ -4,6 +4,6 @@ module.exports = {
     'postcss-mixins': {},
     'postcss-nested': {},
     tailwindcss: {},
-    autoprefixer: {},
-  },
+    autoprefixer: {}
+  }
 }
