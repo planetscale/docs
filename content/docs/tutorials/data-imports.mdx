@@ -7,31 +7,43 @@ subtitle: 'Import your data from an external database into your PlanetScale data
 
 PlanetScale provides an import tool in the dashboard that allows you to painlessly import an existing cloud-hosted MySQL database into your PlanetScale database.
 
+<InfoBlock type='note'>
+  Importing a database will <b>not</b> count towards your <inlineCode>read</inlineCode> or <inlineCode>write</inlineCode> usage.
+</InfoBlock>
+
 ## Import your database
 
 To import an existing database into PlanetScale, first head to your PlanetScale dashboard and click on the "**Import**" button, which will bring you to the **Import Setup page**.
 
-Type in the name for your PlanetScale database and select a region from the dropdown. Next, you'll fill out some connection information so that we can import your data.
+Type in the name for your PlanetScale database and [select a region](/concepts/regions) from the dropdown. Next, you'll fill out some connection information so that we can import your data.
+
+![Select name and region for new database import](/img/docs/database-import-planetscale.png)
 
 ### Set up the connection
 
 Fill in the following values with information from your existing hosted database:
 
-- **Host name**:
-- **Port**:
-- **Database name**:
-- **Username**:
+- **Host name** &mdash;
+- **Port** &mdash;
+- **SSL verification mode** &mdash;
+- **Database name** &mdash;
+- **Username** &mdash;
 
 You'll have the option to **Authenticate with password** or **Authenticate with mTLS**.
 
-To authenticate with password, simply type in your password. For the Authenticate with mTLS option, you'll need to provide the following:
+To authenticate with password, type in the password for the username you entered. Make sure the user has `read` access to this database. For the "Authenticate with mTLS option", you'll need to provide the following:
 
-- SSL client certificate: 
-- SSL client key: 
+- **SSL client certificate**
+- **SSL client key**
+
+From here you, can proceed to [testing the connection](#test-the-connection) or click "show advanced settings" for more options.
 
 ### Advanced settings
 
+Under Advanced settings, you have the option to enter the following:
 
+- **SSL server name override**
+- **SSL CA certificate chain**
 
 ### Test the connection
 
@@ -40,6 +52,8 @@ Once you have all of your connection information plugged in, click the "**Connec
 If the connection fails, you'll get an error message in the dashboard. Double check your connection information or see our [Troubleshooting section](#troubleshooting) for more information.
 
 ### Import process
+
+You'll see the table by table progress as the data is being imported.
 
 Once your database has been imported, it's ready to [connect to your application](/tutorials/connect-any-application).
 
