@@ -1,0 +1,41 @@
+---
+title: 'PlanetScale and Prisma Cloud Integration'
+subtitle: 'Use the Prisma Cloud integration to auto-generate a project using Prisma and PlanetScale'
+---
+
+## Overview
+
+The following guide will show you how to integrate PlanetScale with a
+
+## Configure the project
+
+First, navigate to [Prisma Cloud](https://cloud.prisma.io/projects/) to create your project. Authenticate with your GitHub account and then click on the "New Project" button to [start a new project](https://cloud.prisma.io/projects/create).
+
+Give your project a name. You'll have the option to either create a new repository for your project or import an existing Prisma repository. Either way, select the GitHub account that the existing project lives under or where you want it to to live.
+
+### Importing an existing Prisma repository
+
+If you're creating a new one, type in the repository name here. And if you're importaing, click on "Import a Prisma repository" and then select the repository and branch from the dropdowns.
+
+Make sure your imported project has a `schema.prisma` file. You can specify the path of the file in the "Prisma Schema path" input box. This file must be relative to the repository root.
+
+![Prisma Cloud project configuration](/img/docs/prisma-cloud-configuration.png)
+
+## Select a template
+
+If you're creating a new project, you can choose to start with a pre-built template. If you'd prefer to start from scratch, select the "Empty" option.
+
+![Prisma Cloud project template options](/img/docs/prisma-cloud-templates.png)
+
+## Configure the environment
+
+Next, you need to connect your Prisma project to your PlanetScale database.
+
+Here's what you'll need to do:
+
+- In the "**Database Provider**" dropdown, select "**PlanetScale MySQL**"
+- Authenticate with PlanetScale by clicking "Sign in/up and link your PlanetScale account"
+- This will kick of the OAuth flow where Prisma will request limited access to your Databases, User account, and Organization.
+- Click "Allow access".
+- Under "Prisma Data Proxy", select the location closest to you.
+- Once you're ready to proceed, click the green "Create project" button at the bottom.
