@@ -1,0 +1,144 @@
+---
+title: 'Access control'
+subtitle: 'Explore roles, permissions, and access control options at an organization and database level.'
+---
+
+## Overview
+
+When you set up your PlanetScale account, you're asked to create an **Organization**. 
+
+An organization is essentially a container for your databases, settings, and members. You can create multiple organizations in the same account for different applications or use cases. Within each organization, you can add members and assign them different roles. For even more control, you can [assign roles at the database level](#database-administrator) within each organization as well.
+
+## Roles and permissions
+
+We currently support three different roles in your organization:
+
+- [`Organization Member`](#organization-member) &mdash; Can perform limited actions in an organization and on all databases in that organization
+- [`Database Administrator`](#database-administrator) &mdash; Can perform all actions in the database that they administrate
+- [`Organization Administrator`](#organization-administrator) &mdash; Can perform all actions in an organization and on all databases in an organization
+
+Each role has a set of permissions assigned to it which determine what actions that role is allowed to take within an organization or database.
+
+### Organization Member
+
+A member with the `Organization Member` role can only perform limited actions in an organization and on all databases in the organization.
+
+You can find the complete set of permissions available to an Organization Member in the table below:
+
+#### Organization-level permissions
+
+| Permissions              | Description                  |
+| ------------------------ | ---------------------------- |
+| `show_service_token` | View a service token in an organization |
+| `list_service_tokens` | View all service tokens in an organization |
+| `create_service_token` | Create a service token in an organization |
+| `destroy_service_token` | Delete a service token in an organization |
+| `list_service_token_grants` | View all service token grants in an organization |
+| `show_service_token_grant` | Show all service token grants in an organization |
+| `create_service_token_grant` | Create a service token grant in an organization |
+| `destroy_service_token_grant` | Delete a service token grant in an organization |
+| `update_service_token_grant` | Update a service token grant in an organization |
+| `show_organization` | View an organization |
+| `list_organization_members` | View all members in an organization |
+| `show_organization_member` | View a member in an organization |
+| `list_organization_audit_logs` | View all audit logs in an organization |
+| `update_integration` | Update a third-party integration in an organization |
+| `list_databases` | View all databases in an organization |
+| `show_database` | View a database in an organization |
+| `create_database` | Create a new database in an organization |
+
+#### Database-level permissions
+
+| Permissions              | Description                  |
+| ------------------------ | ---------------------------- |
+| `list_database_members` | View all members of a database in an organization |
+| `show_database_members` | View a member of a database in an organization |
+| `request_deploy` | Create a deploy request of a database in an organization |
+| `show_branch` | View a branch of a database in an organization |
+| `show_database` | View a database in an organization  |
+| `create_branch` | Create a branch of a database in an organization |
+| `destroy_branch` | Delete a non-production branch of a database in an organization |
+| `list_query_stats` | View query statistics of a database in an organization |
+
+<InfoBlock type="note">
+  These database-level permissions apply to all databases within an organization.
+</InfoBlock>
+
+### Database Administrator
+
+A member with the `Database Administrator` role can perform all actions on the database for which they were assigned the `Database Administrator` role.
+
+This role is assigned at the **database level** and therefore **does not** have any organization-level permissions. If you want to [grant a member _full_ access to manage one or several databases](#assign-roles-at-a-database-level), but not the organization, then this is the role you want.
+
+#### Database-level permissions
+
+A Database Administrator has all of the ["Database-level permissions" that an Organization Member](#organization-member) has, as well as the following:
+
+| Permissions | Description |
+| ------------------------ | ---------------------------- |
+| `update_database` | Update settings of a specific database |
+| `destroy_database` | Delete a specific database |
+| `add_database_member` | Add a member to a specific database |
+| `remove_database_member` | Remove a member from a specific database |
+| `update_database_member` | Update the role of a specific database member |
+| `promote_branch` | Promote a branch of a specific database to production branch |
+| `destroy_production_branch` | Delete the production branch of a specific database |
+| `update_database_billing` | Update the billing plan of a specific database |
+
+### Organization Administrator
+
+An Organization Administrator can perform all actions in an organization, as well as all actions on _every_ database within that organization. To see a full list of the database-level permissions, refer to the [Database Administrator list of permissions](#database-administrator). 
+
+#### Organization-level permissions
+
+An Organization Administrator has all of the ["Organization-level permissions" that an Organization Member](#organization-member) has, as well as the following:
+
+| Permissions | Description |
+| ------------------------ | ---------------------------- |
+| `update_organization` | Update the settings of an organization |
+| `destroy_organization` | Delete an organization |
+| `update_organization_member` | Update the role of an organization member |
+| `remove_organization_member` | Remove a member from an organization |
+| `invite_organization_member` | Invite a member to an organization |
+| `cancel_organization_invite` | Cancel a member invitation to an organization |
+| `list_organization_invitations` | View all organization invitations |
+| `update_sso` | Update single sign-on settings in an organization |
+| `list_billing_sources` | View all payment methods |
+| `add_billing_source` | Create a new payment method |
+| `list_billing_summaries` | View all billing summaries |
+| `list_organization_invoices` | View all organization invoices |
+| `download_organization_invoice` | Download an organization invoice |
+| `create_production_service_token_grant` | Create a service token grant to connect to a production database branch |
+
+## Assign organization roles to members
+
+You can follow the steps below to assign roles to your members. You must be an Organization Administrator to modify member roles.
+
+- In the [PlanetScale dashboard](https://app.planetscale.com/), click on the Settings tab in the top navigation. 
+- Click on "Members" in the sidebar on the left.
+- From here, you can click on the dropdown on the right under the "Role" column to select the role you want to apply to each member.
+
+You can also invite new members to your organization and assign roles once they accept their invitation. New members will be added with the [`Organization Member`](#organization-member) role by default.
+
+<InfoBlock type="note">
+  Member role management is issued at the organization level. Each organization in your account may have different members with different access levels.
+</InfoBlock>
+
+## Assign roles at a database level
+
+To assign a member the role of `Database Administrator`, follow the steps outlined below. You must be an Organization Administrator or an existing Database Administrator to manage the `Database Administrator` role. 
+
+<InfoBlock type="note">
+  Members that create a database are automatically assigned the role of <inlineCode>Database Administrator</inlineCode> for that database.
+</InfoBlock>
+
+- In the [PlanetScale dashboard](https://app.planetscale.com/), click on the name of the database you want to add a Database Administrator to.
+- Click on the "Settings" tab in the top navigation.
+- Click on "Administrators" in the sidebar on the left.
+- To add an administrator, click on the "Add administrator" button and select the member you wish to add as a Database Administrator.
+- From here, you can also remove a Database Administrator by clicking the "Remove" button next to their name. 
+
+
+## Need help?
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
