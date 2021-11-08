@@ -27,7 +27,9 @@ export default function App({ Component, pageProps }) {
       colorSchemeChanged(event)
     }
     const query = window.matchMedia('(prefers-color-scheme: dark)')
-    query.addEventListener('change', onChange)
+    if (query.addEventListener) {
+      query.addEventListener('change', onChange)
+    }
     syncColorScheme(query.matches)
     return () => query.removeEventListener('change', onChange)
   }, [])
@@ -45,7 +47,7 @@ export default function App({ Component, pageProps }) {
 
         const r = el.getBoundingClientRect()
         window.top.scroll({
-          top: pageYOffset + r.top - 100, // 100 for page header height
+          top: scrollY + r.top - 100, // 100 for page header height
           behavior: 'smooth'
         })
       }, 600)
