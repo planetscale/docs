@@ -1,0 +1,150 @@
+---
+title: 'Netlify template quick start'
+subtitle: ''
+---
+
+## Overview
+
+This guide will show you how to get up and running with the Netlify, Next.js, and PlanetScale starter template. The template includes the following features:
+
+- Simple user admin dashboard
+- [PlanetScale](https://planetscale.com/) database
+- [Prisma ORM](https://www.prisma.io/) integration
+- [Next.js authentication](https://nextjs.org/docs/authentication)
+- One-click deploy to [Netlify](https://netlify.com)
+- [Tailwind CSS](https://tailwindcss.com/) styling
+
+### Prerequisites
+
+To follow along with this guide, you'll need the following:
+
+- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- The [PlanetScale CLI](https://github.com/planetscale/cli#installation)
+- [Yarn](https://yarnpkg.com/getting-started/install)
+- (optional) A [free Netlify account](https://app.netlify.com/signup)
+
+## Database setup
+
+First, you need to set up your PlanetScale database. If you don't already have a [PlanetScale account](https://docs.planetscale.com/concepts/billing#planetscale-plans), you can [sign up for a free one here](https://auth.planetscale.com/sign-up).
+
+### Create your database
+
+To begin, create a new database. You can either do this in the dashboard or using the [PlanetScale CLI](https://docs.planetscale.com/reference/planetscale-cli).
+
+In the dashboard, click on the "**Create a database**" button. Name your database "`netlify-starter`", or whatever name you wish. Select the region closest to you, and click "**Create database**".
+
+Alternatively, create a database [with the CLI](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-cli) by running the following:
+
+```bash
+pscale database create <database-name> -regionSlug
+```
+
+The list of region slugs can be found in our [Regions documentation](https://docs.planetscale.com/concepts/regions#available-regions).
+
+### Set up Prisma shadow branch
+
+Next, you need to set up the [Prisma shadow branch](https://www.prisma.io/docs/concepts/components/prisma-migrate/shadow-database). This is a temporary database used for Prisma development.
+
+To create the Prisma shadow branch:
+
+- Click on your `netlify-starter` database in your PlanetScale dashboard.
+- Click on the "**New branch**" button.
+- Name the branch `shadow`.
+- Leave the base branch as `main`.
+- Select the region closest to you or your application.
+- Click "**Create branch**".
+
+### Connect to your database branches locally
+
+To connect locally, make sure you've authenticated in the CLI. If not, follow the directions in the [sign in section of our quick start guide](/tutorials/planetscale-quick-start-guide#sign-in-to-your-account).
+
+Next, connect to your `main` and `shadow` branches locally by running the following in your terminal in two separate tabs:
+
+```bash
+pscale connect <database-name> main --port <port>
+```
+
+```bash
+pscale connect <database-name> shadow --port <port>
+```
+
+Choose any unused port. This tutorial uses `3309` and `3310`. You'll should see the response "Secure connection to database netlify-starter and branch main is established!" along with the local address that your application is on. Take note of that address for the next step.
+
+### Set up environment variables
+
+For the last part of set up, you need to fill in your environment variables. The `DATABASE_URL` and `SHADOW_DATABASE_URL` values will be in the following form:
+
+`mysql://<user>@<address>:<port>/<database>` 
+
+- `user` &mdash; the database user
+- `address` &mdash; the local address returned in the previous step
+- `port` &mdash; the port you specified in the previous step 
+- `database` &mdash; the name of your database 
+
+Below is an example of the `.env` file based on this tutorial:
+
+```js
+DATABASE_URL="mysql://root@127.0.0.1:3309/netlify-starter"
+SHADOW_DATABASE_URL="mysql://root@127.0.0.1:3310/netlify-starter"
+NEXTAUTH_URL=http://localhost:3000
+NEXT_PUBLIC_BASE_URL=http://localhost:3000
+BASE_URL=http://localhost:3000
+```
+
+## Run the application 
+
+Finally, it's time to run the app! In your terminal, run the following to install the dependencies:
+
+```bash
+yarn install
+```
+
+Next, you need to migrate the database. In your terminal, run:
+
+```bash
+yarn db:migrate
+```
+
+The database schema is now ready. You can seed the data locally to see it in action or skip to the next step to go straight to deployment. To seed the database, run the following:
+
+```bash
+yarn db:seed
+```
+
+Finally, run your application with:
+
+```bash
+yarn dev 
+```
+
+To set up your admin account for your application, go to [https://localhost:3000/admin/setup](https://localhost:3000/admin/setup).
+
+## Deploy to Netlify
+
+Now that your database is live, you can deploy your app to Netlify.
+
+The one-click deploy allows you to connect Netlify to your GitHub account to clone the nextjs-planetscale-starter repository and deploy it automatically. Be sure to [sign up for a Netlify account](https://app.netlify.com/signup) before clicking the deploy button.
+
+[![Deploy to Netlify button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/planetscale/nextjs-planetscale-starter)
+
+By clicking the above button, you will be navigated to the Netlify’s direct deploy page with the project’s repository passed as parameters in the url. Click the Connect to GitHub button, name your repository and enter....
+
+TODO what environment variables are needed for Netlify and how to get them
+
+```
+DATABASE_URL (get this one from inside PlanetScale connect modal, Prisma dropdown and copy URL from snippet)
+NEXTAUTH_SECRET (use https://generate-secret.now.sh/32 to create one, never actually used, but required)
+TODO these cannot be filled out until you "Deploy to Netlify" and know the app's base URL:
+
+NEXTAUTH_URL
+BASE_URL
+```
+
+Note: The initial build will fail if the database is not set up following TODO
+
+Once it is live, go to the `/admin/setup` page to create an admin account to get started.
+
+## Next.js authentication
+
+
+## Customize and extend
