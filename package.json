@@ -16,7 +16,7 @@
     "gray-matter": "^4.0.3",
     "js-cookie": "^3.0.1",
     "next": "^12.0.3",
-    "next-mdx-remote": "^3.0.7",
+    "next-mdx-remote": "^3.0.8",
     "prism-react-renderer": "^1.2.0",
     "prismjs": "^1.25.0",
     "react": "latest",
