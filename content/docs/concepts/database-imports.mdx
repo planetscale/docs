@@ -1,0 +1,101 @@
+---
+title: 'Database Imports'
+subtitle: 'Import your data from an external database into your PlanetScale database.'
+---
+
+## Overview
+
+PlanetScale provides an import tool in the dashboard that allows you to painlessly import an existing cloud-hosted MySQL database into your PlanetScale database.
+
+<InfoBlock type='note'>
+  Importing a database will <b>not</b> count towards your <inlineCode>read</inlineCode> or <inlineCode>write</inlineCode> usage.
+</InfoBlock>
+
+## Connect to your external database
+
+To import an existing database into PlanetScale, first head to your PlanetScale dashboard and click on the "**Import**" button, which will bring you to the **Import Setup page**.
+
+Give your imported database a name and [select a region](/concepts/regions) from the dropdown. Next, you'll fill out some connection information so that we can import your data.
+
+![Select name and region for new database import](/img/docs/database-import-planetscale.png)
+
+Fill in the following values with information from your existing hosted database:
+
+- **Host name** &mdash;
+- **Port** &mdash;
+- **SSL verification mode** &mdash;
+- **Database name** &mdash;
+- **Username** &mdash;
+
+You'll have the option to **Authenticate with password** or **Authenticate with mTLS**.
+
+To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database. For the "Authenticate with mTLS option", you'll need to provide the following:
+
+- **SSL client certificate**
+- **SSL client key**
+
+From here you, can proceed to [testing the connection](#test-the-connection) or click "show advanced settings" for more options.
+
+### Advanced settings
+
+Under Advanced settings, you have the option to enter the following:
+
+- **SSL server name override**
+- **SSL CA certificate chain**
+
+### Test the connection
+
+Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click on the "**Begin database import**" button to import your data.
+
+If the connection fails, you'll get an error message in the dashboard. Double check your connection information or see our [Troubleshooting section](#troubleshooting) for more information.
+
+## Import process
+
+There are four simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information.
+
+### Step 1: Performing initial import
+
+![Step 1 of database import - Initial import](/img/docs/database-imports-step-1.png)
+
+During step one, your external database is imported into your PlanetScale database. The connection remains open during this phase. We'll continue watching your database and automatically update with any changes you make to your external database.
+
+Once the import is finished, your database is in `read-only` mode.
+
+### Step 2: Read-only mode
+
+![Step 2 of database import - Read-only mode](/img/docs/database-imports-step-2.png)
+
+While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](https://docs.planetscale.com/reference/secure-connections) in a MySQL client or [in your application locally](https://docs.planetscale.com/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
+
+At this point, you can also view query statistics, branches, and database settings by clicking around in the top nav.
+
+Once you're ready, click on "Enable read-write mode" to head to the next step.
+
+### Step 3: Read-write mode 
+
+![Step 3 of database import - Read-write mode](/img/docs/database-imports-step-3.png)
+
+During this step, PlanetScale becomes the primary database instead of your external database and is fully ready to run as `read-write` mode is enabled. If you're happy everything, you can now click on the "**Detach external database**" to finalize the import. 
+
+After you detach the external database, your connection to that database will be closed and PlanetScale will delete all connection information.
+
+### Step 4: Finish import
+
+![Step 4 of database import - finish import](/img/docs/database-imports-step-4.png)
+
+Your database has now been fully imported into PlanetScale and is ready to use!
+
+So what's next? Here are some next steps you can take with your database:
+
+- [Promote the development branch to production](/concepts/branching#branch-promotion) &mdash; After import, your database branch, `main`, is in development mode. If you're ready to go live, you can promote that branch to production by clicking the button in the "Finish import" box. Production branches are highly available and protected from direct schema changes.
+- [Connect to your application](/tutorials/connect-any-application) &mdash; If you want to continue development using this database, you can also connect locally to your application. 
+- [Create a deploy request](/concepts/branching#create-a-deploy-request) &mdash;
+
+## Troubleshooting
+
+For additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
+
+### Connection issues
+
+### Foreign key constraints
+
