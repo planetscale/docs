@@ -5,15 +5,17 @@ subtitle: 'Import your data from an external database into your PlanetScale data
 
 ## Overview
 
-PlanetScale provides an import tool in the dashboard that allows you to painlessly import an existing cloud-hosted MySQL database into your PlanetScale database.
+PlanetScale provides an import tool in the dashboard that allows you to painlessly import an **existing cloud-hosted MySQL database** into a PlanetScale database.
 
-<InfoBlock type='note'>
-  Importing a database will <b>not</b> count towards your <inlineCode>read</inlineCode> or <inlineCode>write</inlineCode> usage.
-</InfoBlock>
+**This feature is currently in Beta.**
 
 ## Connect to your external database
 
 To import an existing database into PlanetScale, first head to your PlanetScale dashboard and click on the "**Import**" button, which will bring you to the **Import Setup page**.
+
+<InfoBlock type='note'>
+  Importing a database will <b>not</b> count towards your <inlineCode>read</inlineCode> or <inlineCode>write</inlineCode> usage.
+</InfoBlock>
 
 Give your imported database a name and [select a region](/concepts/regions) from the dropdown. Next, you'll fill out some connection information so that we can import your data.
 
@@ -21,11 +23,11 @@ Give your imported database a name and [select a region](/concepts/regions) from
 
 Fill in the following values with information from your existing hosted database:
 
-- **Host name** &mdash;
-- **Port** &mdash;
-- **SSL verification mode** &mdash;
-- **Database name** &mdash;
-- **Username** &mdash;
+- **Host name** &mdash; The address where the database is hosted. 
+- **Port** &mdash; The port where your database is hosted. The default MySQL port is `3306`.
+- **SSL verification mode** &mdash; 
+- **Database name** &mdash; The exact name of the database you want to import.
+- **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
 You'll have the option to **Authenticate with password** or **Authenticate with mTLS**.
 
@@ -45,7 +47,7 @@ Under Advanced settings, you have the option to enter the following:
 
 ### Test the connection
 
-Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click on the "**Begin database import**" button to import your data.
+Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click the "**Begin database import**" button to import your data.
 
 If the connection fails, you'll get an error message in the dashboard. Double check your connection information or see our [Troubleshooting section](#troubleshooting) for more information.
 
@@ -93,9 +95,17 @@ So what's next? Here are some next steps you can take with your database:
 
 ## Troubleshooting
 
-For additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
+Below, you'll find some of the common errors you may run into while importing or connecting to an external database.
+
+If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
+
+### Foreign key constraints disallowed
+
+### No unique key
+
+### Invalid charset
+
+### Unsupported feature
+
 
 ### Connection issues
-
-### Foreign key constraints
-
