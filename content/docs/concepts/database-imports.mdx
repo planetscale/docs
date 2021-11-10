@@ -29,21 +29,21 @@ Fill in the following values with information from your existing hosted database
 - **Database name** &mdash; The exact name of the database you want to import.
 - **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
-You'll have the option to **Authenticate with password** or **Authenticate with mTLS**.
+You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
 
-To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database. For the "Authenticate with mTLS option", you'll need to provide the following:
+For the "Authenticate with mTLS option", you'll need to provide the following:
 
-- **SSL client certificate**
-- **SSL client key**
+- **SSL client certificate** &mdash;
+- **SSL client key** &mdash;
 
-From here you, can proceed to [testing the connection](#test-the-connection) or click "show advanced settings" for more options.
+From here you, can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
 
 ### Advanced settings
 
 Under Advanced settings, you have the option to enter the following:
 
-- **SSL server name override**
-- **SSL CA certificate chain**
+- **SSL server name override** &mdash;
+- **SSL CA certificate chain** &mdash;
 
 ### Test the connection
 
@@ -106,6 +106,5 @@ If you need additional assistance, contact our [PlanetScale's support team](http
 ### Invalid charset
 
 ### Unsupported feature
-
 
 ### Connection issues
