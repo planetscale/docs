@@ -93,18 +93,34 @@ So what's next? Here are some next steps you can take with your database:
 - [Connect to your application](/tutorials/connect-any-application) &mdash; If you want to continue development using this database, you can also connect locally to your application. 
 - [Create a deploy request](/concepts/branching#create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
 
-## Troubleshooting
+## Troubleshooting Connectivity issues
+1. If connecting with a username & password, try to connect with the `mysql CLI` with the connection parameters to ensure that you can connect.
 
-Below, you'll find some of the common errors you may run into while importing or connecting to an external database.
 
-If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
+## Troubleshooting Compatibility issues
+
+PlanetScale runs vitess and has to ensure that we can perform data migrations at scale, you might run into a few issues
+importing your existing database into PlanetScale.
+
+Here's a few common errors you may run into while importing or connecting to an external database.
 
 ### Foreign key constraints disallowed
+PlanetScale does not support database schemas that have tables with foreign keys in them. 
+Please take a look at our help document on how your application can [operate without foreign keys](https://docs.planetscale.com/tutorials/operating-without-foreign-keys)
 
 ### No unique key
+PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. 
+Please take a look at the offical [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html)
+pkg/handlers/lintsnapshot/handler.go
 
 ### Invalid charset
 
-### Unsupported feature
+PlanetScale supports the following charsets `utf8`, `utf8mb4`, `utf8mb3`.
+If your table has any other charset, please consult the  official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html)
 
-### Connection issues
+### Unsupported feature
+You might see this error if your table requires the `MyISAM` engine.
+PlanetScale does not support the `MyISAM` engine.
+Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html)
+
+If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
