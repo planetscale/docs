@@ -25,7 +25,7 @@ Fill in the following values with information from your existing hosted database
 
 - **Host name** &mdash; The address where the database is hosted. 
 - **Port** &mdash; The port where your database is hosted. The default MySQL port is `3306`.
-- **SSL verification mode** &mdash; 
+- **SSL verification mode** &mdash; If your database server provides a valid SSL certificate, please set this to `Required`, otherwise select `Disabled`
 - **Database name** &mdash; The exact name of the database you want to import.
 - **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
@@ -33,8 +33,8 @@ You'll have the option to **Authenticate with password** or **Authenticate with 
 
 For the "Authenticate with mTLS option", you'll need to provide the following:
 
-- **SSL client certificate** &mdash;
-- **SSL client key** &mdash;
+- **SSL client certificate** &mdash; Certificate to authenticate PlanetScale with your database server.
+- **SSL client key** &mdash; This is the private key for the client certificate
 
 From here you, can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
 
