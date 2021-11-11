@@ -17,6 +17,10 @@ Query statistics give you insight into the active queries running against your d
 - **Rows returned** — The number of rows fetched by a select statement.
 - **Time per query** — The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
 
+<InfoBlock type="note">
+  <b>Rows returned</b> will not always be equal to the number of <b>rows read</b> counted for billing purposes. We recommend using <a href="https://www.percona.com/blog/2019/10/28/using-explain-analyze-in-mysql-8/">EXPLAIN ANALYZE</a> to investigate the total number of rows read during the execution of a query.
+</InfoBlock>
+
 ## Need help?
 
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
