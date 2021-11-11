@@ -119,8 +119,7 @@ PlanetScale supports the following charsets `utf8`, `utf8mb4`, `utf8mb3`.
 If your table has any other charset, please consult the  official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html)
 
 ### Unsupported feature
-You might see this error if your table requires the `MyISAM` engine.
-PlanetScale does not support the `MyISAM` engine.
+You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
 Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html)
 
 If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
