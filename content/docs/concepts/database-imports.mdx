@@ -93,33 +93,44 @@ So what's next? Here are some next steps you can take with your database:
 - [Connect to your application](/tutorials/connect-any-application) &mdash; If you want to continue development using this database, you can also connect locally to your application. 
 - [Create a deploy request](/concepts/branching#create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
 
-## Troubleshooting Connectivity issues
-1. If connecting with a username & password, try to connect with the `mysql CLI` with the connection parameters to ensure that you can connect.
+## Troubleshooting connectivity issues
 
+If you're running into issues connecting with a username and password, try to plug that same connection information into the MySQL CLI or a MySQL GUI. Below is the command for the MySQL CLI.
 
-## Troubleshooting Compatibility issues
+```
+mysql -u <username> -p <password> -h <host> -P <port> -D <database>
+```
 
-PlanetScale runs vitess and has to ensure that we can perform data migrations at scale, you might run into a few issues
-importing your existing database into PlanetScale.
+If the connection works there, but not on PlanetScale, please [reach out for additional assistance](#additional-assistance).
 
-Here's a few common errors you may run into while importing or connecting to an external database.
+## Troubleshooting compatibility issues
+
+PlanetScale is built on [Vitess](https://vitess.io/), which gives us the power to perform data migrations at scale. This does, however, come with some trade-offs that could cause you to run into errors while importing an existing database. We believe these small trade-offs are worth the massive benefits, such as unlimited scaling through horizontal sharding, non-blocking schema changes, branching, and more. So if you do run into any compatibility issues while importing your external database to PlanetScale, we'd like to help you troubleshoot.
+
+Below are a few common errors you may run into while importing or connecting to an external database. If you're still having trouble importing, please feel free to [reach out to support for additional assistance](#additional-assistance).
 
 ### Foreign key constraints disallowed
-PlanetScale does not support database schemas that have tables with foreign keys in them. 
-Please take a look at our help document on how your application can [operate without foreign keys](https://docs.planetscale.com/tutorials/operating-without-foreign-keys)
+
+PlanetScale does not support database schemas that have tables with foreign keys in them.
+
+Please take a look at our help document on how your application can [operate without foreign key constraints](https://docs.planetscale.com/tutorials/operating-without-foreign-keys).
 
 ### No unique key
-PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. 
-Please take a look at the offical [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html)
-pkg/handlers/lintsnapshot/handler.go
+
+PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, you can read through our [Change single unique key documentation](https://docs.planetscale.com/tutorials/change-unique-key#how-to-change-a-table's-single-unique-key) for more information.
+
+It may also help to check out the offical [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html).
 
 ### Invalid charset
 
 PlanetScale supports the following charsets `utf8`, `utf8mb4`, `utf8mb3`.
-If your table has any other charset, please consult the  official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html)
+If your table has any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
 
 ### Unsupported feature
+
 You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
-Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html)
+Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html) for more information.
+
+### Additional assistance
 
 If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
