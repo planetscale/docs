@@ -18,7 +18,7 @@ This guide will show you how to get up and running with the Netlify, Next.js, an
 If you're coming from the <strong>Netlify Template</strong> and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template.
 <br/>
 <br/>
-If you're <strong>starting fresh and haven't deployed yet</strong>, you can also start from the beginning of this tutorial, as it will cover Netlify deployment at the end. If you want to deploy using the Netlify 1-click deploy button, skip to the <a href="#one-click-deploy-button">Netlify section</a> right now and then come back to the top to continue.
+If you're <strong>starting fresh and haven't deployed yet</strong>, you can also start from the beginning of this tutorial, as it will cover Netlify deployment at the end. If you want to deploy using the Netlify one-click deploy button, skip to the <a href="#one-click-deploy-button">Netlify section</a> right now, and then come back to the top to continue.
 </InfoBlock>
 
 ### Prerequisites
@@ -90,7 +90,7 @@ To create the Prisma shadow branch:
 
 ### Connect to your database branches locally
 
-To connect locally, make sure you've authenticated in the CLI. If not, follow the directions in the [sign in section of our quick start guide](/tutorials/planetscale-quick-start-guide#sign-in-to-your-account).
+To connect locally, make sure you've authenticated in the CLI. If not, follow the directions in the [sign-in section of our quick start guide](/tutorials/planetscale-quick-start-guide#sign-in-to-your-account).
 
 Next, connect to your `main` and `shadow` branches locally by running the following in your terminal in two separate tabs:
 
@@ -106,7 +106,7 @@ Choose any unused port. This tutorial uses `3309` and `3310`. You'll  see the re
 
 ## Set up environment variables
 
-For the last part of set up, you need to fill in your environment variables. 
+For the last part of setup, you need to fill in your environment variables. 
 
 Make a copy of the `.env.example` file at the root of your project and rename it `.env`:
 
@@ -234,13 +234,13 @@ The final step in the site deployment is configuring your production environment
 
 Click on the "**Edit variables**" button and enter in the following key/value pairs:
 
-- `DATABASE_URL` &mdash; To find this value, go back to your PlanetScale dashboard, click on the `netlify-starter` database, and select the `main` branch under "**Branches**". Click on the "**Connect**" dropdown and then click the "**Generate new password**" button. Next, click on the "**General**"" dropdown in that modal and select "**Prisma**". Copy the value for `url` and paste that back in the as the value for `DATABASE_URL` in the Netlify dashboard. Be sure to save your PlanetScale password somewhere as you won't be able to access it again after closing the modal.
+- `DATABASE_URL` &mdash; To find this value, go back to your PlanetScale dashboard, click on the `netlify-starter` database, and select the `main` branch under "**Branches**". Click on the "**Connect**" dropdown and then click the "**Generate new password**" button. Next, click on the "**General**"" dropdown in that modal and select "**Prisma**". Copy the value for `url` and paste that back in the Netlify dashboard as the value for `DATABASE_URL`. Be sure to save your PlanetScale password somewhere as you won't be able to access it again after closing the modal.
 - `NEXTAUTH_SECRET` &mdash; To generate a new secret, go to [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
 - `BASE_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`.
 - `NEXTAUTH_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 - `NEXT_PUBLIC_BASE_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 
-## Set up production admin account
+## Set up the production admin account
 
 Finally, you can set up your production admin account for your application if you haven't already. Go to [/admin/setup](/admin/setup) on your live Netlify site and fill in the form to set up your account. This will be automatically saved to your PlanetScale database.
 
