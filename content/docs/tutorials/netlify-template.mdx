@@ -129,8 +129,6 @@ Below is an example of the `.env` file based on this tutorial:
 DATABASE_URL="mysql://root@127.0.0.1:3309/netlify-starter"
 SHADOW_DATABASE_URL="mysql://root@127.0.0.1:3310/netlify-starter"
 NEXTAUTH_URL=http://localhost:3000
-NEXT_PUBLIC_BASE_URL=http://localhost:3000
-BASE_URL=http://localhost:3000
 ```
 
 Remember, these are the values for your **local environment**. The values needed for the Netlify environment variables will be covered shortly.
@@ -236,9 +234,7 @@ Click on the "**Edit variables**" button and enter in the following key/value pa
 
 - `DATABASE_URL` &mdash; To find this value, go back to your PlanetScale dashboard, click on the `netlify-starter` database, and select the `main` branch under "**Branches**". Click on the "**Connect**" dropdown and then click the "**Generate new password**" button. Next, click on the "**General**"" dropdown in that modal and select "**Prisma**". Copy the value for `url` and paste that back in the Netlify dashboard as the value for `DATABASE_URL`. Be sure to save your PlanetScale password somewhere as you won't be able to access it again after closing the modal.
 - `NEXTAUTH_SECRET` &mdash; To generate a new secret, go to [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
-- `BASE_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`.
 - `NEXTAUTH_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
-- `NEXT_PUBLIC_BASE_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 
 ## Set up the production admin account
 
