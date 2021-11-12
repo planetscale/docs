@@ -51,7 +51,7 @@ For more information about certificates from a Certificate Authority, check out 
 
 Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click the "**Begin database import**" button to import your data.
 
-If the connection fails, you'll get an error message in the dashboard. Double check your connection information or see our [Troubleshooting section](#troubleshooting) for more information.
+If the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting) for more information.
 
 ## Import process
 
@@ -61,7 +61,7 @@ There are four simple steps to the database import process. You can cancel the i
 
 ![Step 1 of database import - Initial import](/img/docs/database-imports-step-1.png)
 
-During step one, your external database is imported into your PlanetScale database. The connection remains open during this phase. We'll continue watching your database and automatically update with any changes you make to your external database.
+During step one, your external database is imported into your PlanetScale database. The connection remains open during this phase. We'll continue watching your database and automatically update it with any changes you make to your external database.
 
 Once the import is finished, your database is in `read-only` mode.
 
@@ -121,7 +121,7 @@ Please take a look at our help document on how your application can [operate wit
 
 PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, you can read through our [Change single unique key documentation](https://docs.planetscale.com/tutorials/change-unique-key#how-to-change-a-table's-single-unique-key) for more information.
 
-It may also help to check out the offical [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html).
+It may also help to check out the official [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html).
 
 ### Invalid charset
 
