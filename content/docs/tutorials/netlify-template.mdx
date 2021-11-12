@@ -18,7 +18,7 @@ This guide will show you how to get up and running with the Netlify, Next.js, an
 If you're coming from the <strong>Netlify Template</strong> and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template.
 <br/>
 <br/>
-If you're <strong>starting fresh and haven't deployed yet</strong>, you can also start from the beginning of this tutorial, as it will cover Netlify deployment at the end.
+If you're <strong>starting fresh and haven't deployed yet</strong>, you can also start from the beginning of this tutorial, as it will cover Netlify deployment at the end. If you want to deploy using the Netlify 1-click deploy button, skip to the <a href="#one-click-deploy-button">Netlify section</a> right now and then come back to the top to continue.
 </InfoBlock>
 
 ### Prerequisites
@@ -35,7 +35,11 @@ To follow along with this guide, you'll need the following:
 
 Whether you already deployed to Netlify or you're just getting started, it's a good idea to set up the project locally so that you can iterate on the template.
 
-Clone the [`nextjs-planetscale-starter` repository](https://github.com/planetscale/nextjs-planetscale-starter). If you already went through the Netlify deployment, find the repository in your GitHub account and clone that one.
+If you plan on deploying to Netlify, the easiest way to start this tutorial is to go through the Netlify template. Click on the "Deploy to Netlify" button below.
+
+If you already went through the Netlify deployment, find the repository in your GitHub account and clone that one.
+
+If you just want to run the template, you can clone the [`nextjs-planetscale-starter` repository](https://github.com/planetscale/nextjs-planetscale-starter).
 
 Enter into the folder and install the dependencies:
 
@@ -193,39 +197,69 @@ Next, you need to set up your admin account for your application. Go to [https:/
 
 Creating an admin account gives you access to the `/admin` route in your application, which is the dashboard to manage your users.
 
-Once you're signed in as an admin, navigate to [https://localhost:3000/admin](https://localhost:3000/admin) to check it out.
+Once you're signed in as an admin, navigate to [https://localhost:3000/admin](https://localhost:3000/admin) to see a list of your users.
 
 ## Deploy to Netlify
 
-Once you're happy with your application, you can deploy it to Netlify. Make sure you push all your changes to GitHub so Netlify can connect to your repo.
+Once you're happy with your application, you can deploy it to Netlify.
+
+If you've already deployed to Netlify, you can skip this section and go straight to filling in the [Netlify environment variables](#netlify-environment-variables).
+
+Make sure you push all your changes to GitHub so Netlify can connect to your repo and [sign up for a Netlify account](https://app.netlify.com/signup) if you haven't already.
+
+Follow these steps to set up your Netlify site:
+
+- In your Netlify dashboard, click on the "**New site from Git**" button.
+- Choose the Git provider where your repo is hosted.
+- Select the `nextjs-planetscale-starter-app` repo or whatever you named it.
+- Click "Deploy site".
+
+Now you're ready to fill in your environment variables. Since you cloned the project repository yourself, you can skip the one-click deploy section below and jump straight to the [environment variables section](#netlify-environment-variables). 
+
+### One-click deploy button
 
 The one-click deploy button allows you to connect Netlify to your GitHub account to clone the `nextjs-planetscale-starter` repository and deploy it automatically. Be sure to [sign up for a Netlify account](https://app.netlify.com/signup) before clicking the deploy button.
 
 [![Deploy to Netlify button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/planetscale/nextjs-planetscale-starter)
 
-By clicking the above button, you will be navigated to the Netlify’s direct deploy page with the project’s repository passed as a parameter in the URL. Click the Connect to GitHub button, name your repository and enter....
+Once you click the button, you'll be taken to Netlify’s direct deploy page with the pre-built project’s repository passed as a parameter in the URL. Click the "**Connect to GitHub**" button to authorize access.
 
-TODO what environment variables are needed for Netlify and how to get them
+Next, you'll be asked to configure your site variables. For the `Secret` value, navigate to [`https://generate-secret.now.sh/32`](https://generate-secret.now.sh/32) to generate a secret and then paste that in. You can leave the `Database URL` and `NextAuth URL` values blank for now. Click "Save & Deploy".
 
-```js
-// Get this one from inside PlanetScale connect modal, Prisma dropdown and copy URL from snippet
-DATABASE_URL=
-// use https://generate-secret.now.sh/32 to create one, never actually used, but required
-NEXTAUTH_SECRET=
-```
+Your site will take about a minute to build and then you'll be taken to a settings page. A unique Netlify URL will be generated for the project. You can click that now to see your live site! The next section will show you how to connect the live site to your PlanetScale database.
 
-After the Netlify site is created and you have a base URL, you will need to fill out two more environment variables with this base URL (for example: https://laughing-fermat-f171ce.netlify.app/)
+### Netlify environment variables
 
-```js
-NEXTAUTH_URL=
-BASE_URL=
-```
+The final step in the site deployment is configuring your production environment variables. In the Netlify dashboard under your site's settings page, click on "**Build & deploy**" > "**Environment**" in the left nav.
 
-Note: The initial build will fail if the database is not set up following TODO
+Click on the "**Edit variables**" button and enter in the following key/value pairs:
 
-Once it is live, go to the `/admin/setup` page to create an admin account to get started.
+- `DATABASE_URL` &mdash; To find this value, go back to your PlanetScale dashboard, click on the `netlify-starter` database, and select the `main` branch under "**Branches**". Click on the "**Connect**" dropdown and then click the "**Generate new password**" button. Next, click on the "**General**"" dropdown in that modal and select "**Prisma**". Copy the value for `url` and paste that back in the as the value for `DATABASE_URL` in the Netlify dashboard. Be sure to save your PlanetScale password somewhere as you won't be able to access it again after closing the modal.
+- `NEXTAUTH_SECRET` &mdash; To generate a new secret, go to [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
+- `BASE_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`.
+- `NEXTAUTH_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
+- `NEXT_PUBLIC_BASE_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 
-## Next.js authentication
+## Set up production admin account
 
+Finally, you can set up your production admin account for your application if you haven't already. Go to [/admin/setup](/admin/setup) on your live Netlify site and fill in the form to set up your account. This will be automatically saved to your PlanetScale database.
+
+Creating an admin account gives you access to the `/admin` route in your application, which is the dashboard to manage your users.
+
+Once you're signed in as an admin, navigate to [/admin](/admin) to see a list of your users.
 
 ## Customize and extend
+
+And that's it! If you followed this tutorial completely, you now have a local and production version of your Next.js + PlanetScale + Prisma admin dashboard. So what's next?
+
+Now, it's time to extend it! Next.js Authentication is baked into this starter, so you can explore the [Next.js docs to manage authentication and authorization](https://nextjs.org/docs/authentication) in your application.
+
+You also have a fully functional PlanetScale MySQL database built for scale using the power of [Vitess](https://vitess.io/). You might have noticed that this tutorial uses the same database locally as it is in production. This was just for simplicity, but with PlanetScale, you can take advantage of our [powerful branching feature](/concepts/branching) to create development branches of your database specifically for testing locally. All you have to do is create a new branch and swap out the `DATABASE_URL` environment variable in your local `.env` file.
+
+Finally, you have [Prisma ORM](https://www.prisma.io/docs/) already configured in your application. If you want to add any more fields to your `User` table or create any new tables, Prisma makes it easy with the `schema.prisma` file. If you want to make any schema changes, it's a perfect time to try out the [PlanetScale branching feature](/concepts/branching). If you mess up, those changes won't touch production. And once you're satisfied with the changes, you can deploy to production without causing downtime thanks to PlanetScale's [non-blocking schema changes](https://docs.planetscale.com/concepts/nonblocking-schema-changes).
+
+Hopefully this tutorial has been helpful. We'd love to hear how you're extending your application. Feel free to [tweet us @PlanetScaleData](https://twitter.com/planetscaledata) and share what you built!
+
+## Need help?
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
