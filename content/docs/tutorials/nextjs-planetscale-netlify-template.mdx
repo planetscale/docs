@@ -15,7 +15,7 @@ This guide will show you how to get up and running with the [Netlify, Next.js, a
 - [Tailwind CSS](https://tailwindcss.com/) styling
 
 <InfoBlock type='note'>
-If you're coming from the <a href="https://templates.netlify.com/template/nextjs-planetscale-starter/"><strong>Netlify Template</strong></a> and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just skip the first section and <a href="#set-up-the-project-locally">go straight to the local setup</a>.
+If you're coming from the <a href="https://templates.netlify.com/template/nextjs-planetscale-starter/"><strong>Netlify Template</strong></a> and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just read through the prerequisites and then skip the first section to <a href="#set-up-the-project-locally">go straight to the local setup</a>.
 <br/>
 <br/>
 If you're <strong>starting fresh and haven't deployed yet</strong> (or don't want to deploy), you can start from the beginning of this tutorial.
@@ -33,7 +33,7 @@ To follow along with this guide, you'll need the following:
 
 ## One-click deploy to Netlify
 
-The one-click deploy button allows you to connect Netlify to your GitHub account to clone the `nextjs-planetscale-starter` repository and deploy it automatically. Be sure to [sign up for a Netlify account](https://app.netlify.com/signup) before clicking the deploy button.
+The one-click deploy button allows you to connect Netlify to your GitHub account to clone the `nextjs-planetscale-starter` repository and automatically deploy it. Be sure to [sign up for a Netlify account](https://app.netlify.com/signup) before clicking the deploy button.
 
 [![Deploy to Netlify button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/planetscale/nextjs-planetscale-starter)
 
@@ -41,13 +41,13 @@ Once you click the button, you'll be taken to Netlify’s direct deploy page wit
 
 Next, you'll be asked to configure your site variables. For the `Secret` value, navigate to [`https://generate-secret.now.sh/32`](https://generate-secret.now.sh/32) to generate a secret and then paste that in. You can leave the `Database URL` and `NextAuth URL` values blank for now. Click "Save & Deploy".
 
-Your site will take about a minute to build and then you'll be taken to a settings page. A unique Netlify URL will be generated for the project. You can click that now to see your live site! The next section will show you how to connect the live site to your PlanetScale database.
+Your site will take about a minute to build and then you'll be taken to a settings page. A unique Netlify URL will be generated for the project. You can click that now to see your live site! The next section will show you how to set the project up locally and create your PlanetScale database to connect to your live site.
 
 ## Set up the project locally
 
 If you already went through the [Netlify deployment](https://templates.netlify.com/template/nextjs-planetscale-starter/), find the repository that was created for you in your GitHub account and clone it.
 
-If you just want to run the template locally, you can clone the [`nextjs-planetscale-starter` repository](https://github.com/planetscale/nextjs-planetscale-starter).
+If you didn't deploy and just want to run the template locally, you can clone the [`nextjs-planetscale-starter` repository](https://github.com/planetscale/nextjs-planetscale-starter).
 
 Enter into the folder and install the dependencies:
 
@@ -112,7 +112,7 @@ pscale connect <database-name> shadow --port <port>
 
 Choose any unused port. This tutorial uses `3309` and `3310`. You'll  see the response "Secure connection to database `netlify-starter` and branch `main` is established!" along with the local address that your application is on. Take note of that address for the next step.
 
-## Set up environment variables
+## Set up local environment variables
 
 For the last part of setup, you need to fill in your environment variables. 
 
