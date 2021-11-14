@@ -14,6 +14,10 @@ This guide will show you how to get up and running with the [Netlify, Next.js, a
 - One-click [deploy to Netlify](https://netlify.com)
 - [Tailwind CSS](https://tailwindcss.com/) styling
 
+You can see a [live demo of the starter application here](https://nextjs-planetscale-starter.netlify.app/).
+
+![Example of the dashboard application](/img/docs/nextjs-admin-dashboard.png)
+
 <InfoBlock type='note'>
 If you're coming from the <a href="https://templates.netlify.com/template/nextjs-planetscale-starter/"><strong>Netlify Template</strong></a> and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just read through the prerequisites and then skip the first section to <a href="#set-up-the-project-locally">go straight to the local setup</a>.
 <br/>
@@ -231,7 +235,7 @@ Once you're signed in as an admin, navigate to [/admin](/admin) to see a list of
 
 And that's it! If you followed this tutorial completely, you now have a local and production version of your **Next.js + PlanetScale + Prisma admin dashboard**. So what's next?
 
-Now, it's time to extend it! Next.js Authentication is baked into this starter, so you can explore the [Next.js docs to manage authentication and authorization](https://nextjs.org/docs/authentication) in your application.
+Now, it's time to extend it! Next.js Authentication is baked into this starter, so you can explore the [Next.js docs to manage authentication](https://nextjs.org/docs/authentication) in your application.
 
 You also have a fully functional PlanetScale MySQL database built for scale using the power of [Vitess](https://vitess.io/). You might have noticed that this tutorial uses the same database locally as it is in production. This was just for simplicity, but with PlanetScale, you can take advantage of our [powerful branching feature](/concepts/branching) to create development branches of your database specifically for testing locally. All you have to do is create a new branch and swap out the `DATABASE_URL` environment variable in your local `.env` file.
 
