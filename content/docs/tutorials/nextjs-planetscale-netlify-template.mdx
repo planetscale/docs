@@ -217,6 +217,8 @@ Click on the "**Edit variables**" button and enter in the following key/value pa
 - `NEXTAUTH_SECRET` &mdash; You may have already filled this out, but if not generate a new secret at [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
 - `NEXTAUTH_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 
+Click "Save". Now, redeploy the site with these new variables by going to "Deploys" in the top nav and clicking the "Trigger deploy" > "Deploy site" button.
+
 ## Set up the production admin account
 
 Finally, you can set up your production admin account for your application the same way you did locally. Go to [/admin/setup](/admin/setup) on your live Netlify site and fill in the form to set up your account. This will be automatically saved to your PlanetScale database.
