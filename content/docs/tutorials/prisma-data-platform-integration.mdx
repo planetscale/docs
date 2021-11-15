@@ -74,7 +74,7 @@ To deploy to Vercel, follow the instructions below:
 3. Under "**Configure Project**", find the section titled "**Required Environment Variables**".
 4. Enter in the value for `DATABASE_URL`. This is the Prisma Data Proxy URL used to query your database from your serverless function. You can find this value under Step 2 back in the Prisma project creation window.
 5. Copy the `DATABASE_MIGRATE_URL` from your Prisma window in Step 3 and paste it in as the value for `DATABASE_MIGRATE_URL` in your Vercel dashboard.
-6. Finally, copy the value listed in Step 4 in your Prisma window and paste it in as the value for `PRISMA_CLIENT_ENGINE_TYPE` in your Vercel dashboard.
+6. Finally, paste in `dataproxy` as the value for `PRISMA_CLIENT_ENGINE_TYPE` in your Vercel dashboard.
 
 Once you're finished, click on the "Deploy" button in your Vercel dashboard.
 
