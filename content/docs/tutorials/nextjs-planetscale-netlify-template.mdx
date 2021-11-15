@@ -205,14 +205,6 @@ SELECT * from User;
 
 You can also run this command from the CLI using the same `pscale shell` command mentioned above.
 
-## Set up your admin account
-
-Next, you need to set up your admin account for your application. Go to [http://localhost:3000/admin/setup](http://localhost:3000/admin/setup) in your browser and fill in the form to set up your account. This will be automatically saved to your PlanetScale database.
-
-Creating an admin account gives you access to the `/admin` route in your application, which is the dashboard to manage your users.
-
-Once you're signed in as an admin, navigate to [http://localhost:3000/admin](http://localhost:3000/admin) to see a list of your users.
-
 ## Netlify environment variables
 
 Now that you have your site running locally, let's shift back to the live Netlify site.
@@ -225,11 +217,11 @@ Click on the "**Edit variables**" button and enter in the following key/value pa
 - `NEXTAUTH_SECRET` &mdash; You may have already filled this out, but if not generate a new secret at [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
 - `NEXTAUTH_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 
-Click "Save". Now, redeploy the site with these new variables by going to "Deploys" in the top nav and clicking the "Trigger deploy" > "Deploy site" button.
+Click "**Save**". Now, redeploy the site with these new variables by going to "Deploys" in the top nav and clicking the "**Trigger deploy**" > "**Deploy site**" button.
 
-## Set up the production admin account
+## Set up your admin account
 
-Finally, you can set up your production admin account for your application the same way you did locally. Go to [/admin/setup](/admin/setup) on your live Netlify site and fill in the form to set up your account. This will be automatically saved to your PlanetScale database.
+Finally, you need to set up your admin account for your application. Go to [/admin/setup](/admin/setup) on your live Netlify site (or locally if you didn't deploy), and fill in the form to set up your account. This will be automatically saved to your PlanetScale database.
 
 Creating an admin account gives you access to the `/admin` route in your application, which is the dashboard to manage your users.
 
