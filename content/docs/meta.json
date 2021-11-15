@@ -43,6 +43,10 @@
           "route": "connect-nodejs-app",
           "display": "Connect a Node.js app"
         },
+        {
+          "route": "nextjs-planetscale-netlify-template",
+          "display": "Next.js and Netlify Template"
+        },
         { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
         {
           "route": "automatic-rails-migrations",
