@@ -61,33 +61,31 @@ There are four simple steps to the database import process. You can cancel the i
 
 ![Step 1 of database import - Initial import](/img/docs/database-imports-step-1.png)
 
-During step one, your external database is imported into your PlanetScale database. The connection remains open during this phase. We'll continue watching your database and automatically update it with any changes you make to your external database.
-
-Once the import is finished, your database is in `read-only` mode.
-
-### Step 2: Read-only mode
-
-![Step 2 of database import - Read-only mode](/img/docs/database-imports-step-2.png)
+During step one, your external database is imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
 
 While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](https://docs.planetscale.com/reference/secure-connections) in a MySQL client or [in your application locally](https://docs.planetscale.com/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
 
 At this point, you can also view [Query Statistics](/concepts/query-statistics), branches, and database settings by clicking around in the top nav.
 
-Once you're ready, click on "Enable read-write mode" to head to the next step.
+Once the import is finished, your database is in Replica mode.
 
-### Step 3: Read-write mode 
+### Step 2: Replica mode
 
-![Step 3 of database import - Read-write mode](/img/docs/database-imports-step-3.png)
+![Step 2 of database import - Replica mode](/img/docs/database-imports-step-2.png)
 
-During this step, PlanetScale becomes the primary database instead of your external database and is fully ready to run as `read-write` mode is enabled. If you're happy with everything, you can now click on the "**Detach external database**" to finalize the import.
+While in Replica mode, we'll continue watching your external database and automatically update your PlanetScale database with any changes you make.
 
-After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale.
+Once you're ready for PlanetScale to become your primary database, click on "Enable read-write mode" to head to the next step.
 
-### Step 4: Finish import
+### Step 3: Primary mode 
 
-![Step 4 of database import - finish import](/img/docs/database-imports-step-4.png)
+![Step 3 of database import - Primary mode](/img/docs/database-imports-step-3.png)
 
-Your database has now been fully imported into PlanetScale and is ready to use!
+During this step, PlanetScale becomes the primary database instead of your external database and is fully ready to run, as `read-write` mode is enabled. If you're happy with everything, you can now click on the "**Detach external database**" to finalize the import.
+
+### Step 4: Detach external database
+
+After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. Your database has now been fully imported into PlanetScale and is ready to use!
 
 So what's next? Here are some next steps you can take with your database:
 
