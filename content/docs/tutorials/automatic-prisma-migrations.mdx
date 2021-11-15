@@ -105,6 +105,8 @@ Along with the creation of new tables (User, Post, Profile), `20210806002614_ini
 pscale deploy-request create prisma-playground initial-setup
 ```
 
+If you haven't already, don't forget to promote `main` or at least one branch to production; otherwise, it won't work.
+
 You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
 This step creates the `User`, `Post`, and `Profile` tables in production. Once merged, PlanetScale will also insert `20210806002614_init` into `main`’s `_prisma_migrations` table.
