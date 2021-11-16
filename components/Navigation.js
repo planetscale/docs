@@ -5,18 +5,18 @@ import LabelSelect from './LabelSelect'
 import { useDarkMode } from 'next-dark-mode'
 
 export default function Navigation() {
-  const { lightModeActive, autoModeActive, switchToAutoMode, switchToDarkMode, switchToLightMode } = useDarkMode()
+  const { darkModeActive, autoModeActive, switchToAutoMode, switchToDarkMode, switchToLightMode } = useDarkMode()
 
-  let theme = 'dark'
+  let theme = 'light'
   if (autoModeActive) {
     theme = 'auto'
   }
-  if (lightModeActive) {
-    theme = 'light'
+  if (darkModeActive) {
+    theme = 'dark'
   }
-  console.log(theme)
 
   const switchMode = (event) => {
+    console.log('value:', event.target.value)
     switch (event.target.value) {
       case 'auto':
         switchToAutoMode()
