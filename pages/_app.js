@@ -58,7 +58,8 @@ export default function App({ Component, pageProps }) {
     const root = document.querySelector('html')
     const pref = root.getAttribute('data-color-scheme') || 'system'
     const dark = (isSystemDark && pref === 'system') || pref === 'dark'
-    root.classList.toggle('dark', dark)
+    // Uncomment this if we go back to light + dark modes
+    // root.classList.toggle('dark', dark)
   }
 
   function colorSchemeChanged(event) {
