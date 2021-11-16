@@ -139,13 +139,15 @@
   }
   :root.light,
   .invert-color-mode {
-    @mixin lightmode;
+    /* Make lightmode if we add light mode back */
+    @mixin darkmode;
   }
 }
 
 @media screen and (prefers-color-scheme: light) {
   :root:not(.dark) {
-    @mixin lightmode;
+    /* Make lightmode if we add light mode back */
+    @mixin darkmode;
   }
   :root.dark,
   .dark,
