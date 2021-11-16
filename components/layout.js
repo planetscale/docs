@@ -9,7 +9,8 @@ export default function Layout({ children }) {
   return (
     <div
       className={classNames('h-full', {
-        dark: darkModeActive
+        dark: darkModeActive,
+        light: !darkModeActive
       })}
     >
       <div className='flex flex-col mx-auto bg-primary text-primary'>

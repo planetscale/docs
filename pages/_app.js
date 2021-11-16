@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Page from '../components/SegmentPageTracker'
-import withDarkMode, { useDarkMode } from 'next-dark-mode'
+import withDarkMode from 'next-dark-mode'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()

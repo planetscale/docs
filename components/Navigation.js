@@ -1,16 +1,33 @@
 import React from 'react'
 import meta from '../content/docs/meta.json'
 import ActiveLink from './ActiveLink'
-import Button from './Button'
+import LabelSelect from './LabelSelect'
 import { useDarkMode } from 'next-dark-mode'
 
 export default function Navigation() {
-  const { darkModeActive, switchToDarkMode, switchToLightMode } = useDarkMode()
+  const { lightModeActive, autoModeActive, switchToAutoMode, switchToDarkMode, switchToLightMode } = useDarkMode()
 
-  const toggleMode = () => {
-    console.log(darkModeActive)
-    if (darkModeActive) switchToLightMode()
-    else switchToDarkMode()
+  let theme = 'dark'
+  if (autoModeActive) {
+    theme = 'auto'
+  }
+  if (lightModeActive) {
+    theme = 'light'
+  }
+  console.log(theme)
+
+  const switchMode = (event) => {
+    switch (event.target.value) {
+      case 'auto':
+        switchToAutoMode()
+        break
+      case 'dark':
+        switchToDarkMode()
+        break
+      case 'light':
+        switchToLightMode()
+        break
+    }
   }
 
   const toc = meta
@@ -48,10 +65,11 @@ export default function Navigation() {
           ></SidenavGroup>
         )
       })}
-      <Button size='small' variant='secondary' className='w-full' onClick={toggleMode}>
-        {darkModeActive && <>Switch to light mode</>}
-        {!darkModeActive && <>Switch to dark mode</>}
-      </Button>
+      <LabelSelect label='Theme' defaultValue={theme} size='small' className='inline-flex' onChange={switchMode}>
+        <option value='dark'>Dark</option>
+        <option value='light'>Light</option>
+        <option value='auto'>System</option>
+      </LabelSelect>
     </>
   )
 }
