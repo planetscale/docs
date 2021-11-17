@@ -81,11 +81,17 @@ Once the import is finished, your database is in Replica mode.
 
 While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes you make by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
 
-At this point, you can [connect your application](/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app. Queries will be served by PlanetScale and writes will be routed **back to your external database**, and then replicated back to PlanetScale to stay in sync. 
+Queries will be served by PlanetScale and writes will be routed **back to your external database**, and then replicated back to PlanetScale to stay in sync. 
 
 Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router".
 
-Once you're ready for PlanetScale to become your *primary* database, click "Enable primary mode" to head to the next step.
+At this point, you can [connect your live application](/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app. 
+
+In other words, any changes made to your external database will also reflect in your PlanetScale database. For example, if a user makes a new comment on your blog application while you're importing, your PlanetScale database will be updated as well. This ensures you **won't experience any data loss** while going through the import process.
+
+While in Replica mode, if you make any changes to your PlanetScale database, those will not be replicated back to your external database. To replicate both ways, you need to turn on "Primary mode".
+
+So, once you're ready for PlanetScale to become your *primary* database, click "Enable primary mode" to head to the next step.
 
 ### Step 3: Primary mode 
 
@@ -93,7 +99,9 @@ Once you're ready for PlanetScale to become your *primary* database, click "Enab
 
 During this step, PlanetScale becomes the primary database instead of your external database. It is fully ready to accept both reads and writes. Behind the scenes, we essentially reverse the direction of the data routing from the previous step. This means that all reads and writes will go straight to your PlanetScale database and updates will be replicated back to your external database.
 
-If you're fully migrated over and happy with everything, you can click on the "**Detach external database**" to finalize the import.
+In the context of the blog application example, this means that if a user makes a new comment, the comment will be written straight to the PlanetScale database and then essentially copied back to your external database as well. Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data during the import process.
+
+If you're happy with everything and ready to fully switch over, you can click on the "**Detach external database**" to finalize the import.
 
 ### Step 4: Detach external database
 
@@ -106,9 +114,11 @@ So what's next? Here are some next steps you can take with your database:
 - [Promote the development branch to production](/concepts/branching#branch-promotion) &mdash; After import, your database branch, `main`, is in development mode. If you're ready to go live, you can promote that branch to production by clicking the button in the "Finish import" box. Production branches are highly available and protected from direct schema changes.
 - [Connect to your application](/tutorials/connect-any-application) &mdash; If you want to continue development using this database, you can also connect locally to your application. 
 - [Create a deploy request](/concepts/branching#create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
+
 ## Import limitations
 
 PlanetScale will automatically stop the import process and detach your external database after **7 days** of no activity once the initial import is finished. This will not impact your PlanetScale database that was created for the import, but it will stop all replication into and out of it. 
+
 ## Troubleshooting connectivity issues
 
 If you're running into issues connecting with a username and password, try to plug that same connection information into the MySQL CLI or a MySQL GUI. Below is the command for the MySQL CLI.
