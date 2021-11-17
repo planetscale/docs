@@ -5,7 +5,7 @@ subtitle: 'Import your data from an external MySQL database into your PlanetScal
 
 ## Overview
 
-PlanetScale provides an import tool in the dashboard that allows you to painlessly import an **existing internet accessible MySQL database** into a PlanetScale database.
+PlanetScale provides an import tool in the dashboard that allows you to painlessly import an **existing internet-accessible MySQL database** into a PlanetScale database.
 
 **This feature is currently in Limited Beta.**
 
@@ -67,7 +67,7 @@ There are four simple steps to the database import process. You can cancel the i
 
 ![Step 1 of database import - Initial import](/img/docs/database-imports-step-1.png)
 
-During step one, the data and schema from your external database is imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
+During step one, the data and schema from your external database are imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
 
 While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](https://docs.planetscale.com/reference/secure-connections) in a MySQL client or [in your application locally](https://docs.planetscale.com/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
 
@@ -81,7 +81,9 @@ Once the import is finished, your database is in Replica mode.
 
 While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes you make by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
 
-At this point, you can [connect to your application](/tutorials/connect-any-application) with the PlanetScale database to ensure that it is fully compatible with your app. Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router". Queries will be served by PlanetScale and writes will be routed back to your external database and then replicated back to PlanetScale to stay in sync.
+At this point, you can [connect your live application](/tutorials/connect-any-application) to the PlanetScale database to ensure that it is fully compatible with your app. Queries will be served by PlanetScale and writes will be routed **back to your external database**, and then replicated back to PlanetScale to stay in sync. 
+
+Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router".
 
 Once you're ready for PlanetScale to become your *primary* database, click "Enable read-write mode" to head to the next step.
 
@@ -95,7 +97,7 @@ If you're fully migrated over and happy with everything, you can click on the "*
 
 ### Step 4: Detach external database
 
-After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. This will also cut off the "data routing" ability, so your PlanetScale database will no long update your external database.
+After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. This will also cut off the "data routing" ability, so your PlanetScale database will no longer update your external database.
 
 Your database has been fully imported into PlanetScale and is ready to use!
 
