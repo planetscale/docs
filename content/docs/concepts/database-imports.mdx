@@ -81,7 +81,7 @@ Once the import is finished, your database is in Replica mode.
 
 While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes you make by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
 
-At this point, you can connect to your application using the PlanetScale database to ensure that it is fully compatible with your app. Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router". Queries will be served by PlanetScale and writes will be routed back to your external database and then replicated back to PlanetScale to stay in sync.
+At this point, you can [connect to your application](/tutorials/connect-any-application) with the PlanetScale database to ensure that it is fully compatible with your app. Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router". Queries will be served by PlanetScale and writes will be routed back to your external database and then replicated back to PlanetScale to stay in sync.
 
 Once you're ready for PlanetScale to become your *primary* database, click "Enable read-write mode" to head to the next step.
 
