@@ -79,7 +79,7 @@ Once the import is finished, your database is in Replica mode.
 
 ![Step 2 of database import - Replica mode](/img/docs/database-imports-step-2.png)
 
-While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes you make by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
+While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
 
 Queries will be served by PlanetScale and writes will be routed **back to your external database**, and then replicated back to PlanetScale to stay in sync. 
 
@@ -87,9 +87,9 @@ Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://
 
 At this point, you can [connect your live application](/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app. 
 
-In other words, any changes made to your external database will also reflect in your PlanetScale database. For example, if a user makes a new comment on your blog application while you're importing, your PlanetScale database will be updated as well. This ensures you **won't experience any data loss** while going through the import process.
+In other words, any changes made to your data in your external database will also reflect in your PlanetScale database. For example, if a user makes a new comment on your blog application while you're importing, your PlanetScale database will be updated as well. This ensures you **won't experience any data loss** while going through the import process.
 
-While in Replica mode, if you make any changes to your PlanetScale database, those will not be replicated back to your external database. To replicate both ways, you need to turn on "Primary mode".
+While in Replica mode, if any data changes are made to your PlanetScale database, those will not be replicated back to your external database. To replicate both ways, you need to turn on "Primary mode".
 
 So, once you're ready for PlanetScale to become your *primary* database, click "Enable primary mode" to head to the next step.
 
