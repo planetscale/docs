@@ -1,27 +1,48 @@
 ---
-title: 'Security'
+title: 'Security and Compliance'
 subtitle: ''
 ---
 
-## Overview
 
-At PlanetScale, we are committed to delivering a powerful and easy-to-use database platform, while keeping your data secure and compliant. We take security very seriously and we are working hard to ensure the continuous security and integrity of data stored on our platform.
+At PlanetScale, we are committed to delivering a powerful and easy-to-use database platform, while keeping your data secure. We take security very seriously and we are working hard to constantly improve our security solutions, to build security into every layer of our products and to ensure the continuous security and integrity of data stored on our platform.
 
-## SOC2 certification
+## Compliance Certification
 
-PlanetScale is SOC 2 type II compliant. Submit a ticket to <support@planetscale.com> to receive a copy of the report.
+PlanetScale is certified to a System and Organization Controls(SOC) type 2. To receive a copy of the report please contact us at <support@planetscale.com>.
 
-## Encryption at rest
+## Encryption of data
 
-All data is stored encrypted at rest throughout the PlanetScale platform. This helps mitigate the risk of unintentional or malicious access to user data on storage systems.
+PlanetScale databases and their client communications are AES-256bit encrypted throughout the PlanetScale platform both in transit and at rest.
+
+### At rest
+
+Data is encrypted at rest on the underlying storage media that serves database branches and also the underlying storage media that hosts PlanetScale's database backups. This helps mitigate the risk of unintentional or malicious access to user data on storage systems.
+
+### In transit
+
+Encrypted data is transmitted to PlanetScale databases through two major paths:
+ - The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
+ - PlanetScale [Connection Strings](https://docs.planetscale.com/concepts/connection-strings) require a successfull establishiment of a TLS session before any SQL commands can be issued.
+
+### Additional data protection controls
+
+Communications to the PlanetScale API and Dashboard are encrypted using TLS 1.3;
+leveraging certificates from an established third party certificate authority.
 
 ## Access and management
 
 We provide configurable authentication, audit logging, and user access management.
 
+### Identity and access controls
+
+### Device management
+
 ## Reporting security vulnerabilities
 
-If you believe you have discovered a security vulnerability in a PlanetScale product, please report your findings to <security@planetscale.com>.
+If you believe you have discovered a security vulnerability in a PlanetScale product, please let us know immediately. You can submit a vulnerabilityur findings to <security@planetscale.com>.
+
+[bounty program specifics]
+
 
 ## Need help?
 
