@@ -81,7 +81,7 @@ Once the import is finished, your database is in Replica mode.
 
 While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes you make by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
 
-At this point, you can [connect your live application](/tutorials/connect-any-application) to the PlanetScale database to ensure that it is fully compatible with your app. Queries will be served by PlanetScale and writes will be routed **back to your external database**, and then replicated back to PlanetScale to stay in sync. 
+At this point, you can [connect your application](/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app. Queries will be served by PlanetScale and writes will be routed **back to your external database**, and then replicated back to PlanetScale to stay in sync. 
 
 Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router".
 
@@ -91,7 +91,7 @@ Once you're ready for PlanetScale to become your *primary* database, click "Enab
 
 ![Step 3 of database import - Primary mode](/img/docs/database-imports-step-3.png)
 
-During this step, PlanetScale becomes the primary database instead of your external database. It is fully ready to run with `read-write` mode enabled. Behind the scenes, we essentially reverse the direction of the data routing from the previous step. This means that all reads and writes will go straight to your PlanetScale database and updates will be replicated back to your external database.
+During this step, PlanetScale becomes the primary database instead of your external database. It is fully ready to accept both reads and writes. Behind the scenes, we essentially reverse the direction of the data routing from the previous step. This means that all reads and writes will go straight to your PlanetScale database and updates will be replicated back to your external database.
 
 If you're fully migrated over and happy with everything, you can click on the "**Detach external database**" to finalize the import.
 
