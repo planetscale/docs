@@ -9,7 +9,6 @@
         { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
         { "route": "branching", "display": "Branching" },
         { "route": "connection-strings", "display": "Connection strings" },
-        { "route": "database-imports", "display": "Database imports" },
         { "route": "regions", "display": "Regions" },
         {
           "route": "nonblocking-schema-changes",
