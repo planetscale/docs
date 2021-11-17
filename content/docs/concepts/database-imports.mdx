@@ -31,6 +31,10 @@ Fill in the following values with information from your existing hosted database
 - **Database name** &mdash; The exact name of the database you want to import.
 - **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
+<InfoBlock type='note'>
+  You must have <a href="https://dev.mysql.com/doc/internals/en/binary-log-overview.html">binary logs</a> enabled on the database you're importing.
+</InfoBlock>
+
 You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
 
 For the "Authenticate with mTLS option", you'll need to provide the following:
@@ -63,7 +67,7 @@ There are four simple steps to the database import process. You can cancel the i
 
 ![Step 1 of database import - Initial import](/img/docs/database-imports-step-1.png)
 
-During step one, your external database is imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
+During step one, the data and schema from your external database is imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
 
 While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](https://docs.planetscale.com/reference/secure-connections) in a MySQL client or [in your application locally](https://docs.planetscale.com/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
 
@@ -75,19 +79,25 @@ Once the import is finished, your database is in Replica mode.
 
 ![Step 2 of database import - Replica mode](/img/docs/database-imports-step-2.png)
 
-While in Replica mode, we'll continue watching your external database and automatically update your PlanetScale database with any changes you make.
+While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes you make by utilizing [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
 
-Once you're ready for PlanetScale to become your primary database, click on "Enable read-write mode" to head to the next step.
+At this point, you can connect to your application using the PlanetScale database to ensure that it is fully compatible with your app. Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router". Queries will be served by PlanetScale and writes will be routed back to your external database and then replicated back to PlanetScale to stay in sync.
+
+Once you're ready for PlanetScale to become your *primary* database, click "Enable read-write mode" to head to the next step.
 
 ### Step 3: Primary mode 
 
 ![Step 3 of database import - Primary mode](/img/docs/database-imports-step-3.png)
 
-During this step, PlanetScale becomes the primary database instead of your external database and is fully ready to run, as `read-write` mode is enabled. If you're happy with everything, you can now click on the "**Detach external database**" to finalize the import.
+During this step, PlanetScale becomes the primary database instead of your external database. It is fully ready to run with `read-write` mode enabled. Behind the scenes, we essentially reverse the direction of the data routing from the previous step. This means that all reads and writes will go straight to your PlanetScale database and updates will be replicated back to your external database.
+
+If you're fully migrated over and happy with everything, you can click on the "**Detach external database**" to finalize the import.
 
 ### Step 4: Detach external database
 
-After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. Your database has now been fully imported into PlanetScale and is ready to use!
+After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. This will also cut off the "data routing" ability, so your PlanetScale database will no long update your external database.
+
+Your database has been fully imported into PlanetScale and is ready to use!
 
 So what's next? Here are some next steps you can take with your database:
 
