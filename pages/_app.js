@@ -3,7 +3,7 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { useRouter } from 'next/router'
 import Page from '../components/SegmentPageTracker'
-import withDarkMode from 'next-dark-mode'
+import { ThemeProvider } from 'next-themes'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()
@@ -54,7 +54,7 @@ export function App({ Component, pageProps }) {
   }, [])
 
   return (
-    <>
+    <ThemeProvider defaultTheme='dark'>
       <Head>
         <link rel='shortcut icon' href={favicon} sizes='any' type='image/svg+xml' />
         <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
@@ -62,8 +62,8 @@ export function App({ Component, pageProps }) {
       <Page>
         <Component {...pageProps} />
       </Page>
-    </>
+    </ThemeProvider>
   )
 }
 
-export default withDarkMode(App, { defaultMode: 'dark' })
+export default App

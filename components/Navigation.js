@@ -2,37 +2,18 @@ import React from 'react'
 import meta from '../content/docs/meta.json'
 import ActiveLink from './ActiveLink'
 import LabelSelect from './LabelSelect'
-import { useDarkMode } from 'next-dark-mode'
+import { useTheme } from 'next-themes'
 
 export default function Navigation() {
-  const { darkModeActive, autoModeActive, switchToAutoMode, switchToDarkMode, switchToLightMode } = useDarkMode()
-
-  let theme = 'light'
-  if (autoModeActive) {
-    theme = 'auto'
-  }
-  if (darkModeActive) {
-    theme = 'dark'
-  }
+  const { theme, setTheme } = useTheme()
 
   const switchMode = (event) => {
-    console.log('value:', event.target.value)
-    switch (event.target.value) {
-      case 'auto':
-        switchToAutoMode()
-        break
-      case 'dark':
-        switchToDarkMode()
-        break
-      case 'light':
-        switchToLightMode()
-        break
-    }
+    setTheme(event.target.value)
   }
 
   const toc = meta
 
-  function SidenavGroup({ categoryID, category, pages, clickHandler }) {
+  function SidenavGroup({ categoryID, category, pages }) {
     return (
       <div className='mb-3'>
         <strong className='block mb-1'>{category}</strong>
@@ -65,10 +46,10 @@ export default function Navigation() {
           ></SidenavGroup>
         )
       })}
-      <LabelSelect label='Theme' defaultValue={theme} size='small' className='inline-flex' onChange={switchMode}>
-        <option value='dark'>Dark</option>
+      <LabelSelect label='Theme' value={theme} size='small' className='inline-flex' onChange={switchMode}>
         <option value='light'>Light</option>
-        <option value='auto'>System</option>
+        <option value='dark'>Dark</option>
+        <option value='system'>System</option>
       </LabelSelect>
     </>
   )

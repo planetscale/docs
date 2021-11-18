@@ -1,18 +1,9 @@
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
-import { useDarkMode } from 'next-dark-mode'
-import classNames from 'classnames'
 
 export default function Layout({ children }) {
-  const { darkModeActive } = useDarkMode()
-
   return (
-    <div
-      className={classNames('h-full', {
-        dark: darkModeActive,
-        light: !darkModeActive
-      })}
-    >
+    <div className='h-full'>
       <div className='flex flex-col mx-auto bg-primary text-primary'>
         <Header />
         <main className='flex flex-col flex-1 w-full px-3 py-4 mx-auto bg-primary md:py-8 max-w-7xl sm:px-6 lg:px-8'>

@@ -133,10 +133,10 @@
   --graph-green-dark: var(--green-400);
 }
 
-.dark {
-  @mixin darkmode;
+:root {
+  @mixin lightmode;
 }
 
-.light {
-  @mixin lightmode;
+[data-theme='dark'] {
+  @mixin darkmode;
 }
