@@ -1,9 +1,11 @@
 import '../styles/index.css'
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Page from '../components/SegmentPageTracker'
+
 import { ThemeProvider } from 'next-themes'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+
+import Page from '../components/SegmentPageTracker'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()

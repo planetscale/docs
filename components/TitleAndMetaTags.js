@@ -1,15 +1,8 @@
 import React, { useEffect, useContext } from 'react'
+
 import Head from 'next/head'
 
-export function TitleAndMetaTags({
-  url,
-  pathname,
-  title,
-  type,
-  description,
-  banner,
-  schemaOrgJSONLD,
-}) {
+export function TitleAndMetaTags({ url, pathname, title, type, description, banner, schemaOrgJSONLD }) {
   useEffect(() => {
     if ('serviceworker' in navigator) {
       navigator.serviceWorker.getRegistrations().then((registrations) => {
@@ -24,8 +17,7 @@ export function TitleAndMetaTags({
     const docSearchScript = document.getElementById('docsearch')
     if (!docSearchScript) {
       const script = document.createElement('script')
-      script.src =
-        'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
+      script.src = 'https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.js'
       script.id = 'docsearch'
       script.defer = true
       document.head.appendChild(script)
@@ -52,7 +44,7 @@ export function TitleAndMetaTags({
             }
           })
           return newHits
-        },
+        }
       })
     }
   }
@@ -61,32 +53,24 @@ export function TitleAndMetaTags({
     <Head>
       <title>{title + ' - Documentation - PlanetScale'}</title>
 
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="description" content={description}></meta>
+      <meta name='msapplication-TileColor' content='#da532c' />
+      <meta name='description' content={description}></meta>
 
-      <meta property="og:url" content={`${url}/${pathname}`} />
-      <meta property="og:image" content={`${url}/${banner}`} />
-      <meta property="og:type" content={type} />
-      <meta
-        property="og:title"
-        content={title + ' - Documentation - PlanetScale'}
-      />
-      <meta property="og:description" content={description} />
+      <meta property='og:url' content={`${url}/${pathname}`} />
+      <meta property='og:image' content={`${url}/${banner}`} />
+      <meta property='og:type' content={type} />
+      <meta property='og:title' content={title + ' - Documentation - PlanetScale'} />
+      <meta property='og:description' content={description} />
 
-      <meta name="twitter:url" content={`${url}/${pathname}`} />
-      <meta name="twitter:image" content={`${url}/${banner}`} />
-      <meta
-        name="twitter:title"
-        content={title + ' - Documentation - PlanetScale'}
-      />
-      <meta name="twitter:description" content={description} />
-      <meta name="twitter:site" content="@planetscaledata" />
-      <meta name="twitter:card" content="summary_large_image" />
-      <meta name="twitter:creator" content="@planetscaledata" />
+      <meta name='twitter:url' content={`${url}/${pathname}`} />
+      <meta name='twitter:image' content={`${url}/${banner}`} />
+      <meta name='twitter:title' content={title + ' - Documentation - PlanetScale'} />
+      <meta name='twitter:description' content={description} />
+      <meta name='twitter:site' content='@planetscaledata' />
+      <meta name='twitter:card' content='summary_large_image' />
+      <meta name='twitter:creator' content='@planetscaledata' />
 
-      <script type="application/ld+json">
-        {JSON.stringify(schemaOrgJSONLD)}
-      </script>
+      <script type='application/ld+json'>{JSON.stringify(schemaOrgJSONLD)}</script>
     </Head>
   )
 }
@@ -106,7 +90,7 @@ TitleAndMetaTags.defaultProps = {
     sameAs: [
       'https://twitter.com/planetscaledata',
       'https://www.facebook.com/planetscaledata',
-      'https://www.instagram.com/planetscale',
+      'https://www.instagram.com/planetscale'
     ],
     address: {
       '@type': 'PostalAddress',
@@ -114,7 +98,7 @@ TitleAndMetaTags.defaultProps = {
       addressLocality: 'Mountain View',
       addressRegion: 'CA',
       postalCode: '94041',
-      addressCountry: 'US',
-    },
-  },
+      addressCountry: 'US'
+    }
+  }
 }

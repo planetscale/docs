@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react'
-import SearchBar from './Searchbar'
-import Cookies from 'js-cookie'
-import Logo from './Logo'
-import ButtonLink from './ButtonLink'
-import Link from 'next/link'
-import HamburgerMenu from './HamburgerMenu'
-import Navigation from './Navigation'
+
 import classNames from 'classnames'
+import Cookies from 'js-cookie'
+import Link from 'next/link'
+
+import ButtonLink from './ButtonLink'
+import HamburgerMenu from './HamburgerMenu'
+import Logo from './Logo'
+import Navigation from './Navigation'
+import SearchBar from './Searchbar'
 
 export default function Header() {
   const [isSignedIn, setSignedInState] = useState(false)

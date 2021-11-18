@@ -1,10 +1,11 @@
-import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
-import Layout from '../components/layout'
-import Footer from '../components/Footer'
 import Link from 'next/link'
-import ButtonLink from '../components/ButtonLink'
-import Icon from '../components/Icon'
 import SVG from 'react-inlinesvg'
+
+import ButtonLink from '../components/ButtonLink'
+import Footer from '../components/Footer'
+import Icon from '../components/Icon'
+import Layout from '../components/layout'
+import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 
 export default function Overview() {
   return (

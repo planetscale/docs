@@ -1,6 +1,7 @@
 import React from 'react'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+
 import * as snippet from '@segment/snippet'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
 const {
   // This write key is associated with https://segment.com/nextjs-example/sources/nextjs.

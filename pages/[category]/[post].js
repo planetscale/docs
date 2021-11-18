@@ -1,9 +1,10 @@
-import { getAllPosts, getPostBySlug } from '../../lib/post'
-import MDXContent from '../../components/MDX.Content'
-import { TitleAndMetaTags } from '../../components/TitleAndMetaTags'
+import { serialize } from 'next-mdx-remote/serialize'
+
 import Footer from '../../components/Footer'
 import Layout from '../../components/layout'
-import { serialize } from 'next-mdx-remote/serialize'
+import MDXContent from '../../components/MDX.Content'
+import { TitleAndMetaTags } from '../../components/TitleAndMetaTags'
+import { getAllPosts, getPostBySlug } from '../../lib/post'
 
 export default function Post({ frontmatter, headings, body, fields }) {
   return (
@@ -11,11 +12,7 @@ export default function Post({ frontmatter, headings, body, fields }) {
       <TitleAndMetaTags
         title={frontmatter.title}
         description={frontmatter.subtitle ? frontmatter.subtitle : ''}
-        banner={
-          frontmatter.banner
-            ? frontmatter.banner
-            : '/img/internals/social_share.png'
-        }
+        banner={frontmatter.banner ? frontmatter.banner : '/img/internals/social_share.png'}
         pathname={`${fields.slug}`}
       />
       <MDXContent
@@ -42,9 +39,9 @@ export async function getStaticProps({ params }) {
       body: mdxSource,
       fields: {
         slug: post.slug,
-        lastUpdatedOn: post.lastUpdatedOn,
-      },
-    },
+        lastUpdatedOn: post.lastUpdatedOn
+      }
+    }
   }
 }
 
@@ -56,10 +53,10 @@ export async function getStaticPaths() {
       return {
         params: {
           category: post.split('/')[0],
-          post: post.split('/')[1].replace(/\.mdx$/, ''),
-        },
+          post: post.split('/')[1].replace(/\.mdx$/, '')
+        }
       }
     }),
-    fallback: false,
+    fallback: false
   }
 }

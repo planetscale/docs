@@ -1,8 +1,10 @@
 import React, { useContext, useState, useEffect } from 'react'
+
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import Prism from 'prism-react-renderer/prism'
-import Icon from './Icon'
+
 import CopyButton from './CopyButton'
+import Icon from './Icon'
 
 export default function CodeBlock({ className, children }) {
   const [codeLanguage, setCodeLanguage] = useState('')

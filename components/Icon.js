@@ -1,4 +1,5 @@
 import React from 'react'
+
 import SVG from 'react-inlinesvg'
 
 const Icon = ({ name, size, scale = 1, className }) => {
