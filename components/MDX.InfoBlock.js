@@ -15,7 +15,7 @@ export default function InfoBlock(props) {
     >
       {type === 'note' && <strong>Note</strong>} {type === 'warning' && <strong>Warning</strong>}{' '}
       {type === 'tip' && <strong>Tip</strong>}
-      <div className='info-block'>{children}</div>
+      <div className='mt-1 info-block'>{children}</div>
     </div>
   )
 }
