@@ -29,7 +29,7 @@ export default function CodeBlock({ className, children }) {
       // this is a cmd + output block
       setSplitOutput(children.split('------'))
     }
-  }, [])
+  }, []) // eslint-disable-line
 
   return (
     <div className='max-w-full mt-2 mb-4 border rounded'>

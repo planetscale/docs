@@ -30,7 +30,7 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
 
   function docSearchCallback() {
     if (typeof docsearch == 'function') {
-      docsearch({
+      docsearch({ // eslint-disable-line
         appId: 'BPNL9VRVWI',
         apiKey: '4e224ba0c25e61356926e32048d5a110',
         indexName: 'planetscale-docs',
