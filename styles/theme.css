@@ -137,6 +137,6 @@
   @mixin lightmode;
 }
 
-[data-theme='dark'] {
+.dark {
   @mixin darkmode;
 }

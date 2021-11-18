@@ -54,7 +54,7 @@ export function App({ Component, pageProps }) {
   }, [])
 
   return (
-    <ThemeProvider defaultTheme='dark'>
+    <ThemeProvider defaultTheme='dark' attribute='class'>
       <Head>
         <link rel='shortcut icon' href={favicon} sizes='any' type='image/svg+xml' />
         <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
