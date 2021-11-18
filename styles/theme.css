@@ -133,25 +133,10 @@
   --graph-green-dark: var(--green-400);
 }
 
-@media screen and (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    @mixin darkmode;
-  }
-  :root.light,
-  .invert-color-mode {
-    /* Make lightmode if we add light mode back */
-    @mixin darkmode;
-  }
+:root {
+  @mixin lightmode;
 }
 
-@media screen and (prefers-color-scheme: light) {
-  :root:not(.dark) {
-    /* Make lightmode if we add light mode back */
-    @mixin darkmode;
-  }
-  :root.dark,
-  .dark,
-  .invert-color-mode {
-    @mixin darkmode;
-  }
+.dark {
+  @mixin darkmode;
 }

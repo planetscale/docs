@@ -26,7 +26,7 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <Html lang='en' className='dark'>
+      <Html lang='en'>
         <Head>
           <meta content='IE=edge' httpEquiv='X-UA-Compatible' />
           <meta content='#262626' name='theme-color' />
