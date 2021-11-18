@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 
 export default function SearchBar() {
   const searchInput = React.createRef()
@@ -6,10 +6,6 @@ export default function SearchBar() {
   useEffect(() => {
     document.addEventListener('keydown', handleKeyDownEvent)
   })
-
-  function handleClickEvent(e) {
-    searchInput.current.focus()
-  }
 
   function handleKeyDownEvent(e) {
     if (e.code === 'Escape' && searchInput.current) {

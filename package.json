@@ -5,7 +5,9 @@
   "scripts": {
     "serve": "next start",
     "build": "next build",
-    "develop": "next dev"
+    "develop": "next dev",
+    "lint": "eslint . --ext .js,.jsx",
+    "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
     "@mdx-js/loader": "^1.6.22",
@@ -28,7 +30,12 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-prettier": "^4.0.0",
     "eslint-plugin-react": "^7.27.0",
+    "eslint-plugin-react-hooks": "^4.3.0",
     "postcss": "^8.3.11",
     "postcss-import": "^14.0.2",
     "postcss-mixins": "^8.1.0",

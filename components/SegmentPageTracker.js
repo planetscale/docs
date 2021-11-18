@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Router from 'next/router'
 
 // Track client-side page views with Segment

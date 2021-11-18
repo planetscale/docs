@@ -1,15 +1,17 @@
 import '../styles/index.css'
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
-import { useRouter } from 'next/router'
-import Page from '../components/SegmentPageTracker'
+
 import { ThemeProvider } from 'next-themes'
+import Head from 'next/head'
+import { useRouter } from 'next/router'
+
+import Page from '../components/SegmentPageTracker'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
+    const handleRouteChange = () => {
       document.body.classList.remove('prevent-scroll')
     }
 
@@ -18,7 +20,7 @@ export function App({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [])
+  }, []) // eslint-disable-line
 
   const [favicon, setFavicon] = useState('/favicon_system.svg')
 

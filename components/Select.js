@@ -1,4 +1,5 @@
-import React, { ChangeEvent } from 'react'
+import React from 'react'
+
 import classNames from 'classnames'
 
 const Select = ({

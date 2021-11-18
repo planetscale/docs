@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+
 import Button from './Button'
 
 export default function FeedbackBlock() {
@@ -16,9 +17,9 @@ export default function FeedbackBlock() {
     } else {
       setFeedbackProvided(false)
     }
-  })
+  }, [pageURL])
 
-  const logFeedback = (feedbackDelta, e) => {
+  const logFeedback = (feedbackDelta) => {
     window.analytics.track('page-feedback', {
       feedback: feedbackDelta,
       url: pageURL

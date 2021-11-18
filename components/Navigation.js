@@ -1,8 +1,10 @@
 import React from 'react'
+
+import { useTheme } from 'next-themes'
+
 import meta from '../content/docs/meta.json'
 import ActiveLink from './ActiveLink'
 import LabelSelect from './LabelSelect'
-import { useTheme } from 'next-themes'
 
 export default function Navigation() {
   const { theme, setTheme } = useTheme()
