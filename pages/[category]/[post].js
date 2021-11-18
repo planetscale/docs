@@ -6,7 +6,7 @@ import MDXContent from '../../components/MDX.Content'
 import { TitleAndMetaTags } from '../../components/TitleAndMetaTags'
 import { getAllPosts, getPostBySlug } from '../../lib/post'
 
-export default function Post({ frontmatter, headings, body, fields }) {
+export default function Post({ frontmatter, body, fields }) {
   return (
     <Layout>
       <TitleAndMetaTags

@@ -17,9 +17,9 @@ export default function FeedbackBlock() {
     } else {
       setFeedbackProvided(false)
     }
-  })
+  }, [pageURL])
 
-  const logFeedback = (feedbackDelta, e) => {
+  const logFeedback = (feedbackDelta) => {
     window.analytics.track('page-feedback', {
       feedback: feedbackDelta,
       url: pageURL

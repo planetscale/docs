@@ -107,22 +107,11 @@ export default function Overview() {
               <SVG src='/img/internals/prisma-logo.svg' height={32} className='mb-2 text-[#163C53] dark:text-white' />
             </div>
             <h3 className='text-lg font-semibold text-primary mb-sm'>Prisma</h3>
-            <p className='text-secondary'>Learn how to use PlanetScale's automatic migrations with Prisma.</p>
+            <p className='text-secondary'>Learn how to use PlanetScale&apos;s automatic migrations with Prisma.</p>
           </a>
         </Link>
       </div>
       <Footer />
     </Layout>
-  )
-}
-
-function Category({ categoryID, categoryName, description, pages }) {
-  return (
-    <Link href={`${categoryID}/${pages[0]['route']}`} passHref>
-      <a>
-        <h1>{categoryName}</h1>
-        <p>{description}</p>
-      </a>
-    </Link>
   )
 }

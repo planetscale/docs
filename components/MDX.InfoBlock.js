@@ -13,8 +13,8 @@ export default function InfoBlock(props) {
         'bg-purple-50 dark:bg-purple-900 border-purple-100 dark:border-purple-800': type === 'tip'
       })}
     >
-      {type === 'note' && <label>Note</label>} {type === 'warning' && <label>Warning</label>}{' '}
-      {type === 'tip' && <label>Tip</label>}
+      {type === 'note' && <strong>Note</strong>} {type === 'warning' && <strong>Warning</strong>}{' '}
+      {type === 'tip' && <strong>Tip</strong>}
       <div className='info-block'>{children}</div>
     </div>
   )

@@ -3,11 +3,8 @@ import React from 'react'
 
 import { MDXRemote } from 'next-mdx-remote'
 
-// non MDX blocks
 import FeedbackBlock from './FeedbackBlock'
 import HeadingBlock from './HeadingBlock'
-
-// MDX blocks
 import AnchorLink from './MDX.AnchorLink'
 import CodeBlock from './MDX.CodeBlock'
 import ImageBlock from './MDX.ImageBlock'

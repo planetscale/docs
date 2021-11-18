@@ -22,7 +22,7 @@ export default function Header() {
     if (typeof Cookies.get('signed_in') !== 'undefined') {
       setSignedInState(true)
     }
-  })
+  }, [])
 
   return (
     <>

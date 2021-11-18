@@ -1,16 +1,14 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import Highlight, { defaultProps } from 'prism-react-renderer'
 import Prism from 'prism-react-renderer/prism'
 
 import CopyButton from './CopyButton'
-import Icon from './Icon'
 
 export default function CodeBlock({ className, children }) {
   const [codeLanguage, setCodeLanguage] = useState('')
   const [internalCodeLanguage, setInternalCodeLanguage] = useState('')
   const [splitOutput, setSplitOutput] = useState([])
-  const [copyButtonState, setCopyButtonState] = useState(false)
 
   useEffect(() => {
     ;(typeof global !== 'undefined' ? global : window).Prism = Prism
@@ -49,9 +47,9 @@ export default function CodeBlock({ className, children }) {
             {({ tokens, getLineProps, getTokenProps }) => (
               <div>
                 {tokens.map((line, i) => (
-                  <div {...getLineProps({ line, key: i })}>
+                  <div key={i} {...getLineProps({ line, key: i })}>
                     {line.map((token, key) => (
-                      <span {...getTokenProps({ token, key })} />
+                      <span key={key} {...getTokenProps({ token, key })} />
                     ))}
                   </div>
                 ))}
@@ -67,9 +65,9 @@ export default function CodeBlock({ className, children }) {
           {({ tokens, getLineProps, getTokenProps }) => (
             <div>
               {tokens.map((line, i) => (
-                <div {...getLineProps({ line, key: i })}>
+                <div key={i} {...getLineProps({ line, key: i })}>
                   {line.map((token, key) => (
-                    <span {...getTokenProps({ token, key })} />
+                    <span key={key} {...getTokenProps({ token, key })} />
                   ))}
                 </div>
               ))}
