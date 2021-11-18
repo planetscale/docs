@@ -99,17 +99,17 @@ So, once you're ready for PlanetScale to become your *primary* database, click "
 
 During this step, PlanetScale becomes the primary database instead of your external database. It is now ready to accept both reads and writes. Behind the scenes, we essentially reverse the direction of the data routing from the previous step. This means that all reads and writes will go straight to your PlanetScale database and updates will be replicated back to your external database.
 
-In the context of the blog application example, this means that if a user makes a new comment, the comment will be written straight to the PlanetScale database and then essentially copied back to your external database as well. Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data during the import process.
+In the context of the blog application example, this means that if a user makes a new comment, the comment will be written straight to the PlanetScale database and then essentially copied back to your external database as well. Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data while going through the import process.
 
-If you're happy with everything and ready to fully switch over, you can click on the "**Detach external database**" to finalize the import.
+If you're happy with everything and ready to fully switch over, you can click on the "**Finish**" to finalize the import.
 
-### Step 4: Detach external database
+Once you finish the import, we will detach your external database. PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. This will also cut off the "data routing" ability, so your PlanetScale database will no longer update your external database.
+
+### Import complete
 
 Your database has been fully imported into PlanetScale and is ready to use! 
 
-After you detach the external database, PlanetScale's connection to that database will be closed and all connection information will be deleted from PlanetScale. This will also cut off the "data routing" ability, so your PlanetScale database will no longer update your external database.
-
-Once detached, you'll be taken to your database overview page. If you click on "Branches", you'll see that you now have one [production branch](/concepts/branching#branch-promotion), `main`, that contains all of the data from your external database. Production branches are highly available and protected from direct schema changes. Your database is also on an [automatic backup schedule](/concepts/back-up-and-restore) whose frequency depends on your plan.
+Next, you'll be taken to your database overview page. If you click on "Branches", you'll see that you now have one [production branch](/concepts/branching#branch-promotion), `main`, that contains all of the data from your external database. Production branches are highly available and protected from direct schema changes. Your database is also on an [automatic backup schedule](/concepts/back-up-and-restore) whose frequency depends on your plan.
 
 ## Next steps
 
