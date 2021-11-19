@@ -1,4 +1,5 @@
 import React from 'react'
+
 import styles from './HamburgerMenu.module.css'
 
 const HamburgerMenu = ({ open }) => {

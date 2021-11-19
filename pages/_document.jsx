@@ -1,6 +1,7 @@
 import React from 'react'
-import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
+
 import * as snippet from '@segment/snippet'
+import NextDocument, { Html, Head, Main, NextScript } from 'next/document'
 
 const {
   // This write key is associated with https://segment.com/nextjs-example/sources/nextjs.
@@ -26,7 +27,7 @@ export default class Document extends NextDocument {
 
   render() {
     return (
-      <Html lang='en' className='dark'>
+      <Html lang='en'>
         <Head>
           <meta content='IE=edge' httpEquiv='X-UA-Compatible' />
           <meta content='#262626' name='theme-color' />

@@ -50,6 +50,10 @@
         },
         { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
         {
+          "route": "prisma-data-platform-integration",
+          "display": "Prisma Data Platform integration"
+        },
+        {
           "route": "automatic-rails-migrations",
           "display": "Automatic Rails migrations"
         },
