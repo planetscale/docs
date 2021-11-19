@@ -116,13 +116,19 @@ pscale branch create prisma-playground add-subtitle-to-posts
 
 As part of creating that branch, PlanetScale copies _every_ row from `main`’s `_prisma_migrations` table over to your new development branch.
 
-2. Close the proxy connection to your `main` branch and connect to the new development branch:
+2. Close the proxy connection to your `main` branch (if open) and connect to the new development and `shadow` branches:
 
 ```
 pscale connect prisma-playground add-subtitle-to-posts --port 3309
 ```
 
-3. In the `prisma/schema.prisma` file, update the `Post` model:
+And in another terminal:
+
+```
+pscale connect prisma-playground shadow --port 3310
+```
+
+4. In the `prisma/schema.prisma` file, update the `Post` model:
 
 Add a new `subtitle` field to `Post`:
 
@@ -130,7 +136,7 @@ Add a new `subtitle` field to `Post`:
 subtitle  String   @db.VarChar(255)
 ```
 
-4. Create a second Prisma migration for your table and call it `add-subtitle-to-posts`:
+5. Create a second Prisma migration for your table and call it `add-subtitle-to-posts`:
 
 ```
 npx prisma migrate dev --name add-subtitle-to-posts
@@ -138,7 +144,7 @@ npx prisma migrate dev --name add-subtitle-to-posts
 
 Prisma migrate checks `_prisma_migrations` to ensure your `create_users` migration already ran and proceeds to only run your new migration. In some cases, it might detect drift depending on your change.
 
-5. Open a deploy request for your `add-subtitle-to-posts` branch, so that you can deploy these changes to `main`.
+6. Open a deploy request for your `add-subtitle-to-posts` branch, so that you can deploy these changes to `main`.
 
 You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
@@ -150,7 +156,7 @@ pscale deploy-request create prisma-playground add-subtitle-to-posts
 pscale deploy-request deploy prisma-playground 1
 ```
 
-6. Once the deploy request is merged, you can see the results in your main branch's `Post` and `_prisma_migrations` tabled:
+7. Once the deploy request is merged, you can see the results in your main branch's `Post` and `_prisma_migrations` tabled:
 
 ```
 pscale shell prisma-playground main
