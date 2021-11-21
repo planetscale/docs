@@ -5,7 +5,7 @@ subtitle: 'Create a development or staging environment for your database through
 
 ## Overview
 
-PlanetScale allows you to branch databases schemas the way you branch your code. 
+PlanetScale allows you to branch database schemas the way you branch your code. 
 
 Development database branches are isolated copies of your database created with the current production schema. They can be used to develop features and test changes without impacting your production database. When you're ready, schema changes on a development branch can be safely applied to the production database using PlanetScale’s [non-blocking schema change workflow](https://docs.planetscale.com/concepts/nonblocking-schema-changes). This workflow ensures that your changes are deployed without blocking the database, locking individual tables, or slowing down production during the migration.
 
@@ -13,7 +13,7 @@ Development database branches are isolated copies of your database created with 
 
 ## Development and production branches
 
-PlanetScale provides two types of database branches, *development* branches and *production* branches.
+PlanetScale provides two types of database branches: *development* branches, and *production* branches.
 
 Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI.
 
@@ -25,8 +25,8 @@ Development branches provide isolated copies of your production database schema 
 Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups.
 
 <InfoBlock type='tip'>
-  You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt schema changes
-  in a production branch. Create a development branch and start your changes there.
+  You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt to make schema changes
+  in a production branch. Create a development branch, and make your changes there.
 </InfoBlock>
 
 ## Branch promotion 
@@ -148,7 +148,7 @@ To turn on for your database, go to the web app:
 
 1. Go into the Settings for your database
 2. Enable "Automatically copy migration data"
-3. Select one of the migration frameworks: Rails/Phoenix, Django, .NET, Prisma, Prisma, Sequelize, or Other, which allows you to specify a custom table name
+3. Select one of the migration frameworks: Rails/Phoenix, Django, .NET, Prisma, Sequelize, or Other, which allows you to specify a custom table name
 
 You can see how this works in this [Rails migration tutorial](/tutorial/automatic-rails-migrations).
 
