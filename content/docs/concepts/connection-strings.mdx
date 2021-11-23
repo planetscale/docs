@@ -28,8 +28,8 @@ subtitle: 'Create reusable connection strings to connect to your PlanetScale dat
 ![Browse connection string in formats](/img/docs/create_new_password_3.png)
 
 <InfoBlock type="tip">
-  Make sure you copy the connection string for your application and also the
-  `General` format because we don't save the password in clear text and there's
+  Make sure you copy the connection string for your application and the
+  "General" format. We don't save the password in clear text, so there's
   no way to retrieve the password after you leave this page.
 </InfoBlock>
 
@@ -69,6 +69,8 @@ Use the tools you're familiar with to connect to PlanetScale databases.
 PlanetScale supports both [MySQL native authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html) which is widely used to provide a secure connection to MySQL servers,
 and [MySQL Caching SHA-2 authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html) which is the most secure authentication mechanism to connect to MySQL.
 Based on your application needs and platform support, you can switch between the authentication modes, with the same password.
+
+We recommend [Arctype](https://arctype.com/) as an easy-to-use GUI. [Arctype integrates with PlanetScale](https://docs.arctype.com/connect/planetscale) to let you connect to and switch between branches, create deploy requests, and more.
 
 ## Strong security model
 
