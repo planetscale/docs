@@ -20,18 +20,21 @@ pscale auth login
 
 ## Connect with username and password
 
-This section will show you how to create a password for your branch and use those credentials to connect your database to your application.
+This section will show you how to create a username and password for your branch and use those credentials to connect your database to your application.
 
-You can also generate new branch passwords in the PlanetScale UI by following the instructions in our [Connection Strings doc](/concepts/connection-strings#creating-a-password).
+There are two ways to generate a new username and password for your branch:
+
+- In the PlanetScale UI by following the instructions in our [Connection Strings doc](/concepts/connection-strings#creating-a-password)
+- With the PlanetScale CLI
 
 1. Run the following command in the CLI to create a new user and password for your branch.
 
 ```
-pscale password create <database> <branch> <name>
+pscale password create <DATABASE> <BRANCH> <NAME>
 ```
 
 <InfoBlock type='note'>
-  The <inlineCode>name</inlineCode> value represents the name of the connection string being generated. You can have multiple connection strings for a branch, so this gives you a way to categorize them.
+  The <inlineCode>name</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 2. Take note of the values it returns to you. You won't be able to see this password again.
@@ -45,31 +48,33 @@ Please save the values below as they will not be shown again
   production-password   jp388djdawnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_m1111111111111111
 ```
 
-3. In your application's MySQL `config`, fill in the following values using the console output from the previous step:
+3. In your application's MySQL configuration file, fill in the following values using the console output from the previous step:
 
-   - **host:** `<ACCESS HOST URL>`
+   - **host:** The value for "ACCESS HOST URL" in the above step
    - **port:** `3306`
-   - **user:** `<USERNAME>`
-   - **password:** `<PLAIN TEXT>`
+   - **user:** The value for "USERNAME" in the above step
+   - **password:** The value for "PLAIN TEXT" in the above step
    - **database:** `<YOUR_DB_NAME>`
 
 4. Ensure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.
 
 ## Connect using client certificates
 
-You can use the `pscale connect` command to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to.
+Another way connect your application to your PlanetScale database is using client certificates. You won't have to fiddle with configuring any certificates, as that's handled by PlanetScale. It's as simple as a single CLI command.
+
+You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. This gets rid of the need to generate and remember multiple passwords every time you're creating or switching to a new branch.
 
 1. Run the following command in the CLI:
 
 ```
-pscale connect <database> <branch>
+pscale connect <DATABASE> <BRANCH>
 ```
 
-This establishes a secure connection and opens a port on your local machine that you can use to connect any MySQL client.
+This establishes a secure connection and opens a port on your local machine that you can use to connect to any MySQL client.
 
 2. Take note of the address it returns to you. By default it is `127.0.0.1:3306`. The CLI will use a different port if `3306` is unavailable.
 
-3. In your application's MySQL `config`, use the following to connect:
+3. In your application's MySQL configuration file, use the following to connect:
 
    - **host:** `127.0.0.1`
    - **port:** `3306` (the value returned to you by `pscale connect`)
