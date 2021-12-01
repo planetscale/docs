@@ -5,33 +5,36 @@ subtitle: ''
 
 ## Introduction
 
-In this tutorial, you'll learn how to connect any application to your PlanetScale database, with passwords
-or client certificates.
+In this tutorial, you'll learn how to connect any application to your PlanetScale database with either username and password or client certificates.
 
 ## Prerequisites
 
-- Install the [PlanetScale CLI](https://github.com/planetscale/cli).
-- Authenticate the CLI with the following command:
+- The [PlanetScale CLI](https://github.com/planetscale/cli)
+- A [PlanetScale database](/tutorials/planetscale-quick-start-guide)
+
+After you install the PlanetScale CLI, sign in with:
 
 ```
 pscale auth login
 ```
 
-## Connect to your database
+## Connect with username and password
 
-### Connect using passwords
+This section will show you how to create a password for your branch and use those credentials to connect your database to your application.
 
-You can also create passwords in the PlanetScale UI as documented [here](/concepts/connection-strings#creating-a-password)
-
-#### Using the CLI to create a password
+You can also generate new branch passwords in the PlanetScale UI by following the instructions in our [Connection Strings doc](/concepts/connection-strings#creating-a-password).
 
 1. Run the following command in the CLI to create a password for your branch.
 
 ```
-pscale password create your-db-name main production-password
+pscale password create <database-name> <branch-name> <credentials-name>
 ```
 
-2. Take note of the values it returns to you.
+<InfoBlock type='note'>
+  The <inlineCode>credentials-name</inlineCode> value represents the name of the connection credentials. You can have multiple credentials for a branch, so this gives you a way to categorize them.
+</InfoBlock>
+
+2. Take note of the values it returns to you. You won't be able to see this password again.
 
 ```
 Password production-password was successfully created.
@@ -39,51 +42,44 @@ Please save the values below as they will not be shown again
 
   NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
  --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
-  production-password   jp71f987awnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+  production-password   jp388djdawnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_m1111111111111111
 ```
 
-3. In your application's mysql `config`, use the following to connect:
+3. In your application's MySQL `config`, fill in the following values using the console output from the previous step:
 
    - **host:** `<ACCESS HOST URL>`
    - **port:** `3306`
    - **user:** `<USERNAME>`
    - **password:** `<PLAIN TEXT>`
-   - **database:** your-db-name
+   - **database:** `<your-db-name>`
 
 4. Ensure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.
 
-### Connect using client certificates
+## Connect using client certificates
 
 You can use the `pscale connect` command to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to.
 
 1. Run the following command in the CLI:
 
 ```
-pscale connect your-db-name main
+pscale connect <your-db-name> <your-branch-name>
 ```
 
 This establishes a secure connection and opens a port on your local machine that you can use to connect any MySQL client.
 
 2. Take note of the address it returns to you. By default it is `127.0.0.1:3306`. The CLI will use a different port if `3306` is unavailable.
 
-3. In your application's mysql `config`, use the following to connect:
+3. In your application's MySQL `config`, use the following to connect:
+
    - **host:** `127.0.0.1`
-   - **port:** `3306` (the value returned to you by pscale connect)
+   - **port:** `3306` (the value returned to you by `pscale connect`)
    - **user:** `root`
-   - **password:** leave this blank
-   - **database:** your-db-name
-
-## Summary
-
-In this tutorial, we learned :
-
-1. how to use `pscale connect` to establish a connection to our database.
-2. how to use `pscale password` to create a password to connect to our database.
+   - **password:** Leave this blank
+   - **database:** `<your-db-name>`
 
 ## Further reading
 
-If you're interested in learning how to secure your application when connecting to PlanetScale,
-please read [Connecting to PlanetScale securely](/reference/planetscale-security)
+If you're interested in learning how to secure your application when connecting to PlanetScale, please read [Connecting to PlanetScale securely](/reference/planetscale-security).
 
 ## What's next?
 
