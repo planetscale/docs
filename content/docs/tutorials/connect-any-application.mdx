@@ -27,7 +27,7 @@ You can also generate new branch passwords in the PlanetScale UI by following th
 1. Run the following command in the CLI to create a password for your branch.
 
 ```
-pscale password create <database-name> <branch-name> <name>
+pscale password create <database> <branch> <name>
 ```
 
 <InfoBlock type='note'>
@@ -62,7 +62,7 @@ You can use the `pscale connect` command to establish a secure connection to Pla
 1. Run the following command in the CLI:
 
 ```
-pscale connect <your-db-name> <your-branch-name>
+pscale connect <database> <branch>
 ```
 
 This establishes a secure connection and opens a port on your local machine that you can use to connect any MySQL client.
