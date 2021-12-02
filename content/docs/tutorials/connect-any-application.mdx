@@ -30,11 +30,11 @@ There are two ways to generate a new username and password for your branch:
 1. Run the following command in the CLI to create a new user and password for your branch.
 
 ```
-pscale password create <DATABASE> <BRANCH> <NAME>
+pscale password create <DATABASE> <BRANCH> <PASSWORD_NAME>
 ```
 
 <InfoBlock type='note'>
-  The <inlineCode>name</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The <inlineCode>PASSWORD_NAME</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 2. Take note of the values it returns to you. You won't be able to see this password again.
@@ -54,7 +54,7 @@ Please save the values below as they will not be shown again
    - **port:** `3306`
    - **user:** The value for "USERNAME" in the above step
    - **password:** The value for "PLAIN TEXT" in the above step
-   - **database:** `<YOUR_DB_NAME>`
+   - **database:** `<DATABASE_NAME>`
 
 4. Ensure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.
 
