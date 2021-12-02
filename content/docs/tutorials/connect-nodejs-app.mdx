@@ -33,7 +33,7 @@ To do this, use the PlanetScale CLI shell to open a MySQL shell where you can ma
 pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-<InfoBlock type='tip'>
+<InfoBlock type='note'>
   A branch, <inlineCode>main</inlineCode>, was automatically created when you created your database, so you can use that for <inlineCode>BRANCH_NAME</inlineCode>. 
 </InfoBlock>
 
@@ -106,7 +106,7 @@ Use the following command to create a connection to your database and start the 
 pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
 ```
 
-<InfoBlock type='tip'>
+<InfoBlock type='note'>
   Running <inlineCode>pscale connect</inlineCode> with the execute flag will pass a <inlineCode>DATABASE_URL</inlineCode> to the Node application, enabling it to connect to PlanetScale. Don't forget to look in <inlineCode>app.js</inlineCode> to see how the DATABASE_URL is used.
 </InfoBlock>
 
