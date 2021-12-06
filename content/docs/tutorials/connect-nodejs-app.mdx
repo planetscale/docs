@@ -86,12 +86,6 @@ cd express-example
 npm install
 ```
 
-Set up your `.env` file by renaming the `env.example` file to `.env`:
-
-```bash
-mv env.example
-```
-
 Now that your application is set up and the database is ready to be used, let's connect them.
 
 ## Connect to PlanetScale with Express.js
@@ -114,9 +108,15 @@ Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the da
 
 ### Using a connection string
 
-This section will show you how to create a username and password through the CLI to connect to your application. If you'd prefer to use the dashboard for this step, you can find those instructions in the [Connection Strings documentation](/concepts/connection-strings#creating-a-password).
+This section will show you how to create a username and password through the CLI to connect to your application. If you'd prefer to use the dashboard for this step, you can find those instructions in the [Connection Strings documentation](/concepts/connection-strings#creating-a-password) and then come back here to finish setup.
 
-First, create a new username and password for the branch of your database:
+First, create your `.env` file by renaming the `env.example` file to `.env`:
+
+```bash
+mv env.example .env
+```
+
+Next, using the PlanetScale CLI, create a new username and password for the branch of your database:
 
 ```
 pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
