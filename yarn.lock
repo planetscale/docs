@@ -315,9 +315,9 @@
   version "12.0.4"
   resolved "https://registry.npmjs.org/@next/env/-/env-12.0.4.tgz"
 
-"@next/mdx@^12.0.4":
-  version "12.0.4"
-  resolved "https://registry.npmjs.org/@next/mdx/-/mdx-12.0.4.tgz"
+"@next/mdx@^12.0.7":
+  version "12.0.7"
+  resolved "https://registry.yarnpkg.com/@next/mdx/-/mdx-12.0.7.tgz#5095198e85a0fe6d3687db9813aa373f185dece8"
 
 "@next/polyfill-module@12.0.4":
   version "12.0.4"
