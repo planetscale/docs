@@ -12,7 +12,7 @@ In this tutorial, we're going to deploy a Next.js application with a PlanetScale
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```
+```bash
 pscale auth login
 ```
 
@@ -22,7 +22,7 @@ Now we're ready to start our adventure. Let's begin by setting up our PlanetScal
 
 1. Create a new PlanetScale database:
 
-```
+```bash
 pscale database create <DATABASE_NAME>
 ```
 
@@ -30,13 +30,13 @@ This creates a database with one default branch, `main`, which we'll use as the 
 
 2. For development, create a new `development` branch:
 
-```
+```bash
 pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 3. Connect to your database to make a [non-blocking schema change](/concepts/nonblocking-schema-changes):
 
-```
+```bash
 pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
@@ -59,19 +59,19 @@ pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 
 6. Create a **deployment request** by running:
 
-```
+```bash
 pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 7. Deploy the **deploy request**:
 
-```
+```bash
 pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 ```
 
 - To find your `DEPLOY_REQUEST_NUMBER`, run:
 
-```
+```bash
 pscale deploy-request list <DATABASE_NAME>
 ```
 
@@ -79,7 +79,7 @@ Copy the value from `NUMBER` and use that digit as your `DEPLOY_REQUEST_NUMBER`.
 
 8. Merge your `development` branch into `main`:
 
-```
+```bash
 pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 ```
 
