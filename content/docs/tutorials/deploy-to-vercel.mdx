@@ -26,7 +26,9 @@ Now we're ready to start our adventure. Let's begin by setting up our PlanetScal
 pscale database create <DATABASE_NAME>
 ```
 
-2. Create a new `development` branch:
+This creates a database with one default branch, `main`, which we'll use as the [production branch](/concepts/branching#development-and-production-branches).
+
+2. For development, create a new `development` branch:
 
 ```
 pscale branch create <DATABASE_NAME> <BRANCH_NAME>
@@ -49,7 +51,7 @@ CREATE TABLE `users` (
 );
 ```
 
-5. Promote your branch to production:
+5. Before making a deploy request, you need a production branch. Promote your `main` branch to production:
 
 ```bash
 pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
