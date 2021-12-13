@@ -161,6 +161,34 @@ If your table has any other charset, please consult the official [MySQL document
 You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
 Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html) for more information.
 
+### Server configuration issues.
+
+To ensure that we can migrate your data to PlanetScale with zero downtime, we check your database for some required configuration values. 
+They are as described below.
+| Variable | Required Value |  Description | Documentation | 
+|:----|:----|:----|:----|
+| gtid_mode | ON | | |
+| binlog_format | ROW | | |
+| expire_logs_days | > 2 | | |
+| binlog_expire_logs_seconds | > ( 2* 24 * 3600) | | |
+
+### A note about bin log retention periods
+Either  `expire_logs_days` or `binlog_expire_logs_seconds` needs to be set to a valid value.
+If both of these values are set,  the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`
+
+
+## List the values for your database server
+
+Run this query in a mysql console connected to your database server to check their values. 
+
+``` sql
+SHOW VARIABLES 
+   WHERE Variable_Name LIKE '%gtid_mode' 
+      OR Variable_Name LIKE '%binlog_format' 
+      OR Variable_Name LIKE '%expire_logs_days' 
+      OR Variable_Name LIKE '%binlog_expire_logs_seconds';
+```
+
 ### Additional assistance
 
 If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
