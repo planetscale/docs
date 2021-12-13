@@ -166,12 +166,12 @@ Please consult the official [MySQL documentation about alternative storage engin
 To ensure that we can migrate your data to PlanetScale with zero downtime, we check your database for some required configuration values. 
 They are as described below.
 
-| Variable | Required Value |  Description | Documentation | 
+| Variable | Required Value |  Documentation | 
 |:----|:----|:----|:----|
-| gtid_mode | ON | | |
-| binlog_format | ROW | | |
-| expire_logs_days | > 2 | | |
-| binlog_expire_logs_seconds | > ( 2* 24 * 3600) | | |
+| gtid_mode | ON | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_mode) |
+| binlog_format | ROW | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) |
+| expire_logs_days | > 2 | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days) |
+| binlog_expire_logs_seconds | > ( 2* 24 * 3600) | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds)|
 
 ### A note about bin log retention periods
 Either  `expire_logs_days` or `binlog_expire_logs_seconds` needs to be set to a valid value.
