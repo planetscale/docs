@@ -169,10 +169,10 @@ To ensure that we can migrate your data to PlanetScale with zero downtime, we ch
 |:----|:----|:----|
 | `gtid_mode` | `ON` | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_mode) |
 | `binlog_format` | `ROW` | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) |
-| `expire_logs_days` | `> 2` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days) |
-| `binlog_expire_logs_seconds` | `> 172800` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds)|
+| `expire_logs_days`* | `> 2` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days) |
+| `binlog_expire_logs_seconds`* | `> 172800` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds)|
 
-PlanetScale requires that either `expire_logs_days` or `binlog_expire_logs_seconds` are set to a valid value. If both of these values are set, the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`.
+**\*** PlanetScale requires that either `expire_logs_days` or `binlog_expire_logs_seconds` is set to a valid value. If both of these values are set, the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`.
 
 
 #### Check these values for your database server
@@ -186,6 +186,8 @@ SHOW VARIABLES
       OR Variable_Name LIKE '%expire_logs_days' 
       OR Variable_Name LIKE '%binlog_expire_logs_seconds';
 ```
+
+Cross-check these values with the table above and update if needed.
 
 ### Additional assistance
 
