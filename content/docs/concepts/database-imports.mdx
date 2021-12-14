@@ -161,7 +161,7 @@ If your table uses any other charset, please consult the official [MySQL documen
 You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
 Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html) for more information.
 
-### Server configuration issues
+## Troubleshooting server configuration issues
 
 To ensure that we can migrate your data to PlanetScale with zero downtime, we check your database for some required configuration values, as described below:
 
@@ -174,8 +174,7 @@ To ensure that we can migrate your data to PlanetScale with zero downtime, we ch
 
 **\*** PlanetScale requires that either `expire_logs_days` or `binlog_expire_logs_seconds` is set to a valid value. If both of these values are set, the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`.
 
-
-#### Check these values for your database server
+### Check these values for your database server
 
 To check what your database server currently has these values set to, run the following query in a MySQL console connected to your database server: 
 
@@ -189,6 +188,6 @@ SHOW VARIABLES
 
 Cross-check these values with the table above and update if needed.
 
-### Additional assistance
+## Additional assistance
 
 If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
