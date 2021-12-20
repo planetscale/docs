@@ -16,6 +16,7 @@
           "display": "Non-blocking schema changes"
         },
         { "route": "web-console", "display": "Web console" },
+        { "route": "database-sleeping", "display": "Database sleeping" },
         {
           "route": "authentication-methods",
           "display": "Authentication methods"
