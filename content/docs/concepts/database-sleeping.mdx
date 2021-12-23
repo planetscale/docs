@@ -1,0 +1,51 @@
+---
+title: 'Database Sleeping'
+subtitle: 'Learn when database sleeping takes effect and how to wake up a sleeping database.'
+---
+
+## Overview
+
+After a period of inactivity, free databases will enter 'sleep' mode. All data will be backed up and stored, but you will not be able to connect to the database.
+
+## What is database sleeping
+
+When a database on the [free Developer plan](/concepts/billing#planetscale-plans) is inactive for 30 days, the database will be enter sleep mode. When a database is sleeping, all data is backed up, but you **will not be able to connect to any branches on the database** until it has been woken up.
+
+![PlanetScale dashboard overview page - Sleeping databases](/img/docs/planetscale-sleeping-database-overview.png)
+
+### What happens to my data?
+
+Right before a database enters sleep mode, we make a backup of all data, even if it's outside of the [included backup schedule](/concepts/back-up-and-restore). We will continue to store all data while the database is sleeping. Once you wake the database, all data will be restored.
+
+## When do we sleep databases
+
+Here is the criteria we use to determine when a database is eligible to sleep:
+
+- The database is on the [**free** Developer plan](/concepts/billing#planetscale-plans)
+- The database is at least **one month old**
+- There have been **no rows written or connections** to any branches of the database in the past *30 days**
+
+If the database meets all of this criteria, it will enter sleep mode.
+
+## How to prevent a database from sleeping
+
+To prevent a database from entering sleep mode, make sure to connect to any branch of the database at least once every 30 days.
+
+Because database sleeping only applies to databases on the free Developer plan, another option is to upgrade your database to the [paid Scaler plan](/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
+
+## How to wake a sleeping database
+
+Once your database is sleeping, you can wake it in your PlanetScale dashboard.
+
+![PlanetScale dashboard database page - Sleeping database](/img/docs/planetscale-sleeping-database.png)
+
+### Steps to wake a sleeping database:
+
+1. Go to your [PlanetScale dashboard](https://app.planetscale.com)
+2. Click on the sleeping database on the overview page
+3. Click the "**Wake database**" button
+4. Your database will wake up in the same state it was prior to sleeping and will be available to connect to shortly.
+
+## Additional assistance
+
+If you need additional assistance or have any questions, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
