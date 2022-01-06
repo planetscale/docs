@@ -184,7 +184,7 @@ In this case, the estimated count shown in the first set of parentheses does mat
 
 ### Checking rows read
 
-Another useful way to check rows read is using `innodb_rows_read`. This server status variable will show you the number of rows read across all tables. You can run it before and after queries to calculate how many rows were read.
+Another useful way to check rows read is using `innodb_rows_read`. This server status variable will show you the number of rows read across all tables. You can run it before and after queries to calculate how many rows were read. Keep in mind, if you have an active running database, this number may not be an accurate reflection of single query impact, as you may have other queries running in the background that affect the rows read.
 
 ```sql
 SHOW GLOBAL STATUS LIKE 'Innodb_rows_read';
