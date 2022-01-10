@@ -1,6 +1,5 @@
 module.exports = {
-  mode: 'jit',
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  content: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
   darkMode: 'class', // or 'media' or 'class'
   theme: {
     colors: {
@@ -254,15 +253,6 @@ module.exports = {
         'icon-button': '34px',
         'indicator-dot': '6px'
       }
-    }
-  },
-  variants: {
-    extend: {
-      boxShadow: ['dark'],
-      fontWeight: ['group-hover'],
-      backgroundColor: ['checked'],
-      borderColor: ['checked'],
-      borderWidth: ['hover']
     }
   },
   plugins: [require('@tailwindcss/forms')]

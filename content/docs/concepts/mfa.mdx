@@ -33,6 +33,13 @@ This will bring up a pop-up modal with a _QR code_ and some `recovery codes` tha
 
 ![Pop-up modal with QR code and recovery codes](/img/docs/mfa_recovery_codes.png)
 
+<InfoBlock type="warning">
+  <div>
+    Recovery codes are the only account recovery method accepted when MFA is enabled. If you lose both your TOTP app
+    and the recovery codes, there is no way to regain access to your account.
+  </div>
+</InfoBlock>
+
 3. Scan the QR Code with your preferred TOTP app and enter the generated code.
 
 4. Press **"Validate OTP"** to ensure that your application setup is correct.
@@ -56,9 +63,9 @@ Once you've enabled MFA in your PlanetScale user account, the next time you logi
 
 ## Recovery code login
 
-The `recovery codes` shown during the MFA setup are crucial to regain access to your account, in the event that you lose the device that you used to setup your TOTP application and create authentication codes.
+The `recovery codes` shown during MFA setup are **the only way regain access to your account** in the event that you lose the device that generates your authentication codes. PlanetScale will not accept any other method of authentication or identification.
 
-You can use one of the `recovery codes` in the place of a TOTP token in the second screen during login.
+You can use one of the `recovery codes` in the place of a TOTP token on the second screen during login.
 
 ## Disable MFA
 

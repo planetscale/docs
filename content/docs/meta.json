@@ -16,6 +16,7 @@
           "display": "Non-blocking schema changes"
         },
         { "route": "web-console", "display": "Web console" },
+        { "route": "database-sleeping", "display": "Database sleeping" },
         {
           "route": "authentication-methods",
           "display": "Authentication methods"
@@ -85,6 +86,22 @@
         { "route": "secure-connections", "display": "Secure connections" },
         { "route": "service-tokens", "display": "Service tokens" }
 
+      ]
+    },
+    {
+      "id": "learn",
+      "name": "Learn",
+      "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        {
+          "route": "how-online-schema-change-tools-work",
+          "display": "How Online Schema Change tools work"
+        },
+        {
+          "route": "online-schema-change-tools-comparison",
+          "display": "Comparison of Online Schema Change tools"
+        }
       ]
     }
   ]

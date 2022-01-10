@@ -7,7 +7,7 @@
 - Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
 - Switch to repository's folder
 - Install package dependencies with `npm install`
-- Execute `npx next dev` or `npm run develop` to start a local nextJS server
+- Execute `npx next dev` or `npm run dev` to start a local nextJS server
 - Access development server at `http://localhost:3000`. Check terminal to find the actual port being used by your nextJS local server.
 
 ## How to
