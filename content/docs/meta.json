@@ -87,6 +87,22 @@
         { "route": "service-tokens", "display": "Service tokens" }
 
       ]
+    },
+    {
+      "id": "learn",
+      "name": "Learn",
+      "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        {
+          "route": "how-online-schema-change-tools-work",
+          "display": "How Online Schema Change tools work"
+        },
+        {
+          "route": "online-schema-change-tools-comparison",
+          "display": "Comparison of Online Schema Change tools"
+        }
+      ]
     }
   ]
 }
