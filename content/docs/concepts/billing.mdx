@@ -17,6 +17,8 @@ PlanetScale offers a free *Developer* plan with a generous **10 GB of storage**.
 - **Writes**: Adding new information or changing existing information in your PlanetScale databases.
 - **Storage**: Data saved in the form of tables, columns, rows, and their corresponding relationships.
 
+See the ["Understanding rows read" section](#understanding-rows-read) for a more in depth look at the rows read calculation.
+
 ## PlanetScale plans
 
 PlanetScale applies billing plans at the **database level**. You can create several databases under one account/organization. The usage charges will be scoped to each database, which you can find all together in the [billing section for your Organization](/concepts/billing#organization-billing-page). Some limitations apply to the free tier, see below for more information.
@@ -128,6 +130,75 @@ When placed in `read-only` mode, the databases you have deployed in PlanetScale 
   Your PlanetScale service only gets throttled if your usage exceeds the limits
   designated within your plan.
 </InfoBlock>
+
+## Understanding rows read
+
+It can be difficult to decipher what counts as a row read. Nobody wants to run a seemingly simple query only to be hit with an unexpected bill. This section will attempt to break down what goes into the rows read calculation and how you can test your queries to *estimate* the potential rows read before running them.
+
+Rows read is a **measure of the work that the database engine does**, not a measure of the number of rows returned. Every row read from a table during execution adds to the rows read count, regardless of how many rows are returned. For this reason, it's important to optimize and index your queries.
+
+### Caveats
+
+While in most cases the work done is a direct reflection of the number of rows read, there are some caveats. 
+
+The `SELECT count(*)` query is a special case. The database engine optimizes this query and doesn't read row data itself to return a count, so this doesn't actually increment rows read. In other words, if you run the query `SELECT count(*)` on a table with 10m rows, your rows read will be 0.
+
+### Testing queries for rows read
+
+You can test a query for **approximate** rows read using the `EXPLAIN` statement. Running `EXPLAIN` with your query will return information about the query execution plan.
+
+For example, if you want to estimate how many rows will be read from a `SELECT`, you could run:
+
+```sql
+EXPLAIN SELECT * from posts;
+```
+
+This table has 15 rows. All of them are read, which is reflected in the `rows` output returned:
+
+```
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+|  1 | SIMPLE      | posts   | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   15 |   100.00 | NULL  |
++----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
+```
+
+It's important to remember the rows read returned with `EXPLAIN` will not always be the exact number of actual rows read, as it is **just an estimation**. You should not rely on this as an accurate way to determine billing ahead of time, but rather as a starting point to see the potential impact of queries. It can be a great starting point for optimization.
+
+To see the exact rows read, you will need to run the query. You can use the `EXPLAIN ANALYZE` statement to do this. It will return the estimated information about how it will run the query, run the query, and then return the actual impact from running the query.
+
+```sql
+EXPLAIN ANALYZE select * from posts
+```
+
+In this case, the estimated count shown in the first set of parentheses does match the actual count. But again, this will not always be the case.
+
+```
++-------------------------------------------------------------------------------------------+
+| EXPLAIN                                                                                   |
++-------------------------------------------------------------------------------------------+
+| -> Table scan on posts  (cost=1.75 rows=15) (actual time=0.024..0.038 rows=15 loops=1)    |
+|                                                                                           |
++-------------------------------------------------------------------------------------------+
+```
+
+### Checking rows read
+
+Another useful way to check rows read is using `innodb_rows_read`. This server status variable will show you the number of rows read across all tables. You can run it before and after queries to calculate how many rows were read. Keep in mind, if you have an active running database, this number may not be an accurate reflection of single query impact, as you may have other queries running in the background that affect the rows read.
+
+```sql
+SHOW GLOBAL STATUS LIKE 'Innodb_rows_read';
+```
+
+This returned output indicates that 4586 total rows have been read.
+
+```
++------------------+-------+
+| Variable_name    | Value |
++------------------+-------+
+| Innodb_rows_read | 4586  |
++------------------+-------+
+```
 
 ## Need help?
 
