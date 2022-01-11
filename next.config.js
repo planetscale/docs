@@ -43,6 +43,11 @@ module.exports = {
         source: '/reference/planetscale-security',
         destination: '/reference/secure-connections',
         permanent: true
+      },
+      {
+        source: '/tutorials/operating-without-foreign-keys',
+        destination: '/learn/operating-without-foreign-key-constraints',
+        permanent: true
       }
     ]
   }
