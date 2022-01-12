@@ -16,7 +16,7 @@ There are two major technical reasons why foreign key constraints are not suppor
 1. The way `FOREIGN KEY` constraints are implemented in MySQL (or, rather, in the InnoDB storage engine) interferes with Online DDL operations. Learn more in [this Vitess blog post](https://vitess.io/blog/2021-06-15-online-ddl-why-no-fk/).
 2. Limited to single MySQL server scope, `FOREIGN KEY` constraints are impossible to maintain once your data grows and is split over multiple database servers. This typically happens when you introduce functional partitioning/sharding and/or horizontal sharding.
 
-We believe the advantages of Online DDL: branching, developer owned schema changes and deployments, [non-blocking schema changes](/concepts/nonblocking-schema-changes) etc., and the advantages of sharding as means of unlimited scaling, outweigh the `FOREIGN KEY` constraints benefits.
+We believe the advantages of Online DDL: [branching](/concepts/branching), developer owned schema changes and deployments, [non-blocking schema changes](/concepts/nonblocking-schema-changes) etc., and the advantages of sharding as means of unlimited scaling, outweigh the `FOREIGN KEY` constraints benefits.
 
 <InfoBlock type="note">
   You can still think in terms of foreign key relationships; of parent tables and child tables; of rows referencing each other. You can structure your tables in the exact same way without FOREIGN KEY constraints as you would with the constraints. 

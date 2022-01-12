@@ -65,10 +65,6 @@
         {
           "route": "change-unique-key",
           "display": "Change single unique key"
-        },
-        {
-          "route": "operating-without-foreign-keys",
-          "display": "Operating without FK constraints"
         }
       ]
     },
@@ -94,6 +90,10 @@
       "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
       "image": "/img/internals/category_reference_light.png",
       "pages": [
+        {
+          "route": "operating-without-foreign-key-constraints",
+          "display": "Operating without foreign key constraints"
+        },
         {
           "route": "how-online-schema-change-tools-work",
           "display": "How Online Schema Change tools work"
