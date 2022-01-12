@@ -16,13 +16,13 @@ In this tutorial, we're going to learn how to do Prisma migrations in PlanetScal
 
 ### Quick introduction to Prisma's db push
 
-From a high level, [Prisma's `db push`](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push) introspects your PlanetScale database to infer and executes the changes required to make your database schema reflect the state of your Prisma schema. When `prisma db push` is run, it will ensure the schema in the PlanetScale branch you are currently connected to matches your current Prisma schema.
+From a high level, [Prisma's `db push`](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push) introspects your PlanetScale database to infer and execute the changes required to make your database schema reflect the state of your Prisma schema. When `prisma db push` is run, it will ensure the schema in the PlanetScale branch you are currently connected to matches your current Prisma schema.
 
 We recommend `prisma db push` over `prisma migrate dev` for the following reasons:
 
-PlanetScale provides [Online Schema Changes](/learn/how-online-schema-change-tools-work) that are deployed automatically when you merge a development database branch and prevents [blocking schema changes](/concepts/nonblocking-schema-changes) that can lead to downtime. This is different from the typical Prisma workflow which uses `prisma migrate` in order to generate SQL migrations for you based on changes in your Prisma schema. When using PlanetScale with Prisma, the responsibility of applying the changes is on the PlanetScale side. Therefore, there is little value to using `prisma migrate` with PlanetScale.
+PlanetScale provides [Online Schema Changes](/learn/how-online-schema-change-tools-work) that are deployed automatically when you merge a deploy request and prevents [blocking schema changes](/concepts/nonblocking-schema-changes) that can lead to downtime. This is different from the typical Prisma workflow which uses `prisma migrate` in order to generate SQL migrations for you based on changes in your Prisma schema. When using PlanetScale with Prisma, the responsibility of applying the changes is on the PlanetScale side. Therefore, there is little value to using `prisma migrate` with PlanetScale.
 
-Also, the migrations table created when `prisma migrate` runs can also be misleading since PlanetScale does the actual migration when the development database branch is merged, not when `prisma migrate` is run which only updates the schema in the development database branch. You can still see the history of your schema changes in PlanetScale.
+Also, the migrations table created when `prisma migrate` runs can also be misleading since PlanetScale does the actual migration when the deploy request is merged, not when `prisma migrate` is run which only updates the schema in the development database branch. You can still see the history of your schema changes in PlanetScale.
 
 ## Prerequisites
 
@@ -101,7 +101,7 @@ pscale connect prisma-playground main --port 3309
 ```
 
 <InfoBlock type='note'>
-  This is assuming this is a new PlanetScale database and the <inlineCode>main</inlineCode> branch 
+  This step assumes you created a new PlanetScale database and the <inlineCode>main</inlineCode> branch 
   has not been promoted to production yet. You will need to create a new development branch if 
   the <inlineCode>main</inlineCode> branch has been promoted to production.
 </InfoBlock>
@@ -130,12 +130,12 @@ describe Post;
 ```
 
 <InfoBlock type='tip'>
-  Use <inlineCode>exit</inlineCode> command to exit the MySQL shell.
+  Use the <inlineCode>exit</inlineCode> command to exit the MySQL shell.
 </InfoBlock>
 
 Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch. 
 
-7. Now that the intial schema has been added, promote your `main` branch to production status:
+7. Now that the initial schema has been added, promote your `main` branch to production status:
 
 ```
 pscale branch promote prisma-playground main
