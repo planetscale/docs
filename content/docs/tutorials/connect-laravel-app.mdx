@@ -75,7 +75,7 @@ That's it! Your database is ready to use. Next, let's connect it to the Laravel 
 
 There are **two ways to connect** to PlanetScale:
 
-- Using client certificates with the CLI
+- Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
 
 Both options are covered below.
@@ -106,13 +106,15 @@ DB_PASSWORD=<PLAIN TEXT> // outputted in the previous step
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
+The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](https://docs.planetscale.com/reference/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
+
 You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Laravel**".
 
 Refresh your Laravel homepage and you should see the message that you're connected to your database!
 
-### Option 2: Connect with client certificates
+### Option 2: Connect with the PlanetScale proxy
 
-To connect with client certificates, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
+To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
 
 1. Open a connection by running the following:
 
