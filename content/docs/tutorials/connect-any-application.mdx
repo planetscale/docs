@@ -5,7 +5,7 @@ subtitle: ''
 
 ## Introduction
 
-In this tutorial, you'll learn how to connect any application to your PlanetScale database with either username and password or client certificates.
+In this tutorial, you'll learn how to connect any application to your PlanetScale database with either username and password or the PlanetScale proxy.
 
 ## Prerequisites
 
@@ -62,9 +62,9 @@ Please save the values below as they will not be shown again
 
 4. Make sure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.
 
-## Connect using client certificates
+## Connect using the PlanetScale proxy
 
-Another way to connect your application to your PlanetScale database is using client certificates. You won't have to fiddle with configuring any certificates, as that's handled by PlanetScale. It's as simple as a single CLI command.
+Another way to connect your application to your PlanetScale database is using the PlanetScale proxy. You won't have to fiddle with configuring any authentication details, as that's handled by PlanetScale. It's as simple as a single CLI command.
 
 You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. This gets rid of the need to generate and remember multiple passwords every time you're creating or switching to a new branch.
 
