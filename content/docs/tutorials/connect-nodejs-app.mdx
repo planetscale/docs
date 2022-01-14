@@ -140,7 +140,7 @@ Please save the values below as they will not be shown again
 
 You'll use these properties to construct your connection string, which will be the value for `DATABASE_URL` in your `.env` file. Create your connection string in the following format:
 ```
-"mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}"
+mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
 ```
 In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed. It should look something like this:
 ```env
