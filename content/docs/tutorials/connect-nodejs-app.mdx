@@ -138,13 +138,13 @@ Please save the values below as they will not be shown again
 ```
 
 
-In the `.env` file, fill in the `DATABASE_HOST`, `DATABASE_NAME`, `DATABASE_USERNAME`, and `DATABASE_PASSWORD` variables with the values you just created. It should look something like this:
-
+You'll use these properties to construct your connection string, which will be the value for `DATABASE_URL` in your `.env` file. Create your connection string in the following format:
+```
+"mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}"
+```
+In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed. It should look something like this:
 ```env
-DATABASE_HOST=gxvhbzcxfw01.us-east-2.psdb.cloud
-DATABASE_NAME=express_database
-DATABASE_USERNAME=jp71f987awnod
-DATABASE_PASSWORD=pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+DATABASE_URL=mysql://3e98edjddk:pscale_pw_wlksdjlkdc083892332jds@nd2298dss.us-east-3.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
 ```
 
 Finally, run your Express application with:
