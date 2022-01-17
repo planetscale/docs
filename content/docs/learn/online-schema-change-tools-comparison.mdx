@@ -128,7 +128,7 @@ Noteably `gh-ost` only ever runs table copy or applies changelog at a time, and 
 
 Vitess operates in a three step loop:
 
-- **Copy** &mdash; opens a transaction with `CONSISTENT SNAPSHOT` while atomically grabbing the `GTID` at time of te transaction. Begins streaming rows from the table.
+- **Copy** &mdash; opens a transaction with `CONSISTENT SNAPSHOT` while atomically grabbing the `GTID` at time of the transaction. Begins streaming rows from the table.
 - **Catchup** &mdash; scans the changelog.
   - Ignore anything not related to the original table
   - Ignores anything that is already covered by the `GTID` captured above.
@@ -227,7 +227,7 @@ Vitess migrations are [revertible](https://vitess.io/docs/user-guides/schema-cha
 
 ## Declarative vs. imperative
 
-`pt-osc`, `fb-odc` and `gh-ost` require an `ALTER TABLE` statement. This statement is pre-evaluated by the user (or an ORM) and must be valid. The tools have no notion of the purpose nor semantics of the change.
+`pt-osc`, `fb-osc` and `gh-ost` require an `ALTER TABLE` statement. This statement is pre-evaluated by the user (or an ORM) and must be valid. The tools have no notion of the purpose nor semantics of the change.
 
 `Vitess` likewise supports `ALTER TABLE` statements. In addition, it also supports a declarative approach. In this approach, the user issues a `CREATE TABLE` to indicate what the table _should look like_. When the migration is scheduled to run, `Vitess` compares existing schema with desired schema, computes the required `ALTER TABLE` and runs the migration. Possibly the table is already in the desired format and no changes are needed. Possibly the table does not exist in the first place and needs to be created. `Vitess` will change the schema as needed to get to the desired state. [Declarative migrations](https://vitess.io/docs/user-guides/schema-changes/declarative-migrations/) are available via the `-declarative` strategy flag.
 
