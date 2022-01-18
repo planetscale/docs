@@ -20,13 +20,20 @@ const SubNavSection = ({ page, subpages, categoryID }) => {
         {page['display']}
       </button>
       <div
-        className={classNames('ml-2 pl-2 border-l', {
-          block: showSubNav,
+        className={classNames('ml-1.5 pl-2.5 border-l', {
           hidden: !showSubNav
         })}
       >
         {subpages.map((page, index) => {
-          return <NavItem key={index} index={index} href={`/${categoryID}/${page['route']}`} label={page['display']} />
+          return (
+            <NavItem
+              key={index}
+              index={index}
+              href={`/${categoryID}/${page['route']}`}
+              label={page['display']}
+              setShowSubNav={setShowSubNav}
+            />
+          )
         })}
       </div>
     </div>
