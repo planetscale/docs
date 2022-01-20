@@ -132,7 +132,7 @@
           "display": "Foreign key constraints",
           "subpages": [
             {
-              "route": "operating-without-foreign-keys",
+              "route": "operating-without-foreign-key-constraints",
               "display": "Operating without FK constraints"
             }
           ]
@@ -154,7 +154,7 @@
           "display": "Single unique key",
           "subpages": [
             {
-              "route": "change-unique-key",
+              "route": "change-single-unique-key",
               "display": "Change single unique key"
             }
           ]
