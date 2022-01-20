@@ -49,9 +49,8 @@
           "subpages": [
             {
               "route": "planetscale-environment-setup",
-              "display": "PlanetScale environment set up"
-            },
-            { "route": "planetscale-cli", "display": "PlanetScale CLI" }
+              "display": "PlanetScale CLI environment set up"
+            }
           ]
         },
         { "route": "billing", "display": "Billing" },
