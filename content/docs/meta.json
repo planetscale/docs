@@ -46,6 +46,10 @@
           "display": "Connect a Node.js app"
         },
         {
+          "route": "prisma-quickstart",
+          "display": "Prisma quickstart"
+        },
+        {
           "route": "connect-laravel-app",
           "display": "Connect a Laravel app"
         },
@@ -53,7 +57,10 @@
           "route": "nextjs-planetscale-netlify-template",
           "display": "Next.js and Netlify Template"
         },
-        { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
+        { 
+          "route": "deploy-to-vercel", 
+          "display": "Deploy to Vercel" 
+        },
         {
           "route": "prisma-data-platform-integration",
           "display": "Prisma Data Platform integration"
