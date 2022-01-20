@@ -115,10 +115,6 @@
           "subpages": [
             { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
             {
-              "route": "automatic-prisma-migrations",
-              "display": "Automatic Prisma migrations"
-            },
-            {
               "route": "nextjs-planetscale-netlify-template",
               "display": "Next.js and Netlify Template"
             }
@@ -133,20 +129,35 @@
       "image": "/img/internals/category_reference_light.png",
       "pages": [
         {
-          "route": "how-online-schema-change-tools-work",
-          "display": "How Online Schema Change tools work"
+          "display": "Foreign key constraints",
+          "subpages": [
+            {
+              "route": "operating-without-foreign-keys",
+              "display": "Operating without FK constraints"
+            }
+          ]
         },
         {
-          "route": "online-schema-change-tools-comparison",
-          "display": "Comparison of Online Schema Change tools"
+          "display": "Schema changes",
+          "subpages": [
+            {
+              "route": "how-online-schema-change-tools-work",
+              "display": "How Online Schema Change tools work"
+            },
+            {
+              "route": "online-schema-change-tools-comparison",
+              "display": "Comparison of Online Schema Change tools"
+            }
+          ]
         },
         {
-          "route": "change-unique-key",
-          "display": "Change single unique key"
-        },
-        {
-          "route": "operating-without-foreign-keys",
-          "display": "Operating without FK constraints"
+          "display": "Single unique key",
+          "subpages": [
+            {
+              "route": "change-unique-key",
+              "display": "Change single unique key"
+            }
+          ]
         }
       ]
     },
