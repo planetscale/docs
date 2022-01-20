@@ -1,0 +1,261 @@
+## Introduction
+
+In this tutorial, you'll learn how to connect a Django application to a PlanetScale MySQL database using a pre-built Django application.
+
+## Prerequisites
+
+- Python &mdash; This tutorial uses `v3.6`
+- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- (Optional) [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; This isn't required, but it can make setup much faster
+
+## Set up the Django application
+
+This guide integrates a simple Django application with PlanetScale. The application has one endpoint that displays a list of products and categories pulled from the database. If you have an existing application, you can also use that.
+
+1. Clone the starter Django application and switch into the project folder:
+
+```bash
+git clone https://github.com/planetscale/django-example.git
+cd django-example
+```
+
+2. Start the virual environment:
+
+```bash
+python3 -m venv env
+source env/bin/activate
+```
+
+For Windows, use `env/Scripts/activate`.
+
+3. Install the required packages:
+
+```bash
+pip install -r ./requirements.txt
+```
+
+## Set up the database
+
+Next, you need to set up your PlanetScale database and connect to it in the Django application.
+
+You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
+
+Authenticate the CLI with the following command:
+
+```bash
+pscale auth login
+```
+
+Create a new database with a default `main` branch with the following command:
+
+```bash
+pscale database create <DATABASE_NAME> --region <REGION_SLUG>
+```
+
+This tutorial uses `django-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+
+For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
+
+That's it! Your database is ready to use. Next, let's connect it to the Django application and then add some data.
+
+## Connect to the Django application
+
+There are **two ways to connect** your Django application to PlanetScale:
+
+- Using the PlanetScale proxy with the CLI
+- With an auto-generated username and password
+
+Both options are covered below.
+
+### Option 1: Connect with PlanetScale proxy
+
+To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
+
+1. Open a connection by running the following:
+
+```bash
+pscale connect <DATABASE_NAME> <BRANCH_NAME>
+```
+
+If you're following this guide exactly and haven't created any new branches, you'll use the default branch, `main`, for `BRANCH_NAME`.
+
+2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
+
+3. Open the `.env` file in your Django app and update it as follows:
+
+```
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=<DATABASE_NAME>
+```
+
+The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
+
+### Option 2: Connect with username and password
+
+1. Create a username and password with the PlanetScale CLI by running:
+
+```bash
+pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+```
+
+<InfoBlock type='note'>
+  The <inlineCode>PASSWORD_NAME</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+</InfoBlock>
+
+You can also do this in the [PlanetScale dashboard](https://app.planetscale.com) by selecting the database > "**Branches**" tab > "**Connect**" dropdown > "**New password**".
+
+Take note of the values returned to you, as you won't be able to see this password again.
+
+2. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
+
+```
+DB_HOST=<ACCESS HOST URL>
+DB_PORT=3306
+DB_DATABASE=<DATABASE_NAME>
+DB_USER=<USERNAME>
+DB_PASSWORD=<PLAIN TEXT>
+MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+```
+
+The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system](/reference/secure-connections#ca-root-configuration).
+
+3. Next, in the `mysite/settings.py` file, scroll down and look for the `DATABASES` object. Replace it with the following:
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'custom_db_backends.vitess',
+        'NAME': os.environ.get('DB_NAME'),
+        'HOST': os.environ.get('DB_HOST'),
+        'PORT': os.environ.get('DB_PORT'),
+        'USER': os.environ.get('DB_USER')
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
+    }
+}
+```
+
+## Optional - Bring in Vitess database backend
+
+This next step is only necessary if you're using your own application to go through this guide. If you cloned the sample app, this already exists in the repo.
+
+Because PlanetScale doesn't support foreign key constraints, you need to pull in  Vitess `custom_db_backends` for Django to disable foreign key syntax in the Django migrations. 
+
+1. Run the following to pull it in:
+
+```bash
+git clone https://github.com/vitessio/vitess
+cp -r vitess/support/django/custom_db_backends .
+rm -r vitess
+```
+
+2. In your `settings.py` file, add `custom_db_backends.vitess` as the database engine.
+
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'custom_db_backends.vitess',
+    }
+}
+```
+
+## Run migrations and seeder
+
+Now that you're connected, let's add some data to see everything in action.
+
+1. You can find the migrations file in `mysite/store/migrations/0002_auto_20220919_0058.py` that references the `Category` and `Product` models to create the schema. It also contains seed data to create two products and two categories. Run this migration with:
+
+```bash
+python manage.py migrate
+```
+
+## Display the data
+
+Finally, let's display the data to confirm that everything worked correctly.
+
+This Django starter application has a pre-built endpoint, `/products`, that will grab and display all of the product data.
+
+To view the data, start the server:
+
+```bash
+python manage.py runserver
+```
+
+Then go to [`localhost:8000/products`](http://localhost:8000/products) and you'll see a list of the data from the products table.
+
+## Add data manually
+
+If you want to continue playing around with adding data on the fly, you have a few options:
+
+- PlanetScale CLI shell
+- PlanetScale dashboard console
+- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.)
+
+The first two options are covered below.
+
+### Add data with PlanetScale CLI
+
+You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
+
+You may need to install the MySQL command line client if you haven't already.
+
+Run the following command in your terminal:
+
+```
+pscale shell <DATABASE_NAME> <BRANCH_NAME>
+```
+
+This will open up a MySQL shell connected to the specified database and branch.
+
+<InfoBlock type='note'>
+  A branch, <inlineCode>main</inlineCode>, was automatically created when you created your database, so you can use that for <inlineCode>BRANCH_NAME</inlineCode>.
+</InfoBlock>
+
+Add a record to the `store_product` table:
+
+```sql
+INSERT INTO `store_product` (name, description, image, category_id)
+VALUES  ('Product 3', 'Product 3 description', 'https://via.placeholder.com/300.png?text=Product1, 1);
+```
+
+The value `id` will be filled with a default value.
+
+Type `exit` to exit the shell.
+
+Refresh the Django homepage to see the new record. You can also verify it was added in the PlanetScale CLI MySQL shell with:
+
+```sql
+select * from store_product;
+```
+
+### Add data with PlanetScale dashboard console
+
+If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
+
+1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Django database.
+2. Click on the "**Branches** and select the `main` branch.
+3. Click on "**Console**"
+4. Add a new record to the `store_product` table with:
+
+```sql
+INSERT INTO `store_product` (name, description, image, category_id)
+VALUES  ('Product 3', 'Product 3 description', 'https://via.placeholder.com/300.png?text=Product1, 1);
+```
+
+5. You can confirm that it was added by running:
+
+```sql
+select * from store_product;
+```
+
+You can also head to the [`/products`](http://localhost:8000/products) endpoint in your Django application to see the new data.
+
+## What's next?
+
+Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+
+## Need help?
+Get help from [PlanetScale's support team](https://planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
