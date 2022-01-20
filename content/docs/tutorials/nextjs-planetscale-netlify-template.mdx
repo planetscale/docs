@@ -79,44 +79,25 @@ To begin, create a new database. You can either do this in the dashboard or usin
 
 In the dashboard, click on the "**Create a database**" button. Name your database "`netlify-starter`", or whatever name you wish. Select the region closest to you, and click "**Create database**".
 
-Next, go to the "**Settings**" page for your database and check the "**Automatically copy migration data**" box, select "**Prisma**" from the "Migration framework" dropdown, and click "**Save**".
-
 Alternatively, [sign in and create a database with the CLI](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-cli) by running the following:
 
 ```bash
 pscale database create <database-name> -regionSlug
 ```
 
-The list of region slugs can be found in our [Regions documentation](https://docs.planetscale.com/concepts/regions#available-regions). You'll still need to go into the dashboard to enable automatically copying the migration data.
-
-### Set up Prisma shadow branch
-
-Next, you need to set up the [Prisma shadow branch](https://www.prisma.io/docs/concepts/components/prisma-migrate/shadow-database). This is a temporary database used for Prisma development.
-
-To create the Prisma shadow branch:
-
-- Click on your `netlify-starter` database in your PlanetScale dashboard.
-- Click on the "**New branch**" button.
-- Name the branch `shadow`.
-- Leave the base branch as `main`.
-- Select the region closest to you or your application.
-- Click "**Create branch**".
+The list of region slugs can be found in our [Regions documentation](https://docs.planetscale.com/concepts/regions#available-regions).
 
 ### Connect to your database branches locally
 
 To connect locally, make sure you've authenticated in the CLI. If not, follow the directions in the [sign-in section of our quick start guide](/tutorials/planetscale-quick-start-guide#sign-in-to-your-account).
 
-Next, connect to your `main` and `shadow` branches locally by running the following in your terminal in two separate tabs:
+Next, connect to your `main` branch locally by running the following in your terminal:
 
 ```bash
 pscale connect <database-name> main --port <port>
 ```
 
-```bash
-pscale connect <database-name> shadow --port <port>
-```
-
-Choose any unused port. This tutorial uses `3309` and `3310`. You'll  see the response "Secure connection to database `netlify-starter` and branch `main` is established!" along with the local address that your application is on. Take note of that address for the next step.
+Choose any unused port. This tutorial uses `3309`. You'll see the response "Secure connection to database `netlify-starter` and branch `main` is established!" along with the local proxy address for your database. Take note of that address for the next step.
 
 ## Set up local environment variables
 
@@ -128,7 +109,7 @@ Make a copy of the `.env.example` file at the root of your project and rename it
 cp .env.example .env
 ```
 
-The `DATABASE_URL` and `SHADOW_DATABASE_URL` values come from your PlanetScale database and will be in the following form:
+The `DATABASE_URL` value comes from your PlanetScale database and will be in the following form:
 
 `mysql://<user>@<address>:<port>/<database>` 
 
@@ -141,7 +122,6 @@ Below is an example of the `.env` file based on this tutorial:
 
 ```js
 DATABASE_URL="mysql://root@127.0.0.1:3309/netlify-starter"
-SHADOW_DATABASE_URL="mysql://root@127.0.0.1:3310/netlify-starter"
 NEXTAUTH_URL=http://localhost:3000
 # Navigate to https://generate-secret.now.sh/32 to generate a secret for the variable below
 NEXTAUTH_SECRET=
@@ -149,17 +129,15 @@ NEXTAUTH_SECRET=
 
 Remember, these are the values for your **local environment**. The values needed for the Netlify environment variables will be covered shortly.
 
-## Migrate the database
+## Push your database schema to PlanetScale
 
-Now that your PlanetScale database is connected to your application, it's time to [run migrations](https://www.prisma.io/docs/guides/database/developing-with-prisma-migrate) and seed the database with some sample users.
+Now that your PlanetScale database is connected to your application, it's time to [push your database schema](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push).
 
 In your terminal, run:
 
 ```bash
-yarn db:migrate
+yarn db:push
 ```
-
-Name your migration `initial-migration`. This will create a new migration file under `db/migrations`.
 
 You can view the schema in your PlanetScale dashboard by clicking the `netlify-starter` database > "**Branches**" > `main` > "**Schema**" > "**Refresh schema**".
 
@@ -169,7 +147,6 @@ You'll now see the following tables:
 - `Session`
 - `User`
 - `VerificationToken`
-- `_prisma_migrations`
 
 You can also verify it worked using the PlanetScale CLI. Run the following to start a MySQL shell (where `netlify-starter` is your database):
 
@@ -189,7 +166,7 @@ The database schema, `db/schema.prisma`, has been loaded and your PlanetScale da
 
 ## Seed the database
 
-To seed the database, run the following:
+To seed the database with users, run the following:
 
 ```bash
 yarn db:seed

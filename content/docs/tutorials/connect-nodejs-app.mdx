@@ -90,9 +90,9 @@ Now that your application is set up and the database is ready to be used, let's 
 
 ## Connect to PlanetScale with Express.js
 
-There are two ways to connect your Express application to your PlanetScale database: **using client certificates** or **using a connection string**. Both options are covered below.
+There are two ways to connect your Express application to your PlanetScale database: **using the PlanetScale proxy** or **using a connection string**. Both options are covered below.
 
-### Using client certificates with the CLI
+### Using the PlanetScale proxy with the CLI
 
 Use the following command to create a connection to your database and start the application:
 
@@ -110,10 +110,10 @@ Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the da
 
 This section will show you how to create a username and password through the CLI to connect to your application. If you'd prefer to use the dashboard for this step, you can find those instructions in the [Connection Strings documentation](/concepts/connection-strings#creating-a-password) and then come back here to finish setup.
 
-First, create your `.env` file by renaming the `env.example` file to `.env`:
+First, create your `.env` file by renaming the `.env.example` file to `.env`:
 
 ```bash
-mv env.example .env
+mv .env.example .env
 ```
 
 Next, using the PlanetScale CLI, create a new username and password for the branch of your database:
@@ -134,17 +134,17 @@ Please save the values below as they will not be shown again
 
   NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
  --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
-  production-password   jp71f987awnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+  production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx                                                                                    
 ```
 
 
-In the `.env` file, fill in the `DATABASE_HOST`, `DATABASE_NAME`, `DATABASE_USERNAME`, and `DATABASE_PASSWORD` variables with the values you just created. It should look something like this:
-
+You'll use these properties to construct your connection string, which will be the value for `DATABASE_URL` in your `.env` file. Create your connection string in the following format:
+```
+mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
+```
+In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed. It should look something like this:
 ```env
-DATABASE_HOST=gxvhbzcxfw01.us-east-2.psdb.cloud
-DATABASE_NAME=express_database
-DATABASE_USERNAME=jp71f987awnod
-DATABASE_PASSWORD=pscale_pw_sVkiE_mtfxQirc4qGZXMf098as90d8as0d98asd
+DATABASE_URL=mysql://xxxxxxxxxxxxx:pscale_pw_xxxxxxx@xxxxxx.us-east-2.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
 ```
 
 Finally, run your Express application with:
