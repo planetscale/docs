@@ -51,7 +51,7 @@ Under Advanced settings, you have the option to enter the following:
 - **SSL server name override**
 - **SSL CA certificate chain** &mdash; If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
 
-For more information about certificates from a Certificate Authority, check out our [Secure connections documentation](https://docs.planetscale.com/reference/secure-connections#certificate-authorities).
+For more information about certificates from a Certificate Authority, check out our [Secure connections documentation](https://docs.planetscale.com/concepts/secure-connections#certificate-authorities).
 
 ### Test the connection
 
@@ -69,7 +69,7 @@ There are four simple steps to the database import process. You can cancel the i
 
 During step one, the data and schema from your external database are imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
 
-While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](https://docs.planetscale.com/reference/secure-connections) in a MySQL client or [in your application locally](https://docs.planetscale.com/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
+While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](https://docs.planetscale.com/concepts/secure-connections) in a MySQL client or [in your application locally](https://docs.planetscale.com/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
 
 At this point, you can also view [Query Statistics](/concepts/query-statistics), branches, and database settings by clicking around in the top nav.
 
@@ -143,11 +143,11 @@ Below are a few common errors you may run into while importing or connecting to 
 
 PlanetScale does not support database schemas that have tables with foreign keys in them.
 
-Please take a look at our help document on how your application can [operate without foreign key constraints](https://docs.planetscale.com/tutorials/operating-without-foreign-keys).
+Please take a look at our help document on how your application can [operate without foreign key constraints](/learn/operating-without-foreign-keys-constraints).
 
 ### No unique key
 
-PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, you can read through our [Change single unique key documentation](https://docs.planetscale.com/tutorials/change-unique-key#how-to-change-a-table's-single-unique-key) for more information.
+PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, you can read through our [Change single unique key documentation](https://docs.planetscale.com/learn/change-unique-key#how-to-change-a-table's-single-unique-key) for more information.
 
 It may also help to check out the official [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html).
 
