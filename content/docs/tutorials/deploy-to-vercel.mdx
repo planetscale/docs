@@ -12,7 +12,7 @@ In this tutorial, we're going to deploy a Next.js application with a PlanetScale
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```
+```bash
 pscale auth login
 ```
 
@@ -20,22 +20,24 @@ pscale auth login
 
 Now we're ready to start our adventure. Let's begin by setting up our PlanetScale database with a small sample table.
 
-1. Create a new PlanetScale _database_:
+1. Create a new PlanetScale database:
 
-```
-pscale database create <database>
+```bash
+pscale database create <DATABASE_NAME>
 ```
 
-2. Create a new `development` branch:
+This creates a database with one default branch, `main`, which we'll use as the [production branch](/concepts/branching#development-and-production-branches).
 
-```
-pscale branch create <database> <branch>
+2. For development, create a new `development` branch:
+
+```bash
+pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 3. Connect to your database to make a [non-blocking schema change](/concepts/nonblocking-schema-changes):
 
-```
-pscale shell <database> <branch>
+```bash
+pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 4. Create the following example table:
@@ -49,27 +51,28 @@ CREATE TABLE `users` (
 );
 ```
 
-5. Create a **deployment request** by running:
+5. Before making a deploy request, you need a production branch. Promote your `main` branch to production:
 
-```
-pscale deploy-request create <database> <branch>
+```bash
+pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-6. _Deploy_ the **deploy request**:
+6. Create a **deployment request** by running:
 
 To find your `deploy-request-number`, run:
 
-```
-pscale deploy-request list <database>
+```bash
+pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 ```
 
-Copy the value from `NUMBER` and use that digit as your `deploy-request-number`.
+Copy the value from `NUMBER` and use that digit as your `DEPLOY_REQUEST_NUMBER`.
 
-This will deploy your `development` branch changes into `main`:
+8. Merge your `development` branch into `main`:
 
+```bash
+pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 ```
-pscale deploy-request deploy <database> <deploy-request-number>
-```
+
 7. (Optional) Delete your just merged feature branch:
 
 If you are working in a **feature branch workflow**, you may want to delete the old branches:
@@ -82,40 +85,39 @@ _Note_: It could ask you for confirmation unless you provide the `--force` flag
 
 ## Deploy to Vercel
 
-We mentioned earlier that we had included a sample Next.js application in this tutorial for you to deploy to Vercel. This demo application creates a `user` with a _name_, _email address_, and _password_. In this section, we're going to connect the `Git` repository of our sample application to **Vercel**.
+We mentioned earlier that we had included a sample Next.js application in this tutorial for you to deploy to Vercel. This demo application creates a `user` with a _name_, _email address_, and _password_. In this section, we're going to connect the Git repository of our sample application to **Vercel**.
 
 1. Click the following **Vercel Deploy** button:
 
 <a
-  type='embed'
   target='_blank'
   href='https://vercel.com/new/git/external?repository-url=https%3A%2F%2Fgithub.com%2Fplanetscale%2Fvercel-integration-example&project-name=vercel-integration-example&repository-name=vercel-integration-example&integration-ids=oac_ni8CGiTU3oM25q1k2L6unVMp'
 >
-  <img embed='true' src='https://vercel.com/button' target='_blank' alt='Deploy with Vercel' />
+  <img src='https://vercel.com/button' alt='Deploy with Vercel' />
 </a>
 
 Vercel offers the option to clone our repository into GitHub, GitLab, or Bitbucket. In this tutorial, we're using GitHub.
 
-2. Click the _Create_ button to create your new `Git` repository.
+2. Click the **Create** button to create your new Git repository.
 
 ## Add Vercel integration
 
-We're almost done! The final thing we need to do is add a _Vercel_ integration to our PlanetScale database.
+We're almost done! The final thing we need to do is add a Vercel integration to our PlanetScale database.
 
-1. Click the **Add** button to add the PlanetScale integration to this _Vercel project_.
+1. Click the **Add** button to add the PlanetScale integration to this Vercel project.
 
 <InfoBlock type='tip'>
-  Make sure you pick the same <b>database</b> that you created in the earlier part of this tutorial, so that it has the
+  Make sure you pick the <b>same database</b> that you created in the earlier part of this tutorial so that it has the
   right schema.
 </InfoBlock>
 
-This step automatically runs your first **Vercel** _deployment_.
+This step automatically runs your first **Vercel deployment**.
 
 <InfoBlock type='tip'>
   Every push to <b>main</b> will automatically deploy your application in Vercel.
 </InfoBlock>
 
-Once added, the integration creates a service token for your PlanetScale database and adds the necessary [environment variables](https://vercel.com/docs/environment-variables) to your **Vercel** project:
+Once added, the integration creates a service token for your PlanetScale database and adds the necessary [environment variables](https://vercel.com/docs/environment-variables) to your Vercel project:
 
 ```
 PLANETSCALE_DB

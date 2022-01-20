@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Link from 'next/link'
 
 export default function Footer() {
@@ -12,7 +13,7 @@ export default function Footer() {
           <a className='text-secondary hover:text-blue'>Terms</a>
         </Link>
       </span>
-      <span className='text-secondary'>&copy; 2021 PlanetScale Inc.</span>
+      <span className='text-secondary'>&copy; 2022 PlanetScale Inc.</span>
     </div>
   )
 }

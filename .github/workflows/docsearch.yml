@@ -1,15 +1,13 @@
 name: Update Search Index
 
-on:
-  workflow_dispatch:
-  push:
-    branches:
-      - main
+on: [deployment_status, workflow_dispatch]
 
 jobs:
   update-docsearch:
     name: Update DocSearch
     runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch' ||
+        (github.event.deployment.environment == 'production' && github.event.deployment_status.state == 'success')
     steps:
       - name: Checkout
         uses: actions/checkout@v2

@@ -8,8 +8,7 @@ subtitle: 'Create, schedule, and restore backups for your PlanetScale databases.
 PlanetScale provides the ability to create, schedule, and restore backups for production and development database branches.
 
 <InfoBlock type="note">
-  A note: daily backups of database branches are included free of charge for all
-  databases.
+  Daily backups of database branches are included free of charge for all databases. Our <a href="https://docs.planetscale.com/concepts/billing#planetscale-plans">Scaler plan</a> includes automated backups every 12 hours.
 </InfoBlock>
 
 ## View backups
@@ -21,6 +20,8 @@ Once there, you'll find additional details about your backup history.
 ## Create manual backups
 
 In addition to the daily default backups that PlanetScale schedules for your database branches, you can create additional **manual** backups.
+
+To create a manual backup, follow the steps outlined below:
 
 1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
 
@@ -34,7 +35,7 @@ This will bring up a pop-up modal that prompts you to _name_ your **backup** and
 
 ## Schedule backups
 
-You can schedule additional backups for both your `main` and _development_ branches.
+You can add additional **scheduled backups** for both your `main` and _development_ branches, billed at $0.023 per GB per month.
 
 1. Go to your database backups settings page: `app.planetscale.com/<org>/<database>/settings/backups`.
 
@@ -45,6 +46,10 @@ This will bring up a pop-up modal that prompts you to configure backup frequency
 ![Schedule backup pop-up modal](/img/docs/backup-schedule-modal.png)
 
 3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
+
+<InfoBlock type="note">
+  For additional scheduled backups beyond the included default (daily for the <a href="https://docs.planetscale.com/concepts/billing#planetscale-plans">free Developer plan</a> and every 12 hours for the <a href="https://docs.planetscale.com/concepts/billing#planetscale-plans">Scaler plan</a>), you will be billed <b>$0.023 per GB per month</b>.
+</InfoBlock> 
 
 ## Restore from a backup
 

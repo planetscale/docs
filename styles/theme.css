@@ -52,7 +52,7 @@
   --green-300: #75db8c;
   --green-400: #40d763;
   --green-500: #27b648;
-  --green-600: #0b8929;
+  --green-600: #13862e;
   --green-700: #19652a;
   --green-800: #10481d;
   --green-900: #0a2912;
@@ -133,23 +133,10 @@
   --graph-green-dark: var(--green-400);
 }
 
-@media screen and (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    @mixin darkmode;
-  }
-  :root.light,
-  .invert-color-mode {
-    @mixin lightmode;
-  }
+:root {
+  @mixin lightmode;
 }
 
-@media screen and (prefers-color-scheme: light) {
-  :root:not(.dark) {
-    @mixin lightmode;
-  }
-  :root.dark,
-  .dark,
-  .invert-color-mode {
-    @mixin darkmode;
-  }
+.dark {
+  @mixin darkmode;
 }

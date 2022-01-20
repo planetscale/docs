@@ -1,14 +1,17 @@
 import '../styles/index.css'
-import Head from 'next/head'
 import { useEffect, useState } from 'react'
+
+import { ThemeProvider } from 'next-themes'
+import Head from 'next/head'
 import { useRouter } from 'next/router'
+
 import Page from '../components/SegmentPageTracker'
 
-export default function App({ Component, pageProps }) {
+export function App({ Component, pageProps }) {
   const router = useRouter()
 
   useEffect(() => {
-    const handleRouteChange = (url, { shallow }) => {
+    const handleRouteChange = () => {
       document.body.classList.remove('prevent-scroll')
     }
 
@@ -17,18 +20,18 @@ export default function App({ Component, pageProps }) {
     return () => {
       router.events.off('routeChangeStart', handleRouteChange)
     }
-  }, [])
+  }, []) // eslint-disable-line
 
   const [favicon, setFavicon] = useState('/favicon_system.svg')
 
   useEffect(() => {
     const onChange = (event) => {
       setFavicon(`/favicon_${event.matches ? 'dark' : 'light'}.svg`)
-      colorSchemeChanged(event)
     }
     const query = window.matchMedia('(prefers-color-scheme: dark)')
-    query.addEventListener('change', onChange)
-    syncColorScheme(query.matches)
+    if (query.addEventListener) {
+      query.addEventListener('change', onChange)
+    }
     return () => query.removeEventListener('change', onChange)
   }, [])
 
@@ -45,49 +48,24 @@ export default function App({ Component, pageProps }) {
 
         const r = el.getBoundingClientRect()
         window.top.scroll({
-          top: pageYOffset + r.top - 100, // 100 for page header height
-          behavior: 'smooth',
+          top: scrollY + r.top - 100, // 100 for page header height
+          behavior: 'smooth'
         })
       }, 600)
     }
   }, [])
 
-  function syncColorScheme(isSystemDark) {
-    const root = document.querySelector('html')
-    const pref = root.getAttribute('data-color-scheme') || 'system'
-    const dark = (isSystemDark && pref === 'system') || pref === 'dark'
-    root.classList.toggle('dark', dark)
-  }
-
-  function colorSchemeChanged(event) {
-    syncColorScheme(event.matches)
-  }
-
   return (
-    <>
+    <ThemeProvider defaultTheme='dark' attribute='class'>
       <Head>
-        <link
-          rel="shortcut icon"
-          href={favicon}
-          sizes="any"
-          type="image/svg+xml"
-        />
-
-        <link
-          rel="preload"
-          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-          as="style"
-        />
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css"
-          media="print"
-          onLoad="this.media='all'"
-        />
+        <link rel='shortcut icon' href={favicon} sizes='any' type='image/svg+xml' />
+        <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
       </Head>
       <Page>
         <Component {...pageProps} />
       </Page>
-    </>
+    </ThemeProvider>
   )
 }
+
+export default App

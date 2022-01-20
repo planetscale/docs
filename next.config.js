@@ -1,15 +1,14 @@
 const withMDX = require('@next/mdx')({
-  extension: /\.mdx$/,
+  extension: /\.mdx$/
 })
 
 module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['js', 'jsx', 'md', 'mdx']
 })
 
 module.exports = {
-  webpack5: false,
   eslint: {
-    ignoreDuringBuilds: true,
+    ignoreDuringBuilds: true
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
@@ -23,28 +22,28 @@ module.exports = {
       {
         source: '/tutorial/:slug*',
         destination: '/tutorials/:slug*', // Matched parameters can be used in the destination
-        permanent: true,
+        permanent: true
       },
       {
         source: '/tutorials/deploy-to-heroku',
         destination: '/tutorials/connect-any-application',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/v1/vitess-operator/:match*',
         destination: 'https://github.com/planetscale/vitess-operator/tree/main/docs',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/v1/:match*',
         destination: '/',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/reference/planetscale-security',
         destination: '/reference/secure-connections',
-        permanent: true,
-      },
+        permanent: true
+      }
     ]
-  },
+  }
 }

@@ -9,6 +9,7 @@
 @import 'links';
 @import 'tables';
 @import 'theme';
+@import 'docsearch';
 @import '404';
 
 body {
@@ -37,18 +38,6 @@ summary::-webkit-details-marker {
 b,
 strong {
   @apply font-semibold;
-}
-
-.bg-gradient-purple {
-  @apply bg-gradient-to-bl;
-  @apply from-purple-500;
-  @apply to-purple-700;
-}
-
-@layer utilities {
-  .bg-blur {
-    backdrop-filter: blur(8px);
-  }
 }
 
 .algolia-autocomplete {
