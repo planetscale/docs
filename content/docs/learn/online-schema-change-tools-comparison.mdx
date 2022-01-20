@@ -1,0 +1,238 @@
+---
+title: 'Comparison of Online Schema Change tools'
+subtitle: 'Design and implementation comparison of tools and the resulting user experience'
+---
+
+Online Schema Change tools for MySQL [share a similar basic design](/learn/how-online-schema-change-tools-work), but differ in implementation. Their differences imply different capabilities, different impact to production, different versatility, and different user experience. In this document, we break down several Online Schema Change tools to see how their design choices lead to different behavior.
+
+## Tools reviewed
+
+We will compare these solutions:
+
+- [pt-online-schema-change](https://www.percona.com/doc/percona-toolkit/3.0/pt-online-schema-change.html) as part of Percona Toolkit.
+- [gh-ost](https://github.com/github/gh-ost)
+- [Facebook's OSC](http://bazaar.launchpad.net/~mysqlatfacebook/mysqlatfacebook/tools/annotate/head:/osc/OnlineSchemaChange.php)
+- [Vitess](https://vitess.io/docs/user-guides/schema-changes/)
+
+Some notes before we take off:
+
+- All reviewed solutions are free and open source
+- `pt-online-schema-change`, `gh-ost`, and `Facebook's OSC` are designated (command line) tools for making schema changes.
+- Vitess is a full blown sharding and infrastructure framework, where online schema changes (termed Online DDL) is one of its functions. As such, it is not an "online schema change tool" per se. In the context of Vitess's Online DDL, we assume all production traffic goes through Vitess's MySQL interface (the `VTGate` proxy), and never directly to the underlying MySQL servers.
+- It's noteworthy that Vitess can manage and run `gh-ost` and `pt-online-schema-change` migrations. In this comparison we look at the native Vitess Online DDL solution, based on [VReplication](https://vitess.io/docs/user-guides/schema-changes/ddl-strategies/#onlinevreplication).
+- We discuss the original Facebook online schema change tool. Facebook (now Meta) have since [redesigned and re-implemented](https://engineering.fb.com/2017/05/05/production-engineering/onlineschemachange-rebuilt-in-python/) the tool.
+- The original online schema change tool, [oak-online-alter-table](https://shlomi-noach.github.io/openarkkit/oak-online-alter-table.html), as part of the OpenArk kit, is discontinued and is not reviewed here. `pt-online-schema-change` derives its design from it and the two share many properties.
+- Another notable tool not covered here is [Rails LHM](https://github.com/soundcloud/lhm).
+
+For simplicity of naming, we will refer to `pt-online-schema-change` as `pt-osc`, and to Facebook's OSC as `fb-osc`.
+
+## Comparison by design
+
+This document compares the online schema change solutions by key design elements, and shows how those affect capabilities and usability. We do not compare benchmarks or specific performance metrics. We will share some production experiences, while taking care not to make blanket statements. Each tool behaves differently under different workloads.
+
+Our breakdown compares these design principles:
+
+- Synchronous vs asynchronous
+- Trigger-based vs. triggerless
+- Coarse vs. fine
+- Atomic vs. punctured cut-over
+- Controlled vs. arbitrary cut-over schedule
+- Primary vs. shared vs. flexible key iteration
+- Managed vs. unmanaged
+- Auditable/controllable vs. not
+- Resumable after failure vs. not
+- Revertible after completion vs. not
+- Declarative vs. imperative
+
+Make sure to first read [How Online Schema Change tools work](/learn/how-online-schema-change-tools-work).
+
+## Synchronous vs asynchronous
+
+In a synchronous design, the ghost table is updated within the same transaction that updates the original table. If a new row is `INSERT`ed to the original table, then within that transaction we also `INSERT` a row on the ghost table, and similarly for `UPDATE` and `DELETE`. By virtue of transactions, either both statements apply, or neither does.
+
+This design simplifies much of the logic. Once the table copy is complete, the synchronous design ensures the tables are in perfect sync, and will continue to be so if we were to keep the process going.
+
+The only way to achieve this design is by delegating work to the database itself, so that we're able to hook into a user's transaction. It is impossible for an external tool to apply changes to the ghost table while still operating under the user's transaction. The only means to do that in current MySQL is using table triggers (see next design comparison).
+
+In our reviewed solutions list, `pt-online-schema-change` is the only one to use the synchronous approach.
+
+In an asynchronous design, we apply changes to the ghost table asynchronously to the user's transaction. This means there is some _lag_ between the user's `COMMIT` and the time at which the reflected change is applied to the ghost table. That lag can be small or high, and is always non-zero. Even at the moment when table copy is complete, there is no certainty that the two tables will be in complete sync. Ongoing production traffic may keep pushing the lag.
+
+The asynchronous approach implies we need to capture the changelog. We need some buffer where we can track this `INSERT` or that `DELETE`, which can sustain a growing lag.
+
+The two approaches to achieving asynchronous schema changes are:
+
+- Capture data change via triggers and use a helper table for capturing the changelog &mdash; used by `fb-osc`.
+- Tail the MySQL binary logs, which _are_ the changelog &mdash; used by `gh-ost` and `Vitess`.
+
+However the changelog is captured, a background process needs to iterate the incoming changes, to then apply them onto the ghost table.
+
+## Trigger-based vs. triggerless
+
+Triggers are MySQL constructs based on stored routines, which allow us to respond to `INSERT`, `UPDATE` and `DELETE` statements, either before or after they have been applied to the table. A trigger is invoked per row changed (created, updated or deleted) on a specific table. The invocation takes place in the same transaction space as the query which operated on the table.
+
+Triggers make it easy to keep things in the database level. Applying an `UPDATE` to the ghost table does not leave the server's space. This means we can let MySQL handle the way data is copied. For example, if the schema change converts a column type from `INT` to `BIGINT`, or from `enum` to `VARCHAR`, we don't need to worry about the type conversion, and we let MySQL do its natural conversion.
+
+Stored routines were introduced in MySQL `5.0` and have changed little since. A stored routine (procedure, function, event, trigger) is interpreted by the database. As opposed to other RDBMS, MySQL does not compile or pre-compile stored routines. Every time a stored routine is invoked, the code is interpreted by the database server. This means a user's transaction gets overloaded, or padded, with interpreter logic, and on high workloads this is noticeable to the app.
+
+Another limitation of the trigger-based design is that the triggers must be active throughout the lifetime of the migration. Online schema change solutions attempt to keep migration impact to production as low as possible, and throttle based on production load. However, the triggers must keep running, since they are the means to capturing changes, or else we have data loss. They cannot be throttled.
+
+Both `pt-osc` and `fb-osc` use triggers, but in different approaches:
+
+- `pt-osc` uses the synchronous approach. Therefore, an `INSERT` on the original table uses the trigger to also `INSERT` into the ghost table in that same transaction. While this maintains perfect sync between the two tables, it also introduces excessive locking. While normal transactions only intend to compete over writes to the original table, with the added triggers they also have to compete over writes to the ghost table. On high workloads this can bring down application's ability to write to the table to a considerable slowdown or even to a grinding halt. Again, this is workload dependent and for some workloads this works well.
+- `fb-osc` uses the asynchronous approach. The tool creates a changelog table, an append-only buffer. Each `INSERT`, `UPDATE` or `DELETE` on the original table translates to an `INSERT` on the changelog table. This reduces somewhat the locking contention since all changes map to new (and sequentially ascending) rows in the changelog table rather than existing (and random order) rows on the ghost table.
+
+Even though `fb-osc` uses the asynchronous approach, it still keeps the data in the database itself, and again enjoys MySQL's ability to reliably copy the data from the changelog table onto the ghost table.
+
+In the triggerless approach, the changelog cannot be acquired directly from the running transactions, and must be collected elsewhere.
+
+Both `Vitess` and `gh-ost` use a triggerless design, and both get the changelog from MySQL's replication stream.
+
+With binary logs enabled in MySQL, once a transaction completes its effects are written to the binary logs, and are made available to the replication stream.
+
+Notes:
+
+- How the transaction is written in the binary logs depends on the binlog format. Both `gh-ost` and `Vitess` require a `ROW` binlog format. `gh-ost` is more flexible in allowing a `STATEMENT` format on a primary with `ROW` format on a replica.
+- Depending on MySQL's configuration, the transaction and binary log entry couple be written atomically, or, there could be lag between the `COMMIT` and the binlog entry flush.
+
+The binary log is, in essence, the changelog of operations made on the MySQL server. It is the means for replication, where replicas replay those changes to achieve consistency with the primary MySQL server.
+
+It is possible to read the binary logs directly from disk, but both `Vitess` and `gh-ost` choose to hook to the MySQL server imposing as replicas, and requesting the binary log events over the wire. This allows flexibility in where the schema change logic can run.
+
+Reading data from the binary logs / stream means the schema change solution owns the interpretation or mutation of the data. It is no longer possible to delegate that work to MySQL. For example, texts are always written in UTF in the binary logs, regardless of the character set they originated with in the table. Conversions between types (again illustrating an `enum` to `varchar` change) need to be taken care of by the solution's logic. This makes a triggerless design more complex in handling of data and the numerous ways with which it can mutate.
+
+A triggerless design is inherently asynchronous. Capturing binlog changes from MySQL's replication stream, or even from disk, is not coupled with transaction commit time. There will be some lag between the time where an `UPDATE` is in the binary log stream, and time at which it is read from the stream.
+
+Read more on why `gh-ost` took a [triggerless approach](https://github.com/github/gh-ost/blob/master/doc/why-triggerless.md).
+
+## Coarse vs. fine
+
+`pt-osc`, `fb-osc` and `gh-ost` all work in a coarse approach. To some extent it's a brute-force method of copying the data:
+
+- They iterate the original table and copy chunks of rows to the ghost table.
+- They respond to ongoing changes (whether sycnhronously or asynchronously) and apply them to the ghost table.
+
+The two operations could conflict. What if we applied a row by capturing the changelog, before we copied it via table iteration? What do we do when we then try to copy that chunk of data? In a synchronous operation, what if that actually happens concurrently in competing transactions?
+
+The coarse approach gives the changelog a higher priority over the table copy, and lets both run independently of each other. In a normal migration, there will be many conflicts between the row-copy and the changelog. They are resolved using database queries, simplified to:
+
+- `INSERT IGNORE INTO ghost_table (...) SELECT ... FROM original_table` for table copy, and
+- `REPLACE INTO ghost_table (...) ...` for changelog capture.
+
+Noteably `gh-ost` only ever runs table copy or applies changelog at a time, and there is never a competition between two concurrent transactions.
+
+`Vitess` takes a fine approach where it keeps track of:
+
+- **Executed `GTID`** &mdash; `Vitess` uses `GTID` while writing to the ghost table. It keeps a very small progress table to which it audits the `GTID` for the latest write to the ghost table. This is done atomically within the same transaction.
+- **Last copied range** &mdash; `Vitess` evaluates, programmatically, which key range has already been copied. The key range is again persisted in a helper table, atomically with the write to the ghost table.
+
+Vitess operates in a three step loop:
+
+- **Copy** &mdash; opens a transaction with `CONSISTENT SNAPSHOT` while atomically grabbing the `GTID` at time of the transaction. Begins streaming rows from the table.
+- **Catchup** &mdash; scans the changelog.
+  - Ignore anything not related to the original table
+  - Ignores anything that is already covered by the `GTID` captured above.
+  - Ignores operations on rows which have not been iterated yet.
+- **Fast forward** &mdash; prepare the next Copy phase, providing it the next unhandled row range, and, since takes non-zero time to achieve, backfill the remaining changelog events as with the Catchup change.
+
+With this fine grained approach, Vitess is able to avoid superfluous writes to the ghost table, and only keep to the minimum necessary data copy.
+
+## Atomic vs. punctured cut-over
+
+The cut-over is the most critical part of the migration process. It is when the new schema takes effect, and is a source of concern:
+
+- If we did anything wrong (dropped the wrong index? Wrong column?), that's when the application may break or degrade performance.
+- There is non-zero impact time for instating the new table. Queries will either stall, break or both for a hopefully brief period.
+
+`pt-online-schema-change` and `gh-ost` both utilize an atomic cut-over. In this approach, the app or user's queries on the original table are briefly _blocked_, but not rejected, during cut-over time. When the ghost table is renamed in place of the original table, the queries get _unblocked_ and proceed to operate on the new table.
+
+On high workloads this is typically noticeable to the app. There will be some delays to queries. Moreover, there will be some pileup of connections. This is because an open connection on MySQL can only run a single query at a time. A `1000` blocked queries will mean a `1000` open connections. The busier the workload is, the higher number of piled up connections will be. Eventually, the database may run out of open connection limit (either by its own configuration or by OS limits), at which time apps and users will experience rejected connections or queries.
+
+`pt-osc`'s cut-over is the simplest of all. Becuase of its synchronous design, it is able to cut-over with a single two-table rename statement, such as `RENAME TABLE original TO _original_old, ghost_table TO original`. However, the metadata lock acquired also applies to the triggers, and under heavy workload the cut-over becomes a dangerous point of contention that can lock for long seconds or minutes.
+
+`gh-ost` uses the asynchronous approach, where there is some lag between the original and ghost tables. It implements an [elaborate](https://github.com/github/gh-ost/blob/master/doc/cut-over.md) logic to block queries on the original table while still applying last backlog changes to the ghost tables. Users have shown that under very specific query sequences, in particular monitoring-like queries that happen to access the ghost table just before/at cut-over time, there are scenarios that introduce data loss. `gh-ost` also supports a two-step cut-over, as illustrated next.
+
+`fb-osc`, also using an asynchronous approach, tackles the problem by creating a puncture. It runs a two-step flow where it first renames the original table away, and then, after processing the backlog, renames the ghost table in its place. There's a period in time where the table just does not exist. During that period in time, queries will fail, unexpectedly to the app/users. It is a simple and effective solution to the asycnhronous complexity, at the cost of user/app inconvenience.
+
+`Vitess`, like `fb-osc`, creates a puncture experience, but instead of doing a two-step rename, it blocks writes to the original table by virtue of `VTGate`, its proxy component. When it is done processing the backlog, it unblocks writes. The users and apps experience unexpected query errors.
+
+## Controlled vs. arbitrary cut-over schedule
+
+In an arbitrary cut-over schedule design, the Online Schema Change solution decides when to cut-over, and it does so in the earliest possible opportunity.
+
+`pt-osc` an `fb-osc` take that approach. `pt-osc` will cut-over as soon as table copy is complete, and `fb-osc` will do the same, allowing the extra brief time for processing the remaining backlog.
+
+Since cut-over time is the most critical part of the migration, there is advantage to having people at their console and in their comfortable working hours when it takes place. Waking up at `2:00am` on a Saturday night is less than ideal for dealing with outages and incidents.
+
+`gh-ost` and `Vitess` support arbitrary schedule, but both also allow the user to decide when to cut-over. In this controlled approach, the migration process does not terminate voluntarily by the tool/solution. After table data is copied, and even when all seems to be in order, migration simply continues running. The tools keep tracking and applying the changelog to keep the ghost table in near sync (both `gh-ost` and `Vitess` use the asynchronous approach). At some point, the user may declare they are ready. Assuming conditions allow, or as soon as possible afterwards, the tools will proceed to run the cut-over.
+
+- `gh-ost` provides a [-postpone-cut-over-flag-file](https://github.com/github/gh-ost/blob/master/doc/command-line-flags.md#postpone-cut-over-flag-file) command line flag, and cut-over either when the file is removed or the user interactively commands the cut-over.
+- `Vitess` migrations [can be postponed](https://vitess.io/docs/user-guides/schema-changes/postponed-migrations/) with `-postpone-completion` flag, and completed via `ALTER VITESS_MIGRATION <uuid> COMPLETE`.
+
+Controlled cut-over is a means for higher confidence and peace of mind for the operational user.
+
+## Primary vs. shared vs. flexible key iteration
+
+Original table's data is copied to the ghost table by slowly iterating all rows. That takes place according to some order, and, in particular, according to some `UNIQUE KEY` order. Ideally, we'd always iterate by `PRIMARY KEY`, but sometimes the `PRIMARY KEY` itself is being modified by the schema change, which requires us to look for alternatives.
+
+Similarly, when we capture, say, an `UPDATE` event in the changelog, we need to uniquely identify the relevant row in the ghost table. There must be some way to ensure we're addressing the correct row, even in face of a change in `PRIMARY KEY`.
+
+The Online Schema Change tools differ in implementation as follows:
+
+- `fb-osc` will only ever iterate on `PRIMARY KEY` order. It allows original and ghost tables to have different `PRIMARY KEY`s, but required the `PRIMARY KEY` on the ghost table to only cover columns which exist in the original table.
+- `pt-osc` allows any type of `UNIQUE KEY`. Any change of `PRIMARY KEY` requires the user to add `--no-check-alter`. It allows the ghost table to have `UNIQUE KEY`s on columns not present in the original table, and will in such case use unindexed columns for `DELETE` operations, which is a major performance hit on large tables.
+- `gh-ost` requires some [shared key](https://github.com/github/gh-ost/blob/master/doc/shared-key.md). There must be any `UNIQUE KEY` (`PRIMARY` included) on the original table, which covers exact set of columns, and in same order, as some `UNIQUE KEY` on the ghost table. The name of the key does not matter, just the identity and order of covered columns.
+- `Vitess` requires the original table to have some `UNIQUE KEY` and the ghost table to have some `UNIQUE KEY`. the two do not have to be the same. Vitess requires columns covered by the original table's key to exist in the ghost table, and columns covered by the ghost table's key to exist in the original table.
+
+## Auditable/controllable vs. not
+
+Both `fb-osc` and `pt-osc` are non-auditable and uncontrollable. Once they start running, they're on auto-mode and will pursue the migration to completion or until it fails. It's impossible to meanwhile control the tools, change their behavior, query for information etc.
+
+`Vitess` and `gh-ost` are both controllable and auditable.
+
+`gh-ost` opens a Unix socket, by which the user may communicate with the running migration. It is possible to reconfigure `gh-ost` while running (by e.g. setting new throttling thresholds), manually throttling it, getting status, cutting-over and more.
+
+`Vitess` lets the user communicate with the migration via SQL, with such commands as `SHOW VITESS_MIGRATION LIKE '...'` (get information and status), `ALTER VITESS_MIGRATION '...' CANCEL` (abort a running migration), `ALTER VITESS_MIGRATION '...' COMPLETE` (cut-over a postponed migration) and more.
+
+Both `gh-ost` and `Vitess` provide extra information about the migration, such as estimated progress percent as well as ETA (expected time till completion).
+
+## Managed vs. unmanaged
+
+The tools `pt-osc`, `fb-osc` and `gh-ost` are concerned with making an `ALTER TABLE` (or emulation thereof) happen, and are not concerned about how the migration was made or scheduled, or what its consequences might be. Management of the migration flow must take place externally to the tools. The tools usually require multiple command line flags to pass information such as the server location, credentials, throttling information and thresholds, etc.
+
+`Vitess`, as a framework, manages many aspects of the migration:
+
+- **Scheduling** &mdash; Vitess schedules migrations to run, identifies migrations that conflict with each other, moves migration to the next state, etc.
+- **Discovery** &mdash; Vitess automatically knows where the migration should execute.
+- **Credentials** &mdash; Vitess can create and destroy credentials per migration (and does so for managed `gh-ost` and `pt-osc`), or use its own internal credentials for the task.
+- **Throttling** &mdash; built in Vitess, and again based on internal discovery.
+- **Cleanup** &mdash; safely and timely removing the migration's artifacts.
+- **History** &mdash; tracking all present and past migrations.
+
+## Resumable after failure vs. not
+
+`gh-ost`, `fb-osc`, `pt-osc` are single process tools and do not keep track of their own progress outside the process' scope. If the tools break for any reason, or killed by the operating system, the migration is lost. They cannot be resumed from point of interruption. Someone will then also need to clean up the artifact tables. With `pt-osc` and `fb-osc`, there is furthermore the issue of dropping the leftover triggers.
+
+Moreover, they are bound to the MySQL primary the migration was issued on. If the primary fails, the migration is lost. Even if, for example, a replica is promoted as a new primary and the MySQL cluster resumes operation, it is impossible to resume the migration from point of breakage.
+
+[Vitess migrations survive](https://vitess.io/docs/user-guides/schema-changes/recoverable-migrations/) both failure of the Vitess process as well as failure of the MySQL server. This is the result of Vitess keeping track of the migrations' progress in helper tables, transactionally committed along with corresponding range and GTID values. Upon failure of either MySQL or Vitess itself, a new Vitess/VTTablet process is able to pick up the migration from the exact place where it left off. This works even if a new MySQL replica/server is promoted as primary. Vitess resumes the flow automatically and the user does not need to take action.
+
+## Revertible after completion vs. not
+
+Some migrations turn bad. Perhaps dropping the wrong column or the wrong index. This is why the cut-over is the most critical part of the migration. In such situations, the operator may want to revert the migration, i.e. restore the table to its original format.
+
+Once a migration is complete, `pt-osc`, `fb-osc` and `gh-ost` exit. What information they had about the migration or the table's structure is lost. Since they all have no sense of migration management, there is no functionality to assist with reverting the migration. The user must contrive a new `ALTER TABLE` statement and run a new migration, or alternatively find what the original table was renamed to, and rename it back, losing some data accumulated since migration completed.
+
+Vitess migrations are [revertible](https://vitess.io/docs/user-guides/schema-changes/revertible-migrations/). Vitess is able to restore the table onto its original schema, without losing accumulated data. Furthermore, it requires no additional information from the user. It provides a `REVERT VITESS_MIGRATION <uuid>` SQL interface, which creates a new migration. That migration is expected to run quickly, as it does not need to copy table data. It only needs to hook onto the binary log stream from the point of previous migration termination and apply data from that point on.
+
+## Declarative vs. imperative
+
+`pt-osc`, `fb-osc` and `gh-ost` require an `ALTER TABLE` statement. This statement is pre-evaluated by the user (or an ORM) and must be valid. The tools have no notion of the purpose nor semantics of the change.
+
+`Vitess` likewise supports `ALTER TABLE` statements. In addition, it also supports a declarative approach. In this approach, the user issues a `CREATE TABLE` to indicate what the table _should look like_. When the migration is scheduled to run, `Vitess` compares existing schema with desired schema, computes the required `ALTER TABLE` and runs the migration. Possibly the table is already in the desired format and no changes are needed. Possibly the table does not exist in the first place and needs to be created. `Vitess` will change the schema as needed to get to the desired state. [Declarative migrations](https://vitess.io/docs/user-guides/schema-changes/declarative-migrations/) are available via the `-declarative` strategy flag.
+
+## Conclusion
+
+As you can see, there are several crucial differences when it comes to the implementation of Online Schema Change tools. Hopefully this guide gave you insight into the reasoning behind the design choices of the tools we reviewed.
+
+If you're interested in learning more about Vitess schema changes, be sure to check out the [Vitess documentation](https://vitess.io/docs/user-guides/schema-changes/).

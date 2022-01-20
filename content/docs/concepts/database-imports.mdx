@@ -57,11 +57,11 @@ For more information about certificates from a Certificate Authority, check out 
 
 Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click the "**Begin database import**" button to import your data.
 
-If the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting) for more information.
+If the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting-connectivity-issues) for more information.
 
 ## Import process
 
-There are four simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information. Note, you cannot run DDL (Data Definition Language), such as `CREATE`, `ALTER`, etc during the import process.
+There are three simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information. Note, you cannot run DDL (Data Definition Language), such as `CREATE`, `ALTER`, etc on your external database during the import process.
 
 ### Step 1: Performing initial import
 
@@ -153,14 +153,51 @@ It may also help to check out the official [MySQL documentation about Primary Ke
 
 ### Invalid charset
 
-PlanetScale supports the following charsets `utf8`, `utf8mb4`, `utf8mb3`.
-If your table has any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
+PlanetScale supports the following charsets: `utf8`, `utf8mb4`, `utf8mb3`.
+If your table uses any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
 
 ### Unsupported feature
 
 You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
 Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html) for more information.
 
-### Additional assistance
+## Troubleshooting server configuration issues
+
+To ensure that we can migrate your data to PlanetScale with zero downtime, we check your database for some required configuration values, as described below:
+
+| Variable | Required Value |  Documentation | 
+|:----|:----|:----|
+| `gtid_mode` | `ON` | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_mode) |
+| `binlog_format` | `ROW` | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) |
+| `expire_logs_days`* | `> 2` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days) |
+| `binlog_expire_logs_seconds`* | `> 172800` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds)|
+
+**\*** PlanetScale requires that either `expire_logs_days` or `binlog_expire_logs_seconds` is set to a valid value. If both of these values are set, the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`.
+
+### Check these values for your database server
+
+To check what your database server currently has these values set to, run the following query in a MySQL console connected to your database server: 
+
+``` sql
+SHOW VARIABLES 
+   WHERE Variable_Name LIKE '%gtid_mode' 
+      OR Variable_Name LIKE '%binlog_format' 
+      OR Variable_Name LIKE '%expire_logs_days' 
+      OR Variable_Name LIKE '%binlog_expire_logs_seconds';
+```
+
+Cross-check these values with the table above and update if needed.
+
+## Troubleshooting other issues
+
+If you see an error when querying your PlanetScale database after the initial import that looks like:
+
+``` sql
+ERROR 1105 (HY000): keyspace importkeyspace fetch error: node doesn't exist: [...]
+```
+
+This means the import process is underway, and this error should clear in a matter of 10-15 minutes after some additional processing by PlanetScale. If it does not, contact our [PlanetScale's support team](https://www.planetscale.com/support) and we will help troubleshoot the issue. 
+
+## Additional assistance
 
 If you need additional assistance, contact our [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
