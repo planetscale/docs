@@ -71,6 +71,10 @@
           "display": "Node.js"
         },
         {
+          "route": "prisma-quickstart",
+          "display": "Prisma quickstart"
+        },
+        {
           "route": "connect-laravel-app",
           "display": "Laravel"
         },
