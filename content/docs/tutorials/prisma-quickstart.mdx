@@ -310,18 +310,18 @@ You can now see all your `Star` table data at [`localhost:3000/api/stars`](local
 
 ## Deploy development branch to production
 
-Currently, you're working on the branch `initial-setup`, which is branched off of the development branch, `inital-setup`. This branch is meant for applying schema changes and testing your migrations before you go to production.
+Currently, you're working on the development branch `initial-setup`, which is branched off of the `main` branch. The `initial-setup` development branch is meant for applying schema changes and testing your migrations before you go to production.
 
-Once you're happy with the `initial-setup` branch, you can roll it up to production. To do this, you first need to promote the `inital-setup` branch to production. This main branch is currently empty, but once it's set as the production branch, you'll be able to roll your changes from `initial-setup` into it.
+Once you're happy with the `initial-setup` branch, you can roll it up to the production branch. To do this, you first need to promote the `main` branch to production. This `main` branch is currently empty, but once it's set as the production branch, you'll be able to roll your changes from `initial-setup` into it.
 
-To promote `inital-setup` to production:
+To promote `main` to production:
 
 - Go back to your `star-app` database in the PlanetScale dashboard
 - Click on the `main` branch under "**Branches**"
 - Click on the "**Promote branch**" button
 - Click "**Promote branch**" to confirm
 
-Your main branch is now in production! A production branch protects you from direct schema changes, gives you high availability, and has automatic scheduled backups.
+Your `main` branch is now in production! A production branch protects you from direct schema changes, gives you high availability, and has automatic scheduled backups.
 
 This production branch is currently empty. You can confirm this by going to the `main` branch and clicking on the "**Schema**" tab. Let's fix that.
 
