@@ -112,7 +112,7 @@ If you're following this guide exactly and haven't created any branches, you can
 3. Open the `.env` file in your Golang app and update it as follows:
 
 ```
-DSN="mysql://tcp(127.0.0.1:3306)/<DATABASE_NAME>?tls=true"
+DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>"
 ```
 
 The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
