@@ -51,7 +51,7 @@ module.exports = {
       },
       {
         source: '/tutorials/operating-without-foreign-keys',
-        destination: '/learn/operating-without-foreign-keys-constraints',
+        destination: '/learn/operating-without-foreign-key-constraints',
         permanent: true
       },
       {
