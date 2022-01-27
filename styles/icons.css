@@ -1,10 +1,10 @@
-@define-mixin lightmode {
+:root {
   --icon-secondary-opacity: 0.5;
   --icon-tertiary-opacity: 0.3;
   --icon-stroke-green: var(--green-600);
 }
 
-@define-mixin darkmode {
+.dark {
   --icon-secondary-opacity: 0.4;
   --icon-tertiary-opacity: 0.3;
   --icon-stroke-green: var(--green-500);
@@ -16,25 +16,4 @@
 
 .icon-color-tertiary {
   opacity: var(--icon-tertiary-opacity);
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    @mixin darkmode;
-  }
-  :root.light,
-  .invert-color-mode {
-    @mixin lightmode;
-  }
-}
-
-@media screen and (prefers-color-scheme: light) {
-  :root:not(.dark) {
-    @mixin lightmode;
-  }
-  :root.dark,
-  .dark,
-  .invert-color-mode {
-    @mixin darkmode;
-  }
 }

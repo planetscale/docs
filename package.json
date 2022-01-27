@@ -38,7 +38,6 @@
     "eslint-plugin-react-hooks": "^4.3.0",
     "postcss": "^8.4.5",
     "postcss-import": "^14.0.2",
-    "postcss-mixins": "^9.0.1",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.5.1",
     "tailwindcss": "^3.0.17"
