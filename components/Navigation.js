@@ -22,9 +22,11 @@ export default function Navigation() {
         <strong className='block mb-1'>{category}</strong>
         {pages.map((page, index) => {
           if (page['subpages']) {
-            return <SubNavSection page={page} subpages={page['subpages']} categoryID={categoryID} />
+            return <SubNavSection page={page} subpages={page['subpages']} categoryID={categoryID} key={index} />
           } else {
-            return <NavItem index={index} href={`/${categoryID}/${page['route']}`} label={page['display']} />
+            return (
+              <NavItem index={index} href={`/${categoryID}/${page['route']}`} label={page['display']} key={index} />
+            )
           }
         })}
       </div>
