@@ -78,9 +78,7 @@
   --purple-700: #4b3990;
   --purple-800: #3e1f75;
   --purple-900: #261149;
-}
 
-@define-mixin lightmode {
   --bg-primary: var(--white);
   --bg-secondary: var(--gray-050);
   --bg-green: var(--green-600);
@@ -106,7 +104,7 @@
   --graph-green-dark: var(--green-500);
 }
 
-@define-mixin darkmode {
+.dark {
   --bg-primary: var(--gray-900);
   --bg-secondary: var(--gray-800);
   --bg-green: var(--green-500);
@@ -131,12 +129,4 @@
   --graph-blue-dark: var(--blue-400);
   --graph-green-light: var(--green-700);
   --graph-green-dark: var(--green-400);
-}
-
-:root {
-  @mixin lightmode;
-}
-
-.dark {
-  @mixin darkmode;
 }
