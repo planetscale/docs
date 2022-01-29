@@ -11,7 +11,7 @@ on:
       - synchronize
 
 jobs:
-  licensed:
+  licensing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
