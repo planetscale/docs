@@ -50,6 +50,10 @@
           "display": "Connect a Laravel app"
         },
         {
+          "route": "connect-nextjs-app",
+          "display": "Connect a Next.js app"
+        },
+        {
           "route": "nextjs-planetscale-netlify-template",
           "display": "Next.js and Netlify Template"
         },
