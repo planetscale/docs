@@ -3,8 +3,9 @@ import React from 'react'
 import { useTheme } from 'next-themes'
 
 import meta from '../content/docs/meta.json'
-import ActiveLink from './ActiveLink'
 import LabelSelect from './LabelSelect'
+import NavItem from './NavItem'
+import SubNavSection from './SubNavSection'
 
 export default function Navigation() {
   const { theme, setTheme } = useTheme()
@@ -20,17 +21,13 @@ export default function Navigation() {
       <div className='mb-3'>
         <strong className='block mb-1'>{category}</strong>
         {pages.map((page, index) => {
-          const href = `/${categoryID}/${page['route']}`
-
-          return (
-            <span key={index} className='block -ml-1.5'>
-              <ActiveLink href={href} activeClassName='bg-secondary !text-primary font-medium'>
-                <a className='px-1.5 rounded-sm block leading-loose py-0.5 text-secondary hover:text-primary hover:bg-secondary'>
-                  {page['display']}
-                </a>
-              </ActiveLink>
-            </span>
-          )
+          if (page['subpages']) {
+            return <SubNavSection page={page} subpages={page['subpages']} categoryID={categoryID} key={index} />
+          } else {
+            return (
+              <NavItem index={index} href={`/${categoryID}/${page['route']}`} label={page['display']} key={index} />
+            )
+          }
         })}
       </div>
     )

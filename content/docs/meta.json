@@ -6,94 +6,128 @@
       "description": "Explore key concepts of the PlanetScale database platform.",
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
-        { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
-        { "route": "branching", "display": "Branching" },
-        { "route": "connection-strings", "display": "Connection strings" },
-        { "route": "database-imports", "display": "Database imports" },
-        { "route": "regions", "display": "Regions" },
         {
-          "route": "nonblocking-schema-changes",
-          "display": "Non-blocking schema changes"
+          "display": "Getting started with PlanetScale", 
+          "subpages": [
+            { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
+            { "route": "branching", "display": "Branching" },
+            {
+              "route": "nonblocking-schema-changes",
+              "display": "Non-blocking schema changes"
+            },
+            { "route": "connection-strings", "display": "Connection strings" },
+            { "route": "regions", "display": "Regions" },
+            { "route": "database-imports", "display": "Database imports" },
+            { "route": "database-sleeping", "display": "Database sleeping" }
+          ]
         },
-        { "route": "web-console", "display": "Web console" },
-        { "route": "database-sleeping", "display": "Database sleeping" },
         {
-          "route": "authentication-methods",
-          "display": "Authentication methods"
+          "display": "Security and access", 
+          "subpages": [
+            { "route": "security", "display": "Security & Compliance" },
+            { "route": "access-control", "display": "Access control" },
+            {
+              "route": "authentication-methods",
+              "display": "Authentication methods"
+            },
+            { "route": "mfa", "display": "Multi-factor authentication" },
+            { "route": "security-log", "display": "Security log" },
+            { "route": "sso", "display": "Single sign-on" },
+            { "route": "secure-connections", "display": "Secure connections" },
+            { "route": "service-tokens", "display": "Service tokens" }
+          ]
         },
-        { "route": "mfa", "display": "Multi-factor authentication" },
-        { "route": "sso", "display": "Single sign-on" },
-        { "route": "security", "display": "Security & Compliance" },
-        { "route": "access-control", "display": "Access control" },
-        { "route": "audit-log", "display": "Audit log" },
-        { "route": "security-log", "display": "Security log" },
-        { "route": "query-statistics", "display": "Query statistics" },
+        {
+          "display": "Monitoring and analytics", 
+          "subpages": [
+            { "route": "audit-log", "display": "Audit log" },
+            { "route": "query-statistics", "display": "Query statistics" }
+          ]
+        },
+        {
+          "display": "CLI", 
+          "subpages": [
+            {
+              "route": "planetscale-environment-setup",
+              "display": "PlanetScale CLI environment set up"
+            }
+          ]
+        },
         { "route": "billing", "display": "Billing" },
-        { "route": "back-up-and-restore", "display": "Back up and restore" }
+        { "route": "back-up-and-restore", "display": "Back up and restore" },
+        { "route": "web-console", "display": "Web console" }
       ]
     },
     {
       "id": "tutorials",
-      "name": "Tutorials",
+      "name": "Integration guides",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
         { "route": "planetscale-quick-start-guide", "display": "PlanetScale quick start guide" },
         { "route": "connect-any-application", "display": "Connect any app" },
-        { "route": "connect-rails-app", "display": "Connect a Rails app" },
         {
           "route": "connect-nodejs-app",
-          "display": "Connect a Node.js app"
+          "display": "Node.js"
         },
         {
           "route": "connect-laravel-app",
-          "display": "Connect a Laravel app"
+          "display": "Laravel"
         },
         {
-          "route": "connect-nextjs-app",
-          "display": "Connect a Next.js app"
+          "display": "Next.js", 
+          "subpages": [
+            {
+              "route": "connect-nextjs-app",
+              "display": "Next.js Starter"
+            },
+            {
+              "route": "nextjs-planetscale-netlify-template",
+              "display": "Next.js and Netlify Template"
+            },
+            { "route": "deploy-to-vercel", "display": "Deploy to Vercel" }
+          ]
         },
         {
-          "route": "nextjs-planetscale-netlify-template",
-          "display": "Next.js and Netlify Template"
-        },
-        { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
-        {
-          "route": "prisma-data-platform-integration",
-          "display": "Prisma Data Platform integration"
-        },
-        {
-          "route": "automatic-rails-migrations",
-          "display": "Automatic Rails migrations"
-        },
-        {
-          "route": "automatic-prisma-migrations",
-          "display": "Automatic Prisma migrations"
-        },
-        {
-          "route": "change-unique-key",
-          "display": "Change single unique key"
+          "display": "Prisma",
+          "subpages": [
+            {
+              "route": "prisma-quickstart",
+              "display": "Prisma quickstart"
+            },
+            {
+              "route": "prisma-data-platform-integration",
+              "display": "Prisma Data Platform integration"
+            },
+            {
+              "route": "automatic-prisma-migrations",
+              "display": "Automatic Prisma migrations"
+            }
+          ]
         },
         {
-          "route": "operating-without-foreign-keys",
-          "display": "Operating without FK constraints"
+          "display": "Rails",
+          "subpages": [
+            {
+              "route": "connect-rails-app",
+              "display": "Connect a Rails app"
+            },
+            {
+              "route": "automatic-rails-migrations",
+              "display": "Automatic Rails migrations"
+            }
+          ]
+        },
+        {
+          "display": "Deploy your app",
+          "subpages": [
+            { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
+            {
+              "route": "nextjs-planetscale-netlify-template",
+              "display": "Next.js and Netlify Template"
+            }
+          ]
         }
-      ]
-    },
-    {
-      "id": "reference",
-      "name": "Reference",
-      "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
-      "image": "/img/internals/category_reference_light.png",
-      "pages": [
-        {
-          "route": "planetscale-environment-setup",
-          "display": "PlanetScale environment set up"
-        },
-        { "route": "planetscale-cli", "display": "PlanetScale CLI" },
-        { "route": "secure-connections", "display": "Secure connections" },
-        { "route": "service-tokens", "display": "Service tokens" }
-
       ]
     },
     {
@@ -103,13 +137,45 @@
       "image": "/img/internals/category_reference_light.png",
       "pages": [
         {
-          "route": "how-online-schema-change-tools-work",
-          "display": "How Online Schema Change tools work"
+          "display": "Foreign key constraints",
+          "subpages": [
+            {
+              "route": "operating-without-foreign-key-constraints",
+              "display": "Operating without FK constraints"
+            }
+          ]
         },
         {
-          "route": "online-schema-change-tools-comparison",
-          "display": "Comparison of Online Schema Change tools"
+          "display": "Schema changes",
+          "subpages": [
+            {
+              "route": "how-online-schema-change-tools-work",
+              "display": "How Online Schema Change tools work"
+            },
+            {
+              "route": "online-schema-change-tools-comparison",
+              "display": "Comparison of Online Schema Change tools"
+            }
+          ]
+        },
+        {
+          "display": "Single unique key",
+          "subpages": [
+            {
+              "route": "change-single-unique-key",
+              "display": "Change single unique key"
+            }
+          ]
         }
+      ]
+    },
+    {
+      "id": "reference",
+      "name": "Reference",
+      "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        { "route": "planetscale-cli", "display": "PlanetScale CLI" }
       ]
     }
   ]
