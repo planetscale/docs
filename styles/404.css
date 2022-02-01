@@ -12,7 +12,7 @@
   --numberBoxBackground: #ebeef2;
 }
 
-@define-mixin darkmode {
+.dark {
   --numberBoxShadow: 0px 70px 65px rgba(0, 0, 0, 0.19), 0px 30px 30px rgba(0, 0, 0, 0.17),
     0px 15px 15px rgba(0, 0, 0, 0.16), 0px 10px 8px rgba(0, 0, 0, 0.15), 0px 4px 4px rgba(0, 0, 0, 0.14),
     0px 2px 2px rgba(0, 0, 0, 0.13);
@@ -24,19 +24,6 @@
   );
   --numberBoxBorder: 0 0 0 1px rgba(26, 27, 33, 0.25);
   --numberBoxBackground: #30313a;
-}
-
-@media screen and (prefers-color-scheme: dark) {
-  :root:not(.light) {
-    @mixin darkmode;
-  }
-}
-
-@media screen and (prefers-color-scheme: light) {
-  :root.dark,
-  .dark {
-    @mixin darkmode;
-  }
 }
 
 .errorPage-radialGradient {
