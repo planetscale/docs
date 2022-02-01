@@ -74,7 +74,7 @@ Please save the values below as they will not be shown again
 You'll use these properties to construct your connection string, which will be the value for `DATABASE_URL` in your `.env` file. Update the `DATABASE_URL` property with your connection string in the following format:
 
 ```
-mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?sslaccept=strict
+mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?sslaccept=strict
 ```
 
 Push the database schema to your PlanetScale database using Prisma.
