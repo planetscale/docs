@@ -18,7 +18,7 @@
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.3",
     "js-cookie": "^3.0.1",
-    "next": "^12.0.9",
+    "next": "^12.0.10",
     "next-mdx-remote": "^3.0.8",
     "next-themes": "^0.0.16-beta.6",
     "prism-react-renderer": "^1.2.0",
