@@ -10,7 +10,11 @@ import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 export default function Overview() {
   return (
     <Layout>
-      <TitleAndMetaTags title='Overview' pathname='overview' />
+      <TitleAndMetaTags
+        title='Overview'
+        pathname='overview'
+        banner='https://og-image.planetscale.com/Documentation%20Overview.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white.svg'
+      />
 
       <h1 className='text-3xl font-semibold'>PlanetScale documentation</h1>
       <p className='mb-4 text-lg text-secondary'>

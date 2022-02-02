@@ -7,12 +7,17 @@ import { TitleAndMetaTags } from '../../components/TitleAndMetaTags'
 import { getAllPosts, getPostBySlug } from '../../lib/post'
 
 export default function Post({ frontmatter, body, fields }) {
+  const encodedTitle = encodeURI(frontmatter.title)
   return (
     <Layout>
       <TitleAndMetaTags
         title={frontmatter.title}
         description={frontmatter.subtitle ? frontmatter.subtitle : ''}
-        banner={frontmatter.banner ? frontmatter.banner : '/img/internals/social_share.png'}
+        banner={
+          frontmatter.banner
+            ? frontmatter.banner
+            : `https://og-image.planetscale.com/${encodedTitle}.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white.svg`
+        }
         pathname={`${fields.slug}`}
       />
       <MDXContent
