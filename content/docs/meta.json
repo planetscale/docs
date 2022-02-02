@@ -78,6 +78,10 @@
           "display": "Next.js", 
           "subpages": [
             {
+              "route": "connect-nextjs-app",
+              "display": "Next.js Starter"
+            },
+            {
               "route": "nextjs-planetscale-netlify-template",
               "display": "Next.js and Netlify Template"
             },
