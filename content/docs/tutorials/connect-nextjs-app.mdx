@@ -12,7 +12,7 @@ In this tutorial, you'll create a [Next.js](https://nextjs.org/) application tha
 - [PlanetScale CLI](https://github.com/planetscale/cli)
 - Authenticate the CLI with the following command:
 
-```
+```sh
 pscale auth login
 ```
 
@@ -20,7 +20,7 @@ pscale auth login
 
 Create a new database with the following command:
 
-```bash
+```sh
 pscale database create <DATABASE_NAME>
 ```
 
@@ -32,13 +32,13 @@ pscale database create <DATABASE_NAME>
 
 Clone the [starter repository](https://github.com/planetscale/nextjs-starter).
 
-```bash
+```sh
 git clone https://github.com/planetscale/nextjs-starter
 ```
 
 Install the dependencies.
 
-```bash
+```sh
 cd nextjs-starter
 npm install
 ```
@@ -47,13 +47,13 @@ Next, you'll need to create a database username and password through the CLI to 
 
 First, create your `.env` file by renaming the `.env.example` file to `.env`:
 
-```bash
+```sh
 mv .env.example .env
 ```
 
 Next, using the PlanetScale CLI, create a new username and password for the branch of your database:
 
-```
+```sh
 pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
@@ -80,13 +80,13 @@ mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?sslaccept=strict
 
 Push the database schema to your PlanetScale database using Prisma.
 
-```bash
+```sh
 npx prisma db push
 ```
 
 Run the seed script to populate your database with `Product` and `Category` data.
 
-```
+```sh
 npm run seed
 ```
 
@@ -94,7 +94,7 @@ npm run seed
 
 Run the app with following command:
 
-```
+```sh
 npm run dev
 ```
 
@@ -104,7 +104,7 @@ Open your browser at [localhost:3000](localhost:3000) to see the running applica
 
 After you've got your application running locally, it's time to deploy it. To do so, you'll need to promote your database branch (`main` by default) to be the production branch ([read the branching documentation for more information](https://docs.planetscale.com/concepts/branching)). 
 
-```bash
+```sh
 pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 
