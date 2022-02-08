@@ -18,18 +18,18 @@
   ol {
     @apply list-decimal;
     @apply list-outside;
-    @apply pl-2;
+    @apply pl-4;
     @apply mb-2;
   }
 
   li:not(:last-child) {
-    @apply mb-1.5;
+    @apply mb-0.5;
   }
 
   ul {
     @apply list-disc;
     @apply list-outside;
-    @apply pl-2;
+    @apply pl-4;
     @apply mb-2;
   }
 
