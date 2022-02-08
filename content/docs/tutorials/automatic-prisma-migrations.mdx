@@ -47,11 +47,17 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 pscale db create prisma-playground
 ```
 
-2. Update your `.env` file:
+2. Connect to the database branch:
 
-```shell
-DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
 ```
+pscale connect prisma-playground main --port 3309
+```
+
+<InfoBlock type='note'>
+  This step assumes you created a new PlanetScale database and the <inlineCode>main</inlineCode> branch 
+  has not been promoted to production yet. You will need to create a new development branch if 
+  the <inlineCode>main</inlineCode> branch has been promoted to production.
+</InfoBlock>
 
 3. Update your `prisma/schema.prisma` file with the following schema:
 
@@ -94,17 +100,11 @@ model User {
 }
 ```
 
-4. Connect to the database branch:
+4. Update your `.env` file:
 
+```shell
+DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
 ```
-pscale connect prisma-playground main --port 3309
-```
-
-<InfoBlock type='note'>
-  This step assumes you created a new PlanetScale database and the <inlineCode>main</inlineCode> branch 
-  has not been promoted to production yet. You will need to create a new development branch if 
-  the <inlineCode>main</inlineCode> branch has been promoted to production.
-</InfoBlock>
 
 6. In another terminal, use the `db push` command to push the schema defined in `prisma/schema.prisma`:
 
