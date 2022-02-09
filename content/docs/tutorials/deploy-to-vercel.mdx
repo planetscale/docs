@@ -61,20 +61,10 @@ pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 
 6. Create a **deployment request** by running:
 
-```bash
-pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
-```
-
-7. Deploy the **deploy request**:
+To find your `deploy-request-number`, run:
 
 ```bash
 pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
-```
-
-- To find your `DEPLOY_REQUEST_NUMBER`, run:
-
-```bash
-pscale deploy-request list <DATABASE_NAME>
 ```
 
 Copy the value from `NUMBER` and use that digit as your `DEPLOY_REQUEST_NUMBER`.
@@ -84,6 +74,16 @@ Copy the value from `NUMBER` and use that digit as your `DEPLOY_REQUEST_NUMBER`.
 ```bash
 pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 ```
+
+7. (Optional) Delete your just merged feature branch:
+
+If you are working in a **feature branch workflow**, you may want to delete the old branches:
+
+```
+pscale branch delete <database> <branch>
+```
+
+_Note_: It could ask you for confirmation unless you provide the `--force` flag
 
 ## Deploy to Vercel
 
