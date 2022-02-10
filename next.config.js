@@ -45,8 +45,28 @@ module.exports = {
         permanent: true
       },
       {
+        source: '/tutorials/change-unique-key',
+        destination: '/learn/change-unique-key',
+        permanent: true
+      },
+      {
         source: '/tutorials/operating-without-foreign-keys',
         destination: '/learn/operating-without-foreign-key-constraints',
+        permanent: true
+      },
+      {
+        source: '/reference/planetscale-environment-setup',
+        destination: '/concepts/planetscale-environment-setup',
+        permanent: true
+      },
+      {
+        source: '/reference/secure-connections',
+        destination: '/concepts/secure-connections',
+        permanent: true
+      },
+      {
+        source: '/reference/service-tokens',
+        destination: '/concepts/service-tokens',
         permanent: true
       }
     ]
