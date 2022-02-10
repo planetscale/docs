@@ -5,22 +5,31 @@ subtitle: 'How to manage your relational data without formal foreign key constra
 
 ## Overview
 
-A foreign key is a logical association of rows between two tables, in a parent-child relationship. A row in a "parent" table may be referenced by one or more rows in a "child" table. A foreign key typically suggests how you should `JOIN` tables in most queries. It is possible for a table to refer onto itself, as a special case.
+A **foreign key** is a logical association of rows between two tables, in a parent-child relationship. A row in a "parent" table may be referenced by one or more rows in a "child" table. A foreign key typically suggests how you should `JOIN` tables in most queries. A table can also refer to itself, as a special case.
 
-A `FOREIGN KEY` _constraint_ is a database construct, an implementation that _forces_ the foreign key relationship's integrity (aka referential integrity). Namely, it ensures that a child table can only reference a parent table when the appropriate row _exists_ in the parent table. A constraint prevents the existence of such "orphaned rows" in different methods, described below.
+A **`FOREIGN KEY` _constraint_ is a database construct**, an implementation that _forces_ the foreign key relationship's integrity (referential integrity). Namely, it ensures that a child table can only reference a parent table when the appropriate row _exists_ in the parent table. A constraint also prevents the existence of "orphaned rows" in different methods, as you'll see described soon.
 
-PlanetScale doesn't support `FOREIGN KEY` constraints. You are encouraged to use the relational model, and associate tables by "pointing" rows from one table to another. However, the `CONSTRAINT ... FOREIGN KEY` definition is not allowed in your schemas.
+**PlanetScale doesn't support `FOREIGN KEY` _constraints_**.
+
+You are encouraged to use the relational model and associate tables by "pointing" rows from one table to another. It is just the enforcement at the database level, the `CONSTRAINT ... FOREIGN KEY` definition, that is not allowed in your schemas.
+
+We'll soon cover an example of what a schema looks like [with and without foreign key constraints](#how-does-your-schema-look-without-foreign-key-constraints?) so that this small difference is clear.
+
+## Why not support foreign key constraints?
 
 There are two major technical reasons why foreign key constraints are not supported:
 
 1. The way `FOREIGN KEY` constraints are implemented in MySQL (or, rather, in the InnoDB storage engine) interferes with Online DDL operations. Learn more in [this Vitess blog post](https://vitess.io/blog/2021-06-15-online-ddl-why-no-fk/).
 2. Limited to single MySQL server scope, `FOREIGN KEY` constraints are impossible to maintain once your data grows and is split over multiple database servers. This typically happens when you introduce functional partitioning/sharding and/or horizontal sharding.
 
-We believe the advantages of Online DDL: branching, developer owned schema changes and deployments, [non-blocking schema changes](/concepts/nonblocking-schema-changes) etc., and the advantages of sharding as means of unlimited scaling, outweigh the `FOREIGN KEY` constraints benefits.
+
+We believe the advantages of Online DDL such as [branching](/concepts/branching), developer-owned schema changes and deployments, [non-blocking schema changes](/concepts/nonblocking-schema-changes), etc., and the advantages of sharding as means of unlimited scaling, outweigh the `FOREIGN KEY` constraints benefits.
+
+In other words, if you **enforce referential integrity at the application level instead of at the database level**, you open the door to all of those benefits.
 
 <InfoBlock type="note">
-  You can still think in terms of foreign key relationships; of parent tables and child tables; of rows referencing each other. You can structure your tables in the exact same way without FOREIGN KEY constraints as you would with the constraints. 
-</InfoBlock>{' '}
+  You can still think in terms of foreign key relationships; of parent tables and child tables; of rows referencing each other. You can structure your tables in the exact same way without FOREIGN KEY constraints as you would with the constraints. It's just how these relationships are enforced that changes.
+</InfoBlock>
 
 To understand how to work without foreign key constraints, we must first understand foreign key functionality.
 
@@ -44,9 +53,9 @@ CREATE TABLE child_table (
 ```
 <InfoBlock type="tip">
   In MySQL, foreign keys are only implemented by the storage engine layer, namely the default and popular InnoDB engine. A FOREIGN KEY constraint isn't a separate entity. It lives within the child's table space.
-</InfoBlock>{' '}
+</InfoBlock>
 
-`FOREIGN KEY` constraints are available for row deletion (`ON DELETE`) and row updates (`ON UPDATE`). In this document we discuss `ON DELETE` as it is the more impactful of the two. The discussion is relevant to `ON UPDATE` constraints, as well.
+`FOREIGN KEY` constraints are available for row deletion (`ON DELETE`) and row updates (`ON UPDATE`). In this document, we discuss `ON DELETE` as it is the more impactful of the two. The discussion is relevant to `ON UPDATE` constraints, as well.
 
 Foreign keys further support three types of action (illustrated below for `ON DELETE`):
 
@@ -54,7 +63,7 @@ Foreign keys further support three types of action (illustrated below for `ON DE
 
 This is the most greedy, or ambitious action type. If you `DELETE` a row from a parent table, any referencing rows in a child table are subsequently deleted within the same transaction. This operation runs recursively for all of a parent's children, as well as for their children, should they also employ `ON DELETE CASCADE`.
 
-`ON DELETE CASCADE` is a risky and resource consuming action. You intend to `DELETE` a single row, but end up deleting hundreds, thousands, or more, rows in multiple tables. What seemed like a simple transaction now turns into a massive operation, that involves excessive locking, increased MVCC overhead, impact on replication lag, and more.
+`ON DELETE CASCADE` is a risky and resource-consuming action. You intend to `DELETE` a single row, but end up deleting hundreds, thousands, or more, rows in multiple tables. What seemed like a simple transaction now turns into a massive operation, that involves excessive locking, increased MVCC overhead, impact on replication lag, and more.
 
 But perhaps the greatest danger is the potential unexpected loss of data. Whether an unsuspecting developer simply assumes a `DELETE FROM parent_table WHERE id=3` will at most delete one row, down to surprising behavior such as in `REPLACE INTO` queries, which actually run an implicit `DELETE`, leading to mass destruction of data.
 
@@ -72,7 +81,7 @@ Like `CASCADE`, a single row deletion on the parent may lead to multiple rows up
 
 Possibly the single most important feature of foreign keys, a `DELETE` on a parent will fail if child rows exist that reference the parent's row. To `DELETE` a row from a parent, the app/user must first `DELETE` the referencing rows from all children. Recursively, if those are further referenced by other tables, the app/user must first `DELETE` rows from grandchildren, and so forth.
 
-This action (or lack thereof) type forces the app to have stronger ownership of its data. An app written to work with `ON DELETE NO ACTION` will organically evolve _knowing_ which tables reference which other tables, and will have established `DELETE`/`UPDATE` flows that iterate through tables in the correct order so as to satisfy referential integrity.
+This action (or lack thereof) type forces the app to have stronger ownership of its data. An app written to work with `ON DELETE NO ACTION` will organically evolve _knowing_ which tables reference which other tables, and will have established `DELETE`/`UPDATE` flows that iterate through tables in the correct order to satisfy referential integrity.
 
 ## How does your schema look without FOREIGN KEY constraints?
 
@@ -97,19 +106,19 @@ CREATE TABLE child_table (
 
 ## Developing an app with no FOREIGN KEY constraints
 
-Consider an app's behavior in a `ON DELETE NO ACTION` setup again: the app _knows_ the tables dependencies, handles iteration order for `DELETE`/`UPDATE`. It does everything right.
+Consider an app's behavior in an `ON DELETE NO ACTION` setup again: the app _knows_ the table's dependencies, handles iteration order for `DELETE`/`UPDATE`. It does everything right.
 
 What happens if we take away the `CONSTRAINT` at this point?
 
 The app remains unchanged. It already runs the proper actions in the proper order. The app operation that ends up running the `DELETE FROM parent_table WHERE id=3` succeeds the app operations that `DELETE` the child table(s). While we lose the database's safety guarantee enforcing this behavior, we are perfectly capable of managing it on our own.
 
-Likewise, an app that grows with a constraint-less schema, organically learns to handle `DELETE` and `UPDATE` scenarios. It is in fact given some extra freedom, because the _order_ of operations is not enforced. This is an advantage, because the app is not forced to `DELETE` thousands of dependent rows for each parent row deletion _at that same transaction_. The app may well postpone deletion as we discuss shortly.
+Likewise, an app that grows with a constraint-less schema organically learns to handle `DELETE` and `UPDATE` scenarios. It is in fact given some extra freedom because the _order_ of operations is not enforced. This is an advantage because the app is not forced to `DELETE` thousands of dependent rows for each parent row deletion _at that same transaction_. The app may well postpone deletion as we discuss shortly.
 
-Referential integrity is but one of many logical data integrity constraints, it just happens to be one that databases are able to enforce. Any sizeable application will maintain the integrity of its data with rules the database is unaware of.
+Referential integrity is but one of many logical data integrity constraints. It just happens to be one that databases can enforce. Any sizeable application will maintain the integrity of its data with rules the database is unaware of.
 
 ## Cleaning up orphaned rows
 
-Consider an `ON DELETE SET NULL` constraint. What happens to the child rows that were set to `NULL`? Typically, there is little or no damage in keeping them around. A query can, for example, `SELECT` rows `WHERE parent_id IS NOT NULL`. Better yet, child rows are often `JOIN`ed with their respective parent rows. Any query running such a `JOIN` will return empty, since the parent row does not exist.
+Consider an `ON DELETE SET NULL` constraint. What happens to the child rows that were set to `NULL`? Typically, there is little or no damage in keeping them around. A query can, for example, `SELECT` rows `WHERE parent_id IS NOT NULL`. Better yet, child rows are often `JOIN`ed with their respective parent rows. Any query running such a `JOIN` will return empty since the parent row does not exist.
 
 Eventually, those rows will pile up, and you will want to reclaim the space.
 
