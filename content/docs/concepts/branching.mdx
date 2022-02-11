@@ -45,7 +45,7 @@ Once you are satisfied with the changes you have made to your `main` branch, you
 
 A branch can be promoted from the branch overview page in the PlanetScale app or you can use the command below to promote a branch using the [PlanetScale CLI](https://docs.planetscale.com/reference/planetscale-cli). 
 
-```zsh
+```
 pscale branch promote <database> <branch>
 ```
 
@@ -55,17 +55,23 @@ Any PlanetScale development branch can be promoted to production. It's possible 
 
 You can promote any development branch from the given branch overview page, or from the command line with `pscale`. 
 
-```zsh
+```
 pscale branch promote <database> <branch>
 ```
 
 
 ## Create a development branch
 
-You can create a development branch from any production branch. Create a branch from the production branch overview page `app.planetscale.com/<organization>/<database>/<branch>` or use the command below.
+You can create a development branch from any production branch. Create a new branch from the branches overview page `app.planetscale.com/<organization>/<database>/branches` or use the command below.
 
-```zsh
+```
 pscale branch create <database> <branch>
+```
+
+If you'd like to create a branch from an existing branch other than the default, you can do that on the command line:
+
+```
+pscale branch create <database> <new-branch> --from <parent-branch>
 ```
 
 ## Deploy a branch
@@ -92,7 +98,7 @@ The deploy request includes a schema diff that allows you to review the schema c
 
 You can also run the command below to see the schema diff in the CLI. 
 
-```zsh
+```
 pscale deploy-request diff <database> <deploy-request-number> 
 ```
 
@@ -105,7 +111,7 @@ To add a deploy request to the deploy queue click on the button “Add changes t
 
 Alternatively, you can run the following command. 
 
-```zsh
+```
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
@@ -124,7 +130,7 @@ However, this can be updated in the database Settings tab. Use the default branc
 
 You can delete your branch either from the branches overview page `app.planetscale.com/<organization>/<database>/branches` or run the following command in the CLI.
 
-```zsh
+```
 pscale branch delete <database> <branch>
 ```
 
