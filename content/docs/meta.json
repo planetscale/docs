@@ -187,7 +187,6 @@
             { "route": "connect", "display": "connect" },
             { "route": "database", "display": "database" },
             { "route": "deploy-request", "display": "deploy-request" },
-            { "route": "help", "display": "help" },
             { "route": "org", "display": "org" },
             { "route": "password", "display": "password" },
             { "route": "region", "display": "region" },
