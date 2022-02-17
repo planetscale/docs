@@ -31,10 +31,10 @@ cd symfony-example
 composer install
 ```
 
-3. Copy the `.env.example` file into `.env`:
+3. Rename the `.env.example` file to `.env.local`:
 
 ```bash
-cp .env .env.local
+mv .env.example .env.local
 ``` 
 
 Once you deploy to production, don't forget to update `.env.local` to `.env`.
@@ -99,7 +99,7 @@ Take note of the values returned to you, as you won't be able to see this passwo
 2. Open the `.env.local` file in your Symfony app, find the database connection section, and replace the existing `DATABASE_URL` value with:
 
 ```
-DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS HOST URL>:3306/<DATABASE_NAME>?serverVersion=5.7"
+DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAME>?serverVersion=5.7"
 ```
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above.
@@ -170,7 +170,7 @@ This will purge your database and load the placeholder data into it.
 
 The `templates/product/index.html.twig` file pulls this data from the `product` table with the help of the `src/Controller/ProductController.php` file.
 
-![Symfony PlanetScale starter app homepage](/img/docs/symfony-planetscale-homepage-example.png)
+![Symfony PlanetScale starter app homepage](/img/docs/symfony-planetscale-app.png)
 
 ## Add data manually
 
@@ -204,7 +204,7 @@ Add a record to the `product` table:
 
 ```sql
 INSERT INTO `store_product` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png, 2);
+VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png', 2);
 ```
 The value `id` will be filled with a default value.
 
@@ -229,7 +229,7 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 
 ```sql
 INSERT INTO `store_product` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png, 2);
+VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png', 2);
 ```
 
 5. You can confirm that it was added by running:
