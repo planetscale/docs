@@ -119,6 +119,10 @@
           ]
         },
         {
+          "route": "connect-symfony-app",
+          "display": "Symfony"
+        },
+        {
           "display": "Deploy your app",
           "subpages": [
             { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
