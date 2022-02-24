@@ -5,7 +5,8 @@ subtitle: ''
 
 ## Introduction
 
-In this tutorial, we’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. We’ll perform the initial migration from our local Rails application, and set up the database for future development.
+In this tutorial, you’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. You’ll perform the initial migration from your local Rails application, and set up the database for future development.
+
 ## Prerequisites
 
 - Install [Ruby and the Rails gem](https://guides.rubyonrails.org/getting_started.html#creating-a-new-rails-project-installing-rails).
@@ -18,7 +19,7 @@ pscale auth login
 
 ## Create a Rails project
 
-To connect a Rails application to a PlanetScale database, we start by creating a sample Rails project named _blog_ and installing the libraries we'll need to connect to our PlanetScale database.
+To connect a Rails application to a PlanetScale database, you'll first create a sample Rails project named _blog_ and install the libraries needed to connect to your PlanetScale database.
 
 Open the command line and follow these steps:
 
@@ -42,11 +43,11 @@ gem "mysql2"
 
 4. Then run `bundle install`
 
-At this point, we have accomplished two things: we've created a Rails project called _blog_ and installed the libraries that we'll need to connect to our PlanetScale database. Now it’s time to create a PlanetScale database.
+At this point, you have accomplished two things: you've created a Rails project called _blog_ and installed the libraries that you'll need to connect to your PlanetScale database. Now, it’s time to create a PlanetScale database.
 
 ## Create a PlanetScale database and password
 
-You can also create passwords in the PlanetScale application as documented [here](/concepts/connection-strings#creating-a-password).
+**Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/concepts/connection-strings#creating-a-password).
 
 ### Using the CLI to create a connection string
 
@@ -59,23 +60,26 @@ pscale database create blog
 2. Using the `pscale` CLI, create a new database password for the `main` branch of your database named _blog_:
 
 ```
-pscale password create blog main development-password
+pscale password create blog main <PASSWORD_NAME>
 ```
 
-3. Take note of the values it returns to you.
+<InfoBlock type='note'>
+  The <inlineCode>PASSWORD_NAME</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+</InfoBlock>
+
+3. Take note of the values returned to you, as they will not be shown again.
 
 ```
-Please save the values below as they will not be shown again
   NAME                  BRANCH   USERNAME       ACCESS HOST URL                     ROLE     ROLE DESCRIPTION   PASSWORD
  --------------------- -------- -------------- ----------------------------------- -------- ------------------ -------------------------------------------------------
-  development-password  main     c8ys5g3bbcdk   0ie08slztxki.us-east-3.psdb.cloud   writer   Can Read & Write   pscale_pw_wpSDL94q7HfBGa99Fev45tTjI5bqUxcqFKqAdUw3lFc
+  development-password  main     xxxxxxxx   xxxxxxxxxx.us-east-3.psdb.cloud   writer   Can Read & Write   pscale_pw_xxxxxxxxxxxxxxxxxxxxx
 ```
 
 ## Configure Rails and PlanetScale
 
-Let's set up our Rails application to talk to the new database.
+Let's set up the Rails application to talk to the new database.
 
-1. Open `config/database.yml` and configure the `development` database settings with your new credentials:
+1. Open `config/database.yml` and configure the `development` database settings with your new credentials from the output in the previous step:
 
 ```yaml
 development:
@@ -92,14 +96,14 @@ development:
 The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/reference/planetscale-security#ca-root-configuration) for more information.
 
 <InfoBlock type='note'>
-  We're configuring the <b>development</b> Rails environment here for the sake of expedience. In actual use, the <b>main</b> database branch would typically serve the <b>production</b> environment.
+  You're configuring the <b>development</b> Rails environment here for the sake of expedience. In actual use, the <b>main</b> database branch would typically serve the <b>production</b> environment.
 </InfoBlock>
 
-Because this is a Rails app, we can also enable [Automatic Rails migrations](/tutorials/automatic-rails-migrations) from the database's settings page.
+Because this is a Rails app, you can also enable [Automatic Rails migrations](/tutorials/automatic-rails-migrations) from the database's settings page. Select your database, click on the `main` branch, click "**Settings**", check the "**Automatically copy migration data**" box, and select "**Rails**" from the dropdown.
 
 ## Migrate your database
 
-Here comes the fun stuff! Now that your application is configured to talk to PlanetScale, we can create our first migration.
+Here comes the fun stuff! Now that your application is configured to talk to PlanetScale, you can create your first migration.
 
 1. Create a Rails migration and call it `CreateUsers`:
 
@@ -107,10 +111,10 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
 rails generate migration CreateUsers
 ```
 
-This rails command begins the migration for our table that is currently empty and generates a Ruby file that’ll be named something like this:
+This rails command begins the migration for your table that is currently empty and generates a Ruby file that’ll be named something like this:
 `db/migrate/20211014210422_create_users.rb`
 
-2. We can fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**.
+2. Fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**.
 
 ```ruby
 class CreateUsers < ActiveRecord::Migration[6.1]
@@ -124,7 +128,7 @@ class CreateUsers < ActiveRecord::Migration[6.1]
 end
 ```
 
-3. Now let's run our migration:
+3. Run your migration:
 
 ```
 bin/rails db:migrate
@@ -136,7 +140,7 @@ bin/rails db:migrate
   changed.) Then, try the above command again.
 </InfoBlock>
 
-4. Now give it a whirl to make sure we can query the new table with our `pscale` CLI:
+4. Now, give it a whirl to make sure you can query the new table with the `pscale` CLI:
 
 ```
 pscale shell blog main
@@ -165,7 +169,7 @@ blog/main> describe users;
 
 ## Promote your main branch to a production branch
 
-A production branch is a highly available, protected database branch. Direct schema changes (CREATE, ALTER, and DELETE) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/concepts/planetscale-workflow).
+A production branch is a highly available, protected database branch. Direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/concepts/planetscale-workflow).
 
 ```
 pscale branch promote blog main
@@ -175,7 +179,7 @@ Congratulations! You're ready to develop your Rails application against PlanetSc
 
 ## Summary
 
-In this tutorial, we created a simple Rails application named _blog_ and connected it to a PlanetScale database.
+In this tutorial, you created a simple Rails application named _blog_ and connected it to a PlanetScale database.
 
 ## Further reading
 
