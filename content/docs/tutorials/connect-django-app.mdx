@@ -125,7 +125,7 @@ The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system
 ```python
 DATABASES = {
     'default': {
-        'ENGINE': 'custom_db_backends.vitess',
+        'ENGINE': 'django_psdb_engine',
         'NAME': os.environ.get('DB_NAME'),
         'HOST': os.environ.get('DB_HOST'),
         'PORT': os.environ.get('DB_PORT'),
@@ -136,26 +136,24 @@ DATABASES = {
 }
 ```
 
-## Optional - Bring in Vitess database backend
+## Optional &mdash; Bring in PlanetScale custom database wrapper
 
 This next step is only necessary if you're using your own application to go through this guide. If you cloned the sample app, this already exists in the repo.
 
-Because PlanetScale doesn't support foreign key constraints, you need to pull in  Vitess `custom_db_backends` for Django to disable foreign key syntax in the Django migrations. 
+Because PlanetScale doesn't support foreign key constraints, you need to pull in the PlanetScale database wrapper for Django to disable foreign key syntax in the Django migrations.
 
 1. Run the following to pull it in:
 
 ```bash
-git clone https://github.com/vitessio/vitess
-cp -r vitess/support/django/custom_db_backends .
-rm -r vitess
+git clone https://github.com/planetscale/django_psdb_engine.git
 ```
 
-2. In your `settings.py` file, add `custom_db_backends.vitess` as the database engine.
+2. In your `settings.py` file, add `django_psdb_engine` as the database engine.
 
 ```python
 DATABASES = {
     'default': {
-        'ENGINE': 'custom_db_backends.vitess',
+        'ENGINE': 'django_psdb_engine',
     }
 }
 ```
@@ -169,6 +167,8 @@ Now that you're connected, let's add some data to see everything in action.
 ```bash
 python manage.py migrate
 ```
+
+This will also run the default Django migrations.
 
 ## Display the data
 
@@ -250,6 +250,18 @@ select * from store_product;
 ```
 
 You can also head to the [`/products`](http://localhost:8000/products) endpoint in your Django application to see the new data.
+
+## Disabling foreign key constraints in Django
+
+PlanetScale [does not support foreign key constraints](/learn/operating-without-foreign-key-constraints). You can disable foreign key constraint checks at the model level in Django, but if you're running the default migrations, you'll need to turn them off globally.
+
+The [PlanetScale custom database backend](https://github.com/planetscale/django_psdb_engine) manages this, but if you want to do it manually in each model. For example, in the `models.py` file for the example in this document, we define the foreign key on the `category` table with the following:
+
+```py
+category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, db_constraint=False)
+```
+
+This isn't necessary to do in every model if you're pulling in the `django_psdb_engine` because it overrides the setting globally anyway, but this will work if you want to do it per model.
 
 ## What's next?
 
