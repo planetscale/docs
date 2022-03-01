@@ -15,7 +15,7 @@ In this tutorial, you'll learn how to connect a Golang application to a PlanetSc
 
 ## Set up the Golang app
 
-This guide will integrate [a simple Golang app](https://github.com/planetscale/Golang-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple Golang app](https://github.com/planetscale/golang-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
 
 1. Clone the starter Golang application:
 
@@ -91,9 +91,9 @@ Take note of the values returned to you, as you won't be able to see this passwo
 DSN="mysql://<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true"
 ```
 
-Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
+Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
 
-You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Go**".
+You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**New password**" > "**Connect with**" language dropdown > "**Go**".
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -131,7 +131,7 @@ go run main.go
 
 2. Next, navigate to [`localhost:8080/seed`](http://localhost:8080/seed) to run the migrations and the seeder.
 
-3. You can now see the products and categories at:
+3. You can now see the products and categories:
 
 - Get all products &mdash; [`localhost:8080/products`](http://localhost:8080/products)
 - Get all categories &mdash; [`localhost:8080/categories`](http://localhost:8080/categories)
