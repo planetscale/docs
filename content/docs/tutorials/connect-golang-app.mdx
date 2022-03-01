@@ -11,7 +11,7 @@ In this tutorial, you'll learn how to connect a Golang application to a PlanetSc
 
 - [Golang](https://go.dev/doc/install) &mdash; This tutorial uses `v8.1`
 - A [free PlanetScale account](https://auth.planetscale.com/sign-up)
-- [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
+- [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial in the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
 ## Set up the Golang app
 
@@ -40,7 +40,7 @@ cp .env.example .env
 
 Next, you need to set up your PlanetScale database and connect to it in the Golang application.
 
-You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
+You can create a database in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
 
 1. Authenticate the CLI with the following command:
 
@@ -93,7 +93,7 @@ DSN="mysql://<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=tr
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
 
-You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**New password**" > "**Connect with**" language dropdown > "**Go**".
+You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**New password**" > "**Connect with**" language dropdown > "**Go**".
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -107,7 +107,7 @@ pscale connect <DATABASE_NAME> <BRANCH_NAME>
 
 If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
 
-2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
+2. A secure connection to your database will be established, and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env` file in your Golang app and update it as follows:
 
@@ -119,7 +119,7 @@ The connection uses port `3306` by default, but if that's being used, it will pi
 
 ## Run migrations and seeder
 
-Now that you're connected, let's add some data to see it in action. The sample application has an endpoint that you can use to run migrations to create your `categories` and `products` tables. It will seed your database with sample product and category data. You can find this in `main/main.go`.
+Now that you're connected let's add some data to see it in action. The sample application has an endpoint that you can use to run migrations to create your `categories` and `products` tables. It will seed your database with sample product and category data. You can find this in `main/main.go`.
 
 Let's run those now.
 
@@ -186,7 +186,7 @@ You can now refresh the [Golang homepage](http://localhost:8080) to see the new 
 
 ### Add data with PlanetScale dashboard console
 
-If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
+If you don't care to install MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Golang database.
 2. Click on the "**Branches** and select the `main` branch.
