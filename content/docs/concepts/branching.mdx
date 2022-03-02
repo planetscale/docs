@@ -26,23 +26,23 @@ PlanetScale provides two types of database branches:
 
 PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
-### The `main` database branch
+### Promote a development branch to production
 
 Every new PlanetScale database is created with a development branch named `main`.
 
-This default development branch is intended for you to directly apply a schema, import data, and experiment with your database before promoting the branch to production. 
+This development branch is intended for you to directly apply a schema (without creating a deploy request like you would for a production branch), import data, and experiment with your database before promoting the branch to production.
 
-Once you are satisfied with the changes you've made to your `main` development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch whenever you need to make a schema change.
+That said, you don't have to use the default `main` branch as your production branch. **Any development branch can be promoted to production**.
 
-A branch can be promoted from the branch overview page in the PlanetScale app or by using the [PlanetScale CLI](/reference/branch), as showing below:
+Once you are satisfied with the changes you've made to your development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch whenever you need to make a schema change.
 
-```
+A branch can be promoted from the branch overview page in the PlanetScale app or by using the [PlanetScale CLI](/reference/branch), as shown below:
+
+```bash
 pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-### Promote any development branch
-
-That said, you don't have to use the default `main` branch as your production branch. **Any development branch can be promoted to production**. It's also possible to run multiple production branches simultaneously. Keep in mind, PlanetScale does not provide data syncing between production branches.
+It's possible to run **multiple production branches simultaneously**. Keep in mind, PlanetScale does not provide data syncing between production branches.
 
 ## Create a development branch
 
@@ -124,7 +124,7 @@ pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 
 ![Deploy queue](/img/docs/branching-deploy-queue.png)
 
-## Set a default branch
+## Default branches
 
 The first database branch that gets promoted to production is automatically set as the default branch for your database. Once you have a production branch, you must always have a default branch.
 
@@ -137,33 +137,35 @@ The first database branch that gets promoted to production is automatically set 
 
 ## Delete a branch
 
-You can delete your branch either from the branches overview page `app.planetscale.com/<organization>/<database>/branches` or run the following command in the CLI.
+You can delete a branch from the Branches overview page or by running the following command in the [PlanetScale CLI](/reference/branch):
 
 ```
-pscale branch delete <database> <branch>
+pscale branch delete <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-We recommend deleting your branch once you have used it to merge a schema change, or if you are no longer using the branch for testing. You can always create a new branch from your production database. 
+We recommend deleting a branches after a deploy request is complete or if you are no longer using the branch for testing.
 
 <InfoBlock type="note">
-Only organization administrators have permission to delete production branches. 
-</InfoBlock> 
+Only [Organization Administrators](/concepts/access-control#organization-administrator) have permission to delete production branches.
+</InfoBlock>
+
+You cannot delete a branch that's [set as default](#default-branches). To delete, it set another branch as default first.
 
 ## Resolve a schema conflict
 
 Schema conflicts occur when your development branch has conflicting changes with the production branch. 
 
-To resolve a schema conflict, create a new branch, which will have the most up-to-date schema, and apply the necessary schema changes to the new branch before repeating the deploy process. 
+To resolve a schema conflict, create a new branch from production, which will have the most up-to-date schema, and apply the necessary schema changes to the new branch before repeating the deploy process. 
 
 ## Automatically copy migration data
 
-Many frameworks and migration tools keep track of data schema changes in a migration table. When turned on, PlanetScale will automatically copy migration table metadata from your `development` branch to the `main` branch as part of our deployment process.
+Many frameworks and migration tools keep track of data schema changes in a migration table. When turned on, PlanetScale will automatically copy migration table metadata from your development branches to the production branch as part of our deployment process.
 
-To turn on for your database, go to the web app:
+**Turn on automatic copying of migration data**:
 
-1. Go into the Settings for your database
-2. Enable "Automatically copy migration data"
-3. Select one of the migration frameworks: Rails, Phoenix, Laravel, Django, .NET, Sequelize, or Other, which allows you to specify a custom table name
+1. On your database overview page, click the "**Settings**" tab.
+2. Check the "**Automatically copy migration data**" box.
+3. Select one of the listed frameworks: Rails, Phoenix, Laravel, Django, .NET, Sequelize, or Other, which allows you to specify a custom table name.
 
 You can see how this works in this [Rails migration tutorial](/tutorial/automatic-rails-migrations).
 
