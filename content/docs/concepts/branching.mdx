@@ -22,17 +22,17 @@ PlanetScale provides two types of database branches:
   You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt to make schema changes in a production branch. Create a development branch, and make your changes there.
 </InfoBlock>
 
-## Branch promotion 
+## Promote a branch to production 
 
-PlanetScale provides the ability to promote any development branch with a valid schema to production. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
+PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
-### Promote the main database branch
+### The `main` database branch
 
-Every PlanetScale database is created with a development branch named `main`.
+Every new PlanetScale database is created with a development branch named `main`.
 
-This allows you to apply a schema directly to this branch, import data, and experiment with your database before promoting the branch to production. 
+This default development branch is intended for you to directly apply a schema, import data, and experiment with your database before promoting the branch to production. 
 
-Once you are satisfied with the changes you have made to your `main` branch, you can promote the `main` branch to production. Going forward, you can continue to make new development branches off of the production branch whenever you need to make a schema change.
+Once you are satisfied with the changes you've made to your `main` development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch whenever you need to make a schema change.
 
 A branch can be promoted from the branch overview page in the PlanetScale app or by using the [PlanetScale CLI](/reference/branch), as showing below:
 
@@ -42,18 +42,21 @@ pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 
 ### Promote any development branch
 
-Any PlanetScale development branch can be promoted to production. It's possible to run multiple production branches simultaneously, however, it's important to note that PlanetScale does not provide data syncing between production branches.
-
-You can promote any development branch from the branch overview page, or from the [PlanetScale CLI](/reference/branch) with:
-
-```
-pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
-```
+That said, you don't have to use the default `main` branch as your production branch. **Any development branch can be promoted to production**. It's also possible to run multiple production branches simultaneously. Keep in mind, PlanetScale does not provide data syncing between production branches.
 
 ## Create a development branch
 
-You can create a development branch from any production branch. Create a new branch from the branches overview page `app.planetscale.com/<ORGANIZATION>/<DATABASE>/branches`, or use the command below.
+If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes. 
 
+Development branches **will not** copy over production data, just the schema.
+
+**How to create a development branch**:
+
+1. On the database overview page in your PlanetScale dashboard, click the "**New branch**" button.
+2. Give your development branch a name and select the region closest to your or your application.
+3. Select the production branch you want to branch off of. You can also select another development branch.
+4. Click "**Create branch**".
+5. (*Optional*) You can also create a new
 ```
 pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 ```
@@ -102,11 +105,11 @@ Another benefit of the deploy request review process is that **PlanetScale will 
 
 ### 3. Add changes to the deploy queue
 
-Once a deploy request has been created and approved, you will need to add the changes to the deploy queue.
+Once a deploy request has been created and, optionally, approved, you need to add the changes to the deploy queue.
 
 Schema changes are deployed to a database in the order in which they are received. PlanetScale analyzes the schema changes in a deploy request when they are added to the deploy queue to ensure that the changes do not conflict with any of the queued schema changes.
 
-PlanetScale provides insight on the deploy queue, listing all of the schema changes in the queue with their completion status.
+PlanetScale also provides insight on the deploy queue, listing all of the schema changes in the queue with their completion status.
 
 1. Organizations have the option to require approval before a deploy request can be added to the queue. If this is enabled, first make sure the request is approved. You can control this option in the database's "**Settings**" tab.
 2. To add a deploy request to the deploy queue, click “**Add changes to the deploy queue**” on the deploy request page. 
@@ -123,11 +126,14 @@ pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 
 ## Set a default branch
 
-Each PlanetScale database with a production branch has a default branch that cannot be deleted. 
+The first database branch that gets promoted to production is automatically set as the default branch for your database. Once you have a production branch, you must always have a default branch.
 
-The first database branch that gets promoted to production is automatically set as the default branch for your database. 
+**How to change the default branch**:
 
-However, this can be updated in the database Settings tab. Use the default branch dropdown menu to select the branch you would to set as default and click the Save database settings button to save your changes. 
+1. Go to your database overview page and click the "**Settings**" tab.
+2. Under "**General**" in the sidebar, you'll find the "**Default branch**" dropdown.
+3. Select the branch you want to be the default branch. It does not have to be a production branch.
+4. Scroll down and click "**Save database settings**".
 
 ## Delete a branch
 
