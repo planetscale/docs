@@ -36,9 +36,7 @@ export default function Post({ frontmatter, body, fields }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.category, params.post)
-  const content = post.content.replace(/</g, '&lt;').replace(/>/g, '&gt;')
-  const test = content.replace(/`((?!`).*?)`/g, '<code>$1</code>')
-  const mdxSource = await serialize(test, {
+  const mdxSource = await serialize(post.content, {
     mdxOptions: {
       remarkPlugins: [remarkGfm]
     }
