@@ -5,9 +5,19 @@ subtitle: 'Create a development or staging environment for your database through
 
 ## Overview
 
-PlanetScale allows you to branch database schemas the way you branch your code. 
+PlanetScale allows you to branch database schemas the same way you branch your code. 
 
-Development database branches are isolated copies of your database created with the current production schema. They can be used to develop features and test changes without impacting your production database. When you're ready, schema changes on a development branch can be safely applied to the production database using PlanetScale’s [non-blocking schema change workflow](https://docs.planetscale.com/concepts/nonblocking-schema-changes). This workflow ensures that your changes are deployed without blocking the database, locking individual tables, or slowing down production during the migration.
+If you need to make a schema change to your production database, here's how you'd do it with PlanetScale:
+
+1. Create a new **development branch** off of your production branch. This is an isolated copy of your production schema that you're free to play around with.
+2. **Make schema changes** to this copy of your database (drop a column, add a table, etc.).
+3. **Test them out in your development environment** to make sure everything works correctly.
+4. Once you're satisfied with the changes, **create a deploy request**.
+5. PlanetScale will create a **schema diff** comparing your production schema to your development schema that you're requesting to deploy so that you know exactly what changes will be made. We'll also let you know if the deploy request is **able to be deployed**. This means catching issues in your schema such as missing unique keys, etc.
+6. You can have your team review your deploy request, and, optionally, approve it for deployment.
+7. You then add it to the deploy queue and PlanetScale will begin the deployment.
+8. The schema changes are deployed in a way that causes **ZERO downtime**. No individual tables get locked and production is not slowed down during the migration. This is what we call **non-blocking schema changes**. You can learn more about this process in our [Non-blocking schema changes documentation](/concepts/nonblocking-schema-changes).
+
 
 ![PlanetScale Branching Flow Diagram](/img/docs/ps_branching_diagram_light.png)
 
