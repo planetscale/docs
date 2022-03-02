@@ -26,7 +26,8 @@
     "react": "latest",
     "react-copy-to-clipboard": "^5.0.4",
     "react-dom": "latest",
-    "react-inlinesvg": "^2.3.0"
+    "react-inlinesvg": "^2.3.0",
+    "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.2",
