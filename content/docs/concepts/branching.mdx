@@ -19,7 +19,7 @@ PlanetScale provides two types of database branches:
 - **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups. To make a change to a production branch, you must [create a deploy request](#deploy-a-branch).
 
 <InfoBlock type='tip'>
-  You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt to make schema changes in a production branch. Create a development branch, and make your changes there.
+  You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a production branch. Create a development branch, and make your changes there.
 </InfoBlock>
 
 ## Promote a branch to production 
