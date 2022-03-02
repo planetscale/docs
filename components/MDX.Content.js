@@ -19,7 +19,6 @@ export default function MDXContent({ title, subtitle, banner, body, lastUpdatedO
     table: TableBlock,
     pre: CodeBlock,
     code: InlineCodeBlock,
-    // inlineCode: InlineCodeBlock,
     img: ImageBlock,
     h2: (props) => <AnchorLink {...props} heading='h2' category={category} />,
     h3: (props) => <AnchorLink {...props} heading='h3' category={category} />,
