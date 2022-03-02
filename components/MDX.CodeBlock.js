@@ -7,7 +7,7 @@ import CopyButton from './CopyButton'
 
 export default function CodeBlock({ children }) {
   const newChildren = children
-  const realChildren = newChildren.props.children.replaceAll('&lt;', '<').replaceAll('&gt;', '>')
+  const realChildren = newChildren.props.children.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
   const [codeLanguage, setCodeLanguage] = useState('')
   const [internalCodeLanguage, setInternalCodeLanguage] = useState('')
   const [splitOutput, setSplitOutput] = useState([])
