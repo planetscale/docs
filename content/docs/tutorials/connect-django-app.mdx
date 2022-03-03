@@ -100,14 +100,14 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
 <InfoBlock type='note'>
-  The <inlineCode>PASSWORD_NAME</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 You can also do this in the [PlanetScale dashboard](https://app.planetscale.com) by selecting the database > "**Branches**" tab > "**Connect**" dropdown > "**New password**".
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-2. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
+1. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
 
 ```
 DB_HOST=<ACCESS HOST URL>
@@ -209,7 +209,7 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 This will open up a MySQL shell connected to the specified database and branch.
 
 <InfoBlock type='note'>
-  A branch, <inlineCode>main</inlineCode>, was automatically created when you created your database, so you can use that for <inlineCode>BRANCH_NAME</inlineCode>.
+  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
 </InfoBlock>
 
 Add a record to the `store_product` table:
