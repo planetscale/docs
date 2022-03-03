@@ -34,6 +34,9 @@ PlanetScale provides two types of database branches:
 
 ## Promote a branch to production 
 
+<video src='/img/docs/promote-branch-to-production.mp4'>
+</video>
+
 PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
 ### Promote a development branch to production
@@ -56,6 +59,9 @@ It's possible to run **multiple production branches simultaneously**. Keep in mi
 
 ## Create a development branch
 
+<video src="/img/docs/create-new-branch.mp4">
+</video>
+
 If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes. 
 
 Development branches **will not** copy over production data, just the schema.
@@ -66,15 +72,10 @@ Development branches **will not** copy over production data, just the schema.
 2. Give your development branch a name and select the region closest to your or your application.
 3. Select the production branch you want to branch off of. You can also select another development branch.
 4. Click "**Create branch**".
-5. (*Optional*) You can also create a new
-```
+5. (*Optional*) You can also create a new branch from the [PlanetScale CLI](/reference/branch) with:
+   
+```bash
 pscale branch create <DATABASE_NAME> <BRANCH_NAME>
-```
-
-If you'd like to create a branch from an existing branch other than the default, you can do that on the command line:
-
-```
-pscale branch create <DATABASE_NAME> <NEW_BRANCH_NAME> --from <PARENT_BRANCH_NAME>
 ```
 
 ## How to deploy a branch
@@ -82,6 +83,9 @@ pscale branch create <DATABASE_NAME> <NEW_BRANCH_NAME> --from <PARENT_BRANCH_NAM
 Once you're satisfied with the schema changes you have made on a branch, you can deploy your changes to production.
 
 ### 1. Create a deploy request
+
+<video src="/img/docs/create-deploy-request.mp4">
+</video>
 
 If you are working in a team, the deploy request creates an opportunity for your teammates to review the changes you have made before they are deployed to production.
 
@@ -100,6 +104,9 @@ pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 ### 2. Review the deploy request 
+
+<video src="/img/docs/add-to-deploy-queue.mp4">
+</video>
 
 The deploy request includes a schema diff so that you can review the schema changes introduced by the deploy request against the production branch.
 
@@ -131,8 +138,6 @@ pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 
 4. If successful, you'll get the message "These changes have been deployed". 
 5. Your deploy request has now been merged into production. You can click on the "Deploy requests" tab of the database to see the list of previous deploys. 
-
-![Deploy queue](/img/docs/branching-deploy-queue.png)
 
 ## Default branches
 
