@@ -1,0 +1,51 @@
+---
+title: 'Deploy requests'
+subtitle: 'Create a development or staging environment for your database through branches'
+---
+
+## Overview
+
+Deploy requests are an integral part of the PlanetScale workflow. 
+
+## Create a deploy request
+
+**Note**: Your database must have a production branch before you can create a deploy request.
+
+1. Go to the overview page of the development branch you want to deploy to production.
+2. Under "**Create a deploy request**", select the branch you want to deploy to.
+3. Add a comment about the deploy request.
+4. Click "**Create deploy request**".
+
+## Review and deploy a deploy request
+
+Once a deploy request is created, you or your team is able to review it, and, optionally, approve it, before deploying it to production. 
+
+PlanetScale will also check if the request is deployable. This includes checking for issues like [foreign key constraints](/learn/operating-without-foreign-key-constraints), [missing unique key](/learn/change-single-unique-key), and more. We also check if there are any conflicts with the production schema that could prevent a clean merge.
+
+1. Click the "**Deploy requests**" tab on the database overview page.
+2. Select the open deploy request you want to review.
+3. Under "**Summary**", you'll see if the request is deployable.
+4. To review the schema changes, click the "**Schema changes**" tab.
+5. You'll see the proposed changes here. New additions are highlighted in green and deletions are highlighted in red.
+6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
+7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**" and the deployment will begin immediately or be queued if there are other pending deployments.
+8. Once a request a deployed, you have 30 minutes to "undo" it using our [Rewind feature](#revert-a-deploy-request). 
+
+If you would like to require approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Deploy requests require approval before deploy**" box. You must be an administrator to enable this.
+
+## Delete a deploy request
+
+If you decide you don't want to proceed with a deploy request, you can easily delete it.
+
+1. Click the "**Deploy requests**" tab on the database overview page.
+2. Select the request you want to delete.
+3. Click on the button on the right-hand side with the three small dots "...".
+4. Click "Close request".
+
+## Revert a deploy request
+
+If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! The **Rewind feature** allows you to revert a recently deployed schema change **without losing any data** that was written during that time.
+
+### How to revert a schema change with Rewind
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
