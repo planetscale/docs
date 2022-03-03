@@ -3,16 +3,16 @@
   --black: #000;
 
   --gray-050: #fafafa;
-  --gray-100: #ededed;
-  --gray-200: #dddddd;
-  --gray-300: #cdcdcd;
-  --gray-400: #adadad;
-  --gray-500: #8d8d8d;
-  --gray-600: #6d6d6d;
-  --gray-700: #4d4d4d;
-  --gray-800: #3d3d3d;
+  --gray-100: #eeeeee;
+  --gray-200: #e1e1e1;
+  --gray-300: #c1c1c1;
+  --gray-400: #a1a1a1;
+  --gray-500: #818181;
+  --gray-600: #616161;
+  --gray-700: #414141;
+  --gray-800: #222222;
   --gray-850: #1a1a1a;
-  --gray-900: #0d0d0d;
+  --gray-900: #111111;
 
   --red-050: #fffafa;
   --red-100: #ffe5e9;
@@ -87,7 +87,7 @@
   --border-primary: var(--gray-100);
   --border-secondary: var(--gray-200);
   --border-green: var(--green-600);
-  --text-primary: var(--gray-900);
+  --text-primary: var(--gray-850);
   --text-secondary: var(--gray-600);
   --text-blue: var(--blue-600);
   --text-blue-dark: var(--blue-700);
@@ -115,7 +115,7 @@
   --border-green: var(--green-500);
   --border-green-light: var(--green-700);
   --text-primary: var(--gray-050);
-  --text-secondary: var(--gray-500);
+  --text-secondary: var(--gray-400);
   --text-blue: var(--blue-400);
   --text-blue-dark: var(--blue-300);
   --text-green: var(--green-500);
