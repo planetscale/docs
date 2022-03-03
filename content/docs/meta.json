@@ -67,6 +67,10 @@
         { "route": "planetscale-quick-start-guide", "display": "PlanetScale quick start guide" },
         { "route": "connect-any-application", "display": "Connect any app" },
         {
+          "route": "connect-django-app",
+          "display": "Django"
+        },
+        {
           "route": "connect-nodejs-app",
           "display": "Node.js"
         },
