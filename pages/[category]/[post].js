@@ -41,7 +41,6 @@ export async function getStaticProps({ params }) {
       remarkPlugins: [remarkGfm]
     }
   })
-  console.log(mdxSource)
 
   return {
     props: {
