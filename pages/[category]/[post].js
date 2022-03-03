@@ -1,4 +1,5 @@
 import { serialize } from 'next-mdx-remote/serialize'
+import remarkGfm from 'remark-gfm'
 
 import Footer from '../../components/Footer'
 import Layout from '../../components/layout'
@@ -35,7 +36,12 @@ export default function Post({ frontmatter, body, fields }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.category, params.post)
-  const mdxSource = await serialize(post.content)
+  const mdxSource = await serialize(post.content, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm]
+    }
+  })
+  console.log(mdxSource)
 
   return {
     props: {

@@ -3,7 +3,6 @@ title: 'Security & Compliance'
 subtitle: ''
 ---
 
-
 At PlanetScale, we are committed to delivering a powerful and easy-to-use database platform, while keeping your data secure. We take security very seriously and we are working hard to constantly improve our security solutions, to build security into every layer of our products, and to ensure the continuous security and integrity of data stored on our platform.
 
 ## Compliance Certification
@@ -23,8 +22,9 @@ Data is encrypted at rest on the underlying storage media that serves database b
 #### In transit
 
 Encrypted data is transmitted to PlanetScale databases through two major paths:
- - The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
- - PlanetScale [Connection Strings](/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
+
+- The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
+- PlanetScale [Connection Strings](/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
 
 ### Additional data protection controls
 
@@ -54,26 +54,29 @@ as permitted by local law.
 ### In Scope
 
 PlanetScale is actively seeking vulnerability reports for the following components that make up the product and its Production Environment:
- - **Dashboard and API**: The website hosted at app.planetscale.com, along with the API hosted at api.planetscale.com
- - **Database Operations**: The actions taken within the product to create, branch, backup, and restore databases
- - **Database Connectivity and Behavior**: The process of provisioning a password and issuing SQL statements against a PlanetScale database
- - **Command-line Interface**: The open source command-line interface hosted at [planetscale/cli](https://github.com/planetscale/cli)
+
+- **Dashboard and API**: The website hosted at app.planetscale.com, along with the API hosted at api.planetscale.com
+- **Database Operations**: The actions taken within the product to create, branch, backup, and restore databases
+- **Database Connectivity and Behavior**: The process of provisioning a password and issuing SQL statements against a PlanetScale database
+- **Command-line Interface**: The open source command-line interface hosted at [planetscale/cli](https://github.com/planetscale/cli)
 
 ### Out of Scope
 
 PlanetScale is not actively seeking the following types of reports:
- - **Testing Software Output**: Output generated from automated testing software like [Burp Suite](https://portswigger.net/burp)
- - **Software Version Reports**: Reports notifying PlanetScale that newer versions of software have been released
+
+- **Testing Software Output**: Output generated from automated testing software like [Burp Suite](https://portswigger.net/burp)
+- **Software Version Reports**: Reports notifying PlanetScale that newer versions of software have been released
 
 ### Reporting a Vulnerability
 
 If you believe you have discovered a security vulnerability in a PlanetScale product or its Production Environment, please let us know immediately.
-You can submit your vulnerability findings to <security@planetscale.com>.
+You can submit your vulnerability findings to [security@planetscale.com](mailto:security@planetscale.com).
 
 If applicable, please include the following pieces of information in your report:
- - Steps to reproduce the vulnerability
- - The word "mochi" to acknowledge that you have read these guidelines
- - Any relevant software (including versions) used to identify the vulnerability
+
+- Steps to reproduce the vulnerability
+- The word "mochi" to acknowledge that you have read these guidelines
+- Any relevant software (including versions) used to identify the vulnerability
 
 ## Need help?
 

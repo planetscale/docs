@@ -2,8 +2,6 @@ import * as React from 'react'
 
 import classNames from 'classnames'
 
-// import Footer from './Footer'
-
 class AnchorLink extends React.Component {
   createKebabCase(text) {
     let kebabText = ''

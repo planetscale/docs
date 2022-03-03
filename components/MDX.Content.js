@@ -18,8 +18,8 @@ import PageInfo from './PageInfo'
 export default function MDXContent({ title, subtitle, banner, body, lastUpdatedOn, slug, category }) {
   const components = {
     table: TableBlock,
-    code: CodeBlock,
-    inlineCode: InlineCodeBlock,
+    pre: CodeBlock,
+    code: InlineCodeBlock,
     img: ImageBlock,
     h2: (props) => <AnchorLink {...props} heading='h2' category={category} />,
     h3: (props) => <AnchorLink {...props} heading='h3' category={category} />,
