@@ -154,7 +154,7 @@ On high workloads this is typically noticeable to the app. There will be some de
 
 `fb-osc`, also using an asynchronous approach, tackles the problem by creating a puncture. It runs a two-step flow where it first renames the original table away, and then, after processing the backlog, renames the ghost table in its place. There's a period in time where the table just does not exist. During that period in time, queries will fail, unexpectedly to the app/users. It is a simple and effective solution to the asycnhronous complexity, at the cost of user/app inconvenience.
 
-`Vitess`, like `fb-osc`, creates a puncture experience, but instead of doing a two-step rename, it blocks writes to the original table by virtue of `VTGate`, its proxy component. When it is done processing the backlog, it unblocks writes. The users and apps experience unexpected query errors.
+`Vitess` utilizes the fact that traffic goes through its own `VTGate` and `VTTablet` components. Behind the scenes it creates a puncture, much like `fb-osc`. But during that brief time it buffers any read/write queries that operate on the migrated table, up to a threshold. The user and app will experience an atomic, blocking cut-over. Queries will see increased latency and will block until cut-over is complete. Beyond some concurrent connections threshold, Vitess will reject queries, and the apps will notice an error.
 
 ## Controlled vs. arbitrary cut-over schedule
 
