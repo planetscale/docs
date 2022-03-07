@@ -7,9 +7,11 @@ subtitle: ''
 
 Deploy requests are an integral part of the PlanetScale workflow. 
 
+<VideoBlock src="/img/docs/deploy-request.mp4"></VideoBlock>
+
 ## Create a deploy request
 
-**Note**: Your database must have a production branch before you can create a deploy request.
+**Note**: Your database must have a **production branch** before you can create a deploy request.
 
 1. Go to the overview page of the development branch you want to deploy to production.
 2. Under "**Create a deploy request**", select the branch you want to deploy to.
@@ -31,6 +33,8 @@ PlanetScale will also check if the request is deployable. This includes checking
 7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**" and the deployment will begin immediately or be queued if there are other pending deployments.
 8. Once a request a deployed, you have 30 minutes to "undo" it using our [Rewind feature](#revert-a-deploy-request). 
 
+![PlanetScale deploy request - approve changes](/img/docs/deploy-request-approve.png)
+
 If you would like to require approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Deploy requests require approval before deploy**" box. You must be an administrator to enable this.
 
 ## Delete a deploy request
@@ -39,12 +43,25 @@ If you decide you don't want to proceed with a deploy request, you can easily de
 
 1. Click the "**Deploy requests**" tab on the database overview page.
 2. Select the request you want to delete.
-3. Click on the button on the right-hand side with the three small dots "...".
-4. Click "Close request".
+3. Click on the button on the right-hand side with the three small dots "**...**"
+4. Click "**Close request**".
 
 ## Revert a deploy request
 
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! The **Rewind feature** allows you to revert a recently deployed schema change **without losing any data** that was written during that time.
+
+<InfoBlock type='note'>
+  The Rewind feature is currently in limited beta. You must enroll your database to access this feature.
+</InfoBlock>
+
+### Revert a deployment with Rewind
+
+You can revert a deployment for **up to 30 minutes** after the deploy request was deployed. After the 30 minutes is up, the deployment becomes permanent and you will no longer have the option to revert.
+
+1. Select the deploy request you want to revert.
+2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the Rewind limited beta.
+3. Once ready, deploy your deploy request.
+4. 
 
 ### How to revert a schema change with Rewind
 
