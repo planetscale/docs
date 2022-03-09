@@ -6,6 +6,34 @@ module.exports = withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx']
 })
 
+const { NODE_ENV } = process.env
+const segment = require('./lib/segment')
+const segmentInlineSHA = `sha256-${segment.SegmentSnippetSHA256}`
+
+function csp() {
+  const isDev = NODE_ENV === 'development'
+
+  // There's no good way right now to compute this at build time
+  // so this has to be manually kept in sync with the `next-themes` NPM package.
+  const nextThemeInlineScriptHash = 'sha256-GtjUtmgtscBVAFveDly2Ug+LL+cy4ZbxFsH2nbefPAo='
+
+  const policies = [
+    "base-uri 'self'",
+    'block-all-mixed-content',
+    "default-src 'self'",
+    "frame-src 'none'",
+    `connect-src 'self' https://cdn.segment.com https://api.segment.io https://*.algolia.net https://*.algolianet.com ${isDev && 'ws:'}`,
+    `script-src 'self' '${segmentInlineSHA}' '${nextThemeInlineScriptHash}' https://cdn.jsdelivr.net https://cdn.segment.com 'unsafe-eval'`,
+    "style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'",
+    "img-src 'self' data:",
+    "prefetch-src 'self'",
+    `form-action 'self'`,
+    "frame-ancestors 'none'"
+  ]
+  return policies.join('; ')
+}
+const CONTENT_SECURITY_POLICY = csp()
+
 module.exports = {
   eslint: {
     ignoreDuringBuilds: true
@@ -16,6 +44,43 @@ module.exports = {
     }
 
     return config
+  },
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload'
+          },
+          {
+            key: 'Content-Security-Policy',
+            value: CONTENT_SECURITY_POLICY
+          },
+          {
+            key: 'Permissions-Policy',
+            value: 'interest-cohort=()'
+          },
+          {
+            key: 'Referrer-Policy',
+            value: 'strict-origin-when-cross-origin'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          },
+          {
+            key: 'X-Frame-Options',
+            value: 'DENY'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '0'
+          }
+        ]
+      }
+    ]
   },
   async redirects() {
     return [

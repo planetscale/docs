@@ -56,13 +56,12 @@ export function App({ Component, pageProps }) {
   }, [])
 
   return (
-    <ThemeProvider defaultTheme='dark' attribute='class'>
+    <ThemeProvider defaultTheme='system' attribute='class'>
       <Head>
         <link rel='icon' href='/favicon.ico' sizes='any' />
         <link rel='icon' href={favicon} sizes='any' type='image/svg+xml' />
         <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
         <link rel='manifest' href='/manifest.webmanifest' />
-        <link rel='preload' href='https://cdn.jsdelivr.net/npm/docsearch.js@2/dist/cdn/docsearch.min.css' as='style' />
       </Head>
       <Page>
         <Component {...pageProps} />
