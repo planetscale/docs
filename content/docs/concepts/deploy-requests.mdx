@@ -31,7 +31,7 @@ PlanetScale will also check if the request is deployable. This includes checking
 5. You'll see the proposed changes here. New additions are highlighted in green and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**" and the deployment will begin immediately or be queued if there are other pending deployments.
-8. Once a request a deployed, you have 30 minutes to "undo" it using our [Rewind feature](#revert-a-deploy-request). 
+8. Once a request a deployed, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
 ![PlanetScale deploy request - approve changes](/img/docs/deploy-request-approve.png)
 
@@ -45,7 +45,7 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 2. Select the request you want to close.
 3. Click on the "**Close deploy request**" button on the right-hand side.
 
-## Revert a deploy request
+## Revert a schema change
 
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! The **Rewind feature** allows you to revert a recently deployed schema change **without losing any data** that was written during that time.
 
@@ -55,13 +55,17 @@ If you ever merge a deploy request, only to realize you need to undo it, PlanetS
 
 ### Revert a deployment with Rewind
 
-You can revert a deployment for **up to 30 minutes** after the deploy request was deployed. After the 30 minutes is up, the deployment becomes permanent and you will no longer have the option to revert.
+You can revert a deployment for **up to 30 minutes** after the deploy request was deployed. After the 30 minute period is up, the deployment becomes permanent and you will no longer have the option to revert.
+
+### How to revert a schema change with Rewind
 
 1. Select the deploy request you want to revert.
 2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the Rewind limited beta.
-3. Once ready, deploy your deploy request.
-4. 
+3. After your deploy request has been deployed, you have **30 minutes** to "undo" it.
+4. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
+5. Your production database will immediately be reverted back to it's previous schema before the deploy request.
+6. Any data that was written in the time between you deploying and reverting will remain in your database.
+7. The Deploy Request will be closed, but the branch will remain as is for you to continue development on if you choose.
 
-### How to revert a schema change with Rewind
 
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
