@@ -108,4 +108,30 @@ ALTER TABLE users DROP COLUMN email;
 11. So once you click revert, all we need to do is swap them again! It goes through the exact same process described in step 6, and the shadow table again becomes the production table and vice versa. 
 12. You now have your original schema, your `users` table with the `email` column, and your application should work again. Since your signup page still worked, you likely have new users. With this process, you retained all of the users that signed up during that period, which would have been a huge hassle in traditional rollback and restore methods.
 
+### When is data not retained?
+
+There are some scenarios where some data is not retained when you revert your changes.
+
+1. You add a table or column to your schema, and then revert it. If any data was written to those newly introduced fields during the time between deployment and reverting, that data will not be retained upon revert, as the fields will no longer exist.
+
+### When are you unable to revert a schema change?
+
+There are also some edge cases where reverting a schema change is not possible. We will always attempt to revert, but if there are scenarios where your data integrity is at risk, we will not proceed with the revert. The following are some cases where a revert will fail:
+
+1. If you deploy a schema change that expands the length of some column, such as changing from `VARCHAR(10)` to `VARCHAR(50)`, and immediately add data greater than 10 bytes to it, a revert attempt may fail.  This is to protect your data. You may have data that was written to the `VARCHAR(50)` field in that time that will not fit in the smaller 10 byte space. However, if no data is added between deployment and revert, the revert process can proceed.
+2. Some examples of other similar scenarios where revert won't be possible (only if larger sized data is added between deployment and revert) are:
+   - `INT` to `BIGINT`
+   - `NOT NULL` to `NULL`
+   - `TIMESTAMP` to `TIMESTAMP(6)`
+   - `utf8` to `utf8mb4`
+   - Any other operation that expands the size of a field.
+3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert two rows that would otherwise conflict with that constraint, the revert may fail.
+4. Another uncommon, but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If, between the deployment and the revert attempt, you insert some rows, the revert will fail because we will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
+
+### Billing considerations
+
+The process of reverting a schema change will not count toward your `read`, `write`, or storage limits. You will not be charged for the background processes we run, like creating a copy of the affected schema and data.
+
+You may see some temporary `_vt` tables in your database. These are used to facilitate the deployment and revert process and do not count toward your storage.
+
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
