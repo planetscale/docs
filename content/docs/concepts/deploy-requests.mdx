@@ -5,7 +5,7 @@ subtitle: 'Learn how to create and revert non-blocking schema changes with Plane
 
 ## Overview
 
-Deploy requests are an integral part of the [PlanetScale workflow](/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. Additionally, you have the option to [undo deployments](#revert-a-schema-change), without losing any data that was written during that time, with just the click of a button.
+Deploy requests are an integral part of the [PlanetScale workflow](/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. Additionally, you have the option to [undo deployments](#revert-a-schema-change) without losing any data that was written during that time with just the click of a button.
 
 <VideoBlock src="/img/docs/deploy-request.mp4"></VideoBlock>
 
@@ -22,7 +22,7 @@ Deploy requests are an integral part of the [PlanetScale workflow](/concepts/pla
 
 ## Review and deploy a deploy request
 
-Once a deploy request is created, you or your team is able to review it, and, optionally, approve it, before deploying it to production. 
+Once a deploy request is created, you or your team is able to review it and, optionally, approve it before deploying it to production. 
 
 PlanetScale will also check if the request is deployable. This includes checking for issues like [foreign key constraints](/learn/operating-without-foreign-key-constraints), [missing unique key](/learn/change-single-unique-key), and more. We also check if there are any conflicts with the production schema that could prevent a clean merge.
 
@@ -30,9 +30,9 @@ PlanetScale will also check if the request is deployable. This includes checking
 2. Select the open deploy request you want to review.
 3. Under "**Summary**", you'll see if the request is deployable.
 4. To review the schema changes, click the "**Schema changes**" tab.
-5. You'll see the proposed changes here. New additions are highlighted in green and deletions are highlighted in red.
+5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
-7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**" and the deployment will begin immediately or be queued if there are other pending deployments.
+7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**", and the deployment will begin immediately or be queued if there are other pending deployments.
 8. Once a request a deployed, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
 ![PlanetScale deploy request - approve changes](/img/docs/deploy-request-approve.png)
@@ -57,7 +57,7 @@ If you ever merge a deploy request, only to realize you need to undo it, PlanetS
 
 ### Revert a deployment with Rewind
 
-You can revert a deployment for **up to 30 minutes** after the deploy request was deployed. After the 30 minute period is up, the deployment becomes permanent and you will no longer have the option to revert.
+You can revert a deployment for **up to 30 minutes** after the deploy request was deployed. After the 30 minute period is up, the deployment becomes permanent, and you will no longer have the option to revert.
 
 ### How to revert a schema change with Rewind
 
@@ -67,7 +67,7 @@ You can also go to the database Settings page and select "Enroll database" to op
 
 1. Select the deploy request you want to revert.
 2. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
-3. Your production database will immediately be reverted back to it's previous schema before the deploy request.
+3. Your production database will immediately be reverted back to its previous schema before the deploy request.
 4. Any data that was written in the time between you deploying and reverting will remain in your database.
 5. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
 
@@ -77,9 +77,9 @@ Let's take a peek under the hood to see how migration reverts without data loss 
 
 Rewind utilizes [VReplication from Vitess](https://vitess.io/docs/13.0/reference/vreplication/vreplication/). This is a core component of Vitess that allows us to accomplish feats like branching, data imports with no downtime, migration reverts, and more. Before diving too deep into VReplication, let's go through a migration revert scenario to better illustrate what's happening.
 
-Imagine you just deployed a deploy request that drops the `email` column on your `users` table. You refresh your production application in browser only to discover, to your horror, that application is down. Thankfully, the sign up page continues to work as expected, but you've found that some major parts of the application rely on that `email` column that no longer exists.
+Imagine you just deployed a deploy request that drops the `email` column on your `users` table. You refresh your production application in the browser only to discover, to your horror, that application is down. Thankfully, the signup page continues to work as expected, but you've found that some major parts of the application rely on that `email` column that no longer exists.
 
-You immediately realize you need to undo this, so you click "Revert changes", and, instantly, your previous schema is restored and your application is working again.
+You immediately realize you need to undo this, so you click "Revert changes", and, instantly, your previous schema is restored, and your application is working again.
 
 You then look at your `users` table, and to your surprise, you have 30 new users that signed up during the period your application was broken. Even though you reverted, all of those users are still there!
 
@@ -96,12 +96,12 @@ ALTER TABLE users DROP COLUMN email;
 4. Since the shadow table has no data, we begin **copying the data** over from the production table to the shadow table.
 5. Data is continuously copied, including new data, with the goal to **get these two tables in sync**.
    - As you can imagine, syncing data between these two tables is a huge task, especially because data is still being added to the production table during this process. So, if one row is copied over to the shadow table, you may think the work is done. But what if a few seconds later, a new write comes in changing that user's last name? That update goes to the current production table, so the production table and shadow table are once again out of sync.
-   - VReplication solves this problem by **copying existing data and incoming data in batches**, interchangeably. We first copy over a set number of rows (in the several thousands). Then, we check the binary logs for any changes that were made in the meantime and apply those. Then we start copying existing rows again, and then incoming traffic, over and over until the tables are in sync. Of course, there are a lot of edge cases with this process that we have to think about. What if the shadow table is looking at incoming changes from the binlog and encounters a row that doesn't yet exist in the shadow table? What if the incoming data requires a change to the data that's already been copied?
-   - This is where the power of VReplication comes into play. VReplication uses **precision logic** that maps every single transaction (a single, complete operation on the database) with the database position during that change using [MySQL GTID (Global Transaction Identifier)](https://dev.mysql.com/doc/refman/5.6/en/replication-gtids-concepts.html). This allows us to track these existing and incoming changes between the two tables with exact precision based on a the time we started the new transaction.
+   - VReplication solves this problem by **copying existing data and incoming data in batches** interchangeably. We first copy over a set number of rows (in the several thousands). Then, we check the binary logs for any changes that were made in the meantime and apply those. Then we start copying existing rows again, and then incoming traffic, over and over until the tables are in sync. Of course, there are a lot of edge cases with this process that we have to think about. What if the shadow table is looking at incoming changes from the binlog and encounters a row that doesn't yet exist in the shadow table? What if the incoming data requires a change to the data that's already been copied?
+   - This is where the power of VReplication comes into play. VReplication uses **precision logic** that maps every single transaction (a single, complete operation on the database) with the database position during that change using [MySQL GTID (Global Transaction Identifier)](https://dev.mysql.com/doc/refman/5.6/en/replication-gtids-concepts.html). This allows us to track these existing and incoming changes between the two tables with exact precision based on the time we started the new transaction.
    - When we begin copying a set of rows, we run `START TRANSACTION WITH CONSISTENT SNAPSHOT`, which takes that snapshot and essentially freezes time while we copy the rows over.
    - Once we're done copying the first set of existing rows, we switch to copying incoming data. We only care about anything that came in after the GTID point that we just used.
    - In addition, we only care about incoming data that contains **changes to the data we've already written to the shadow table**. There are most likely new `INSERT`s in the binlog, but we don't need to copy those over right now because we'll encounter it eventually when we're back in copy mode. 
-   - Once we're finished with the set of incoming changes from the binlog, we switch back to copying from the production database. We issue a new `START TRANSACTION WITH CONSISTENT SNAPSHOT` to capture the new GTID we'll be working from. In the couple seconds it took to do that, more incoming traffic has arrived. We apply any changes to the shadow table, and then continue copying data. This way, we know that we've **consumed all events up until that GTID capture**.
+   - Once we're finished with the set of incoming changes from the binlog, we switch back to copying from the production database. We issue a new `START TRANSACTION WITH CONSISTENT SNAPSHOT` to capture the new GTID we'll be working from. In the seconds it took to do that, more incoming traffic has arrived. We apply any changes to the shadow table and then continue copying data. This way, we know that we've **consumed all events up until that GTID capture**.
 6. Once the data is copied over, we issue a hard stop on the process. During this cut-over period, the tables are perfectly in sync, so we **swap the production table with the shadow table**. This is the only period during the process where we impose a write lock. However, since **no downtime is acceptable** during this process, writes will still be allowed from the application's perspective. We'll hold any new writes and apply them once the swap has taken place.
 7. At this point, your production database now has the new schema with no `email` column on the `users` table. But this is where you realize **your application is broken**!
 8. You click "Revert changes".
@@ -114,26 +114,28 @@ ALTER TABLE users DROP COLUMN email;
 
 There are some scenarios where some data is not retained when you revert your changes.
 
-1. You add a table or column to your schema, and then revert it. If any data was written to those newly introduced fields during the time between deployment and reverting, that data will not be retained upon revert, as the fields will no longer exist.
+1. You add a table or column to your schema and then revert it. If any data was written to those newly introduced fields during the time between deployment and reverting, that data will not be retained upon revert, as the fields will no longer exist.
 
 ### When are you unable to revert a schema change?
 
 There are also some edge cases where reverting a schema change is not possible. We will always attempt to revert, but if there are scenarios where your data integrity is at risk, we will not proceed with the revert. The following are some cases where a revert will fail:
 
-1. If you deploy a schema change that expands the length of some column, such as changing from `VARCHAR(10)` to `VARCHAR(50)`, and immediately add data greater than 10 bytes to it, a revert attempt may fail.  This is to protect your data. You may have data that was written to the `VARCHAR(50)` field in that time that will not fit in the smaller 10 byte space. However, if no data is added between deployment and revert, the revert process can proceed.
+1. If you deploy a schema change that expands the length of some column, such as changing from `VARCHAR(10)` to `VARCHAR(50)` and immediately add data greater than 10 bytes to it, a revert attempt may fail.  This is to protect your data. You may have data that was written to the `VARCHAR(50)` field in that time that will not fit in the smaller 10 byte space. However, if no data is added between deployment and revert, the revert process can proceed.
 2. Some examples of other similar scenarios where revert won't be possible (only if larger sized data is added between deployment and revert) are:
    - `INT` to `BIGINT`
    - `NOT NULL` to `NULL`
    - `TIMESTAMP` to `TIMESTAMP(6)`
    - `utf8` to `utf8mb4`
-   - Any other operation that expands the size of a field.
+   - Any other operation that expands the size of a field
 3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert two rows that would otherwise conflict with that constraint, the revert may fail.
-4. Another uncommon, but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If, between the deployment and the revert attempt, you insert some rows, the revert will fail because we will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
+4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
 ### Billing considerations
 
 The process of reverting a schema change will not count toward your `read`, `write`, or storage limits. You will not be charged for the background processes we run, like creating a copy of the affected schema and data.
 
 You may see some temporary `_vt` tables in your database. These are used to facilitate the deployment and revert process and do not count toward your storage.
+
+## Need help?
 
 Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
