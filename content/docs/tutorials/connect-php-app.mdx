@@ -1,11 +1,11 @@
 ---
-title: 'Connect a Symfony application to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Symfony application'
+title: 'Connect a PHP application to PlanetScale'
+subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a PHP application'
 ---
 
 ## Introduction
 
-In this tutorial, you'll learn how to connect a Symfony application to a PlanetScale MySQL database using a sample Symfony starter app.
+In this tutorial, you'll learn how to connect a PHP application to a PlanetScale MySQL database using a sample PHP starter app.
 
 ## Prerequisites
 
@@ -14,42 +14,40 @@ In this tutorial, you'll learn how to connect a Symfony application to a PlanetS
 - A [free PlanetScale account](https://auth.planetscale.com/sign-up)
 - [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
-## Set up the Symfony app
+## Set up the PHP app
 
-This guide will integrate [a simple Symfony app](https://github.com/planetscale/symfony-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple PHP app](https://github.com/planetscale/php-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
 
-1. Clone the starter Symfony application:
+1. Clone the starter PHP application:
 
 ```bash
-git clone https://github.com/planetscale/symfony-example.git
+git clone https://github.com/planetscale/php-example.git
 ```
 
 2. Enter into the folder and install the dependencies:
 
 ```bash
-cd symfony-example
+cd php-example
 composer install
 ```
 
-3. Rename the `.env.example` file to `.env.local`:
+1. Rename the `.env.example` file to `.env`:
 
 ```bash
-mv .env.example .env.local
+mv .env.example .env
 ``` 
 
-Once you deploy to production, don't forget to update `.env.local` to `.env`.
-
-4. Start the application:
+1. Start the application:
 
 ```bash
-symfony serve
+php -S localhost:8000
 ```
 
 You can view the application at [http://localhost:8000](http://localhost:8000).
 
 ## Set up the database
 
-Next, you need to set up your PlanetScale database and connect to it in the Symfony application.
+Next, you need to set up your PlanetScale database and connect to it in the PHP application.
 
 You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
 
@@ -65,13 +63,13 @@ pscale auth login
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-This tutorial uses `symfony-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+This tutorial uses `php-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
 
-That's it! Your database is ready to use. Next, let's connect it to the Symfony application and then add some data.
+That's it! Your database is ready to use. Next, let's connect it to the PHP application and then add some data.
 
-## Connect to the Symfony app
+## Connect to the PHP app
 
 There are **two ways to connect** to PlanetScale:
 
@@ -96,7 +94,7 @@ A default branch, `main`, is created when you create the database, so you can us
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-2. Open the `.env.local` file in your Symfony app, find the database connection section, and replace the existing `DATABASE_URL` value with:
+1. Open the `.env` file in your PHP app, find the database connection section, and replace the existing `DATABASE_URL` value with:
 
 ```
 DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAME>?serverVersion=8.0"
@@ -104,9 +102,9 @@ DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAM
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above.
 
-You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**PHP**".
+You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the dropdown.
 
-Refresh your Symfony homepage and you should see the message that you're connected to your database!
+Refresh your PHP homepage and you should see the message that you're connected to your database!
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -122,59 +120,21 @@ If you're following this guide exactly and haven't created any branches, you can
 
 2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
 
-3. Open the `.env.local` file in your Symfony app and update it as follows:
+3. Open the `.env` file in your PHP app and update it as follows:
 
 ```
-DB_HOST=127.0.0.1
-DB_PORT=3306 # Get this from the output of the previous step
-DB_NAME=
-DATABASE_URL=mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?serverVersion=5.7
+HOST=127.0.0.1
+PORT=3306 # Get this from the output of the previous step
+DATABASE=
 ```
 
 The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
 
-4. Open up `config/packages/doctrine.yaml`. Under `option`, you'll see a line for the SSL certificate that was used to connect with username and password:
+Refresh your PHP homepage and you should see the message that you're connected to your database!
 
-```php
-!php/const:PDO::MYSQL_ATTR_SSL_CA: /etc/ssl/cert.pem
-```
-Delete that line and save.
+## Add the schema and data
 
-Refresh your Symfony homepage and you should see the message that you're connected to your database!
-
-## Run migrations and seeder
-
-Now that you're connected, let's add some data to see it in action. The sample application comes with a migration file at `migrations/Version20220120102247.php` that will create `category` and `product` tables in the database.
-
-There are also two seeder files, `src/DataFixtures/CategoryFixtures.php` and `src/DataFixtures/ProductFixtures.php`, that will add ten random categories and products to the `category` and `product` tables, respectively. Let's run those now.
-
-1. Make sure your database connection has been established. You'll see the message "You are connected to your-database-name" on the [Symfony app homepage](http://localhost:8000/) if everything is configured properly.
-
-2. In your terminal in the root of the Symfony project, run the following to run the migrations:
-
-```bash
-symfony console doctrine:migrations:migrate
-```
-
-You will get a message asking you to confirm. Type "yes" and hit enter to proceed.
-
-3. Next, seed the database by running:
-
-```bash
-symfony console doctrine:fixtures:load
-```
-
-This will purge your database and load the placeholder data into it.
-
-4. Refresh your Symfony homepage and you'll see a list of products and their category printed out.
-
-The `templates/product/index.html.twig` file pulls this data from the `product` table with the help of the `src/Controller/ProductController.php` file.
-
-![Symfony PlanetScale starter app homepage](/img/docs/symfony-planetscale-app.png)
-
-## Add data manually
-
-If you want to continue to play around with adding data on the fly, you have a few options:
+Now that you're connected to the database, let's create the `product` and `category` tables and add some data. There are a few ways to do this:
 
 - PlanetScale CLI shell
 - PlanetScale dashboard console
@@ -188,7 +148,7 @@ You can use the PlanetScale CLI to open a MySQL shell to interact with your data
 
 You may need to [install the MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
 
-Run the following command in your terminal:
+1. Run the following command in your terminal:
 
 ```bash
 pscale shell <DATABASE_NAME> <BRANCH_NAME>
@@ -200,45 +160,94 @@ This will open up a MySQL shell connected to the specified database and branch.
   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
 </InfoBlock>
 
-Add a record to the `product` table:
+2. Create the `product` table:
 
 ```sql
-INSERT INTO `store_product` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/150.png', 2);
+CREATE TABLE IF NOT EXISTS product (
+id INT AUTO_INCREMENT NOT NULL,
+name VARCHAR(255) NOT NULL,
+description VARCHAR(255) NOT NULL,
+image VARCHAR(255) NOT NULL,
+category_id INT NOT NULL,
+PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
 ```
+
+3. Create the `category` table:
+
+```sql
+CREATE TABLE IF NOT EXISTS category (
+id INT AUTO_INCREMENT NOT NULL,
+name VARCHAR(255) NOT NULL,
+description VARCHAR(255) NOT NULL,
+PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+```
+
+4. Add some records to the `product` table:
+
+```sql
+INSERT INTO `product` (name, description, image, category_id) VALUES
+('Shoes', 'Description for shoes', 'https://via.placeholder.com/150.png', '1'),
+('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
+('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4'),
+```
+
 The value `id` will be filled with a default value.
 
-You can verify it was added in the PlanetScale CLI MySQL shell with:
+5. Add some data to the `category` table:
+
+```sql
+INSERT INTO `category` (name, description) VALUES
+('Clothing', 'Description for Clothing'),
+('Electronics', 'Description for Electronics'),
+('Appliances', 'Description for Appliances'),
+('Health', 'Description for Health'),
+```
+
+6. You can verify everything was added in the PlanetScale CLI MySQL shell with:
 
 ```sql
 select * from product;
+select * from category;
 ```
 
 Type `exit` to exit the shell.
 
-You can now refresh the [Symfony homepage](http://localhost:8000) to see the new record. 
+You can now refresh the [PHP homepage](http://localhost:8000) to see the new records. 
 
 ### Add data with PlanetScale dashboard console
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
 
-1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Symfony database.
-2. Click on the "**Branches** and select the `main` branch.
+1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your PHP database.
+2. Click on the "**Branches** and select the `main` branch (or whatever development branch you used).
 3. Click on "**Console**"
-4. Add a new record to the `product` table with:
+4. Add data to the `product` table with:
 
 ```sql
-INSERT INTO `store_product` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/150.png', 2);
+INSERT INTO `product` (name, description, image, category_id) VALUES
+('Shoes', 'Description for shoes', 'https://via.placeholder.com/150.png', '1'),
+('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
+('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4'),
 ```
 
-5. You can confirm that it was added by running:
+5. Add data to the `category` table with:
+
+```sql
+INSERT INTO `category` (name, description) VALUES
+('Clothing', 'Description for Clothing'),
+('Electronics', 'Description for Electronics'),
+('Appliances', 'Description for Appliances'),
+('Health', 'Description for Health'),
+```
+
+6. You can confirm that it was added by running:
 
 ```sql
 select * from product;
+select * from category;
 ```
 
-You can now refresh the [Symfony homepage](http://localhost:8000) to see the new record.
+You can now refresh the [PHP homepage](http://localhost:8000) to see the new record.
 
 ## What's next?
 
