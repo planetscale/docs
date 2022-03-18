@@ -13,7 +13,7 @@ export default function Overview() {
       <TitleAndMetaTags
         title='Overview'
         pathname='overview'
-        banner='https://og-image.planetscale.com/Documentation%20Overview.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white.svg'
+        banner='https://og-image.planetscale.com/Documentation%20Overview.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white-v2.svg'
       />
 
       <h1 className='text-3xl font-semibold'>PlanetScale documentation</h1>
