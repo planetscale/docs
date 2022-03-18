@@ -73,8 +73,8 @@ That's it! Your database is ready to use. Next, let's connect it to the PHP appl
 
 There are **two ways to connect** to PlanetScale:
 
-- Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
+- Using the PlanetScale proxy with the CLI
 
 Both options are covered below.
 
@@ -94,15 +94,18 @@ A default branch, `main`, is created when you create the database, so you can us
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-1. Open the `.env` file in your PHP app, find the database connection section, and replace the existing `DATABASE_URL` value with:
+1. Open the `.env` file in your PHP app:
 
 ```
-DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAME>?serverVersion=8.0"
+HOST=<ACCESS_HOST_URL>
+DATABASE=<DATABASE_NAME>
+USERNAME=<USERNAME>
+PASSWORD=<PASSWORD>
 ```
 
-Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above.
+Fill in `USERNAME`, `PASSWORD`, `ACCESS_HOST_URL` and `DATABASE_NAME` with the corresponding values from the CLI output above.
 
-You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the dropdown.
+You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the dropdown.
 
 Refresh your PHP homepage and you should see the message that you're connected to your database!
 
@@ -125,7 +128,7 @@ If you're following this guide exactly and haven't created any branches, you can
 ```
 HOST=127.0.0.1
 PORT=3306 # Get this from the output of the previous step
-DATABASE=
+DATABASE=<DATABASE_NAME>
 ```
 
 The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
@@ -188,7 +191,7 @@ PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGI
 INSERT INTO `product` (name, description, image, category_id) VALUES
 ('Shoes', 'Description for shoes', 'https://via.placeholder.com/150.png', '1'),
 ('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
-('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4'),
+('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4');
 ```
 
 The value `id` will be filled with a default value.
@@ -200,7 +203,7 @@ INSERT INTO `category` (name, description) VALUES
 ('Clothing', 'Description for Clothing'),
 ('Electronics', 'Description for Electronics'),
 ('Appliances', 'Description for Appliances'),
-('Health', 'Description for Health'),
+('Health', 'Description for Health');
 ```
 
 6. You can verify everything was added in the PlanetScale CLI MySQL shell with:
@@ -227,7 +230,7 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 INSERT INTO `product` (name, description, image, category_id) VALUES
 ('Shoes', 'Description for shoes', 'https://via.placeholder.com/150.png', '1'),
 ('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
-('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4'),
+('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4');
 ```
 
 5. Add data to the `category` table with:
@@ -237,7 +240,7 @@ INSERT INTO `category` (name, description) VALUES
 ('Clothing', 'Description for Clothing'),
 ('Electronics', 'Description for Electronics'),
 ('Appliances', 'Description for Appliances'),
-('Health', 'Description for Health'),
+('Health', 'Description for Health');
 ```
 
 6. You can confirm that it was added by running:
