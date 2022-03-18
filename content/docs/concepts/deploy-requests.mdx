@@ -24,7 +24,7 @@ Deploy requests are an integral part of the [PlanetScale workflow](/concepts/pla
 
 Once a deploy request is created, you or your team is able to review it and, optionally, approve it before deploying it to production. 
 
-PlanetScale will also check if the request is deployable. This includes checking for issues like [foreign key constraints](/learn/operating-without-foreign-key-constraints), [missing unique key](/learn/change-single-unique-key), and more. We also check if there are any conflicts with the production schema that could prevent a clean merge.
+PlanetScale will check if the request is deployable. This includes checking for issues like [foreign key constraints](/learn/operating-without-foreign-key-constraints), [missing unique key](/learn/change-single-unique-key), and more. We also check if there are any known conflicts with the production schema that could prevent a clean merge. While we attempt to find all possible conflicts, it is ultimately up to you to confirm merge details.
 
 1. Click the "**Deploy requests**" tab on the database overview page.
 2. Select the open deploy request you want to review.
@@ -33,7 +33,7 @@ PlanetScale will also check if the request is deployable. This includes checking
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**", and the deployment will begin immediately or be queued if there are other pending deployments.
-8. Once a request a deployed, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
+8. Once a request is deployed, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
 ![PlanetScale deploy request - approve changes](/img/docs/deploy-request-approve.png)
 
