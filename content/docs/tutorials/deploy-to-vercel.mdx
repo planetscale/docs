@@ -59,21 +59,19 @@ pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 
 6. Create a **deployment request** by running:
 
-To find your `deploy-request-number`, run:
+```bash
+pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
+```
+
+Copy the `deploy-request-number` and use that digit as your `DEPLOY_REQUEST_NUMBER`.
+
+7. Merge your `development` branch into `main`:
 
 ```bash
 pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
 ```
 
-Copy the value from `NUMBER` and use that digit as your `DEPLOY_REQUEST_NUMBER`.
-
-8. Merge your `development` branch into `main`:
-
-```bash
-pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
-```
-
-7. (Optional) Delete your just merged feature branch:
+8. (Optional) Delete your just merged feature branch:
 
 If you are working in a **feature branch workflow**, you may want to delete the old branches:
 
