@@ -86,7 +86,7 @@ There are also some edge cases where reverting a schema change is not possible. 
    - `TIMESTAMP` to `TIMESTAMP(6)`
    - `utf8` to `utf8mb4`
    - Any other operation that expands the size of a field
-3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert two rows that would otherwise conflict with that constraint, the revert may fail.
+3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert rows that would otherwise conflict with that constraint, the revert may fail.
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
 ### Billing considerations
