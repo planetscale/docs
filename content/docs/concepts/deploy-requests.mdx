@@ -5,7 +5,7 @@ subtitle: 'Learn how to create and revert non-blocking schema changes with Plane
 
 ## Overview
 
-Deploy requests are an integral part of the [PlanetScale workflow](/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. Additionally, you can [undo deployments](#revert-a-schema-change) without losing any data that was written during that time with just the click of a button.
+Deploy requests are an integral part of the [PlanetScale workflow](/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. You can also [undo deployments](#revert-a-schema-change) without losing any data that was written during that time.
 
 <VideoBlock src="/img/docs/deploy-request.mp4"></VideoBlock>
 
@@ -59,13 +59,13 @@ If you ever merge a deploy request, only to realize you need to undo it, PlanetS
 
 You can revert a deployment for **up to 30 minutes** after the deploying. After the 30 minute period is up, the deployment becomes permanent, and you will no longer have the option to revert.
 
-You must first opt-in to the beta terms before you can use Rewind. Go to the database Settings page, click "Beta features", and check "Enroll this database in the Rewind limited beta" to opt-in.
+You must first agree to the beta terms before you can use Rewind. Go to the database Settings page, click "**Beta features**", and check "Enroll this database in the Rewind limited beta" to opt-in.
 
 1. Select the deploy request you want to revert.
 2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the Rewind limited beta terms.
 3. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
 4. We will immediately revert your production database back to its previous schema.
-5. Any data that was written to the original schema in the time between you deploying and reverting will remain in your database.
+5. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
 6. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
 
 ### When is data not retained?
@@ -87,6 +87,8 @@ There are also some edge cases where reverting a schema change is not possible. 
    - Any other operation that expands the size of a field
 3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert rows that would otherwise conflict with that constraint, the revert may fail.
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
+
+For a in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](https://planetscale.com/blog/behind-the-scenes-how-we-built-rewind) blog post.
 
 ### Billing considerations
 
