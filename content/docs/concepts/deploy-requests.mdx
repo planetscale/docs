@@ -79,7 +79,7 @@ There are some scenarios where some data is not retained when you revert your ch
 
 There are also some edge cases where reverting a schema change is not possible. We will always attempt to revert, but if there are scenarios where your data integrity is at risk, we will not proceed with the revert. The following are some cases where a revert will fail:
 
-1. If you deploy a schema change that expands the length of some column, such as changing from `VARCHAR(10)` to `VARCHAR(50)` and immediately add data greater than 10 bytes to it, a revert attempt may fail.  This is to protect your data. You may have data that was written to the `VARCHAR(50)` field in that time that will not fit in the smaller 10 byte space. However, if no data is added between deployment and revert, the revert process can proceed.
+1. If you deploy a schema change that expands the length of some column, such as changing from `VARCHAR(10)` to `VARCHAR(50)` and immediately add data greater than 10 characters to it, a revert attempt may fail.  This is to protect your data. You may have data that was written to the `VARCHAR(50)` field in that time that will not fit in the smaller 10 character space. However, if no data is added between deployment and revert, the revert process can proceed.
 2. Some examples of other similar scenarios where revert won't be possible (only if larger sized data is added between deployment and revert) are:
    - `INT` to `BIGINT`
    - `NOT NULL` to `NULL`
