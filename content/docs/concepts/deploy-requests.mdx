@@ -70,13 +70,13 @@ You must first agree to the beta terms before you can use Rewind. Go to the data
 5. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
 6. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
 
-### When is data not retained?
+### When is data not retained
 
 There are some scenarios where some data is not retained when you revert your changes.
 
 1. You add a table or column to your schema and then revert it. If any data was written to those newly introduced fields between deployment and reverting, that data will not be retained upon revert, as the fields will no longer exist.
 
-### When are you unable to revert a schema change?
+### When are you unable to revert a schema change
 
 There are also some edge cases where reverting a schema change is not possible. We will always attempt to revert, but if there are scenarios where your data integrity is at risk, we will not proceed with the revert. The following are some cases where a revert will fail:
 
