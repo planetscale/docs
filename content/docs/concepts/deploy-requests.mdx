@@ -90,7 +90,7 @@ There are also some edge cases where reverting a schema change is not possible. 
 3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert rows that would otherwise conflict with that constraint, the revert may fail.
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
-For a in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](https://planetscale.com/blog/behind-the-scenes-how-we-built-rewind) blog post.
+For an in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](https://planetscale.com/blog/behind-the-scenes-how-we-built-rewind) blog post.
 
 ### Billing considerations
 
