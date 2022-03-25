@@ -22,10 +22,12 @@ function csp() {
     'block-all-mixed-content',
     "default-src 'self'",
     "frame-src 'none'",
-    `connect-src 'self' https://cdn.segment.com https://api.segment.io https://*.algolia.net https://*.algolianet.com ${isDev && 'ws:'}`,
+    `connect-src 'self' https://cdn.segment.com https://api.segment.io https://*.algolia.net https://*.algolianet.com ${
+      isDev && 'ws:'
+    }`,
     `script-src 'self' '${segmentInlineSHA}' '${nextThemeInlineScriptHash}' https://cdn.jsdelivr.net https://cdn.segment.com 'unsafe-eval'`,
     "style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'",
-    "img-src 'self' data:",
+    "img-src 'self' https://vercel.com data:",
     "prefetch-src 'self'",
     `form-action 'self'`,
     "frame-ancestors 'none'"
