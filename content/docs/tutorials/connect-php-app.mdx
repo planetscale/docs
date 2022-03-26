@@ -1,0 +1,172 @@
+---
+title: 'Connect a PHP application to PlanetScale'
+subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a PHP application'
+---
+
+## Introduction
+
+In this tutorial, you'll learn how to connect a PHP application to a PlanetScale MySQL database using the PDO abstraction class.
+
+## Prerequisites
+
+- [PHP](https://www.php.net/manual/en/install.php) &mdash; This tutorial uses `v8.0`
+- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+
+## Set up the PHP app
+
+1. Create your index.php file (or any php file is fine).
+
+```
+<?php 
+
+//Your code will go here
+
+?>
+```
+
+## Set up the database
+
+Next, you need to set up your PlanetScale database and connect to it.
+
+You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the dashboard, you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application).
+
+1. Create a new database with a default 'main' branch
+
+That's it! Your database is ready to use. Next, let's connect it to the PHP application and then add some data.
+
+## Connect to the PHP app
+
+There are two ways to connect your PHP app to PlanetScale.
+
+-Using the mysqli class
+-Using the PDO class
+
+Both options are covered below.
+
+### Option 1: Using mysqli class
+
+```
+$mysqli = mysqli_init();
+$mysqli->ssl_set(NULL, NULL, "/etc/ssl/cert.pem", NULL, NULL);
+$mysqli->real_connect($_ENV["HOST"], $_ENV["USERNAME"], $_ENV["PASSWORD"], $_ENV["DATABASE"]);
+$mysqli->close();
+```
+
+this is assuming you are using an .env file to store your database information
+
+example ENV file:
+```
+DB_CONNECTION=mysql
+DB_HOST=<ACCESS HOST URL> // this can be found in your planetscale dashboard
+DB_PORT=3306
+DB_DATABASE=<DATABASE_NAME> // what you named the database
+DB_USERNAME=<USERNAME> // this can be found in your planetscale dashboard
+DB_PASSWORD=<PLAIN TEXT> // this can be found in your planetscale dashboard
+MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+```
+
+### Option 2: Using the PDO class
+I tend to prefer using PDO objects as a personal preference.
+Using PDO with SSL requires us to also setup additional 'options' when instantiating the handle.
+
+```
+$dsn = 'mysql:host=$DB_HOST;dbname=$$DB_DATABASE;port=3306';
+$user = "";
+$dbP = "";
+$options = array(
+    1009 => "/etc/ssl/cert.pem",
+    1014 => false,
+);
+try {
+    $db = new PDO($dsn, $user, $dbP, $options);
+    $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    echo "Connected successfully";
+} catch (PDOException $error) {
+    $msg = $error->getMessage();
+    echo "error:".$msg;
+}
+```
+
+The above snippet is a more concise way of setting these options:
+
+```
+$options = array(
+    PDO::MYSQL_ATTR_SSL_CA => '/etc/ssl/certs/ca-certificates.crt',
+    PDO::MYSQL_ATTR_SSL_VERIFY_SERVER_CERT => false,
+);
+```
+
+In some cases the MYSQL_ATTR_SSL_CA may need to be set to "/etc/ssl/cert.pem" depending on the OS your server is running. Your best bet if you aren't sure would be to use this function:
+```
+openssl_get_cert_locations()['default_cert_file']
+```
+
+## Creating Tables
+Now that you're connected, let's create a schema and add some data to see it in action.
+You can create a table with PlanetScale's UI or programmatically.
+
+### PlanetScale UI Console
+PlanetScale UI
+There is a [web console](https://docs.planetscale.com/concepts/web-console) you can access from your PlanetScale branch that allows you to run SQL code directly.
+
+```
+CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `email` varchar(255) NOT NULL,
+  `first_name` varchar(255),
+  `last_name` varchar(255)
+);
+```
+
+### Programmatically creating a table
+If you used the PDO class you can create a table like so
+
+```
+function createTable() {
+    global $db;
+    $query = 'CREATE TABLE `users` (
+  `id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `email` varchar(255) NOT NULL,
+  `first_name` varchar(255),
+  `last_name` varchar(255)
+)';
+    $statement = $db->prepare($query);
+    $statement->execute();
+    $statement->closeCursor();
+}
+```
+
+*Note: This will not work if your branch is running in "production" mode. The point of PlaneScale is that you can make schema updates without breaking your database, so they don't let you make modifications directly to that branch. If you already have your main branch in production mode, create a new branch. I called my second branch 'dev' and setup a PDO to the second branch so I can modify the schema there if needed. Then once you are ready you can "deploy request" your branch to the main.
+
+## Add data
+You can execute SQL statements as you normally would with PDO
+
+```
+function addRow($userEmail, $fname, $lname) {
+    global $db;
+    //add user to group
+    $query2 = "INSERT INTO users (email, first_name, last_name) VALUES (:userEmail,:first_name, :last_name)";
+    $statement = $db->prepare($query2);
+    $statement->bindValue(":userEmail", $userEmail);
+    $statement->bindValue(":first_name", $fname);
+    $statement->bindValue(":last_name", $lname);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
+addRow("myplanetscaleDB@gmail.com", "TestUser1", "TestLastName");
+```
+
+###PHPStorm and DataGrip
+If you are using PHPStorm, I would highly recommend connecting your PlanetScale database to your IDE through DataGrip. [Here is an article on how to do that](https://planetscale.com/blog/using-planetscale-with-jetbrains-datagrip-mysql-gui). This will give you things like autocomplete and make it easier to catch bugs/typos in your SQL statements.
+
+## What's next?
+
+Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. If you're interested in learning how to secure your application when connecting to PlanetScale,
+please read [Connecting to PlanetScale securely](/reference/planetscale-security).
+
+## Need help?
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
