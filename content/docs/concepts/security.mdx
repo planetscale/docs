@@ -64,7 +64,13 @@ PlanetScale is actively seeking vulnerability reports for the following componen
 
 PlanetScale is not actively seeking the following types of reports:
 
-- **Testing Software Output**: Output generated from automated testing software like [Burp Suite](https://portswigger.net/burp)
+- **Testing Software Output**: Output generated from automated testing software like [Burp Suite](https://portswigger.net/burp). These include, but aren't limited to:
+    * CSRF on forms that are available to anonymous users or are related to logging out
+    * Disclosure of known public files or directories (i.e. `robots.txt`)
+    * DNSSEC or other DNS configuration suggestions
+    * TLS and security header configuration suggestions
+    * Sender Policy Framework (SPF) configuration suggestions
+    * Flags on cookies that are not sensitive
 - **Software Version Reports**: Reports notifying PlanetScale that newer versions of software have been released
 
 ### Reporting a Vulnerability
