@@ -27,7 +27,7 @@ function csp() {
     }`,
     `script-src 'self' '${segmentInlineSHA}' '${nextThemeInlineScriptHash}' https://cdn.jsdelivr.net https://cdn.segment.com 'unsafe-eval'`,
     "style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'",
-    "img-src 'self' https://vercel.com data:",
+    "img-src 'self' https://www.netlify.com https://vercel.com data:",
     "prefetch-src 'self'",
     `form-action 'self'`,
     "frame-ancestors 'none'"
