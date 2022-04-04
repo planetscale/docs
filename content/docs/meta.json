@@ -28,6 +28,7 @@
               "route": "authentication-methods",
               "display": "Authentication methods"
             },
+            { "route": "account-passwords", "display": "Account security" },
             { "route": "mfa", "display": "Multi-factor authentication" },
             { "route": "security-log", "display": "Security log" },
             { "route": "sso", "display": "Single sign-on" },
