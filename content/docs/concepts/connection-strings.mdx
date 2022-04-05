@@ -5,24 +5,18 @@ subtitle: 'Create reusable connection strings to connect to your PlanetScale dat
 
 ## Creating a password
 
-1. To create a password, head to your database overview page at `https://app.planetscale.com/<organization>/<database-name>`
-   and click on the `Connect` dropdown.
+1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
 
 ![Database overview page](/img/docs/create_new_password_1.png)
 
-2. On this dialog, click on `Generate new password` to create a new password to connect to the `main` branch of your database.
-   We will then generate a **unique username & password pair** for you that will not be repeated and can be used to only access the `main` branch of your database.
+1. On this dialog, click the `New password` button. This will generate a **unique username & password pair** that can only be used to only access the `main` branch of your database. Take note of this password, as you won't be able to see it again.
 
-![Generate a new password](/img/docs/create_new_password_2.png)
-
-3. Once created, you can browse the connection string in different framework formats.
+2. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
 
 <InfoBlock type="note">
-  You can connect to PlanetScale from any platform that supports mysql. These
-  connection strings are in place to let you hit the ground running, please let
-  us know if we're missing your favorite framework in this list. We support
-  pre-generating connection strings for Go, Java, .Net, PHP, Prisma, Python,
-  Rails and Rust.
+  You can connect to PlanetScale from any platform that supports MySQL. These
+  connection strings are in place to let you hit the ground running. Please let
+  us know if we're missing your favorite framework in this list or if you have any suggestions. We support pre-generating connection strings for Go, Java, .Net, PHP, Laravel, Symfony, Prisma, Python, Rails, and Rust.
 </InfoBlock>
 
 ![Browse connection string in formats](/img/docs/create_new_password_3.png)
@@ -35,27 +29,24 @@ subtitle: 'Create reusable connection strings to connect to your PlanetScale dat
 
 ## Managing passwords
 
-Once you've created the password, you can head over to the `Passwords` settings page available at `Organization > Database > Settings > Passwords` to manage them.
+Once you've created the password, you can head over to the "**Passwords**" settings page available at `Organization > Database > Settings > Passwords` to manage them.
 
 <InfoBlock type="tip">
   You can also create passwords for branches other than{' '}
-  <inlineCode>main</inlineCode> on this page.
+  `main` on this page.
 </InfoBlock>
 
 ![Manage passwords page](/img/docs/manage_passwords.png)
 
-Clicking on the `...` icon on the row for your password allows you to `Rename` the password, and `Delete` it.
-![Operations on a password](/img/docs/manage_passwords_2.png)
+Clicking on the `...` icon on the row for your password allows you to pull up the connection string (except the password), rename it, or delete it.
 
 ## Renaming a password
 
 Since the **username & password** pair is unique, the only metadata you can edit is the `display name` of the password.
-![Rename a password](/img/docs/rename_password.png)
 
 ## Deleting a password
 
 Deleting a password will invalidate the username & password pair and **disconnect any active clients using this password**.
-![Delete a password](/img/docs/delete_password.png)
 
 <InfoBlock type="note">
   Any active clients using a deleted password will be disconnected from
@@ -66,8 +57,8 @@ Deleting a password will invalidate the username & password pair and **disconnec
 ## Native MySQL authentication support
 
 Use the tools you're familiar with to connect to PlanetScale databases.
-PlanetScale supports both [MySQL native authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html) which is widely used to provide a secure connection to MySQL servers,
-and [MySQL Caching SHA-2 authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html) which is the most secure authentication mechanism to connect to MySQL.
+PlanetScale supports both [MySQL native authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html), which is widely used to provide a secure connection to MySQL servers,
+and [MySQL Caching SHA-2 authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html), which is the most secure authentication mechanism to connect to MySQL.
 Based on your application needs and platform support, you can switch between the authentication modes, with the same password.
 
 We recommend [Arctype](https://arctype.com/) as an easy-to-use GUI. [Arctype integrates with PlanetScale](https://docs.arctype.com/connect/planetscale) to let you connect to and switch between branches, create deploy requests, and more.
@@ -75,8 +66,7 @@ We recommend [Arctype](https://arctype.com/) as an easy-to-use GUI. [Arctype int
 ## Strong security model
 
 PlanetScale Passwords are created for use with a single database branch.
-This strong security model allows you to generate passwords that are tied to a branch,
-and cannot access data/schema from another branch.
+This strong security model allows you to generate passwords that are tied to a branch, and cannot access data/schema from another branch.
 
 ## Disconnect clients by deleting passwords
 
@@ -86,7 +76,7 @@ Head on over to the `Organization > Database > Settings > Passwords` page on you
 ## No plain text password storage
 
 PlanetScale only stores hashes and metadata about your database passwords.
-We do not store any passwords in plain text to add an extra layer of security to your database.
+To add an extra layer of security to your database, we do not store any passwords in plain text.
 
 <InfoBlock type="note">
   In the event that you lose a password, we cannot recover it for you. We
@@ -95,4 +85,4 @@ We do not store any passwords in plain text to add an extra layer of security to
 
 ## GitHub Secret Scanning integration
 
-All passwords and service tokens generated for use with PlanetScale databases are part of GitHub's [Secret Scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) program. If any database passwords or service tokens are committed in plain text to any public GitHub repository, we will be notified and take corrective action to delete the access tokens and cut off their access.
+All passwords and service tokens generated for use with PlanetScale databases are part of [GitHub's Secret Scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) program. If any database passwords or service tokens are committed in plain text to any public GitHub repository, we will be notified and take corrective action to delete the access tokens and cut off their access.

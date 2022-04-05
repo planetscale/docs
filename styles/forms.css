@@ -70,6 +70,17 @@ textarea:not(:read-only) {
     @apply focus:shadow-none;
   }
 
+  .focus-within-ring {
+    @apply focus-within:ring-2;
+    @apply focus-within:outline-none;
+    @apply focus-within:ring-offset-0;
+    @apply focus-within:ring-blue-200;
+    @apply dark:focus-within:ring-blue-800;
+    @apply focus-within:border-blue-500;
+    @apply focus-within:shadow-none;
+    @apply focus:!transition-none;
+  }
+
   .focus-visible-ring {
     @apply focus-visible:ring-2;
     @apply focus-visible:outline-none;

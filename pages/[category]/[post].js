@@ -1,4 +1,5 @@
 import { serialize } from 'next-mdx-remote/serialize'
+import remarkGfm from 'remark-gfm'
 
 import Footer from '../../components/Footer'
 import Layout from '../../components/layout'
@@ -15,8 +16,8 @@ export default function Post({ frontmatter, body, fields }) {
         description={frontmatter.subtitle ? frontmatter.subtitle : ''}
         banner={
           frontmatter.banner
-            ? frontmatter.banner
-            : `https://og-image.planetscale.com/${encodedTitle}.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white.svg`
+            ? `https://docs.planetscale.com${frontmatter.banner}`
+            : `https://og-image.planetscale.com/${encodedTitle}.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white-v2.svg`
         }
         pathname={`${fields.slug}`}
       />
@@ -35,7 +36,11 @@ export default function Post({ frontmatter, body, fields }) {
 
 export async function getStaticProps({ params }) {
   const post = getPostBySlug(params.category, params.post)
-  const mdxSource = await serialize(post.content)
+  const mdxSource = await serialize(post.content, {
+    mdxOptions: {
+      remarkPlugins: [remarkGfm]
+    }
+  })
 
   return {
     props: {

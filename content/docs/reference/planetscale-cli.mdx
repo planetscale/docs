@@ -5,7 +5,7 @@ subtitle: 'Use the PlanetScale CLI to create development branches, open deploy r
 
 ## Getting Started
 
-Make sure to first [set up your PlanetScale developer environment](/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you'll be able to interact with PlanetScale and manage your databases.
+Make sure to first [set up your PlanetScale developer environment](/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
 
 ![PlanetScale CLI](/img/docs/pscale-cli_light.png)
 
@@ -15,23 +15,23 @@ Ready to take these commands for a run on the terminal?
 
 Use `pscale [command] [command]` to start up the `pscale` CLI in your terminal.
 
-| **Command**      | **Subcommands/Options**                                      |
-| ---------------- | ------------------------------------------------------------ |
-| `audit-log`      | List audit logs                                              |
-| `auth`           | Login, logout, refresh your authentication                   |
-| `backup`         | Create, read, destroy, and update branch backups             |
-| `branch`         | Create, delete, and manage branches                          |
-| `completion`     | Generate completion script for your shell                    |
-| `connect`        | Create a secure connection to the given database and branch  |
-| `database`       | Create, read, destroy, and update databases                  |
-| `deploy-request` | Create, approve, diff, and manage deploy requests            |
-| `help`           | Help about any command                                       |
-| `org`            | Modify and manage organization options                       |
-| `password`       | Create, list, and delete branch passwords                    |
-| `region`         | List regions                                                 |
-| `service-token`  | Create, get, and list service tokens                         |
-| `shell`          | Open a MySQL shell instance to the given database and branch |
-| `signup`         | Sign up for a new PlanetScale account                        |
+| **Command**      | **Subcommands/Options**   | **Flags** | **Description**                                 |
+| ---------------- | ------------------------- | ------- | ------- |
+| [`audit-log`](/reference/audit-log)      | `list`                    | `-h`, `--org string` |  List all [audit logs](/concepts/audit-log#review-your-organization-audit-log) |
+| [`auth`](/reference/auth)           | `login`, `logout`         | `-h` | Authenticate via console |
+| [`backup`](/reference/backup)        | `create`, `delete`, `list`, `restore`, `show` | `-h`, `--org string` | Manage [branch backups](/concepts/back-up-and-restore)|
+| [`branch`](/reference/branch)         | `create`, `delete`, `diff`, `list`, `promote`, `refresh-schema`, `schema`, `show`, `switch` | `-h`, `--org string` |Manage [branches](/concepts/branching)|
+| [`completion`](/reference/completion)     | `bash`, `zsh`, `fish`, `powershell` | `-h` |Generate completion script for specified shell|
+| [`connect`](/reference/connect)        | `<database_name>` `<branch_name>` | `--execute string`, `--execute-env-url string`, `--execute-protocol string`, `-h`, `--host string`, `--org string`, `--port string`, `--remote-addr string` |Create a [secure connection](/tutorials/connect-any-application#connect-using-the-planetscale-proxy) to the given database and branch|
+| [`database`](/reference/database)       | `create`, `delete`, `dump`, `list`, `restore-dump`, `show` | `-h` | Manage databases|
+| [`deploy-request`](/reference/deploy-request) | `close`, `create`, `deploy`, `diff`, `list`, `review`, `show` | `-h` | Manage [deploy request](/concepts/branching#create-a-deploy-request)|
+| [`help`](/reference/help)           |  | `-h` | View help for any command |
+| [`org`](/reference/org)            | `list`, `show`, `switch`   | `-h` | Manage and switch [organizations](/concepts/access-control#overview)|
+| [`password`](/reference/password)       | `create`, `delete`, `list`   | `-h`, `--org string`| Manage [branch credentials](/concepts/connection-strings) |
+| [`region`](/reference/region)         | `list`        | `--org string` | View available [regions](/concepts/regions)|
+| [`service-token`](/reference/service-token)  | `add-access`, `create`, `delete`, `delete-access`, `list`, `show-access` | `-h --org string` | Manage access of [service tokens](/concepts/service-tokens) |
+| [`shell`](/reference/shell)          | `<database_name>` `<branch_name>`  |`-h`, `--local-addr string`, `--org string`, `--remote-addr string` | Open a MySQL shell instance to the specified database and branch|
+| [`signup`](/reference/signup)         |        | `-h` | Sign up for a new PlanetScale account |
 
 ## Flags
 
@@ -40,14 +40,15 @@ You may use the following flags with the PlanetScale CLI commands.
 | **Flag**                      | **Description**                                                                         |
 | ----------------------------- | --------------------------------------------------------------------------------------- |
 | `--api-token string`          | The API token to use for authenticating against the PlanetScale API                     |
-| `--config string`             | Config file _(default is $HOME/.config/planetscale/pscale.yml)_                         |
+| `--api-url string`            | The base URL for the PlanetScale API. (default "https://api.planetscale.com/")          |
+| `--config string`             | Config file _(default: $HOME/.config/planetscale/pscale.yml)_                           |
 | `--debug`                     | Enable debug mode                                                                       |
-| `-f, --format string`         | Show output in specific format. Possible values: _[human, json, csv] (default "human")_ |
+| `-f, --format string`         | Show output in specific format. Possible values: _[human, json, csv] (default: "human")_ |
 | `-h, --help`                  | Get more information about a command                                                    |
 | `--no-color`                  | Disable color output                                                                    |
 | `--service-token string`      | Service Token for authenticating                                                        |
-| `--service-token-id string`   | The Service Token ID for authenticating                                               |
-| `--version`                   | Show pscale version. Verify that you're using the latest version                        |
+| `--service-token-id string`   | The Service Token ID for authenticating                                                 |
+| `--version`                   | Show pscale version                                                                     |
 
 ## Service tokens in organizations
 

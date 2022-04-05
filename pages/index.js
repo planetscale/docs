@@ -13,7 +13,7 @@ export default function Overview() {
       <TitleAndMetaTags
         title='Overview'
         pathname='overview'
-        banner='https://og-image.planetscale.com/Documentation%20Overview.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white.svg'
+        banner='https://og-image.planetscale.com/Documentation%20Overview.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white-v2.svg'
       />
 
       <h1 className='text-3xl font-semibold'>PlanetScale documentation</h1>
@@ -28,8 +28,7 @@ export default function Overview() {
 
         <h2 className='mb-1 text-xl font-semibold'>The PlanetScale workflow</h2>
         <p className='mb-2'>
-          Treat your databases as code. Use the PlanetScale developer workflows for data branching, non-blocking schema
-          changes and more.
+          Treat your databases as code. Use the PlanetScale developer workflows for data branching, non-blocking schema changes, reverting schema changes, and more.
         </p>
         <p>
           <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>
@@ -74,7 +73,7 @@ export default function Overview() {
               <Icon name='schema-change' size='large' className='mb-2 text-blue' />
             </div>
             <h3 className='text-lg font-semibold text-primary mb-sm'>Non-blocking schema changes</h3>
-            <p className='text-secondary'>Deploy schema changes without downtime or locking.</p>
+            <p className='text-secondary'>Deploy and revert schema changes without downtime or locking.</p>
           </a>
         </Link>
       </div>
