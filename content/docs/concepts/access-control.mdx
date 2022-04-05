@@ -11,7 +11,7 @@ An organization is essentially a container for your databases, settings, and mem
 
 ## Roles and permissions
 
-We currently support three different roles in your organization: Organization Adminstrator, Organization Member, and Database Administrator.
+We currently support three different roles in your organization: Organization Administrator, Organization Member, and Database Administrator.
 
 ### Organization Administrator
 
@@ -25,11 +25,11 @@ An `Organization Member` can only perform limited actions within an organization
 
 A `Database Administrator` can perform all actions on the database for which they were assigned the `Databases Administrator` role.
 
-This role is assigned at the **database level** and therefore **does not** have any organization-level permissions. If you want to [grant a member _full_ access to manage one or several databases](#assign-roles-at-a-database-level), but not the organization, then this is the role you want.
+This role is assigned at the **database level** and therefore **does not** have any organization-level permissions. If you want to [grant a member _full_ access to manage one or several databases](#assign-roles-at-a-database-level) but not the organization, then this is the role you want.
 
 ## Organization-level permissions
 
-Each role has a set of permissions assigned to it which determine what actions that role is allowed to take within an organization or database.
+Each role has a set of permissions assigned to it, which determines what actions that role is allowed to take within an organization or database.
 
 The following table describes permissions assigned at the organization level for `Organization Administrators` and `Organization Members`. Because `Database Administrators` don't have any organization-level permissions, they are not included in this table.
 
@@ -65,7 +65,7 @@ The following table describes permissions assigned at the organization level for
 
 The following table describes the permissions assigned at the **database level** for `Organization Administrators`, `Organization Members`, and `Database Administrators`.
 
-For `Organization Administrators` and `Organization Members`, these permissions apply to every database in the organization. Because the `Database Administrator` role is assigned at the database-level, the permissions are for the specific database(s) for which they have the `Database Administrator` role.
+For `Organization Administrators` and `Organization Members`, these permissions apply to every database in the organization. Because the `Database Administrator` role is assigned at the database level, the permissions are for the specific database(s) for which they have the `Database Administrator` role.
 
 | Action                         | Description                                                   | Member | Administrator |
 | ------------------------------ | ------------------------------------------------------------- | ------ | ------------- |
