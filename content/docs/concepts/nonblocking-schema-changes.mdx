@@ -9,7 +9,7 @@ subtitle: 'Non-blocking schema changes in PlanetScale provide a schema change wo
   To make non-blocking schema changes in PlanetScale, you'll first need a basic understanding of{' '}
   <a href='https://docs.planetscale.com/concepts/branching'>branching</a>, the core PlanetScale feature that provide
   schema changes. Our branching concepts page is a great place to start.
-</InfoBlock>{' '}
+</InfoBlock>
 
 **Non-blocking schema changes** in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.
 
@@ -35,13 +35,12 @@ At a high level, this is what happens during the _non-blocking schema change_ pr
 4. PlanetScale verifies that your schema changes are safe to be deployed to production. If there are any issues or schema conflicts, you'll be shown the errors.
 
 When you hit deploy, it doesn't mean that PlanetScale can immediately apply your schema changes to the production database. After all, there may be a current running deployment from a previous user or even from yourself. The latest deployment request automatically yields to production traffic and gets added to a deployment queue in these situations.
-
-5. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production database.
+,. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production database.
 
 <InfoBlock type='note'>
   PlanetScale makes sure not to exhaust your resources; the deployment may be throttled to avoid any impact on
   production queries.
-</InfoBlock>{' '}
+</InfoBlock>
 
 ![PlanetScale non-blocking schema changes diagram](/img/docs/ps_nbsc_diagram_light.png)
 
@@ -72,7 +71,7 @@ pscale branch create <database> <branch>
 <InfoBlock type='tip'>
   A schema change is any change you make to the tables in your database environment created within the PlanetScale
   branch. (i.e., create, drop, and alter statements )
-</InfoBlock>{' '}
+</InfoBlock>
 
 <InfoBlock type='warning'>You can only apply direct schema changes to the development branch, not to `main`.</InfoBlock>{' '}
 

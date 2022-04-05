@@ -11,10 +11,8 @@
           "subpages": [
             { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
             { "route": "branching", "display": "Branching" },
-            {
-              "route": "nonblocking-schema-changes",
-              "display": "Non-blocking schema changes"
-            },
+            { "route": "nonblocking-schema-changes", "display": "Non-blocking schema changes" },
+            { "route": "deploy-requests", "display": "Deploy requests" },
             { "route": "connection-strings", "display": "Connection strings" },
             { "route": "regions", "display": "Regions" },
             { "route": "database-imports", "display": "Database imports" },
@@ -30,6 +28,7 @@
               "route": "authentication-methods",
               "display": "Authentication methods"
             },
+            { "route": "account-password-security", "display": "Account password security" },
             { "route": "mfa", "display": "Multi-factor authentication" },
             { "route": "security-log", "display": "Security log" },
             { "route": "sso", "display": "Single sign-on" },
@@ -66,6 +65,10 @@
       "pages": [
         { "route": "planetscale-quick-start-guide", "display": "PlanetScale quick start guide" },
         { "route": "connect-any-application", "display": "Connect any app" },
+        {
+          "route": "connect-django-app",
+          "display": "Django"
+        },
         {
           "route": "connect-nodejs-app",
           "display": "Node.js"
@@ -117,6 +120,10 @@
               "display": "Automatic Rails migrations"
             }
           ]
+        },
+        {
+          "route": "connect-symfony-app",
+          "display": "Symfony"
         },
         {
           "display": "Deploy your app",
@@ -175,7 +182,26 @@
       "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
       "image": "/img/internals/category_reference_light.png",
       "pages": [
-        { "route": "planetscale-cli", "display": "PlanetScale CLI" }
+        { "route": "planetscale-cli", "display": "PlanetScale CLI overview" },
+        { 
+          "display": "CLI command reference",
+          "subpages": [
+            { "route": "audit-log", "display": "audit-log" },
+            { "route": "auth", "display": "auth" },
+            { "route": "backup", "display": "backup" },
+            { "route": "branch", "display": "branch" },
+            { "route": "completion", "display": "completion" },
+            { "route": "connect", "display": "connect" },
+            { "route": "database", "display": "database" },
+            { "route": "deploy-request", "display": "deploy-request" },
+            { "route": "org", "display": "org" },
+            { "route": "password", "display": "password" },
+            { "route": "region", "display": "region" },
+            { "route": "service-token", "display": "service-token" },
+            { "route": "shell", "display": "shell" },
+            { "route": "signup", "display": "signup" }
+          ]
+        }
       ]
     }
   ]

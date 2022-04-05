@@ -2,16 +2,17 @@
   --white: #fff;
   --black: #000;
 
-  --gray-050: #fafbfc;
-  --gray-100: #ebeef2;
-  --gray-200: #d0d3d7;
-  --gray-300: #b2b5b9;
-  --gray-400: #9a9ea4;
-  --gray-500: #7b7f87;
-  --gray-600: #5a5f68;
-  --gray-700: #444854;
-  --gray-800: #30313a;
-  --gray-900: #1a1b21;
+  --gray-050: #fafafa;
+  --gray-100: #ebebeb;
+  --gray-200: #e1e1e1;
+  --gray-300: #c1c1c1;
+  --gray-400: #a1a1a1;
+  --gray-500: #818181;
+  --gray-600: #616161;
+  --gray-700: #414141;
+  --gray-800: #2b2b2b;
+  --gray-850: #1a1a1a;
+  --gray-900: #111111;
 
   --red-050: #fffafa;
   --red-100: #ffe5e9;
@@ -22,7 +23,7 @@
   --red-600: #dd243c;
   --red-700: #c11027;
   --red-800: #8f0718;
-  --red-900: #51050e;
+  --red-900: #341418;
 
   --orange-050: #fff8f3;
   --orange-100: #ffe8d8;
@@ -33,7 +34,7 @@
   --orange-600: #c43c02;
   --orange-700: #962d00;
   --orange-800: #672002;
-  --orange-900: #391303;
+  --orange-900: #3c1403;
 
   --yellow-050: #fffbe4;
   --yellow-100: #fff1a8;
@@ -44,7 +45,7 @@
   --yellow-600: #835c01;
   --yellow-700: #5c4716;
   --yellow-800: #41320c;
-  --yellow-900: #261c02;
+  --yellow-900: #281e03;
 
   --green-050: #effff3;
   --green-100: #d7fbdf;
@@ -55,7 +56,7 @@
   --green-600: #13862e;
   --green-700: #19652a;
   --green-800: #10481d;
-  --green-900: #0a2912;
+  --green-900: #0a2b13;
 
   --blue-050: #f3fbff;
   --blue-100: #ddf2ff;
@@ -66,7 +67,7 @@
   --blue-600: #0e73cc;
   --blue-700: #144eb6;
   --blue-800: #0e3682;
-  --blue-900: #071f4d;
+  --blue-900: #08204e;
 
   --purple-050: #f9f8ff;
   --purple-100: #eeeaff;
@@ -77,7 +78,7 @@
   --purple-600: #624bbb;
   --purple-700: #4b3990;
   --purple-800: #3e1f75;
-  --purple-900: #261149;
+  --purple-900: #27124a;
 
   --bg-primary: var(--white);
   --bg-secondary: var(--gray-050);
@@ -86,7 +87,7 @@
   --border-primary: var(--gray-100);
   --border-secondary: var(--gray-200);
   --border-green: var(--green-600);
-  --text-primary: var(--gray-900);
+  --text-primary: var(--gray-850);
   --text-secondary: var(--gray-600);
   --text-blue: var(--blue-600);
   --text-blue-dark: var(--blue-700);
@@ -106,15 +107,15 @@
 
 .dark {
   --bg-primary: var(--gray-900);
-  --bg-secondary: var(--gray-800);
+  --bg-secondary: var(--gray-850);
   --bg-green: var(--green-500);
   --bg-green-light: var(--green-900);
-  --border-primary: var(--gray-700);
-  --border-secondary: var(--gray-600);
+  --border-primary: var(--gray-800);
+  --border-secondary: var(--gray-700);
   --border-green: var(--green-500);
   --border-green-light: var(--green-700);
   --text-primary: var(--gray-050);
-  --text-secondary: var(--gray-300);
+  --text-secondary: var(--gray-400);
   --text-blue: var(--blue-400);
   --text-blue-dark: var(--blue-300);
   --text-green: var(--green-500);

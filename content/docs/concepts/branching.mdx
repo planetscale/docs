@@ -5,150 +5,179 @@ subtitle: 'Create a development or staging environment for your database through
 
 ## Overview
 
-PlanetScale allows you to branch database schemas the way you branch your code. 
+PlanetScale allows you to branch database schemas the same way you branch your code.
 
-Development database branches are isolated copies of your database created with the current production schema. They can be used to develop features and test changes without impacting your production database. When you're ready, schema changes on a development branch can be safely applied to the production database using PlanetScale’s [non-blocking schema change workflow](https://docs.planetscale.com/concepts/nonblocking-schema-changes). This workflow ensures that your changes are deployed without blocking the database, locking individual tables, or slowing down production during the migration.
+### If you need to make a schema change to your production database, here's how you do it with PlanetScale:
+
+1. Create a new **development branch** off of your production branch. This is an isolated copy of your production schema that you're free to play around with.
+2. **Make schema changes** to this copy of your database (drop a column, add a table, etc.).
+3. **Test them out in your development environment** to make sure everything works correctly.
+4. Once you're satisfied with the changes, **create a deploy request**.
+5. PlanetScale will create a **schema diff** comparing your production schema to your development schema that you're requesting to deploy so that you know exactly what changes will be made. We'll also let you know if the deploy request is **able to be deployed**. This means catching issues with your schema, such as missing unique keys, etc.
+6. You can have your team **review your deploy request** and, optionally, **approve** it for deployment.
+7. You then add it to the **deploy queue**, and PlanetScale will begin the deployment.
+8. The schema changes are deployed in a way that causes **ZERO downtime**. No individual tables get locked, and production is not slowed down during the migration. This is what we call **non-blocking schema changes**. You can learn more about this process in our [Non-blocking schema changes documentation](/concepts/nonblocking-schema-changes).
 
 ![PlanetScale Branching Flow Diagram](/img/docs/ps_branching_diagram_light.png)
 
 ## Development and production branches
 
-PlanetScale provides two types of database branches: *development* branches, and *production* branches.
+PlanetScale provides two types of database branches:
 
-Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI.
-
-<InfoBlock type="note">
-  Data from the main database is not copied to development
-  branches.
-</InfoBlock>
-
-Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups.
+- **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Note, only the schema is copied, not the data.
+- **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups. To make a change to a production branch, you must [create a deploy request](#deploy-a-branch).
 
 <InfoBlock type='tip'>
-  You'll see a <inlineCode>ERROR 1105 (HY000): direct DDL is disabled</inlineCode> message if you attempt to make schema changes
-  in a production branch. Create a development branch, and make your changes there.
+  You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a
+  production branch. Instead, create a development branch, and make your changes there.
 </InfoBlock>
 
-## Branch promotion 
+## Promote a branch to production
 
-PlanetScale provides the ability to promote any development branch with a valid schema to production. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
+<VideoBlock src='/img/docs/promote-a-branch-to-production.mp4' />
 
-### Promote the main database branch
+PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
-Every PlanetScale database is created with a development branch named `main`.
+### Promote a development branch to production
 
+Every new PlanetScale database is created with a development branch named `main`.
 
+This development branch is intended for you to directly apply a schema (without creating a deploy request like you would for a production branch), import data, and experiment with your database before promoting the branch to production.
 
-This allows you to apply a schema directly to this branch, import data, and experiment with your database before promoting the branch to production. 
+That said, you don't have to use the default `main` branch as your production branch. **Any development branch can be promoted to production**.
 
-Once you are satisfied with the changes you have made to your `main` branch, you can promote the `main` branch to production. 
+Once you are satisfied with the changes you've made to your development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch whenever you need to make a schema change.
 
-A branch can be promoted from the branch overview page in the PlanetScale app or you can use the command below to promote a branch using the [PlanetScale CLI](https://docs.planetscale.com/reference/planetscale-cli). 
+A branch can be promoted from the branch overview page in the PlanetScale app or by using the [PlanetScale CLI](/reference/branch), as shown below:
 
-```zsh
-pscale branch promote <database> <branch>
+```bash
+pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-### Promote any development branch
-
-Any PlanetScale development branch can be promoted to production. It's possible to run multiple production branches simultaneously, however it's important to note that PlanetScale does not provide data syncing between production branches.
-
-You can promote any development branch from the given branch overview page, or from the command line with `pscale`. 
-
-```zsh
-pscale branch promote <database> <branch>
-```
-
+It's possible to run **multiple production branches simultaneously**. Keep in mind, PlanetScale does not provide data syncing between production branches.
 
 ## Create a development branch
 
-You can create a development branch from any production branch. Create a branch from the production branch overview page `app.planetscale.com/<organization>/<database>/<branch>` or use the command below.
+<VideoBlock src='/img/docs/create-new-branch.mp4' />
 
-```zsh
-pscale branch create <database> <branch>
+If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes.
+
+Development branches **will not** copy over production data, just the schema.
+
+**How to create a development branch**:
+
+1. On the database overview page in your PlanetScale dashboard, click the "**New branch**" button.
+2. Give your development branch a name and select the region closest to your or your application.
+3. Select the production branch you want to branch off of. You can also select another development branch.
+4. Click "**Create branch**".
+5. (_Optional_) You can also create a new branch from the [PlanetScale CLI](/reference/branch) with:
+
+```bash
+pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-## Deploy a branch
+## How to deploy a branch
 
-Once you are satisfied with the schema changes you have made on a branch, you can deploy your changes to production. 
+Once you're satisfied with the schema changes you have made on a branch, you can deploy your changes to production.
 
-### Create a deploy request
+### 1. Create a deploy request
 
-The first step is to create a deploy request. If you are working in a team, the deploy request creates an opportunity for your teammates to review the changes you have made before they are deployed to production. 
+<VideoBlock src='/img/docs/create-deploy-request.mp4' />
 
-<InfoBlock type="note">
-Administrators can require approval for deploy requests in the database's Settings tab.
-</InfoBlock>
+If you are working in a team, the [deploy request](/concepts/deploy-requests) creates an opportunity for your teammates to review the changes you have made before they are deployed to production.
 
-Create a deploy request from the branch overview page `app.planetscale.com/<organization>/<database>/<branch>` or run the command below using the CLI.
+1. Make sure your database has a **production branch**. You cannot create a deploy request without a production branch to deploy to.
+2. To create the deploy request, go to the branch overview page for the branch you want to deploy.
+3. Select the production branch you want to deploy to from the "**Deploy to**" dropdown.
+4. (_Optional_) Add a comment describing your deploy request.
+5. Click "**Create deploy request**".
 
-```
-pscale deploy-request create <database> <branch>
-```
+![PlanetScale deploy request example](/img/docs/create-deploy-request.png)
 
-### Review the schema diff 
+6. (_Optional_) You can also create a deploy request from the [PlanetScale CLI](/reference/deploy-request) with the following command:
 
-The deploy request includes a schema diff that allows you to review the schema changes introduced by the deploy request. View the schema diff in the Schema tab in the PlanetScale app. 
-
-You can also run the command below to see the schema diff in the CLI. 
-
-```zsh
-pscale deploy-request diff <database> <deploy-request-number> 
+```bash
+pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-### Add changes to the deploy queue
+### 2. Review the deploy request
 
+<VideoBlock src='/img/docs/add-to-deploy-queue.mp4' />
 
-Once a deploy request has been created (and approved, if required), you will need to add the changes to the deploy queue. Schema changes are deployed to a database in the order in which they are received. PlanetScale analyzes the schema changes in a deploy request when they are added to the deploy queue to ensure that the changes do not conflict with any of the queued schema changes. 
+The deploy request includes a schema diff so that you can review the schema changes introduced by the deploy request against the production branch.
 
-To add a deploy request to the deploy queue click on the button “Add changes to the deploy queue” on the deploy request page. 
+1. On the deploy request page, click the "**Schema changes**" tab.
+2. Schema additions are highlighted in green, and deletions are highlighted in red.
+3. (_Optional_) You can also run the command below to see the [schema diff in the PlanetScale CLI](/reference/deploy-request):
 
-Alternatively, you can run the following command. 
-
-```zsh
-pscale deploy-request deploy <database> <deploy-request-number>
+```bash
+pscale deploy-request diff <DATABASE> <DEPLOY_REQUEST_NUMBER>
 ```
 
-PlanetScale provides insight on the deploy queue, listing all of the schema changes in the queue with their completion status. 
+Another benefit of the deploy request review process is that **PlanetScale will determine if certain requests aren't deployable**. For example, if you try to deploy a branch with no unique key, PlanetScale will block the deployment, as the unique key is required.
 
-![Deploy queue](/img/docs/branching-deploy-queue.png)
+### 3. Add changes to the deploy queue
 
-## Set a default branch
-Each PlanetScale database with a production branch has a default branch that cannot be deleted. 
+Once a deploy request has been created and, optionally, approved, you need to add the changes to the deploy queue.
 
-The first database branch that gets promoted to production is automatically set as the default branch for your database. 
+Schema changes are deployed to a database in the order in which they are received. PlanetScale analyzes the schema changes in a deploy request when they are added to the deploy queue to ensure that the changes do not conflict with any of the queued schema changes.
 
-However, this can be updated in the database Settings tab. Use the default branch dropdown menu to select the branch you would to set as default and click the Save database settings button to save your changes. 
+PlanetScale also provides insight on the deploy queue, listing all of the schema changes in the queue with their completion status.
+
+1. Organizations have the option to require approval before a deploy request can be added to the queue. If this is enabled, first make sure the request is approved. You can control this option in the database's "**Settings**" tab.
+2. To add a deploy request to the deploy queue, click “**Add changes to the deploy queue**” on the deploy request page.
+3. (_Optional_) You can also run the following command with the [PlanetScale CLI](/reference/deploy-request):
+
+```
+pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
+```
+
+4. If successful, you'll get the message "These changes have been deployed".
+5. Your deploy request has now been merged into production. You can click on the "Deploy requests" tab of the database to see the list of previous deploys.
+
+## Default branches
+
+The first database branch that gets promoted to production is automatically set as the default branch for your database. Once you have a production branch, you must always have a default branch.
+
+**How to change the default branch**:
+
+1. Go to your database overview page and click the "**Settings**" tab.
+2. Under "**General**" in the sidebar, you'll find the "**Default branch**" dropdown.
+3. Select the branch you want to be the default branch. It does not have to be a production branch.
+4. Scroll down and click "**Save database settings**".
 
 ## Delete a branch
 
-You can delete your branch either from the branches overview page `app.planetscale.com/<organization>/<database>/branches` or run the following command in the CLI.
+You can delete a branch from the Branches overview page or by running the following command in the [PlanetScale CLI](/reference/branch):
 
-```zsh
-pscale branch delete <database> <branch>
+```
+pscale branch delete <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-We recommend deleting your branch once you have used it to merge a schema change, or if you are no longer using the branch for testing. You can always create a new branch from your production database. 
+We recommend deleting branches after a deploy request is complete or if you are no longer using the branch for testing.
 
-<InfoBlock type="note">
-Only organization administrators have permission to delete production branches. 
-</InfoBlock> 
+<InfoBlock type='note'>
+  Only <a href='/concepts/access-control#organization-administrator'>Organization Administrators</a> have permission to
+  delete production branches.
+</InfoBlock>
+
+You cannot delete a branch that's [set as default](#default-branches). To delete, it set another branch as the default first.
 
 ## Resolve a schema conflict
 
-Schema conflicts occur when your development branch has conflicting changes with the production branch. 
+Schema conflicts occur when your development branch has conflicting changes with the production branch.
 
-To resolve a schema conflict, create a new branch, which will have the most up-to-date schema, and apply the necessary schema changes to the new branch before repeating the deploy process. 
+To resolve a schema conflict, create a new branch from production, which will have the most up-to-date schema, and apply the necessary schema changes to the new branch before repeating the deploy process.
 
 ## Automatically copy migration data
 
-Many frameworks and migration tools keep track of data schema changes in a migration table. When turned on, PlanetScale will automatically copy migration table metadata from your `development` branch to the `main` branch as part of our deployment process.
+Many frameworks and migration tools keep track of data schema changes in a migration table. When turned on, PlanetScale will automatically copy migration table metadata from your development branches to the production branch as part of our deployment process.
 
-To turn on for your database, go to the web app:
+**Turn on automatic copying of migration data**:
 
-1. Go into the Settings for your database
-2. Enable "Automatically copy migration data"
-3. Select one of the migration frameworks: Rails, Phoenix, Laravel, Django, .NET, Sequelize, or Other, which allows you to specify a custom table name
+1. On your database overview page, click the "**Settings**" tab.
+2. Check the "**Automatically copy migration data**" box.
+3. Select one of the listed frameworks: Rails, Phoenix, Laravel, Django, .NET, Sequelize, or Other, which allows you to specify a custom table name.
 
 You can see how this works in this [Rails migration tutorial](/tutorial/automatic-rails-migrations).
 

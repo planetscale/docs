@@ -1,20 +1,24 @@
 ---
-title: 'Security & Compliance'
+title: 'Security & compliance'
 subtitle: ''
 ---
 
+PlanetScale is committed to delivering a powerful and easy-to-use database
+platform while keeping your data secure. The security of our systems is of
+the utmost importance and we consistently aim to improve our security posture by
+building security into every layer of our products.
 
-At PlanetScale, we are committed to delivering a powerful and easy-to-use database platform, while keeping your data secure. We take security very seriously and we are working hard to constantly improve our security solutions, to build security into every layer of our products, and to ensure the continuous security and integrity of data stored on our platform.
+## Compliance reporting
 
-## Compliance Certification
+PlanetScale continuously monitors and reports primarily using System and Organization
+Controls (SOC) 2 Type 2. To receive a copy of the report please 
+[contact Support](https://www.planetscale.com/support).
 
-PlanetScale is certified to a System and Organization Controls(SOC) Type 2. To receive a copy of the report please [contact Support](https://www.planetscale.com/support).
-
-## Application Security
+## Application security
 
 ### Encryption of data
 
-PlanetScale databases and their client communications are AES-256bit encrypted throughout the PlanetScale platform both in transit and at rest.
+PlanetScale databases and their client communications are AES encrypted throughout the PlanetScale platform both in transit and at rest.
 
 #### At rest
 
@@ -23,57 +27,83 @@ Data is encrypted at rest on the underlying storage media that serves database b
 #### In transit
 
 Encrypted data is transmitted to PlanetScale databases through two major paths:
- - The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
- - PlanetScale [Connection Strings](/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
+
+- The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
+- PlanetScale [Connection Strings](/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
 
 ### Additional data protection controls
 
-Communications to the PlanetScale API and Dashboard are encrypted using TLS 1.3;
-leveraging certificates from an established third party certificate authority.
+Communications to the PlanetScale API and Dashboard are encrypted using TLS 1.3.
+Certificates are issued by an established third party certificate authority.
 
-## Corporate Security
+## Corporate security
 
-### Security Training
+### Background checks
 
-During onboarding (within 30 days of their hire date) and annually thereafter, all PlanetScale team members
-complete security awareness training covering company security policies and procedures. The
-training courses are designed to assist the trainee in identifying and responding to social
-engineering attacks and avoid inappropriate security practices.
+Background checks are performed on new team members during onboarding (within
+30 days of their start date) as permitted by local law.
 
-### Device Protection
+### Security training
 
-All company-provided devices are managed with [SimpleMDM](https://simplemdm.com/), enforcing full-disk encryption and the continuous running of antivirus software.
+All team members complete security awareness training covering company security
+policies and procedures during onboarding (within 30 days of their hire date).
+Trainings are required annually thereafter for all employees.
 
-### Background Checks
+The training material is designed to assist the employee in how to identify and
+respond to social engineering and other cybersecurity risks they may encounter
+as part of their role at PlanetScale.
 
-Background checks are performed on new team members during onboarding (within 60 days of their hire date)
-as permitted by local law.
+## Security operations
 
-## Vulnerability Disclosure
+### Endpoints
+
+All company-provided devices are managed with [Kandji](https://kandji.io).
+Device configuration is based on the Center for Internet Security (CIS)
+level 1 benchmark and is continuously enforced. Mobile device management
+deploys and enables relevant services to ensure corporate endpoints are
+appropriately monitored.
+
+### Detection and response
+
+PlanetScale employs measures for both corporate endpoints and cloud instances
+to collect, analyze, and store events, connections, and other potentially
+relevant metadata in real time. Automated systems match events against internal
+and known bad patterns and intelligence streams.
+
+## Vulnerability disclosure
 
 ### In Scope
 
 PlanetScale is actively seeking vulnerability reports for the following components that make up the product and its Production Environment:
- - **Dashboard and API**: The website hosted at app.planetscale.com, along with the API hosted at api.planetscale.com
- - **Database Operations**: The actions taken within the product to create, branch, backup, and restore databases
- - **Database Connectivity and Behavior**: The process of provisioning a password and issuing SQL statements against a PlanetScale database
- - **Command-line Interface**: The open source command-line interface hosted at [planetscale/cli](https://github.com/planetscale/cli)
 
-### Out of Scope
+- **Dashboard and API**: The website hosted at app.planetscale.com, along with the API hosted at api.planetscale.com
+- **Database Operations**: The actions taken within the product to create, branch, backup, and restore databases
+- **Database Connectivity and Behavior**: The process of provisioning a password and issuing SQL statements against a PlanetScale database
+- **Command-line Interface**: The open source command-line interface hosted at [planetscale/cli](https://github.com/planetscale/cli)
+
+### Out of scope
 
 PlanetScale is not actively seeking the following types of reports:
- - **Testing Software Output**: Output generated from automated testing software like [Burp Suite](https://portswigger.net/burp)
- - **Software Version Reports**: Reports notifying PlanetScale that newer versions of software have been released
 
-### Reporting a Vulnerability
+- **Testing software output**: Output generated from automated testing software like [Burp Suite](https://portswigger.net/burp). These include, but aren't limited to:
+    * CSRF on forms that are available to anonymous users or are related to logging out
+    * Disclosure of known public files or directories (i.e. `robots.txt`)
+    * DNSSEC or other DNS configuration suggestions
+    * TLS and security header configuration suggestions
+    * Sender Policy Framework (SPF) configuration suggestions
+    * Flags on cookies that are not sensitive
+- **Software version reports**: Reports notifying PlanetScale that newer versions of software have been released
+
+### Reporting a vulnerability
 
 If you believe you have discovered a security vulnerability in a PlanetScale product or its Production Environment, please let us know immediately.
-You can submit your vulnerability findings to <security@planetscale.com>.
+You can submit your vulnerability findings to [security@planetscale.com](mailto:security@planetscale.com).
 
 If applicable, please include the following pieces of information in your report:
- - Steps to reproduce the vulnerability
- - The word "mochi" to acknowledge that you have read these guidelines
- - Any relevant software (including versions) used to identify the vulnerability
+
+- Steps to reproduce the vulnerability
+- The word "mochi" to acknowledge that you have read these guidelines
+- Any relevant software (including versions) used to identify the vulnerability
 
 ## Need help?
 
