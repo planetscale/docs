@@ -43,7 +43,7 @@ export default function CodeBlock({ children }) {
           title={'Copy snippet'}
         />
       </div>
-      <div className='font-mono w-full p-2 overflow-x-auto'>
+      <div className='font-mono w-full p-2 overflow-x-auto whitespace-pre'>
         {splitOutput.length === 2 && (
           <Highlight {...defaultProps} code={splitOutput[0].trim()} language={internalCodeLanguage}>
             {({ tokens, getLineProps, getTokenProps }) => (
