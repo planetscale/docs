@@ -12,7 +12,9 @@ The following guide will show you how to:
 - Insert data
 - Promote your database branch to production
 
-This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started-—-planetscale-dashboard) or using the [PlanetScale CLI](##getting-started-—-planetscale-cli). 
+This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started-—-planetscale-dashboard) or using the [PlanetScale CLI](##getting-started-—-planetscale-cli).
+
+<VideoBlock src='/img/docs/ps-quickstart-demo.mp4' />
 
 ## Getting started &mdash; PlanetScale dashboard
 
@@ -129,6 +131,12 @@ You have now successfully promoted your development branch to production, which 
 Now that you've created a database, applied schema changes, added data, and promoted your branch to production, it's time to connect to your application.
 
 You can use our [Connect Any Application tutorial](/tutorials/connect-any-application) for a general step-by-step approach, one of our language-specific guides, or head straight to our [Connection Strings documentation](https://docs.planetscale.com/concepts/connection-strings) for more information about creating connection strings.
+
+When you want to continue development on your database:
+
+1. [Create a new branch](/concepts/branching) off of your production branch
+2. Go through the same process described in this doc to make schema changes
+3. [Create a deploy request](/concepts/deploy-requests) to merge the changes into your production branch
 
 ## Getting started &mdash; PlanetScale CLI
 
