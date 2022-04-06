@@ -1,3 +1,8 @@
+---
+title: 'Connect a Django application to PlanetScale'
+subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Django application'
+---
+
 ## Introduction
 
 In this tutorial, you'll learn how to connect a Django application to a PlanetScale MySQL database using a pre-built Django application.
@@ -107,7 +112,7 @@ You can also do this in the [PlanetScale dashboard](https://app.planetscale.com)
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-1. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
+2. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
 
 ```
 DB_HOST=<ACCESS HOST URL>
@@ -124,15 +129,15 @@ The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system
 
 ```python
 DATABASES = {
-    'default': {
-        'ENGINE': 'django_psdb_engine',
-        'NAME': os.environ.get('DB_NAME'),
-        'HOST': os.environ.get('DB_HOST'),
-        'PORT': os.environ.get('DB_PORT'),
-        'USER': os.environ.get('DB_USER')
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
-    }
+  'default': {
+    'ENGINE': 'django_psdb_engine',
+    'NAME': os.environ.get('DB_NAME'),
+    'HOST': os.environ.get('DB_HOST'),
+    'PORT': os.environ.get('DB_PORT'),
+    'USER': os.environ.get('DB_USER')
+    'PASSWORD': os.environ.get('DB_PASSWORD'),
+    'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
+  }
 }
 ```
 
@@ -162,7 +167,7 @@ DATABASES = {
 
 Now that you're connected, let's add some data to see everything in action.
 
-1. You can find the migrations file in `mysite/store/migrations/0002_auto_20220919_0058.py` that references the `Category` and `Product` models to create the schema. It also contains seed data to create two products and two categories. Run this migration with:
+You can find the migrations file in `mysite/store/migrations/0002_auto_20220919_0058.py` that references the `Category` and `Product` models to create the schema. It also contains seed data to create two products and two categories. Run this migration with:
 
 ```bash
 python manage.py migrate
@@ -198,7 +203,7 @@ The first two options are covered below.
 
 You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
 
-You may need to install the MySQL command line client if you haven't already.
+You may need to [install the MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
 
 Run the following command in your terminal:
 
