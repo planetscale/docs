@@ -63,25 +63,21 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 **Command:**
 
-```bash
+```
 pscale service-token add-access <TOKEN_ID> read_branch delete_branch create_branch --database <DATABASE_NAME_2>
 ```
 
 This will add the following permissions to the specified access token: `read_branch`, `delete_branch`, `create_branch`. The output will show the updated permissions on all databases.
 
-You can find a list of all permissions in our [Access control doc](/concepts/access-control).
+You can find a list of all permissions in our [Access control doc](/reference/planetscale-cli#service-tokens-in-organizations).
 
 **Output:**
 
-```bash
-DATABASE               ACCESSES
----------------------- -----------------------------------------------------------
-DATABASE_NAME           approve_deploy_request, connect_branch,
-                        connect_production_branch, create_branch, create_comment,
-                        create_deploy_request, delete_branch, read_branch,
-                        read_comment, read_deploy_request
-DATABASE_NAME_2         read_branch, delete_branch, create_branch
-```
+| DATABASE         | ACCESSES |
+| ---------------- | ---------|
+| DATABASE_NAME    | approve_deploy_request, connect_branch, connect_production_branch, create_branch, create_comment, create_deploy_request, delete_branch, read_branch, read_comment, read_deploy_request |
+| DATABASE_NAME_2     |   read_branch, delete_branch, create_branch |
+
 
 ## Need help?
 
