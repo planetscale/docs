@@ -122,7 +122,7 @@ A production branch is a highly available, protected database branch with automa
 3. In the modal that opens, select the branch you want to promote to production
 4. Click "Promote branch"
 
-You have now successfully promoted your development branch to production, which provides:
+The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides:
 
 - Protection from direct schema changes
 - High availability
@@ -139,6 +139,10 @@ When you want to continue development on your database:
 1. [Create a new branch](/concepts/branching) off of your production branch
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/concepts/deploy-requests) to merge the changes into your production branch
+
+<InfoBlock type="note">
+  When you branch off of a production branch, your development branch will have the same schema as production, but it <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock data.
+</InfoBlock>
 
 ## Getting started &mdash; PlanetScale CLI
 
@@ -272,7 +276,7 @@ To promote your branch to production, run:
 pscale branch promote <DATABASE_NAME> main
 ```
 
-You have now successfully promoted your `main` branch to production, which provides:
+The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides:
 
 - Protection from direct schema changes
 - High availability
@@ -282,7 +286,17 @@ You have now successfully promoted your `main` branch to production, which provi
 
 Now that you've created a database, applied schema changes, added data, and promoted your branch to production, it's time to connect to your application.
 
-You can use our [Connect Any Application tutorial](/tutorials/connect-any-application) for a general step-by-step approach or head straight to our [Connection Strings documentation](https://docs.planetscale.com/concepts/connection-strings) for more information about creating connection strings.
+You can use our [Connect Any Application tutorial](/tutorials/connect-any-application) for a general step-by-step approach, one of our language-specific guides, or head straight to our [Connection Strings documentation](https://docs.planetscale.com/concepts/connection-strings) for more information about creating connection strings.
+
+When you want to continue development on your database:
+
+1. [Create a new branch](/concepts/branching) off of your production branch
+2. Go through the same process described in this doc to make schema changes
+3. [Create a deploy request](/concepts/deploy-requests) to merge the changes into your production branch
+
+<InfoBlock type="note">
+  When you branch off of a production branch, your development branch will have the same schema as production, but it <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock data.
+</InfoBlock>
 
 ## Need help?
 
