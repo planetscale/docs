@@ -1,23 +1,23 @@
 ---
-title: 'Connect a Golang application to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Golang application'
+title: 'Connect a Go application to PlanetScale'
+subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Go application'
 ---
 
 ## Introduction
 
-In this tutorial, you'll learn how to connect a Golang application to a PlanetScale MySQL database using a sample Golang starter app with GORM.
+In this tutorial, you'll learn how to connect a Go application to a PlanetScale MySQL database using a sample Go starter app with GORM.
 
 ## Prerequisites
 
-- [Golang](https://go.dev/doc/install)
+- [Go](https://go.dev/doc/install)
 - A [free PlanetScale account](https://auth.planetscale.com/sign-up)
 - [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial in the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
-## Set up the Golang app
+## Set up the Go app
 
-This guide will integrate [a simple Golang app](https://github.com/planetscale/golang-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple Go (Golang) app](https://github.com/planetscale/golang-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
 
-1. Clone the starter Golang application:
+1. Clone the starter Go application:
 
 ```bash
 git clone https://github.com/planetscale/golang-example.git
@@ -38,7 +38,7 @@ cp .env.example .env
 
 ## Set up the database
 
-Next, you need to set up your PlanetScale database and connect to it in the Golang application.
+Next, you need to set up your PlanetScale database and connect to it in the Go application.
 
 You can create a database in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
 
@@ -54,15 +54,15 @@ pscale auth login
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-This tutorial uses `golang-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+For `DATABASE_NAME`, you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
 
-That's it! Your database is ready to use. Next, let's connect it to the Golang application and then add some data.
+That's it! Your database is ready to use. Next, let's connect it to the Go application and then add some data.
 
-## Connect to the Golang app
+## Connect to the Go app
 
-There are **two ways to connect** your Golang app to PlanetScale:
+There are **two ways to connect** your Go app to PlanetScale:
 
 - Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
@@ -85,7 +85,7 @@ A default branch, `main`, is created when you create the database, so you can us
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-1. Open the `.env` file in your Golang app and update `DSN` as follows:
+1. Open the `.env` file in your Go app and update `DSN` as follows:
 
 ```
 DSN="mysql://<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true"
@@ -97,7 +97,7 @@ You can also get these exact values to copy/paste from your PlanetScale dashboar
 
 ### Option 2: Connect with the PlanetScale proxy
 
-To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
+To connect with the PlanetScale proxy, you need the [PlanetScale CLI](https://github.com/planetscale/cli).
 
 1. Open a connection by running the following:
 
@@ -109,7 +109,7 @@ If you're following this guide exactly and haven't created any branches, you can
 
 2. A secure connection to your database will be established, and you'll see a local address you can use to connect to your application.
 
-3. Open the `.env` file in your Golang app and update it as follows:
+3. Open the `.env` file in your Go app and update it as follows:
 
 ```
 DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>"
@@ -123,7 +123,7 @@ Now that you're connected let's add some data to see it in action. The sample ap
 
 Let's run those now.
 
-1. First, start your Golang app with:
+1. First, start your Go app with:
 
 ```bash
 go run main.go
@@ -182,15 +182,15 @@ select * from products;
 
 4. Type `exit` to exit the shell.
 
-You can now navigated the [Golang products page](http://localhost:8080/products) to see the new record. 
+You can now navigated the [Go products page](http://localhost:8080/products) to see the new record. 
 
 ### Add data with PlanetScale dashboard console
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
-![PlanetScale console insert and select example](/img/docs/golang-planetscale-console.png)
+![PlanetScale console insert and select example](/img/docs/Go-planetscale-console.png)
 
-1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Golang database.
+1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Go database.
 2. Click on the "**Branches** and select the `main` branch.
 3. Click on "**Console**"
 4. Add a new record to the `product` table with:
@@ -206,7 +206,7 @@ VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.place
 select * from products;
 ```
 
-You can now refresh the [Golang products page](http://localhost:8080/products) to see the new record.
+You can now refresh the [Go products page](http://localhost:8080/products) to see the new record.
 
 ## What's next?
 
