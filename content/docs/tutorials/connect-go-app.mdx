@@ -23,11 +23,10 @@ This guide will integrate [a simple Go (Golang) app](https://github.com/planetsc
 git clone https://github.com/planetscale/golang-example.git
 ```
 
-2. Enter into the folder and install the dependencies:
+1. Enter into the folder:
 
 ```bash
 cd golang-example
-go mod download
 ```
 
 3. Copy the `.env.example` file into `.env`:
@@ -126,7 +125,7 @@ Let's run those now.
 1. First, start your Go app with:
 
 ```bash
-go run main.go
+go run .
 ```
 
 2. Next, navigate to [`localhost:8080/seed`](http://localhost:8080/seed) to run the migrations and the seeder.
