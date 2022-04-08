@@ -138,9 +138,17 @@ go run main.go
 - Get a single product &mdash; [`localhost:8080/product/{id}`](http://localhost:8080/products/1)
 - Get a single category &mdash; [`localhost:8080/category/{id}`](http://localhost:8080/categories/1)
 
-<InfoBlock type="note">
-PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our <a href="/learn/operating-without-foreign-key-constraints">Operating without foreign key constraints</a> documentation.  
-</InfoBlock>
+### Foreign key constraints
+
+If you're using GORM in your Go application, take note of this line in the `main.go` file of the Go starter application:
+
+```go
+// ...
+DisableForeignKeyConstraintWhenMigrating: true,
+// ...
+```
+
+PlanetScale does not support foreign key *constraints*, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints](/learn/operating-without-foreign-key-constraints) documentation.  
 
 ## Add data manually
 
