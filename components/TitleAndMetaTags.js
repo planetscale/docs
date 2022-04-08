@@ -30,7 +30,8 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
 
   function docSearchCallback() {
     if (typeof docsearch == 'function') {
-      docsearch({ // eslint-disable-line
+      // eslint-disable-next-line
+      docsearch({
         appId: 'BPNL9VRVWI',
         apiKey: '4e224ba0c25e61356926e32048d5a110',
         indexName: 'planetscale-docs',
@@ -57,13 +58,13 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
       <meta name='description' content={description}></meta>
 
       <meta property='og:url' content={`${url}/${pathname}`} />
-      <meta property='og:image' content={`${url}/${banner}`} />
+      <meta property='og:image' content={banner} />
       <meta property='og:type' content={type} />
       <meta property='og:title' content={title + ' - Documentation - PlanetScale'} />
       <meta property='og:description' content={description} />
 
       <meta name='twitter:url' content={`${url}/${pathname}`} />
-      <meta name='twitter:image' content={`${url}/${banner}`} />
+      <meta name='twitter:image' content={banner} />
       <meta name='twitter:title' content={title + ' - Documentation - PlanetScale'} />
       <meta name='twitter:description' content={description} />
       <meta name='twitter:site' content='@planetscaledata' />
@@ -81,7 +82,7 @@ TitleAndMetaTags.defaultProps = {
   title: 'PlanetScale - Serverless Database for Developers',
   type: 'website',
   description: 'Start small and grow to massive scale',
-  banner: 'img/internals/social_share.png',
+  banner: 'https://docs.planetscale.com/img/internals/social_share.png',
   schemaOrgJSONLD: {
     '@context': 'http://schema.org',
     '@type': 'Organization',

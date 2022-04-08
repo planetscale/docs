@@ -1,6 +1,6 @@
 ---
-title: 'Connect any app'
-subtitle: ''
+title: 'Connect any application to PlanetScale'
+subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to any application'
 ---
 
 ## Introduction
@@ -38,7 +38,7 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
 <InfoBlock type='note'>
-  The <inlineCode>PASSWORD_NAME</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 2. Take note of the values it returns to you. You won't be able to see this password again.
@@ -47,9 +47,9 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 Password production-password was successfully created.
 Please save the values below as they will not be shown again
 
-  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
+  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
  --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
-  production-password   jp388djdawnod   gxvhbzcxfw01.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_sVkiE_m1111111111111111
+  production-password   xxxxxxxxxx   xxxxxxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxx_xxxxxxxxxxxxx
 ```
 
 3. In your application's MySQL configuration file, fill in the following values using the console output from the previous step:
@@ -57,7 +57,7 @@ Please save the values below as they will not be shown again
    - **host:** The value for "ACCESS HOST URL" in the above step
    - **port:** `3306`
    - **user:** The value for "USERNAME" in the above step
-   - **password:** The value for "PLAIN TEXT" in the above step
+   - **password:** The value for "PASSWORD" in the above step
    - **database:** `<DATABASE_NAME>`
 
 4. Make sure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.

@@ -5,8 +5,8 @@ subtitle: 'How to make changes to your PlanetScale database schema while using P
 
 <InfoBlock type='note'>
   This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically 
-  the recommendation to use <inlineCode>prisma db push</inlineCode> instead of {' '}<inlineCode>prisma migrate 
-  dev</inlineCode> with shadow branches. Also, you previously needed to turn on the ability to automatically 
+  the recommendation to use `prisma db push` instead of {' '}`prisma migrate 
+  dev` with shadow branches. Also, you previously needed to turn on the ability to automatically 
   copy the Prisma migration metadata. You no longer need to do this. Read more below.
 </InfoBlock>
 
@@ -47,11 +47,17 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 pscale db create prisma-playground
 ```
 
-2. Update your `.env` file:
+2. Connect to the database branch:
 
-```shell
-DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
 ```
+pscale connect prisma-playground main --port 3309
+```
+
+<InfoBlock type='note'>
+  This step assumes you created a new PlanetScale database and the `main` branch 
+  has not been promoted to production yet. You will need to create a new development branch if 
+  the `main` branch has been promoted to production.
+</InfoBlock>
 
 3. Update your `prisma/schema.prisma` file with the following schema:
 
@@ -94,17 +100,11 @@ model User {
 }
 ```
 
-4. Connect to the database branch:
+4. Update your `.env` file:
 
+```shell
+DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
 ```
-pscale connect prisma-playground main --port 3309
-```
-
-<InfoBlock type='note'>
-  This step assumes you created a new PlanetScale database and the <inlineCode>main</inlineCode> branch 
-  has not been promoted to production yet. You will need to create a new development branch if 
-  the <inlineCode>main</inlineCode> branch has been promoted to production.
-</InfoBlock>
 
 6. In another terminal, use the `db push` command to push the schema defined in `prisma/schema.prisma`:
 
@@ -115,7 +115,7 @@ npx prisma db push
 Unlike the `prisma migrate dev` command, it will not create a migrations folder containing a SQL file with the SQL used to update the schema in your PlanetScale database. PlanetScale will be tracking your migrations in this workflow.
 
 <InfoBlock type='tip'>
-  You can learn more about the <inlineCode>prisma db push</inlineCode> command in the{' '}
+  You can learn more about the `prisma db push` command in the{' '}
   <a href='https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push'>Prisma docs</a>.
 </InfoBlock>
 
@@ -130,7 +130,7 @@ describe Post;
 ```
 
 <InfoBlock type='tip'>
-  Use the <inlineCode>exit</inlineCode> command to exit the MySQL shell.
+  Use the `exit` command to exit the MySQL shell.
 </InfoBlock>
 
 Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch. 

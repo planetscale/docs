@@ -1,6 +1,6 @@
 ---
-title: 'Connect a Node.js app'
-subtitle: ''
+title: 'Connect a Node.js application to PlanetScale'
+subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Node.js application'
 ---
 
 ## Introduction
@@ -34,7 +34,7 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 <InfoBlock type='note'>
-  A branch, <inlineCode>main</inlineCode>, was automatically created when you created your database, so you can use that for <inlineCode>BRANCH_NAME</inlineCode>. 
+  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. 
 </InfoBlock>
 
 Create the `users` table:
@@ -101,7 +101,7 @@ pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
 ```
 
 <InfoBlock type='note'>
-  Running <inlineCode>pscale connect</inlineCode> with the execute flag will pass a <inlineCode>DATABASE_URL</inlineCode> to the Node application, enabling it to connect to PlanetScale. Don't forget to look in <inlineCode>app.js</inlineCode> to see how the DATABASE_URL is used.
+  Running `pscale connect` with the execute flag will pass a `DATABASE_URL` to the Node application, enabling it to connect to PlanetScale. Don't forget to look in `app.js` to see how the DATABASE_URL is used.
 </InfoBlock>
 
 Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the data from your `users` table!
@@ -123,7 +123,7 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
 <InfoBlock type='note'>
-  The <inlineCode>PASSWORD_NAME</inlineCode> value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 Take note of the values returned to you, as you won't be able to see this password again.
@@ -132,7 +132,7 @@ Take note of the values returned to you, as you won't be able to see this passwo
 Password production-password was successfully created.
 Please save the values below as they will not be shown again
 
-  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PLAIN TEXT
+  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
  --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
   production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx                                                                                    
 ```
