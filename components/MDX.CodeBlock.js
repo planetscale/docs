@@ -5,7 +5,9 @@ import Prism from 'prism-react-renderer/prism'
 
 import CopyButton from './CopyButton'
 
-export default function CodeBlock({ className, children }) {
+export default function CodeBlock({ children }) {
+  const newChildren = children
+  const realChildren = newChildren.props.children.replace(/&lt;/g, '<').replace(/&gt;/g, '>')
   const [codeLanguage, setCodeLanguage] = useState('')
   const [internalCodeLanguage, setInternalCodeLanguage] = useState('')
   const [splitOutput, setSplitOutput] = useState([])
@@ -15,8 +17,8 @@ export default function CodeBlock({ className, children }) {
     require('prismjs/components/prism-ruby.min')
     require('prismjs/components/prism-bash.min')
 
-    if (className) {
-      const codeLanguage = className.split('-')[1]
+    if (newChildren.props.className) {
+      const codeLanguage = newChildren.props.className.split('-')[1]
       if (codeLanguage === 'zsh') {
         setInternalCodeLanguage('bash')
       } else {
@@ -25,9 +27,9 @@ export default function CodeBlock({ className, children }) {
       setCodeLanguage(codeLanguage)
     }
 
-    if (children.split('------').length === 2) {
+    if (realChildren.split('------').length === 2) {
       // this is a cmd + output block
-      setSplitOutput(children.split('------'))
+      setSplitOutput(realChildren.split('------'))
     }
   }, []) // eslint-disable-line
 
@@ -36,12 +38,12 @@ export default function CodeBlock({ className, children }) {
       <div className='flex items-center justify-between px-2 border-b rounded-t py-sm bg-secondary'>
         <span className='font-sans text-secondary'>{codeLanguage}</span>
         <CopyButton
-          value={splitOutput.length === 2 ? splitOutput[0].trim() : children.trim()}
+          value={splitOutput.length === 2 ? splitOutput[0].trim() : realChildren.trim()}
           ariaLabel={'Copy snippet'}
           title={'Copy snippet'}
         />
       </div>
-      <div className='w-full p-2 overflow-x-auto'>
+      <div className='font-mono w-full p-2 overflow-x-auto whitespace-pre'>
         {splitOutput.length === 2 && (
           <Highlight {...defaultProps} code={splitOutput[0].trim()} language={internalCodeLanguage}>
             {({ tokens, getLineProps, getTokenProps }) => (
@@ -59,7 +61,7 @@ export default function CodeBlock({ className, children }) {
         )}
         <Highlight
           {...defaultProps}
-          code={splitOutput.length === 2 ? splitOutput[1].trim() : children.trim()}
+          code={splitOutput.length === 2 ? splitOutput[1].trim() : realChildren.trim()}
           language={internalCodeLanguage}
         >
           {({ tokens, getLineProps, getTokenProps }) => (

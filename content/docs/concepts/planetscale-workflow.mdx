@@ -16,7 +16,7 @@ Built-in connection pooling means you’ll never run into connection limits for 
 
 The PlanetScale Data Branching feature allows you to treat your databases like code by unlocking the ability to branch databases.
 
-PlanetScale provides two types of database branches, **development** and **production**.
+PlanetScale provides two types of database branches: **development** and **production**.
 
 Development branches provide isolated copies of your database schema where you can make changes, experiment, or run CI against. Instantly branch your production database to create a staging environment for testing out your schema changes.
 
@@ -34,7 +34,7 @@ Learn more about [non-blocking schema changes](https://docs.planetscale.com/conc
 
 ## Deploy requests
 
-Deploy requests allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (CREATE, ALTER, and DROP) for each table changed, with a line-by-line schema diff, making it easy to review the changes.
+[Deploy requests](/concepts/deploy-requests) allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (`CREATE`, `ALTER`, and `DROP`) for each table changed, with a line-by-line schema diff, making it easy to review the changes.
 
 For example, you can pair deploy requests with GitHub pull requests so that your teammates can review the code and the schema changes in parallel.
 
@@ -45,3 +45,7 @@ PlanetScale also analyzes your schema changes for conflicts when you open a depl
 Once a deploy request has been approved, it gets added to the deploy queue. Schema changes are applied to your production database branch in the order in which they are added to the deploy queue.
 
 As a part of the process of adding the schema changes to the deploy queue, PlanetScale analyzes the schema changes in the deploy requests ahead of your deploy request for any potential conflicts. If a conflict exists, your deploy request is rejected from the queue, and you are immediately notified of the conflict. This means you’ll never wait for your schema change to deploy only to learn that there’s an unanticipated conflict. This is especially useful if long running schema changes are being applied.
+
+## Revert a schema change
+
+If you ever deploy a schema change, only to realize you need to undo it, PlanetScale can handle that. With our [Rewind feature](/concepts/deploy-requests#revert-a-schema-change), you have 30 minutes to "undo" a schema change deployment. Simply click the "Revert changes" button on the affected deploy request page and your production database will instantly revert back to the previous schema. Additionally, any data that was added to your production database in the time between deployment and reverting will be retained. Learn more about this process in our [How Rewind works section](/concepts/deploy-requests#revert-a-schema-change) of our deploy requests documentation.
