@@ -211,6 +211,9 @@ You can now refresh the [Golang products page](http://localhost:8080/products) t
 ## What's next?
 
 Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+
+When you're reading to make more schema changes, you'll [create a new branch](/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll open a [deploy request](/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
+
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
 
 ## Need help?
