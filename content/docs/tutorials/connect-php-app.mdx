@@ -5,7 +5,7 @@ subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connec
 
 ## Introduction
 
-In this tutorial, you'll learn how to connect a PHP application to a PlanetScale MySQL database using a sample PHP starter app.
+In this tutorial, you'll learn how to connect a PHP application to a PlanetScale MySQL database with a sample PHP starter app using [MySQLi](https://www.php.net/manual/en/book.mysqli.php).
 
 ## Prerequisites
 
@@ -16,7 +16,7 @@ In this tutorial, you'll learn how to connect a PHP application to a PlanetScale
 
 ## Set up the PHP app
 
-This guide will integrate [a simple PHP app](https://github.com/planetscale/php-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple PHP app](https://github.com/planetscale/php-example) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
 
 1. Clone the starter PHP application:
 
@@ -63,11 +63,11 @@ pscale auth login
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-This tutorial uses `php-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+You can use any name with lowercase, alphanumeric characters, and dashes or underscores.
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
 
-That's it! Your database is ready to use. Next, let's connect it to the PHP application and then add some data.
+That's it! Your database is ready to use. Next, let's connect it to the PHP application, and then add some data.
 
 ## Connect to the PHP app
 
@@ -78,7 +78,30 @@ There are **two ways to connect** to PlanetScale:
 
 Both options are covered below.
 
+The environment variables you fill in next will be used in the [`db.php` file of the sample application](https://github.com/planetscale/php-example/main/db.php):
+
+```php
+<?php
+$hostname=$_ENV['HOST_NAME'];
+$dbName = $_ENV['DB_NAME'];
+$username = $_ENV['USERNAME'];
+$password = $_ENV['PASSWORD'];
+$ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
+
+$mysqli = new mysqli();
+$mysqli->ssl_set(NULL, NULL, $ssl, NULL, NULL);
+$mysqli->connect($hostname, $username, $password, $dbName);
+
+if ($mysqli->connect_error) {
+    echo 'not connected to the database';
+} else {
+    echo "Connected successfully";
+}
+```
+
 ### Option 1: Connect with username and password
+
+If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Then skip to step 2 to fill them in.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
@@ -86,7 +109,7 @@ Both options are covered below.
 pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
-A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
+A default branch, `main`, was created when you created the database, so you can use that for `BRANCH_NAME`.
 
 <InfoBlock type='note'>
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
@@ -94,18 +117,23 @@ A default branch, `main`, is created when you create the database, so you can us
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-1. Open the `.env` file in your PHP app:
+2. Open the `.env` file in your PHP app:
 
 ```
 HOST=<ACCESS_HOST_URL>
 DATABASE=<DATABASE_NAME>
 USERNAME=<USERNAME>
 PASSWORD=<PASSWORD>
+MYSQL_ATTR_SSL_CA=
 ```
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS_HOST_URL` and `DATABASE_NAME` with the corresponding values from the CLI output above.
 
-You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the dropdown.
+3. For `MYSQL_ATTR_SSL_CA`, use our [CA root configuration doc](/concepts/secure-connections#ca-root-configuration) to find the correct value for your system. For example, if you're on MacOS, it would be:
+
+```
+MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+```
 
 Refresh your PHP homepage and you should see the message that you're connected to your database!
 
@@ -129,6 +157,7 @@ If you're following this guide exactly and haven't created any branches, you can
 HOST=127.0.0.1
 PORT=3306 # Get this from the output of the previous step
 DATABASE=<DATABASE_NAME>
+MYSQL_ATTR_SSL_CA=
 ```
 
 The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
