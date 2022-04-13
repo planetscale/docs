@@ -41,7 +41,7 @@
     "postcss-import": "^14.1.0",
     "postcss-nested": "^5.0.6",
     "prettier": "^2.6.2",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.0.24"
   },
   "volta": {
     "node": "14.19.0",
