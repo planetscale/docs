@@ -1,37 +1,68 @@
 ---
 title: 'Connect any application to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to any application'
+subtitle: 'Connect your PlanetScale database to any application using connection strings or the PlanetScale proxy'
 ---
 
 ## Introduction
 
-In this tutorial, you'll learn how to connect any application to your PlanetScale database with either username and password or the PlanetScale proxy.
+In this tutorial, you'll learn how to connect any application to your PlanetScale database.
 
-## Prerequisites
+If you're just getting started and still need to set up a database, we recommend starting with the [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide) first. We also have language/framework-specific guides under "**Integration guides**" if you prefer a more detailed walk-through.
 
-- The [PlanetScale CLI](https://github.com/planetscale/cli)
-- A [PlanetScale database](/tutorials/planetscale-quick-start-guide)
+PlanetScale uses [database branches](/concepts/branching) to create a development-friendly workflow. Your database is initially created with a default branch, `main`, which is meant to serve as a development branch before promoting it to production.
 
-After you install the PlanetScale CLI, sign in with:
+While *developing* your application, you'll need to connect to a *development* branch. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/concepts/branching) for more information about the branching workflow.
 
-```
-pscale auth login
-```
+There are two ways to connect your app to PlanetScale. Both are covered below.
 
-## Connect with username and password
+## Option 1: Connect with username and password (Recommended)
 
-This section will show you how to create a username and password for your branch and use those credentials to connect your database to your application.
+This section will show you how to create a username and password for your branch and use those credentials to connect to your database. This is the recommended way to connect.
 
 There are two ways to generate a new username and password for your branch:
 
 - In the PlanetScale dashboard
 - With the PlanetScale CLI
 
-This section will cover creating credentials with the CLI, but if you'd prefer to do it in the PlanetScale dashboard, follow the instructions in the [Connection Strings documentation](/concepts/connection-strings#creating-a-password).
+### Generate credentials in the PlanetScale dashboard
 
-Follow the instructions below to create a new username and password for your branch.
+1. Click on the branch you want to connect to.
+2. Click "**Connect**".
+3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
-1. Run the following command in the CLI to create a new user and password for your branch.
+![Credentials to connect to PlanetScale](/img/docs/planetscale-branch-credentials.png)
+
+4. If the password isn't visible, click "New password".
+5. Copy the credentials.
+6. Paste them in your application's MySQL configuration file (often just a `.env` file). The layout and name of this file will vary depending on the application language, but it may look something like this:
+
+```
+DATABASE=<DATABASE_NAME>
+USERNAME=<USERNAME>
+HOST=<HOST_NAME>
+PASSWORD=<PASSWORD>
+SSL= // more information about this in next step
+```
+
+Check out our language integration guides in the side navigation for more explicit instructions.
+
+7. To ensure a secure connection, you must validate the server side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
+
+```
+MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+```
+
+The path to the certificate depends on your system. The above example shows the path for MacOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
+
+Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
+
+If you're **unsure of what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+
+### Generate credentials in the PlanetScale CLI
+
+If you prefer working from the CLI, you can quickly spin up new credentials there. Make sure you have the [CLI set up](/concepts/planetscale-environment-setup) first.
+
+1. Run the following command in the CLI to create a new username and password for your branch.
 
 ```
 pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
@@ -41,34 +72,46 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
-2. Take note of the values it returns to you. You won't be able to see this password again.
+2. Take note of the values returned. You won't be able to see this password again.
 
 ```
 Password production-password was successfully created.
 Please save the values below as they will not be shown again
 
   NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
- --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
+ --------------------- ------------- --------------------------------- ------------------ --------------------------------
   production-password   xxxxxxxxxx   xxxxxxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxx_xxxxxxxxxxxxx
 ```
 
-3. In your application's MySQL configuration file, fill in the following values using the console output from the previous step:
+3. Paste the values from the console output into your application's MySQL configuration file. The layout and name of this file will vary depending on the application language, but it may look something like this:
 
-   - **host:** The value for "ACCESS HOST URL" in the above step
-   - **port:** `3306`
-   - **user:** The value for "USERNAME" in the above step
-   - **password:** The value for "PASSWORD" in the above step
-   - **database:** `<DATABASE_NAME>`
+```
+DATABASE=<DATABASE_NAME>
+USERNAME=<USERNAME>
+HOST=<ACCESS HOST URL>
+PASSWORD=<PASSWORD>
+SSL= // This is covered in the next step
+```
 
-4. Make sure you correctly configure TLS / SSL for your specific MySQL driver. See [Connecting to PlanetScale securely](/reference/planetscale-security) for more information.
+4. To ensure a secure connection, you must validate the server side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
-## Connect using the PlanetScale proxy
+```
+MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+```
 
-Another way to connect your application to your PlanetScale database is using the PlanetScale proxy. You won't have to fiddle with configuring any authentication details, as that's handled by PlanetScale. It's as simple as a single CLI command.
+The path to the certificate depends on your system. The above example shows the path for MacOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
 
-You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. This gets rid of the need to generate and remember multiple passwords every time you're creating or switching to a new branch.
+Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-1. Run the following command in the CLI:
+If you're **unsure of what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 from the previous section) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+
+## Option 2: Connect using the PlanetScale proxy
+
+Another way to connect your application to your PlanetScale database *during development* is using the PlanetScale proxy. You won't have to fiddle with configuring any credential details, as that's handled by PlanetScale. It's as simple as a single CLI command.
+
+You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. The main benefit of this method is you won't have to generate and remember multiple passwords every time you're creating or switching to a new branch.
+
+1. Make sure you have [the CLI set up](/concepts/planetscale-environment-setup) and then run the following command:
 
 ```
 pscale connect <DATABASE_NAME> <BRANCH_NAME>
@@ -80,19 +123,31 @@ This establishes a secure connection and opens a port on your local machine that
 
 3. In your application's MySQL configuration file, use the following to connect:
 
-   - **host:** `127.0.0.1`
-   - **port:** `3306` (the value returned to you by `pscale connect`)
-   - **user:** `root`
-   - **password:** Leave this blank
-   - **database:** `<DATABASE_NAME>`
+```
+DATABASE=<DATABASE_NAME>
+HOST=127.0.0.1
+PORT=3306 // use the value that was returned in the console
+```
 
-## Further reading
-
-If you're interested in learning how to secure your application when connecting to PlanetScale, please read [Connecting to PlanetScale securely](/reference/planetscale-security).
+Your application should now be connected to the specified PlanetScale database branch!
 
 ## What's next?
 
-Now that you've successfully connected your application to PlanetScale, it's time to make schema changes to your tables and deploy your application! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables, without locking or causing downtime for production databases.
+Once your application is connected to a development database branch, you're able to make schema changes in an isolated development environment without worrying about affecting production. Additionally, the PlanetScale workflow allows you to making [non-blocking schema changes](/concepts/nonblocking-schema-changes) without locking or causing downtime for production databases.
+
+### PlanetScale workflow
+
+Here's the general workflow that you'll go through to get schema changes from development to production:
+
+1. Follow this guide to connect to a development branch.
+2. Modify your schema as needed.
+3. Test them locally or in your staging environment.
+4. Once satisfied and ready to deploy your changes to production, [create a deploy request](/concepts/deploy-requests).
+5. You or your team can review and approve the schema changes.
+6. Deploy your deploy request to production.
+7. Bonus: If you realize you made a mistake, you can click "Revert changes" to [undo a schema change](/concepts/deploy-requests#revert-a-schema-change). 
+
+Note, you must already have [a production branch](/concepts/branching#promote-a-branch-to-production) in place to create a deploy request.
 
 ## Need help?
 
