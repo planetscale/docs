@@ -138,7 +138,7 @@ Fill in your database name. For `USERNAME`, `PASSWORD`, and `HOST`, use the corr
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-Refresh your PHP homepage and you should see the message that you're connected to your database!
+4. Refresh your PHP homepage and you should see the message that you're connected to your database!
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -160,12 +160,31 @@ If you're following this guide exactly and haven't created any branches, you can
 HOST=127.0.0.1
 PORT=3306 # Get this from the output of the previous step
 DATABASE=<DATABASE_NAME>
-MYSQL_ATTR_SSL_CA=
 ```
 
 The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
 
-Refresh your PHP homepage and you should see the message that you're connected to your database!
+4. Open `db.php` and replace it with the following:
+
+```php
+<?php
+$hostname=$_ENV['HOST'];
+$dbName = $_ENV['DATABASE'];
+$port = $_ENV['PORT'];
+
+$mysqli = mysqli_init();
+$mysqli->real_connect($hostname, '', '', $dbName, $port);
+
+if ($mysqli->connect_error) {
+    echo 'not connected to the database';
+} else {
+    echo "Connected successfully";
+}
+```
+
+This removes all references to `username`, `password`, and `ssl`.
+
+5. Refresh your PHP homepage and you should see the message that you're connected to your database!
 
 ## Add the schema and data
 
