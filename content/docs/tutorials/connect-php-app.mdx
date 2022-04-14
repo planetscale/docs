@@ -12,7 +12,7 @@ In this tutorial, you'll learn how to connect a PHP application to a PlanetScale
 - [PHP](https://www.php.net/manual/en/install.php) &mdash; This tutorial uses `v8.1`
 - [Composer](https://getcomposer.org/)
 - A [free PlanetScale account](https://auth.planetscale.com/sign-up)
-- [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
+- [PlanetScale CLI](https://github.com/planetscale/cli) (Optional) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
 ## Set up the PHP app
 
@@ -51,7 +51,9 @@ You can view the application at [http://localhost:8000](http://localhost:8000).
 
 Next, you need to set up your PlanetScale database and connect it to the PHP application.
 
-You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide) if you prefer the dashboard.
+You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI.
+
+This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#create-a-database) if you prefer the dashboard. Just create the database and then come back here to continue.
 
 1. Install the [PlanetScale CLI](/concepts/planetscale-environment-setup).
 2. Authenticate in the CLI with the following command:
@@ -60,7 +62,7 @@ You can create a database either in the [PlanetScale dashboard](https://app.plan
 pscale auth login
 ```
 
-2. Create a new database with the following command:
+3. Create a new database with the following command:
 
 ```bash
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
@@ -204,7 +206,7 @@ Now that you're connected to the database, let's create the `products` and `cate
 
 The first two options are covered below.
 
-### Add data with PlanetScale dashboard console
+### Option 1: Add data with PlanetScale dashboard console
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
 
@@ -263,7 +265,7 @@ SELECT * FROM categories;
 
 You can now refresh the [PHP homepage](http://localhost:8000) to see the new record.
 
-### Add data with PlanetScale CLI
+### Option 2:  Add data with PlanetScale CLI
 
 You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
 
