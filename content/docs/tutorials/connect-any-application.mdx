@@ -46,17 +46,17 @@ SSL= // more information about this in next step
 
 Check out our language integration guides in the side navigation for more explicit instructions.
 
-7. To ensure a secure connection, you must validate the server side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
+7. To ensure a secure connection, you must validate the server-side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
 ```
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The path to the certificate depends on your system. The above example shows the path for MacOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
+The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
 
 Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-If you're **unsure of what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
 
 ### Generate credentials in the PlanetScale CLI
 
@@ -76,7 +76,7 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 
 ```
 Password production-password was successfully created.
-Please save the values below as they will not be shown again
+Please save the values below as they will not be shown again.
 
   NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
  --------------------- ------------- --------------------------------- ------------------ --------------------------------
@@ -93,17 +93,17 @@ PASSWORD=<PASSWORD>
 SSL= // This is covered in the next step
 ```
 
-4. To ensure a secure connection, you must validate the server side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
+4. To ensure a secure connection, you must validate the server-side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
 ```
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The path to the certificate depends on your system. The above example shows the path for MacOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
+The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
 
 Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-If you're **unsure of what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 from the previous section) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 from the previous section) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
 
 ## Option 2: Connect using the PlanetScale proxy
 
@@ -111,7 +111,7 @@ Another way to connect your application to your PlanetScale database *during dev
 
 You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. The main benefit of this method is you won't have to generate and remember multiple passwords every time you're creating or switching to a new branch.
 
-1. Make sure you have [the CLI set up](/concepts/planetscale-environment-setup) and then run the following command:
+1. Make sure you have [the CLI set up](/concepts/planetscale-environment-setup), and then run the following command:
 
 ```
 pscale connect <DATABASE_NAME> <BRANCH_NAME>
@@ -133,7 +133,7 @@ Your application should now be connected to the specified PlanetScale database b
 
 ## What's next?
 
-Once your application is connected to a development database branch, you're able to make schema changes in an isolated development environment without worrying about affecting production. Additionally, the PlanetScale workflow allows you to making [non-blocking schema changes](/concepts/nonblocking-schema-changes) without locking or causing downtime for production databases.
+Once your application is connected to a development database branch, you can make schema changes in an isolated development environment without worrying about affecting production. Additionally, the PlanetScale workflow allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) without locking or causing downtime for production databases.
 
 ### PlanetScale workflow
 
@@ -147,7 +147,7 @@ Here's the general workflow that you'll go through to get schema changes from de
 6. Deploy your deploy request to production.
 7. Bonus: If you realize you made a mistake, you can click "Revert changes" to [undo a schema change](/concepts/deploy-requests#revert-a-schema-change). 
 
-Note, you must already have [a production branch](/concepts/branching#promote-a-branch-to-production) in place to create a deploy request.
+Note: you must already have [a production branch](/concepts/branching#promote-a-branch-to-production) in place to create a deploy request.
 
 ## Need help?
 
