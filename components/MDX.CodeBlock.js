@@ -16,6 +16,7 @@ export default function CodeBlock({ children }) {
     ;(typeof global !== 'undefined' ? global : window).Prism = Prism
     require('prismjs/components/prism-ruby.min')
     require('prismjs/components/prism-bash.min')
+    require('prismjs/components/prism-php.min')
 
     if (newChildren.props.className) {
       const codeLanguage = newChildren.props.className.split('-')[1]

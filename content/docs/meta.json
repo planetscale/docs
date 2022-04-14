@@ -82,6 +82,10 @@
           "display": "Laravel"
         },
         {
+          "route": "connect-php-app",
+          "display": "PHP"
+        },
+        {
           "display": "Next.js", 
           "subpages": [
             {
