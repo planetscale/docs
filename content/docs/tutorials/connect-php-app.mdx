@@ -173,8 +173,10 @@ The connection uses port `3306` by default, but if that's being used, it will pi
 $hostname=$_ENV['HOST'];
 $dbName = $_ENV['DATABASE'];
 $port = $_ENV['PORT'];
+// $ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
 
 $mysqli = mysqli_init();
+// $mysqli->ssl_set(NULL, NULL, $ssl, NULL, NULL);
 $mysqli->real_connect($hostname, '', '', $dbName, $port);
 
 if ($mysqli->connect_error) {
@@ -185,6 +187,10 @@ if ($mysqli->connect_error) {
 ```
 
 This removes all references to `username`, `password`, and `ssl`.
+
+<InfoBlock type='note'>
+  It's important to make sure that if you switch back to username and password credentials, you add the SSL check back. We're intentionally commenting it out instead of deleting it in case you switch back.
+</InfoBlock>
 
 5. Refresh your PHP homepage and you should see the message that you're connected to your database!
 
