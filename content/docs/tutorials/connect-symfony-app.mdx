@@ -75,12 +75,16 @@ That's it! Your database is ready to use. Next, let's connect it to the Symfony 
 
 There are **two ways to connect** to PlanetScale:
 
-- Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
+- Using the PlanetScale proxy with the CLI
 
 Both options are covered below.
 
-### Option 1: Connect with username and password
+### Option 1: Connect with username and password (Recommended)
+
+These instructions show you how to use the [PlanetScale CLI](/concepts/planetscale-environment-setup) to generate a set of credentials.
+
+You can also get these exact values to to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Symfony**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
@@ -103,8 +107,6 @@ DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAM
 ```
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above.
-
-You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**PHP**".
 
 Refresh your Symfony homepage and you should see the message that you're connected to your database!
 
