@@ -74,7 +74,7 @@ For `REGION_SLUG`, choose a region closest to you from the [available regions](/
 
 The database is created with a default branch, `main`, that's meant to serve as your initial development branch before promoting it to production.
 
-That's it! Your database is ready to use. Next, let's connect it to the PHP application, and then add some data.
+That's it! Your database is ready to use. Next, let's connect it to the PHP application and then add some data.
 
 ## Connect to the PHP app
 
@@ -108,7 +108,7 @@ if ($mysqli->connect_error) {
 
 ### Option 1: Connect with username and password (Recommended)
 
-If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Copy these credentials, and then skip to step 2 to fill them in.
+If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Copy these credentials, and then skip to step 2 to fill them in.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
@@ -142,11 +142,11 @@ Fill in your database name. For `USERNAME`, `PASSWORD`, and `HOST`, use the corr
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-4. Refresh your PHP homepage and you should see the message that you're connected to your database!
+4. Refresh your PHP homepage, and you should see the message that you're connected to your database!
 
 ### Option 2: Connect with the PlanetScale proxy
 
-We recommend connecting with username and password, but you can also open a quick connection with the PlanetScale proxy. You'll need the [PlanetScale CLI](https://github.com/planetscale/cli) for this option.
+We recommend connecting with a username and password, but you can also open a quick connection with the PlanetScale proxy. You'll need the [PlanetScale CLI](https://github.com/planetscale/cli) for this option.
 
 1. Open a connection by running the following:
 
@@ -156,7 +156,7 @@ pscale connect <DATABASE_NAME> <BRANCH_NAME>
 
 If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
 
-2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
+2. A secure connection to your database will be established, and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env` file in your PHP app and update it as follows:
 
@@ -166,9 +166,9 @@ PORT=3306 # Get this from the output of the previous step
 DATABASE=<DATABASE_NAME>
 ```
 
-The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
+The connection uses port `3306` by default, but we'll assign a random port if `3306` is in use. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
 
-4. Open `db.php` and replace it with the following:
+1. Open `db.php` and replace it with the following:
 
 ```php
 <?php
@@ -191,14 +191,14 @@ if ($mysqli->connect_error) {
 This removes all references to `username`, `password`, and `ssl`.
 
 <InfoBlock type='note'>
-  It's important to make sure that if you switch back to username and password credentials, you add the SSL check back. We're intentionally commenting it out instead of deleting it in case you switch back.
+  It's important to make sure that you add the SSL check back if you switch back to username and password credentials. We're intentionally commenting it out instead of deleting it in case you switch back.
 </InfoBlock>
 
-5. Refresh your PHP homepage and you should see the message that you're connected to your database!
+5. Refresh your PHP homepage, and you should see the message that you're connected to your database!
 
 ## Add the schema and data
 
-Now that you're connected to the database, let's create the `products` and `categories` tables and add some data. There are a few ways to do this:
+Now that you're connected to the database let's create the `products` and `categories` tables and add some data. There are a few ways to do this:
 
 - PlanetScale CLI shell
 - PlanetScale dashboard console
@@ -208,7 +208,7 @@ The first two options are covered below.
 
 ### Option 1: Add data with PlanetScale dashboard console
 
-If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
+If you don't care to install the MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your PHP database.
 2. Click on the "**Branches** and select the `main` branch (or whatever development branch you used).
