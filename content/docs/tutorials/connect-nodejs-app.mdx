@@ -10,12 +10,6 @@ In this tutorial, you'll create a simple Node.js and Express.js application and 
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/download/)
-- [PlanetScale CLI](https://github.com/planetscale/cli)
-- Authenticate the CLI with the following command:
-
-```
-pscale auth login
-```
 
 ## Set up the database
 
@@ -90,35 +84,28 @@ Now that your application is set up and the database is ready to be used, let's 
 
 ## Connect to PlanetScale with Express.js
 
-There are two ways to connect your Express application to your PlanetScale database: **using the PlanetScale proxy** or **using a connection string**. Both options are covered below.
+There are **two ways to connect** to PlanetScale:
 
-### Using the PlanetScale proxy with the CLI
+- With an auto-generated username and password
+- Using the PlanetScale proxy with the CLI
 
-Use the following command to create a connection to your database and start the application:
+Both options are covered below.
+
+### Option 1: Connect with username and password (Recommended)
+
+These instructions show you how to generate a set of credentials with [the PlanetScale CLI](/concepts/planetscale-environment-setup).
+
+You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Node.js**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
+
+1. Authenticate the CLI with the following command:
 
 ```
-pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
+pscale auth login
 ```
 
-<InfoBlock type='note'>
-  Running `pscale connect` with the execute flag will pass a `DATABASE_URL` to the Node application, enabling it to connect to PlanetScale. Don't forget to look in `app.js` to see how the DATABASE_URL is used.
-</InfoBlock>
-
-Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the data from your `users` table!
-
-### Using a connection string
-
-This section will show you how to create a username and password through the CLI to connect to your application. If you'd prefer to use the dashboard for this step, you can find those instructions in the [Connection Strings documentation](/concepts/connection-strings#creating-a-password) and then come back here to finish setup.
-
-First, create your `.env` file by renaming the `.env.example` file to `.env`:
+2. Using the PlanetScale CLI, create a new username and password for the branch of your database:
 
 ```bash
-mv .env.example .env
-```
-
-Next, using the PlanetScale CLI, create a new username and password for the branch of your database:
-
-```
 pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
@@ -137,21 +124,43 @@ Please save the values below as they will not be shown again
   production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx                                                                                    
 ```
 
+2. Next, create your `.env` file by renaming the `.env.example` file to `.env`:
 
-You'll use these properties to construct your connection string, which will be the value for `DATABASE_URL` in your `.env` file. Create your connection string in the following format:
+```bash
+mv .env.example .env
+```
+
+1. Use the values from the CLI output in step 1 to construct your connection string that will be used to connect your Node app to your PlanetScale database. Create your connection string in the following format:
+   
 ```
 mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
 ```
-In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed. It should look something like this:
+
+3. In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed above. It should look something like this:
+   
 ```env
 DATABASE_URL=mysql://xxxxxxxxxxxxx:pscale_pw_xxxxxxx@xxxxxx.us-east-2.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
 ```
 
-Finally, run your Express application with:
+4. Finally, run your Express application with:
 
 ```
 node app.js
 ```
+
+Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the data from your `users` table!
+
+### Option 2: Using the PlanetScale proxy with the CLI
+
+Use the following command to create a connection to your database and start the application:
+
+```
+pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
+```
+
+<InfoBlock type='note'>
+  Running `pscale connect` with the execute flag will pass a `DATABASE_URL` to the Node application, enabling it to connect to PlanetScale. Don't forget to look in `app.js` to see how the DATABASE_URL is used.
+</InfoBlock>
 
 Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the data from your `users` table!
 

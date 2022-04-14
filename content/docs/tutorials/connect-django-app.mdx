@@ -67,36 +67,12 @@ That's it! Your database is ready to use. Next, let's connect it to the Django a
 
 There are **two ways to connect** your Django application to PlanetScale:
 
-- Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
+- Using the PlanetScale proxy with the CLI
 
 Both options are covered below.
 
-### Option 1: Connect with PlanetScale proxy
-
-To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
-
-1. Open a connection by running the following:
-
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
-
-If you're following this guide exactly and haven't created any new branches, you'll use the default branch, `main`, for `BRANCH_NAME`.
-
-2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
-
-3. Open the `.env` file in your Django app and update it as follows:
-
-```
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_DATABASE=<DATABASE_NAME>
-```
-
-The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
-
-### Option 2: Connect with username and password
+### Option 1: Connect with username and password (Recommended)
 
 1. Create a username and password with the PlanetScale CLI by running:
 
@@ -108,11 +84,11 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
-You can also do this in the [PlanetScale dashboard](https://app.planetscale.com) by selecting the database > "**Branches**" tab > "**Connect**" dropdown > "**New password**".
+You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Django**". If the password is blurred, click "**New password**".
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
-2. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
+1. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
 
 ```
 DB_HOST=<ACCESS HOST URL>
@@ -140,6 +116,30 @@ DATABASES = {
   }
 }
 ```
+
+### Option 2: Connect with PlanetScale proxy
+
+To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
+
+1. Open a connection by running the following:
+
+```bash
+pscale connect <DATABASE_NAME> <BRANCH_NAME>
+```
+
+If you're following this guide exactly and haven't created any new branches, you'll use the default branch, `main`, for `BRANCH_NAME`.
+
+2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
+
+3. Open the `.env` file in your Django app and update it as follows:
+
+```
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=<DATABASE_NAME>
+```
+
+The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
 
 ## Optional &mdash; Bring in PlanetScale custom database wrapper
 
