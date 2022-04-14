@@ -104,7 +104,7 @@ if ($mysqli->connect_error) {
 
 ### Option 1: Connect with username and password (Recommended)
 
-If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Then skip to step 2 to fill them in.
+If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the the branch you want to connect to (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Copy these credentials, and then skip to step 2 to fill them in.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
@@ -225,7 +225,7 @@ category_id INT NOT NULL,
 PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
 ```
 
-PlanetScale does not support foreign key constraints, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/learn/operating-without-foreign-key-constraints).
+PlanetScale does not support foreign key constraints, but we do support the concept of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/learn/operating-without-foreign-key-constraints).
 
 6. Add data to the `products` table with:
 
