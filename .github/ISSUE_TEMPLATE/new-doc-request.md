@@ -2,7 +2,7 @@
 name: New doc request
 about: Request a new document be added to PS docs
 title: "[NEW DOC] Proposed doc title here"
-labels: New doc
+labels: New doc, Updated doc
 assignees: ''
 
 ---

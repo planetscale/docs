@@ -2,7 +2,7 @@
 name: Update a doc
 about: Update an existing doc
 title: "[UPDATED DOC] Title of doc to update"
-labels: ''
+labels: Request, Updated doc
 assignees: ''
 
 ---
