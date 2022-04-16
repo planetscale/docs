@@ -43,7 +43,7 @@ export default function Overview() {
             <div className='inline-block w-[24px] h-[24px]'>
               <Icon name='rocket' size='large' className='mb-2 text-blue' />
             </div>
-            <h3 className='text-lg font-semibold text-primary mb-sm'>PlanetScale quick start guide</h3>
+            <h3 className='text-lg font-semibold text-primary mb-sm'>PlanetScale quickstart guide</h3>
             <p className='text-secondary'>
               Deploy a database and learn the basics of using PlanetScale with an example.{' '}
             </p>

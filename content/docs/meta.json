@@ -63,30 +63,26 @@
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
-        { "route": "planetscale-quick-start-guide", "display": "PlanetScale quick start guide" },
+        { "route": "planetscale-quick-start-guide", "display": "PlanetScale quickstart" },
         { "route": "connect-any-application", "display": "Connect any app" },
-        {
-          "route": "connect-go-app",
-          "display": "Go"
-        },
         {
           "route": "connect-django-app",
           "display": "Django"
+        },
+        {
+          "route": "connect-go-app",
+          "display": "Go"
         },
         {
           "route": "connect-nodejs-app",
           "display": "Node.js"
         },
         {
-          "route": "connect-laravel-app",
-          "display": "Laravel"
-        },
-        {
           "display": "Next.js", 
           "subpages": [
             {
               "route": "connect-nextjs-app",
-              "display": "Next.js Starter"
+              "display": "Next.js quickstart"
             },
             {
               "route": "nextjs-planetscale-netlify-template",
@@ -95,6 +91,20 @@
             { "route": "deploy-to-vercel", "display": "Deploy to Vercel" }
           ]
         },
+        {
+          "display": "PHP", 
+          "subpages": [
+            {
+              "route": "connect-laravel-app",
+              "display": "Laravel quickstart"
+            },
+            {
+              "route": "connect-symfony-app",
+              "display": "Symfony quickstart"
+            },
+            { "route": "connect-php-app", "display": "PHP quickstart" }
+          ]
+        },        
         {
           "display": "Prisma",
           "subpages": [
@@ -117,17 +127,13 @@
           "subpages": [
             {
               "route": "connect-rails-app",
-              "display": "Connect a Rails app"
+              "display": "Rails quickstart"
             },
             {
               "route": "automatic-rails-migrations",
               "display": "Automatic Rails migrations"
             }
           ]
-        },
-        {
-          "route": "connect-symfony-app",
-          "display": "Symfony"
         },
         {
           "display": "Deploy your app",

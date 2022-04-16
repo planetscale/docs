@@ -16,7 +16,7 @@ In this tutorial, you'll learn how to connect a Symfony application to a PlanetS
 
 ## Set up the Symfony app
 
-This guide will integrate [a simple Symfony app](https://github.com/planetscale/symfony-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple Symfony app](https://github.com/planetscale/symfony-example) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
 
 1. Clone the starter Symfony application:
 
@@ -51,7 +51,7 @@ You can view the application at [http://localhost:8000](http://localhost:8000).
 
 Next, you need to set up your PlanetScale database and connect to it in the Symfony application.
 
-You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) if you prefer the dashboard.
+You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) if you prefer the dashboard.
 
 1. Authenticate the CLI with the following command:
 
@@ -75,12 +75,16 @@ That's it! Your database is ready to use. Next, let's connect it to the Symfony 
 
 There are **two ways to connect** to PlanetScale:
 
-- Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
+- Using the PlanetScale proxy with the CLI
 
 Both options are covered below.
 
-### Option 1: Connect with username and password
+### Option 1: Connect with username and password (Recommended)
+
+These instructions show you how to use the [PlanetScale CLI](/concepts/planetscale-environment-setup) to generate a set of credentials.
+
+You can also get these exact values to to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Symfony**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
@@ -103,8 +107,6 @@ DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAM
 ```
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above.
-
-You can also get these exact values to to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**PHP**".
 
 Refresh your Symfony homepage and you should see the message that you're connected to your database!
 
@@ -186,7 +188,7 @@ The first two options are covered below.
 
 You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
 
-You may need to install the MySQL command line client if you haven't already.
+You may need to [install the MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
 
 Run the following command in your terminal:
 

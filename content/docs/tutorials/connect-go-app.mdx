@@ -15,7 +15,7 @@ In this tutorial, you'll learn how to connect a Go application to a PlanetScale 
 
 ## Set up the Go app
 
-This guide will integrate [a simple Go (Golang) app](https://github.com/planetscale/golang-example.git) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple Go (Golang) app](https://github.com/planetscale/golang-example) with PlanetScale that will display a list of products stored in the database. If you have an existing application, you can also use that.
 
 1. Clone the starter Go application:
 
@@ -39,7 +39,7 @@ cp .env.example .env
 
 Next, you need to set up your PlanetScale database and connect to it in the Go application.
 
-You can create a database in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
+You can create a database in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#quick-start-with-the-planetscale-application) if you prefer the dashboard.
 
 1. Authenticate the CLI with the following command:
 
@@ -63,12 +63,12 @@ That's it! Your database is ready to use. Next, let's connect it to the Go appli
 
 There are **two ways to connect** your Go app to PlanetScale:
 
-- Using the PlanetScale proxy with the CLI
 - With an auto-generated username and password
+- Using the PlanetScale proxy with the CLI
 
 Both options are covered below.
 
-### Option 1: Connect with username and password
+### Option 1: Connect with username and password (Recommended)
 
 1. Create a username and password with the PlanetScale CLI by running:
 
