@@ -61,7 +61,11 @@ If the connection fails, you'll get an error message in the dashboard. Double-ch
 
 ## Import process
 
-There are three simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information. Note, you cannot run DDL (Data Definition Language), such as `CREATE`, `ALTER`, etc on your external database during the import process.
+There are three simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information.
+
+<InfoBlock type='note'>
+Do not execute DDL (Data Definition Language) statements, CREATE, DROP, ALTER, etc., on either database during the import process. Schema changes are not replicated between databases in either direction.
+</InfoBlock>
 
 ### Step 1: Performing initial import
 
