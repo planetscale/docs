@@ -13,17 +13,19 @@ Note: You must be an [Organization Administrator](/concepts/access-control#organ
 
 ## Connect to your external database
 
-To import an existing database into PlanetScale, first head to your PlanetScale dashboard and click on "**New database**" > "**Import database**", which will bring you to the **Import Setup page**.
+To import an existing database into PlanetScale:
+
+1. Head to your PlanetScale dashboard and click on "**New database**" > "**Import database**", which will bring you to the **Import Setup page**.
+2. Give your imported database a name and [select a region](/concepts/regions) from the dropdown.
+3. We recommend using the same name as the database you're importing from to avoid having to update any database name references throughout your application code. If you'd prefer to use a different database name, just make sure to update your app where applicable once you fully switch over to PlanetScale.
 
 <InfoBlock type='note'>
   Importing a database will <b>not</b> count towards your `read` or `write` usage.
 </InfoBlock>
 
-Give your imported database a name and [select a region](/concepts/regions) from the dropdown. Next, you'll fill out some connection information so that we can import your data.
-
 ![Select name and region for new database import](/img/docs/database-import-planetscale.png)
 
-Fill in the following values with information from your existing hosted database:
+4. Fill in the following connection values with information from your existing hosted database:
 
 - **Host name** &mdash; The address where the database is hosted. 
 - **Port** &mdash; The port where your database is hosted. The default MySQL port is `3306`.
@@ -35,18 +37,16 @@ Fill in the following values with information from your existing hosted database
   You must have <a href="https://dev.mysql.com/doc/internals/en/binary-log-overview.html">binary logs</a> enabled on the database you're importing.
 </InfoBlock>
 
-You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
+5. You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
 
 For the "Authenticate with mTLS option", you'll need to provide the following:
 
 - **SSL client certificate** &mdash; Certificate to authenticate PlanetScale with your database server.
 - **SSL client key** &mdash; This is the private key for the client certificate
 
-From here you, can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
+6. From here you, can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
 
-### Advanced settings
-
-Under Advanced settings, you have the option to enter the following:
+7. (Optional) Under Advanced settings, you have the option to enter the following:
 
 - **SSL server name override**
 - **SSL CA certificate chain** &mdash; If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
@@ -55,7 +55,7 @@ For more information about certificates from a Certificate Authority, check out 
 
 ### Test the connection
 
-Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click the "**Begin database import**" button to import your data.
+1. Once you have all of your connection information plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message. From here, you can click the "**Begin database import**" button to import your data.
 
 If the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting-connectivity-issues) for more information.
 
@@ -90,6 +90,10 @@ Queries will be served by PlanetScale and writes will be routed **back to your e
 Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/), which essentially lets your PlanetScale database act as a "data router".
 
 At this point, you can [connect your live application](/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app. 
+
+<InfoBlock type='note'>
+  If you gave your PlanetScale database a different name than the one you're importing from, make sure your application is referencing the correct database name.
+</InfoBlock>
 
 In other words, any changes made to your data in your external database will also reflect in your PlanetScale database. For example, if a user makes a new comment on your blog application while you're importing, your PlanetScale database will be updated as well. This ensures you **won't experience any data loss** while going through the import process.
 
@@ -133,8 +137,8 @@ PlanetScale will automatically stop the import process and detach your external 
 
 If you're running into issues connecting with a username and password, try to plug that same connection information into the MySQL CLI or a MySQL GUI. Below is the command for the MySQL CLI.
 
-```
-mysql -u <username> -p <password> -h <host> -P <port> -D <database>
+```sql
+mysql -u <USERNAME> -p <PASSWORD> -h <HOST> -P <PORT> -D <DATABASE>
 ```
 
 If the connection works there, but not on PlanetScale, please [reach out for additional assistance](#additional-assistance).
