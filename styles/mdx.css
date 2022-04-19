@@ -70,14 +70,28 @@
 
   .token.function {
     @apply !text-green;
+    @apply !font-medium;
   }
 
   .token.punctuation {
     @apply !text-secondary;
   }
+  
+  .token.symbol {
+    @apply !text-purple;
+  }
+
+  .token.class-name {
+    @apply !text-purple;
+    @apply !font-medium;
+  }
 
   .token.variable {
     @apply !font-medium;
     @apply !text-primary;
+  }
+  
+  .token.boolean {
+    @apply !text-orange;
   }
 }
