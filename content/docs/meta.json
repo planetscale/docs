@@ -15,7 +15,7 @@
             { "route": "deploy-requests", "display": "Deploy requests" },
             { "route": "connection-strings", "display": "Connection strings" },
             { "route": "regions", "display": "Regions" },
-            { "route": "multi-region reads", "display": "Multi-region reads" },
+            { "route": "multi-region-reads", "display": "Multi-region reads" },
             { "route": "database-imports", "display": "Database imports" },
             { "route": "database-sleeping", "display": "Database sleeping" }
           ]
