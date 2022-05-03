@@ -1,20 +1,39 @@
 ---
 title: 'Multi-region reads'
-subtitle: ''
+subtitle: 'Enable multi-region reads with PlanetScale Portals'
 ---
+
+## Overview
 
 With PlanetScale Portals, you can create a read-only replica of your production database in [any available region](/concepts/regions).
 
-## How it works
+This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your users.  
 
+<InfoBlock type='note'>
+  Please note, this is a <strong>read-only replica</strong> of your production database. Because Portals does not support writes, you cannot use this as a failover database.
+</InfoBlock>
 
-## Create a read-only region
+## How to create a read-only region
 
+1. In the [PlanetScale dashboard](https://app.planetscale.com), select the database you want to add a read-only region to.
+2. Click on the production branch.
+3. Click the "Add region" button.
+4. Select the desired region from the dropdown of [available regions](/concepts/regions).
+5. Click "Launch".
+6. 
 
 ## Availability and pricing
 
+PlanetScale Portals is only available on our [paid Scalar and Enterprise plans](https://planetscale.com/pricing). 
 
 ### Storage costs
 
+Your storage costs will increase linearly with the amount of read-only regions added. For example, if your production branch is 10GB, each region added will increase your total storage cost by 10GB. For more information on storage billing costs, see our [Billing documentation](/concepts/billing).
 
 ### Rows read
+
+Queries issued to each read-only region will contribute to your total billable row reads per month. Your invoice details will show a new line for rows read from each region.
+
+## Need help?
+
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
