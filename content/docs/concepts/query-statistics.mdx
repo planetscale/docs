@@ -3,29 +3,60 @@ title: 'Insights - Query statistics'
 subtitle: 'Find and optimize long-running queries in your application.'
 ---
 
-## Overview
-
-PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect exactly what time or what Deploy Request impacted a query.
+PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect exactly what time or what [Deploy Request](/concepts/deploy-requests) impacted a query.
 
 <InfoBlock type="note">
-  Insights on the free Developer plan are limited to the last 7 days. To unlock the full feature, upgrade to Scaler.
+  Insights on the free Developer plan are limited to the last 24 hours. To unlock the full feature, upgrade to Scaler.
 </InfoBlock>
 
 ![Query statistics](/img/docs/query-statistics-overview.png)
 
-## Available statistics
+## Insights page overview
+
+To view Query Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
+
+Here's an overview of what you'll find on this page:
+
+### Branch selection
+
+This dropdown on the top right lets you select what branch you want to analyze. This applies to the entire Insights page.
+
+### Insights graph
+
+This graph depicts your database activity over a 24 hour period. You can click the dates listed right above to scroll through past days. 
+
+You'll also see links to any deploy requests at the time that you deployed them.
+
+Please note, our free Developer plan is limited to the previous 24 hours.
+
+### Graph metrics selection
+
+The dropdown on the top left let's you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the exact metric(s) for that time period.
+
+The available options are:
+
+- **Rows read** &mdash; Total count followed by rows read per second
+- **Rows written** &mdash; Total count followed by rows written per second 
+- **Query latency** &mdash; To line charts showing p50 and p90 latency
+- **Queries per second** &mdash; Total queries per second
+
+### Queries list
+
+The table underneath the graph shows all queries performed on your database in the past 24 hours. Queries over 1 minute allow are clickable for a deeper look.
 
 - **Keyspace** &mdash; The table, or tables for a join, being queried or modified.
 - **Count** &mdash; The number of times this query has run.
-- **Time (ms)** &mdash; The total amount of time this query has run, in milliseconds.
+- **Total Time (ms)** &mdash; The total amount of time this query has run, in milliseconds.
+- **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
+- **Rows returned** &mdash; The number of rows fetched by a select statement.
 - **Rows read** &mdash;
 - **Rows affected** &mdash; The number of rows modified by an insert, update, or delete statement.
-- **Rows returned** &mdash; The number of rows fetched by a select statement.
-- **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
 
-## Understanding your Insights graph
+In the next section, you'll see a practical example showing how you can use these stats to debug slow queries.
 
+### Columns selection
 
+You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
 ## Debugging queries with Insights
 
