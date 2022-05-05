@@ -9,7 +9,7 @@ PlanetScale Insights gives you a detailed look into the active queries running a
   Insights on the free Developer plan are limited to the last 24 hours. To unlock the full feature, upgrade to Scaler.
 </InfoBlock>
 
-![Query statistics](/img/docs/query-statistics-overview.png)
+VIDEO
 
 ## Insights page overview
 
@@ -78,15 +78,15 @@ Let's say you deploy a schema change to your production database and you later n
 
 To debug this, you could come to your Insights page and look at the graph to identify any anomolies. Look for any spikes in rows read or rows written. If this performance impact coincided with a deploy, you'll see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema changed caused the performance issues.
 
+IMAGE
+
 Next, you can drill down further by looking at the "Queries during the last 24 hours" table. If you sort the table by "Total time", you can quickly surface any slow queries.
 
 Click on any queries that seem to run longer than you'd expect and from there, you'll be able to see any instances of the query running slowly.
 
 In the example scenario of a slow user page, let's say you identify the following query running slowly:
 
-```sql
-
-```
+CODE SNIPPET
 
 The graph analysis also showed that the slowdown coincided with a deploy request from a few hours ago. You click the deploy request and see that during the schema change, you accidentally dropped an index! The dropped index impacted the query above, causing it to run slowly.
 
