@@ -19,9 +19,13 @@ Here's an overview of what you'll find on this page:
 
 ### Branch selection
 
+IMAGE 
+
 This dropdown on the top right lets you select what branch you want to analyze. This applies to the entire Insights page.
 
 ### Insights graph
+
+IMAGE 
 
 This graph depicts your database activity over a 24 hour period. You can click the dates listed right above to scroll through past days. 
 
@@ -31,36 +35,62 @@ Please note, our free Developer plan is limited to the previous 24 hours.
 
 ### Graph metrics selection
 
+IMAGE 
+
 The dropdown on the top left let's you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the exact metric(s) for that time period.
 
 The available options are:
 
-- **Rows read** &mdash; Total count followed by rows read per second
-- **Rows written** &mdash; Total count followed by rows written per second 
-- **Query latency** &mdash; To line charts showing p50 and p90 latency
+- **Rows read per second** &mdash; Total count followed by rows read per second
+- **Rows written per second** &mdash; Total count followed by rows written per second 
+- **Query latency (ms)** &mdash; Two line charts showing p50 and p90 latency. This means 50% and 90%, of requests, respectively, completed faster than the time listed.
 - **Queries per second** &mdash; Total queries per second
 
 ### Queries list
 
-The table underneath the graph shows all queries performed on your database in the past 24 hours. Queries over 1 minute allow are clickable for a deeper look.
+IMAGE 
 
-- **Keyspace** &mdash; The table, or tables for a join, being queried or modified.
+The table underneath the graph shows all queries performed on your database in the past 24 hours. Queries over 1 minute are clickable for a deeper look. You can also sort the columns for quick analysis.
+
+**Available query statistics**:
+
+- **Keyspace** &mdash; The table(s) being queried or modified.
 - **Count** &mdash; The number of times this query has run.
-- **Total Time (ms)** &mdash; The total amount of time this query has run, in milliseconds.
+- **Total Time (ms)** &mdash; The total amount of time the query has run, in milliseconds.
 - **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
-- **Rows returned** &mdash; The number of rows fetched by a select statement.
+- **Rows returned** &mdash; The number of rows fetched by a `SELECT` statement.
 - **Rows read** &mdash;
-- **Rows affected** &mdash; The number of rows modified by an insert, update, or delete statement.
+- **Rows affected** &mdash; The number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement.
 
-In the next section, you'll see a practical example showing how you can use these stats to debug slow queries.
+In [the next section](#debugging-queries-with-insights), you'll see a practical example showing how you can use these stats to debug slow queries.
 
 ### Columns selection
+
+IMAGE 
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
 ## Debugging queries with Insights
 
+Now that you know what metrics are surfaced with Insights, let's go over a practical use case.
 
+Let's say you deploy a schema change to your production database and you later notice a users list page in your application is running slowly.
+
+To debug this, you could come to your Insights page and look at the graph to identify any anomolies. Look for any spikes in rows read or rows written. If this performance impact coincided with a deploy, you'll see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema changed caused the performance issues.
+
+Next, you can drill down further by looking at the "Queries during the last 24 hours" table. If you sort the table by "Total time", you can quickly surface any slow queries.
+
+Click on any queries that seem to run longer than you'd expect and from there, you'll be able to see any instances of the query running slowly.
+
+In the example scenario of a slow user page, let's say you identify the following query running slowly:
+
+```sql
+
+```
+
+The graph analysis also showed that the slowdown coincided with a deploy request from a few hours ago. You click the deploy request and see that during the schema change, you accidentally dropped an index! The dropped index impacted the query above, causing it to run slowly.
+
+With this knowledge, you can now open up a new deploy request readding the index. After deploying it to production, you can come back to the Insights page to confirm all is well again.
 
 ## Need help?
 
