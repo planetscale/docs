@@ -27,22 +27,22 @@ This dropdown on the top right lets you select what branch you want to analyze. 
 
 IMAGE 
 
-This graph depicts your database activity over a 24 hour period. You'll also see links to any deploy requests at the time that you deployed them.
+This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
-You can click the dates listed right above to scroll through the past 7 days. If you're on our free Developer plan, activity is limited to the previous 24 hours. 
+You can click the dates listed above to scroll through the past seven days. If you're on our free Developer plan, activity is limited to the previous 24 hours. 
 
 ### Graph metrics selection
 
 IMAGE 
 
-The dropdown on the top left let's you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the exact metric(s) for that time period.
+The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the exact metric(s) for that time period.
 
 The available options are:
 
-- **Rows read per second** &mdash; Total count followed by rows read per second
-- **Rows written per second** &mdash; Total count followed by rows written per second 
-- **Query latency (ms)** &mdash; Two line charts showing p50 and p90 latency. This means 50% and 90%, of requests, respectively, completed faster than the time listed.
-- **Queries per second** &mdash; Total queries per second
+- **Rows read per second** &mdash; Total count followed by rows read per second.
+- **Rows written per second** &mdash; Total count followed by rows written per second.
+- **Query latency (ms)** &mdash; Two line charts showing p50 and p90 latency. This means 50% and 90% of requests, respectively, completed faster than the time listed.
+- **Queries per second** &mdash; Total queries per second.
 
 ### Queries list
 
@@ -54,7 +54,7 @@ The table underneath the graph shows all queries performed on your database in t
 
 - **Keyspace** &mdash; The table(s) being queried or modified.
 - **Count** &mdash; The number of times this query has run.
-- **Total Time (ms)** &mdash; The total amount of time the query has run, in milliseconds.
+- **Total Time (ms)** &mdash; The total time the query has run in milliseconds.
 - **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
 - **Rows returned** &mdash; The number of rows fetched by a `SELECT` statement.
 - **Rows read** &mdash;
@@ -72,15 +72,15 @@ You can customize the metrics that show up on the Queries list by clicking the "
 
 Now that you know what metrics are surfaced with Insights, let's go over a practical use case.
 
-Let's say you deploy a schema change to your production database and you later notice a users list page in your application is running slowly.
+Let's say you deploy a schema change to your production database, and you later notice a users list page in your application is running slowly.
 
-To debug this, you could come to your Insights page and look at the graph to identify any anomolies. Look for any spikes in *rows read* or *rows written*. If this performance impact coincided with a deployment, you'll see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema changed caused the performance issues.
+To debug this, you could come to your Insights page and look at the graph to identify any anomalies. Look for any spikes in *rows read* or *rows written*. If this performance impact coincided with a deployment, you'd see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema change caused the performance issues.
 
 IMAGE
 
 Next, you can drill down further by looking at the "Queries during the last 24 hours" table. If you sort the table by "Total time", you can quickly surface any slow queries.
 
-Click on any queries that seem to run longer than you'd expect and from there, you'll be able to see any instances of the query running slowly.
+Click on any queries that seem to run longer than you'd expect, and from there, you'll be able to see any instances of the query running slowly.
 
 In the example scenario of a slow users page, let's say you identify the following query running slowly:
 
