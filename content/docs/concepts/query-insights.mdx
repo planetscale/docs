@@ -1,12 +1,12 @@
 ---
-title: 'Insights - Query statistics'
+title: 'Query Insights'
 subtitle: 'Find and optimize long-running queries in your application.'
 ---
 
 PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect exactly what time or what [Deploy Request](/concepts/deploy-requests) impacted a query.
 
 <InfoBlock type="note">
-  Insights on the free Developer plan are limited to the last 24 hours. To unlock the full 7 days of analytics, upgrade to Scaler.
+  Insights on the free Developer plan are limited to the last 24 hours. To unlock the full seven days of analytics, upgrade to Scaler.
 </InfoBlock>
 
 VIDEO
@@ -15,7 +15,7 @@ VIDEO
 
 To view Query Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
 
-Here's an overview of what you'll find on this page:
+Below is an overview of what you'll find on this page.
 
 ### Branch selection
 
@@ -74,7 +74,7 @@ Now that you know what metrics are surfaced with Insights, let's go over a pract
 
 Let's say you deploy a schema change to your production database and you later notice a users list page in your application is running slowly.
 
-To debug this, you could come to your Insights page and look at the graph to identify any anomolies. Look for any spikes in rows read or rows written. If this performance impact coincided with a deploy, you'll see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema changed caused the performance issues.
+To debug this, you could come to your Insights page and look at the graph to identify any anomolies. Look for any spikes in *rows read* or *rows written*. If this performance impact coincided with a deployment, you'll see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema changed caused the performance issues.
 
 IMAGE
 
@@ -82,13 +82,13 @@ Next, you can drill down further by looking at the "Queries during the last 24 h
 
 Click on any queries that seem to run longer than you'd expect and from there, you'll be able to see any instances of the query running slowly.
 
-In the example scenario of a slow user page, let's say you identify the following query running slowly:
+In the example scenario of a slow users page, let's say you identify the following query running slowly:
 
 CODE SNIPPET
 
 The graph analysis also showed that the slowdown coincided with a deploy request from a few hours ago. You click the deploy request and see that during the schema change, you accidentally dropped an index! The dropped index impacted the query above, causing it to run slowly.
 
-With this knowledge, you can now open up a new deploy request readding the index. After deploying it to production, you can come back to the Insights page to confirm all is well again.
+With this knowledge, you can now open up a new deploy request re-adding the index. After deploying it to production, you can come back to the Insights page to confirm performance is back to normal.
 
 ## Need help?
 
