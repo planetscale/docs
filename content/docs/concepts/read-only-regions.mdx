@@ -9,6 +9,23 @@ With PlanetScale Portals, you can create a replica of your production database i
 
 This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your users.
 
+## Concepts
+
+### Replication across Regions
+PlanetScale replicates your data across regions with an asynchronous strategy; first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
+```
+mysql> select max_repl_lag();
++----------------+
+| max_repl_lag() |
++----------------+
+|              0 |
++----------------+
+```
+The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
+
+### Read-only Connections
+Connecting to a read-only replica will allow you to query your data, but will not allow you to insert, update, or delete it.
+
 ## How to create a read-only region
 
 1. In the [PlanetScale dashboard](https://app.planetscale.com), select the database you want to add a read-only region to.
