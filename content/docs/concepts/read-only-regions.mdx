@@ -1,17 +1,30 @@
 ---
-title: 'Read-only regions'
-subtitle: 'Enable multi-region reads with PlanetScale Portals'
+title: 'Read-only Regions'
+subtitle: 'Scale your reads across the Planet. Literally.'
 ---
 
 ## Overview
 
-With PlanetScale Portals, you can create a read-only replica of your production database in [any available region](/concepts/regions).
+With PlanetScale Portals, you can create a replica of your production database in [any additional region](/concepts/regions).
 
-This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your users.  
+This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your users.
 
-<InfoBlock type='note'>
-  Please note, this is a <strong>read-only replica</strong> of your production database. Because Portals does not support writes, you cannot use this as a failover database.
-</InfoBlock>
+## Concepts
+
+### Replication across Regions
+PlanetScale replicates your data across regions with an asynchronous strategy; first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
+```
+mysql> select max_repl_lag();
++----------------+
+| max_repl_lag() |
++----------------+
+|              0 |
++----------------+
+```
+The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
+
+### Read-only Connections
+Connecting to a read-only replica will allow you to query your data, but will not allow you to insert, update, or delete it.
 
 ## How to create a read-only region
 
@@ -19,9 +32,8 @@ This feature supports globally distributed applications by enabling your databas
 2. Click on the production branch.
 3. Click the "Add region" button.
 4. Select the desired region from the dropdown of [available regions](/concepts/regions).
-5. Click "Launch".
-6. Copy the connection string.
-7. 
+5. Click "Add region" and wait for your data to finish initially replicating across regions.
+6. Optionally, connect to your new read-only region by clicking the ellipsis and selecting "Connect".
 
 ## Availability and pricing
 
