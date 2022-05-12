@@ -1,31 +1,31 @@
 ---
-title: 'Query Insights'
+title: 'Query insights'
 subtitle: 'Find and optimize long-running queries in your application.'
 ---
 
-PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect exactly what time or what [Deploy Request](/concepts/deploy-requests) impacted a query.
+PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time or [Deploy Request](/concepts/deploy-requests) a query was impacted.
+
+![PlanetScale Insights overview page](/img/docs/insights-overview-2.png)
 
 <InfoBlock type="note">
-  Insights on the free Developer plan are limited to the last 24 hours. To unlock the full seven days of analytics, upgrade to Scaler.
+  Insights on the free Developer plan are limited to the previous 24 hours. To unlock the full seven days of analytics, [upgrade to Scaler](/concepts/billing).
 </InfoBlock>
-
-VIDEO
 
 ## Insights page overview
 
 To view Query Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
 
-Below is an overview of what you'll find on this page.
+Below is an overview of what you'll find on this page. If you'd like a quick look at how this all works together, check out the [Debugging queries with Insights section](#debugging-queries-with-insights).
 
 ### Branch selection
 
-IMAGE 
+![PlanetScale Insights branch selection](/img/docs/insights-branches.png) 
 
 This dropdown on the top right lets you select what branch you want to analyze. This applies to the entire Insights page.
 
 ### Insights graph
 
-IMAGE 
+![PlanetScale Insights graph](/img/docs/insights-graph.png)
 
 This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
@@ -33,7 +33,7 @@ You can click the dates listed above to scroll through the past seven days. If y
 
 ### Graph metrics selection
 
-IMAGE 
+![PlanetScale Insights graph metrics selection - rows written](/img/docs/insights-graph-metrics-selection.png) 
 
 The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the exact metric(s) for that time period.
 
@@ -46,7 +46,7 @@ The available options are:
 
 ### Queries list
 
-IMAGE 
+![PlanetScale Insights recent queries list](/img/docs/insights-query-list.png)  
 
 The table underneath the graph shows all queries performed on your database in the past 24 hours. Queries over 1 minute are clickable for a deeper look. You can also sort the columns for quick analysis.
 
@@ -61,10 +61,6 @@ The table underneath the graph shows all queries performed on your database in t
 - **Rows affected** &mdash; The number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement.
 
 In [the next section](#debugging-queries-with-insights), you'll see a practical example showing how you can use these stats to debug slow queries.
-
-### Columns selection
-
-IMAGE 
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
