@@ -3,7 +3,7 @@ title: 'Query insights'
 subtitle: 'Find and optimize long-running queries in your application.'
 ---
 
-PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time or [Deploy Request](/concepts/deploy-requests) a query was impacted.
+PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time or [Deploy Request](/concepts/deploy-requests) that a query was impacted.
 
 ![PlanetScale Insights overview page](/img/docs/insights-overview-2.png)
 
@@ -12,6 +12,8 @@ PlanetScale Insights gives you a detailed look into the active queries running a
 </InfoBlock>
 
 ## Insights page overview
+
+PlanetScale Insights is currently in beta. You can opt-in on your database Settings page at `https://app.planetscale.com/<YOUR-ORG>/<YOUR-DATABASE>/settings/beta-features`.
 
 To view Query Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
 
@@ -57,12 +59,26 @@ The table underneath the graph shows all queries performed on your database in t
 - **Total Time (ms)** &mdash; The total time the query has run in milliseconds.
 - **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
 - **Rows returned** &mdash; The number of rows fetched by a `SELECT` statement.
-- **Rows read** &mdash;
+- **Rows read** &mdash; The total number of rows read. This is the number that directly affects your [rows read billing calculation](/concepts/billing#understanding-rows-read). 
 - **Rows affected** &mdash; The number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement.
 
 In [the next section](#debugging-queries-with-insights), you'll see a practical example showing how you can use these stats to debug slow queries.
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
+
+### Query deep dive
+
+Clicking on a query in the Queries list will open a new page with more information about that query, such as:
+
+- Query pattern
+- Slow instances of the query during the selected time frame
+- Query tags
+- An option to generate the query explain plan
+
+If you toggle "Show explain plan" you can generate the execution plan for the selected query. You may have to fill in some sample values, as we consider the data private and normalize it away.
+
+![PlanetScale Insights query pattern w/ explain plan](/img/docs/insights-explain-plan.png)  
+![PlanetScale Insights explain plan](/img/docs/insights-explain-plan-2.png)  
 
 ## Debugging queries with Insights
 
