@@ -17,7 +17,7 @@ PlanetScale Insights is currently in beta. You can opt-in on your database Setti
 
 To view Query Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
 
-Below is an overview of what you'll find on this page. If you'd like a quick look at how this all works together, check out the [Debugging queries with Insights section](#debugging-queries-with-insights).
+Below is an overview of what you'll find on this page. If you'd like to see an example of how this all works together, check out our [Announcing Insights blog post](https://planetscale.com/blog/announcing-insights).
 
 ### Branch selection
 
@@ -82,25 +82,29 @@ If you toggle "Show explain plan" you can generate the execution plan for the se
 
 ## Debugging queries with Insights
 
-Now that you know what metrics are surfaced with Insights, let's go over a practical use case.
+Now that you know what metrics are surfaced with Insights, let's go over a practical use case using our very own database for our [open source Beam application](https://github.com/planetscale/beam).
 
-Let's say you deploy a schema change to your production database, and you later notice a users list page in your application is running slowly.
+Let's say we deployed a schema change to the production database, and later noticed the posts page loading slowly. Instead of spending hours searching for the offending query, we come to the Insights page to begin debugging.
 
-To debug this, you could come to your Insights page and look at the graph to identify any anomalies. Look for any spikes in *rows read* or *rows written*. If this performance impact coincided with a deployment, you'd see the exact deploy request on the graph next to the spike. This gives you direct insight into what schema change caused the performance issues.
+We first look at the graph to identify any anomalies, such as any spikes in *rows read* or *rows written*. If this performance impact coincided with a deployment, the deploy request will show up on the graph next to the spike. This provides direct insight into what schema change caused the performance issues.
 
 IMAGE
 
-Next, you can drill down further by looking at the "Queries during the last 24 hours" table. If you sort the table by "Total time", you can quickly surface any slow queries.
+Based on the graph, we can see that there's a large spike right at the time we deployed deploy request #3. This information gives us more confidence that this performance impact is indeed a database issue.
 
-Click on any queries that seem to run longer than you'd expect, and from there, you'll be able to see any instances of the query running slowly.
+Next, we can drill down further by looking at the "Queries during the last 24 hours" table. We'll sort by "Total time" to quickly surface any slow queries.
 
-In the example scenario of a slow users page, let's say you identify the following query running slowly:
+IMAGE HERE
+
+Up at the top, we see one query that stands out. At 2400 ms, it's running much slower than we expect. We decide to take a closer look at this query. Clicking on the query brings up the detailed view, which includes a list of all instances of the query running slowly in the past 24 hours.
+
+Taking a closer look, we notice that this query has been running slowly since the previous deployment that we saw on the graph. We can open that deploy request to see what changed.
 
 CODE SNIPPET
 
-The graph analysis also showed that the slowdown coincided with a deploy request from a few hours ago. You click the deploy request and see that during the schema change, you accidentally dropped an index! The dropped index impacted the query above, causing it to run slowly.
+Upon further inspection, it appears an index was dropped during the previous deploy request! 
 
-With this knowledge, you can now open up a new deploy request re-adding the index. After deploying it to production, you can come back to the Insights page to confirm performance is back to normal.
+With this knowledge, we can now open up a new deploy request, re-adding the index. After deploying it to production, we come back to the Insights page to confirm performance is back to normal.
 
 ## Need help?
 
