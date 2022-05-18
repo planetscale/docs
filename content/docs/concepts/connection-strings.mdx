@@ -49,9 +49,7 @@ Since the **username & password** pair is unique, the only metadata you can edit
 Deleting a password will invalidate the username & password pair and **disconnect any active clients using this password**.
 
 <InfoBlock type="note">
-  Any active clients using a deleted password will be disconnected from
-  PlanetScale within a reasonable amount of time and will lose all access to the
-  database with the deleted password.
+  Any open database connections authenticated with a deleted password will be disconnected within five minutes.
 </InfoBlock>
 
 ## Native MySQL authentication support
@@ -72,6 +70,7 @@ This strong security model allows you to generate passwords that are tied to a b
 
 PlanetScale automatically disconnects clients that are using a deleted password.
 Head on over to the `Organization > Database > Settings > Passwords` page on your database branch to delete passwords for that branch.
+It may take up to five minutes for all active clients to be disconnected.
 
 ## No plain text password storage
 
