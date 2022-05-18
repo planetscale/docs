@@ -8,7 +8,7 @@ th {
   @apply font-medium;
   @apply text-secondary;
   @apply text-left;
-  @apply text-sm;
+  @apply text-lg;
   @apply px-2;
   @apply py-1;
   @apply border-t;
