@@ -1,6 +1,6 @@
 ---
 title: 'Read-only Regions'
-subtitle: 'Scale your reads across the Planet. Literally.'
+subtitle: 'Add additional read-only regions to your production database.'
 ---
 
 ## Overview
@@ -30,10 +30,16 @@ Connecting to a read-only replica will allow you to query your data, but will no
 
 1. In the [PlanetScale dashboard](https://app.planetscale.com), select the database you want to add a read-only region to.
 2. Click on the production branch.
-3. Click the "Add region" button.
+3. Click the "**Add region**" button.
+
+![Add read-only region on production branch](/img/docs/add-read-only-region.png)
+
 4. Select the desired region from the dropdown of [available regions](/concepts/regions).
-5. Click "Add region" and wait for your data to finish initially replicating across regions.
-6. Optionally, connect to your new read-only region by clicking the ellipsis and selecting "Connect". This will return the connection credentials you can use in your application. 
+
+![Select read-only region on production branch](/img/docs/read-only-region-selection.png)
+
+5. Click "**Add region**" and wait for your data to finish initially replicating across regions.
+6. Optionally, connect to your new read-only region by clicking the ellipsis and selecting "**Connect**". This will return the connection credentials you can use in your application. 
 
 ## Availability and pricing
 
