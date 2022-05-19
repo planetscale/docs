@@ -5,7 +5,8 @@ subtitle: 'Find and optimize long-running queries in your application.'
 
 PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time that a query was impacted, and, if applicable, the [Deploy Request](/concepts/deploy-requests) that affected it.
 
-![PlanetScale Insights overview page](/img/docs/insights-overview-2.png)
+<VideoBlock src='/img/docs/insights.mp4' />
+<p align='center'><i>This video shows an example Insights page. All explanations are covered in this doc.</i></p>
 
 <InfoBlock type="note">
   Insights on the free Hobby plan are limited to the previous 24 hours. To unlock the full seven days of analytics, <a href="/concepts/billing">upgrade to a paid plan</a>.
@@ -50,7 +51,13 @@ The available options are:
 
 ![PlanetScale Insights recent queries list](/img/docs/insights-query-list.png)
 
-The table underneath the graph shows all queries performed on your database in the past 24 hours. Queries over 1000 ms are clickable for a deeper look. You can also sort the columns for quick analysis.
+The table underneath the graph shows all queries performed on your database in the past 24 hours. To further narrow down query analysis, you can select a time range from the above graph to restrict the table to queries that happened in that time frame.
+
+![Insights queries selected time range](/img/docs/insights-selected-time-frame.png)
+
+Queries over 1000 ms are clickable for a deeper look. You can also sort the columns for quick analysis.
+
+You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
 **Available query statistics**:
 
@@ -73,7 +80,9 @@ Clicking on a query in the Queries list will open a new page with more informati
 - Query tags
 - An option to generate the [query `EXPLAIN` plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/)
 
-If you toggle "Show explain plan" you can generate the execution plan for the selected query. You may have to fill in some sample values, as we consider the data private and normalize it away.
+If you toggle "Show explain plan" you can generate the execution plan for the selected query. You may have to fill in some sample values, designated with placeholders like `:v1`.
+
+If you'd like to further interact with the query can, click "Open query in web console" and you'll be taken to your in-dashboard web console where you can run the `EXPLAIN` plan.
 
 ![PlanetScale Insights query pattern w/ explain plan](/img/docs/insights-explain-plan.png)  
 ![PlanetScale Insights explain plan](/img/docs/insights-explain-plan-2.png)  
