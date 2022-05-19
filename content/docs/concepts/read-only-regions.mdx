@@ -18,15 +18,6 @@ PlanetScale replicates your data across regions with an asynchronous strategy, f
 SELECT max_repl_lag();
 ```
 
-Output:
-
-```
-+----------------+
-| max_repl_lag() |
-+----------------+
-|              0 |
-+----------------+
-```
 The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
 
 ### Read-only Connections
