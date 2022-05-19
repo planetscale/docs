@@ -8,22 +8,22 @@ PlanetScale Insights gives you a detailed look into the active queries running a
 ![PlanetScale Insights overview page](/img/docs/insights-overview-2.png)
 
 <InfoBlock type="note">
-  Insights on the free Developer plan are limited to the previous 24 hours. To unlock the full seven days of analytics, [upgrade to Scaler](/concepts/billing).
+  Insights on the free Hobby plan are limited to the previous 24 hours. To unlock the full seven days of analytics, <a href="/concepts/billing">upgrade to a paid plan</a>.
 </InfoBlock>
 
 ## Insights page overview
 
 PlanetScale Insights is currently in beta. You can opt-in on your database Settings page at `https://app.planetscale.com/<YOUR-ORG>/<YOUR-DATABASE>/settings/beta-features`.
 
-To view Query Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
+To view Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
 
-Below is an overview of what you'll find on this page. If you'd like to see an example of how this all works together, check out our [Announcing Insights blog post](https://planetscale.com/blog/announcing-insights).
+Below is an overview of what you'll find on this page. If you'd like to see a practical example of how to use Insights to debug a performance issue, check out our [Announcing Insights blog post](https://planetscale.com/blog/announcing-insights).
 
 ### Branch selection
 
 ![PlanetScale Insights branch selection](/img/docs/insights-branches.png) 
 
-This dropdown on the top right lets you select what branch you want to analyze. This applies to the entire Insights page.
+This dropdown on the top right lets you select which branch you want to analyze. The selection applies to the entire Insights page.
 
 ### Insights graph
 
@@ -31,13 +31,13 @@ This dropdown on the top right lets you select what branch you want to analyze. 
 
 This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
-You can click the dates listed above to scroll through the past seven days. If you're on our free Developer plan, activity is limited to the previous 24 hours. 
+You can click the dates listed above to scroll through the past seven days. If you're on our free Hobby plan, activity is limited to the previous 24 hours. 
 
 ### Graph metrics selection
 
 ![PlanetScale Insights graph metrics selection - rows written](/img/docs/insights-graph-metrics-selection.png) 
 
-The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the exact metric(s) for that time period.
+The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the metric(s) for that time period.
 
 The available options are:
 
@@ -62,8 +62,6 @@ The table underneath the graph shows all queries performed on your database in t
 - **Rows read** &mdash; The total number of rows read. This is the number that directly affects your [rows read billing calculation](/concepts/billing#understanding-rows-read). 
 - **Rows affected** &mdash; The number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement.
 
-In [the next section](#debugging-queries-with-insights), you'll see a practical example showing how you can use these stats to debug slow queries.
-
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
 ### Query deep dive
@@ -73,38 +71,12 @@ Clicking on a query in the Queries list will open a new page with more informati
 - Query pattern
 - Slow instances of the query during the selected time frame
 - Query tags
-- An option to generate the query explain plan
+- An option to generate the [query `EXPLAIN` plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/)
 
 If you toggle "Show explain plan" you can generate the execution plan for the selected query. You may have to fill in some sample values, as we consider the data private and normalize it away.
 
 ![PlanetScale Insights query pattern w/ explain plan](/img/docs/insights-explain-plan.png)  
 ![PlanetScale Insights explain plan](/img/docs/insights-explain-plan-2.png)  
-
-## Debugging queries with Insights
-
-Now that you know what metrics are surfaced with Insights, let's go over a practical use case using our very own database for our [open source Beam application](https://github.com/planetscale/beam).
-
-Let's say we deployed a schema change to the production database, and later noticed the posts page loading slowly. Instead of spending hours searching for the offending query, we come to the Insights page to begin debugging.
-
-We first look at the graph to identify any anomalies, such as any spikes in *rows read* or *rows written*. If this performance impact coincided with a deployment, the deploy request will show up on the graph next to the spike. This provides direct insight into what schema change caused the performance issues.
-
-IMAGE
-
-Based on the graph, we can see that there's a large spike right at the time we deployed deploy request #3. This information gives us more confidence that this performance impact is indeed a database issue.
-
-Next, we can drill down further by looking at the "Queries during the last 24 hours" table. We'll sort by "Total time" to quickly surface any slow queries.
-
-IMAGE HERE
-
-Up at the top, we see one query that stands out. At 2400 ms, it's running much slower than we expect. We decide to take a closer look at this query. Clicking on the query brings up the detailed view, which includes a list of all instances of the query running slowly in the past 24 hours.
-
-Taking a closer look, we notice that this query has been running slowly since the previous deployment that we saw on the graph. We can open that deploy request to see what changed.
-
-CODE SNIPPET
-
-Upon further inspection, it appears an index was dropped during the previous deploy request! 
-
-With this knowledge, we can now open up a new deploy request, re-adding the index. After deploying it to production, we come back to the Insights page to confirm performance is back to normal.
 
 ## Need help?
 
