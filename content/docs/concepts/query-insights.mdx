@@ -5,6 +5,8 @@ subtitle: 'Find and optimize long-running queries in your application.'
 
 PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time that a query was impacted, and, if applicable, the [Deploy Request](/concepts/deploy-requests) that affected it.
 
+Insights is currently in beta.
+
 <VideoBlock src='/img/docs/insights.mp4' />
 <p align='center'><i>This video shows an example Insights page. All explanations are covered in this doc.</i></p>
 
@@ -13,8 +15,6 @@ PlanetScale Insights gives you a detailed look into the active queries running a
 </InfoBlock>
 
 ## Insights page overview
-
-PlanetScale Insights is currently in beta. You can opt-in on your Organization Settings page at `https://app.planetscale.com/<YOUR-ORG>/settings/beta-features`.
 
 To view Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Query insights**" tab.
 
@@ -75,12 +75,10 @@ You can customize the metrics that show up on the Queries list by clicking the "
 
 Clicking on a query in the Queries list will open a new page with more information about that query, such as:
 
-- Query pattern
-- Slow instances of the query during the selected time frame
-- Query tags
-- An option to generate the [query `EXPLAIN` plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/)
-
-If you toggle "Show explain plan" you can generate the execution plan for the selected query. You may have to fill in some sample values, designated with placeholders like `:v1`.
+- **The query pattern** &mdash; The query with data normalized away. This query may run several times with different values, so we've stripped it down to the overall query pattern.
+- **Slow instances of the query** &mdash; Below the query pattern, we surface any slow instances of the query.
+- **Query tags** &mdash; If any of the slow queries have [SQL comment](https://google.github.io/sqlcommenter/) tags attached, you'll see the key value pairs in the table. Note, if you're sending comments through a MySQL shell, make sure you have [enabled comments with the `-c` flag](https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html#option_mysql_comments).
+- **Query `EXPLAIN` plan** &mdash; If you toggle "Show explain plan" you can generate the [execution plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/) for the selected query. You may have to fill in some sample values, designated with placeholders like `:v1`.
 
 If you'd like to further interact with the query can, click "Open query in web console" and you'll be taken to your in-dashboard web console where you can run the `EXPLAIN` plan.
 
