@@ -11,7 +11,7 @@ This feature supports globally distributed applications by enabling your databas
 
 ## Concepts
 
-### Replication across Regions
+### Replication across regions
 PlanetScale replicates your data across regions with an asynchronous strategy, first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
 
 ```sql
@@ -20,7 +20,7 @@ SELECT max_repl_lag();
 
 The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
 
-### Read-only Connections
+### Read-only connections
 Connecting to a read-only replica will allow you to query your data, but will not allow you to insert, update, or delete it.
 
 ## How to create a read-only region
