@@ -9,7 +9,7 @@ After a period of inactivity, free databases will enter 'sleep' mode. All data w
 
 ## What is database sleeping
 
-When a database on the [free Developer plan](/concepts/billing#planetscale-plans) is inactive for 7 days, the database will be enter sleep mode. When a database is sleeping, all data is backed up, but you **will not be able to connect to any branches on the database** until it has been woken up.
+When a database on the [free Hobby plan](/concepts/billing#planetscale-plans) is inactive for 7 days, the database will be enter sleep mode. When a database is sleeping, all data is backed up, but you **will not be able to connect to any branches on the database** until it has been woken up.
 
 ![PlanetScale dashboard overview page - Sleeping databases](/img/docs/planetscale-sleeping-database-overview.png)
 
@@ -21,7 +21,7 @@ Right before a database enters sleep mode, we make a backup of all data, even if
 
 Here is the criteria we use to determine when a database is eligible to sleep:
 
-- The database is on the [**free** Developer plan](/concepts/billing#planetscale-plans)
+- The database is on the [**free** Hobby plan](/concepts/billing#planetscale-plans)
 - The database is at least **seven days old**
 - There have been **no rows written or connections** to any branches of the database in the past **7 days**
 
@@ -31,7 +31,7 @@ If the database meets all of this criteria, it will enter sleep mode.
 
 To prevent a database from entering sleep mode, make sure to connect to any branch of the database at least once every 7 days.
 
-Because database sleeping only applies to databases on the free Developer plan, another option is to upgrade your database to the [paid Scaler plan](/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
+Because database sleeping only applies to databases on the free Hobby plan, another option is to upgrade your database to a [paid Scaler or Hobby plan](/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
 
 ## How to wake a sleeping database
 
