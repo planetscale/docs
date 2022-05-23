@@ -77,7 +77,7 @@ Clicking on a query in the Queries list will open a new page with more informati
 
 - **The query pattern** &mdash; The query with data normalized away. This query may run several times with different values, which Insights combines into a single query pattern.
 - **Notable instances of the query** &mdash; Below the query pattern, we surface any notable instances of the query. This includes query instances over 1 second and query instances with over 10,000 rows read.
-- **Error messages** &mdash; If applicable.
+- **Error messages** &mdash; If any exist.
 - **Query tags** &mdash; If any of the slow queries have [SQL comment](https://google.github.io/sqlcommenter/) tags attached, you'll see the key-value pairs in the table. Note, if you're sending queries with comments using the MySQL shell, make sure you have [enabled comments with the `-c` flag](https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html#option_mysql_comments).
 - **Query `EXPLAIN` plan** &mdash; If you toggle "Show explain plan", you can generate the [execution plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/) for the selected query. You may have to fill in some sample values designated with placeholders like `:v1`. We use placeholders in the patterns both so you can look at whole patterns at once and so the literal values remain private.
 
