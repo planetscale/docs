@@ -53,21 +53,21 @@ The available options are:
 
 The table underneath the graph shows all queries performed on your database in the past 24 hours. To further narrow down query analysis, you can select a time range from the above graph to restrict the table to queries that happened in that time frame.
 
-![Insights queries selected time range](/img/docs/insights-selected-time-frame.png)
+You can also sort the columns for quick analysis.
 
-Queries over 1000 ms are clickable for a deeper look. You can also sort the columns for quick analysis.
+![Insights queries selected time range](/img/docs/insights-selected-time-frame.png)
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
 **Available query statistics**:
 
-- **Keyspace** &mdash; The table(s) being queried or modified.
 - **Count** &mdash; The number of times this query has run.
 - **Total time (ms)** &mdash; The total time the query has run in milliseconds.
 - **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
-- **Rows returned** &mdash; The number of rows fetched by a `SELECT` statement.
-- **Rows read** &mdash; The total number of rows read. This is the number that directly affects your [rows read billing calculation](/concepts/billing#understanding-rows-read). 
-- **Rows affected** &mdash; The number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement.
+- **Table** &mdash; The table(s) being queried or modified.
+- **Rows returned** &mdash; The total number of rows fetched by a `SELECT` statement. This includes all times the query has run in the displayed time frame.
+- **Rows read** &mdash; The total number of rows read. This includes all times the query has run in the displayed time frame. This is the number that directly affects your [rows read billing calculation](/concepts/billing#understanding-rows-read). 
+- **Rows affected** &mdash; The total number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement. This includes all times the query has run in the displayed time frame.
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
@@ -76,7 +76,8 @@ You can customize the metrics that show up on the Queries list by clicking the "
 Clicking on a query in the Queries list will open a new page with more information about that query, such as:
 
 - **The query pattern** &mdash; The query with data normalized away. This query may run several times with different values, so we've stripped it down to the overall query pattern.
-- **Slow instances of the query** &mdash; Below the query pattern, we surface any slow instances of the query.
+- **Notable instances of the query** &mdash; Below the query pattern, we surface any notable instances of the query. This includes query instances over 1 second and query instances with over 10,000 rows read.
+- **Error messages** &mdash; If applicable.
 - **Query tags** &mdash; If any of the slow queries have [SQL comment](https://google.github.io/sqlcommenter/) tags attached, you'll see the key-value pairs in the table. Note, if you're sending comments through a MySQL shell, make sure you have [enabled comments with the `-c` flag](https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html#option_mysql_comments).
 - **Query `EXPLAIN` plan** &mdash; If you toggle "Show explain plan", you can generate the [execution plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/) for the selected query. You may have to fill in some sample values designated with placeholders like `:v1`.
 
