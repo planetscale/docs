@@ -19,5 +19,5 @@
 
 ## Notes
 
-- Search is powered by [DocSearch](https://docsearch.algolia.com/). PlanetScale's configuration on DocSearch can be viewed [here](https://github.com/algolia/docsearch-configs/blob/master/configs/planetscale.json)
+- Search is powered by [DocSearch](https://docsearch.algolia.com/). The PlanetScale configuration on DocSearch can be viewed [here](https://github.com/algolia/docsearch-configs/blob/master/configs/planetscale.json)
 - Sitemap is only generated during a build and is not checked in to the repo.
