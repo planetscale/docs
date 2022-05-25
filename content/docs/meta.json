@@ -60,7 +60,7 @@
     },
     {
       "id": "tutorials",
-      "name": "Integration guides",
+      "name": "Quickstarts",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
@@ -146,6 +146,15 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "id": "integrations",
+      "name": "Integrations",
+      "description": "Learn about the integrations that PlanetScale supports.",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        { "route": "airbyte", "display": "Airbyte" }
       ]
     },
     {
