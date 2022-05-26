@@ -5,7 +5,9 @@ subtitle: 'PlanetScale pricing was designed for transparency and scalability.'
 
 ## Overview
 
-PlanetScale offers a free *Developer* plan with a generous **10 GB of storage**. At $29 per month, our paid *Scaler* plan comes with 25 GB storage, 100 billion row `reads`, and 50 million row `writes`, with the option to pay for additional usage and storage as you go. This scalable, pay-as-you-grow model means you'll never have to over-provision resources.
+PlanetScale offers a scalable, pay-as-you-grow plan model, which means you'll never have to over-provision resources while building your application. We offer three base plans: `Hobby`, `Scaler`, and `Team`, as well as an additional customizable `Enterprise` option.
+
+You can find the complete list of plan offerings [in the next section](#planetscale-plans).
 
 <InfoBlock type="note">
   We use <a href="https://simple.wikipedia.org/wiki/Gibibyte"><strong>gibibytes, otherwise known as binary gigabytes</strong></a>, to calculate storage and usage limits. For reference, 1 binary gigabyte is equivalent to 2<sup>30</sup> bytes.
@@ -17,34 +19,41 @@ PlanetScale offers a free *Developer* plan with a generous **10 GB of storage**.
 - **Writes**: Adding new information or changing existing information in your PlanetScale databases.
 - **Storage**: Data saved in the form of tables, columns, rows, and their corresponding relationships.
 
-See the ["Understanding rows read" section](#understanding-rows-read) for a more in depth look at the rows read calculation.
+See the ["Understanding rows read" section](#understanding-rows-read) for a more in-depth look at the rows read calculation.
 
 ## PlanetScale plans
 
-PlanetScale applies billing plans at the **database level**. You can create several databases under one account/organization. The usage charges will be scoped to each database, which you can find all together in the [billing section for your Organization](/concepts/billing#organization-billing-page). Some limitations apply to the free tier, see below for more information.
+PlanetScale applies billing plans at the **database level**. You can create several databases under one Organization. The usage charges will be scoped to each database, which you can find all together in the [billing section of your Organization](/concepts/billing#organization-billing-page). Some limitations apply to the free tier. See below for more information.
 
-We offer three plans, summarized below:
+We offer four plan options, summarized below:
 
-|                      | **Developer**: Free  | **Scaler**: Pay as you grow    | **Enterprise**: Custom                      |
-| -------------------- | -------------------- | ------------------------------- | --------------------------------------------- |
-| **Storage/month**    | 10 GB                 | 25 GB + $2.50 per additional 1 GB | Configurable                                  |
-| **Row reads/month**  | 1 billion            | 100 billion + $1 per additional 1 billion | Configurable                                  |
-| **Row writes/month** | 10 million           | 50 million + $1.50 per additional 1 million   | Configurable                                  |
-| **Branches**         | 3 per database       | 10 per database                 | _Unlimited_                                   |
-| **Audit log retention**|  5 days            | 15 days                         | _Unlimited_                                  |
-| **Concurrent Connections**| 1,000           | 10,000                          | _Unlimited_                                   |
-| **Automated Backups**| Once daily           | Every 12 hours                  | Configurable                                  |
-| **Autoscaling**      | Not included         | Included                        | Configurable                                  |
-| **Support**          | Community            | Standard                        | Premium                                       |
-| **Monthly fee**      | $0                   | $29 per database                | [Contact us](https://planetscale.com/contact) |
+|                      | **Hobby**  | **Scaler**   | **Team**   | **Enterprise**       |
+| -------------------- | -----------------| ------------------------------- | --------------------------- | --------------------------- |
+| **Storage/month**    | 5 GB             | 10 GB* | 100 GB* | Configurable            | 
+| **Row reads/month**  | 1 billion        | 100 billion* | 500 billion* | Configurable    |
+| **Row writes/month** | 10 million       | 50 million* | 100 million* | Configurable  |
+| **Production branches** | 1 per database   | 2 per database          | 3 per database | _Unlimited_   |
+| **Development branches** | 1 per database   | 5 per database         | 10 per database | _Unlimited_  |
+| **Audit log retention** | 5 days        | 15 days                       | 60 days | _Unlimited_          |
+| **Concurrent Connections**| 1,000       | 10,000                        | 10,000 | _Unlimited_                 |
+| **Automated Backups**| Once daily       | Every 12 hours                | Every 12 hours | Configurable                |
+| **Autoscaling**      | Not included     | Standard                      | Additional resources | Configurable                |
+| **SSO**              | Not included     | Available as an add-on | Included | Included                     |
+| **Support**          | Community        | Standard     | Standard, upgrade available** | Premium                     |
+| **Deployment options** | Cloud   | Cloud   | Cloud | Multi-tenant, Single-tenant, and Managed Cloud |
+| **Monthly fee**      | $0               | $29 per database              | $599 per database | Starting at $2999 |
+
+\* For the Scaler and Team plans, any extra storage over the included amount is billed at $2.50 per additional 1 GB, extra rows read over the included amount are billed at $1 per additional 1 billion, and extra rows written over the included amount are billed at $1.50 per additional 1 million.
+
+\** Business support is available on the Team plan for an additional fee.
 
 <InfoBlock type="note">
-  You are limited to <strong>one free database per organization</strong>. Free databases may be <a href="/concepts/database-sleeping">slept</a> after a 7 day period of inactivity.
+  You are limited to <strong>one free database per organization</strong>. Free databases may be <a href="/concepts/database-sleeping">slept</a> after a 7-day period of inactivity.
 </InfoBlock>
 
-All plans are billed on a **monthly basis**. 
+Scaler and Team plans are billed on a **monthly basis**. 
 
-For more information about [our `Enterprise` plan](https://planetscale.com/enterprise), please [contact our sales team](https://www.planetscale.com/contact). For an overview of each plan's complete offerings and FAQ, [check out the pricing page](https://planetscale.com/pricing).
+For more information about [our `Enterprise` plan](https://planetscale.com/enterprise), please [reach out to us](https://www.planetscale.com/contact). [On our pricing page](https://planetscale.com/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
 
 <InfoBlock type="note">
   Plans are priced <b>per database</b>. The total charge for a PlanetScale <em>database</em> includes the charge for
@@ -53,11 +62,11 @@ For more information about [our `Enterprise` plan](https://planetscale.com/enter
 
 ## Plan add-ons
 
-To make sure our plans work for your unique use case, we also offer options to customize your Scaler plan.
+To make sure our plans work for your unique use case, we also offer options to customize your Scaler and Hobby plans.
 
-### Branch packs
+### Development branch packs
 
-The Scaler plan comes with 10 branches per database. You can add additional branches to your Scaler plan in **packs of 5** for an extra $25/mo per pack.
+You can add additional development branches to Scaler and Hobby plans in **packs of 5** for an extra $25/mo per pack.
 
 **To add a branch pack to a database:**
 
@@ -71,16 +80,21 @@ The Scaler plan comes with 10 branches per database. You can add additional bran
 
 ### User scheduled backups
 
-We run automatic daily backups for every branch for free. On the Scaler plan, we run automated backups every 12 hours.
+We run automatic daily backups for every branch for free. On the Scaler and Hobby plans, we run automated backups every 12 hours.
 
 You can also [schedule additional backups yourself](/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, we charge **$0.023 per GB** per month.
+
+### Single Sign-on (SSO)
+
+SSO is included on our Team and Enterprise plans. You can add SSO for your organization under the Scaler plan for an additional fee. Please [contact us](https://planetscale.com/contact) to enable SSO.
 
 ## Organization usage and billing page
 
 Each organization has its own billing page, from which you can:
 
 - View your current and previous usage per database
-- Upgrade a free database to the Scaler plan
+- Upgrade a free database to the Scaler or Hobby plan
+- Upgrade a Scaler database to the Hobby plan
 - Enter/update your credit card information
 - Download current and previous invoices
 
@@ -100,10 +114,12 @@ For example, you may have the following line items:
 
 - Rows _read_ for `main` branch
 - Rows _read_ for `your-test-branch`
+- Rows _read_ for `main` branch read-only region
 
-In addition, storage per branch has two line items:
+In addition, storage per branch may have the following line items:
   - Storage usage per GB
   - Prorated discounts, if the branch existed for a smaller time period than the billing period
+  - Storage totals for each read-only region
 
 Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
 
@@ -111,20 +127,20 @@ Storage is prorated by a percentage equal to the existence of a branch's hours/b
 
 To download an invoice, go to [your billing page](#find-your-database-billing-page) (`Organization > Settings > Usage and billing > Billing`).
 
-You'll see a table of current and previous monthly invoices. You can download an invoice by month by clicking the "**Download**" button. This will send you to a Stripe invoice page where you'll have the option to download the complete invoice in PDF format, see invoice details, or download your receipt.
+You'll see a table of current and previous monthly invoices. You can download an invoice by month by clicking the "**Download**" button. This will send you to a Stripe invoice page, where you'll have the option to download the complete invoice in PDF format, see invoice details, or download your receipt.
 
 To see more details about your billing from the PlanetScale dashboard, click the "**View details**" button on the Billing page next to the month you want to view. This will show you an overview of the charges for all of the databases in your organization.
 
 <InfoBlock type="note">
   PlanetScale generates both current and past invoices. Even for the <b>free</b>{' '}
-  plan! You can see the cost had you not been on the Developer plan.
+  plan! You can see the cost had you not been on the Hobby plan.
 </InfoBlock>
 
 ## Usage and usage limits
 
-Each PlanetScale plan provides different feature and usage limits. If you accidentally surpass your plan's limits, you'll receive a warning notification and your database will be marked as in overage. If you do not upgrade your plan within 7 days of receiving the notification, PlanetScale will "degrade service" to your database by putting it into `read-only` mode. At this point, all `writes` are disabled and all _migrations_ are halted.
+Each PlanetScale plan provides different feature and usage limits. If you accidentally surpass your plan's limits, you'll receive a warning notification, and your database will be marked as in overage. If you do not upgrade your plan within 7 days of receiving the notification, PlanetScale will "degrade service" to your database by putting it into `read-only` mode. At this point, all `writes` are disabled, and all _migrations_ are halted.
 
-When placed in `read-only` mode, the databases you have deployed in PlanetScale and any data they contain, are not impacted by this change. `Writes` are disabled, and all branch/database creation is temporarily halted.
+When placed in `read-only` mode, the databases you have deployed in PlanetScale and any data they contain are not impacted by this change. `Writes` are disabled, and all branch/database creation is temporarily halted.
 
 <InfoBlock type="warning">
   Your PlanetScale service only gets throttled if your usage exceeds the limits
@@ -139,7 +155,7 @@ Rows read is a **measure of the work that the database engine does**, not a meas
 
 ### Caveats
 
-While in most cases the work done is a direct reflection of the number of rows read, there are some caveats. 
+While, in most cases, the work done is a direct reflection of the number of rows read, there are some caveats. 
 
 The `SELECT count(*)` query is a special case. The database engine optimizes this query and doesn't read row data itself to return a count, so this doesn't actually increment rows read. In other words, if you run the query `SELECT count(*)` on a table with 10m rows, your rows read will be 0.
 
@@ -163,9 +179,9 @@ This table has 15 rows. All of them are read, which is reflected in the `rows` o
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
 ```
 
-It's important to remember the rows read returned with `EXPLAIN` will not always be the exact number of actual rows read, as it is **just an estimation**. You should not rely on this as an accurate way to determine billing ahead of time, but rather as a starting point to see the potential impact of queries. It can be a great starting point for optimization.
+It's important to remember the rows read returned with `EXPLAIN` will not always be the exact number of actual rows read, as it is **just an estimation**. You should not rely on this as an accurate way to determine billing ahead of time but rather as a starting point to see the potential impact of queries. It can be a great starting point for optimization.
 
-To see the exact rows read, you will need to run the query. You can use the `EXPLAIN ANALYZE` statement to do this. It will return the estimated information about how it will run the query, run the query, and then return the actual impact from running the query.
+To see the exact rows read, you will need to run the query. You can use the `EXPLAIN ANALYZE` statement to do this. It will return the estimated information about how it will run the query, run the query, and then return the actual impact of running the query.
 
 ```sql
 EXPLAIN ANALYZE select * from posts
@@ -202,7 +218,7 @@ This returned output indicates that 4586 total rows have been read.
 
 ## Need help?
 
-Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions) to see how others are using PlanetScale.
+Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
 
 <NextBlock
   steps={[

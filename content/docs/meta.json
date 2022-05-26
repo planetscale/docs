@@ -15,6 +15,7 @@
             { "route": "deploy-requests", "display": "Deploy requests" },
             { "route": "connection-strings", "display": "Connection strings" },
             { "route": "regions", "display": "Regions" },
+            { "route": "read-only-regions", "display": "Read-only regions" },
             { "route": "database-imports", "display": "Database imports" },
             { "route": "database-sleeping", "display": "Database sleeping" }
           ]
@@ -59,7 +60,7 @@
     },
     {
       "id": "tutorials",
-      "name": "Integration guides",
+      "name": "Quickstarts",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
@@ -145,6 +146,15 @@
             }
           ]
         }
+      ]
+    },
+    {
+      "id": "integrations",
+      "name": "Integrations",
+      "description": "Learn about the integrations that PlanetScale supports.",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        { "route": "airbyte", "display": "Airbyte" }
       ]
     },
     {
