@@ -41,7 +41,7 @@
           "display": "Monitoring and analytics", 
           "subpages": [
             { "route": "audit-log", "display": "Audit log" },
-            { "route": "query-statistics", "display": "Query statistics" }
+            { "route": "query-insights", "display": "Query Insights" }
           ]
         },
         {
