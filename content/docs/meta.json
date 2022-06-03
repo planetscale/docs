@@ -236,6 +236,18 @@
           "display": "PlanetScale Support overview"
         }
       ]
+    },
+    {
+      "id": "support",
+      "name": "Support",
+      "description": "Learn about PlanetScale Support",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        {
+          "route": "support-overview",
+          "display": "PlanetScale Support overview"
+        }
+      ]
     }
   ]
 }
