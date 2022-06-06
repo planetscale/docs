@@ -59,6 +59,18 @@ For more information about certificates from a Certificate Authority, check out 
 
 If the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting-connectivity-issues) for more information.
 
+### Importing large databases
+
+If you're importing a large database (that uses over 5 GB of storage) and are on the [Hobby plan](https://planetscale.com/pricing), you will receive a prompt as shown below to upgrade your plan:
+
+![Upgrade your hobby plan if importing more than 5 GB](/img/docs/imports-upgrade-cta.png)
+
+You can use the **Add new card** button here to add a credit card and upgrade your account. 
+
+Once you've successfully upgraded your plan, you should be able to continue importing your external database into PlanetScale.
+
+![Account upgraded, continue to importing database](/img/docs/upgraded-import-continue.png)
+
 ## Import process
 
 There are three simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information.
