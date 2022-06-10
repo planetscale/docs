@@ -3,18 +3,22 @@ title: 'PlanetScale Connect - Airbyte'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
 ---
 
-With the PlanetScale Connect beta, you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
+With the PlanetScale Connect (beta), you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
 
 We implemented an [Airbyte](https://airbyte.com/) connector as the pipeline between your PlanetScale source and selected destination. This document will walk you through how to connect your PlanetScale database to Airbyte.
+
+<InfoBlock type='note'>
+  PlanetScale Connect is currently in beta. To generate a working connection string, you must opt into the beta.
+</InfoBlock>
 
 ## Connect to Airbyte
 
 Only [Airbyte Open Source](https://docs.airbyte.com/quickstart/deploy-airbyte) supports the PlanetScale data source. In this section, you'll learn how to set up Airbyte and connect your PlanetScale source.
 
-### Prerequisites
+### Requirements
 
 - A PlanetScale database
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/)
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) (Docker terms apply)
 
 ### Set up Airbyte locally
 
@@ -50,10 +54,6 @@ You can find the [PlanetScale Airbyte Source Dockerhub release page here](https:
 ### Fill in PlanetScale connection information
 
 You're now ready to connect your PlanetScale database to Airbyte. 
-
-<InfoBlock type='note'>
-  PlanetScale Connect is currently in beta. To generate a working connection string, you must opt into the beta.
-</InfoBlock>
 
 1. In the PlanetScale dashboard, head to the organization Settings page by clicking your organization > "**Settings**" > "**Beta features**" (`https://app.planetscale.com/<YOUR-ORG>/settings/beta-features`).
 2. Find and click the "**Enroll this organization in the Connect beta**" checkbox and save your changes.
@@ -129,9 +129,15 @@ Whenever you perform a schema change, you need to notify Airbyte of it:
 
 ## Billing
 
-PlanetScale Connect is available on all of our [free and paid plans](/concepts/billing/planetscale-plans) during the beta period.
+PlanetScale Connect is available on all of our [free and paid plans](/concepts/billing#planetscale-plans) during the beta period.
 
 Every Airbyte connection sync will count toward [your plan's `rows read`](/concepts/billing#planetscale-plans). When setting up your connection, make sure you're aware of the impact on `rows read`, and choose [a synchronization schedule](#choose-your-sync-frequency) that you're comfortable with.
+
+## Stopping Airbyte
+
+At any point, you can disable any incremental or full syncs by going to the 'Connection' settings page and clicking 'Delete this connection'. This will not touch any of the source or destination data, but will prevent Airbyte from doing any further operations.
+
+![Airbyte - PlanetScale disconnection](/img/docs/airbyte-disconnect.png)
 
 ## Need help?
 

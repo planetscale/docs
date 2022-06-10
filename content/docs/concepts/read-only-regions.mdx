@@ -5,23 +5,9 @@ subtitle: 'Add additional read-only regions to your production database.'
 
 ## Overview
 
-With the PlanetScale Portals beta, you can replicate your production database across the globe by creating read-only regions in any PlanetScale [region of availability](/concepts/regions).
+With the PlanetScale Portals (beta), you can replicate your production database across the globe by creating read-only regions in any PlanetScale [region of availability](/concepts/regions).
 
 This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your applications and users.
-
-## Concepts
-
-### Replication across regions
-PlanetScale replicates your data across regions with an asynchronous strategy, first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
-
-```sql
-SELECT max_repl_lag();
-```
-
-The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
-
-### Read-only connections
-Connecting to a read-only region will allow you to query your data, but will not allow you to insert, update, or delete it.
 
 ## How to create a read-only region
 
@@ -45,6 +31,21 @@ Connecting to a read-only region will allow you to query your data, but will not
 3. Click "Delete region".
 
 Once you delete a region, you will no longer be charged for the storage or row reads associated with that region.
+
+## Concepts
+
+### Replication across regions
+PlanetScale replicates your data across regions with an asynchronous strategy, first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
+
+```sql
+SELECT max_repl_lag();
+```
+
+The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
+
+### Read-only connections
+
+Connecting to a read-only region will allow you to query your data, but will not allow you to insert, update, or delete it.
 
 ## Availability and pricing
 
