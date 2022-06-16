@@ -194,6 +194,15 @@
               "display": "Change single unique key"
             }
           ]
+        },
+        {
+          "display": "Table and column renames",
+          "subpages": [
+            {
+              "route": "handling-table-and-column-renames",
+              "display": "Handling table and column renames"
+            }
+          ]
         }
       ]
     },
