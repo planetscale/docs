@@ -26,10 +26,11 @@ Data is encrypted at rest on the underlying storage media that serves database b
 
 #### In transit
 
-Encrypted data is transmitted to PlanetScale databases through two major paths:
+Encrypted data is transmitted to PlanetScale databases through three major paths:
 
 - The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
 - PlanetScale [Connection Strings](/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
+- When using [PlanetScale Connect](/integrations/airbyte), [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) is used to secure all data transmitted between PlanetScale and Airbyte.
 
 ### Additional data protection controls
 

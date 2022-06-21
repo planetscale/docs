@@ -135,6 +135,11 @@ module.exports = {
         source: '/reference/service-tokens',
         destination: '/concepts/service-tokens',
         permanent: true
+      },
+      {
+        source: '/concepts/query-statistics',
+        destination: '/concepts/query-insights',
+        permanent: true
       }
     ]
   }

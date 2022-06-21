@@ -41,7 +41,7 @@
           "display": "Monitoring and analytics", 
           "subpages": [
             { "route": "audit-log", "display": "Audit log" },
-            { "route": "query-statistics", "display": "Query statistics" }
+            { "route": "query-insights", "display": "Query Insights" }
           ]
         },
         {
@@ -60,7 +60,7 @@
     },
     {
       "id": "tutorials",
-      "name": "Integration guides",
+      "name": "Quickstarts",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
@@ -149,6 +149,16 @@
       ]
     },
     {
+      "id": "integrations",
+      "name": "Integrations",
+      "description": "Learn about the integrations that PlanetScale supports.",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        { "route": "datadog", "display": "Datadog" },
+        { "route": "airbyte", "display": "Airbyte" }
+      ]
+    },
+    {
       "id": "learn",
       "name": "Learn",
       "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
@@ -184,6 +194,15 @@
               "display": "Change single unique key"
             }
           ]
+        },
+        {
+          "display": "Table and column renames",
+          "subpages": [
+            {
+              "route": "handling-table-and-column-renames",
+              "display": "Handling table and column renames"
+            }
+          ]
         }
       ]
     },
@@ -212,6 +231,18 @@
             { "route": "shell", "display": "shell" },
             { "route": "signup", "display": "signup" }
           ]
+        }
+      ]
+    },
+    {
+      "id": "support",
+      "name": "Support",
+      "description": "Learn about PlanetScale Support",
+      "image": "/img/internals/category_reference_light.png",
+      "pages": [
+        {
+          "route": "support-overview",
+          "display": "PlanetScale Support overview"
         }
       ]
     }
