@@ -24,7 +24,8 @@ PlanetScale allows you to branch database schemas the same way you branch your c
 
 PlanetScale provides two types of database branches:
 
-- **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Note, only the schema is copied, not the data.
+- **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Note, only the schema is copied, not the data. To create a development branch with data from another branch, see the [Data Branching&trade; feature](/concepts/data-branching) section.
+
 - **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups. To make a change to a production branch, you must [create a deploy request](#deploy-a-branch).
 
 <InfoBlock type='tip'>
@@ -62,7 +63,7 @@ It's possible to run multiple production branches simultaneously, within [your p
 
 If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes.
 
-Development branches **will not** copy over production data, just the schema.
+Development branches **will not** copy over production data, just the schema. To create a development branch with data from another branch, see the [Data Branching feature](/concepts/data-branching) secion.
 
 **How to create a development branch**:
 
@@ -183,7 +184,7 @@ You can see how this works in this [Rails migration tutorial](/tutorial/automati
 
 ## Need help?
 
-Get help from [PlanetScale's support team](https://www.planetscale.com/support), or join our [GitHub discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+Get help from [the PlanetScale support team](https://www.planetscale.com/support), or join our [GitHub discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
 
 <NextBlock
   steps={[
