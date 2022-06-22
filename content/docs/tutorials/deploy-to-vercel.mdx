@@ -5,7 +5,7 @@ subtitle: "Learn how to connect your PlanetScale database to deploy on Vercel"
 
 ## Introduction
 
-This guide will walk you through how to set up and deploy your PlanetScale database on Vercel.
+This guide will walk you through setting up and deploying your PlanetScale database on Vercel.
 
 It will cover two options:
 
@@ -16,13 +16,13 @@ It will cover two options:
 
 - A PlanetScale database &mdash; If you haven't created a database, refer to our [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) to get started
 - A [Vercel account](https://vercel.com/)
-- A project you're deploying to Vercel &mdash; If you're just poking around and don't already have an application to deploy, you can user our [Next.js + PlanetScale sample](/tutorials/connect-nextjs-app)
+- A project you're deploying to Vercel &mdash; If you're just poking around and don't already have an application to deploy, you can use our [Next.js + PlanetScale sample](/tutorials/connect-nextjs-app)
 
 ## Manually connect to Vercel
 
 ### Get your connection string from PlanetScale
 
-1. In your [PlanetScale dashboard](https://app.planetscale.com), click on the database you want to connect.
+1. In your [PlanetScale dashboard](https://app.planetscale.com), click on the database you want to connect to.
 2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
@@ -33,10 +33,10 @@ It will cover two options:
 
 ### Copy environment variables to Vercel
 
-1. Go to your Vercel dashboard
-2. Click on your Vercel project
-3. Click "**Settings**"
-4. Click "**Environment variables**"
+1. Go to your Vercel dashboard.
+2. Click on your Vercel project.
+3. Click "**Settings**".
+4. Click "**Environment variables**".
 5. Copy each value from your PlanetScale dashboard into a new environment variable in Vercel. Once you're done with one, click "**Add**" and continue to the next, if applicable.
 
 For example, if you're using Prisma, your connection string will look similar to this:
@@ -61,7 +61,7 @@ If you don't want to copy and paste the environment variables over to Vercel, yo
 1. You must have an existing PlanetScale database to use the integration. You can create a database in the [PlanetScale dashboard](https://app.planetscale.com).
 2. Click "**Add integration**" on the [Vercel integrations page](https://vercel.com/integrations/planetscale).
 3. Select the Vercel account you want to connect with.
-4. On the left you'll see the Vercel options and on the right the PlanetScale options.
+4. On the left, you'll see the Vercel options, and on the right, the PlanetScale options.
 5. Select the Vercel project you want to connect to, and beneath that, select the framework you're using. If the framework isn't listed, select "**General**". This selection is what determines the names of the environment variables.
 6. On the right side, choose the [PlanetScale Organization](/concepts/access-control#Overview) that the database is in. The integration will remain tied to this Organization and cannot be changed. 
 7. Beneath that, select the database you want to connect to.
@@ -70,14 +70,12 @@ If you don't want to copy and paste the environment variables over to Vercel, yo
 
 ### Configure your connection
 
-After you set up the initial connection, you also have the option to configure the PlanetScale connection and/or add more databases to the project.
+After you set up the initial connection, you also have the option to configure the PlanetScale connection, add more databases to the project, or remove databases from the project.
 
 To access the configuration page:
 
 1. In your Vercel project dashboard, click "**Integrations**".
 2. Click the "**Configure**" button.
-3. 
-
 
 <InfoBlock type='note'>
   If you're modifying an existing connection on a Vercel project, these environment variable values will be regenerated and overwritten.
@@ -97,7 +95,7 @@ To access the configuration page:
 
 ## What's next?
 
-Now that you've successfully deployed an application to Vercel, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
 
 ## Need help?
 
