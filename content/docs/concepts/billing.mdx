@@ -137,17 +137,6 @@ To see more details about your billing from the PlanetScale dashboard, click the
   plan! You can see the cost had you not been on the Hobby plan.
 </InfoBlock>
 
-## Usage and usage limits
-
-Each PlanetScale plan provides different feature and usage limits. If you accidentally surpass your plan's limits, you'll receive a warning notification, and your database will be marked as in overage. If you do not upgrade your plan within 7 days of receiving the notification, PlanetScale will "degrade service" to your database by putting it into `read-only` mode. At this point, all `writes` are disabled, and all _migrations_ are halted.
-
-When placed in `read-only` mode, the databases you have deployed in PlanetScale and any data they contain are not impacted by this change. `Writes` are disabled, and all branch/database creation is temporarily halted.
-
-<InfoBlock type="warning">
-  Your PlanetScale service only gets throttled if your usage exceeds the limits
-  designated within your plan.
-</InfoBlock>
-
 ## Understanding rows read
 
 It can be difficult to decipher what counts as a row read. Nobody wants to run a seemingly simple query only to be hit with an unexpected bill. This section will attempt to break down what goes into the rows read calculation and how you can test your queries to *estimate* the potential rows read before running them.
