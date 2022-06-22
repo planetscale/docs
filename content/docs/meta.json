@@ -11,6 +11,7 @@
           "subpages": [
             { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
             { "route": "branching", "display": "Branching" },
+            { "route": "data-branching", "display": "Data Branching" },
             { "route": "nonblocking-schema-changes", "display": "Non-blocking schema changes" },
             { "route": "deploy-requests", "display": "Deploy requests" },
             { "route": "connection-strings", "display": "Connection strings" },

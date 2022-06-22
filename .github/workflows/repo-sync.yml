@@ -23,6 +23,9 @@ jobs:
       - uses: repo-sync/pull-request@v2
         name: Create pull request
         with:
+          pr_title: "Syncing public/private repos"
+          pr_allow_empty: false
+          pr_body: "Automated PR syncing the public/private docs repos. :robot:"   
           source_branch: ${{ secrets.INTERMEDIATE_BRANCH }}
           destination_branch: main
           github_token: ${{ secrets.PAT }}
