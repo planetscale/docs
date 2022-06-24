@@ -102,29 +102,25 @@ Open your browser at [localhost:3000](localhost:3000) to see the running applica
 
 ## Deploying
 
-After you've got your application running locally, it's time to deploy it. To do so, you'll need to promote your database branch (`main` by default) to be the production branch ([read the branching documentation for more information](https://docs.planetscale.com/concepts/branching)). 
+After you've got your application running locally, you may want to deploy it. To do so, you'll need to promote your database branch (`main` by default) to be the production branch ([read the branching documentation for more information](/concepts/branching)).
+
+You can do this in the CLI with:
 
 ```sh
 pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-Now that your branch has been promoted to production, you can either use the existing password you generated earlier for running locally or create a new password. Regardless, you'll need a password in the deployment steps below.
+You can also promote a branch to production in the PlanetScale dashboard by going to your database overview page and clicking "Promote branch".
 
-Choose one of the following deploy buttons and make sure to update the `DATABASE_URL` variable during this setup process.
+### Deploy to Vercel
 
-### Deploy on Vercel
+If you'd like to deploy to Vercel, check out our [Deploy to Vercel documentation](/tutorials/deploy-to-vercel#deploy-to-vercel).
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/planetscale/nextjs-starter&env=DATABASE_URL)
+### Deploy to Netlify
 
-Walk through the steps listed on the Vercel deployment page. For more in depth instructions, see our [Deploy to Vercel documentation](/tutorials/deploy-to-vercel#deploy-to-vercel).
-
-### Deploy on Netlify
+Follow the instructions in our [Netlify deployment documentation](/tutorials/nextjs-planetscale-netlify-template#one-click-deploy-to-netlify) to deploy to Netlify.
 
 *Note: The `Netlify.toml` file in this repository includes the configuration for you to customize the `DATABASE_URL` property on the initial deploy.
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/planetscale/nextjs-starter)
-
-Follow the instructions on the Netlify deploy page. For more in depth instructions, see our [Netlify deployment documentation](/tutorials/nextjs-planetscale-netlify-template#one-click-deploy-to-netlify).
 
 ## Learn more
 
