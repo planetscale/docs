@@ -12,15 +12,17 @@ Deploy, branch, and query your database directly from the UI, or download our [C
 
 Built-in connection pooling means you’ll never run into connection limits for your database.
 
-## PlanetScale Data Branching&trade; feature
+## PlanetScale branching
 
-The PlanetScale Data Branching feature allows you to treat your databases like code by unlocking the ability to branch databases.
+The PlanetScale branching feature allows you to treat your databases like code by creating a branch of your production database schema to serve as an isolated development environment.
 
 PlanetScale provides two types of database branches: **development** and **production**.
 
 Development branches provide isolated copies of your database schema where you can make changes, experiment, or run CI against. Instantly branch your production database to create a staging environment for testing out your schema changes.
 
 Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups.
+
+We also offer [Data Branching&trade;](/concepts/data-branching), which allows you to create an isolated replica of your database for development, but with Data Branching, the replica will include both the schema **and** data.
 
 Learn more about [branching databases](https://docs.planetscale.com/concepts/branching).
 
