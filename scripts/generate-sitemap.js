@@ -6,11 +6,25 @@ const meta = require('../content/docs/meta.json')
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
+
   const baseURL = {
     development: process.env.NEXT_PUBLIC_VERCEL_URL,
     preview: process.env.NEXT_PUBLIC_VERCEL_URL,
     production: 'docs.planetscale.com'
   }[process.env.NEXT_PUBLIC_VERCEL_ENV]
+
+  const traversePage = (page, path) => {
+    let pages = []
+    if (page.route) {
+      pages.push(`<url><loc>https://${baseURL}/${path.join('/')}/${page.route}</loc></url>`)
+    }
+    if (page.subpages) {
+      page.subpages.forEach((subpage) => {
+        pages.push(traversePage(subpage, page.route ? [...path, page.route] : path))
+      })
+    }
+    return pages.join('')
+  }
 
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
@@ -20,8 +34,8 @@ const meta = require('../content/docs/meta.json')
             .map((category) => {
               return category.pages
                 .map((page) => {
-                  const url = `<url><loc>https://${baseURL}/${category.id}/${page.route}</loc></url>`
-                  return url
+                  const traversed = traversePage(page, [category.id])
+                  return traversed
                 })
                 .join('')
             })
