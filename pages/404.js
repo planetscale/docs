@@ -395,7 +395,7 @@ export default function NotFound() {
             <a href='https://docs.planetscale.com' className='mx-2 lg:mx-3 text-blue'>
               Documentation
             </a>
-            <a href='https://planetscale.com/support' className='mx-2 lg:mx-3 text-blue'>
+            <a href='https://support.planetscale.com/' className='mx-2 lg:mx-3 text-blue'>
               Support
             </a>
           </div>
