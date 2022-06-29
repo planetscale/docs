@@ -28,7 +28,7 @@ If you're attempting to import a database, the following reference guide will co
 | `TRIGGER` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `EVENT` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `LOAD DATA INFILE` | ✖️ | Loading data via [`LOAD DATA INFILE` is not supported](https://github.com/vitessio/vitess/issues/2976). |
-| `KILL` | ✖️ | We do not support killing shards from the command line. |
+| `KILL` | ✖️ | We do not support killing queries or shards from the command line. |
 | `LEFT JOIN`  | ❗ | Supported as long as there are not expressions that compare columns on the outer table to the inner table in sharded keyspaces. |
 | `FLOAT` | ❗ | We strongly discourage using `FLOAT` data type for a `PRIMARY KEY`. |
 
