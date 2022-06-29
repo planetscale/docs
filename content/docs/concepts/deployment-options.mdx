@@ -22,9 +22,13 @@ Multi-tenant is the default deployment option. When you sign up for a PlanetScal
 
 For companies that require their data to be **on their own** AWS or GCP account, we also offer a Managed deployment option. 
 
+<InfoBlock type='note'>
+  The PlanetScale Managed offering is only available on our [Enterprise plan](/concepts/billing#planetscale-plans). If you're interested, please [reach out](https://planetscale.com/contact) and we can figure out a custom solution for your use case.
+</InfoBlock>
+
 ### PlanetScale Managed highlights
 
-- Your database runs on your own AWS or GCP account using PlanetScale infrastructure
+- Your database runs on your own AWS or GCP account using PlanetScale deployments
 - This account will be managed by PlanetScale via:
   - **AWS** &mdash; [AWS PrivateLink](https://aws.amazon.com/privatelink/) (recommended) or [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
   - **GCP** &mdash; [Private Service Connect](https://cloud.google.com/vpc/docs/private-access-options)
@@ -33,23 +37,19 @@ For companies that require their data to be **on their own** AWS or GCP account,
 - You control data location with your own AWS regions
 - Because you own this account, you can run additional auditing and monitoring as needed
 
-<InfoBlock type='note'>
-  The PlanetScale Managed offering is only available on our [Enterprise plan](/concepts/billing#planetscale-plans). If you're interested, please [reach out](https://planetscale.com/contact) and we can figure out a custom solution for your use case.
-</InfoBlock>
-
 ## Single-tenant
 
 For companies that need their data on an isolated AWS or GCP account, but don't want to create their own account, we offer the Single-tenant option.
+
+<InfoBlock type='note'>
+  The PlanetScale Single-tenant offering is only available on our [Enterprise plan](/concepts/billing#planetscale-plans). If you're interested, please [reach out](https://planetscale.com/contact) and we can figure out a custom solution for your use case.
+</InfoBlock>
 
 ### Single-tenant highlights
 
 - We create and manage an AWS or GCP account for you
 - Your resources run on this separate account, apart from other customers, using PlanetScale infrastructure
 - We can create custom regions for you not offered in our Multi-tenant deployment option
-
-<InfoBlock type='note'>
-  The PlanetScale Single-tenant offering is only available on our [Enterprise plan](/concepts/billing#planetscale-plans). If you're interested, please [reach out](https://planetscale.com/contact) and we can figure out a custom solution for your use case.
-</InfoBlock>
 
 ## Deployment options comparison
 
@@ -60,6 +60,7 @@ For companies that need their data on an isolated AWS or GCP account, but don't 
 | Default availability zones* | 2 | Configurable  | Configurable |
 | Built-in sharding | ✖️ | ✔ | ✔ |
 | Default SSO | ✖️ | ✔ | ✔ |
+| Enterprise plan required | ✖️ | ✔ | ✔ |
 
 \* The Team plan comes with larger default resource allocation. [Contact us](https://planetscale.com/contact) to customize the default multi-tenant availability.
 
