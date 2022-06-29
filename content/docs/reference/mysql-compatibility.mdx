@@ -9,7 +9,7 @@ PlanetScale is built on top of open-source Vitess, a database clustering system 
 
 If you're importing an existing database, PlanetScale supports MySQL database versions `5.7` through `8.0`.
 
-By default, new and imported PlanetScale databases are created on the latest stable version of MySQL and character set `utf8mb4_0900_ai_ci`. PlanetScale only supports `utf8` character sets.
+By default, new and imported PlanetScale databases are created on the latest stable version of MySQL and character set `utf8mb4_0900_ai_ci`. PlanetScale only supports `utf8`, `utf8mb4`, and `utf8mb3` character sets.
 
 ## MySQL compatibility limitations
 
@@ -19,16 +19,20 @@ If you're attempting to import a database, the following reference guide will co
 
 | Statement     | Support | Description |
 | ------------- | ------- | --------------------------------------- |
-| `LEFT JOIN`  | ❗ | Supported as long as there are not expressions that compare columns on the outer table to the inner table in sharded keyspaces. |
 | `CONSTRAINT...FOREIGN KEY` | ✖️ | The usage of foreign key constraints or `FOREIGN KEY` syntax is [not supported on PlanetScale](/learn/operating-without-foreign-key-constraints). | 
 | `ALTER TABLE...RENAME COLUMN` | ✖️ | Column renaming via `RENAME COLUMN` is not supported. See our [guide for column rename recommendations](/learn/handling-table-and-column-renames).    |
 | `CREATE DATABASE` | ✖️ | You cannot `CREATE` a PlanetScale database from the command line. | 
 | `DROP DATABASE` | ✖️ | You cannot `DROP` a PlanetScale database from the command line. |
+| `PROCEDURE` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
+| `FUNCTION` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
+| `TRIGGER` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
+| `EVENT` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
+| `LOAD DATA INFILE` | ✖️ | Loading data via [`LOAD DATA INFILE` is not supported](https://github.com/vitessio/vitess/issues/2976). |
+| `KILL` | ✖️ | We do not support killing shards from the command line. |
+| `LEFT JOIN`  | ❗ | Supported as long as there are not expressions that compare columns on the outer table to the inner table in sharded keyspaces. |
 | `FLOAT` | ❗ | We strongly discourage using `FLOAT` data type for a `PRIMARY KEY`. |
-| `KILL` | ❗ | We do not support killing shards from the command line. |
 | `auto_increment` | ❗ | We do not support the use of `auto_increment` on columns in sharded keyspaces. |
-| `PREPARE` | ❗ |  |
-| `EXECUTE` | ❗ |  |
+
 
 <InfoBlock>
 ❗ = <i>Limitations in support</i> <br/>
@@ -42,8 +46,12 @@ If you're attempting to import a database, the following reference guide will co
 | ------------- | ------- | --------------------------------------- |
 | **Empty schemas** | ✖️ | Databases with empty schemas are invalid. You cannot deploy a schema change to production if no tables exist. |
 | **Cross-shard transactions** | ✖️ | We do not support cross-shard transactions by default and we recommend designing schemas in a way that they are not required. |
+| **Non-InnoDB Storage engine** | ✖️ | We only support [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) storage engine. |
+| **No unique key** | ✖️ | We require all tables have a [unique, non-null key](/learn/change-single-unique-key) that remains unchanged during migrations. |
+| **Direct DDL** | ✖️ | We do not support Direct DDL on [production branches](/concepts/branching). |
+| **Disabled binary logs** | ❗ | You must have binary logs enabled if importing a database using our [database importer tool](/concepts/database-imports). See our [Import doc](/concepts/database-imports#server-configuration-issues) for more required configuration. |
 
 
 ## Additional assistance
 
-If you need additional assistance or have any questions, contact the [PlanetScales Support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
+If you need additional assistance or have any questions, contact the [PlanetScale Support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
