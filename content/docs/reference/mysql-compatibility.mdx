@@ -9,7 +9,7 @@ PlanetScale is built on top of open-source Vitess, a database clustering system 
 
 If you're importing an existing database, PlanetScale supports MySQL database versions `5.7` through `8.0`.
 
-By default, new and imported PlanetScale databases are created on the latest stable version of MySQL and character set `utf8mb4_0900_ai_ci`. PlanetScale only supports `utf8`, `utf8mb4`, and `utf8mb3` character sets.
+New and imported PlanetScale databases are created on MySQL 8 and character set `utf8mb4_0900_ai_ci`. PlanetScale only supports `utf8`, `utf8mb4`, and `utf8mb3` character sets.
 
 ## MySQL compatibility limitations
 
@@ -21,8 +21,8 @@ If you're attempting to import a database, the following reference guide will co
 | ------------- | ------- | --------------------------------------- |
 | `CONSTRAINT...FOREIGN KEY` | ✖️ | The usage of foreign key constraints or `FOREIGN KEY` syntax is [not supported on PlanetScale](/learn/operating-without-foreign-key-constraints). | 
 | `ALTER TABLE...RENAME COLUMN` | ✖️ | Renaming columns and tables may be destructive. See our [guide for column rename recommendations](/learn/handling-table-and-column-renames).    |
-| `CREATE DATABASE` | ✖️ | You cannot `CREATE` a PlanetScale database from the MySQL command line. | 
-| `DROP DATABASE` | ✖️ | You cannot `DROP` a PlanetScale database from the command line. |
+| `CREATE DATABASE` | ✖️ | You cannot `CREATE` a PlanetScale database from the MySQL command line, however, this is supported in the [PlanetScale CLI](/reference/database). | 
+| `DROP DATABASE` | ✖️ | You cannot `DROP` a PlanetScale database from the MYSQL command line, however, this is supported in the [PlanetScale CLI](/reference/database). |
 | `PROCEDURE` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `FUNCTION` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `TRIGGER` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
@@ -31,7 +31,6 @@ If you're attempting to import a database, the following reference guide will co
 | `KILL` | ✖️ | We do not support killing shards from the command line. |
 | `LEFT JOIN`  | ❗ | Supported as long as there are not expressions that compare columns on the outer table to the inner table in sharded keyspaces. |
 | `FLOAT` | ❗ | We strongly discourage using `FLOAT` data type for a `PRIMARY KEY`. |
-| `auto_increment` | ❗ | We do not support the use of `auto_increment` on columns in sharded keyspaces. |
 
 
 <InfoBlock>
