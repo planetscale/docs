@@ -19,6 +19,11 @@ If you're attempting to import a database using our Import tool, there are some 
 
 ### Queries, functions, syntax, and data types
 
+<InfoBlock>
+❗ = <i>Limitations in support</i> <br/>
+✖️ = <i>Not supported</i>
+</InfoBlock>
+
 | Statement     | Support | Description |
 | ------------- | ------- | --------------------------------------- |
 | `CONSTRAINT...FOREIGN KEY` | ✖️ | The usage of foreign key constraints or `FOREIGN KEY` syntax is [not supported on PlanetScale](/learn/operating-without-foreign-key-constraints). | 
@@ -32,12 +37,6 @@ If you're attempting to import a database using our Import tool, there are some 
 | `LOAD DATA INFILE` | ✖️ | Loading data via [`LOAD DATA INFILE` is not supported](https://github.com/vitessio/vitess/issues/2976). |
 | `KILL` | ✖️ | We do not support killing queries or shards from the command line. |
 
-<InfoBlock>
-❗ = <i>Limitations in support</i> <br/>
-✖️ = <i>Not supported</i>
-</InfoBlock>
-
-
 ## Miscellaneous
 
 | Action     | Support | Description |
@@ -45,7 +44,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | **Empty schemas** | ✖️ | Databases with empty schemas are invalid. You cannot deploy a schema change to production if no tables exist. |
 | **Non-InnoDB Storage engine** | ✖️ | We only support [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) storage engine. |
 | **No unique key** | ✖️ | We require all tables have a [unique, non-null key](/learn/change-single-unique-key) that remains unchanged during migrations. |
-| **Direct DDL** | ✖️ | We do [not allow Direct DDL](https://docs.planetscale.com/learn/how-online-schema-change-tools-work) on [production branches](/concepts/branching). |
+| **Direct DDL** | ✖️ | We do [not allow Direct DDL](/learn/how-online-schema-change-tools-work) on [production branches](/concepts/branching). |
 | **Disabled binary logs** | ❗ | You must have binary logs enabled if importing a database using our [database importer tool](/concepts/database-imports). See our [Import doc](/concepts/database-imports#server-configuration-issues) for more required configuration. |
 
 
