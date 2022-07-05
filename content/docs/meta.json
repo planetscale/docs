@@ -157,7 +157,7 @@
       "image": "/img/internals/category_reference_light.png",
       "pages": [
         { "route": "datadog", "display": "Datadog" },
-        { "route": "airbyte", "display": "Airbyte" }
+        { "route": "airbyte", "display": "Airbyte" },
         { "route": "workos-directory-sync", "display": "WorkOS Directory Sync" }
       ]
     },
