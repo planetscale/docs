@@ -29,13 +29,12 @@ All PlanetScale schema changes must occur on a database branch. _(A database bra
 
 At a high level, this is what happens during the _non-blocking schema change_ process in PlanetScale:
 
-1. You create a database branch.
+1. You create a development branch.
 2. You test your changes on this branch before attempting to apply the changes to the `main` branch. _(i.e., You made some changes to the database you wish to deploy to the production database.)_
 3. You open a request to deploy your changes to `main`.
 4. PlanetScale verifies that your schema changes are safe to be deployed to production. If there are any issues or schema conflicts, you'll be shown the errors.
-
-When you hit deploy, it doesn't mean that PlanetScale can immediately apply your schema changes to the production database. After all, there may be a current running deployment from a previous user or even from yourself. The latest deployment request automatically yields to production traffic and gets added to a deployment queue in these situations.
-,. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production database.
+5. You click `Deploy changes`. Your deploy is added to a queue and run immediately or when existing deploys are complete.
+6. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production branch.
 
 <InfoBlock type='note'>
   PlanetScale makes sure not to exhaust your resources; the deployment may be throttled to avoid any impact on
