@@ -158,7 +158,7 @@
       "pages": [
         { "route": "datadog", "display": "Datadog" },
         { "route": "airbyte", "display": "Airbyte" },
-        { "route": "workos-directory-sync", "display": "WorkOS Directory Sync" }
+        { "route": "directory-sync", "display": "Directory Sync" }
       ]
     },
     {
