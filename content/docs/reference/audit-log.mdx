@@ -28,6 +28,9 @@ pscale audit-log <SUB-COMMAND> <FLAG>
 | **Flag** | **Description**        |
 | -------- | --------------------------------------- |
 | `-h`, `--help` | View help for `audit-log` command |
+| `--action` | Filter based on action type |
+| `--limit` int | The number of events to return. Min: 1, Max: 100 |
+| `--starting-after` string | The ID of the audit log to start after (for pagination) |
 | `--org <ORGANIZATION_NAME>` | The organization for the current user |
 
 ### Global flags
@@ -56,9 +59,17 @@ pscale audit-log list --org <ORGANIZATION_NAME>
 **Output:**
 
 ```bash
-ACTOR (25)  ACTION                   EVENT                     REMOTE IP      LOCATION         CREATED AT
------------ ------------------------ ------------------------ --------------- ---------------- ------------
-Name        Open_web_console main    branch.open_web_console  xxx.xxx.xxx.x   Los Angeles, CA  1 day ago
+ ID (25)      ACTOR (25)  ACTION                   EVENT                     REMOTE IP      LOCATION         CREATED AT
+------------- ----------- ------------------------ ------------------------ --------------- ---------------- ------------
+xxxxxxxxxx  Name        Open_web_console main    branch.open_web_console  xxx.xxx.xxx.x   Los Angeles, CA  1 day ago
+```
+
+### Pagination
+
+Use the ID from the last result and pass it as the `--starting-after` to retrieve the next page of results.
+
+```bash
+pscale audit-log list --limit 5 --starting-after <ID>
 ```
 
 ## Need help?
