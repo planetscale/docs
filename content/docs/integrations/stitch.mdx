@@ -60,7 +60,15 @@ PlanetScale Tap : INFO : [departments shard : -] no new rows found, exiting
 HTTP Tap : INFO : Server response status : "OK", message : "Batch accepted"
 HTTP Tap : INFO : flushing [1] messages for stream "departments"
 HTTP Tap : INFO : Server response status : "OK", message : "Batch accepted" 
+HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 ```
 
-6. In Stitch, you should see that it loaded `21` records to be replicated. 
+6. Any state outputted by the PlanetScale Tap will be saved and you can look at the logs for the location.
+example:
+
+``` bash
+HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
+```
+
+7. In Stitch, you should see that it loaded `21` records to be replicated. 
 ![Airbyte new PlanetScale connector](/img/docs/stitch-import-done.png)
