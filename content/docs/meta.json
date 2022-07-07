@@ -219,6 +219,7 @@
       "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
       "image": "/img/internals/category_reference_light.png",
       "pages": [
+        { "route": "mysql-compatibility", "display": "MySQL compatibility" },
         { "route": "planetscale-cli", "display": "PlanetScale CLI overview" },
         { 
           "display": "CLI command reference",
