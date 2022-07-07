@@ -29,11 +29,10 @@ For companies that require their data to be **on their own** AWS or GCP account,
 ### PlanetScale Managed highlights
 
 - Your database runs on your own AWS or GCP account managed by PlanetScale
-- This account will be managed by PlanetScale via:
+- We offer database connectivity to PlanetScale via:
   - **AWS** &mdash; [AWS PrivateLink](https://aws.amazon.com/privatelink/) (recommended) or [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
   - **GCP** &mdash; [Private Service Connect](https://cloud.google.com/vpc/docs/private-access-options)
 - You can continue to use the PlanetScale UI and CLI in the same way that you would our general multi-tenant offering, but the infrastructure will run on an account owned by you
-- PlanetScale does not have access to your data
 - You control data location with your own AWS regions
 - Because you own this account, you can run additional auditing and monitoring as needed
 
@@ -58,7 +57,7 @@ For companies that need their data on an isolated AWS or GCP account, but don't 
 | Isolated AWS or GCP instance | ✖️ | ✔   | ✔ |
 | You own the AWS or GCP account | ✖️ | ✖️ | ✔ |
 | Default availability zones* | 2 | Configurable  | Configurable |
-| Built-in sharding | ✖️ | ✔ | ✔ |
+| Sharding available | ✖️ | ✔ | ✔ |
 | [PrivateLink](https://aws.amazon.com/privatelink/) | ✖️ | ✔ | ✔ |
 | Enterprise plan required | ✖️ | ✔ | ✔ |
 
