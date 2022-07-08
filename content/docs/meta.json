@@ -39,6 +39,12 @@
           ]
         },
         {
+          "display": "Deployment",
+          "subpages": [
+            { "route": "deployment-options", "display": "Deployment options" }
+          ]
+        },
+        {
           "display": "Monitoring and analytics",
           "subpages": [
             { "route": "audit-log", "display": "Audit log" },

@@ -13,7 +13,7 @@ New PlanetScale databases are created on MySQL 8 with character set `utf8mb4_090
 
 ## MySQL compatibility limitations
 
-The following reference guide will cover some MySQL syntax, features, and more that PlanetScale either does not support or has limitations around.
+The following reference guide will cover some MySQL syntax, features, and more that PlanetScale either does not support or has limitations around. We are actively working on driving up compatibility, but it's an ongoing effort and will take some time to complete. See this [project board on GitHub](https://github.com/vitessio/vitess/projects/4) to learn what the Vitess team is currently focusing on.
 
 If you're attempting to import a database using our Import tool, there are some additional requirements that you can find in our [Database imports documentation](/concepts/database-imports#import-limitations).
 
@@ -30,6 +30,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | `ALTER TABLE...RENAME COLUMN` | ✖️ | Renaming columns and tables may be destructive. See our [guide for column rename recommendations](/learn/handling-table-and-column-renames).    |
 | `CREATE DATABASE` | ✖️ | You cannot `CREATE` a PlanetScale database from the MySQL command line, however, this is supported in the [PlanetScale CLI](/reference/database). | 
 | `DROP DATABASE` | ✖️ | You cannot `DROP` a PlanetScale database from the MYSQL command line, however, this is supported in the [PlanetScale CLI](/reference/database). |
+| `JSON_*` | ✖️ | Not all [JSON functions](https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html) are supported. |
 | `PROCEDURE` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `FUNCTION` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `TRIGGER` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
