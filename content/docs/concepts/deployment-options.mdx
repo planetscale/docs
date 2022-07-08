@@ -21,7 +21,7 @@ Cloud is the default deployment option. When you sign up for a PlanetScale accou
 
 ## Managed Cloud
 
-For companies that require their data to be **on their own** AWS or GCP account, we also offer a Managed Cloud deployment option.
+For companies that require their PlanetScale databases to run in AWS or GCP accounts that **they own themselves**, we also offer a Managed Cloud deployment option.
 
 <InfoBlock type='note'>
   The Managed Cloud offering is only available on our [Enterprise plan](/concepts/billing#planetscale-plans). If you're interested, please [reach out](https://planetscale.com/contact) and we can figure out a custom solution for your use case.
@@ -29,13 +29,12 @@ For companies that require their data to be **on their own** AWS or GCP account,
 
 ### Managed Cloud highlights
 
-- Your database runs on your own AWS or GCP account managed by PlanetScale
-- We offer database connectivity via:
+- Your database runs in a separate AWS or GCP account that you own and PlanetScale manages
+- We offer private database connectivity via:
   - **AWS** &mdash; [AWS PrivateLink](https://aws.amazon.com/privatelink/) (recommended) or [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
   - **GCP** &mdash; [Private Service Connect](https://cloud.google.com/vpc/docs/private-access-options)
 - You can continue to use the PlanetScale UI and CLI in the same way that you would our general cloud offering, but the infrastructure will run on an account owned by you
-- You control data location with your own AWS regions
-- Because you own this account, you can run additional auditing and monitoring as needed
+- Your databases can be deployed to any cloud provider region you choose that offers three Availability Zones, even regions that Cloud does not offer
 
 ## Single-tenant Cloud
 
@@ -49,7 +48,7 @@ For companies that need their data on an isolated AWS or GCP account, but don't 
 
 - We create and manage an AWS or GCP account for you
 - Your resources run on this separate account, apart from other customers, using PlanetScale infrastructure
-- We can create custom regions for you not offered in our general Cloud deployment option
+- Your databases can be deployed to any cloud provider region you choose that offers three Availability Zones, even regions that Cloud does not offer
 
 ## Deployment options comparison
 
@@ -57,12 +56,9 @@ For companies that need their data on an isolated AWS or GCP account, but don't 
 | - | ------------------------ | -------------------- | -------------------- |
 | Isolated AWS or GCP instance | ✖️ | ✔   | ✔ |
 | You own the AWS or GCP account | ✖️ | ✖️ | ✔ |
-| Default availability zones* | 2 | Configurable  | Configurable |
 | Sharding available | ✖️ | ✔ | ✔ |
-| [PrivateLink](https://aws.amazon.com/privatelink/) | ✖️ | ✔ | ✔ |
+| Private database connectivity | ✖️ | ✔ | ✔ |
 | Enterprise plan required | ✖️ | ✔ | ✔ |
-
-\* The Team plan comes with larger default resource allocation. [Contact us](https://planetscale.com/contact) to customize the default Cloud availability.
 
 ## Need help?
 
