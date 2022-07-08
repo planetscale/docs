@@ -30,6 +30,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | `ALTER TABLE...RENAME COLUMN` | ✖️ | Renaming columns and tables may be destructive. See our [guide for column rename recommendations](/learn/handling-table-and-column-renames).    |
 | `CREATE DATABASE` | ✖️ | You cannot `CREATE` a PlanetScale database from the MySQL command line, however, this is supported in the [PlanetScale CLI](/reference/database). | 
 | `DROP DATABASE` | ✖️ | You cannot `DROP` a PlanetScale database from the MYSQL command line, however, this is supported in the [PlanetScale CLI](/reference/database). |
+| `JSON_*` | ✖️ | Not all [JSON functions](https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html) are supported. |
 | `PROCEDURE` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `FUNCTION` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `TRIGGER` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
