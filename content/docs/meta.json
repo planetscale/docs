@@ -7,7 +7,7 @@
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
         {
-          "display": "Getting started with PlanetScale", 
+          "display": "Getting started with PlanetScale",
           "subpages": [
             { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
             { "route": "branching", "display": "Branching" },
@@ -22,7 +22,7 @@
           ]
         },
         {
-          "display": "Security and access", 
+          "display": "Security and access",
           "subpages": [
             { "route": "security", "display": "Security & Compliance" },
             { "route": "access-control", "display": "Access control" },
@@ -39,14 +39,14 @@
           ]
         },
         {
-          "display": "Monitoring and analytics", 
+          "display": "Monitoring and analytics",
           "subpages": [
             { "route": "audit-log", "display": "Audit log" },
             { "route": "query-insights", "display": "Query Insights" }
           ]
         },
         {
-          "display": "CLI", 
+          "display": "CLI",
           "subpages": [
             {
               "route": "planetscale-environment-setup",
@@ -80,7 +80,7 @@
           "display": "Node.js"
         },
         {
-          "display": "Next.js", 
+          "display": "Next.js",
           "subpages": [
             {
               "route": "connect-nextjs-app",
@@ -94,7 +94,7 @@
           ]
         },
         {
-          "display": "PHP", 
+          "display": "PHP",
           "subpages": [
             {
               "route": "connect-laravel-app",
@@ -106,7 +106,7 @@
             },
             { "route": "connect-php-app", "display": "PHP quickstart" }
           ]
-        },        
+        },
         {
           "display": "Prisma",
           "subpages": [
@@ -146,6 +146,10 @@
               "display": "Next.js and Netlify Template"
             }
           ]
+        },
+        {
+          "route": "aws-lambda-connection-strings",
+          "display": "AWS Lambda Connection Strings"
         }
       ]
     },
@@ -215,7 +219,7 @@
       "pages": [
         { "route": "mysql-compatibility", "display": "MySQL compatibility" },
         { "route": "planetscale-cli", "display": "PlanetScale CLI overview" },
-        { 
+        {
           "display": "CLI command reference",
           "subpages": [
             { "route": "audit-log", "display": "audit-log" },
