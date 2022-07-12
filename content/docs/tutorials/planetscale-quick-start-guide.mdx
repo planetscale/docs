@@ -171,7 +171,7 @@ Run the following command to create a database:
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-- **DATABASE_NAME** &mdash; The name of your database must use lowercase, alphanumeric characters with dashes and underscores only.
+- **DATABASE_NAME** &mdash; Your database name can contain lowercase, alphanumeric characters, or dashes. We allow underscores, but don't recommend them, as they may need to be escaped in some instances.
 - **REGION_SLUG** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/concepts/regions#available-regions).
 
 <InfoBlock type="note">
