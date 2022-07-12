@@ -16,18 +16,17 @@ Furthermore, SSO allows an administrator to revoke someone’s access to all too
 
 ## Enable SSO for your organization
 
-[Contact our sales team](https://www.planetscale.com/contact) to get SSO enabled for your organization.
+[Contact us](https://www.planetscale.com/contact) to get SSO enabled for your organization.
 
 ### Setup
 
 When SSO is set up for your organization, all non-admin members are removed from the organization. Each [organization member](https://app.planetscale.com/planetscale/settings/members) must re-authenticate using SSO before they're automatically added back to the organization.
 
 <InfoBlock type='note'>
-  Organization administrators always remain in the <em>organization</em>, so they can configure SSO without losing
-  access to the <em>organization</em>.
+  <a href="/concepts/access-control#organization-administrator">Organization Administrators</a> always remain in the organization, so they can configure SSO without losing access to the organization.
 </InfoBlock>
 
-After SSO has been enabled for your account, you can configure it under your PlanetScale organization settings: `app.planetscale.com/<org>/settings/sso`.
+After SSO has been enabled for your account, you can configure it under your PlanetScale organization settings: `app.planetscale.com/<YOUR_ORG>/settings/sso`.
 
 **Organization administrators** can _enable_, _configure_, and _disable_ SSO for all members of your organization.
 
@@ -39,10 +38,17 @@ When SSO is disabled for an organization, users can login with the password they
 
 Should a user lose access to the email address associated with that organization, they'll also lose access to their account after SSO is disabled.
 
-## Enable Directory Sync
+## Directory Sync
 
-### Requirements and billing
+We also support the use of Directory Sync with SSO. You can use Directory Sync to make the directory the source of truth for organization membership.
 
+### Enable Directory Sync
+
+### Directory Sync with Teams
+
+Directory Sync automatically creates [Teams](/concepts/teams) within your PlanetScale organization.
+
+![Dashboard UI - Directory-managed Teams page](/img/docs/directory-managed-teams.png)
 
 ## Need help?
 
