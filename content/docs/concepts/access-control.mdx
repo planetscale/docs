@@ -3,15 +3,21 @@ title: 'Access control'
 subtitle: 'Explore roles, permissions, and access control options at an organization and database level.'
 ---
 
-## Overview
+## Organization access control
 
 When you set up your PlanetScale account, you're asked to create an **Organization**.
 
-An organization is essentially a container for your databases, settings, and members. You can create multiple organizations in the same account for different applications or use cases. Within each organization, you can add members and assign them different roles. For even more control, you can [assign roles at the database level](#database-administrator) within each organization as well.
+An organization is essentially a container for your databases, settings, and members. You can create multiple organizations in the same account for different applications or use cases.
+
+Within each organization, you can add members and assign them different roles. This document covers the different roles, the ways you can assign roles, permissions associated with those roles.
 
 ## Roles and permissions
 
-We currently support three different roles in your organization: Organization Administrator, Organization Member, and Database Administrator.
+We currently support three different roles in your organization:
+
+- `Organization Administrator`
+- `Organization Member`
+- `Database Administrator`
 
 ### Organization Administrator
 
@@ -103,17 +109,29 @@ You can also invite new members to your organization and assign roles once they 
 
 ## Assign roles at a database level
 
+There  are two ways to assign database-level roles to Organization members:
+
+1. Individually using the `Database Administrator` role.
+2. Creating a Team, adding member(s), and adding database(s) to that team.
+
+### Individually assign the `Database Administrator` role
 To assign a member the role of `Database Administrator`, follow the steps outlined below. You must be an Organization Administrator or an existing Database Administrator to manage the `Database Administrator` role.
 
 <InfoBlock type='note'>
   Members that create a database are automatically assigned the role of `Database Administrator` for that database.
 </InfoBlock>
 
-- In the [PlanetScale dashboard](https://app.planetscale.com/), click on the name of the database you want to add a Database Administrator to.
-- Click on the "Settings" tab in the top navigation.
-- Click on "Administrators" in the sidebar on the left.
-- To add an administrator, click on the "Add administrator" button and select the member you wish to add as a Database Administrator.
-- From here, you can also remove a Database Administrator by clicking the "Remove" button next to their name.
+1. In the [PlanetScale dashboard](https://app.planetscale.com/), click on the name of the database you want to add a Database Administrator to.
+2. Click on the "**Settings**" tab in the top navigation.
+3. Click on "**Administrators**" in the sidebar on the left.
+4. To add an administrator, click on the "**Add administrator**" button and select the member you wish to add as a Database Administrator.
+5. From here, you can also remove a Database Administrator by clicking the "**Remove**" button next to their name.
+
+### Add `Database Administrator` role via Teams
+
+If you wish to give several members the Database Administrator role, you may want to [create a Team](/concepts/teams#create-and-manage-teams). This will allow you to manage the access to that database all in one place. 
+
+For instructions, see our [Teams documentation](/concepts/teams).
 
 ## Need help?
 
