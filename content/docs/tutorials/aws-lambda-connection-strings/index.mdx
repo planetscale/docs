@@ -5,7 +5,7 @@ subtitle: 'Learn how to securely use your PlanetScale MySQL connection strings w
 
 ## Introduction
 
-In this guide, you'll learn how to properly store and use PlanetScale MySQL connection strings for use in AWS Lambda Functions.
+In this guide, you'll learn how to properly store and use PlanetScale MySQL connection strings for use in AWS Lambda Functions. We'll use a [pre-built NodeJS](https://github.com/planetscale/aws-connection-strings-example) app for this example, but you can follow along using your own application as well.
 
 ## Prerequisites
 
@@ -13,9 +13,11 @@ In this guide, you'll learn how to properly store and use PlanetScale MySQL conn
 - A [free PlanetScale account](https://auth.planetscale.com/sign-up)
 
 ## Set up the database
+
 <InfoBlock type='note'>
   If you already have a database with a production branch, skip to [the next section](#configuring-the-lambda-function).
 </InfoBlock>
+
 Let's start by creating the database. In the PlanetScale dashboard, click the "**New database**" button followed by "**Create new database**". Name the database **lambda-connection-strings,** or any other name that you prefer. Click "**Create database**".
 
 ![The PlanetScale dashboard](/img/docs/aws-lambda-connection-strings/capture_2022_07_0614_51_122x.png)
@@ -58,7 +60,7 @@ Before moving on from the PlanetScale dashboard, grab the connection details to 
 
 ![The connection string for this database](/img/docs/aws-lambda-connection-strings/capture_2022_07_0615_37_27.png)
 
-## Configuring the Lambda function
+## Configure the Lambda function
 
 Secrets in AWS Lambda functions, which include database connection strings, are often stored as environment variables with the Lambda function. We’ll be uploading a sample NodeJS app that has been provided and storing the connection string from the previous section as an environment variable to test.
 
@@ -84,7 +86,7 @@ On the next view, about halfway down the page you’ll see a section called **Co
 
 ![The default NodeJS Lambda function](/img/docs/aws-lambda-connection-strings/capture_2022_07_0711_45_53.png)
 
-Click the **Upload** button which will display a file browser. Select the **aws-connection-strings-example.zip** file from the **dist** folder of the repository. Click **Save** once it’s been selected.
+Click the **Upload** button which will display a file browser. Select the **aws-connection-strings-example.zip** file from the **dist** folder of the provided repository. Click **Save** once it’s been selected.
 
 ![The modal to upload code](/img/docs/aws-lambda-connection-strings/capture_2022_07_0711_46_15.png)
 
@@ -92,7 +94,9 @@ The contents of the code editor under **Code source** should have updated to sho
 
 ![The code of the Lambda function that was uploaded](/img/docs/aws-lambda-connection-strings/capture_2022_07_0711_55_14.png)
 
-Now to set the environment variable, select the **Configuration** tab and click **Edit**.
+### Configure environment variables
+
+Next, you need to set the PlanetScale `DATABASE_URL` environment variable that you copied earlier. Select the **Configuration** tab, and click **Edit**.
 
 ![The configuration tab](/img/docs/aws-lambda-connection-strings/capture_2022_07_0711_48_33.png)
 
@@ -100,10 +104,14 @@ You’ll be presented with a view to add or update environment variables. Click 
 
 ![The view to manage environment variables](/img/docs/aws-lambda-connection-strings/capture_2022_07_0711_48_57.png)
 
-Finally, test the function by selecting the **Test** tab and then clicking the **Test** button.
+Finally, test the function by selecting the **Test** tab, and then clicking the **Test** button.
 
 ![The test tab](/img/docs/aws-lambda-connection-strings/capture_2022_07_0712_01_20.png)
 
 An **Execution results** box will display above the **Test event** section. If the box is green, it likely means everything executed as expected. Click the dropdown next to **Details** to see the results of the query. Since the results of the query were logged out to the console, they will be displayed in the **Log output** section.
 
 ![The execution results](/img/docs/aws-lambda-connection-strings/capture_2022_07_0712_03_12.png)
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
