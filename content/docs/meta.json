@@ -67,7 +67,7 @@
     },
     {
       "id": "tutorials",
-      "name": "Quickstarts",
+      "name": "Guides",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
@@ -154,8 +154,13 @@
           ]
         },
         {
-          "route": "aws-lambda-connection-strings",
-          "display": "AWS Lambda Connection Strings"
+          "display": "AWS",
+          "subpages": [
+            {
+              "route": "aws-lambda-connection-strings",
+              "display": "AWS Lambda connection strings"
+            }
+          ]
         }
       ]
     },
