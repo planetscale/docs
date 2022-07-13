@@ -28,7 +28,7 @@ You'll need [ a PlanetScale account](https://auth.planetscale.com/sign-up) to co
 Follow these steps to create a database:
 
 1. Click the "**Create a database**" button on your organization's overview page.
-2. Name your database using lowercase, alphanumeric characters. You may also use dashes or underscores. 
+2. Name your database using lowercase, alphanumeric characters or underscores. You may also use dashes, but we don't recommend that, as sharded databases require them to be escaped. 
 3. Select a [region](/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Finally, click the "**Create database**" button to deploy your database.
 
@@ -171,7 +171,7 @@ Run the following command to create a database:
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-- **DATABASE_NAME** &mdash; The name of your database must use lowercase, alphanumeric characters with dashes and underscores only.
+- **DATABASE_NAME** &mdash; Your database name can contain lowercase, alphanumeric characters, or underscores. We allow dashes, but don't recommend them, as they may need to be escaped in some instances.
 - **REGION_SLUG** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/concepts/regions#available-regions).
 
 <InfoBlock type="note">
