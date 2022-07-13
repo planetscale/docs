@@ -32,6 +32,7 @@
             },
             { "route": "account-password-security", "display": "Account password security" },
             { "route": "mfa", "display": "Multi-factor authentication" },
+            { "route": "password-roles", "display": "Password roles" },
             { "route": "security-log", "display": "Security log" },
             { "route": "sso", "display": "Single sign-on" },
             { "route": "secure-connections", "display": "Secure connections" },

@@ -66,7 +66,7 @@ pscale auth login
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-This tutorial uses `laravel-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+This tutorial uses `laravel_example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
 
@@ -103,7 +103,7 @@ Take note of the values returned to you, as you won't be able to see this passwo
 DB_CONNECTION=mysql
 DB_HOST=<ACCESS HOST URL> // outputted in the previous step
 DB_PORT=3306
-DB_DATABASE=<DATABASE_NAME> // this tutorial uses 'laravel-example'
+DB_DATABASE=<DATABASE_NAME> // this tutorial uses 'laravel_example'
 DB_USERNAME=<USERNAME> // outputted in the previous step
 DB_PASSWORD=<PASSWORD> // outputted in the previous step
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
@@ -134,7 +134,7 @@ If you're following this guide exactly and haven't created any branches, you can
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_PORT=3306 // Get this from the output of the previous step
+DB_PORT=3306 # Get this from the output of the previous step
 DB_DATABASE=<DATABASE_NAME>
 DB_USERNAME=
 DB_PASSWORD=
