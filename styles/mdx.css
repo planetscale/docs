@@ -94,9 +94,12 @@
   .token.boolean {
     @apply !text-orange;
   }
+}
 
+
+.with-img-borders {
   img {
-    border: 1px solid rgb(235, 235, 235);
+    border: 1px solid var(--border-primary);
     border-radius: 6px;
   }
 }
