@@ -15,6 +15,7 @@
             { "route": "nonblocking-schema-changes", "display": "Non-blocking schema changes" },
             { "route": "deploy-requests", "display": "Deploy requests" },
             { "route": "connection-strings", "display": "Connection strings" },
+            { "route": "password-roles", "display": "Password roles" },
             { "route": "regions", "display": "Regions" },
             { "route": "read-only-regions", "display": "Read-only regions" },
             { "route": "database-imports", "display": "Database imports" },
