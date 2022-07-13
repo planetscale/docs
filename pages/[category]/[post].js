@@ -28,6 +28,7 @@ export default function Post({ frontmatter, body, fields }) {
         body={body}
         lastUpdatedOn={fields.lastUpdatedOn}
         slug={fields.slug}
+        className={frontmatter.className}
       ></MDXContent>
       <Footer />
     </Layout>

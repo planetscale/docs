@@ -1,6 +1,7 @@
 ---
 title: 'Connect a Symfony application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Symfony application'
+className: 'ignore-img-borders'
 ---
 
 ## Introduction
@@ -35,7 +36,7 @@ composer install
 
 ```bash
 mv .env.example .env.local
-``` 
+```
 
 Once you deploy to production, don't forget to update `.env.local` to `.env`.
 
@@ -95,7 +96,9 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
 
 <InfoBlock type='note'>
-  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+  credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+  your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 Take note of the values returned to you, as you won't be able to see this password again.
@@ -140,6 +143,7 @@ The connection uses port `3306` by default, but if that's being used, it will pi
 ```php
 !php/const:PDO::MYSQL_ATTR_SSL_CA: /etc/ssl/cert.pem
 ```
+
 Delete that line and save.
 
 Refresh your Symfony homepage and you should see the message that you're connected to your database!
@@ -180,7 +184,7 @@ If you want to continue to play around with adding data on the fly, you have a f
 
 - PlanetScale CLI shell
 - PlanetScale dashboard console
-- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.) 
+- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.)
 
 The first two options are covered below.
 
@@ -208,6 +212,7 @@ Add a record to the `product` table:
 INSERT INTO `store_product` (name, description, image, category_id)
 VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/150.png', 2);
 ```
+
 The value `id` will be filled with a default value.
 
 You can verify it was added in the PlanetScale CLI MySQL shell with:
@@ -218,7 +223,7 @@ select * from product;
 
 Type `exit` to exit the shell.
 
-You can now refresh the [Symfony homepage](http://localhost:8000) to see the new record. 
+You can now refresh the [Symfony homepage](http://localhost:8000) to see the new record.
 
 ### Add data with PlanetScale dashboard console
 

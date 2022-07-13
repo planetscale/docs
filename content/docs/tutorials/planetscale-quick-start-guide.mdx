@@ -1,6 +1,7 @@
 ---
 title: 'PlanetScale quickstart guide'
 subtitle: 'Get started with PlanetScale in just a few minutes'
+className: 'ignore-img-borders'
 ---
 
 ## Overview
@@ -17,7 +18,9 @@ If you already have your PlanetScale database set up, you may find the [Connecti
 This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started-—-planetscale-dashboard) or using the [PlanetScale CLI](#getting-started-—-planetscale-cli).
 
 <VideoBlock src='/img/docs/ps-quickstart-demo.mp4' />
-<p align='center'><i>Video shows a demo in the PlanetScale dashboard of everything covered in this guide.</i></p>
+<p align='center'>
+  <i>Video shows a demo in the PlanetScale dashboard of everything covered in this guide.</i>
+</p>
 
 ## Getting started &mdash; PlanetScale dashboard
 
@@ -28,11 +31,11 @@ You'll need [ a PlanetScale account](https://auth.planetscale.com/sign-up) to co
 Follow these steps to create a database:
 
 1. Click the "**Create a database**" button on your organization's overview page.
-2. Name your database using lowercase, alphanumeric characters or underscores. You may also use dashes, but we don't recommend that, as sharded databases require them to be escaped. 
+2. Name your database using lowercase, alphanumeric characters or underscores. You may also use dashes, but we don't recommend that, as sharded databases require them to be escaped.
 3. Select a [region](/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Finally, click the "**Create database**" button to deploy your database.
 
-![Create database modal](/img/docs/quickstart-create-database.png) 
+![Create database modal](/img/docs/quickstart-create-database.png)
 
 Your database is created with an [**initial development branch**](/concepts/branching), `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
@@ -45,7 +48,7 @@ This quickstart demonstrates how to create and use two relational tables: `categ
 ![Create database modal](/img/docs/quickstart-branch-overview.png)
 
 2. Click on the `main` branch.
-3. Click on the "**Console**" tab. This will open up a [web console](/concepts/web-console) connected to your database branch. 
+3. Click on the "**Console**" tab. This will open up a [web console](/concepts/web-console) connected to your database branch.
 4. Create the `categories` and `products` tables by running the following commands in the web console:
 
 ```sql
@@ -65,19 +68,22 @@ CREATE TABLE products (
 );
 ```
 
-<InfoBlock type="note">
-PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our <a href="/learn/operating-without-foreign-key-constraints">Operating without foreign key constraints</a> documentation.  
+<InfoBlock type='note'>
+  PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign
+  keys, as shown in this example. For more information, check out our{' '}
+  <a href='/learn/operating-without-foreign-key-constraints'>Operating without foreign key constraints</a>{' '}
+  documentation.
 </InfoBlock>
 
 5. You can confirm that the tables have been added by running:
-   
+
 ```sql
 SHOW TABLES;
 ```
 
 ### Insert data into your database
 
-Now that you have created your tables, let's insert some data. Run the following commands to add a product and category to your tables: 
+Now that you have created your tables, let's insert some data. Run the following commands to add a product and category to your tables:
 
 ```sql
 INSERT INTO categories (name)
@@ -105,13 +111,13 @@ If you click on the "**Schema**" tab in the database navigation and click the "*
 
 All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
 
-<InfoBlock type="note">
-  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>. 
+<InfoBlock type='note'>
+  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>.
 </InfoBlock>
 
 Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
 
-A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes, such as `CREATE`, `ALTER`, and `DELETE`, are **not allowed** on production branches to prevent accidental data loss. 
+A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes, such as `CREATE`, `ALTER`, and `DELETE`, are **not allowed** on production branches to prevent accidental data loss.
 
 ### To promote a branch to production:
 
@@ -141,8 +147,10 @@ When you want to continue development on your database:
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/concepts/deploy-requests) to merge the changes into your production branch
 
-<InfoBlock type="note">
-  When you branch off of a production branch, your development branch will have the same schema as production, but it <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock data.
+<InfoBlock type='note'>
+  When you branch off of a production branch, your development branch will have the same schema as production, but it{' '}
+  <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock
+  data.
 </InfoBlock>
 
 ## Getting started &mdash; PlanetScale CLI
@@ -159,7 +167,7 @@ To authenticate with the PlanetScale CLI, enter the following:
 pscale auth login
 ```
 
-You'll be taken to a screen in the browser where you'll be asked to confirm the code displayed in your terminal. If the confirmation codes match, click the "**Confirm code**" button in your browser. 
+You'll be taken to a screen in the browser where you'll be asked to confirm the code displayed in your terminal. If the confirmation codes match, click the "**Confirm code**" button in your browser.
 
 You should receive the message "Successfully logged in" in your terminal. You can now close the confirmation page in the browser and proceed in the terminal.
 
@@ -174,13 +182,13 @@ pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 - **DATABASE_NAME** &mdash; Your database name can contain lowercase, alphanumeric characters, or underscores. We allow dashes, but don't recommend them, as they may need to be escaped in some instances.
 - **REGION_SLUG** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/concepts/regions#available-regions).
 
-<InfoBlock type="note">
-  If you do not specify a region, your database will automatically be deployed to <b>US East - Northern Virginia</b>. 
+<InfoBlock type='note'>
+  If you do not specify a region, your database will automatically be deployed to <b>US East - Northern Virginia</b>.
 </InfoBlock>
 
 Your database will deploy with an initial development branch, `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
-### Add a schema to your database 
+### Add a schema to your database
 
 To add a schema to your database, you will need to connect to MySQL, so [make sure you `mysql-client` installed](/concepts/planetscale-environment-setup#setup-overview).
 
@@ -190,7 +198,7 @@ To add a schema to your database, you will need to connect to MySQL, so [make su
 pscale shell <DATABASE_NAME> main
 ```
 
-You are now connected to your `main` branch and can run MySQL queries against it. 
+You are now connected to your `main` branch and can run MySQL queries against it.
 
 2. Create the `categories` and `products` tables by running the following:
 
@@ -211,12 +219,15 @@ CREATE TABLE products (
 );
 ```
 
-<InfoBlock type="note">
-PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our <a href="/learn/operating-without-foreign-key-constraints">Operating without foreign key constraints</a> documentation.  
+<InfoBlock type='note'>
+  PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign
+  keys, as shown in this example. For more information, check out our{' '}
+  <a href='/learn/operating-without-foreign-key-constraints'>Operating without foreign key constraints</a>{' '}
+  documentation.
 </InfoBlock>
 
 3. You can confirm that the table has been added by running:
-   
+
 ```sql
 SHOW TABLES;
 ```
@@ -233,7 +244,7 @@ DESCRIBE products;
 
 ### Insert data into your database
 
-Now that you have your schema set up, let's insert some data. 
+Now that you have your schema set up, let's insert some data.
 
 1. Run the following commands to add one entry to each table:
 
@@ -257,14 +268,14 @@ SELECT * FROM products;
 SELECT * FROM categories;
 ```
 
-3. Exit the shell by typing `exit`. 
+3. Exit the shell by typing `exit`.
 
 ### Promote your database branch to production
 
 All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
 
-<InfoBlock type="note">
-  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>. 
+<InfoBlock type='note'>
+  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>.
 </InfoBlock>
 
 Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
@@ -295,8 +306,10 @@ When you want to continue development on your database:
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/concepts/deploy-requests) to merge the changes into your production branch
 
-<InfoBlock type="note">
-  When you branch off of a production branch, your development branch will have the same schema as production, but it <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock data.
+<InfoBlock type='note'>
+  When you branch off of a production branch, your development branch will have the same schema as production, but it{' '}
+  <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock
+  data.
 </InfoBlock>
 
 ## Need help?

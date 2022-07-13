@@ -7,7 +7,7 @@
       "image": "/img/internals/category_concepts_light.png",
       "pages": [
         {
-          "display": "Getting started with PlanetScale", 
+          "display": "Getting started with PlanetScale",
           "subpages": [
             { "route": "planetscale-workflow", "display": "PlanetScale workflow" },
             { "route": "branching", "display": "Branching" },
@@ -22,7 +22,7 @@
           ]
         },
         {
-          "display": "Security and access", 
+          "display": "Security and access",
           "subpages": [
             { "route": "security", "display": "Security & Compliance" },
             { "route": "access-control", "display": "Access control" },
@@ -40,20 +40,20 @@
           ]
         },
         {
-          "display": "Deployment", 
+          "display": "Deployment",
           "subpages": [
             { "route": "deployment-options", "display": "Deployment options" }
           ]
         },
         {
-          "display": "Monitoring and analytics", 
+          "display": "Monitoring and analytics",
           "subpages": [
             { "route": "audit-log", "display": "Audit log" },
             { "route": "query-insights", "display": "Query Insights" }
           ]
         },
         {
-          "display": "CLI", 
+          "display": "CLI",
           "subpages": [
             {
               "route": "planetscale-environment-setup",
@@ -68,7 +68,7 @@
     },
     {
       "id": "tutorials",
-      "name": "Quickstarts",
+      "name": "Guides",
       "description": "Learn the basics with our hands-on tutorials.",
       "image": "/img/internals/category_tutorials_light.png",
       "pages": [
@@ -87,7 +87,7 @@
           "display": "Node.js"
         },
         {
-          "display": "Next.js", 
+          "display": "Next.js",
           "subpages": [
             {
               "route": "connect-nextjs-app",
@@ -101,7 +101,7 @@
           ]
         },
         {
-          "display": "PHP", 
+          "display": "PHP",
           "subpages": [
             {
               "route": "connect-laravel-app",
@@ -113,7 +113,7 @@
             },
             { "route": "connect-php-app", "display": "PHP quickstart" }
           ]
-        },        
+        },
         {
           "display": "Prisma",
           "subpages": [
@@ -151,6 +151,15 @@
             {
               "route": "nextjs-planetscale-netlify-template",
               "display": "Next.js and Netlify Template"
+            }
+          ]
+        },
+        {
+          "display": "AWS",
+          "subpages": [
+            {
+              "route": "aws-lambda-connection-strings",
+              "display": "AWS Lambda connection strings"
             }
           ]
         }
@@ -222,7 +231,7 @@
       "pages": [
         { "route": "mysql-compatibility", "display": "MySQL compatibility" },
         { "route": "planetscale-cli", "display": "PlanetScale CLI overview" },
-        { 
+        {
           "display": "CLI command reference",
           "subpages": [
             { "route": "audit-log", "display": "audit-log" },
