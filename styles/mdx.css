@@ -94,12 +94,16 @@
   .token.boolean {
     @apply !text-orange;
   }
-}
 
-
-.with-img-borders {
   img {
     border: 1px solid var(--border-primary);
     border-radius: 6px;
+  }
+}
+
+.ignore-img-borders {
+  img {
+    border: none !important;
+    border-radius: none !important;
   }
 }
