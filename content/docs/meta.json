@@ -162,6 +162,15 @@
               "display": "AWS Lambda connection strings"
             }
           ]
+        },
+        {
+          "display": "Migration guides",
+          "subpages": [
+            {
+              "display": "Digital Ocean database migration guide",
+              "route": "digital-ocean-database-migration-guide"
+            }
+          ]
         }
       ]
     },
