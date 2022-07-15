@@ -239,6 +239,7 @@
       "image": "/img/internals/category_reference_light.png",
       "pages": [
         { "route": "mysql-compatibility", "display": "MySQL compatibility" },
+        { "route": "import-tool-migration-addresses", "display": "Import tool public IP addresses" },
         { "route": "planetscale-cli", "display": "PlanetScale CLI overview" },
         {
           "display": "CLI command reference",

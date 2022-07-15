@@ -9,10 +9,6 @@ This document will demonstrate how to migrate a database from Google Cloud Platf
 
 ## Prerequisites
 
-Before you can perform a migration, you’ll need to make sure the following is configured:
-
-- [Allow all connections to your CloudSQL instance](#allow-all-connections-to-your-cloudsql-instance)
-
 You’ll also need to gather the following pieces of information from the GCP Console:
 
 - Public IP address
@@ -37,13 +33,23 @@ If you don’t know the admin password, you can create a new set of credentials 
 
 </InfoBlock>
 
+## Allow PlanetSccale to connect to your CloudSQL instance
+
+For PlanetScale to connect to your database, you’ll need to update the Authorized networks for your cluster. The specific IP addresses to permit depend on the region selected for your new database, which is in the **New database** section of the import tool in the **Region** field.
+
+![The New database section of the Import database tool.](/img/docs/import-tool-region-highlight.png)
+
+You will need to allow traffic for each IP address listed under that region on the [Import tool public IP addresses](/reference/import-tool-migration-addresses) page. To permit traffic from these IP addresses to your database in GCP, select **Connections** from the navigation on the left. Under **Authorized networks**, click “**Add network**”. This will display an inline form for you to add a network. The name of the field is arbitrary, but the **Network** field should contain the IP address that needs access to your database. Click “**Done**” to add the new entry. Perform this step for each IP address for the selected region, then click “**Save**” to apply the settings.
+
+![The form to add a new authorized network in the GCP console.](/img/docs/gcp-cloudsql-migration-guide/the-form-to-add-a-new-authorized-network-in-the-gcp-console.png)
+
 ## Importing your database
 
 In the PlanetScale dashboard, click “**New database**”, then “**Import database**”.
 
 ![The default view of all databases in the PlanetScale organization.](/img/docs/gcp-cloudsql-migration-guide/the-default-view-of-all-databases-in-the-planetscale-organization.png)
 
-At the time of this writing, the Import database feature is in beta. If this is your first time accessing this feature, you will be prompted to opt in to using the feature. Click “**Join beta”** to proceed.
+At the time of this writing, the Import database feature is in beta. If this is your first time accessing this feature, you will be prompted to opt into using the feature. Click “**Join beta”** to proceed.
 
 ![The Join beta view.](/img/docs/gcp-cloudsql-migration-guide/the-join-beta-view.png)
 
@@ -53,7 +59,7 @@ Complete the form using the information gathered in the previous section. Click 
 
 If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
 
-![The note displayed when the PlanetScale import tool can connect to the external database.](/img/docs/gcp-cloudsql-migration-guide/the-note-displayed-when-the-planetscale-import-tool-can-connect-to-the-external-database.png)
+![The note that is displayed when the PlanetScale import tool can connect to the external database.](/img/docs/gcp-cloudsql-migration-guide/the-note-displayed-when-the-planetscale-import-tool-can-connect-to-the-external-database.png)
 
 <InfoBlock type="note">
 
@@ -86,9 +92,3 @@ If you do not know your root password from when it was originally set, you can c
 In the form that appears, give your user a name & password. Make sure that **Allow any host** is selected. Click “**Add**”.
 
 ![The form to add a user in the GCP console.](/img/docs/gcp-cloudsql-migration-guide/the-form-to-add-a-user-in-the-gcp-console.png)
-
-## Allow all connections to your CloudSQL instance
-
-In order for PlanetScale to connect to your database, you’ll need to update the Authorized networks for your cluster. Select Connections from the navigation on the left. Under **Authorized networks**, click “**Add network**”. This will display an inline form for you to add a network. The name is arbitrary, but the **Network** field should be **0.0.0.0/0**. Click “**Done**” to add the new entry, then click “**Save**” to apply the settings.
-
-![The form to add a new authorized network in the GCP console.](/img/docs/gcp-cloudsql-migration-guide/the-form-to-add-a-new-authorized-network-in-the-gcp-console.png)
