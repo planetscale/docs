@@ -1,0 +1,185 @@
+---
+title: 'AWS RDS Migration Guide'
+subtitle: 'Learn how to import your database from AWS RDS into PlanetScale.'
+---
+
+## Overview
+
+This document will demonstrate how to migrate a database from AWS Relational Database Service (RDS) to PlanetScale. We’ll also address some common issues associated with migrating from RDS and how to resolve them.
+
+## Prerequisites
+
+Before you can perform a migration, you’ll need to make sure the following is configured:
+
+- [Your database’s security group is properly configured.](#configuring-your-security-group)
+- [Your database’s gtid & binlog_format settings are properly configured.](#configuring-gtid--binlog-settings)
+
+You’ll also need to gather the following pieces of information from the AWS Console:
+
+- Endpoint address
+- Port number
+- Master username & password
+
+The endpoint address and port number are located in the database view under **Connectivity & security**.
+
+![The Connectivity & security tab of the database in RDS.](/img/docs/aws-rds-migration-guide/capture_2022_07_1215_35_31.png)
+
+The master username can be located under the **Configuration** tab. The master password will be the password used when the database was first created.
+
+![The Configuration tab of the database in RDS.](/img/docs/aws-rds-migration-guide/capture_2022_07_1215_36_49.png)
+
+<InfoBlock type="note">
+If you don’t know the admin password, you can create a new set of credentials by following the steps in the [Creating a migration user account](#troubleshooting) section of this document.
+
+</InfoBlock>
+
+## Importing your database
+
+In the PlanetScale dashboard, click New database, then Import database.
+
+![The default view of all databases in the PlanetScale organization.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_44_53.png)
+
+At the time of this writing, the Import database feature is in beta. If this is your first time accessing this feature, you will be prompted to opt in to using the feature. Click **Join beta** to proceed.
+
+![The Join beta view.](/img/docs/aws-rds-migration-guide/capture_2022_07_1115_49_24.png)
+
+Complete the form using the information gathered in the previous section. Click **Connect to database** and the import tool will attempt to connect to your RDS instance.
+
+![The Import external database form.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_56_31.png)
+
+If the connection was successful, you’ll see the following message. Click **Begin database import** to start importing data.
+
+![The message that shows at the bottom of the form indicating that the connection was successful.](/img/docs/aws-rds-migration-guide/Untitled.png)
+
+<InfoBlock type="note">
+If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.
+
+</InfoBlock>
+
+The following view will show you the progress of your data being imported.
+
+![The Database import view during the initial import process.](/img/docs/aws-rds-migration-guide/capture_2022_07_1217_05_21.png)
+
+Once your database has finished importing, the view will update to show the database that was created in PlanetScale, as well as the option to enable primary mode. This button will make the PlanetScale version of the database the primary replica. Clicking **Enable primary mode** will display a modal where you can confirm that you want to make this change.
+
+![The Database import view once the initial import has been completed.](/img/docs/aws-rds-migration-guide/capture_2022_07_1310_07_43.png)
+
+After primary mode is enabled, the third card in the flow will update to give you two options. **Enable replica mode** will revert the change performed in the previous step, whereas **Finish import** will detach the databases from replication and future changes to either the PlanetScale database or the RDS database will not be replicated to each other. Click **Finish import** to complete the import process. Confirm in the modal that will be displayed.
+
+![The Database import view after the PlanetScale database has been flagged as the primary database.](/img/docs/aws-rds-migration-guide/capture_2022_07_1310_12_12.png)
+
+This concludes the process used to import a database into PlanetScale from AWS RDS.
+
+## Troubleshooting
+
+### Creating a migration user account
+
+If you don’t know what the admin password is, you can create another user account to use for the migration. To do this, connect to RDS with your preferred MySQL client and issue the follow commands. Make sure to replace the variables `<SUPER_STRONG_PASSWORD>` and `<DATABASE_NAME>` with the proper values for your environment.
+
+```sql
+CREATE USER 'migration_user'@'*' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
+GRANT ALL PRIVILEGES ON <DATABASE_NAME>.* TO 'migration_user'@'%';
+```
+
+This will create an account that has full access to the database that you can use for the migration.
+
+### Configuring your security group
+
+In order for PlanetScale to connect to your RDS database, you must allow traffic into the database through the associated security group. To configure this, navigate to the **Connectivity & security** tab of the database and click the link under **VPC security groups**.
+
+![The Connectivity & security tab of the database view in RDS.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_34_21.png)
+
+In the lower pane of the next page, select the **Inbound rules** tab, then **Edit inbound rules**.
+
+![The view of security groups associated with the RDS instance.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_35_16.png)
+
+Click the **Add rule** button and a new line will be added to the list of rules. Configure the following options:
+
+- **Type: MYSQL/Aurora**
+- **Source: Anywhere-IPv4**
+
+Click **Save rules** when finished.
+
+![The Edit inbound rules view where source traffic can be allowed.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_35_47.png)
+
+The Edit inbound rules view where source traffic can be allowed.
+
+These changes should apply immediately with no further action.
+
+### Configuring gtid & binlog settings
+
+![One of the gtid errors that display in the PlanetScale Import database form when the connection is not successful.](/img/docs/aws-rds-migration-guide/Untitled%201.png)
+
+Navigate to your RDS instance and check the parameter group in the configuration tab. If you are using the default, you’ll need to create a new parameter group to reconfigure the GTID settings.
+
+![The Configuration tab of the database view in RDS.](/img/docs/aws-rds-migration-guide/Untitled%202.png)
+
+To create a parameter group, select **Parameter groups** from the left nav and then **Create parameter group**.
+
+![The Parameter groups view in RDS.](/img/docs/aws-rds-migration-guide/capture_2022_07_1215_53_39.png)
+
+Specify the **Parameter group family**, **Type**, **Group name**, and **Description**. All fields are required.
+
+![The form used to create a parameter group.](/img/docs/aws-rds-migration-guide/capture_2022_07_1215_58_26.png)
+
+When you save, you’ll be brought back to the list of available parameter groups. Select your new parameter group from the list to modify the settings.
+
+![The list of parameter groups in RDS.](/img/docs/aws-rds-migration-guide/capture_2022_07_1215_59_13.png)
+
+Click **Edit parameters** to unlock editing.
+
+![The header of the view when editing a parameter group.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_01_17.png)
+
+Search for **“binlog_format”** in the search box. Update that setting to match:
+
+- binlog_format: ROW
+
+![The binlog_format configuration that is required.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_10_53.png)
+
+Search for ‘**gtid**’ in the search box, update the following to settings to match:
+
+- gtid-mode: ON
+- enforce_gtid_consistency: ON
+
+Click **Save changes** once you are done.
+
+![The gtid configurations that are required.](/img/docs/aws-rds-migration-guide/capture_2022_07_1116_18_13.png)
+
+Now you need to associate the parameter group to the database. Select **Databases** from the left nav, check the **select box** next to your database, and click **Modify** from the toolbar.
+
+![The list of databases in RDS.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_03_59.png)
+
+Scroll about halfway down the page and find the section titled **Additional configuration**. Update the **DB paramater group** to match the new group created earlier in this section. Scroll to the bottom & click Continue.
+
+![The Additional configuration section of the database configuration view.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_12_11.png)
+
+You’ll be presented with options to apply the changes at the next maintenance window or immediately.
+
+- If you select **Apply during the next scheduled maintenance window**, the updated configuration group will be applied during that window.
+- If you select **Apply immediately**, the group will be applied immediately but you must manually reboot the database for the changes to take effect.
+
+Once you’ve selected your desired option, click **Modify DB instance** to apply the changes.
+
+![The confirmation view that is displayed when modifying RDS database settings.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_18_31.png)
+
+If you opted to apply the changes immediately, you can monitor the status on the **Configuration** tab of the database view. The page does not automatically update, so you’ll need to refresh the page to check the status when it updates.
+
+![The configuration tab with the new parameter group applying.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_19_27.png)
+
+![The configuration tab with the Pending reboot status.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_23_24.png)
+
+To reboot the database, click the **Modify** button near the top of the screen, then **Reboot**.
+
+<InfoBlock type='warning'>
+  This will disconnect any users who are actively using the database! Proceed with caution.
+</InfoBlock>
+
+![The database view & where the option to reboot the database is located.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_25_01.png)
+
+You’ll be presented with a page to confirm the database you want to reboot. Click **Confirm** and the database will begin rebooting.
+
+![The confirmation dialog to reboot the database.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_25_10.png)
+
+You can view the status of the database in the primary list of databases for this account/region. This view does not refresh automatically, click the **Refresh** button to update the view.
+
+![A view of the databases in RDS with status & the refresh button highlighted.](/img/docs/aws-rds-migration-guide/capture_2022_07_1216_25_20.png)

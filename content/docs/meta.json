@@ -167,6 +167,10 @@
           "display": "Migration guides",
           "subpages": [
             {
+              "route": "aws-rds-migration-guide",
+              "display": "AWS RDS Migration Guide"
+            },
+            {
               "display": "GCP CloudSQL Migration Guide",
               "route": "gcp-cloudsql-migration-guide"
             },
