@@ -169,6 +169,10 @@
             {
               "display": "GCP CloudSQL Migration Guide",
               "route": "gcp-cloudsql-migration-guide"
+            },
+            {
+              "display": "Digital Ocean database migration guide",
+              "route": "digital-ocean-database-migration-guide"
             }
           ]
         }
