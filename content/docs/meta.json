@@ -162,6 +162,15 @@
               "display": "AWS Lambda connection strings"
             }
           ]
+        },
+        {
+          "display": "Migration guides",
+          "subpages": [
+            {
+              "display": "GCP CloudSQL Migration Guide",
+              "route": "gcp-cloudsql-migration-guide"
+            }
+          ]
         }
       ]
     },
