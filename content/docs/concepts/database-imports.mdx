@@ -11,6 +11,8 @@ PlanetScale provides an import tool in the dashboard that allows you to painless
 
 Note: You must be an [Organization Administrator](/concepts/access-control#organization-administrator) to use this feature.
 
+Before you begin, it may be helpful to check out our [general MySQL compatibility guide](/reference/mysql-compatibility). 
+
 ## Connect to your external database
 
 To import an existing database into PlanetScale:
@@ -144,6 +146,8 @@ You just fully migrated over your database to PlanetScale with no downtime and n
 PlanetScale will automatically stop the import process and detach your external database after **7 days** of no activity once the initial import is finished. This will not impact your PlanetScale database that was created for the import, but it will stop all replication into and out of it. 
 
 ## Troubleshooting
+
+The following section covers common issues and compatibility limitations that you may come across during the import process. You should also check out our [general MySQL compatibility guide](/reference/mysql-compatibility).
 
 ### Connectivity issues
 
