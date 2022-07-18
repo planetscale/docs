@@ -168,10 +168,10 @@
           "subpages": [
             {
               "route": "aws-rds-migration-guide",
-              "display": "AWS RDS Migration Guide"
+              "display": "AWS RDS migration Guide"
             },
             {
-              "display": "GCP CloudSQL Migration Guide",
+              "display": "GCP CloudSQL migration guide",
               "route": "gcp-cloudsql-migration-guide"
             },
             {
