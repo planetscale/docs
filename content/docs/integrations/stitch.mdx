@@ -14,37 +14,38 @@ into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/i
 1. Signup for a StichData.com account at : https://app.stitchdata.com/signup
 2. Once you've signed up, create an Integration by clicking on **Add Integration**.
 3. On the marketplace screen, type in **import** to narrow the list down to the **Import API**
-![Airbyte new PlanetScale connector](/img/docs/stitch-add-integration.png)
+![Add Stitch Integration](/img/docs/stitch-add-integration.png)
 4. On the next screen, configure your integration name & destination.
-![Airbyte new PlanetScale connector](/img/docs/stitch-configure-integration.png)
+![Configure Stitch Integration](/img/docs/stitch-configure-integration.png)
 5. Once the integration is created, save the access token for use with the PlanetScale tap.
- ![Airbyte new PlanetScale connector](/img/docs/stitch-api-token.png)
+ ![Save Stitch API Token](/img/docs/stitch-api-token.png)
 
 ### Step 2 : Configure the PlanetScale Stitch Tap
 1. Click on the database and branch you want to connect to.
 2. Click "Connect", select "Stitch source" from the "Connect with" dropdown.
 3. Leave this tab open, as you'll need to copy these credentials shortly.
-![Airbyte new PlanetScale connector](/img/docs/stitch-source-config.png)
+![Stitch Source config](/img/docs/stitch-source-config.png)
 4. Save the contents of `source.json` as a file on your local file system and save it as `source.json`. This will now act
 as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` to your database.
 
 ### Step 3: Run the PlanetScale Stitch Tap
-1. Clone this repository onto the machine running the workflow: https://github.com/planetscale/singer-tap
-2. Save the schema for your PlanetScale database. 
+1. Install the PlanetScale Singer tap by running `brew install planetscale/tap/ps-singer-tap`
+2. Install the PlanetScale Http tap by running `brew install planetscale/tap/ps-http-tap`
+3. Save the schema for your PlanetScale database.
 
 ```
 go run cmd/singer-tap/main.go --config source.json  --discover > schema.json
 ```
 
-3. Select the schema elements you want synced. **TODO: We need do something about this**
+4. Select the schema elements you want synced. **TODO: We need do something about this**
 
-4. Sync your PlanetScale database to Stitch by running the following command
+5. Sync your PlanetScale database to Stitch by running the following command
 
 ```
 go run cmd/singer-tap/main.go --config source.json  --catalog schema.json | go run cmd/htt-tap/main.go  --api-token $(cat access_token)
 ```
 
-5. You should see an output similar to this : 
+6. You should see an output similar to this : 
 
 ```
 PlanetScale Tap : INFO : Syncing records for PlanetScale database : import-on-scaler
@@ -63,12 +64,12 @@ HTTP Tap : INFO : Server response status : "OK", message : "Batch accepted"
 HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 ```
 
-6. Any state outputted by the PlanetScale Tap will be saved and you can look at the logs for the location.
+7. Any state outputted by the PlanetScale Tap will be saved and you can look at the logs for the location.
 example:
 
 ``` bash
 HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 ```
 
-7. In Stitch, you should see that it loaded `21` records to be replicated. 
+8. In Stitch, you should see that it loaded `21` records to be replicated.
 ![Airbyte new PlanetScale connector](/img/docs/stitch-import-done.png)
