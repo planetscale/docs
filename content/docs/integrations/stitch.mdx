@@ -6,31 +6,39 @@ subtitle: 'Extract, load, and transform your PlanetScale data with Stitch.'
 With the PlanetScale Connect (beta), you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
 
 We implemented an [Stitch Singer Tap](https://stitchdata.com/) as the pipeline between your PlanetScale source and selected destination. This document will walk you through how to connect your PlanetScale database to Stitch.
-
+## How to connect
 ### Step 1 : Setup an Import API integration in Stitch.
-PlanetScale's Stitch tap outputs records and metadata to stdout so that the `http tap` can import them
+PlanetScale's Stitch tap outputs records and metadata to stdout so that the `http tap` can import them into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/import-api/).
 into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/import-api/)
 
-1. Signup for a StichData.com account at : https://app.stitchdata.com/signup
+1. Sign up for a [StitchData](https://app.stitchdata.com/signup) account
 2. Once you've signed up, create an Integration by clicking on **Add Integration**.
 3. On the marketplace screen, type in **import** to narrow the list down to the **Import API**
 ![Add Stitch Integration](/img/docs/stitch-add-integration.png)
-4. On the next screen, configure your integration name & destination.
+4. On the next screen, configure your integration name and destination.
 ![Configure Stitch Integration](/img/docs/stitch-configure-integration.png)
 5. Once the integration is created, save the access token for use with the PlanetScale tap.
  ![Save Stitch API Token](/img/docs/stitch-api-token.png)
 
 ### Step 2 : Configure the PlanetScale Stitch Tap
 1. Click on the database and branch you want to connect to.
-2. Click "Connect", select "Stitch source" from the "Connect with" dropdown.
+2. Click "Connect", and select "Stitch source" from the "Connect with" dropdown.
 3. Leave this tab open, as you'll need to copy these credentials shortly.
 ![Stitch Source config](/img/docs/stitch-source-config.png)
-4. Save the contents of `source.json` as a file on your local file system and save it as `source.json`. This will now act
+4. Copy the contents of `source.json` as a file on your local file system, and save it as `source.json`. This will now act
 as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` to your database.
 
 ### Step 3: Run the PlanetScale Stitch Tap
-1. Install the PlanetScale Singer tap by running `brew install planetscale/tap/ps-singer-tap`
-2. Install the PlanetScale Http tap by running `brew install planetscale/tap/ps-http-tap`
+1. Install the PlanetScale Singer tap by running: 
+```bash
+brew install planetscale/tap/ps-singer-tap
+```
+```
+2. Install the PlanetScale Http tap by running
+```bash
+brew install planetscale/tap/ps-http-tap
+```
+```
 3. Save the schema for your PlanetScale database.
 
 ```
@@ -39,13 +47,14 @@ ps-singer-tap --config source.json  --discover > schema.json
 
 4. Select the schema elements you want synced. **TODO: We need do something about this**
 
-5. Sync your PlanetScale database to Stitch by running the following command
+5. Sync your PlanetScale database to Stitch by running the following command:
 
+```bash
 ```
 ps-singer-tap --config source.json  --catalog schema.json | ps-http-tap  --api-token $(cat access_token)
 ```
 
-6. You should see an output similar to this : 
+6. You should see an output similar to this: 
 
 ```
 PlanetScale Tap : INFO : Syncing records for PlanetScale database : import-on-scaler
@@ -65,7 +74,7 @@ HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 ```
 
 7. Any state outputted by the PlanetScale Tap will be saved and you can look at the logs for the location.
-example:
+Here is an example of outputted state:
 
 ``` bash
 HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
@@ -73,3 +82,7 @@ HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 
 8. In Stitch, you should see that it loaded `21` records to be replicated.
 ![Completed Stitch import](/img/docs/stitch-import-done.png)
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
