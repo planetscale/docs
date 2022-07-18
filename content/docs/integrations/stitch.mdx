@@ -47,7 +47,24 @@ brew install planetscale/tap/ps-http-tap
 ps-singer-tap --config source.json  --discover > schema.json
 ```
 
-4. Select the schema elements you want synced. **TODO: We need do something about this**
+4. Select the schema elements you want synced. The `schema.json` file you saved in the previous step is a JSON document
+   that describes all tables & columns available in your PlanetScale database. By default, no tables/columns are selected.
+   You can select a column or table by setting its `metadata` element in the JSON document to be true. 
+   Here's an example of selecting the `dept_no` property in a table.
+``` json
+{
+  "metadata":
+  {
+    "selected": true,
+    "inclusion": "available",
+    "breadcrumb":
+    [
+      "properties",
+      "dept_no"
+    ]
+  }
+}
+```
 
 5. Sync your PlanetScale database to Stitch by running the following command:
 
