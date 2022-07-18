@@ -98,7 +98,14 @@
               "route": "nextjs-planetscale-netlify-template",
               "display": "Next.js and Netlify Template"
             },
-            { "route": "deploy-to-vercel", "display": "Deploy to Vercel" }
+            { 
+              "route": "deploy-to-netlify", 
+              "display": "Deploy to Netlify" 
+            },
+            { 
+              "route": "deploy-to-vercel", 
+              "display": "Deploy to Vercel" 
+            }
           ]
         },
         {
@@ -148,6 +155,7 @@
         {
           "display": "Deploy your app",
           "subpages": [
+            { "route": "deploy-to-netlify", "display": "Deploy to Netlify"},
             { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
             {
               "route": "nextjs-planetscale-netlify-template",
