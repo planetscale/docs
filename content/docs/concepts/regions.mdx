@@ -36,7 +36,7 @@ You can also select the region while creating a database via the CLI by using
 the `--region` flag with the region's slug.
 
 <InfoBlock type='note'>
-  If you do not select a region during database creation using the CLI, it will be set to AWS us-east-1.
+  If you do not select a region during database creation using the CLI, it will be set to AWS `us-east-1`.
 </InfoBlock>
 
 Here's an example command for creating a database with a different region:
@@ -53,7 +53,7 @@ creation as well. By default, it is set to the same region as its database.
 ![Select your branch region.](/img/docs/branch-region.png)
 
 <InfoBlock type='note'>
-  You cannot change the region of a branch.
+  Once you select a branch region, it cannot be changed.
 </InfoBlock>
 
 You can also select the region while creating a branch via the CLI by using the
@@ -92,7 +92,7 @@ pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 5. Swap out the credentials in your app with the new branch.
 
-It's important to note that this will require some downtime if doing this on a production branch, as the backup will not be up to date when you make the swap. You can temporarily block writes before doing the backup and restore them after the final credential swap to avoid data loss.
+It's important to note that this will require some downtime if done on a production branch, as the backup will not be up to date when you make the swap. To avoid data loss, you can temporarily block writes before doing the backup, and restore them after the final credential swap.
 
 ## Need help?
 
