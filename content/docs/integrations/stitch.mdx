@@ -35,21 +35,20 @@ as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` 
 ```bash
 brew install planetscale/tap/ps-singer-tap
 ```
-```
+
 2. Install the PlanetScale Http tap by running
 ```bash
 brew install planetscale/tap/ps-http-tap
 ```
-```
-3. Save the schema for your PlanetScale database.
 
-```
+3. Save the schema for your PlanetScale database.
+``` bash
 ps-singer-tap --config source.json  --discover > schema.json
 ```
 
-4. Select the schema elements you want synced. The `schema.json` file you saved in the previous step is a JSON document
+4. The `schema.json` file you saved in the previous step is a JSON document
    that describes all tables & columns available in your PlanetScale database. By default, no tables/columns are selected.
-   You can select a column or table by setting its `metadata` element in the JSON document to be true. 
+   You can select a column or table by setting its `selected` property in the table's `metadata` element in the JSON document to be true. 
    Here's an example of selecting the `dept_no` property in a table.
 ``` json
 {
@@ -69,13 +68,12 @@ ps-singer-tap --config source.json  --discover > schema.json
 5. Sync your PlanetScale database to Stitch by running the following command:
 
 ```bash
-```
 ps-singer-tap --config source.json  --catalog schema.json | ps-http-tap  --api-token $(cat access_token)
 ```
 
 6. You should see an output similar to this: 
 
-```
+``` bash
 PlanetScale Tap : INFO : Syncing records for PlanetScale database : import-on-scaler
 PlanetScale Tap : INFO : syncing rows from stream "departments" from shard "-"
 PlanetScale Tap : INFO : [departments shard : -] peeking to see if there's any new rows
@@ -101,6 +99,8 @@ HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 
 8. In this example, you should see that Stitch loaded `21` records to be replicated.
 ![Completed Stitch import](/img/docs/stitch-import-done.png)
+
+9. To incrementally sync from this last sync position, pass the path to last saved state in step 7 as the `--state` argument when you run sync.
 
 ## Need help?
 
