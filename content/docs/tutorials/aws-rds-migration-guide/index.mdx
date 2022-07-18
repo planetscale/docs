@@ -39,38 +39,22 @@ If you don’t know the admin password, you can create a new set of credentials 
 
 In order for PlanetScale to connect to your RDS database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP](/import-tool-migration-addresses) addresses page to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
 
-```sql
-
+```
 3.209.149.66
-
 3.215.97.46
-
 34.193.111.15
-
 23.23.187.137
-
 52.6.141.108
-
 52.70.2.89
-
 50.17.188.76
-
 52.2.251.189
-
 52.72.234.74
-
 35.174.68.24
-
 52.5.253.172
-
 54.156.81.4
-
 34.200.24.255
-
 35.174.79.154
-
 44.199.177.24
-
 ```
 
 To allow traffic to your database in AWS, navigate to the “**Connectivity & security”** tab of the database and click the link under **VPC security groups**.
