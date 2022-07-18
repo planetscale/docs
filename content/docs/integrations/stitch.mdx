@@ -34,7 +34,7 @@ as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` 
 3. Save the schema for your PlanetScale database.
 
 ```
-go run cmd/singer-tap/main.go --config source.json  --discover > schema.json
+ps-singer-tap --config source.json  --discover > schema.json
 ```
 
 4. Select the schema elements you want synced. **TODO: We need do something about this**
@@ -42,7 +42,7 @@ go run cmd/singer-tap/main.go --config source.json  --discover > schema.json
 5. Sync your PlanetScale database to Stitch by running the following command
 
 ```
-go run cmd/singer-tap/main.go --config source.json  --catalog schema.json | go run cmd/htt-tap/main.go  --api-token $(cat access_token)
+ps-singer-tap --config source.json  --catalog schema.json | ps-http-tap  --api-token $(cat access_token)
 ```
 
 6. You should see an output similar to this : 
@@ -72,4 +72,4 @@ HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 ```
 
 8. In Stitch, you should see that it loaded `21` records to be replicated.
-![Airbyte new PlanetScale connector](/img/docs/stitch-import-done.png)
+![Completed Stitch import](/img/docs/stitch-import-done.png)
