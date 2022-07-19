@@ -37,15 +37,6 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
         indexName: 'planetscale-docs',
         inputSelector: '#searchbox',
         debug: false,
-        transformData: (hits) => {
-          let newHits = []
-          hits.map((hit) => {
-            if (hit.anchor !== null) {
-              newHits.push(hit)
-            }
-          })
-          return newHits
-        }
       })
     }
   }
