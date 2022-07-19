@@ -171,6 +171,23 @@
               "display": "AWS Lambda connection strings"
             }
           ]
+        },
+        {
+          "display": "Migration guides",
+          "subpages": [
+            {
+              "route": "aws-rds-migration-guide",
+              "display": "AWS RDS"
+            },
+            {
+              "display": "GCP CloudSQL",
+              "route": "gcp-cloudsql-migration-guide"
+            },
+            {
+              "display": "DigitalOcean",
+              "route": "digitalocean-database-migration-guide"
+            }
+          ]
         }
       ]
     },
@@ -240,6 +257,7 @@
       "image": "/img/internals/category_reference_light.png",
       "pages": [
         { "route": "mysql-compatibility", "display": "MySQL compatibility" },
+        { "route": "import-tool-migration-addresses", "display": "Import tool public IP addresses" },
         { "route": "planetscale-cli", "display": "PlanetScale CLI overview" },
         {
           "display": "CLI command reference",
