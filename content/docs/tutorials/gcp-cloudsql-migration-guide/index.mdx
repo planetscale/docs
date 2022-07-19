@@ -1,11 +1,11 @@
 ---
 title: GCP CloudSQL Migration Guide
-subtitle: Learn how to migrate your database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster into PlanetScale using our import tool.
+subtitle: Learn how to migrate your database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster into PlanetScale using our Import tool.
 ---
 
 ## Overview
 
-This document will demonstrate how to migrate a database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster to PlanetScale. We’ll also address some common issues associated with migrating from CloudSQL and how to resolve them.
+This document will demonstrate how to migrate a database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster to PlanetScale using our [Import tool](/concepts/database-imports). We’ll also address some common issues associated with migrating from CloudSQL and how to resolve them.
 
 <InfoBlock type='note'>
   This guide assumes you are using MySQL on GCP. Other database systems available through GCP will not work with the
@@ -20,7 +20,7 @@ You’ll also need to gather the following pieces of information from the GCP Co
 
 - Database name
 
-- Root username & password
+- Root username and password
 
 The public IP address can be found in the **Overview tab** of your CloudSQL cluster under the **Connect to this instance** section.
 
@@ -30,7 +30,7 @@ A list of your databases can be found in the **Databases** tab. In this guide, w
 
 ![The Databases list in the GCP console.](/img/docs/gcp-cloudsql-migration-guide/the-databases-list-in-the-gcp-console.png)
 
-The `root` username is the account setup by default for all CloudSQL instances. The password for that account was set during the creation of the instance.
+The `root` username is the account set up by default for all CloudSQL instances. The password for that account was set during the creation of the instance.
 
 <InfoBlock type="note">
 
@@ -38,7 +38,7 @@ If you don’t know the admin password, you can create a new set of credentials 
 
 </InfoBlock>
 
-## Allow PlanetSccale to connect to your CloudSQL instance
+## Allow PlanetScale to connect to your CloudSQL instance
 
 For PlanetScale to connect to your database, you’ll need to update the Authorized networks for your cluster. The specific IP addresses to permit depend on the region selected for your new database, which is in the **New database** section of the import tool in the **Region** field.
 
@@ -94,6 +94,10 @@ If you do not know your root password from when it was originally set, you can c
 
 ![The Users tab in the GCP console.](/img/docs/gcp-cloudsql-migration-guide/the-users-tab-in-the-gcp-console.png)
 
-In the form that appears, give your user a name & password. Make sure that **Allow any host** is selected. Click “**Add**”.
+In the form that appears, give your user a name and password. Make sure that **Allow any host** is selected. Click “**Add**”.
 
 ![The form to add a user in the GCP console.](/img/docs/gcp-cloudsql-migration-guide/the-form-to-add-a-user-in-the-gcp-console.png)
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

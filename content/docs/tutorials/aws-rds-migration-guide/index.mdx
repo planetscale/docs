@@ -42,7 +42,7 @@ If you don’t know the admin password, you can create a new set of credentials 
 
 ## Configuring the RDS security group
 
-In order for PlanetScale to connect to your RDS database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP](/import-tool-migration-addresses) addresses page to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
+In order for PlanetScale to connect to your RDS database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP addresses page](/import-tool-migration-addresses) to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
 
 ```
 3.209.149.66
@@ -62,7 +62,7 @@ In order for PlanetScale to connect to your RDS database, you must allow traffic
 44.199.177.24
 ```
 
-To allow traffic to your database in AWS, navigate to the “**Connectivity & security”** tab of the database and click the link under **VPC security groups**.
+To allow traffic to your database in AWS, navigate to the “**Connectivity & security**" tab of the database, and click the link under **VPC security groups**.
 
 ![The Connectivity & security tab of the database view in RDS.](/img/docs/aws-rds-migration-guide/the-connectivity-and-security-tab-of-the-database-view-in-rds.png)
 
@@ -70,7 +70,7 @@ In the lower pane of the next page, select the “**Inbound rules”** tab, then
 
 ![The view of security groups associated with the RDS instance.](/img/docs/aws-rds-migration-guide/the-view-of-security-groups-associated-with-the-rds-instance.png)
 
-Click the “**Add rule”** button and a new line will be added to the list of rules. Select **“MYSQL/Aurora”** as the **Type** and enter the first IP address from the list for your region. AWS will automatically reformat it to `x.x.x.x/32`, you can select that when it appears. You’ll need to repeat this for every IP address you need to allow.
+Click the “**Add rule”** button, and a new line will be added to the list of rules. Select **“MYSQL/Aurora”** as the **Type** and enter the first IP address from the list for your region. AWS will automatically reformat it to `x.x.x.x/32`, so you can select that when it appears. You’ll need to repeat this for every IP address you need to allow.
 
 ![The Edit inbound rules view where source traffic can be allowed.](/img/docs/aws-rds-migration-guide/the-edit-inbound-rules-view-where-source-traffic-can-be-allowed.png)
 
@@ -108,7 +108,12 @@ Once your database has finished importing, the view will update to show the data
 
 ![The Database import view once the initial import has been completed.](/img/docs/aws-rds-migration-guide/the-database-import-view-once-the-initial-import-has-been-completed.png)
 
-After primary mode is enabled, the third card in the flow will update to give you two options. **Enable replica mode** will revert the change performed in the previous step. **Finish import** will detach the databases from replication and future changes to either the PlanetScale database or the RDS database will not be replicated to each other. Click “**Finish import”** to complete the import process. Confirm in the modal that will be displayed.
+After primary mode is enabled, the third card in the flow will update to give you two options:
+
+- **Enable replica mode** &mdash; Reverts the change performed in the previous step, making RDS your primary once again.
+- **Finish import** &mdash; Detaches the databases from replication. Future changes to either the PlanetScale database or the RDS database will not be replicated to each other.
+
+Click “**Finish import”** to complete the import process. Confirm in the modal that will be displayed.
 
 ![The Database import view after the PlanetScale database has been flagged as the primary database.](/img/docs/aws-rds-migration-guide/the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png)
 
@@ -174,7 +179,7 @@ Now you need to associate the parameter group to the database. Select “**Datab
 
 ![The list of databases in RDS.](/img/docs/aws-rds-migration-guide/the-list-of-databases-in-rds.png)
 
-Scroll about halfway down the page and find the section titled **Additional configuration**. Update the **DB parameter group** to match the new group created earlier in this section. Scroll to the bottom & click “**Continue**”.
+Scroll about halfway down the page and find the section titled **Additional configuration**. Update the **DB parameter group** to match the new group created earlier in this section. Scroll to the bottom and click “**Continue**”.
 
 ![The Additional configuration section of the database configuration view.](/img/docs/aws-rds-migration-guide/the-additional-configuration-section-of-the-database-configuration-view.png)
 
@@ -198,7 +203,7 @@ To reboot the database, click the “**Modify”** button near the top of the sc
 
 <InfoBlock type="warning">
 
-This will disconnect any users who are actively using the database! Proceed with caution
+This will disconnect any users who are actively using the database! Proceed with caution.
 
 </InfoBlock>
 
@@ -211,3 +216,7 @@ You’ll be presented with a page to confirm the database you want to reboot. Cl
 You can view the status of the database in the primary list of databases for this account/region. This view does not refresh automatically, click the “**Refresh”** button to update the view.
 
 ![A view of the databases in RDS with status & the refresh button highlighted.](/img/docs/aws-rds-migration-guide/a-view-of-the-databases-in-rds-with-status-and-the-refresh-button-highlighted.png)
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
