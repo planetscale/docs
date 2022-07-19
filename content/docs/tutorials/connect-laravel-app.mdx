@@ -1,6 +1,7 @@
 ---
 title: 'Connect a Laravel application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Laravel application'
+className: 'ignore-img-borders'
 ---
 
 ## Introduction
@@ -65,7 +66,7 @@ pscale auth login
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-This tutorial uses `laravel-example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+This tutorial uses `laravel_example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
 
@@ -89,7 +90,9 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
 <InfoBlock type='note'>
-  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+  credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+  your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 Take note of the values returned to you, as you won't be able to see this password again.
@@ -100,7 +103,7 @@ Take note of the values returned to you, as you won't be able to see this passwo
 DB_CONNECTION=mysql
 DB_HOST=<ACCESS HOST URL> // outputted in the previous step
 DB_PORT=3306
-DB_DATABASE=<DATABASE_NAME> // this tutorial uses 'laravel-example'
+DB_DATABASE=<DATABASE_NAME> // this tutorial uses 'laravel_example'
 DB_USERNAME=<USERNAME> // outputted in the previous step
 DB_PASSWORD=<PASSWORD> // outputted in the previous step
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
@@ -131,7 +134,7 @@ If you're following this guide exactly and haven't created any branches, you can
 ```
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
-DB_PORT=3306 // Get this from the output of the previous step
+DB_PORT=3306 # Get this from the output of the previous step
 DB_DATABASE=<DATABASE_NAME>
 DB_USERNAME=
 DB_PASSWORD=
@@ -153,7 +156,7 @@ Now that you're connected, let's add some data to see it in action. The sample a
 php artisan migrate
 ```
 
-You should get a message that the migration table was successfully created. 
+You should get a message that the migration table was successfully created.
 
 3. Next, seed the database by running:
 
@@ -176,9 +179,9 @@ If you want to continue to play around with adding data on the fly, you have a f
 - PlanetScale CLI shell
 - [Laravel Tinker](https://laravel.com/docs/9.x/artisan#tinker)
 - PlanetScale dashboard console
-- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.) 
+- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.)
 
-The first two options are covered below. To explore the dashboard console, go to your PlanetScale database in the dashboard, click on the branch, and click the "**Console**" tab. 
+The first two options are covered below. To explore the dashboard console, go to your PlanetScale database in the dashboard, click on the branch, and click the "**Console**" tab.
 
 ### Add data with PlanetScale CLI
 
@@ -195,7 +198,7 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 This will open up a MySQL shell connected to the specified database and branch.
 
 <InfoBlock type='note'>
-  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. 
+  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
 </InfoBlock>
 
 3. Add a record to the `stars` table:

@@ -26,9 +26,16 @@ If no branch is specified, you'll be prompted to enter one. If only one branch e
 | **Flag** | **Description**        |
 | -------- | --------------------------------------- |
 | `-h`, `--help` | View help for `shell` command |
-| `local-addr <ADDRESS>` | Local address to bind and listen for connections. By default, the proxy binds to `127.0.0.1` with a random port. |
-| `org <ORGANIZATION_NAME>` | The organization for the current user |
-| `remote-addr <ADDRESS>` | PlanetScale database remote network address. By default, the remote address is automatically populated from the PlanetScale API. |
+| `--local-addr <ADDRESS>` | Local address to bind and listen for connections. By default, the proxy binds to `127.0.0.1` with a random port. |
+| `--org <ORGANIZATION_NAME>` | The organization for the current user |
+| `--remote-addr <ADDRESS>` | PlanetScale database remote network address. By default, the remote address is automatically populated from the PlanetScale API. |
+| `--role <ROLE>` | Define the access level [with a role](/concepts/password-roles) |
+
+Available roles for the `--role` flag are:
+- `reader`
+- `writer`
+- `readwriter`
+- `admin`
 
 ### Global flags
 

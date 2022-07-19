@@ -31,8 +31,13 @@ If there is only one branch available on the database, you can leave off `<BRANC
 | `--org <ORG_NAME>` | The organization of the database you want to connect to. |
 | `--port <PORT>` | Local port to bind and listen for connections. Default is `3306`. |
 | `--remote-addr <ADDRESS>` | PlanetScale Database remote network address. By default, the remote address is automatically populated from the PlanetScale API. |
+| `--role <ROLE>` | Define the access level [with a role](/concepts/password-roles) |
 
-
+Available roles for the `--role` flag are:
+- `reader`
+- `writer`
+- `readwriter`
+- `admin`
 
 ### Global flags
 

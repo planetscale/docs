@@ -14,7 +14,7 @@ import TableBlock from './MDX.TableBlock'
 import VideoBlock from './MDX.VideoBlock'
 import PageInfo from './PageInfo'
 
-export default function MDXContent({ title, subtitle, banner, body, lastUpdatedOn, slug, category }) {
+export default function MDXContent({ title, subtitle, banner, body, lastUpdatedOn, slug, category, className }) {
   const components = {
     table: TableBlock,
     pre: CodeBlock,
@@ -28,7 +28,7 @@ export default function MDXContent({ title, subtitle, banner, body, lastUpdatedO
   }
 
   return (
-    <div className='mdx-content'>
+    <div className={`mdx-content ${className ? className : ''}`}>
       <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
       <MDXRemote {...body} components={components} lazy />
       <FeedbackBlock />

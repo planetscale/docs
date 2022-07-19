@@ -1,6 +1,7 @@
 ---
 title: 'Connect a PHP application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a PHP application'
+className: 'ignore-img-borders'
 ---
 
 ## Introduction
@@ -16,7 +17,7 @@ In this tutorial, you'll learn how to connect a PHP application to a PlanetScale
 
 ## Set up the PHP app
 
-This guide uses [a simple PHP app](https://github.com/planetscale/php-example) that displays  a list of products stored in a PlanetScale database. If you have an existing application, you can also use that.
+This guide uses [a simple PHP app](https://github.com/planetscale/php-example) that displays a list of products stored in a PlanetScale database. If you have an existing application, you can also use that.
 
 ![PHP sample application homepage](/img/docs/php-sample-app-homepage.png)
 
@@ -37,7 +38,7 @@ composer install
 
 ```bash
 mv .env.example .env
-``` 
+```
 
 4. Start the application:
 
@@ -68,7 +69,7 @@ pscale auth login
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-You can use any name with lowercase, alphanumeric characters, and dashes or underscores.
+You can use any name with lowercase, alphanumeric characters, or underscores. You can also use dashes, but we don't recommend them, as they may need to be escaped in some instances.
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
 
@@ -119,7 +120,9 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 A default branch, `main`, was created when you created the database, so you can use that for `BRANCH_NAME`.
 
 <InfoBlock type='note'>
-  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+  credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+  your database overview page, click "Settings", and then click "Passwords".
 </InfoBlock>
 
 Take note of the values returned to you, as you won't be able to see this password again.
@@ -191,7 +194,8 @@ if ($mysqli->connect_error) {
 This removes all references to `username`, `password`, and `ssl`.
 
 <InfoBlock type='note'>
-  It's important to make sure that you add the SSL check back if you switch back to username and password credentials. We're intentionally commenting it out instead of deleting it in case you switch back.
+  It's important to make sure that you add the SSL check back if you switch back to username and password credentials.
+  We're intentionally commenting it out instead of deleting it in case you switch back.
 </InfoBlock>
 
 5. Refresh your PHP homepage, and you should see the message that you're connected to your database!
@@ -202,7 +206,7 @@ Now that you're connected to the database let's create the `products` and `categ
 
 - PlanetScale CLI shell
 - PlanetScale dashboard console
-- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.) 
+- Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.)
 
 The first two options are covered below.
 
@@ -265,7 +269,7 @@ SELECT * FROM categories;
 
 You can now refresh the [PHP homepage](http://localhost:8000) to see the new record.
 
-### Option 2:  Add data with PlanetScale CLI
+### Option 2: Add data with PlanetScale CLI
 
 You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
 
@@ -338,7 +342,7 @@ SELECT * FROM categories;
 
 7. Type `exit` to exit the shell.
 
-You can now refresh the [PHP homepage](http://localhost:8000) to see the new records. 
+You can now refresh the [PHP homepage](http://localhost:8000) to see the new records.
 
 ## What's next?
 
