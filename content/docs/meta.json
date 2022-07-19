@@ -98,13 +98,13 @@
               "route": "nextjs-planetscale-netlify-template",
               "display": "Next.js and Netlify Template"
             },
-            { 
-              "route": "deploy-to-netlify", 
-              "display": "Deploy to Netlify" 
+            {
+              "route": "deploy-to-netlify",
+              "display": "Deploy to Netlify"
             },
-            { 
-              "route": "deploy-to-vercel", 
-              "display": "Deploy to Vercel" 
+            {
+              "route": "deploy-to-vercel",
+              "display": "Deploy to Vercel"
             }
           ]
         },
@@ -186,6 +186,10 @@
             {
               "display": "DigitalOcean",
               "route": "digitalocean-database-migration-guide"
+            },
+            {
+              "display": "Azure",
+              "route": "azure-database-for-mysql-migration-guide"
             }
           ]
         }
