@@ -15,8 +15,8 @@ Below is the minimum set of permissions needed and what each allows the user to 
 | Table  | `<DATABASE_NAME>`, `_vt` | `SELECT`             | Enable use of SELECT.                                                        |
 | Table  | `<DATABASE_NAME>`, `_vt` | `INSERT`             | Enable use of INSERT.                                                        |
 | Table  | `<DATABASE_NAME>`        | `LOCK TABLES`        | Enable use of LOCK TABLES on tables for which you have the SELECT privilege. |
-| Table  | `_vt`                    | `UPDATE`             | Enable use of UPDATE.                                                        |
-| Table  | `_vt`                    | `DELETE`             | Enable use of DELETE.                                                        |
+| Table  | `<DATABASE_NAME>`, `_vt` | `UPDATE`             | Enable use of UPDATE.                                                        |
+| Table  | `<DATABASE_NAME>`, `_vt` | `DELETE`             | Enable use of DELETE.                                                        |
 | Table  | `_vt`                    | `CREATE`             | Enable database and table creation.                                          |
 | Table  | `_vt`                    | `DROP`               | Enable databases, tables, and views to be dropped.                           |
 | Table  | `_vt`                    | `ALTER`              | Enable use of ALTER TABLE.                                                   |
