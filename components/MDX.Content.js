@@ -3,6 +3,7 @@ import React from 'react'
 import { MDXRemote } from 'next-mdx-remote'
 
 import FeedbackBlock from './FeedbackBlock'
+import GetHelp from './GetHelp'
 import HeadingBlock from './HeadingBlock'
 import AnchorLink from './MDX.AnchorLink'
 import CodeBlock from './MDX.CodeBlock'
@@ -24,7 +25,8 @@ export default function MDXContent({ title, subtitle, banner, body, lastUpdatedO
     h3: (props) => <AnchorLink {...props} heading='h3' category={category} />,
     NextBlock,
     InfoBlock,
-    VideoBlock
+    VideoBlock,
+    GetHelp
   }
 
   return (
