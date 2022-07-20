@@ -34,10 +34,10 @@ The master username can be located under the “**Configuration”** tab. The ma
 
 ![The Configuration tab of the database in RDS.](/img/docs/aws-rds-migration-guide/the-configuration-tab-of-the-database-in-rds.png)
 
-<InfoBlock type="note">
-
-If you don’t know the admin password, you can create a new set of credentials by following the steps in the [Create a migration user account](#create-a-migration-user-account) section of this document.
-
+<InfoBlock type='note'>
+  If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
+  tool user permissions page](/reference/import-tool-user-requirements) to create an account that can be used to import
+  your database.
 </InfoBlock>
 
 ## Configuring the RDS security group
@@ -96,7 +96,7 @@ If the connection was successful, you’ll see the following message. Click “*
 
 <InfoBlock type="warning">
 
-If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues
+If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.
 
 </InfoBlock>
 
@@ -120,22 +120,6 @@ Click “**Finish import”** to complete the import process. Confirm in the mod
 This concludes the process used to import a database into PlanetScale from AWS RDS.
 
 ## Troubleshooting
-
-### Create a migration user account
-
-If you don’t know what the admin password is, you can create another user account to use for the migration. To do this, connect to RDS with your preferred MySQL client and issue the following commands. Make sure to replace the variables `<SUPER_STRONG_PASSWORD>` and `<DATABASE_NAME>` with the proper values for your environment.
-
-```sql
-
-CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
-
-GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'migration_user'@'%';
-
-GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON <DATABASE_NAME>.* TO `migration_user`@`%`;
-
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `_vt`.* TO `migration_user`@`%`;
-
-```
 
 This will create an account that has full access to the database that you can use for the migration.
 
