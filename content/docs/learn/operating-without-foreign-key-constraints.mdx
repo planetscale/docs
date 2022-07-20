@@ -128,7 +128,7 @@ Consider an `ON DELETE SET NULL` constraint. What happens to the child rows that
 
 Eventually, those rows will pile up, and you will want to reclaim the space.
 
-Without `FOREIGN KEY` constraints, the situation is very much the same, It is possible to `DELETE` a parent row without deleting its dependant children rows. A child row `JOIN`ed with a respective (deleted) parent row comes out empty. There is no `IS NOT NULL` to help you, but identifying those rows is still trivial. Similarly, there is little or no damage in keeping those rows around for a while.
+Without `FOREIGN KEY` constraints, the situation is very much the same, It is possible to `DELETE` a parent row without deleting its dependent children rows. A child row `JOIN`ed with a respective (deleted) parent row comes out empty. There is no `IS NOT NULL` to help you, but identifying those rows is still trivial. Similarly, there is little or no damage in keeping those rows around for a while.
 
 And similarly, those rows eventually pile up.
 
