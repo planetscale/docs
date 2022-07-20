@@ -121,6 +121,24 @@ This concludes the process used to import a database into PlanetScale from AWS R
 
 ## Troubleshooting
 
+### Create a migration user account
+
+If you don’t know what the admin password is, you can create another user account to use for the migration. To do this, connect to RDS with your preferred MySQL client and issue the following commands. Make sure to replace the variables `<SUPER_STRONG_PASSWORD>` and `<DATABASE_NAME>` with the proper values for your environment.
+
+```sql
+
+CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
+
+GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'migration_user'@'%';
+
+GRANT SELECT, INSERT, LOCK TABLES ON <DATABASE_NAME>.* TO `migration_user`@`%`;
+
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `_vt`.* TO `migration_user`@`%`;
+
+```
+
+This will create an account that has full access to the database that you can use for the migration.
+
 ### Configure gtid & binlog settings
 
 ![One of the gtid errors that display in the PlanetScale Import database form when the connection is not successful.](/img/docs/aws-rds-migration-guide/one-of-the-gtid-errors-that-display-in-the-planetscale-import-database-form-when-the-connection-is-not-successful.png)
