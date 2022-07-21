@@ -15,6 +15,11 @@ In this tutorial, you'll create a [Next.js](https://nextjs.org/) application tha
 
 If this is your first time in the dashboard, you'll be prompted to go through a database creation walkthrough where you'll create a new database. Otherwise, click "**New database**" > "**Create new database**".
 
+- **Name** &mdash; You can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
+- **Region** &mdash; Choose the [region](/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
+
+Finally, click "**Create database**".
+
 ![Create a new database modal](/img/docs/nextjs-quickstart/create-database.png)
 
 <InfoBlock type='note'>
@@ -106,12 +111,14 @@ If you'd like to deploy to Netlify, check out our [Deploy to Netlify documentati
   If you are deploying the `nextjs-starter` repo, the `Netlify.toml` file in this repository includes the configuration for you to customize the `PLANETSCALE_PRISMA_DATABASE_URL` property on the initial deploy.
 </InfoBlock>
 
-## What's next
+## What's next?
+
+Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
 
 To learn more about PlanetScale, take a look at the following resources:
 
 - [PlanetScale workflow](/concepts/planetscale-workflow) &mdash; Quick overview of the PlanetScale workflow: branching, non-blocking schema changes, deploy requests, and reverting a schema change.
-- [PlanetScale branching](/concepts/branching) &mdash; Learn how to utilize branching to ship schema changes with no downtime.
+- [PlanetScale branching](/concepts/branching) &mdash; Learn how to utilize branching to ship schema changes with no locking or downtime.
 - [PlanetScale CLI](/reference/planetscale-cli) &mdash; Power up your workflow with the PlanetScale CLI. Every single action you just performed in this quickstart (and much more) can also be done with the CLI.
 
 ## Need help?
