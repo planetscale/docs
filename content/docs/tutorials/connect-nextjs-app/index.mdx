@@ -58,7 +58,11 @@ Copy the `DATABASE_URL` string from the `.env` tab and paste it into your own `.
 DATABASE_URL='mysql://<USERNAME>:<PASSWORD>@<HOST>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}'
 ```
 
+Your PlanetScale database should now be connected to your application.
+
 ## Add the schema and data
+
+With the database connected, you're now ready to add a schema, and read/write data.
 
 The sample repo we shared above includes a pre-built schema and some seed data built with Prisma. Push the database schema to your PlanetScale database with:
 
