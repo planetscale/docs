@@ -5,7 +5,7 @@ subtitle: 'Use the PlanetScale CLI to create development branches, open deploy r
 
 ## Getting Started
 
-Make sure to first [set up your PlanetScale developer environment](/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
+Make sure to first [set up your PlanetScale developer environment](/docs/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
 
 ## The `connect` command
 
@@ -31,7 +31,7 @@ If there is only one branch available on the database, you can leave off `<BRANC
 | `--org <ORG_NAME>` | The organization of the database you want to connect to. |
 | `--port <PORT>` | Local port to bind and listen for connections. Default is `3306`. |
 | `--remote-addr <ADDRESS>` | PlanetScale Database remote network address. By default, the remote address is automatically populated from the PlanetScale API. |
-| `--role <ROLE>` | Define the access level [with a role](/concepts/password-roles) |
+| `--role <ROLE>` | Define the access level [with a role](/docs/concepts/password-roles) |
 
 Available roles for the `--role` flag are:
 - `reader`
@@ -64,7 +64,7 @@ pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
 
 **Output:**
 
-This command connects to the specified PlanetScale branch and runs the `node app.js` command. Since no `--execute-env-url` flag was passed, it uses the default `DATABASE_URL` environment variable. You can find a full example of this in our [Node quickstart](/tutorials/connect-nodejs-app).
+This command connects to the specified PlanetScale branch and runs the `node app.js` command. Since no `--execute-env-url` flag was passed, it uses the default `DATABASE_URL` environment variable. You can find a full example of this in our [Node quickstart](/docs/tutorials/connect-nodejs-app).
 
 ## Need help?
 

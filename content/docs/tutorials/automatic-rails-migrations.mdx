@@ -19,7 +19,7 @@ In this tutorial, you're going to learn how Rails migrations work with the Plane
 </InfoBlock>
 
 ## Prerequisites
-Follow the [Connect a Rails app](/tutorials/connect-rails-app) tutorial first. By the end, you will have:
+Follow the [Connect a Rails app](/docs/tutorials/connect-rails-app) tutorial first. By the end, you will have:
 - Installed the [PlanetScale CLI](https://github.com/planetscale/cli), Ruby, and the Rails gem
 - Created a PlanetScale database named `blog`
 - Started a new Rails app named `blog` with a migration creating a `Users` table
@@ -40,7 +40,7 @@ Rails tracks an application's migrations in an internal table called `schema_mig
 
 ## Execute a Rails migration on PlanetScale
 
-Rails migrations follow the PlanetScale [non-blocking schema change](/concepts/nonblocking-schema-changes) workflow. First, the migration is applied to a _development_ branch, and then the development branch is merged into the `main` production branch.
+Rails migrations follow the PlanetScale [non-blocking schema change](/docs/concepts/nonblocking-schema-changes) workflow. First, the migration is applied to a _development_ branch, and then the development branch is merged into the `main` production branch.
 
 Let's add another table to your existing `blog` schema:
 
@@ -188,7 +188,7 @@ In this tutorial, we learned how to use the PlanetScale deployment process with 
 
 ## What's next?
 
-Learn more about how PlanetScale allows you to make [schema changes](/concepts/nonblocking-schema-changes) to your production databases without downtime or locking tables.
+Learn more about how PlanetScale allows you to make [schema changes](/docs/concepts/nonblocking-schema-changes) to your production databases without downtime or locking tables.
 
 ## Need help?
 

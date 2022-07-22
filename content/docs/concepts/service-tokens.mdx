@@ -9,7 +9,7 @@ PlanetScale provides the ability to create service tokens for your PlanetScale o
 
 <InfoBlock type='note'>
   Service tokens are not recommended for connecting to production databases. Instead, connect securely to your database
-  using PlanetScale <a href='https://docs.planetscale.com/concepts/connection-strings'>connection strings</a>.
+  using PlanetScale <a href='/docs/concepts/connection-strings'>connection strings</a>.
 </InfoBlock>
 
 ## Create service tokens using the PlanetScale UI
@@ -18,19 +18,19 @@ PlanetScale provides the ability to create service tokens for your PlanetScale o
 
 1. Go to your organization settings page for service tokens: `app.planetscale.com/<org>/settings/service-tokens`
 
-![Service token settings page](/img/docs/servicetokens-settings-overview.png)
+![Service token settings page](/docs/img/docs/servicetokens-settings-overview.png)
 
 2. Click on the "New service token" button
 
 This will open a pop-up modal that prompts you to name the service token.
 
-![New service token pop-up modal](/img/docs/servicetokens-create-modal.png)
+![New service token pop-up modal](/docs/img/docs/servicetokens-create-modal.png)
 
 3. Once you have provided a name for the service token, click "Create service token" to finish creating the token.
 
 4. Copy the token value from the UI.
 
-![Service token detail page](/img/docs/servicetokens-token-detail.png)
+![Service token detail page](/docs/img/docs/servicetokens-token-detail.png)
 
 You will need both the token ID and the token value to connect to your databases.
 
@@ -48,7 +48,7 @@ PLANETSCALE_SERVICE_TOKEN=your-token-value
 
 1. Click "Add database access" to select the database access permissions for the token.
 
-![Database access permissions pop-up modal](/img/docs/servicetokens-database-access-permissions.png)
+![Database access permissions pop-up modal](/docs/img/docs/servicetokens-database-access-permissions.png)
 
 For each database you add, you have the ability to select from the following permissions:
 
@@ -58,7 +58,7 @@ For each database you add, you have the ability to select from the following per
 - connect_branch
 - connect_production_branch
 
-A complete list of service token access permissions can be found [here](https://docs.planetscale.com/reference/planetscale-cli#service-tokens-in-organizations).
+A complete list of service token access permissions can be found [here](/docs/reference/planetscale-cli#service-tokens-in-organizations).
 
 2. Once you have selected the access permissions, click "Save permissions" to save your selection.
 
@@ -70,7 +70,7 @@ You can add access to another database in your organization by clicking on the "
 2. Click on the service token ID for the service token you would like to update.
 3. Click on the blue link "Manage permissions" underneath the database name and permissions to add or remove access permissions.
 
-![Manage Permissions](/img/docs/servicetokens-database-access.png)
+![Manage Permissions](/docs/img/docs/servicetokens-database-access.png)
 
 4. Adjust the permissions in the pop-up modal and then click "Save permissions" to update the database access permissions.
 
@@ -117,7 +117,7 @@ For example, to give a service token the ability to create, read, and delete bra
 pscale service-token add-access <token id> read_branch delete_branch create_branch --database <database name>
 ```
 
-A complete list of service token access permissions can be found [here](https://docs.planetscale.com/reference/planetscale-cli#service-tokens-in-organizations).
+A complete list of service token access permissions can be found [here](/docs/reference/planetscale-cli#service-tokens-in-organizations).
 
 ### Remove database access permissions
 

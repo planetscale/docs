@@ -11,7 +11,7 @@ building security into every layer of our products.
 ## Compliance reporting
 
 PlanetScale continuously monitors and reports primarily using System and Organization
-Controls (SOC) 2 Type 2. To receive a copy of the report please 
+Controls (SOC) 2 Type 2. To receive a copy of the report please
 [contact Support](https://support.planetscale.com/).
 
 ## Application security
@@ -28,9 +28,9 @@ Data is encrypted at rest on the underlying storage media that serves database b
 
 Encrypted data is transmitted to PlanetScale databases through three major paths:
 
-- The [PlanetScale CLI](/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
-- PlanetScale [Connection Strings](/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
-- When using [PlanetScale Connect](/integrations/airbyte), [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) is used to secure all data transmitted between PlanetScale and Airbyte.
+- The [PlanetScale CLI](/docs/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
+- PlanetScale [Connection Strings](/docs/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
+- When using [PlanetScale Connect](/docs/integrations/airbyte), [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) is used to secure all data transmitted between PlanetScale and Airbyte.
 
 ### Additional data protection controls
 

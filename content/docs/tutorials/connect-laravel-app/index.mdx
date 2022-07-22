@@ -54,17 +54,17 @@ Next, you need to set up your PlanetScale database and connect to it in the Lara
 If this is your first time in the dashboard, you'll be prompted to go through a database creation walkthrough where you'll create a new database. Otherwise, click "**New database**" > "**Create new database**".
 
 - **Name** &mdash; You can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
-- **Region** &mdash; Choose the [region](/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
+- **Region** &mdash; Choose the [region](/docs/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
 
 Finally, click "**Create database**".
 
-![Create a new database modal](/img/docs/laravel-quickstart/create-database.png)
+![Create a new database modal](/docs/img/docs/laravel-quickstart/create-database.png)
 
 <InfoBlock type='note'>
-  If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/concepts/database-imports). 
+  If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/concepts/database-imports).
 </InfoBlock>
 
-A [development branch](/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
+A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
 
 That's it! Your database is ready to use. Next, let's connect it to the Laravel application and then add some data.
 
@@ -93,7 +93,7 @@ Copy the contents of the `.env` tab and paste them into your own `.env` file in 
 
 ```
 DB_CONNECTION=mysql
-DB_HOST=<ACCESS HOST URL> 
+DB_HOST=<ACCESS HOST URL>
 DB_PORT=3306
 DB_DATABASE=<DATABASE_NAME>
 DB_USERNAME=<USERNAME>
@@ -101,7 +101,7 @@ DB_PASSWORD=<PASSWORD>
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](/concepts/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
+The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](/docs/concepts/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
 
 Refresh your Laravel homepage and you should see the message that you're connected to your database!
 
@@ -160,7 +160,7 @@ You should get the message "Database seeding completed successfully".
 
 The `resources/views/home.blade.php` file pulls this data from the `stars` table with the help of the `app/Http/Controllers/StarController.php` file.
 
-![Laravel PlanetScale starter app homepage](/img/docs/laravel-planetscale-example-data.png)
+![Laravel PlanetScale starter app homepage](/docs/img/docs/laravel-planetscale-example-data.png)
 
 ## Add data manually
 
@@ -168,16 +168,16 @@ If you want to continue to play around with adding data on the fly, you have a f
 
 - PlanetScale dashboard console
 - [Laravel Tinker](https://laravel.com/docs/9.x/artisan#tinker)
-- [PlanetScale CLI shell](/reference/shell)
+- [PlanetScale CLI shell](/docs/reference/shell)
 - Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.)
 
 The first two options are covered below.
 
 ### Add data in PlanetScale dashboard console
 
-PlanetScale has a [built-in console](/concepts/web-console) where you can run MySQL commands against your branches. To access it, click "**Branches**" > your development branch > "**Console**".
+PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches. To access it, click "**Branches**" > your development branch > "**Console**".
 
-From here, you can run MySQL queries and DDL against your database branch. 
+From here, you can run MySQL queries and DDL against your database branch.
 
 1. Add a record to the `stars` table:
 
@@ -192,7 +192,7 @@ VALUES  ('Sagittarius', 'Kaus Media');
 SELECT * FROM stars;
 ```
 
-![PlanetScale web console](/img/docs/laravel-quickstart/planetscale-web-console.png)
+![PlanetScale web console](/docs/img/docs/laravel-quickstart/planetscale-web-console.png)
 
 ### Add data with Laravel Tinker
 
@@ -220,13 +220,13 @@ App\Models\Star::all();
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
 
 To learn more about PlanetScale, take a look at the following resources:
 
-- [PlanetScale workflow](/concepts/planetscale-workflow) &mdash; Quick overview of the PlanetScale workflow: branching, non-blocking schema changes, deploy requests, and reverting a schema change.
-- [PlanetScale branching](/concepts/branching) &mdash; Learn how to utilize branching to ship schema changes with no locking or downtime.
-- [PlanetScale CLI](/reference/planetscale-cli) &mdash; Power up your workflow with the PlanetScale CLI. Every single action you just performed in this quickstart (and much more) can also be done with the CLI.
+- [PlanetScale workflow](/docs/concepts/planetscale-workflow) &mdash; Quick overview of the PlanetScale workflow: branching, non-blocking schema changes, deploy requests, and reverting a schema change.
+- [PlanetScale branching](/docs/concepts/branching) &mdash; Learn how to utilize branching to ship schema changes with no locking or downtime.
+- [PlanetScale CLI](/docs/reference/planetscale-cli) &mdash; Power up your workflow with the PlanetScale CLI. Every single action you just performed in this quickstart (and much more) can also be done with the CLI.
 
 ## Need help?
 

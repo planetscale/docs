@@ -9,9 +9,9 @@ This guide will walk you through setting up and deploying your PlanetScale datab
 
 ## Prerequisites
 
-- A PlanetScale database &mdash; If you haven't created a database, refer to our [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) to get started
+- A PlanetScale database &mdash; If you haven't created a database, refer to our [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) to get started
 - A [Netlify account](https://netlify.com/)
-- A project deployed to Netlify &mdash; If you're just poking around and don't already have an application to deploy, you can use our [Next.js + PlanetScale sample](/tutorials/connect-nextjs-app)
+- A project deployed to Netlify &mdash; If you're just poking around and don't already have an application to deploy, you can use our [Next.js + PlanetScale sample](/docs/tutorials/connect-nextjs-app)
 
 ## Connecting your PlanetScale database to your Netlify application
 
@@ -21,7 +21,7 @@ This guide will walk you through setting up and deploying your PlanetScale datab
 2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
-![PlanetScale dashboard connect modal](/img/docs/prisma-connection-modal.png)
+![PlanetScale dashboard connect modal](/docs/img/docs/prisma-connection-modal.png)
 
 4. If the password is blurred, click "New password" to generate new credentials.
 5. Keep this page open, as you'll need to copy these to Netlify momentarily.
@@ -52,13 +52,13 @@ In Netlify, you'll set it as follows:
 
 *Note: The credentials are blurred for the example, but when you paste them in, use the actual values.*
 
-![Netlify dashboard - Environment variables](/img/docs/netlify-environment-variables.png)
+![Netlify dashboard - Environment variables](/docs/img/docs/netlify-environment-variables.png)
 
 After you have saved, you will need to rebuild the site with the new environment variable.
 
 ## What's next?
 
-Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
 
 ## Need help?
 

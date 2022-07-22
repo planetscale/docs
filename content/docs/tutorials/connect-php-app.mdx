@@ -19,7 +19,7 @@ In this tutorial, you'll learn how to connect a PHP application to a PlanetScale
 
 This guide uses [a simple PHP app](https://github.com/planetscale/php-example) that displays a list of products stored in a PlanetScale database. If you have an existing application, you can also use that.
 
-![PHP sample application homepage](/img/docs/php-sample-app-homepage.png)
+![PHP sample application homepage](/docs/img/docs/php-sample-app-homepage.png)
 
 1. Clone the starter PHP application:
 
@@ -54,9 +54,9 @@ Next, you need to set up your PlanetScale database and connect it to the PHP app
 
 You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI.
 
-This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#create-a-database) if you prefer the dashboard. Just create the database and then come back here to continue.
+This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide#create-a-database) if you prefer the dashboard. Just create the database and then come back here to continue.
 
-1. Install the [PlanetScale CLI](/concepts/planetscale-environment-setup).
+1. Install the [PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
 2. Authenticate in the CLI with the following command:
 
 ```bash
@@ -71,7 +71,7 @@ pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 
 You can use any name with lowercase, alphanumeric characters, or underscores. You can also use dashes, but we don't recommend them, as they may need to be escaped in some instances.
 
-For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
+For `REGION_SLUG`, choose a region closest to you from the [available regions](/docs/concepts/regions#available-regions) or leave it blank.
 
 The database is created with a default branch, `main`, that's meant to serve as your initial development branch before promoting it to production.
 
@@ -139,7 +139,7 @@ MYSQL_ATTR_SSL_CA=
 
 Fill in your database name. For `USERNAME`, `PASSWORD`, and `HOST`, use the corresponding values from the CLI output.
 
-3. For `MYSQL_ATTR_SSL_CA`, use our [CA root configuration doc](/concepts/secure-connections#ca-root-configuration) to find the correct value for your system. For example, if you're on MacOS, it would be:
+3. For `MYSQL_ATTR_SSL_CA`, use our [CA root configuration doc](/docs/concepts/secure-connections#ca-root-configuration) to find the correct value for your system. For example, if you're on MacOS, it would be:
 
 ```
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
@@ -239,7 +239,7 @@ category_id INT NOT NULL,
 PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
 ```
 
-PlanetScale does not support foreign key constraints, but we do support the concept of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/learn/operating-without-foreign-key-constraints).
+PlanetScale does not support foreign key constraints, but we do support the concept of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
 
 6. Add data to the `products` table with:
 
@@ -273,7 +273,7 @@ You can now refresh the [PHP homepage](http://localhost:8000) to see the new rec
 
 You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
 
-You may need to [install the MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
+You may need to [install the MySQL command line client](/docs/concepts/planetscale-environment-setup) if you haven't already.
 
 1. Run the following command in your terminal:
 
@@ -310,7 +310,7 @@ CREATE TABLE products (
 );
 ```
 
-PlanetScale does not support foreign key constraints, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/learn/operating-without-foreign-key-constraints).
+PlanetScale does not support foreign key constraints, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
 
 4. Add some records to the `products` table:
 
@@ -346,11 +346,11 @@ You can now refresh the [PHP homepage](http://localhost:8000) to see the new rec
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
 
-When you're reading to make more schema changes, you'll [create a new branch](/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll [open a deploy request](/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
+When you're reading to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll [open a deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
 
-Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
 
 ## Need help?
 

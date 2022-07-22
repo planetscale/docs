@@ -3,11 +3,11 @@ title: 'Query Insights'
 subtitle: 'Find and optimize long-running queries in your application.'
 ---
 
-PlanetScale Insights, currently in beta, gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time that a query was impacted and, if applicable, the [Deploy Request](/concepts/deploy-requests) that affected it.
+PlanetScale Insights, currently in beta, gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time that a query was impacted and, if applicable, the [Deploy Request](/docs/concepts/deploy-requests) that affected it.
 
 You can also see a [list of all queries](#queries-list) performed on your database in the last 24 hours. For further analysis, you can sort these by metrics like amount of rows read, time per query, and more.
 
-<VideoBlock src='/img/docs/insights.mp4' />
+<VideoBlock src='/docs/img/docs/insights.mp4' />
 <p align='center'><i>This video shows an example Insights page. All explanations are covered in this doc.</i></p>
 
 <InfoBlock type="note">
@@ -22,13 +22,13 @@ Below is an overview of what you'll find on this page. If you'd like to see a pr
 
 ### Branch selection
 
-![PlanetScale Insights branch selection](/img/docs/insights-branches.png) 
+![PlanetScale Insights branch selection](/docs/img/docs/insights-branches.png)
 
 The dropdown on the top right lets you select which branch you want to analyze. The selection applies to the entire Insights page.
 
 ### Insights graph
 
-![PlanetScale Insights graph](/img/docs/insights-graph.png)
+![PlanetScale Insights graph](/docs/img/docs/insights-graph.png)
 
 This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
@@ -36,7 +36,7 @@ You can click the dates listed above the graph to scroll through the past seven 
 
 ### Graph metrics selection
 
-![PlanetScale Insights graph metrics selection - rows written](/img/docs/insights-graph-metrics-selection.png) 
+![PlanetScale Insights graph metrics selection - rows written](/docs/img/docs/insights-graph-metrics-selection.png)
 
 The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the metric(s) for that time period.
 
@@ -49,13 +49,13 @@ The available options are:
 
 ### Queries list
 
-![PlanetScale Insights recent queries list](/img/docs/insights-query-list.png)
+![PlanetScale Insights recent queries list](/docs/img/docs/insights-query-list.png)
 
 The table underneath the graph shows all queries performed on your database in the past 24 hours. To further narrow down query analysis, you can select a time range from the above graph to restrict the table to queries that happened in that time frame.
 
 You can also sort the columns for quick analysis.
 
-![Insights queries selected time range](/img/docs/insights-selected-time-frame.png)
+![Insights queries selected time range](/docs/img/docs/insights-selected-time-frame.png)
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
@@ -66,7 +66,7 @@ You may see some placeholder values in the queries, such as `:v1`. This is becau
 - **Time per query (ms)** &mdash; The number of milliseconds each individual query takes to run. This is calculated from total time divided by count.
 - **Table** &mdash; The table(s) being queried or modified.
 - **Rows returned** &mdash; The total number of rows fetched by a `SELECT` statement. This includes all times the query has run in the displayed time frame.
-- **Rows read** &mdash; The total number of rows read. This includes all times the query has run in the displayed time frame. This is the number that directly affects your [rows read billing calculation](/concepts/billing#understanding-rows-read). 
+- **Rows read** &mdash; The total number of rows read. This includes all times the query has run in the displayed time frame. This is the number that directly affects your [rows read billing calculation](/docs/concepts/billing#understanding-rows-read).
 - **Rows affected** &mdash; The total number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement. This includes all times the query has run in the displayed time frame.
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
@@ -85,8 +85,8 @@ If you'd like to further interact with the query, click "Open query in web conso
 
 Note, if you're viewing the `EXPLAIN` plan on a production branch, this button will be disabled unless you enable production web console access in your database Settings page.
 
-![PlanetScale Insights query pattern w/ explain plan](/img/docs/insights-explain-plan.png)  
-![PlanetScale Insights explain plan](/img/docs/insights-explain-plan-2.png)  
+![PlanetScale Insights query pattern w/ explain plan](/docs/img/docs/insights-explain-plan.png)
+![PlanetScale Insights explain plan](/docs/img/docs/insights-explain-plan-2.png)
 
 ## Need help?
 

@@ -8,9 +8,9 @@ const meta = require('../content/docs/meta.json')
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
 
   const baseURL = {
-    development: process.env.NEXT_PUBLIC_VERCEL_URL,
-    preview: process.env.NEXT_PUBLIC_VERCEL_URL,
-    production: 'docs.planetscale.com'
+    development: `${process.env.NEXT_PUBLIC_VERCEL_URL}/docs`,
+    preview: `${process.env.NEXT_PUBLIC_VERCEL_URL}/docs`,
+    production: 'planetscale.com/docs'
   }[process.env.NEXT_PUBLIC_VERCEL_ENV]
 
   const traversePage = (page, path) => {
