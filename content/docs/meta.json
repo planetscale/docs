@@ -4,7 +4,7 @@
       "id": "concepts",
       "name": "Concepts",
       "description": "Explore key concepts of the PlanetScale database platform.",
-      "image": "/img/internals/category_concepts_light.png",
+      "image": "/docs/img/internals/category_concepts_light.png",
       "pages": [
         {
           "display": "Getting started with PlanetScale",
@@ -71,7 +71,7 @@
       "id": "tutorials",
       "name": "Guides",
       "description": "Learn the basics with our hands-on tutorials.",
-      "image": "/img/internals/category_tutorials_light.png",
+      "image": "/docs/img/internals/category_tutorials_light.png",
       "pages": [
         { "route": "planetscale-quick-start-guide", "display": "PlanetScale quickstart" },
         { "route": "connect-any-application", "display": "Connect any app" },
@@ -195,7 +195,7 @@
       "id": "integrations",
       "name": "Integrations",
       "description": "Learn about the integrations that PlanetScale supports.",
-      "image": "/img/internals/category_reference_light.png",
+      "image": "/docs/img/internals/category_reference_light.png",
       "pages": [
         { "route": "datadog", "display": "Datadog" },
         { "route": "airbyte", "display": "Airbyte" },
@@ -206,7 +206,7 @@
       "id": "learn",
       "name": "Learn",
       "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
-      "image": "/img/internals/category_reference_light.png",
+      "image": "/docs/img/internals/category_reference_light.png",
       "pages": [
         {
           "display": "Foreign key constraints",
@@ -254,7 +254,7 @@
       "id": "reference",
       "name": "Reference",
       "description": "Learn how to set up your PlanetScale development environment, CLI, and more!",
-      "image": "/img/internals/category_reference_light.png",
+      "image": "/docs/img/internals/category_reference_light.png",
       "pages": [
         { "route": "mysql-compatibility", "display": "MySQL compatibility" },
         { "route": "import-tool-migration-addresses", "display": "Import tool public IP addresses" },
@@ -285,7 +285,7 @@
       "id": "support",
       "name": "Support",
       "description": "Learn about PlanetScale Support",
-      "image": "/img/internals/category_reference_light.png",
+      "image": "/docs/img/internals/category_reference_light.png",
       "pages": [
         {
           "route": "support-overview",

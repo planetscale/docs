@@ -7,7 +7,7 @@ subtitle: 'Selecting a region during database and branch creation.'
 
 PlanetScale currently offers database deployment in multiple regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy development branches in the region closest to your own location to reduce latency when working with the branch.
 
-You may also add read-only regions to your production database. See our [Read-only regions documentation](/concepts/read-only-regions) for more information.
+You may also add read-only regions to your production database. See our [Read-only regions documentation](/docs/concepts/read-only-regions) for more information.
 
 A number of resources exist to help find which region has the lowest latency from your location – such as [CloudPing](https://www.cloudping.co/grid#).
 
@@ -27,8 +27,8 @@ Currently, the following regions are supported, with their respective PlanetScal
 
 ## Selecting the database region
 
-PlanetScale allows you to select the region for the [`main` branch](/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region.
-![Select your database region.](/img/docs/database-region.png)
+PlanetScale allows you to select the region for the [`main` branch](/docs/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region.
+![Select your database region.](/docs/img/docs/database-region.png)
 
 Once you select a region for your `main` branch, it cannot be changed.
 
@@ -50,7 +50,7 @@ pscale database create <DATABASE_NAME> --region us-west
 PlanetScale allows you to select a region for development branches during
 creation as well. By default, it is set to the same region as its database.
 
-![Select your branch region.](/img/docs/branch-region.png)
+![Select your branch region.](/docs/img/docs/branch-region.png)
 
 <InfoBlock type='note'>
   Once you select a branch region, it cannot be changed.
@@ -67,9 +67,9 @@ pscale branch create my-production-database add-tables --region eu-west
 
 ## Restricting the branch regions
 
-[Organization Administrators](/concepts/access-control#organization-administrator) can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
+[Organization Administrators](/docs/concepts/access-control#organization-administrator) can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
 
-![Restrict your branches to one region.](/img/docs/restrict-branch-region.png)
+![Restrict your branches to one region.](/docs/img/docs/restrict-branch-region.png)
 
 ## Changing branch and database regions
 
@@ -78,7 +78,7 @@ Once you select a region for a production or development branch, it cannot be ch
 If you do need to move to a different region, we recommend taking the following steps:
 
 1. Create a new branch in the new region.
-2. [Backup and dump](/reference/database) the original branch with:
+2. [Backup and dump](/docs/reference/database) the original branch with:
 ```bash
 pscale database dump <DATABASE_NAME> <BRANCH_NAME>
 ```
@@ -86,7 +86,7 @@ pscale database dump <DATABASE_NAME> <BRANCH_NAME>
 ```bash
 pscale database restore-dump <DATABASE_NAME> <BRANCH_NAME>
 ```
-4. If this is for a production branch, [promote the new branch](/reference/branch) to production:
+4. If this is for a production branch, [promote the new branch](/docs/reference/branch) to production:
 ```bash
 pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```

@@ -52,7 +52,7 @@ You can view the application at [http://localhost:8000](http://localhost:8000).
 
 Next, you need to set up your PlanetScale database and connect to it in the Laravel application.
 
-You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) if you prefer the dashboard.
+You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) if you prefer the dashboard.
 
 1. Authenticate the CLI with the following command:
 
@@ -68,7 +68,7 @@ pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 
 This tutorial uses `laravel_example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
 
-For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
+For `REGION_SLUG`, choose a region closest to you from the [available regions](/docs/concepts/regions#available-regions) or leave it blank.
 
 That's it! Your database is ready to use. Next, let's connect it to the Laravel application and then add some data.
 
@@ -109,7 +109,7 @@ DB_PASSWORD=<PASSWORD> // outputted in the previous step
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](/concepts/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
+The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](/docs/concepts/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
 
 You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Laravel**".
 
@@ -170,7 +170,7 @@ You should get the message "Database seeding completed successfully".
 
 The `resources/views/home.blade.php` file pulls this data from the `stars` table with the help of the `app/Http/Controllers/StarController.php` file.
 
-![Laravel PlanetScale starter app homepage](/img/docs/laravel-planetscale-example-data.png)
+![Laravel PlanetScale starter app homepage](/docs/img/docs/laravel-planetscale-example-data.png)
 
 ## Add data manually
 
@@ -187,7 +187,7 @@ The first two options are covered below. To explore the dashboard console, go to
 
 You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
 
-1. You may need to install the [MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
+1. You may need to install the [MySQL command line client](/docs/concepts/planetscale-environment-setup) if you haven't already.
 
 2. Run the following command in your terminal:
 
@@ -246,10 +246,10 @@ App\Models\Star::all();
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
 
-Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. If you're interested in learning how to secure your application when connecting to PlanetScale,
-please read [Connecting to PlanetScale securely](/reference/planetscale-security).
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. If you're interested in learning how to secure your application when connecting to PlanetScale,
+please read [Connecting to PlanetScale securely](/docs/reference/planetscale-security).
 
 ## Need help?
 

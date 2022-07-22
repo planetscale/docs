@@ -5,9 +5,9 @@ subtitle: 'Use the PlanetScale CLI to create development branches, open deploy r
 
 ## Getting Started
 
-Make sure to first [set up your PlanetScale developer environment](/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
+Make sure to first [set up your PlanetScale developer environment](/docs/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
 
-![PlanetScale CLI](/img/docs/pscale-cli_light.png)
+![PlanetScale CLI](/docs/img/docs/pscale-cli_light.png)
 
 Ready to take these commands for a run on the terminal?
 
@@ -17,21 +17,21 @@ Use `pscale [command] [command]` to start up the `pscale` CLI in your terminal.
 
 | **Command**      | **Subcommands/Options**   | **Flags** | **Description**                                 |
 | ---------------- | ------------------------- | ------- | ------- |
-| [`audit-log`](/reference/audit-log)      | `list`                    | `-h`, `--org string` |  List all [audit logs](/concepts/audit-log#review-your-organization-audit-log) |
-| [`auth`](/reference/auth)           | `login`, `logout`         | `-h` | Authenticate via console |
-| [`backup`](/reference/backup)        | `create`, `delete`, `list`, `restore`, `show` | `-h`, `--org string` | Manage [branch backups](/concepts/back-up-and-restore)|
-| [`branch`](/reference/branch)         | `create`, `delete`, `diff`, `list`, `promote`, `refresh-schema`, `schema`, `show`, `switch` | `-h`, `--org string` |Manage [branches](/concepts/branching)|
-| [`completion`](/reference/completion)     | `bash`, `zsh`, `fish`, `powershell` | `-h` |Generate completion script for specified shell|
-| [`connect`](/reference/connect)        | `<database_name>` `<branch_name>` | `--execute string`, `--execute-env-url string`, `--execute-protocol string`, `-h`, `--host string`, `--org string`, `--port string`, `--remote-addr string` |Create a [secure connection](/tutorials/connect-any-application#connect-using-the-planetscale-proxy) to the given database and branch|
-| [`database`](/reference/database)       | `create`, `delete`, `dump`, `list`, `restore-dump`, `show` | `-h` | Manage databases|
-| [`deploy-request`](/reference/deploy-request) | `close`, `create`, `deploy`, `diff`, `list`, `review`, `show` | `-h` | Manage [deploy request](/concepts/branching#create-a-deploy-request)|
-| [`help`](/reference/help)           |  | `-h` | View help for any command |
-| [`org`](/reference/org)            | `list`, `show`, `switch`   | `-h` | Manage and switch [organizations](/concepts/access-control#overview)|
-| [`password`](/reference/password)       | `create`, `delete`, `list`   | `-h`, `--org string`| Manage [branch credentials](/concepts/connection-strings) |
-| [`region`](/reference/region)         | `list`        | `--org string` | View available [regions](/concepts/regions)|
-| [`service-token`](/reference/service-token)  | `add-access`, `create`, `delete`, `delete-access`, `list`, `show-access` | `-h --org string` | Manage access of [service tokens](/concepts/service-tokens) |
-| [`shell`](/reference/shell)          | `<database_name>` `<branch_name>`  |`-h`, `--local-addr string`, `--org string`, `--remote-addr string` | Open a MySQL shell instance to the specified database and branch|
-| [`signup`](/reference/signup)         |        | `-h` | Sign up for a new PlanetScale account |
+| [`audit-log`](/docs/reference/audit-log)      | `list`                    | `-h`, `--org string` |  List all [audit logs](/docs/concepts/audit-log#review-your-organization-audit-log) |
+| [`auth`](/docs/reference/auth)           | `login`, `logout`         | `-h` | Authenticate via console |
+| [`backup`](/docs/reference/backup)        | `create`, `delete`, `list`, `restore`, `show` | `-h`, `--org string` | Manage [branch backups](/docs/concepts/back-up-and-restore)|
+| [`branch`](/docs/reference/branch)         | `create`, `delete`, `diff`, `list`, `promote`, `refresh-schema`, `schema`, `show`, `switch` | `-h`, `--org string` |Manage [branches](/docs/concepts/branching)|
+| [`completion`](/docs/reference/completion)     | `bash`, `zsh`, `fish`, `powershell` | `-h` |Generate completion script for specified shell|
+| [`connect`](/docs/reference/connect)        | `<database_name>` `<branch_name>` | `--execute string`, `--execute-env-url string`, `--execute-protocol string`, `-h`, `--host string`, `--org string`, `--port string`, `--remote-addr string` |Create a [secure connection](/docs/tutorials/connect-any-application#connect-using-the-planetscale-proxy) to the given database and branch|
+| [`database`](/docs/reference/database)       | `create`, `delete`, `dump`, `list`, `restore-dump`, `show` | `-h` | Manage databases|
+| [`deploy-request`](/docs/reference/deploy-request) | `close`, `create`, `deploy`, `diff`, `list`, `review`, `show` | `-h` | Manage [deploy request](/docs/concepts/branching#create-a-deploy-request)|
+| [`help`](/docs/reference/help)           |  | `-h` | View help for any command |
+| [`org`](/docs/reference/org)            | `list`, `show`, `switch`   | `-h` | Manage and switch [organizations](/docs/concepts/access-control#overview)|
+| [`password`](/docs/reference/password)       | `create`, `delete`, `list`   | `-h`, `--org string`| Manage [branch credentials](/docs/concepts/connection-strings) |
+| [`region`](/docs/reference/region)         | `list`        | `--org string` | View available [regions](/docs/concepts/regions)|
+| [`service-token`](/docs/reference/service-token)  | `add-access`, `create`, `delete`, `delete-access`, `list`, `show-access` | `-h --org string` | Manage access of [service tokens](/docs/concepts/service-tokens) |
+| [`shell`](/docs/reference/shell)          | `<database_name>` `<branch_name>`  |`-h`, `--local-addr string`, `--org string`, `--remote-addr string` | Open a MySQL shell instance to the specified database and branch|
+| [`signup`](/docs/reference/signup)         |        | `-h` | Sign up for a new PlanetScale account |
 
 ## Flags
 

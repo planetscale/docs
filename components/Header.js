@@ -46,11 +46,9 @@ export default function Header() {
 
         <header className='relative z-50 grid items-center grid-cols-2 px-3 mx-auto md:grid-cols-3 md:grid-rows-1 max-w-7xl sm:px-6 lg:px-8'>
           <div className='flex items-center col-start-1 row-start-1'>
-            <Link href='https://planetscale.com'>
-              <a className='rounded text-primary' aria-label='Go to documentation homepage'>
-                <Logo />
-              </a>
-            </Link>
+            <a className='rounded text-primary' href='/' aria-label='Go to documentation homepage'>
+              <Logo />
+            </a>
             <div className='flex items-center lg:text-lg font-medium pl-1.5'>
               <Link href='/'>
                 <a className='text-primary'>Documentation</a>

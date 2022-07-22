@@ -23,13 +23,13 @@ See the ["Understanding rows read" section](#understanding-rows-read) for a more
 
 ## PlanetScale plans
 
-PlanetScale applies billing plans at the **database level**. You can create several databases under one Organization. The usage charges will be scoped to each database, which you can find all together in the [billing section of your Organization](/concepts/billing#organization-billing-page). Some limitations apply to the free tier. See below for more information.
+PlanetScale applies billing plans at the **database level**. You can create several databases under one Organization. The usage charges will be scoped to each database, which you can find all together in the [billing section of your Organization](/docs/concepts/billing#organization-billing-page). Some limitations apply to the free tier. See below for more information.
 
 We offer four plan options, summarized below:
 
 |                      | **Hobby**  | **Scaler**   | **Team**   | **Enterprise**       |
 | -------------------- | -----------------| ------------------------------- | --------------------------- | --------------------------- |
-| **Storage/month**    | 5 GB             | 10 GB* | 100 GB* | Configurable            | 
+| **Storage/month**    | 5 GB             | 10 GB* | 100 GB* | Configurable            |
 | **Row reads/month**  | 1 billion        | 100 billion* | 500 billion* | Configurable    |
 | **Row writes/month** | 10 million       | 50 million* | 100 million* | Configurable  |
 | **Production branches** | 1 per database   | 2 per database          | 3 per database | _Unlimited_   |
@@ -55,7 +55,7 @@ We offer four plan options, summarized below:
   You are limited to <strong>one free database per organization</strong>. Free databases may be <a href="/concepts/database-sleeping">slept</a> after a 7-day period of inactivity.
 </InfoBlock>
 
-Scaler and Team plans are billed on a **monthly basis**. 
+Scaler and Team plans are billed on a **monthly basis**.
 
 For more information about [our `Enterprise` plan](https://planetscale.com/enterprise), please [reach out to us](https://www.planetscale.com/contact). [On our pricing page](https://planetscale.com/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
 
@@ -80,13 +80,13 @@ You can add additional development branches to Scaler and Hobby plans in **packs
 4. Select the number of branch packs you'd like to add
 5. Click "Save".
 
-![Billing page branch pack add-ons](/img/docs/branch-pack-add-ons.png)
+![Billing page branch pack add-ons](/docs/img/docs/branch-pack-add-ons.png)
 
 ### User scheduled backups
 
 We run automatic daily backups for every branch for free. On the Scaler and Hobby plans, we run automated backups every 12 hours.
 
-You can also [schedule additional backups yourself](/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, we charge **$0.023 per GB** per month.
+You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, we charge **$0.023 per GB** per month.
 
 ### Single Sign-on (SSO)
 
@@ -112,7 +112,7 @@ Each organization has its own billing page, from which you can:
 
 ### PlanetScale invoice details
 
-Invoices provide line items for both usage and discounts received. Each line item shows both **metric and database branch level** granularity. 
+Invoices provide line items for both usage and discounts received. Each line item shows both **metric and database branch level** granularity.
 
 For example, you may have the following line items:
 
@@ -148,15 +148,15 @@ Rows read is a **measure of the work that the database engine does**, not a meas
 
 ### Caveats
 
-While, in most cases, the work done is a direct reflection of the number of rows read, there are some caveats. 
+While, in most cases, the work done is a direct reflection of the number of rows read, there are some caveats.
 
 The `SELECT count(*)` query is a special case. The database engine optimizes this query and doesn't read row data itself to return a count, so this doesn't actually increment rows read. In other words, if you run the query `SELECT count(*)` on a table with 10m rows, your rows read will be 0.
 
 ### Testing queries for rows read
 
-With our in-dashboard [Insights tool](/concepts/query-insights), you can explore active queries running against your database. The "**Queries during the last 24 hours**" list has a column that shows the total rows read for that particular query. The "rows read" surfaced here is the same number we use to calculate your total rows read for your billing calculation. In addition, you can click on a particular query to see more information about its performance.
+With our in-dashboard [Insights tool](/docs/concepts/query-insights), you can explore active queries running against your database. The "**Queries during the last 24 hours**" list has a column that shows the total rows read for that particular query. The "rows read" surfaced here is the same number we use to calculate your total rows read for your billing calculation. In addition, you can click on a particular query to see more information about its performance.
 
-![PlanetScale Insights recent queries list](/img/docs/insights-query-list.png)
+![PlanetScale Insights recent queries list](/docs/img/docs/insights-query-list.png)
 
 If you'd prefer to test a query on your own, you can calculate the **approximate** rows read using the `EXPLAIN` statement. Running `EXPLAIN` with your query will return information about the query execution plan.
 
