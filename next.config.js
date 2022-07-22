@@ -37,6 +37,7 @@ function csp() {
 const CONTENT_SECURITY_POLICY = csp()
 
 module.exports = {
+  basePath: '/docs',
   eslint: {
     ignoreDuringBuilds: true
   },
@@ -86,6 +87,18 @@ module.exports = {
   },
   async redirects() {
     return [
+      {
+        source: '/',
+        destination: '/docs',
+        basePath: false,
+        permanent: false
+      },
+      {
+        source: '/:path((?!docs|robots.txt).*)',
+        destination: '/docs/:path*',
+        basePath: false,
+        permanent: false
+      },
       {
         source: '/tutorial/:slug*',
         destination: '/tutorials/:slug*', // Matched parameters can be used in the destination
@@ -142,5 +155,14 @@ module.exports = {
         permanent: true
       }
     ]
-  }
+  },
+  async rewrites() {
+    return [
+      {
+        source: "/robots.txt",
+        destination: "https://docs.planetscale.com/robots.txt",
+        basePath: false
+      }
+    ]
+  },
 }

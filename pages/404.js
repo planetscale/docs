@@ -392,7 +392,7 @@ export default function NotFound() {
           </p>
 
           <div className='flex items-center justify-center text-lg'>
-            <a href='https://docs.planetscale.com' className='mx-2 lg:mx-3 text-blue'>
+            <a href='/docs' className='mx-2 lg:mx-3 text-blue'>
               Documentation
             </a>
             <a href='https://support.planetscale.com/' className='mx-2 lg:mx-3 text-blue'>

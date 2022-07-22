@@ -13,11 +13,10 @@ In this tutorial, you'll learn how to connect a Laravel application to a PlanetS
 - [PHP](https://www.php.net/manual/en/install.php) &mdash; This tutorial uses `v8.1`
 - [Composer](https://getcomposer.org/)
 - A [free PlanetScale account](https://auth.planetscale.com/sign-up)
-- [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker
 
 ## Set up the Laravel app
 
-This guide will integrate [a simple Laravel 9 app](https://github.com/planetscale/laravel-example) with PlanetScale that will display a list of stars stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple Laravel 9 app](https://github.com/planetscale/laravel-example) with PlanetScale. The application contains migrations and seed data to display a list of stars stored in the database. If you have an existing application, you can also use that.
 
 1. Clone the starter Laravel application:
 
@@ -52,23 +51,20 @@ You can view the application at [http://localhost:8000](http://localhost:8000).
 
 Next, you need to set up your PlanetScale database and connect to it in the Laravel application.
 
-You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) if you prefer the dashboard.
+If this is your first time in the dashboard, you'll be prompted to go through a database creation walkthrough where you'll create a new database. Otherwise, click "**New database**" > "**Create new database**".
 
-1. Authenticate the CLI with the following command:
+- **Name** &mdash; You can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
+- **Region** &mdash; Choose the [region](/docs/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
 
-```bash
-pscale auth login
-```
+Finally, click "**Create database**".
 
-2. Create a new database with a default `main` branch with the following command:
+![Create a new database modal](/docs/img/docs/laravel-quickstart/create-database.png)
 
-```bash
-pscale database create <DATABASE_NAME> --region <REGION_SLUG>
-```
+<InfoBlock type='note'>
+  If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/concepts/database-imports).
+</InfoBlock>
 
-This tutorial uses `laravel_example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
-
-For `REGION_SLUG`, choose a region closest to you from the [available regions](/concepts/regions#available-regions) or leave it blank.
+A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
 
 That's it! Your database is ready to use. Next, let's connect it to the Laravel application and then add some data.
 
@@ -83,41 +79,35 @@ Both options are covered below.
 
 ### Option 1: Connect with username and password (Recommended)
 
-1. Create a username and password with the PlanetScale CLI by running:
+Next, you need to generate a database username and password so that you can use it to connect to your application.
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+In your PlanetScale dashboard, select your database, click "**Connect**", and select "**Laravel**" from the "**Connect with**" dropdown.
 
-<InfoBlock type='note'>
-  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
-  credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-  your database overview page, click "Settings", and then click "Passwords".
+As long as you're an organization administrator, this will generate a username and password that has administrator privileges to the database.
+
+<InfoBlock type='tip'>
+  If the password value is blurred, you need to click "**New password**" to generate a new one.
 </InfoBlock>
 
-Take note of the values returned to you, as you won't be able to see this password again.
-
-2. Open the `.env` file in your Laravel app, find the database connection section, and fill it in as follows:
+Copy the contents of the `.env` tab and paste them into your own `.env` file in your Laravel application. The structure will look like this:
 
 ```
 DB_CONNECTION=mysql
-DB_HOST=<ACCESS HOST URL> // outputted in the previous step
+DB_HOST=<ACCESS HOST URL>
 DB_PORT=3306
-DB_DATABASE=<DATABASE_NAME> // this tutorial uses 'laravel_example'
-DB_USERNAME=<USERNAME> // outputted in the previous step
-DB_PASSWORD=<PASSWORD> // outputted in the previous step
+DB_DATABASE=<DATABASE_NAME>
+DB_USERNAME=<USERNAME>
+DB_PASSWORD=<PASSWORD>
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](/concepts/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
-
-You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Laravel**".
+The `MYSQL_ATTR_SSL_CA` value is platform dependent. Please see our documentation around [how to connect to PlanetScale securely](/docs/concepts/secure-connections#ca-root-configuration) for the configuration for the platform you're using.
 
 Refresh your Laravel homepage and you should see the message that you're connected to your database!
 
 ### Option 2: Connect with the PlanetScale proxy
 
-To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https://github.com/planetscale/cli).
+To connect with the PlanetScale proxy, you need to install and use the [PlanetScale CLI](https://github.com/planetscale/cli).
 
 1. Open a connection by running the following:
 
@@ -148,7 +138,7 @@ Refresh your Laravel homepage and you should see the message that you're connect
 
 Now that you're connected, let's add some data to see it in action. The sample application comes with a migration file at `database/migrations/2021_12_20_194637_create_stars_table.php` that will create a `stars` table in the database. There's also a `database/seeders/StarSeeder.php` file that will add two rows to the `stars` table. Let's run those now.
 
-1. Make sure your database connection has been established. You'll see the message "You are connected to your-database-name" on the [Laravel app homepage](http://localhost:8000/) if everything is configured properly.
+1. Make sure your database connection has been established. You'll see the message "You are connected to your_database_name" on the [Laravel app homepage](http://localhost:8000/) if everything is configured properly.
 
 2. In your terminal in the root of the Laravel project, run the following to run the migration:
 
@@ -170,53 +160,39 @@ You should get the message "Database seeding completed successfully".
 
 The `resources/views/home.blade.php` file pulls this data from the `stars` table with the help of the `app/Http/Controllers/StarController.php` file.
 
-![Laravel PlanetScale starter app homepage](/img/docs/laravel-planetscale-example-data.png)
+![Laravel PlanetScale starter app homepage](/docs/img/docs/laravel-planetscale-example-data.png)
 
 ## Add data manually
 
 If you want to continue to play around with adding data on the fly, you have a few options:
 
-- PlanetScale CLI shell
-- [Laravel Tinker](https://laravel.com/docs/9.x/artisan#tinker)
 - PlanetScale dashboard console
+- [Laravel Tinker](https://laravel.com/docs/9.x/artisan#tinker)
+- [PlanetScale CLI shell](/docs/reference/shell)
 - Your favorite MySQL client (E.g. [Arctype](https://arctype.com/mysql/setup/planetscale-mac), TablePlus, DataGrip, etc.)
 
-The first two options are covered below. To explore the dashboard console, go to your PlanetScale database in the dashboard, click on the branch, and click the "**Console**" tab.
+The first two options are covered below.
 
-### Add data with PlanetScale CLI
+### Add data in PlanetScale dashboard console
 
-You can use the PlanetScale CLI to open a MySQL shell to interact with your database.
+PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches. To access it, click "**Branches**" > your development branch > "**Console**".
 
-1. You may need to install the [MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
+From here, you can run MySQL queries and DDL against your database branch.
 
-2. Run the following command in your terminal:
-
-```bash
-pscale shell <DATABASE_NAME> <BRANCH_NAME>
-```
-
-This will open up a MySQL shell connected to the specified database and branch.
-
-<InfoBlock type='note'>
-  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-</InfoBlock>
-
-3. Add a record to the `stars` table:
+1. Add a record to the `stars` table:
 
 ```sql
 INSERT INTO `stars` (name, constellation)
 VALUES  ('Sagittarius', 'Kaus Media');
 ```
 
-The values `id`, `created_at`, and `updated_at` will be filled with default values.
-
-4. Type `exit` to exit the shell.
-
-5. Refresh the Laravel homepage to see the new record. You can also verify it was added in the PlanetScale CLI MySQL shell with:
+2. Refresh the Laravel homepage to see the new record. You can also verify it was added in the console with:
 
 ```sql
-select * from stars;
+SELECT * FROM stars;
 ```
+
+![PlanetScale web console](/docs/img/docs/laravel-quickstart/planetscale-web-console.png)
 
 ### Add data with Laravel Tinker
 
@@ -234,8 +210,6 @@ php artisan tinker
 DB::table('stars')->insert(['name'=>'Sagitarrius', 'constellation'=>'Kaus Media']);
 ```
 
-The `id`, `created_at`, and `updated_at` will be filled with default values.
-
 3. Refresh your Laravel application homepage to see your new data. You can also run the following command in Tinker to see all records in the `stars` table.
 
 ```php
@@ -246,10 +220,13 @@ App\Models\Star::all();
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
 
-Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. If you're interested in learning how to secure your application when connecting to PlanetScale,
-please read [Connecting to PlanetScale securely](/reference/planetscale-security).
+To learn more about PlanetScale, take a look at the following resources:
+
+- [PlanetScale workflow](/docs/concepts/planetscale-workflow) &mdash; Quick overview of the PlanetScale workflow: branching, non-blocking schema changes, deploy requests, and reverting a schema change.
+- [PlanetScale branching](/docs/concepts/branching) &mdash; Learn how to utilize branching to ship schema changes with no locking or downtime.
+- [PlanetScale CLI](/docs/reference/planetscale-cli) &mdash; Power up your workflow with the PlanetScale CLI. Every single action you just performed in this quickstart (and much more) can also be done with the CLI.
 
 ## Need help?
 

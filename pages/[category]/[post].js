@@ -16,7 +16,7 @@ export default function Post({ frontmatter, body, fields }) {
         description={frontmatter.subtitle ? frontmatter.subtitle : ''}
         banner={
           frontmatter.banner
-            ? `https://docs.planetscale.com${frontmatter.banner}`
+            ? `https://planetscale.com/docs${frontmatter.banner}`
             : `https://og-image.planetscale.com/${encodedTitle}.png?theme=dark&direction=row&md=1&fontSize=100px&images=https%3A%2F%2Fog-image.planetscale.com%2Fimages%2Fps-logo-white-v2.svg`
         }
         pathname={`${fields.slug}`}

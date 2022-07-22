@@ -17,7 +17,7 @@ It's worth noting an alternative to using Online Schema Change tools, via rollin
 
 ## The general logic behind Online Schema Change tools
 
-The Online Schema Change tools have many differences, covered in our [Comparison of Online Schema change tools doc](/learn/online-schema-change-tools-comparison). However, they all share a similar fundamental logic and flow.
+The Online Schema Change tools have many differences, covered in our [Comparison of Online Schema change tools doc](/docs/learn/online-schema-change-tools-comparison). However, they all share a similar fundamental logic and flow.
 
 All tools work by _emulating_ a schema change. The general flow is:
 
@@ -94,8 +94,8 @@ We illustrate below the _pseudo code_ used by Online Schema Change tools to iter
 4. For any iteration: evaluate the next range:
   ```sql
   SELECT file_name, submitted_at FROM (
-    SELECT file_name, submitted_at FROM original_table 
-    WHERE 
+    SELECT file_name, submitted_at FROM original_table
+    WHERE
       (file_name, submitted_at) > (@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at)
       AND
       (file_name, submitted_at) <>= (@last_entry_file_name, @last_entry_submitted_at)
@@ -110,7 +110,7 @@ We illustrate below the _pseudo code_ used by Online Schema Change tools to iter
   INSERT INTO ghost_table (<columns...>)
     SELECT <columns...>
     FROM original_table
-      WHERE 
+      WHERE
         (file_name, submitted_at) > (@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at)
         AND
         (file_name, submitted_at) <= (@this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at)
@@ -154,7 +154,7 @@ Most tools run some form of monitoring over the affected server or of its replic
 
 The single most important metric, by far, is replication lag. How the tools discover the replicas, choose which replicas to consider, respond to topology changes, is a matter of implementation and of a different discussion. However, the tools that do observe replicas all try to maintain as low replication lag as possible, and will step back once that lag grows. What the threshold is, is configurable. On extremely busy and sensitive systems this may be as low as `1` second. Other environments may tolerate _minutes_ of lag.
 
-Not all tools can throttle completely. Specifically, trigger based tools can only throttle the row copy process, but not the ongoing changes tracking. Non-trigger based tools are able to completely halt any processing, or choose to take lower precedence over production traffic. For more information about trigger based vs non-trigger based tools, check out our doc on [Comparison of online schema change tools](/learn/online-schema-change-tools-comparison#trigger-based-vs-triggerless).
+Not all tools can throttle completely. Specifically, trigger based tools can only throttle the row copy process, but not the ongoing changes tracking. Non-trigger based tools are able to completely halt any processing, or choose to take lower precedence over production traffic. For more information about trigger based vs non-trigger based tools, check out our doc on [Comparison of online schema change tools](/docs/learn/online-schema-change-tools-comparison#trigger-based-vs-triggerless).
 
 
 ## Determining when cut-over is possible

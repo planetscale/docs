@@ -2,10 +2,10 @@
   "index_name": "planetscale-docs",
   "js_render": false,
   "start_urls": [
-    "https://docs.planetscale.com/"
+    "https://planetscale.com/docs"
   ],
   "sitemap_urls": [
-    "https://docs.planetscale.com/sitemap.xml"
+    "https://planetscale.com/docs/sitemap.xml"
   ],
   "stop_urls": [],
   "selectors": {

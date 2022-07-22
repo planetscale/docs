@@ -21,14 +21,14 @@ pscale database create <DATABASE_NAME>
 
 Next, let's add some data to the database. You'll create a new table called `users` and add one record to it.
 
-To do this, use the PlanetScale CLI shell to open a MySQL shell where you can manipulate your database. You may need to [install the MySQL command line client](/concepts/planetscale-environment-setup) if you haven't already.
+To do this, use the PlanetScale CLI shell to open a MySQL shell where you can manipulate your database. You may need to [install the MySQL command line client](/docs/concepts/planetscale-environment-setup) if you haven't already.
 
 ```bash
 pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 <InfoBlock type='note'>
-  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. 
+  A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
 </InfoBlock>
 
 Create the `users` table:
@@ -93,7 +93,7 @@ Both options are covered below.
 
 ### Option 1: Connect with username and password (Recommended)
 
-These instructions show you how to generate a set of credentials with [the PlanetScale CLI](/concepts/planetscale-environment-setup).
+These instructions show you how to generate a set of credentials with [the PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
 
 You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Node.js**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
 
@@ -121,7 +121,7 @@ Please save the values below as they will not be shown again
 
   NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
  --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
-  production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx                                                                                    
+  production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx
 ```
 
 2. Next, create your `.env` file by renaming the `.env.example` file to `.env`:
@@ -131,13 +131,13 @@ mv .env.example .env
 ```
 
 1. Use the values from the CLI output in step 1 to construct your connection string that will be used to connect your Node app to your PlanetScale database. Create your connection string in the following format:
-   
+
 ```
 mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
 ```
 
 3. In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed above. It should look something like this:
-   
+
 ```env
 DATABASE_URL=mysql://xxxxxxxxxxxxx:pscale_pw_xxxxxxx@xxxxxx.us-east-2.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
 ```
@@ -166,8 +166,8 @@ Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the da
 
 ## What's next?
 
-Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. If you're interested in learning how to secure your application when connecting to PlanetScale,
-please read [Connecting to PlanetScale securely](/reference/planetscale-security).
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases. If you're interested in learning how to secure your application when connecting to PlanetScale,
+please read [Connecting to PlanetScale securely](/docs/reference/planetscale-security).
 
 ## Need help?
 

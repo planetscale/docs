@@ -5,7 +5,7 @@ subtitle: 'Add additional read-only regions to your production database.'
 
 ## Overview
 
-With the PlanetScale Portals (beta), you can replicate your production database across the globe by creating read-only regions in any PlanetScale [region of availability](/concepts/regions).
+With the PlanetScale Portals (beta), you can replicate your production database across the globe by creating read-only regions in any PlanetScale [region of availability](/docs/concepts/regions).
 
 This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your applications and users.
 
@@ -15,11 +15,11 @@ This feature supports globally distributed applications by enabling your databas
 2. Click on the production branch.
 3. Click the "**Add region**" button.
 
-![Add read-only region on production branch](/img/docs/add-read-only-region.png)
+![Add read-only region on production branch](/docs/img/docs/add-read-only-region.png)
 
-4. Select the desired region from the dropdown of [available regions](/concepts/regions).
+4. Select the desired region from the dropdown of [available regions](/docs/concepts/regions).
 
-![Select read-only region on production branch](/img/docs/read-only-region-selection.png)
+![Select read-only region on production branch](/docs/img/docs/read-only-region-selection.png)
 
 5. Click "**Add region**" and wait for your data to finish initially replicating across regions.
 6. Optionally, connect to your new read-only region by clicking the ellipsis and selecting "**Connect**". This will return the connection credentials you can use in your application. Each region has its own connection strings and will only work for the region selected.
@@ -57,9 +57,9 @@ Your storage costs will increase linearly with the amount of read-only regions a
 
 Adding new read-only regions will always be billed as standalone storage and will not count toward your included storage.
 
-As an example, let's say you're on our Scaler plan with 10 GB of included storage and your primary contains 5 GB of data. If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 10 GB.  
+As an example, let's say you're on our Scaler plan with 10 GB of included storage and your primary contains 5 GB of data. If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 10 GB.
 
-For more information on storage billing costs, see our [Billing documentation](/concepts/billing#planetscale-plans).
+For more information on storage billing costs, see our [Billing documentation](/docs/concepts/billing#planet-scale-plans).
 
 ### Rows read
 

@@ -8,7 +8,7 @@ subtitle: 'Build and deploy a Next.js admin dashboard with NextAuth.js, PlanetSc
 This guide will show you how to get up and running with the [Netlify, Next.js, and PlanetScale starter template](https://templates.netlify.com/template/nextjs-planetscale-starter/). The template includes the following features:
 
 - Simple user admin dashboard
-- [PlanetScale](https://planetscale.com/) serverless database
+- [PlanetScale](/) serverless database
 - [Prisma ORM](https://www.prisma.io/) integration
 - [Next.js authentication](https://nextjs.org/docs/authentication)
 - One-click [deploy to Netlify](https://netlify.com)
@@ -16,7 +16,7 @@ This guide will show you how to get up and running with the [Netlify, Next.js, a
 
 You can see a [live demo of the starter application here](https://nextjs-planetscale-starter.netlify.app/).
 
-![Example of the dashboard application](/img/docs/nextjs-admin-dashboard.png)
+![Example of the dashboard application](/docs/img/docs/nextjs-admin-dashboard.png)
 
 <InfoBlock type='note'>
 If you're coming from the <a href="https://templates.netlify.com/template/nextjs-planetscale-starter/"><strong>Netlify Template</strong></a> and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just read through the prerequisites and then skip the first section to <a href="#set-up-the-project-locally">go straight to the local setup</a>.
@@ -39,7 +39,7 @@ To follow along with this guide, you'll need the following:
 
 The one-click deploy button allows you to connect Netlify to your GitHub account to clone the `nextjs-planetscale-starter` repository and automatically deploy it. Be sure to [sign up for a Netlify account](https://app.netlify.com/signup) before clicking the deploy button.
 
-[![Deploy to Netlify button](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/planetscale/nextjs-planetscale-starter)
+[![Deploy to Netlify button](https://www.netlify.com/docs/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/planetscale/nextjs-planetscale-starter)
 
 Once you click the button, you'll be taken to Netlify’s direct deploy page with the pre-built project’s repository passed as a parameter in the URL. Click the "**Connect to GitHub**" button to authorize access.
 
@@ -67,29 +67,29 @@ yarn next
 
 Navigate to [http://localhost:3000/](http://localhost:3000/) in your browser to view the PlanetScale Next.js Starter app.
 
-![Next.js PlanetScale Starter application homepage](/img/docs/planetscale-nextjs-application.png)
+![Next.js PlanetScale Starter application homepage](/docs/img/docs/planetscale-nextjs-application.png)
 
 ## Database setup
 
-Next, you need to set up your PlanetScale database. If you don't already have a [PlanetScale account](https://docs.planetscale.com/concepts/billing#planetscale-plans), you can [sign up for a free one here](https://auth.planetscale.com/sign-up).
+Next, you need to set up your PlanetScale database. If you don't already have a [PlanetScale account](/docs/concepts/billing#planet-scale-plans), you can [sign up for a free one here](https://auth.planetscale.com/sign-up).
 
 ### Create your database
 
-To begin, create a new database. You can either do this in the dashboard or using the [PlanetScale CLI](https://docs.planetscale.com/reference/planetscale-cli).
+To begin, create a new database. You can either do this in the dashboard or using the [PlanetScale CLI](/docs/reference/planetscale-cli).
 
 In the dashboard, click on the "**Create a database**" button. Name your database "`netlify-starter`", or whatever name you wish. Select the region closest to you, and click "**Create database**".
 
-Alternatively, [sign in and create a database with the CLI](/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-cli) by running the following:
+Alternatively, [sign in and create a database with the CLI](/docs/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-cli) by running the following:
 
 ```bash
 pscale database create <database-name> --region <region-slug>
 ```
 
-The list of region slugs can be found in our [Regions documentation](https://docs.planetscale.com/concepts/regions#available-regions).
+The list of region slugs can be found in our [Regions documentation](/docs/concepts/regions#available-regions).
 
 ### Connect to your database branches locally
 
-To connect locally, make sure you've authenticated in the CLI. If not, follow the directions in the [sign-in section of our quickstart guide](/tutorials/planetscale-quick-start-guide#sign-in-to-your-account).
+To connect locally, make sure you've authenticated in the CLI. If not, follow the directions in the [sign-in section of our quickstart guide](/docs/tutorials/planetscale-quick-start-guide#sign-in-to-your-account).
 
 Next, connect to your `main` branch locally by running the following in your terminal:
 
@@ -101,7 +101,7 @@ Choose any unused port. This tutorial uses `3309`. You'll see the response "Secu
 
 ## Set up local environment variables
 
-For the last part of setup, you need to fill in your environment variables. 
+For the last part of setup, you need to fill in your environment variables.
 
 Make a copy of the `.env.example` file at the root of your project and rename it `.env`:
 
@@ -111,12 +111,12 @@ cp .env.example .env
 
 The `DATABASE_URL` value comes from your PlanetScale database and will be in the following form:
 
-`mysql://<user>@<address>:<port>/<database>` 
+`mysql://<user>@<address>:<port>/<database>`
 
 - `user` &mdash; the database user
 - `address` &mdash; the local address returned in the previous step
-- `port` &mdash; the port you specified in the previous step 
-- `database` &mdash; the name of your database 
+- `port` &mdash; the port you specified in the previous step
+- `database` &mdash; the name of your database
 
 Below is an example of the `.env` file based on this tutorial:
 
@@ -210,9 +210,9 @@ And that's it! If you followed this tutorial completely, you now have a local an
 
 Now, it's time to extend it! Next.js Authentication is baked into this starter, so you can explore the [Next.js docs to manage authentication](https://nextjs.org/docs/authentication) in your application.
 
-You also have a fully functional PlanetScale MySQL database built for scale using the power of [Vitess](https://vitess.io/). You might have noticed that this tutorial uses the same database locally as it is in production. This was just for simplicity, but with PlanetScale, you can take advantage of our [powerful branching feature](/concepts/branching) to create development branches of your database specifically for testing locally. All you have to do is create a new branch and swap out the `DATABASE_URL` environment variable in your local `.env` file.
+You also have a fully functional PlanetScale MySQL database built for scale using the power of [Vitess](https://vitess.io/). You might have noticed that this tutorial uses the same database locally as it is in production. This was just for simplicity, but with PlanetScale, you can take advantage of our [powerful branching feature](/docs/concepts/branching) to create development branches of your database specifically for testing locally. All you have to do is create a new branch and swap out the `DATABASE_URL` environment variable in your local `.env` file.
 
-Finally, you have [Prisma ORM](https://www.prisma.io/docs/) already configured in your application. If you want to add any more fields to your `User` table or create any new tables, Prisma makes it easy with the `schema.prisma` file. If you want to make any schema changes, it's a perfect time to try out the [PlanetScale branching feature](/concepts/branching) feature. If you mess up, those changes won't touch production. And once you're satisfied with the changes, you can deploy to production without causing downtime thanks to PlanetScale [non-blocking schema changes](https://docs.planetscale.com/concepts/nonblocking-schema-changes).
+Finally, you have [Prisma ORM](https://www.prisma.io/docs/) already configured in your application. If you want to add any more fields to your `User` table or create any new tables, Prisma makes it easy with the `schema.prisma` file. If you want to make any schema changes, it's a perfect time to try out the [PlanetScale branching feature](/docs/concepts/branching) feature. If you mess up, those changes won't touch production. And once you're satisfied with the changes, you can deploy to production without causing downtime thanks to PlanetScale [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes).
 
 Hopefully this tutorial has been helpful. We'd love to hear how you're extending your starter application. [Tweet us @PlanetScaleData](https://twitter.com/planetscaledata) and share what you built!
 

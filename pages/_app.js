@@ -22,11 +22,11 @@ export function App({ Component, pageProps }) {
     }
   }, []) // eslint-disable-line
 
-  const [favicon, setFavicon] = useState('/favicon_system.svg')
+  const [favicon, setFavicon] = useState('/docs/favicon_system.svg')
 
   useEffect(() => {
     const onChange = (event) => {
-      setFavicon(`/favicon_${event.matches ? 'dark' : 'light'}.svg`)
+      setFavicon(`/docs/favicon_${event.matches ? 'dark' : 'light'}.svg`)
     }
     const query = window.matchMedia('(prefers-color-scheme: dark)')
     if (query.addEventListener) {
@@ -58,10 +58,10 @@ export function App({ Component, pageProps }) {
   return (
     <ThemeProvider defaultTheme='system' attribute='class'>
       <Head>
-        <link rel='icon' href='/favicon.ico' sizes='any' />
+        <link rel='icon' href='/docs/favicon.ico' sizes='any' />
         <link rel='icon' href={favicon} sizes='any' type='image/svg+xml' />
-        <link rel='apple-touch-icon' href='/apple-touch-icon.png' />
-        <link rel='manifest' href='/manifest.webmanifest' />
+        <link rel='apple-touch-icon' href='/docs/apple-touch-icon.png' />
+        <link rel='manifest' href='/docs/manifest.webmanifest' />
       </Head>
       <Page>
         <Component {...pageProps} />
