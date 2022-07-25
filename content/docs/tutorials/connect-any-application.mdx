@@ -7,11 +7,11 @@ subtitle: 'Connect your PlanetScale database to any application using connection
 
 In this tutorial, you'll learn how to connect any application to your PlanetScale database.
 
-If you're just getting started and still need to set up a database, we recommend starting with the [PlanetScale quick start guide](/tutorials/planetscale-quick-start-guide) first. We also have language/framework-specific guides under "**Integration guides**" if you prefer a more detailed walk-through.
+If you're just getting started and still need to set up a database, we recommend starting with the [PlanetScale quick start guide](/docs/tutorials/planetscale-quick-start-guide) first. We also have language/framework-specific guides under "**Integration guides**" if you prefer a more detailed walk-through.
 
-PlanetScale uses [database branches](/concepts/branching) to create a development-friendly workflow. Your database is initially created with a default branch, `main`, which is meant to serve as a development branch before promoting it to production.
+PlanetScale uses [database branches](/docs/concepts/branching) to create a development-friendly workflow. Your database is initially created with a default branch, `main`, which is meant to serve as a development branch before promoting it to production.
 
-While *developing* your application, you'll need to connect to a *development* branch. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/concepts/branching) for more information about the branching workflow.
+While *developing* your application, you'll need to connect to a *development* branch. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/docs/concepts/branching) for more information about the branching workflow.
 
 There are two ways to connect your app to PlanetScale. Both are covered below.
 
@@ -30,7 +30,7 @@ There are two ways to generate a new username and password for your branch:
 2. Click "**Connect**".
 3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
-![Credentials to connect to PlanetScale](/img/docs/planetscale-branch-credentials.png)
+![Credentials to connect to PlanetScale](/docs/img/docs/planetscale-branch-credentials.png)
 
 4. If the password isn't visible, click "New password".
 5. Copy the credentials.
@@ -52,7 +52,7 @@ Check out our language integration guides in the side navigation for more explic
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
+The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/docs/concepts/secure-connections#ca-root-configuration).
 
 Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
@@ -60,7 +60,7 @@ If you're **unsure what to put here**, we recommend selecting your application's
 
 ### Generate credentials in the PlanetScale CLI
 
-If you prefer working from the CLI, you can quickly spin up new credentials there. Make sure you have the [CLI set up](/concepts/planetscale-environment-setup) first.
+If you prefer working from the CLI, you can quickly spin up new credentials there. Make sure you have the [CLI set up](/docs/concepts/planetscale-environment-setup) first.
 
 1. Run the following command in the CLI to create a new username and password for your branch.
 
@@ -99,7 +99,7 @@ SSL= // This is covered in the next step
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/concepts/secure-connections#ca-root-configuration).
+The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/docs/concepts/secure-connections#ca-root-configuration).
 
 Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
@@ -111,7 +111,7 @@ Another way to connect your application to your PlanetScale database *during dev
 
 You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. The main benefit of this method is you won't have to generate and remember multiple passwords every time you're creating or switching to a new branch.
 
-1. Make sure you have [the CLI set up](/concepts/planetscale-environment-setup), and then run the following command:
+1. Make sure you have [the CLI set up](/docs/concepts/planetscale-environment-setup), and then run the following command:
 
 ```
 pscale connect <DATABASE_NAME> <BRANCH_NAME>
@@ -133,7 +133,7 @@ Your application should now be connected to the specified PlanetScale database b
 
 ## What's next?
 
-Once your application is connected to a development database branch, you can make schema changes in an isolated development environment without worrying about affecting production. Additionally, the PlanetScale workflow allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) without locking or causing downtime for production databases.
+Once your application is connected to a development database branch, you can make schema changes in an isolated development environment without worrying about affecting production. Additionally, the PlanetScale workflow allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) without locking or causing downtime for production databases.
 
 ### PlanetScale workflow
 
@@ -142,12 +142,12 @@ Here's the general workflow that you'll go through to get schema changes from de
 1. Follow this guide to connect to a development branch.
 2. Modify your schema as needed.
 3. Test them locally or in your staging environment.
-4. Once satisfied and ready to deploy your changes to production, [create a deploy request](/concepts/deploy-requests).
+4. Once satisfied and ready to deploy your changes to production, [create a deploy request](/docs/concepts/deploy-requests).
 5. You or your team can review and approve the schema changes.
 6. Deploy your deploy request to production.
-7. Bonus: If you realize you made a mistake, you can click "Revert changes" to [undo a schema change](/concepts/deploy-requests#revert-a-schema-change). 
+7. Bonus: If you realize you made a mistake, you can click "Revert changes" to [undo a schema change](/docs/concepts/deploy-requests#revert-a-schema-change).
 
-Note: you must already have [a production branch](/concepts/branching#promote-a-branch-to-production) in place to create a deploy request.
+Note: you must already have [a production branch](/docs/concepts/branching#promote-a-branch-to-production) in place to create a deploy request.
 
 ## Need help?
 

@@ -4,9 +4,9 @@ subtitle: 'How to make changes to your PlanetScale database schema while using P
 ---
 
 <InfoBlock type='note'>
-  This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically 
-  the recommendation to use `prisma db push` instead of {' '}`prisma migrate 
-  dev` with shadow branches. Also, you previously needed to turn on the ability to automatically 
+  This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically
+  the recommendation to use `prisma db push` instead of {' '}`prisma migrate
+  dev` with shadow branches. Also, you previously needed to turn on the ability to automatically
   copy the Prisma migration metadata. You no longer need to do this. Read more below.
 </InfoBlock>
 
@@ -20,7 +20,7 @@ From a high level, [Prisma's `db push`](https://www.prisma.io/docs/concepts/comp
 
 We recommend `prisma db push` over `prisma migrate dev` for the following reasons:
 
-PlanetScale provides [Online Schema Changes](/learn/how-online-schema-change-tools-work) that are deployed automatically when you merge a deploy request and prevents [blocking schema changes](/concepts/nonblocking-schema-changes) that can lead to downtime. This is different from the typical Prisma workflow which uses `prisma migrate` in order to generate SQL migrations for you based on changes in your Prisma schema. When using PlanetScale with Prisma, the responsibility of applying the changes is on the PlanetScale side. Therefore, there is little value to using `prisma migrate` with PlanetScale.
+PlanetScale provides [Online Schema Changes](/docs/learn/how-online-schema-change-tools-work) that are deployed automatically when you merge a deploy request and prevents [blocking schema changes](/docs/concepts/nonblocking-schema-changes) that can lead to downtime. This is different from the typical Prisma workflow which uses `prisma migrate` in order to generate SQL migrations for you based on changes in your Prisma schema. When using PlanetScale with Prisma, the responsibility of applying the changes is on the PlanetScale side. Therefore, there is little value to using `prisma migrate` with PlanetScale.
 
 Also, the migrations table created when `prisma migrate` runs can also be misleading since PlanetScale does the actual migration when the deploy request is merged, not when `prisma migrate` is run which only updates the schema in the development database branch. You can still see the history of your schema changes in PlanetScale.
 
@@ -37,7 +37,7 @@ pscale auth login
 
 ## Execute your first Prisma db push
 
-Prisma migrations follow the PlanetScale [non-blocking schema change](/concepts/nonblocking-schema-changes) workflow. First, the schema is applied to a _development_ branch and then the development branch is merged into the `main` production database.
+Prisma migrations follow the PlanetScale [non-blocking schema change](/docs/concepts/nonblocking-schema-changes) workflow. First, the schema is applied to a _development_ branch and then the development branch is merged into the `main` production database.
 
 Let's begin with an example flow for running Prisma migrations in PlanetScale:
 
@@ -54,8 +54,8 @@ pscale connect prisma-playground main --port 3309
 ```
 
 <InfoBlock type='note'>
-  This step assumes you created a new PlanetScale database and the `main` branch 
-  has not been promoted to production yet. You will need to create a new development branch if 
+  This step assumes you created a new PlanetScale database and the `main` branch
+  has not been promoted to production yet. You will need to create a new development branch if
   the `main` branch has been promoted to production.
 </InfoBlock>
 
@@ -133,7 +133,7 @@ describe Post;
   Use the `exit` command to exit the MySQL shell.
 </InfoBlock>
 
-Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch. 
+Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch.
 
 7. Now that the initial schema has been added, promote your `main` branch to production status:
 

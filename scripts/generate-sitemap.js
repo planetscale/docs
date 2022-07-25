@@ -8,9 +8,9 @@ const meta = require('../content/docs/meta.json')
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
 
   const baseURL = {
-    development: process.env.NEXT_PUBLIC_VERCEL_URL,
-    preview: process.env.NEXT_PUBLIC_VERCEL_URL,
-    production: 'docs.planetscale.com'
+    development: `${process.env.NEXT_PUBLIC_VERCEL_URL}/docs`,
+    preview: `${process.env.NEXT_PUBLIC_VERCEL_URL}/docs`,
+    production: 'planetscale.com/docs'
   }[process.env.NEXT_PUBLIC_VERCEL_ENV]
 
   const traversePage = (page, path) => {
@@ -29,7 +29,7 @@ const meta = require('../content/docs/meta.json')
   const sitemap = `
         <?xml version="1.0" encoding="UTF-8"?>
         <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-          <url><loc>https://${baseURL}/</loc></url>
+          <url><loc>https://${baseURL}</loc></url>
           ${meta.order
             .map((category) => {
               return category.pages

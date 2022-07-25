@@ -47,7 +47,7 @@ At this point, you have accomplished two things: you've created a Rails project 
 
 ## Create a PlanetScale database and password
 
-**Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/concepts/connection-strings#creating-a-password).
+**Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
 
 ### Using the CLI to create a connection string
 
@@ -93,13 +93,13 @@ development:
   sslca: "/etc/ssl/cert.pem"
 ```
 
-The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/reference/planetscale-security#ca-root-configuration) for more information.
+The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/docs/reference/planetscale-security#ca-root-configuration) for more information.
 
 <InfoBlock type='note'>
   You're configuring the <b>development</b> Rails environment here for the sake of expedience. In actual use, the <b>main</b> database branch would typically serve the <b>production</b> environment.
 </InfoBlock>
 
-Because this is a Rails app, you can also enable [Automatic Rails migrations](/tutorials/automatic-rails-migrations) from the database's settings page. Select your database, click on the `main` branch, click "**Settings**", check the "**Automatically copy migration data**" box, and select "**Rails**" from the dropdown.
+Because this is a Rails app, you can also enable [Automatic Rails migrations](/docs/tutorials/automatic-rails-migrations) from the database's settings page. Select your database, click on the `main` branch, click "**Settings**", check the "**Automatically copy migration data**" box, and select "**Rails**" from the dropdown.
 
 ## Migrate your database
 
@@ -163,7 +163,7 @@ blog/main> describe users;
 
 ## Promote your main branch to a production branch
 
-A production branch is a highly available, protected database branch. Direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/concepts/planetscale-workflow).
+A production branch is a highly available, protected database branch. Direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/docs/concepts/planetscale-workflow).
 
 ```
 pscale branch promote blog main
@@ -177,11 +177,11 @@ In this tutorial, you created a simple Rails application named _blog_ and connec
 
 ## Further reading
 
-If you're interested in learning how to secure your application's connection to PlanetScale, please read [Connecting to PlanetScale securely](/concepts/secure-connections).
+If you're interested in learning how to secure your application's connection to PlanetScale, please read [Connecting to PlanetScale securely](/docs/concepts/secure-connections).
 
 ## What's next?
 
-Now that you've successfully connected your Rails app to PlanetScale, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/concepts/nonblocking-schema-changes) to your database, or how to keep your **schema_migrations** table up-to-date between development and production branches with [automatic schema migrations](/tutorials/automatic-rails-migrations).
+Now that you've successfully connected your Rails app to PlanetScale, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database, or how to keep your **schema_migrations** table up-to-date between development and production branches with [automatic schema migrations](/docs/tutorials/automatic-rails-migrations).
 
 ## Need help?
 

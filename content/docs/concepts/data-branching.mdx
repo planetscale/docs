@@ -5,7 +5,7 @@ subtitle: 'Create a development or staging environment for your database pre-see
 
 ## Overview
 
-The PlanetScale Data Branching&trade; feature (beta) allows you to create isolated copies of your database that include both the schema and data. This differs from our [regular branching feature](/concepts/branching), which only includes the schema.
+The PlanetScale Data Branching&trade; feature (beta) allows you to create isolated copies of your database that include both the schema and data. This differs from our [regular branching feature](/docs/concepts/branching), which only includes the schema.
 
 This feature is only available for organizations on the [`Team`](https://planetscale.com/pricing) plan.
 
@@ -16,13 +16,13 @@ This feature is only available for organizations on the [`Team`](https://planets
 ## Enable the Data Branching&trade; feature for your database.
 Before you can use the feature, you have to enable it in your database settings page.
 
-1. Navigate to the database that you'd like to enable. 
-2. Click on the "**Settings**" link in the header navigation bar. 
+1. Navigate to the database that you'd like to enable.
+2. Click on the "**Settings**" link in the header navigation bar.
 3. Scroll to the option with the text "**Enable Data Branching**"
 4. Enable this option and click "**Save database settings**".
 
 
-<VideoBlock src='/img/docs/enable-data-branching.mp4' />
+<VideoBlock src='/docs/img/docs/enable-data-branching.mp4' />
 
 
 ## Create a development branch with data & schema from the Base branch
@@ -31,10 +31,10 @@ Before you can use the feature, you have to enable it in your database settings 
 - **None** &mdash; Creates a database branch with only the **schema** copied to the new branch.
 - **From most recent backup** &mdash; Creates a database branch with both the **schema and data** from the latest backup of the Base branch.
 
-![PlanetScale dashboard new branch dialog with seed option](/img/docs/new-data-branch.png)
+![PlanetScale dashboard new branch dialog with seed option](/docs/img/docs/new-data-branch.png)
 3. Once you've selected an option, click "**Create branch**" to create a new branch.
 
-<VideoBlock src='/img/docs/create-new-data-branch.mp4' />
+<VideoBlock src='/docs/img/docs/create-new-data-branch.mp4' />
 
 
 
@@ -46,7 +46,7 @@ Before you can use the feature, you have to enable it in your database settings 
 
 2. **Can I pick which tables are copied into the new branch?**
 
-   PlanetScale seeds the new branch with **all the schema & data** from the base branch. 
+   PlanetScale seeds the new branch with **all the schema & data** from the base branch.
    We do not offer a way to filter out data or schema when creating a new branch.
 
 3. **Is data in the new branch kept up to date with changes to the base branch?**
@@ -59,4 +59,4 @@ Before you can use the feature, you have to enable it in your database settings 
 
 5. **Will enabling the Data Branching feature affect my billing?**
 
-   PlanetScale will bill for the data inside of the new branch as part of your [overall database's plan](/concepts/billing#planetscale-plans). In this way, it is no different than if you filled the branch up manually.
+   PlanetScale will bill for the data inside of the new branch as part of your [overall database's plan](/docs/concepts/billing#planet-scale-plans). In this way, it is no different than if you filled the branch up manually.

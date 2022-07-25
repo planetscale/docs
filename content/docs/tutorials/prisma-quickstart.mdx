@@ -18,7 +18,7 @@ This guide will show you how to:
 
 ## Set up your PlanetScale database
 
-First, [sign up for a free PlanetScale account](https://auth.planetscale.com/sign-up). You can either do this on the PlanetScale website or [using the PlanetScale CLI](/concepts/planetscale-environment-setup).
+First, [sign up for a free PlanetScale account](https://auth.planetscale.com/sign-up). You can either do this on the PlanetScale website or [using the PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
 
 ### Create a PlanetScale database
 
@@ -30,7 +30,7 @@ You can also use the PlanetScale CLI to create a database by running the followi
 pscale db create star-app --region <REGION>
 ```
 
-For the `REGION` value, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](https://docs.planetscale.com/concepts/regions#available-regions). If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
+For the `REGION` value, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions). If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
 
 Your database will deploy with an initial development branch, `main`.
 
@@ -58,7 +58,7 @@ Next, you need to set up your Next.js application. If you have an existing app, 
 npx create-next-app@latest --use-npm
 ```
 
-We are going to use npm in this quickstart, but you can also use yarn if you prefer. 
+We are going to use npm in this quickstart, but you can also use yarn if you prefer.
 
 Give your project a name (this tutorial is using `star-app`). This will install the project with the `react`, `react-dom`, and `next` dependencies.
 
@@ -256,7 +256,7 @@ You can leave `id`, `createdAt`, and `updatedAt` blank as they will auto-fill wi
 
 To add the record, click the green "**Save 1 change**" button.
 
-![Prisma Studio showing the Star table with one record](/img/docs/prisma_studio_example.png)
+![Prisma Studio showing the Star table with one record](/docs/img/docs/prisma_studio_example.png)
 
 ## Add an API route
 
@@ -327,13 +327,13 @@ This production branch is currently empty. You can confirm this by going to the 
 
 ## Create a deploy request
 
-The final step in this process is to roll out your changes in your `initial-setup` branch to production. To do this, you need to create a deploy request to your `main` production branch. 
+The final step in this process is to roll out your changes in your `initial-setup` branch to production. To do this, you need to create a deploy request to your `main` production branch.
 
-In the dashboard, select the `initial-setup` branch. On the "**Overview**" tab, you'll see the option to "Create a deploy request". Make sure `main` is selected in the "**Deploy to**" dropdown, type in a comment to go with your deploy request, and click "**Create deploy request**". 
+In the dashboard, select the `initial-setup` branch. On the "**Overview**" tab, you'll see the option to "Create a deploy request". Make sure `main` is selected in the "**Deploy to**" dropdown, type in a comment to go with your deploy request, and click "**Create deploy request**".
 
 PlanetScale will check to make sure there are no conflicts between the two branches. If not, you'll get the message "This deploy request is deployable". You can click on the "**Schema changes**" tab to see a diff of the schema changes to be deployed.
 
-![Example of the Star table schema in a deploy request on PlanetScale](/img/docs/prisma_deploy_request_schema.png)
+![Example of the Star table schema in a deploy request on PlanetScale](/docs/img/docs/prisma_deploy_request_schema.png)
 
 Now, you're ready to deploy the `initial-setup` branch to production! On the "**Summary**" tab of the deploy request, click the button "**Add changes to deploy queue**". The deployment has now been added to the deploy queue.
 
@@ -343,4 +343,4 @@ To verify that it worked correctly, go back to your `main` branch and click on "
 
 ## Next steps
 
-Now that you have your Next.js application with a database in production on PlanetScale, you may want to deploy the entire application. You can deploy to Vercel in just a few easy steps by following our [Deploy to Vercel guide](/tutorials/deploy-to-vercel#deploy-to-vercel).
+Now that you have your Next.js application with a database in production on PlanetScale, you may want to deploy the entire application. You can deploy to Vercel in just a few easy steps by following our [Deploy to Vercel guide](/docs/tutorials/deploy-to-vercel#deploy-to-vercel).

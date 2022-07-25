@@ -37,33 +37,28 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
         indexName: 'planetscale-docs',
         inputSelector: '#searchbox',
         debug: false,
-        transformData: (hits) => {
-          let newHits = []
-          hits.map((hit) => {
-            if (hit.anchor !== null) {
-              newHits.push(hit)
-            }
-          })
-          return newHits
-        }
       })
     }
   }
+
+  const currentUrl = pathname ? `${url}/${pathname}` : url;
 
   return (
     <Head>
       <title>{title + ' - Documentation - PlanetScale'}</title>
 
+      <link rel="canonical" href={currentUrl} />
+
       <meta name='msapplication-TileColor' content='#da532c' />
       <meta name='description' content={description}></meta>
 
-      <meta property='og:url' content={`${url}/${pathname}`} />
+      <meta property='og:url' content={currentUrl} />
       <meta property='og:image' content={banner} />
       <meta property='og:type' content={type} />
       <meta property='og:title' content={title + ' - Documentation - PlanetScale'} />
       <meta property='og:description' content={description} />
 
-      <meta name='twitter:url' content={`${url}/${pathname}`} />
+      <meta name='twitter:url' content={currentUrl} />
       <meta name='twitter:image' content={banner} />
       <meta name='twitter:title' content={title + ' - Documentation - PlanetScale'} />
       <meta name='twitter:description' content={description} />
@@ -77,17 +72,16 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
 }
 
 TitleAndMetaTags.defaultProps = {
-  url: 'https://docs.planetscale.com',
-  pathname: '',
+  url: 'https://planetscale.com/docs',
   title: 'PlanetScale - Serverless Database for Developers',
   type: 'website',
   description: 'Start small and grow to massive scale',
-  banner: 'https://docs.planetscale.com/img/internals/social_share.png',
+  banner: 'https://planetscale.com/docs/img/internals/social_share.png',
   schemaOrgJSONLD: {
     '@context': 'http://schema.org',
     '@type': 'Organization',
     name: 'PlanetScale, Inc.',
-    url: 'https://docs.planetscale.com',
+    url: 'https://planetscale.com/docs',
     sameAs: [
       'https://twitter.com/planetscaledata',
       'https://www.facebook.com/planetscaledata',

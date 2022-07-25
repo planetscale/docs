@@ -1,7 +1,7 @@
 ---
 title: 'The PlanetScale workflow'
 subtitle: 'Use the PlanetScale workflow for branching databases, non-blocking schema changes and more.'
-banner: '/img/docs/ps-workflow.png'
+banner: '/docs/img/docs/ps-workflow.png'
 ---
 
 ## Serverless databases
@@ -22,9 +22,9 @@ Development branches provide isolated copies of your database schema where you c
 
 Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups.
 
-We also offer a [Data Branching&trade;](/concepts/data-branching) feature, which allows you to create an isolated replica of your database for development that includes both the schema **and** data.
+We also offer a [Data Branching&trade;](/docs/concepts/data-branching) feature, which allows you to create an isolated replica of your database for development that includes both the schema **and** data.
 
-Learn more about [branching databases](https://docs.planetscale.com/concepts/branching).
+Learn more about [branching databases](/docs/concepts/branching).
 
 ## Non-blocking schema changes
 
@@ -32,11 +32,11 @@ PlanetScale makes it safe to deploy schema changes to production and easy to aut
 
 Use a development branch to apply schema changes and view the schema diff in the UI or the CLI. Once you’re satisfied with your schema changes, you can open a deploy request.
 
-Learn more about [non-blocking schema changes](https://docs.planetscale.com/concepts/nonblocking-schema-changes).
+Learn more about [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes).
 
 ## Deploy requests
 
-[Deploy requests](/concepts/deploy-requests) allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (`CREATE`, `ALTER`, and `DROP`) for each table changed, with a line-by-line schema diff, making it easy to review the changes.
+[Deploy requests](/docs/concepts/deploy-requests) allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (`CREATE`, `ALTER`, and `DROP`) for each table changed, with a line-by-line schema diff, making it easy to review the changes.
 
 For example, you can pair deploy requests with GitHub pull requests so that your teammates can review the code and the schema changes in parallel.
 
@@ -50,4 +50,4 @@ As a part of the process of adding the schema changes to the deploy queue, Plane
 
 ## Revert a schema change
 
-If you ever deploy a schema change, only to realize you need to undo it, PlanetScale can handle that. With our [Rewind feature](/concepts/deploy-requests#revert-a-schema-change), you have 30 minutes to "undo" a schema change deployment. Simply click the "Revert changes" button on the affected deploy request page and your production database will instantly revert back to the previous schema. Additionally, any data that was added to your production database in the time between deployment and reverting will be retained. Learn more about this process in our [How Rewind works section](/concepts/deploy-requests#revert-a-schema-change) of our deploy requests documentation.
+If you ever deploy a schema change, only to realize you need to undo it, PlanetScale can handle that. With our [Rewind feature](/docs/concepts/deploy-requests#revert-a-schema-change), you have 30 minutes to "undo" a schema change deployment. Simply click the "Revert changes" button on the affected deploy request page and your production database will instantly revert back to the previous schema. Additionally, any data that was added to your production database in the time between deployment and reverting will be retained. Learn more about this process in our [How Rewind works section](/docs/concepts/deploy-requests#revert-a-schema-change) of our deploy requests documentation.

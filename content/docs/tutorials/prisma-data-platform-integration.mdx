@@ -22,7 +22,7 @@ If you're importing, click "**Import a Prisma repository**", and then select the
 
 Make sure your imported project has a `schema.prisma` file. You can specify the path of the file in the "**Prisma Schema path**" input box. This file must be relative to the repository root.
 
-![Prisma Data Platform project configuration](/img/docs/prisma-cloud-configuration.png)
+![Prisma Data Platform project configuration](/docs/img/docs/prisma-cloud-configuration.png)
 
 ## Select a template
 
@@ -32,7 +32,7 @@ If you're creating a new project, you can choose to start with a pre-built templ
   If you choose the Empty template, you'll need to define a model in your `schema.prisma` file in your repository before deploying to Vercel. If you want to test the deployment without making modifications, we recommend choosing a different template.
 </InfoBlock>
 
-![Prisma Data Platform project template options](/img/docs/prisma-cloud-templates.png)
+![Prisma Data Platform project template options](/docs/img/docs/prisma-cloud-templates.png)
 
 ## Configure the environment
 
@@ -41,22 +41,22 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 1. In the "**Database Provider**" dropdown, select "**PlanetScale MySQL**"
 2. Click the "**Link your PlanetScale account**" button to authenticate with PlanetScale.
 
-![Prisma Data Platform project database provider PlanetScale](/img/docs/prisma-planetscale-login.png)
+![Prisma Data Platform project database provider PlanetScale](/docs/img/docs/prisma-planetscale-login.png)
 
 3. This will kick off the OAuth flow where Prisma will request limited access to your **Databases**, and **Organization**.
 4. Click "**Allow access**".
 5. The "**PlanetScale Database Name**" field will auto-populate based on your project name. You can change this if you prefer a different name. Keep in mind, the database name can only use lowercase alphanumeric characters and underscores. We allow dashes, but we don't recommend using them, as they may need to be escaped in some instances.
 6. Select your **PlanetScale Organization**.
-7. Under "**PlanetScale Region**", choose the [region closest to your or your application](https://docs.planetscale.com/concepts/regions).
+7. Under "**PlanetScale Region**", choose the [region closest to your or your application](/docs/concepts/regions).
 
-![Prisma Data Platform project PlanetScale configuration](/img/docs/prisma-planetscale-configuration.png)
+![Prisma Data Platform project PlanetScale configuration](/docs/img/docs/prisma-planetscale-configuration.png)
 
 8. Finally, under "**Prisma Data Proxy**", select the location closest to you or your application.
 9. Once you're ready to proceed, click the green "**Create project**" button at the bottom. You'll see a loading screen for a few seconds while your database is being configured.
 
 Your PlanetScale database has been automatically created and is ready to populate with data! Head to your [PlanetScale dashboard](https://app.planetscale.com/) to check it out.
 
-![PlanetScale dashboard with new Prisma + PlanetScale database](/img/docs/prisma-planetscale-database.png)
+![PlanetScale dashboard with new Prisma + PlanetScale database](/docs/img/docs/prisma-planetscale-database.png)
 
 ## Deploy the project (Optional)
 
@@ -91,14 +91,14 @@ You can now view your live site from your Vercel dashboard. If you chose a start
 
 With your PlanetScale database now set up, head to your [PlanetScale dashboard](https://app.planetscale.com/) to check it out. You'll see the database you created on your **Overview** page. Click on it and you'll be taken to the **Overview** page for that database.
 
-Here, you'll find [connection strings](https://docs.planetscale.com/concepts/connection-strings) you can use to connect to your database, the database settings page, and many more features that come with your free PlanetScale database, such as:
+Here, you'll find [connection strings](/docs/concepts/connection-strings) you can use to connect to your database, the database settings page, and many more features that come with your free PlanetScale database, such as:
 
-- [Branching](/concepts/branching) &mdash; Create branches of your database so that you can develop and test changes in an isolated development environment.
-- [Non-blocking schema changes](/concepts/nonblocking-schema-changes) &mdash; Once you're ready to apply your changes from your development branch, you can deploy them to production without blocking or slowing down your production database during deployment.
-- [Automatic backups](/concepts/back-up-and-restore) &mdash; On the free plan, your database branches are backed up daily.
-- [Query Insights](/concepts/query-insights) &mdash; Insight into the exact active queries running on your databases with helpful statistics such as how many times it's run, time to run, rows affected, rows returned, and time per query. 
+- [Branching](/docs/concepts/branching) &mdash; Create branches of your database so that you can develop and test changes in an isolated development environment.
+- [Non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) &mdash; Once you're ready to apply your changes from your development branch, you can deploy them to production without blocking or slowing down your production database during deployment.
+- [Automatic backups](/docs/concepts/back-up-and-restore) &mdash; On the free plan, your database branches are backed up daily.
+- [Query Insights](/docs/concepts/query-insights) &mdash; Insight into the exact active queries running on your databases with helpful statistics such as how many times it's run, time to run, rows affected, rows returned, and time per query.
 
-You can do all of this and more from your [PlanetScale dashboard](https://app.planetscale.com) or the [PlanetScale CLI](https://planetscale.com/cli).
+You can do all of this and more from your [PlanetScale dashboard](https://app.planetscale.com) or the [PlanetScale CLI](/cli).
 
 ## Prisma Data Platform
 
