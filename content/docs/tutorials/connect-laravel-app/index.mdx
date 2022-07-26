@@ -141,6 +141,14 @@ Now that you're connected, let's add some data to see it in action. The sample a
 - `database/migrations/2021_12_20_194637_create_stars_table.php` &mdash; Creates a `stars` table
 - `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
 
+<InfoBlock type='note'>
+PlanetScale does not support foreign key *constraints*, but we do support the use of relationships with foreign keys, as shown in the Stars migration file in this example. 
+            
+You can use the [`foreignId()` method](https://laravel.com/docs/migrations#foreign-key-constraints) to create a relationship between the `constellations` and `stars` tables, but you cannot enforce referential integrity with the `constrained()` method.
+
+For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation.
+</InfoBlock>
+
 There are also two seeders, `database/seeders/ConstellationSeeder.php` and `database/seeders/StarSeeder.php`, that will add two rows to the each table. Let's run those now.
 
 1. Make sure your database connection has been established. You'll see the message "You are connected to your_database_name" on the [Laravel app homepage](http://localhost:8000/) if everything is configured properly.
