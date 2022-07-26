@@ -37,7 +37,7 @@ This script can be used to create a user with the necessary permissions. The use
 ```sql
 CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
 GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'migration_user'@'%';
-GRANT SELECT, INSERT, UPDATE, DELETE LOCK TABLES ON <DATABASE_NAME>.* TO 'migration_user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON <DATABASE_NAME>.* TO 'migration_user'@'%';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON '_vt'.* TO 'migration_user'@'%';
 ```
 

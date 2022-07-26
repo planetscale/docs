@@ -186,6 +186,10 @@
             {
               "display": "DigitalOcean",
               "route": "digitalocean-database-migration-guide"
+            },
+            {
+              "display": "Azure",
+              "route": "azure-database-for-mysql-migration-guide"
             }
           ]
         }
