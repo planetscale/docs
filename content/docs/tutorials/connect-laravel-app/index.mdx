@@ -16,7 +16,7 @@ In this tutorial, you'll learn how to connect a Laravel application to a PlanetS
 
 ## Set up the Laravel app
 
-This guide will integrate [a simple Laravel 9 app](https://github.com/planetscale/laravel-example) with PlanetScale. The application contains migrations and seed data to display a list of stars stored in the database. If you have an existing application, you can also use that.
+This guide will integrate [a simple Laravel 9 app](https://github.com/planetscale/laravel-example) with PlanetScale. The application will display a list of stars and what constellation each star is in. The sample repo contains migrations and seed data to create and populate the `constellations` and `stars` tables. If you have an existing application, you can also use that.
 
 1. Clone the starter Laravel application:
 
@@ -136,7 +136,12 @@ Refresh your Laravel homepage and you should see the message that you're connect
 
 ## Run migrations and seeder
 
-Now that you're connected, let's add some data to see it in action. The sample application comes with a migration file at `database/migrations/2021_12_20_194637_create_stars_table.php` that will create a `stars` table in the database. There's also a `database/seeders/StarSeeder.php` file that will add two rows to the `stars` table. Let's run those now.
+Now that you're connected, let's add some data to see it in action. The sample application comes with two migration files:
+
+- `database/migrations/2021_12_20_194637_create_stars_table.php` &mdash; Creates a `stars` table
+- `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
+
+There are also two seeders, `database/seeders/ConstellationSeeder.php` and `database/seeders/StarSeeder.php`, that will add two rows to the each table. Let's run those now.
 
 1. Make sure your database connection has been established. You'll see the message "You are connected to your_database_name" on the [Laravel app homepage](http://localhost:8000/) if everything is configured properly.
 
@@ -179,14 +184,21 @@ PlanetScale has a [built-in console](/docs/concepts/web-console) where you can r
 
 From here, you can run MySQL queries and DDL against your database branch.
 
-1. Add a record to the `stars` table:
+1. Add a record to the `constellations` table:
 
 ```sql
-INSERT INTO `stars` (name, constellation)
-VALUES  ('Sagittarius', 'Kaus Media');
+INSERT INTO `constellations` (name)
+VALUES  ('Kaus Media');
 ```
 
-2. Refresh the Laravel homepage to see the new record. You can also verify it was added in the console with:
+2. Add a record to the `stars` table:
+
+```sql
+INSERT INTO `stars` (name, constellation_id)
+VALUES  ('Sagittarius', 3);
+```
+
+3. Refresh the Laravel homepage to see the new record. You can also verify it was added in the console with:
 
 ```sql
 SELECT * FROM stars;
@@ -204,10 +216,16 @@ Laravel comes with a powerful tool called [Tinker](https://laravel.com/docs/9.x/
 php artisan tinker
 ```
 
+2. Insert a new record into the `constellations` table with:
+
+```php
+DB::table('constellations')->insert(['name'=>'Kaus Media']);
+```
+
 2. Insert a new record into the `stars` table with:
 
 ```php
-DB::table('stars')->insert(['name'=>'Sagitarrius', 'constellation'=>'Kaus Media']);
+DB::table('stars')->insert(['name'=>'Sagitarrius', 'constellation'=>3]);
 ```
 
 3. Refresh your Laravel application homepage to see your new data. You can also run the following command in Tinker to see all records in the `stars` table.
