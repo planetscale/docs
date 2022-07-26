@@ -160,6 +160,10 @@
             {
               "route": "nextjs-planetscale-netlify-template",
               "display": "Next.js and Netlify Template"
+            },
+            {
+              "display": "Deploy a Django app to Heroku",
+              "route": "deploy-a-django-app-to-heroku"
             }
           ]
         },
