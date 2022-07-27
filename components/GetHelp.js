@@ -9,7 +9,7 @@ function GetHelp() {
         </h1>
       </a>
       <p>
-        Get help from <a href='https://support.planetscale.com/'>the PlanetScale support team</a>, or join our 
+        Get help from <a href='https://support.planetscale.com/'>the PlanetScale support team</a>, or join our&nbsp;
         <a href='https://github.com/planetscale/discussion/discussions'>GitHub discussion board</a> to see how others
         are using PlanetScale.
       </p>
