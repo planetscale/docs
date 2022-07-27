@@ -36,6 +36,34 @@ export default function Overview() {
         </p>
       </div>
 
+      <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
+        <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
+          <img
+            src='/docs/img/internals/onboarding-diagram.png'
+            alt='Onboarding diagram'
+            width='720'
+            height='139'
+            className='max-w-full'
+          />
+        </div>
+
+        <h2 className='mb-1 text-xl font-semibold'>New to PlanetScale?</h2>
+        <p className='mb-2'>
+          Follow this step by step guide to quickly get up and running in PlanetScale. You'll learn the following:
+        </p>
+        <div className='grid grid-cols-2 mb-2 font-bold gap-1'>
+          <div>1. Account setup.</div>
+          <div>3. Branching & deployments.</div>
+          <div>2. Creating your first database.</div>
+          <div>4. Connecting to your database.</div>
+        </div>
+        <p>
+          <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>
+            Get started
+          </ButtonLink>
+        </p>
+      </div>
+
       <div className='grid grid-cols-1 gap-3 mb-4 lg:grid-cols-2'>
         <Link href='/tutorials/planetscale-quick-start-guide'>
           <a className='h-full p-3 border rounded hover:bg-secondary'>
