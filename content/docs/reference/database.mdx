@@ -25,7 +25,7 @@ pscale database <SUB-COMMAND> <FLAG>
 | `delete <DATABASE_NAME>` | `--force` | Delete the specified database |
 | `dump <DATABASE_NAME> <BRANCH_NAME>` | `--local-addr <ADDRESS>`, `--output <DIRECTORY_NAME>`, `--tables <TABLES_LIST>` | Backup and dump the specified database |
 | `list <DATABASE_NAME>` |  | List all databases in the current org |
-| `restore-dump <DATABASE_NAME> <BRANCH_NAME>` | `--dir <DIRECTORY_NAME>`*, `--local-addr <ADDRESS>` | Restore the specified database from a local dump directory |
+| `restore-dump <DATABASE_NAME> <BRANCH_NAME>` | `--dir <DIRECTORY_NAME>`*, `--local-addr <ADDRESS>`, `--overwrite-tables` | Restore the specified database from a local dump directory |
 | `show <DATABASE_NAME>` | `--web` | Retrieve information about a database |
 
 > \* _Flag is required_
@@ -43,6 +43,7 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 | `--output <DIRECTORY_NAME>` | Output directory of the dump. By default the dump is saved to a folder in the current directory. | `dump` |
 | `--tables <TABLES_LIST>` | Comma separated string of tables to dump. By default, all tables are dumped.| `dump` |
 | `--dir <DIRECTORY_NAME>` | Directory containing the files to be used for the restore. | `restore-dump` |
+| `--overwrite-tables` | If true, will attempt to DROP TABLE before restoring. | `restore-dump` |
 | `--web` | Perform the action in your web browser | `show` |
 
 ### Available flags
