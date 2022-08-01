@@ -91,68 +91,72 @@ module.exports = {
         source: '/',
         destination: '/docs',
         basePath: false,
-        permanent: false
+        permanent: true,
       },
       {
-        source: '/:path((?!docs|robots.txt).*)',
-        destination: '/docs/:path*',
-        basePath: false,
-        permanent: false
-      },
-      {
-        source: '/tutorial/:slug*',
-        destination: '/tutorials/:slug*', // Matched parameters can be used in the destination
-        permanent: true
-      },
-      {
-        source: '/tutorials/deploy-to-heroku',
-        destination: '/tutorials/connect-any-application',
-        permanent: true
-      },
-      {
-        source: '/v1/vitess-operator/:match*',
-        destination: 'https://github.com/planetscale/vitess-operator/tree/main/docs',
-        permanent: true
-      },
-      {
-        source: '/v1/:match*',
-        destination: '/',
-        permanent: true
-      },
-      {
-        source: '/reference/planetscale-security',
-        destination: '/reference/secure-connections',
-        permanent: true
-      },
-      {
-        source: '/tutorials/change-unique-key',
-        destination: '/learn/change-unique-key',
-        permanent: true
-      },
-      {
-        source: '/tutorials/operating-without-foreign-keys',
-        destination: '/learn/operating-without-foreign-key-constraints',
-        permanent: true
-      },
-      {
-        source: '/reference/planetscale-environment-setup',
-        destination: '/concepts/planetscale-environment-setup',
-        permanent: true
-      },
-      {
-        source: '/reference/secure-connections',
-        destination: '/concepts/secure-connections',
-        permanent: true
-      },
-      {
-        source: '/reference/service-tokens',
-        destination: '/concepts/service-tokens',
-        permanent: true
+        source: '/concepts/billing/planetscale-plans',
+        destination: '/concepts/billing',
+        permanent: true,
       },
       {
         source: '/concepts/query-statistics',
         destination: '/concepts/query-insights',
-        permanent: true
+        permanent: true,
+      },
+      {
+        source: '/import-tool-migration-addresses',
+        destination: '/reference/import-tool-migration-addresses',
+        permanent: true,
+      },
+      {
+        source: '/learn/change-unique-key',
+        destination: '/learn/change-single-unique-key',
+        permanent: true,
+      },
+      {
+        source: '/learn/operating-without-foreign-keys-constraints',
+        destination: '/learn/operating-without-foreign-key-constraints',
+        permanent: true,
+      },
+      {
+        source: '/lib/prisma',
+        destination: '/tutorials/prisma-quickstart',
+        permanent: true,
+      },
+      {
+        source: '/tutorials/change-unique-key',
+        destination: '/learn/change-single-unique-key',
+        permanent: true,
+      },
+      {
+        source: '/tutorials/deploy-to-heroku',
+        destination: '/tutorials/connect-any-application',
+        permanent: true,
+      },
+      {
+        source: '/tutorials/operating-without-foreign-keys',
+        destination: '/learn/operating-without-foreign-key-constraints',
+        permanent: true,
+      },
+      {
+        source: '/reference/planetscale-environment-setup',
+        destination: '/concepts/planetscale-environment-setup',
+        permanent: true,
+      },
+      {
+        source: '/reference/planetscale-security',
+        destination: '/concepts/secure-connections',
+        permanent: true,
+      },
+      {
+        source: '/reference/secure-connections',
+        destination: '/concepts/secure-connections',
+        permanent: true,
+      },
+      {
+        source: '/reference/service-tokens',
+        destination: '/concepts/service-tokens',
+        permanent: true,
       }
     ]
   },
@@ -160,7 +164,7 @@ module.exports = {
     return [
       {
         source: "/robots.txt",
-        destination: "https://docs.planetscale.com/robots.txt",
+        destination: "https://docs.planetscaledb.io/docs/robots.txt",
         basePath: false
       }
     ]
