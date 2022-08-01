@@ -131,7 +131,7 @@ Once you finish the import, we will detach your external database. The connectio
 
 Your database has been fully imported into PlanetScale and is ready to use!
 
-Next, you'll be taken to your database overview page. If you click on "Branches", you'll see that you now have one [production branch](/docs/concepts/branching#branch-promotion), `main`, that contains all of the data from your external database. Production branches are highly available and protected from direct schema changes. Your database is also on an [automatic backup schedule](/docs/concepts/back-up-and-restore) whose frequency depends on your plan.
+Next, you'll be taken to your database overview page. If you click on "Branches", you'll see that you now have one [production branch](/docs/concepts/branching#promote-a-development-branch-to-production), `main`, that contains all of the data from your external database. Production branches are highly available and protected from direct schema changes. Your database is also on an [automatic backup schedule](/docs/concepts/back-up-and-restore) whose frequency depends on your plan.
 
 ## Next steps
 
@@ -139,7 +139,7 @@ You just fully migrated over your database to PlanetScale with no downtime and n
 
 - [Connect to your application](/docs/tutorials/connect-any-application) &mdash; If you haven't already, you can also connect to your application locally.
 - [Create a development branch](/docs/concepts/branching) &mdash; Add PlanetScale to your development workflow with our powerful branching feature. You can branch off of your `main` branch to test schema changes in development, and then merge them into production with our [non-blocking schema change workflow](/docs/concepts/nonblocking-schema-changes). Again, no downtime!
-- [Create a deploy request](/docs/concepts/branching#create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
+- [Create a deploy request](/docs/concepts/branching#1-create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
 
 ## Import limitations
 
@@ -173,7 +173,7 @@ Please take a look at our help document on how your application can [operate wit
 
 #### No unique key
 
-PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, you can read through our [Change single unique key documentation](/docs/learn/change-single-unique-key#how-to-change-a-table's-single-unique-key) for more information.
+PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, you can read through our [Change single unique key documentation](/docs/learn/change-single-unique-key#how-to-change-a-tables-single-unique-key) for more information.
 
 It may also help to check out the official [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html).
 
