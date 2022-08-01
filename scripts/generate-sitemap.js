@@ -1,8 +1,7 @@
 const fs = require('fs')
-
-const prettier = require('prettier')
-
 const meta = require('../content/docs/meta.json')
+const prettier = require('prettier')
+const { getPostFilePathBySlug, getPostLastUpdatedOnByFilePath } = require('../lib/post')
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
@@ -11,12 +10,20 @@ const meta = require('../content/docs/meta.json')
     development: `${process.env.NEXT_PUBLIC_VERCEL_URL}/docs`,
     preview: `${process.env.NEXT_PUBLIC_VERCEL_URL}/docs`,
     production: 'planetscale.com/docs'
-  }[process.env.NEXT_PUBLIC_VERCEL_ENV]
+  }[process.env.NEXT_PUBLIC_VERCEL_ENV || 'production']
 
   const traversePage = (page, path) => {
     let pages = []
     if (page.route) {
-      pages.push(`<url><loc>https://${baseURL}/${path.join('/')}/${page.route}</loc></url>`)
+      const filePath = getPostFilePathBySlug(path, page.route)
+      const lastMod = getPostLastUpdatedOnByFilePath(filePath)
+
+      pages.push(`
+        <url>
+          <loc>https://${baseURL}/${path.join('/')}/${page.route}</loc>
+          <lastmod>${lastMod}</lastmod>
+        </url>
+        `)
     }
     if (page.subpages) {
       page.subpages.forEach((subpage) => {
