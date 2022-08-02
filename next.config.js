@@ -91,82 +91,82 @@ module.exports = {
         source: '/',
         destination: '/docs',
         basePath: false,
-        permanent: true,
+        permanent: true
       },
       {
         source: '/concepts/billing/planetscale-plans',
         destination: '/concepts/billing',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/concepts/query-statistics',
         destination: '/concepts/query-insights',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/import-tool-migration-addresses',
         destination: '/reference/import-tool-migration-addresses',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/learn/change-unique-key',
         destination: '/learn/change-single-unique-key',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/learn/operating-without-foreign-keys-constraints',
         destination: '/learn/operating-without-foreign-key-constraints',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/lib/prisma',
         destination: '/tutorials/prisma-quickstart',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/tutorials/change-unique-key',
         destination: '/learn/change-single-unique-key',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/tutorials/deploy-to-heroku',
         destination: '/tutorials/connect-any-application',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/tutorials/operating-without-foreign-keys',
         destination: '/learn/operating-without-foreign-key-constraints',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/reference/planetscale-environment-setup',
         destination: '/concepts/planetscale-environment-setup',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/reference/planetscale-security',
         destination: '/concepts/secure-connections',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/reference/secure-connections',
         destination: '/concepts/secure-connections',
-        permanent: true,
+        permanent: true
       },
       {
         source: '/reference/service-tokens',
         destination: '/concepts/service-tokens',
-        permanent: true,
+        permanent: true
       }
     ]
   },
   async rewrites() {
     return [
       {
-        source: "/robots.txt",
-        destination: "https://docs.planetscaledb.io/docs/robots.txt",
+        source: '/robots.txt',
+        destination: 'https://docs.planetscaledb.io/docs/robots.txt',
         basePath: false
       }
     ]
-  },
+  }
 }

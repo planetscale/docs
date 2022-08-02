@@ -1,6 +1,8 @@
 const fs = require('fs')
-const meta = require('../content/docs/meta.json')
+
 const prettier = require('prettier')
+
+const meta = require('../content/docs/meta.json')
 const { getPostFilePathBySlug, getPostLastUpdatedOnByFilePath } = require('../lib/post')
 
 ;(async () => {
