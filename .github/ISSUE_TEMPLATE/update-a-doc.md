@@ -14,7 +14,7 @@ assignees: ''
 *Why does this doc need to be updated? Is this an addition or a bug fix? Share any details here.*
 
 ## Urgency
-*Is there a deadline for this? We consider any requests that *must* be published within a week to be urgent. If this is an urgent request, note the reason here and ping @holly in the [Docs Slack channel](https://planetscale.slack.com/archives/C01LKUQKE92) with a link to the issue.*
+*Is there a deadline for this?*
 
 ## Additional resources
 *If there is any additional context (Slack convos, etc), written resources, or anything else that would be helpful in the creation of this doc, please link them here. If possible, we love outlines!*
