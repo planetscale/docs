@@ -14,7 +14,7 @@ assignees: ''
 *What problem does this new doc address?*
 
 ## Urgency
-*Is there a deadline for this?
+*Is there a deadline for this?*
 
 ## Additional resources
 *If there is any additional context (Slack convos, etc), written resources, or anything else that would be helpful in the creation of this doc, please link them here. If possible, we love outlines!*
