@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Image from 'next/image'
+import Image from 'next/future/image'
 
 const url = require('url')
 

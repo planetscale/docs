@@ -41,6 +41,11 @@ module.exports = {
   eslint: {
     ignoreDuringBuilds: true
   },
+  experimental: {
+    images: {
+      allowFutureImage: true,
+    },
+  },
   webpack: (config, { isServer }) => {
     if (isServer) {
       require('./scripts/generate-sitemap')
