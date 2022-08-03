@@ -16,7 +16,7 @@ If you attempt to deploy such a schema change, the deploy request will fail with
 
 ## How to change a table's single unique key
 
-Altering a single unique key can be accomplished in 3 steps. Each step is a [separate deploy request](/docs/concepts/branching#deploying-branches).
+Altering a single unique key can be accomplished in 3 steps. Each step is a [separate deploy request](/docs/concepts/branching#how-to-deploy-a-branch).
 
 1. Add a temporary unique key. To change a lone unique key you will first need to add another unique key that PlanetScale can use during the migration. In a new branch, add a new key on a unique column or combination of columns. The target columns should not contain null values.
 

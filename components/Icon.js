@@ -17,7 +17,12 @@ const Icon = ({ name, size, scale = 1, className }) => {
   }
 
   return (
-    <SVG src={`/docs/icons/${file}.svg`} width={renderedSize} height={renderedSize} className={`shrink-0 ${className}`} />
+    <SVG
+      src={`/docs/icons/${file}.svg`}
+      width={renderedSize}
+      height={renderedSize}
+      className={`shrink-0 ${className}`}
+    />
   )
 }
 

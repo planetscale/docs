@@ -77,7 +77,7 @@ export default function Header() {
             <ButtonLink href='https://auth.planetscale.com/sign-up' variant='secondary' className='mr-2'>
               Get started
             </ButtonLink>
-            <ButtonLink href='https://app.planetscale.com/' variant='secondary'>
+            <ButtonLink href='https://app.planetscale.com' variant='secondary'>
               {isSignedIn ? 'Go to dashboard' : 'Sign in'}
             </ButtonLink>
           </div>

@@ -27,7 +27,8 @@ export default function Overview() {
 
         <h2 className='mb-1 text-xl font-semibold'>The PlanetScale workflow</h2>
         <p className='mb-2'>
-          Treat your databases as code. Use PlanetScale developer workflows with the Data Branching&trade; feature, non-blocking schema changes, reverting schema changes, and more.
+          Treat your databases as code. Use PlanetScale developer workflows with the Data Branching&trade; feature,
+          non-blocking schema changes, reverting schema changes, and more.
         </p>
         <p>
           <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>
@@ -106,7 +107,11 @@ export default function Overview() {
         <Link href='/tutorials/automatic-prisma-migrations'>
           <a className='flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
             <div className='inline-block h-[32px]'>
-              <SVG src='/docs/img/internals/prisma-logo.svg' height={32} className='mb-2 text-[#163C53] dark:text-white' />
+              <SVG
+                src='/docs/img/internals/prisma-logo.svg'
+                height={32}
+                className='mb-2 text-[#163C53] dark:text-white'
+              />
             </div>
             <h3 className='text-lg font-semibold text-primary mb-sm'>Prisma</h3>
             <p className='text-secondary'>Learn how to use PlanetScale&apos;s automatic migrations with Prisma.</p>
