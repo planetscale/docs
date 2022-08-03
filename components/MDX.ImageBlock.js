@@ -1,8 +1,8 @@
+import url from 'url'
+
 import React, { useState } from 'react'
 
 import Image from 'next/future/image'
-
-const url = require('url')
 
 export default function ImageBlock(props) {
   const { alt, src } = props

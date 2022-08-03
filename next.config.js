@@ -43,8 +43,8 @@ module.exports = {
   },
   experimental: {
     images: {
-      allowFutureImage: true,
-    },
+      allowFutureImage: true
+    }
   },
   webpack: (config, { isServer }) => {
     if (isServer) {
