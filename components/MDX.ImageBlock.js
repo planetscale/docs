@@ -2,14 +2,18 @@ import React, { useState } from 'react'
 
 import Image from 'next/image'
 
+const url = require('url')
+
 export default function ImageBlock(props) {
   const { alt, src } = props
+  const { height, width } = url.parse(src, true).query
+
   const [imageURL] = useState(src)
 
-  if (!props.height || !props.width) {
+  if (height && width) {
     return (
       <span className='block mt-3'>
-        <img src={imageURL} alt={alt} className='max-h-[600px] mx-auto'></img>
+        <Image {...props} className='max-h-[600px] mx-auto' height={height} layout='responsive' width={width} />
         {alt && <span className='block mt-1 mb-4 text-sm text-center text-secondary'>{alt}</span>}
       </span>
     )
@@ -17,7 +21,7 @@ export default function ImageBlock(props) {
 
   return (
     <span className='block mt-3'>
-      <Image {...props} className='max-h-[600px] mx-auto' layout='responsive' />
+      <img src={imageURL} alt={alt} className='max-h-[600px] mx-auto'></img>
       {alt && <span className='block mt-1 mb-4 text-sm text-center text-secondary'>{alt}</span>}
     </span>
   )
