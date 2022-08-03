@@ -25,6 +25,7 @@ export default function MDXContent({ title, subtitle, banner, body, lastUpdatedO
     h3: (props) => <AnchorLink {...props} heading='h3' category={category} />,
     NextBlock,
     InfoBlock,
+    ImageBlock,
     VideoBlock,
     GetHelp
   }
