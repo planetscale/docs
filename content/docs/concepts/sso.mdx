@@ -61,6 +61,10 @@ You can now configure Directory Sync using your identity provider.
 
 Directory Sync automatically adds and removes members from your PlanetScale organization to match your SSO directory. If you have groups defined within your SSO provider, it can also automatically create [Teams](/docs/concepts/teams) within your PlanetScale organization mapped to those groups.
 
+<InfoBlock type='note'>
+  Once you enable Directory Sync, existing Teams will be cleared, as all Teams must map to a Directory group.
+</InfoBlock>
+
 You can find the directory-managed members under "**Settings**" > "**Members**", and directory-managed Teams under "**Settings**" > "**Teams**".
 
 ![Dashboard UI - Directory-managed Teams page](/docs/img/docs/directory-managed-teams.png)
