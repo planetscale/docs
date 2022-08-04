@@ -5,6 +5,12 @@ banner: '/docs/img/docs/ps-workflow.png'
 date: '2022-07-22'
 ---
 
+import ConceptLayout from '../../layouts/ConceptLayout'
+
+export default function Layout(props) {
+  return <ConceptLayout {...props} title={title} subtitle={subtitle} banner={banner} />
+}
+
 ## Serverless databases
 
 PlanetScale databases are designed for developers and developer workflows. Deploy a fully managed database with the reliability of MySQL (our databases run on MySQL 8.0) and the scale of open source Vitess in just ten seconds.

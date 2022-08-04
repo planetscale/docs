@@ -6,7 +6,7 @@
     "serve": "next start",
     "build": "next build",
     "dev": "next dev",
-    "lint": "eslint . --ext .js,.jsx",
+    "lint": "eslint . --ext .js,.jsx,.mjs",
     "lint:fix": "npm run lint -- --fix"
   },
   "dependencies": {
@@ -28,7 +28,9 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "latest",
     "react-inlinesvg": "^3.0.0",
-    "remark-gfm": "^3.0.1"
+    "remark-frontmatter": "^4.0.1",
+    "remark-gfm": "^3.0.1",
+    "remark-mdx-frontmatter": "^2.0.3"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.8",
