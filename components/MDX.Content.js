@@ -1,12 +1,14 @@
 import React from 'react'
 
 import { MDXRemote } from 'next-mdx-remote'
+import SVG from 'react-inlinesvg'
 
 import ButtonLink from './ButtonLink'
 import FeedbackBlock from './FeedbackBlock'
 import GetHelp from './GetHelp'
 import HeadingBlock from './HeadingBlock'
 import Icon from './Icon'
+import ImportGuidesGrid from './ImportGuidesGrid'
 import AnchorLink from './MDX.AnchorLink'
 import CodeBlock from './MDX.CodeBlock'
 import ImageBlock from './MDX.ImageBlock'
@@ -32,7 +34,9 @@ export default function MDXContent({ title, subtitle, banner, body, lastUpdatedO
     ButtonLink,
     Icon,
     GetHelp,
-    QuickStartsGrid
+    QuickStartsGrid,
+    ImportGuidesGrid,
+    SVG
   }
 
   return (

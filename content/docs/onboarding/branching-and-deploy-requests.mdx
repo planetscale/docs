@@ -9,7 +9,7 @@ Now that you have an account and database set up, we can explore one of the key 
 
 <InfoBlock type="note">
 
-This guide continues from the [previous entry](/onboarding/create-a-database) describing how to create a database. If you do not have a database created, follow the steps in that guide before proceeding
+This guide continues from the [previous entry](/docs/onboarding/create-a-database) describing how to create a database. If you do not have a database created, follow the steps in that guide before proceeding
 
 </InfoBlock>
 
@@ -47,7 +47,12 @@ Deploy requests are how changes from one database branch are applied to another.
 
 ## Typical branching strategy
 
-[TODO: Insert existing branching graphic here]
+
+<div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
+  <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
+    <SVG src='/docs/img/internals/flow-diagram.svg' width='720' height='139' className='max-w-full' />
+  </div>
+</div>
 
 Most applications have at least two environments, a production environment where active users work with the application, and a development environment where developers extend the application and test changes. PlanetScale is built with this in mind, which is why branching is such a fundamental feature. 
 
