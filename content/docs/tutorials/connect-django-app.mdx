@@ -7,6 +7,10 @@ subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connec
 
 In this tutorial, you'll learn how to connect a Django application to a PlanetScale MySQL database using a pre-built Django application.
 
+<InfoBlock type='tip'>
+  Already have a Django application and just want to connect to PlanetScale? Check out the [Django quick connect repo](https://github.com/planetscale/connection-examples/tree/main/python).
+</InfoBlock>
+
 ## Prerequisites
 
 - Python &mdash; This tutorial uses `v3.6`
@@ -43,7 +47,7 @@ pip install -r ./requirements.txt
 
 Next, you need to set up your PlanetScale database and connect to it in the Django application.
 
-You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide#getting-started-—-planetscale-dashboard) if you prefer the dashboard.
+You can create a database either in the [PlanetScale dashboard](https://app.planetscale.com) or from the PlanetScale CLI. This guide will use the CLI, but you can follow the database setup instructions in the [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide#getting-started-planet-scale-dashboard) if you prefer the dashboard.
 
 Authenticate the CLI with the following command:
 
@@ -99,7 +103,7 @@ DB_PASSWORD=<PLAIN TEXT>
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
-The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system](/docs/reference/secure-connections#ca-root-configuration).
+The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system](/docs/concepts/secure-connections#ca-root-configuration).
 
 3. Next, in the `mysite/settings.py` file, scroll down and look for the `DATABASES` object. Replace it with the following:
 
@@ -136,7 +140,7 @@ If you're following this guide exactly and haven't created any new branches, you
 ```
 DB_HOST=127.0.0.1
 DB_PORT=3306
-DB_DATABASE=<DATABASE_NAME>
+DB_NAME=<DATABASE_NAME>
 ```
 
 The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
@@ -270,9 +274,9 @@ This isn't necessary to do in every model if you're pulling in the `django_psdb_
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-the-main-database-branch) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch protected by direct schema changes.
 
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
 
 ## Need help?
-Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

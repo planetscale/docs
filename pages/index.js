@@ -27,7 +27,8 @@ export default function Overview() {
 
         <h2 className='mb-1 text-xl font-semibold'>The PlanetScale workflow</h2>
         <p className='mb-2'>
-          Treat your databases as code. Use PlanetScale developer workflows with the Data Branching&trade; feature, non-blocking schema changes, reverting schema changes, and more.
+          Treat your databases as code. Use PlanetScale developer workflows with the Data Branching&trade; feature,
+          non-blocking schema changes, reverting schema changes, and more.
         </p>
         <p>
           <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>

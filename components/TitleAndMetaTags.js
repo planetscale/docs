@@ -36,18 +36,18 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
         apiKey: '4e224ba0c25e61356926e32048d5a110',
         indexName: 'planetscale-docs',
         inputSelector: '#searchbox',
-        debug: false,
+        debug: false
       })
     }
   }
 
-  const currentUrl = pathname ? `${url}/${pathname}` : url;
+  const currentUrl = pathname ? `${url}/${pathname}` : url
 
   return (
     <Head>
       <title>{title + ' - Documentation - PlanetScale'}</title>
 
-      <link rel="canonical" href={currentUrl} />
+      <link rel='canonical' href={currentUrl} />
 
       <meta name='msapplication-TileColor' content='#da532c' />
       <meta name='description' content={description}></meta>
