@@ -2,10 +2,13 @@
 title: 'Connect a Rails application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Rails application'
 ---
-
 ## Introduction
 
 In this tutorial, you’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. You’ll perform the initial migration from your local Rails application, and set up the database for future development.
+
+<InfoBlock type='tip'>
+  Already have a Rails application and just want to connect to PlanetScale? Check out the [Rails quick connect repo](https://github.com/planetscale/connection-examples/tree/main/ruby).
+</InfoBlock>
 
 ## Prerequisites
 
@@ -93,7 +96,7 @@ development:
   sslca: "/etc/ssl/cert.pem"
 ```
 
-The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/docs/reference/planetscale-security#ca-root-configuration) for more information.
+The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/docs/concepts/secure-connections#ca-root-configuration) for more information.
 
 <InfoBlock type='note'>
   You're configuring the <b>development</b> Rails environment here for the sake of expedience. In actual use, the <b>main</b> database branch would typically serve the <b>production</b> environment.
@@ -185,4 +188,4 @@ Now that you've successfully connected your Rails app to PlanetScale, it's time 
 
 ## Need help?
 
-Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

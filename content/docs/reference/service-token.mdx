@@ -25,9 +25,8 @@ pscale service-token <SUB-COMMAND> <FLAG>
 | `create` |  | Create a service token for the organization |
 | `delete <TOKEN_ID>` | | Delete an entire service token in an organization |
 | `delete-access <TOKEN_ID> <PERMISSION> <PERMISSION>` | `--database <DATABASE_NAME>` | Delete individual permissions granted to a service token in the organization |
-| `list` | | List the IDs of | Fetch a service token and its accesses |
-
-The value `<PASSWORD_ID>` represents the ID number of the set of credentials. To find all available credentials and their IDs, run `pscale list <DATABASE_NAME> <BRANCH_NAME>`.
+| `list` | | List the IDs of an organization's service tokens |
+| `show-access` | | Fetch a service token and its accesses |
 
 #### Sub-command flag descriptions
 
@@ -81,4 +80,4 @@ You can find a list of all permissions in our [Access control doc](/docs/referen
 
 ## Need help?
 
-Get help from [the PlanetScale support team](https://support.planetscale.com/), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

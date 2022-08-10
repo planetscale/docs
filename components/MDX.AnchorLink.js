@@ -43,19 +43,19 @@ class AnchorLink extends React.Component {
 }
 
 const getIdFromChildren = (children) => {
-    let label = '';
+  let label = ''
 
-    React.Children.map(children, (child) => {
-        if (React.isValidElement(child)) {
-          label += getIdFromChildren(child.props.children);
-        }
+  React.Children.map(children, (child) => {
+    if (React.isValidElement(child)) {
+      label += getIdFromChildren(child.props.children)
+    }
 
-        if (typeof child === 'string') {
-            label += (child);
-        }
-    });
+    if (typeof child === 'string') {
+      label += child
+    }
+  })
 
-    return kebabcase(label);
-};
+  return kebabcase(label)
+}
 
 export default AnchorLink
