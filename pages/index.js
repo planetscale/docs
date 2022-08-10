@@ -58,7 +58,7 @@ export default function Overview() {
           <div>4. Connecting to your database.</div>
         </div>
         <p>
-          <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>
+          <ButtonLink href='/onboarding/create-an-account' variant='secondary'>
             Get started
           </ButtonLink>
         </p>
@@ -134,7 +134,11 @@ export default function Overview() {
         <Link href='/tutorials/automatic-prisma-migrations'>
           <a className='flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
             <div className='inline-block h-[32px]'>
-              <SVG src='/docs/img/internals/prisma-logo.svg' height={32} className='mb-2 text-[#163C53] dark:text-white' />
+              <SVG
+                src='/docs/img/internals/prisma-logo.svg'
+                height={32}
+                className='mb-2 text-[#163C53] dark:text-white'
+              />
             </div>
             <h3 className='text-lg font-semibold text-primary mb-sm'>Prisma</h3>
             <p className='text-secondary'>Learn how to use PlanetScale&apos;s automatic migrations with Prisma.</p>

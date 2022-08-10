@@ -2,9 +2,11 @@ import React from 'react'
 
 import { MDXRemote } from 'next-mdx-remote'
 
+import ButtonLink from './ButtonLink'
 import FeedbackBlock from './FeedbackBlock'
 import GetHelp from './GetHelp'
 import HeadingBlock from './HeadingBlock'
+import Icon from './Icon'
 import AnchorLink from './MDX.AnchorLink'
 import CodeBlock from './MDX.CodeBlock'
 import ImageBlock from './MDX.ImageBlock'
@@ -14,6 +16,7 @@ import NextBlock from './MDX.NextBlock'
 import TableBlock from './MDX.TableBlock'
 import VideoBlock from './MDX.VideoBlock'
 import PageInfo from './PageInfo'
+import QuickStartsGrid from './QuickStartsGrid'
 
 export default function MDXContent({ title, subtitle, banner, body, lastUpdatedOn, slug, category, className }) {
   const components = {
@@ -26,7 +29,10 @@ export default function MDXContent({ title, subtitle, banner, body, lastUpdatedO
     NextBlock,
     InfoBlock,
     VideoBlock,
-    GetHelp
+    ButtonLink,
+    Icon,
+    GetHelp,
+    QuickStartsGrid
   }
 
   return (
