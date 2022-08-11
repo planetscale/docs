@@ -17,7 +17,7 @@ The following reference guide will cover some MySQL syntax, features, and more t
 
 If you're attempting to import a database using our Import tool, there are some additional requirements that you can find in our [Database imports documentation](/docs/concepts/database-imports#import-limitations).
 
-### Queries, functions, syntax, and data types
+### Queries, functions, syntax, data types, and SQL modes
 
 <InfoBlock>
 ❗ = <i>Limitations in support</i> <br/>
@@ -37,6 +37,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | `EVENT` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `LOAD DATA INFILE` | ✖️ | Loading data via [`LOAD DATA INFILE` is not supported](https://github.com/vitessio/vitess/issues/2976). |
 | `KILL` | ✖️ | We do not support killing queries or shards from the command line. |
+| `PIPES_AS_CONCAT` | ✖️ | The `\|\|` operator is reserved for Vitess' evalengine so enabling this SQL mode may result in incorrect or unexpected results. Please use `CONCAT()` instead. |
 
 ## Miscellaneous
 
