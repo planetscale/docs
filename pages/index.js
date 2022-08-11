@@ -37,7 +37,7 @@ export default function Overview() {
         </p>
       </div>
 
-      <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
+      {/* <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
         <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
           <img
             src='/docs/img/internals/onboarding-diagram.png'
@@ -63,7 +63,7 @@ export default function Overview() {
             Get started
           </ButtonLink>
         </p>
-      </div>
+      </div> */}
 
       <div className='grid grid-cols-1 gap-3 mb-4 lg:grid-cols-2'>
         <Link href='/tutorials/planetscale-quick-start-guide'>
