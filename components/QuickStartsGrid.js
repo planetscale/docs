@@ -4,7 +4,7 @@ import QuickStartCard from './QuickStartCard'
 
 function QuickStartsGrid() {
   return (
-    <div className='grid grid-cols-1 gap-3 lg:grid-cols-3'>
+    <div className='grid grid-cols-1 gap-3 lg:grid-cols-4'>
       <QuickStartCard href='/tutorials/connect-django-app' title='Django' imgPath='/docs/img/logos/django.png' />
       <QuickStartCard href='/tutorials/connect-go-app' title='Go' imgPath='/docs/img/logos/go.png' />
       <QuickStartCard href='/tutorials/connect-nodejs-app' title='Node.js' imgPath='/docs/img/logos/node.png' />

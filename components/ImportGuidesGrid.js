@@ -4,7 +4,7 @@ import QuickStartCard from './QuickStartCard'
 
 function ImportGuidesGrid() {
   return (
-    <div className='grid grid-cols-1 gap-3 lg:grid-cols-2'>
+    <div className='grid grid-cols-1 gap-3 lg:grid-cols-4'>
       <QuickStartCard href='/tutorials/aws-rds-migration-guide' title='AWS RDS' imgPath='/docs/img/logos/aws.png' />
       <QuickStartCard
         href='/tutorials/gcp-cloudsql-migration-guide'
@@ -18,7 +18,7 @@ function ImportGuidesGrid() {
       />
       <QuickStartCard
         href='/tutorials/digitalocean-database-migration-guide'
-        title='Digital Ocean MySQL'
+        title='Digital Ocean'
         imgPath='/docs/img/logos/digitalocean.jpeg'
       />
     </div>

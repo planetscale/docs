@@ -6,8 +6,8 @@ import Link from 'next/link'
 function QuickStartCard({ href, imgPath, title, children }) {
   return (
     <Link href={href}>
-      <a className='flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
-        <div className='inline-block h-[32px]'>
+      <a className='quick-start-card flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
+        <div className='inline-block img-wrapper h-[32px]'>
           {/* eslint-disable-next-line jsx-a11y/alt-text */}
           <img src={imgPath} style={{ maxHeight: '32px', border: '0px' }} />
           {/* <SVG src={svgPath} height={32} width={37} className='mb-2 text-black dark:text-white' /> */}
