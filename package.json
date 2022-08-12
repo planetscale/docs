@@ -28,6 +28,7 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "latest",
     "react-inlinesvg": "^3.0.0",
+    "recma-nextjs-static-props": "^1.0.0",
     "remark-frontmatter": "^4.0.1",
     "remark-gfm": "^3.0.1",
     "remark-mdx-frontmatter": "^2.0.3"

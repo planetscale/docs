@@ -2,12 +2,14 @@ import MDX from '@next/mdx'
 import withFrontmatter from 'remark-frontmatter'
 import withGitHubFlavoredMarkdown from 'remark-gfm'
 import withMdxFrontmatter from 'remark-mdx-frontmatter'
+import withNextjsStaticProps from 'recma-nextjs-static-props'
 
 const withMDX = MDX({
   extension: /\.mdx$/,
   options: {
     remarkPlugins: [withFrontmatter, withGitHubFlavoredMarkdown, withMdxFrontmatter],
     rehypePlugins: [],
+    recmaPlugins: [withNextjsStaticProps],
     providerImportSource: '@mdx-js/react'
   }
 })

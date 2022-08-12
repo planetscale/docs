@@ -29,12 +29,12 @@ const components = {
   GetHelp
 }
 
-export default function ConceptLayout({ children, title, subtitle, banner }) {
+export default function ConceptLayout({ children, title, subtitle, banner, slug, date }) {
   const bannerUrl = buildBannerUrl({ banner, title })
 
   return (
     <MDXProvider components={components}>
-      <TitleAndMetaTags title={title} subtitle={subtitle} banner={bannerUrl} />
+      <TitleAndMetaTags title={title} subtitle={subtitle} banner={bannerUrl} pathname={slug} />
 
       <Layout>
         <div className='mdx-content'>
@@ -43,7 +43,7 @@ export default function ConceptLayout({ children, title, subtitle, banner }) {
           {children}
 
           <FeedbackBlock />
-          <PageInfo lastUpdatedOn={null && lastUpdatedOn} slug={null && slug}></PageInfo>
+          <PageInfo lastUpdatedOn={date} slug={slug}></PageInfo>
         </div>
 
         <Footer />
