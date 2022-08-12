@@ -2,6 +2,7 @@
 title: 'Connect a Laravel application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Laravel application'
 className: 'ignore-img-borders'
+date: '2022-08-01'
 ---
 
 ## Introduction
@@ -142,8 +143,8 @@ Now that you're connected, let's add some data to see it in action. The sample a
 - `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
 
 <InfoBlock type='note'>
-PlanetScale does not support foreign key *constraints*, but we do support the use of relationships with foreign keys, as shown in the Stars migration file in this example. 
-            
+PlanetScale does not support foreign key *constraints*, but we do support the use of relationships with foreign keys, as shown in the Stars migration file in this example.
+
 You can use the [`foreignId()` method](https://laravel.com/docs/migrations#foreign-key-constraints) to create a relationship between the `constellations` and `stars` tables, but you cannot enforce referential integrity with the `constrained()` method.
 
 For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation.
