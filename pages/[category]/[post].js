@@ -46,7 +46,6 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       frontmatter: post.frontmatter,
-      headings: post.headings,
       body: mdxSource,
       fields: {
         slug: post.slug,

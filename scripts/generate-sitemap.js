@@ -1,9 +1,10 @@
 const fs = require('fs')
 
+const matter = require('gray-matter')
 const prettier = require('prettier')
 
 const meta = require('../content/docs/meta.json')
-const { getPostFilePathBySlug, getPostLastUpdatedOnByFilePath } = require('../lib/post')
+const { getPostFilePathBySlug } = require('../lib/post')
 
 ;(async () => {
   const prettierConfig = await prettier.resolveConfig('./.prettierrc.js')
@@ -18,7 +19,10 @@ const { getPostFilePathBySlug, getPostLastUpdatedOnByFilePath } = require('../li
     let pages = []
     if (page.route) {
       const filePath = getPostFilePathBySlug(path, page.route)
-      const lastMod = getPostLastUpdatedOnByFilePath(filePath)
+      const fileContents = fs.readFileSync(filePath, 'utf8')
+      const {
+        data: { date: lastMod }
+      } = matter(fileContents)
 
       pages.push(`
         <url>
