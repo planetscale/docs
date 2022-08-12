@@ -24,7 +24,7 @@
         {
           "display": "Security and access",
           "subpages": [
-            { "route": "security", "display": "Security & Compliance" },
+            { "route": "security", "display": "Security & compliance" },
             { "route": "access-control", "display": "Access control" },
             {
               "route": "authentication-methods",
@@ -96,7 +96,7 @@
             },
             {
               "route": "nextjs-planetscale-netlify-template",
-              "display": "Next.js and Netlify Template"
+              "display": "Next.js and Netlify template"
             },
             {
               "route": "deploy-to-netlify",
@@ -159,7 +159,7 @@
             { "route": "deploy-to-vercel", "display": "Deploy to Vercel" },
             {
               "route": "nextjs-planetscale-netlify-template",
-              "display": "Next.js and Netlify Template"
+              "display": "Next.js and Netlify template"
             },
             {
               "display": "Deploy a Django app to Heroku",
