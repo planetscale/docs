@@ -5,6 +5,7 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import { MDXProvider, components } from '../components/MDX'
 import Page from '../components/SegmentPageTracker'
 
 export function App({ Component, pageProps }) {
@@ -57,15 +58,17 @@ export function App({ Component, pageProps }) {
 
   return (
     <ThemeProvider defaultTheme='system' attribute='class'>
-      <Head>
-        <link rel='icon' href='/docs/favicon.ico' sizes='any' />
-        <link rel='icon' href={favicon} sizes='any' type='image/svg+xml' />
-        <link rel='apple-touch-icon' href='/docs/apple-touch-icon.png' />
-        <link rel='manifest' href='/docs/manifest.webmanifest' />
-      </Head>
-      <Page>
-        <Component {...pageProps} />
-      </Page>
+      <MDXProvider components={components}>
+        <Head>
+          <link rel='icon' href='/docs/favicon.ico' sizes='any' />
+          <link rel='icon' href={favicon} sizes='any' type='image/svg+xml' />
+          <link rel='apple-touch-icon' href='/docs/apple-touch-icon.png' />
+          <link rel='manifest' href='/docs/manifest.webmanifest' />
+        </Head>
+        <Page>
+          <Component {...pageProps} />
+        </Page>
+      </MDXProvider>
     </ThemeProvider>
   )
 }
