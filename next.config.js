@@ -1,21 +1,10 @@
-import MDX from '@next/mdx'
-import withNextjsStaticProps from 'recma-nextjs-static-props'
-import withFrontmatter from 'remark-frontmatter'
-import withGitHubFlavoredMarkdown from 'remark-gfm'
-import withMdxFrontmatter from 'remark-mdx-frontmatter'
+const path = require('path')
 
-const withMDX = MDX({
-  extension: /\.mdx$/,
-  options: {
-    remarkPlugins: [withFrontmatter, withGitHubFlavoredMarkdown, withMdxFrontmatter],
-    rehypePlugins: [],
-    recmaPlugins: [withNextjsStaticProps],
-    providerImportSource: '@mdx-js/react'
-  }
-})
+const matter = require('gray-matter')
+const { createLoader } = require('simple-functional-loader')
 
 const { NODE_ENV } = process.env
-import segment from './lib/segment.js'
+const segment = require('./lib/segment.js')
 const segmentInlineSHA = `sha256-${segment.SegmentSnippetSHA256}`
 
 function csp() {
@@ -44,7 +33,7 @@ function csp() {
 }
 const CONTENT_SECURITY_POLICY = csp()
 
-export default withMDX({
+module.exports = {
   basePath: '/docs',
   eslint: {
     ignoreDuringBuilds: true
@@ -57,8 +46,44 @@ export default withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   webpack: (config, options) => {
     if (options.isServer) {
-      import('./scripts/generate-sitemap.js');
+      require('./scripts/generate-sitemap.js')
     }
+
+    config.module.rules.push({
+      test: /\.mdx$/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: require.resolve('@mdx-js/loader'),
+          options: {
+            remarkPlugins: [require('remark-frontmatter'), require('remark-gfm'), require('remark-mdx-frontmatter')],
+            rehypePlugins: [],
+            recmaPlugins: [],
+            providerImportSource: '@mdx-js/react'
+          }
+        },
+        createLoader(function (source) {
+          let pathSegments = this.resourcePath.split(path.sep)
+
+          let page =
+            pathSegments[pathSegments.length - 1] === 'index.mdx'
+              ? pathSegments[pathSegments.length - 2]
+              : pathSegments[pathSegments.length - 1].replace(/\.mdx$/, '')
+
+          let slug = `concepts/${page}`
+
+          let { data } = matter(source)
+
+          return (
+            source +
+            `\n\n` +
+            `\nexport const meta = ${JSON.stringify({ ...data, slug })}` +
+            `\nimport PostLayout from '../../layouts/PostLayout'` +
+            `\nexport default (props) => <PostLayout {...props} {...meta} />`
+          )
+        })
+      ]
+    })
 
     return config
   },
@@ -183,4 +208,4 @@ export default withMDX({
       }
     ]
   }
-})
+}

@@ -16,7 +16,7 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
         Last updated on {new Intl.DateTimeFormat('en-US', options).format(lastUpdatedOnDate)}{' '}
         {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
       </div>
-      <Link href={`https://github.com/planetscale/docs/blob/main/content/docs/${slug}.mdx`}>
+      <Link href={`https://github.com/planetscale/docs/blob/main/pages/${slug}.mdx`}>
         <a>Help us improve this page</a>
       </Link>
     </div>
