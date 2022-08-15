@@ -57,7 +57,7 @@ export default withMDX({
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   webpack: (config, options) => {
     if (options.isServer) {
-      // require('./scripts/generate-sitemap')
+      import('./scripts/generate-sitemap.js');
     }
 
     return config
