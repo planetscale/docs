@@ -1,8 +1,9 @@
 import React from 'react'
 
 import Link from 'next/link'
+import { withRouter } from 'next/router'
 
-export default function PageInfo({ lastUpdatedOn, slug }) {
+function PageInfo({ lastUpdatedOn, router }) {
   var lastUpdatedOnDate = new Date()
   if (lastUpdatedOn) {
     lastUpdatedOnDate = new Date(Date.parse(lastUpdatedOn))
@@ -16,9 +17,12 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
         Last updated on {new Intl.DateTimeFormat('en-US', options).format(lastUpdatedOnDate)}{' '}
         {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
       </div>
-      <Link href={`https://github.com/planetscale/docs/blob/main/pages/${slug}.mdx`}>
+
+      <Link href={`https://github.com/planetscale/docs/blob/main/pages${router.asPath}.mdx`}>
         <a>Help us improve this page</a>
       </Link>
     </div>
   )
 }
+
+export default withRouter(PageInfo)

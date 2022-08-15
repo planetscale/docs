@@ -1,10 +1,8 @@
-const path = require('path')
-
 const matter = require('gray-matter')
 const { createLoader } = require('simple-functional-loader')
 
 const { NODE_ENV } = process.env
-const segment = require('./lib/segment.js')
+const segment = require('./lib/segment')
 const segmentInlineSHA = `sha256-${segment.SegmentSnippetSHA256}`
 
 function csp() {
@@ -46,7 +44,7 @@ module.exports = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx'],
   webpack: (config, options) => {
     if (options.isServer) {
-      require('./scripts/generate-sitemap.js')
+      require('./scripts/generate-sitemap')
     }
 
     config.module.rules.push({
@@ -63,21 +61,12 @@ module.exports = {
           }
         },
         createLoader(function (source) {
-          let pathSegments = this.resourcePath.split(path.sep)
-
-          let page =
-            pathSegments[pathSegments.length - 1] === 'index.mdx'
-              ? pathSegments[pathSegments.length - 2]
-              : pathSegments[pathSegments.length - 1].replace(/\.mdx$/, '')
-
-          let slug = `concepts/${page}`
-
           let { data } = matter(source)
 
           return (
             source +
             `\n\n` +
-            `\nexport const meta = ${JSON.stringify({ ...data, slug })}` +
+            `\nexport const meta = ${JSON.stringify(data)}` +
             `\nimport PostLayout from '../../layouts/PostLayout'` +
             `\nexport default (props) => <PostLayout {...props} {...meta} />`
           )
