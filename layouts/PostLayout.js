@@ -1,3 +1,5 @@
+import classNames from 'classnames'
+
 import FeedbackBlock from '../components/FeedbackBlock'
 import Footer from '../components/Footer'
 import HeadingBlock from '../components/HeadingBlock'
@@ -5,14 +7,14 @@ import Layout from '../components/layout'
 import PageInfo from '../components/PageInfo'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 
-export default function PostLayout({ children, title, subtitle, banner, date, slug }) {
+export default function PostLayout({ banner, children, className, date, slug, subtitle, title }) {
   const bannerUrl = buildBannerUrl({ banner, title })
 
   return (
     <Layout>
       <TitleAndMetaTags title={title} subtitle={subtitle} banner={bannerUrl} pathname={slug} />
 
-      <div className='mdx-content'>
+      <div className={classNames('mdx-content', className)}>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
 
         {children}
