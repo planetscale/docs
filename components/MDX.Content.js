@@ -15,14 +15,14 @@ import TableBlock from './MDX.TableBlock'
 import VideoBlock from './MDX.VideoBlock'
 import PageInfo from './PageInfo'
 
-export default function MDXContent({ title, subtitle, banner, body, lastUpdatedOn, slug, category, className }) {
+export default function MDXContent({ title, subtitle, banner, body, lastUpdatedOn, slug, className }) {
   const components = {
     table: TableBlock,
     pre: CodeBlock,
     code: InlineCodeBlock,
     img: ImageBlock,
-    h2: (props) => <AnchorLink {...props} heading='h2' category={category} />,
-    h3: (props) => <AnchorLink {...props} heading='h3' category={category} />,
+    h2: (props) => <AnchorLink {...props} heading='h2' />,
+    h3: (props) => <AnchorLink {...props} heading='h3' />,
     NextBlock,
     InfoBlock,
     VideoBlock,
