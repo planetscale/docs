@@ -22,23 +22,6 @@ export default function Overview() {
 
       <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
         <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
-          <SVG src='/docs/img/internals/flow-diagram.svg' width='720' height='139' className='max-w-full' />
-        </div>
-
-        <h2 className='mb-1 text-xl font-semibold'>The PlanetScale workflow</h2>
-        <p className='mb-2'>
-          Treat your databases as code. Use PlanetScale developer workflows with the Data Branching&trade; feature,
-          non-blocking schema changes, reverting schema changes, and more.
-        </p>
-        <p>
-          <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>
-            Learn more
-          </ButtonLink>
-        </p>
-      </div>
-
-      {/* <div className='p-3 mb-3 border border-purple-100 rounded md:rounded-lg md:mb-4 bg-purple-50 dark:bg-purple-900 dark:border-purple-800'>
-        <div className='mb-2' style={{ aspectRatio: '720 / 139' }}>
           <img
             src='/docs/img/internals/onboarding-diagram.png'
             alt='Onboarding diagram'
@@ -63,7 +46,7 @@ export default function Overview() {
             Get started
           </ButtonLink>
         </p>
-      </div> */}
+      </div>
 
       <div className='grid grid-cols-1 gap-3 mb-4 lg:grid-cols-2'>
         <Link href='/tutorials/planetscale-quick-start-guide'>
