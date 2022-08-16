@@ -15,6 +15,16 @@ export default function Footer() {
               Terms
             </a>
           </li>
+          <li>
+            <a className='text-secondary hover:text-blue' href='https://support.planetscale.com?utm_content=docsfooter'>
+              Support
+            </a>
+          </li>
+          <li>
+            <a className='text-secondary hover:text-blue' href='/contact?utm_content=docsfooter'>
+              Contact
+            </a>
+          </li>
         </ul>
       </nav>
       <span className='text-secondary'>&copy; 2022 PlanetScale Inc.</span>
