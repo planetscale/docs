@@ -2,7 +2,7 @@ import React from 'react'
 
 export default function Footer() {
   return (
-    <div className='mt-4 flex items-center justify-between'>
+    <div className='mt-4 flex items-center flex-wrap gap-2 justify-between'>
       <nav>
         <ul className='flex gap-x-1.5'>
           <li>
