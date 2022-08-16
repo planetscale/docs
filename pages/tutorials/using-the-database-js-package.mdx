@@ -1,0 +1,211 @@
+---
+title: Using the database-js package
+subtitle: Learn how to use the database-js package in Node.js projects and serverless functions.
+date: '2022-08-16'
+---
+
+## Overview
+
+This guide will cover how and why to use the `database-js` library by either adding the library to your own project or exploring a sample repository to learn how to perform common operations.
+
+<InfoBlock type="note">
+
+This guide will use VS Code as the IDE, however you may use any IDE of your choice
+
+</InfoBlock>
+
+## Why use database-js?
+
+Before learning how to use the `database-js` package, it’s worth understanding why you should use this over other MySQL packages available in the directory. Some serverless function hosts do not permit arbitrary outbound TCP connections, which is how many MySQL clients operate. 
+
+Using the `database-js` package provides a means of accessing your database and executing queries over an HTTP connection, which is generally not blocked by cloud providers. If you encounter issues using MySQL packages with PlanetScale, use `database-js` instead.
+
+## Enable a database for `database-js`
+
+In order to use `database-js`, a feature known as Edge passwords must be enabled on the database level. The feature is currently in beta, and enabling the feature does not impact existing credentials that are currently in use. After the feature is enabled, new credentials created by PlanetScale will have a different hostname that is enabled for HTTP access.
+
+You can find the option to enable the feature under **"Settings"** > **"Beta features"**. Click **"Enroll"** to enable the feature.
+
+![The location in the PlanetScale dashboard where Edge passwords can be enabled.](/docs/img/docs/using-the-database-js-package/the-location-in-the-planetscale-dashboard-where-edge-passwords-can-be-enabled.png)
+
+Once the feature is enabled, you’ll need to generate a new set of credentials to use `database-js`. You may do this by navigating to **"Settings"** > **"Password"** and clicking **"New password"**.
+
+![How to create a new password in the PlanetScale dashboard.](/docs/img/docs/using-the-database-js-package/how-to-create-a-new-password-in-the-planetscale-dashboard.png)
+
+Give the password a name and click **"Generate password"**. 
+
+![The New password modal.](/docs/img/docs/using-the-database-js-package/the-new-password-modal.png)
+
+The new credentials that will be generated should have a hostname like `<REGION>.connect.psdb.cloud`. 
+
+![The New password modal after the password has been created.](/docs/img/docs/using-the-database-js-package/the-new-password-modal-after-the-password-has-been-created.png)
+
+## Add and use `database-js` to your project
+
+To install the package in your Node.js project, run the following install command:
+
+```bash
+npm install @planetscale/database
+```
+
+The first step to using `database-js` is to connect to your database. Use the `connect` function to create the connection and return it to an object.
+
+```jsx
+const config = {
+  host: '<PS_HOSTNAME>',
+  username: '<PS_USERNAME>',
+  password: '<PS_PASSWORD>'
+}
+const conn = await connect(config)
+```
+
+To execute a query, use the `execute` function of the connection object, with the query passed as the first parameter. 
+
+```jsx
+const results = await conn.execute('SELECT * FROM hotels')
+// `results` object:
+// {
+//   headers: [ 'id', 'name', 'address', 'stars' ],
+//   types: {
+//     id: 'UINT32',
+//     name: 'VARCHAR',
+//     address: 'VARCHAR',
+//     stars: 'FLOAT32'
+//   },
+//   rows: [
+//     {
+//       id: 1,
+//       name: 'Four Seasons Resort Jackson hole',
+//       address: '7680 Granite Loop Rd, Teton Village, WY 83025',
+//       stars: 4.7
+//     },
+//     {
+//       id: 2,
+//       name: 'The Galt House',
+//       address: '140 N Fourth St, Louisville, KY 40202',
+//       stars: 4
+//     },
+//     ...results removed for brevity
+//   ],
+//   rowsAffected: null,
+//   insertId: null,
+//   error: null,
+//   size: 5,
+//   statement: 'SELECT * FROM hotels',
+//   time: 136
+// }
+```
+
+For parameterized queries, there are two ways in which to pass data to the query. The first is by the order in which they appear in the query. The first step is to add a `?` in the specific locations you want the parameters passed into.
+
+```jsx
+const query = "INSERT INTO hotels (`name`, `address`, `stars`) VALUES (?, ?, ?)"
+```
+
+Then you can pass your parameters as an array of values. The `database-js` package will replace the `?` entries in the query with the values passed in the array, in the order in which they were placed.
+
+```jsx
+const params = ['The Galt House', '140 N Fourth St, Louisville, KY 40202', 4.2)
+const results = await conn.execute(query, params)
+// `results` object:
+// {
+//   headers: [],
+//   types: {},
+//   rows: [],
+//   rowsAffected: 1,
+//   insertId: '6',
+//   error: null,
+//   size: 0,
+//   statement: "INSERT INTO hotels (`name`, `address`, `stars`) VALUES ('Montage Kapalua Bay 2', '1 Bay Dr, Lahaina, HI 96761', 4)",
+//   time: 103
+// }
+```
+
+Alternately, you can name your parameters using the `:param_name` format.
+
+```jsx
+const query = "INSERT INTO hotels (`name`, `address`, `stars`) VALUES (:name, :address :stars)"
+const params = {
+	name: 'The Galt House', 
+	address: '140 N Fourth St, Louisville, KY 40202', 
+	stars: 4.2
+}
+const results = await conn.execute(query, params)
+```
+
+## Use the sample repository
+
+We offer a sample repository that can be used as an educational resource. It is an Express API that can be run locally with sample `SELECT`, `INSERT`, `UPDATE`, and `DELETE` statements mapped to the proper API endpoints.
+
+To follow along, you’ll need the following:
+
+- A PlanetScale account, as well as knowing how to create a database.
+- The PlanetScale CLI is installed on your computer, which will be used to seed data.
+
+Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**. 
+
+![How to create a new database.](/docs/img/docs/using-the-database-js-package/how-to-create-a-new-database.png)
+
+Name the database `travel_db`. Click **"Create database"**.
+
+![The New database modal.](/docs/img/docs/using-the-database-js-package/the-new-database-modal.png)
+
+Wait for the database to finish initializing before moving on. 
+
+![The travel_db initializing.](/docs/img/docs/using-the-database-js-package/the-travel_db-initializing.png)
+
+Enable the **Edge passwords** feature by clicking on **"Settings"** > **"Beta features"**, then clicking **"Enroll"** in the Edge passwords section.
+
+![Enable Edge passwords for travel_db.](/docs/img/docs/using-the-database-js-package/enable-edge-passwords-for-travel_db.png)
+
+Generate a set of credentials by clicking the **"Connect"** button. 
+
+![The Connect button in the PlanetScale dashboard.](/docs/img/docs/using-the-database-js-package/the-connect-button-in-the-planetscale-dashboard.png)
+
+Select **"General"** from the options in the **"Connect with"** dropdown. Take note of the `username`, `host`, and `password` values as they will be used in the project to connect to your database.
+
+![The Connect modal.](/docs/img/docs/using-the-database-js-package/the-connect-modal.png)
+
+On your workstation, open a terminal and clone the repository to your computer by running the following command:
+
+```bash
+git clone https://github.com/planetscale/database-js-starter
+```
+
+Navigate to the `scripts` folder and run the `seed_database.sh` script to populate a small database simulating a travel agency.
+
+```bash
+cd database-js-starter/scripts
+./seed-database.sh
+```
+
+<InfoBlock type="note">
+
+If you are using Windows, please run this command through the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/)
+
+</InfoBlock>
+
+There is a provided `sample.env` file that has a shell of the required environment variables. Rename this file to `.env` and populate the `PS_HOST`, `PS_USERANAME`, and `PS_PASSWORD` with the values pulled from the credentials in PlanetScale.
+
+![The .env example.](/docs/img/docs/using-the-database-js-package/the-env-example.png)
+
+To run the project, run the following commands from the root of the project.
+
+```bash
+npm install
+npm start
+```
+
+If the project is running properly, you should receive a message stating that the API is running.
+
+![The terminal running the sample project.](/docs/img/docs/using-the-database-js-package/the-terminal-running-the-sample-project.png)
+
+The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action. 
+
+![An example of a POST request to the sample project.](/docs/img/docs/using-the-database-js-package/an-example-of-a-post-request-to-the-sample-project.png)
+
+If you check the terminal where the API was started, the response from the `execute` function is logged out for review. 
+
+![The console output after a hotel is added.](/docs/img/docs/using-the-database-js-package/the-console-output-after-a-hotel-is-added.png)
+
+<GetHelp />

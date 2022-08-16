@@ -84,8 +84,17 @@
           "display": "Go"
         },
         {
-          "route": "connect-nodejs-app",
-          "display": "Node.js"
+          "display": "Node.js",
+          "subpages": [
+            {
+              "route": "connect-nodejs-app",
+              "display": "Node.js quickstart"
+            },
+            {
+              "display": "Using the database-js package",
+              "route": "using-the-database-js-package"
+            }
+          ]
         },
         {
           "display": "Next.js",
