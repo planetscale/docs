@@ -63,11 +63,15 @@ module.exports = {
         createLoader(function (source) {
           let { data } = matter(source)
 
+          let layoutPath = this.resourcePath.indexOf('index.mdx') > 0
+            ? '../../../layouts/PostLayout'
+            : '../../layouts/PostLayout'
+
           return (
             source +
             `\n\n` +
             `\nexport const meta = ${JSON.stringify(data)}` +
-            `\nimport PostLayout from '../../layouts/PostLayout'` +
+            `\nimport PostLayout from '${layoutPath}'` +
             `\nexport default (props) => <PostLayout {...props} {...meta} />`
           )
         })

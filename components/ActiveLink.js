@@ -16,11 +16,7 @@ const ActiveLink = ({ activeClassName, router, children, setShowSubNav, ...props
   const child = Children.only(children)
   const className = classNames(child.props.className, { [activeClassName]: isActive })
 
-  return (
-    <Link {...props}>
-      {React.cloneElement(child, { className })}
-    </Link>
-  )
+  return <Link {...props}>{React.cloneElement(child, { className })}</Link>
 }
 
 export default withRouter(ActiveLink)
