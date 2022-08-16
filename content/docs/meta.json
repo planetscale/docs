@@ -99,12 +99,12 @@
               "display": "Next.js and Netlify template"
             },
             {
-              "route": "deploy-to-netlify",
-              "display": "Deploy to Netlify"
-            },
-            {
               "route": "deploy-to-vercel",
               "display": "Deploy to Vercel"
+            },
+            {
+              "route": "deploy-to-netlify",
+              "display": "Deploy to Netlify"
             }
           ]
         },
