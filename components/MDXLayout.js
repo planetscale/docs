@@ -14,7 +14,7 @@ function MDXLayout({ banner, children, className, date, router, subtitle, title 
 
   return (
     <Layout>
-      <TitleAndMetaTags pathname={pathname} title={title} subtitle={subtitle} banner={bannerUrl} />
+      <TitleAndMetaTags pathname={pathname} title={title} description={subtitle} banner={bannerUrl} />
 
       <div className={cn('mdx-content', className)}>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
