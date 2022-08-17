@@ -64,15 +64,15 @@ module.exports = {
           let { data } = matter(source)
 
           let layoutPath = this.resourcePath.indexOf('index.mdx') > 0
-            ? '../../../layouts/PostLayout'
-            : '../../layouts/PostLayout'
+            ? '../../../components/MDXLayout'
+            : '../../components/MDXLayout'
 
           return (
             source +
             `\n\n` +
             `\nexport const meta = ${JSON.stringify(data)}` +
-            `\nimport PostLayout from '${layoutPath}'` +
-            `\nexport default (props) => <PostLayout {...props} {...meta} />`
+            `\nimport Layout from '${layoutPath}'` +
+            `\nexport default (props) => <Layout {...props} {...meta} />`
           )
         })
       ]

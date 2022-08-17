@@ -7,7 +7,7 @@ import Layout from '../components/Layout'
 import PageInfo from '../components/PageInfo'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 
-export default function PostLayout({ banner, children, className, date, subtitle, title }) {
+export default function MDXLayout({ banner, children, className, date, subtitle, title }) {
   const bannerUrl = buildBannerUrl({ banner, title })
 
   return (
