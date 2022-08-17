@@ -3,7 +3,7 @@ import classNames from 'classnames'
 import FeedbackBlock from '../components/FeedbackBlock'
 import Footer from '../components/Footer'
 import HeadingBlock from '../components/HeadingBlock'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import PageInfo from '../components/PageInfo'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 

@@ -4,7 +4,7 @@ import SVG from 'react-inlinesvg'
 import ButtonLink from '../components/ButtonLink'
 import Footer from '../components/Footer'
 import Icon from '../components/Icon'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 
 export default function Overview() {
