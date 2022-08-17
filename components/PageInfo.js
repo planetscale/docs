@@ -9,6 +9,10 @@ function PageInfo({ lastUpdatedOn, router }) {
     lastUpdatedOnDate = new Date(Date.parse(lastUpdatedOn))
   }
 
+  const url = router.asPath.indexOf('concepts') > 0
+    ? `https://github.com/planetscale/docs/blob/main/pages${router.asPath}/index.mdx`
+    : `https://github.com/planetscale/docs/blob/main/pages${router.asPath}.mdx`
+
   const options = { month: 'long' }
 
   return (
@@ -18,7 +22,7 @@ function PageInfo({ lastUpdatedOn, router }) {
         {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
       </div>
 
-      <Link href={`https://github.com/planetscale/docs/blob/main/pages${router.asPath}.mdx`}>
+      <Link href={url}>
         <a>Help us improve this page</a>
       </Link>
     </div>

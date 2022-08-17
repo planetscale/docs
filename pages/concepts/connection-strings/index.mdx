@@ -1,0 +1,92 @@
+---
+title: 'Connection strings'
+subtitle: 'Create reusable connection strings to connect to your PlanetScale database.'
+date: '2022-07-22'
+---
+
+import connect from './connect.png'
+import formats from './formats.png'
+import manage from './manage.png'
+
+## Creating a password
+
+1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
+
+<ImageBlock alt='Database overview page' src={connect} />
+
+1. On this dialog, click the `New password` button. This will generate a **unique username & password pair** that can only be used to only access the `main` branch of your database. Take note of this password, as you won't be able to see it again.
+
+2. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
+
+<InfoBlock type="note">
+  You can connect to PlanetScale from any platform that supports MySQL. These
+  connection strings are in place to let you hit the ground running. Please let
+  us know if we're missing your favorite framework in this list or if you have any suggestions. We support pre-generating connection strings for Go, Java, .Net, PHP, Laravel, Symfony, Prisma, Python, Rails, and Rust.
+</InfoBlock>
+
+<ImageBlock alt='Browse connection string in formats' src={formats} />
+
+<InfoBlock type="tip">
+  Make sure you copy the connection string for your application and the
+  "General" format. We don't save the password in clear text, so there's
+  no way to retrieve the password after you leave this page.
+</InfoBlock>
+
+## Managing passwords
+
+Once you've created the password, you can head over to the "**Passwords**" settings page available at `Organization > Database > Settings > Passwords` to manage them.
+
+<InfoBlock type="tip">
+  You can also create passwords for branches other than{' '}
+  `main` on this page.
+</InfoBlock>
+
+<ImageBlock alt='Manage passwords page' src={manage} />
+
+Clicking on the `...` icon on the row for your password allows you to pull up the connection string (except the password), rename it, or delete it.
+
+## Renaming a password
+
+Since the **username & password** pair is unique, the only metadata you can edit is the `display name` of the password.
+
+## Deleting a password
+
+Deleting a password will invalidate the username & password pair and **disconnect any active clients using this password**.
+
+<InfoBlock type="note">
+  Any open database connections authenticated with a deleted password will be disconnected within five minutes.
+</InfoBlock>
+
+## Native MySQL authentication support
+
+Use the tools you're familiar with to connect to PlanetScale databases.
+PlanetScale supports both [MySQL native authentication](https://dev.mysql.com/doc/refman/8.0/en/native-pluggable-authentication.html), which is widely used to provide a secure connection to MySQL servers,
+and [MySQL Caching SHA-2 authentication](https://dev.mysql.com/doc/refman/8.0/en/caching-sha2-pluggable-authentication.html), which is the most secure authentication mechanism to connect to MySQL.
+Based on your application needs and platform support, you can switch between the authentication modes, with the same password.
+
+We recommend [Arctype](https://arctype.com/) as an easy-to-use GUI. [Arctype integrates with PlanetScale](https://docs.arctype.com/connect/planetscale) to let you connect to and switch between branches, create deploy requests, and more.
+
+## Strong security model
+
+PlanetScale Passwords are created for use with a single database branch.
+This strong security model allows you to generate passwords that are tied to a branch, and cannot access data/schema from another branch.
+
+## Disconnect clients by deleting passwords
+
+PlanetScale automatically disconnects clients that are using a deleted password.
+Head on over to the `Organization > Database > Settings > Passwords` page on your database branch to delete passwords for that branch.
+It may take up to five minutes for all active clients to be disconnected.
+
+## No plain text password storage
+
+PlanetScale only stores hashes and metadata about your database passwords.
+To add an extra layer of security to your database, we do not store any passwords in plain text.
+
+<InfoBlock type="note">
+  In the event that you lose a password, we cannot recover it for you. We
+  recommend creating a new password with the same access level.
+</InfoBlock>
+
+## GitHub Secret Scanning integration
+
+All passwords and service tokens generated for use with PlanetScale databases are part of [GitHub's Secret Scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) program. If any database passwords or service tokens are committed in plain text to any public GitHub repository, we will be notified and take corrective action to delete the access tokens and cut off their access.
