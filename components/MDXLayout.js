@@ -4,11 +4,11 @@ import { withRouter } from 'next/router'
 import FeedbackBlock from '../components/FeedbackBlock'
 import Footer from '../components/Footer'
 import HeadingBlock from '../components/HeadingBlock'
-import Layout from '../components/layout'
+import Layout from '../components/Layout'
 import PageInfo from '../components/PageInfo'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 
-function PostLayout({ banner, children, className, date, router, subtitle, title }) {
+function MDXLayout({ banner, children, className, date, router, subtitle, title }) {
   const bannerUrl = buildBannerUrl({ banner, title })
   const pathname = router.asPath.split('?')[0]
 
@@ -30,7 +30,7 @@ function PostLayout({ banner, children, className, date, router, subtitle, title
   )
 }
 
-export default withRouter(PostLayout)
+export default withRouter(MDXLayout)
 
 function buildBannerUrl({ banner, title }) {
   if (banner) {
