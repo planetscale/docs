@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import cn from 'classnames'
 import { withRouter } from 'next/router'
 
 import FeedbackBlock from '../components/FeedbackBlock'
@@ -16,7 +16,7 @@ function PostLayout({ banner, children, className, date, router, subtitle, title
     <Layout>
       <TitleAndMetaTags pathname={pathname} title={title} subtitle={subtitle} banner={bannerUrl} />
 
-      <div className={classNames('mdx-content', className)}>
+      <div className={cn('mdx-content', className)}>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
 
         {children}
