@@ -1,4 +1,4 @@
-import classNames from 'classnames'
+import cn from 'classnames'
 
 import FeedbackBlock from '../components/FeedbackBlock'
 import Footer from '../components/Footer'
@@ -14,7 +14,7 @@ export default function PostLayout({ banner, children, className, date, subtitle
     <Layout>
       <TitleAndMetaTags title={title} subtitle={subtitle} banner={bannerUrl} />
 
-      <div className={classNames('mdx-content', className)}>
+      <div className={cn('mdx-content', className)}>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
 
         {children}

@@ -1,6 +1,6 @@
 import React, { Children, useEffect } from 'react'
 
-import classNames from 'classnames'
+import cn from 'classnames'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 
@@ -14,7 +14,7 @@ const ActiveLink = ({ activeClassName, router, children, setShowSubNav, ...props
   }, [setShowSubNav, isActive])
 
   const child = Children.only(children)
-  const className = classNames(child.props.className, { [activeClassName]: isActive })
+  const className = cn(child.props.className, { [activeClassName]: isActive })
 
   return <Link {...props}>{React.cloneElement(child, { className })}</Link>
 }

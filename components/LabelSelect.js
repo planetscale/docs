@@ -1,6 +1,6 @@
 import React from 'react'
 
-import classnames from 'classnames'
+import cn from 'classnames'
 
 import Select from './Select'
 
@@ -22,7 +22,7 @@ const LabelSelect = ({
 
   return (
     <div
-      className={classnames(
+      className={cn(
         'focus-within-ring flex border border-secondary items-stretch shadow-sm rounded text-primary',
         className,
         {
@@ -31,7 +31,7 @@ const LabelSelect = ({
       )}
     >
       <label
-        className={classnames(
+        className={cn(
           'flex items-center px-1.5 mb-0 font-medium border-r rounded-l bg-secondary border-secondary whitespace-nowrap',
           {
             'cursor-not-allowed text-secondary': disabled,

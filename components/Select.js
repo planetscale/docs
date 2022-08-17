@@ -1,6 +1,6 @@
 import React from 'react'
 
-import classNames from 'classnames'
+import cn from 'classnames'
 
 const Select = ({
   children,
@@ -29,7 +29,7 @@ const Select = ({
       value={value}
       onChange={onChange}
       onBlur={onBlur}
-      className={classNames(
+      className={cn(
         'inline-block pl-1.5 pr-4 py-0 border rounded shadow-sm bg-primary border-secondary focus-ring',
         {
           'h-button': !small,
