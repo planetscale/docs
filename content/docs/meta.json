@@ -109,23 +109,6 @@
           ]
         },
         {
-          "display": "Serverless JavaScript driver",
-          "subpages": [
-            {
-              "display": "Overview",
-              "route": "planetscale-serverless-driver"
-            },
-            {
-              "route": "using-the-serverless-driver",
-              "display": "Using the serverless driver"
-            },
-            {
-              "route": "planetscale-serverless-driver-node-example",
-              "display": "Node.js example"
-            }
-          ]
-        },
-        {
           "display": "PHP",
           "subpages": [
             {
@@ -166,6 +149,23 @@
             {
               "route": "automatic-rails-migrations",
               "display": "Automatic Rails migrations"
+            }
+          ]
+        },
+        {
+          "display": "Serverless JavaScript driver",
+          "subpages": [
+            {
+              "display": "Overview",
+              "route": "planetscale-serverless-driver"
+            },
+            {
+              "route": "using-the-serverless-driver",
+              "display": "Using the serverless driver"
+            },
+            {
+              "route": "planetscale-serverless-driver-node-example",
+              "display": "Node.js example"
             }
           ]
         },
