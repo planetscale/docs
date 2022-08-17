@@ -1,6 +1,6 @@
 import React from 'react'
 
-import classNames from 'classnames'
+import cn from 'classnames'
 
 const Button = ({ children, variant, type, size, onClick, form, className, disabled, ariaLabel, title, iconOnly }) => {
   const primary = variant !== 'secondary' && variant !== 'danger' && variant !== 'text'
@@ -37,7 +37,7 @@ export function buttonClasses({ className, primary, secondary, danger, text, dis
   const xsmall = size === 'xsmall'
   const large = size === 'large'
 
-  return classNames(className, {
+  return cn(className, {
     'box-border relative inline-flex items-center justify-center text-center no-underline leading-none whitespace-nowrap font-semibold rounded shrink-0 transition select-none overflow-hidden focus-ring':
       !text,
     'bg-gray-800 hover:bg-gray-900 dark:bg-gray-50': primary,
