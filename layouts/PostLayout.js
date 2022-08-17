@@ -1,4 +1,5 @@
 import classNames from 'classnames'
+import { withRouter } from 'next/router'
 
 import FeedbackBlock from '../components/FeedbackBlock'
 import Footer from '../components/Footer'
@@ -7,12 +8,13 @@ import Layout from '../components/layout'
 import PageInfo from '../components/PageInfo'
 import { TitleAndMetaTags } from '../components/TitleAndMetaTags'
 
-export default function PostLayout({ banner, children, className, date, subtitle, title }) {
+function PostLayout({ banner, children, className, date, router, subtitle, title }) {
   const bannerUrl = buildBannerUrl({ banner, title })
+  const pathname = router.asPath.split('?')[0]
 
   return (
     <Layout>
-      <TitleAndMetaTags title={title} subtitle={subtitle} banner={bannerUrl} />
+      <TitleAndMetaTags pathname={pathname} title={title} subtitle={subtitle} banner={bannerUrl} />
 
       <div className={classNames('mdx-content', className)}>
         <HeadingBlock title={title} subtitle={subtitle} banner={banner} />
@@ -27,6 +29,8 @@ export default function PostLayout({ banner, children, className, date, subtitle
     </Layout>
   )
 }
+
+export default withRouter(PostLayout)
 
 function buildBannerUrl({ banner, title }) {
   if (banner) {
