@@ -63,9 +63,8 @@ module.exports = {
         createLoader(function (source) {
           let { data } = matter(source)
 
-          let layoutPath = this.resourcePath.indexOf('index.mdx') > 0
-            ? '../../../components/MDXLayout'
-            : '../../components/MDXLayout'
+          let layoutPath =
+            this.resourcePath.indexOf('index.mdx') > 0 ? '../../../components/MDXLayout' : '../../components/MDXLayout'
 
           return (
             source +
