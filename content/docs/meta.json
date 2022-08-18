@@ -153,6 +153,23 @@
           ]
         },
         {
+          "display": "Serverless JavaScript driver",
+          "subpages": [
+            {
+              "display": "Overview",
+              "route": "planetscale-serverless-driver"
+            },
+            {
+              "route": "using-the-serverless-driver",
+              "display": "Using the serverless driver"
+            },
+            {
+              "route": "planetscale-serverless-driver-node-example",
+              "display": "Node.js example"
+            }
+          ]
+        },
+        {
           "display": "Deploy your app",
           "subpages": [
             { "route": "deploy-to-netlify", "display": "Deploy to Netlify"},
