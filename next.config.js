@@ -122,7 +122,7 @@ module.exports = {
         source: '/',
         destination: '/docs',
         basePath: false,
-        permanent: true
+        permanent: false
       },
       {
         source: '/concepts/billing/planetscale-plans',
