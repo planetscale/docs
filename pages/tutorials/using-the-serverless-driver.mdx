@@ -78,7 +78,7 @@ const query = 'INSERT INTO hotels (`name`, `address`, `stars`) VALUES (?, ?, ?)'
 
 Then you can pass your parameters as an array of values. The driver package will replace the `?` entries in the query with the values passed in the array, in the order in which they were placed.
 
-```jsx
+```js
 const params = ['The Galt House', '140 N Fourth St, Louisville, KY 40202', 4.2)
 const results = await conn.execute(query, params)
 ```
