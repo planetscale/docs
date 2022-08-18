@@ -72,7 +72,7 @@ Here is the content of the `results` object from the `SELECT` statement:
 
 For parameterized queries, there are two ways in which to pass data to the query. The first is by the order in which they appear in the query. The first step is to add a `?` in the specific locations you want the parameters passed into.
 
-```jsx
+```js
 const query = 'INSERT INTO hotels (`name`, `address`, `stars`) VALUES (?, ?, ?)'
 ```
 
