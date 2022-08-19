@@ -1,22 +1,20 @@
-import React, { Children } from 'react'
+import React, { Children, useEffect } from 'react'
 
+import cn from 'classnames'
 import Link from 'next/link'
 import { withRouter } from 'next/router'
 
-const ActiveLink = ({ router, children, setShowSubNav, ...props }) => {
-  const child = Children.only(children)
+const ActiveLink = ({ activeClassName, router, children, setShowSubNav, ...props }) => {
+  const isActive = router.isReady ? router.asPath === props.href : false
 
-  let className = child.props.className || ''
-  const pathname = `/${router.query.category}/${router.query.post}`
-
-  if (pathname === props.href && props.activeClassName) {
-    className = `${className} ${props.activeClassName}`.trim()
-    if (setShowSubNav) {
+  useEffect(() => {
+    if (setShowSubNav && isActive) {
       setShowSubNav(true)
     }
-  }
+  }, [setShowSubNav, isActive])
 
-  delete props.activeClassName
+  const child = Children.only(children)
+  const className = cn(child.props.className, { [activeClassName]: isActive })
 
   return <Link {...props}>{React.cloneElement(child, { className })}</Link>
 }

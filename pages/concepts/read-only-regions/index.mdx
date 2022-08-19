@@ -1,0 +1,75 @@
+---
+title: 'Read-only regions'
+subtitle: 'Add additional read-only regions to your production database.'
+date: '2022-08-01'
+---
+
+import branch from './branch.png'
+import form from './form.png'
+
+## Overview
+
+With the PlanetScale Portals (beta), you can replicate your production database across the globe by creating read-only regions in any PlanetScale [region of availability](/docs/concepts/regions).
+
+This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your applications and users.
+
+## How to create a read-only region
+
+1. In the [PlanetScale dashboard](https://app.planetscale.com), select the database you want to add a read-only region to.
+2. Click on the production branch.
+3. Click the "**Add region**" button.
+
+<ImageBlock alt='Add read-only region on production branch' src={branch} />
+
+4. Select the desired region from the dropdown of [available regions](/docs/concepts/regions).
+
+<ImageBlock alt='Select read-only region on production branch' src={form} />
+
+5. Click "**Add region**" and wait for your data to finish initially replicating across regions.
+6. Optionally, connect to your new read-only region by clicking the ellipsis and selecting "**Connect**". This will return the connection credentials you can use in your application. Each region has its own connection strings and will only work for the region selected.
+
+## How to remove a read-only region
+
+1. Go to your database's production branch.
+2. Click on the "..." at the top right of the region that you want to delete.
+3. Click "Delete region".
+
+Once you delete a region, you will no longer be charged for the storage or row reads associated with that region.
+
+## Concepts
+
+### Replication across regions
+
+PlanetScale replicates your data across regions with an asynchronous strategy, first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
+
+```sql
+SELECT max_repl_lag();
+```
+
+The `max_repl_lag()` function will return an instantaneous measurement of the maximum amount of seconds it has been since your read-only region has stored changes made to your primary region.
+
+### Read-only connections
+
+Connecting to a read-only region will allow you to query your data, but will not allow you to insert, update, or delete it.
+
+## Availability and pricing
+
+PlanetScale Portals is only available on our [paid Scaler, Team, and Enterprise plans](https://planetscale.com/pricing).
+
+### Storage costs
+
+Your storage costs will increase linearly with the amount of read-only regions added. For example, if your production branch is 10GB, each region added will increase your total storage cost by 10GB.
+
+Adding new read-only regions will always be billed as standalone storage and will not count toward your included storage.
+
+As an example, let's say you're on our Scaler plan with 10 GB of included storage and your primary contains 5 GB of data. If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 10 GB.
+
+For more information on storage billing costs, see our [Billing documentation](/docs/concepts/billing#planet-scale-plans).
+
+### Rows read
+
+Queries issued to each read-only region will contribute to your total billable row reads per month. Your invoice details will show a new line for rows read from each region.
+
+## Need help?
+
+Get help from the [PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

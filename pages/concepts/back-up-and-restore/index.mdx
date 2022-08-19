@@ -1,0 +1,91 @@
+---
+title: 'Back up and restore'
+subtitle: 'Create, schedule, and restore backups for your PlanetScale databases.'
+date: '2022-08-01'
+---
+
+import schedule from './schedule.png'
+import restore from './restore.png'
+import settings from './settings.png'
+
+## Overview
+
+PlanetScale provides the ability to create, schedule, and restore backups for production and development database branches.
+
+<InfoBlock type='note'>
+  Daily backups of database branches are included free of charge for all databases. Our{' '}
+  <a href='/docs/concepts/billing#planet-scale-plans'>Scaler and Team plans</a> include automated backups every 12
+  hours.
+</InfoBlock>
+
+## View backups
+
+To view backups for either `main` or your _development_ branches, go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+
+Once there, you'll find additional details about your backup history.
+
+## Create manual backups
+
+In addition to the daily default backups that PlanetScale schedules for your database branches, you can create additional **manual** backups.
+
+To create a manual backup, follow the steps outlined below:
+
+1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+
+2. Click the **Create manual backup** button.
+
+This will bring up a pop-up modal that prompts you to _name_ your **backup** and select how long you wish to keep the backup.
+
+<ImageBlock alt='Manual backup pop-up modal' src={settings} />
+
+3. Click the **Backup up now** button to finish the backup and close the pop-up modal.
+
+## Schedule backups
+
+You can add additional **scheduled backups** for both your `main` and _development_ branches, billed at $0.023 per GB per month.
+
+1. Go to your database backups settings page: `app.planetscale.com/<org>/<database>/settings/backups`.
+
+2. Click the **New schedule** button.
+
+This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
+
+<ImageBlock alt='Schedule backup pop-up modal' src={schedule} />
+
+3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
+
+<InfoBlock type='note'>
+  For additional scheduled backups beyond the included default (daily for the{' '}
+  <a href='/docs/concepts/billing#planet-scale-plans'>free Hobby plan</a> and every 12 hours for the{' '}
+  <a href='/docs/concepts/billing#planet-scale-plans'>Scaler and Team plans</a>), you will be billed{' '}
+  <b>$0.023 per GB per month</b>.
+</InfoBlock>
+
+## Restore from a backup
+
+To restore a backup to a new branch, click on the individual backup to see the option to restore them.
+
+1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+
+2. Select the backup you wish to restore.
+
+3. Click the **Restore backup** button.
+
+This will bring up a pop-up modal that prompts you to name your branch.
+
+<ImageBlock alt='Restore backup pop-up modal' src={restore} />
+
+4. Click the **Restore backup** button to finish restoring your backup and to close the pop-up modal.
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+
+<NextBlock
+  steps={[
+    {
+      text: 'Audit log',
+      link: '/concepts/audit-log'
+    }
+  ]}
+></NextBlock>

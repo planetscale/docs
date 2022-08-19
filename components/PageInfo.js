@@ -1,12 +1,18 @@
 import React from 'react'
 
 import Link from 'next/link'
+import { withRouter } from 'next/router'
 
-export default function PageInfo({ lastUpdatedOn, slug }) {
+function PageInfo({ lastUpdatedOn, router }) {
   var lastUpdatedOnDate = new Date()
   if (lastUpdatedOn) {
     lastUpdatedOnDate = new Date(Date.parse(lastUpdatedOn))
   }
+
+  const url =
+    router.asPath.indexOf('concepts') > 0
+      ? `https://github.com/planetscale/docs/blob/main/pages${router.asPath}/index.mdx`
+      : `https://github.com/planetscale/docs/blob/main/pages${router.asPath}.mdx`
 
   const options = { month: 'long' }
 
@@ -16,9 +22,12 @@ export default function PageInfo({ lastUpdatedOn, slug }) {
         Last updated on {new Intl.DateTimeFormat('en-US', options).format(lastUpdatedOnDate)}{' '}
         {lastUpdatedOnDate.getDate()}, {lastUpdatedOnDate.getFullYear()}
       </div>
-      <Link href={`https://github.com/planetscale/docs/blob/main/content/docs/${slug}.mdx`}>
+
+      <Link href={url}>
         <a>Help us improve this page</a>
       </Link>
     </div>
   )
 }
+
+export default withRouter(PageInfo)

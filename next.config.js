@@ -1,10 +1,5 @@
-const withMDX = require('@next/mdx')({
-  extension: /\.mdx$/
-})
-
-module.exports = withMDX({
-  pageExtensions: ['js', 'jsx', 'md', 'mdx']
-})
+const matter = require('gray-matter')
+const { createLoader } = require('simple-functional-loader')
 
 const { NODE_ENV } = process.env
 const segment = require('./lib/segment')
@@ -46,10 +41,41 @@ module.exports = {
       allowFutureImage: true
     }
   },
-  webpack: (config, { isServer }) => {
-    if (isServer) {
+  pageExtensions: ['js', 'jsx', 'md', 'mdx'],
+  webpack: (config, options) => {
+    if (options.isServer) {
       require('./scripts/generate-sitemap')
     }
+
+    config.module.rules.push({
+      test: /\.mdx$/,
+      use: [
+        options.defaultLoaders.babel,
+        {
+          loader: require.resolve('@mdx-js/loader'),
+          options: {
+            remarkPlugins: [require('remark-frontmatter'), require('remark-gfm'), require('remark-mdx-frontmatter')],
+            rehypePlugins: [],
+            recmaPlugins: [],
+            providerImportSource: '@mdx-js/react'
+          }
+        },
+        createLoader(function (source) {
+          let { data } = matter(source)
+
+          let layoutPath =
+            this.resourcePath.indexOf('index.mdx') > 0 ? '../../../components/MDXLayout' : '../../components/MDXLayout'
+
+          return (
+            source +
+            `\n\n` +
+            `\nexport const meta = ${JSON.stringify(data)}` +
+            `\nimport Layout from '${layoutPath}'` +
+            `\nexport default (props) => <Layout {...props} {...meta} />`
+          )
+        })
+      ]
+    })
 
     return config
   },
@@ -96,7 +122,7 @@ module.exports = {
         source: '/',
         destination: '/docs',
         basePath: false,
-        permanent: true
+        permanent: false
       },
       {
         source: '/concepts/billing/planetscale-plans',
