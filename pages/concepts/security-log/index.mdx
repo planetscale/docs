@@ -1,0 +1,44 @@
+---
+title: 'Security log'
+subtitle: 'The security log tracks authentication and security-related actions conducted in your PlanetScale account.'
+date: '2022-08-01'
+---
+
+import filter from './filter.png'
+
+## Overview
+
+The Security log gives you insight into recent authentication and other security-related `actions` for your account. Your security log also details when you performed each `action`.
+
+Security log events are retained for 15 days in your PlanetScale account.
+
+## Review your security log
+
+You can review your security log in your PlanetScale account settings.
+
+1. Go to your [PlanetScale Security log](https://app.planetscale.com/settings/security-log) page.
+
+Once there, you can filter your Security log by `Action`.
+
+<ImageBlock alt='Filter your security log by Action.' src={filter} />
+
+## Security log events
+
+You can track the following `events` in your PlanetScale account:
+
+| PlanetScale security log events | Actions                                                                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| user                            | signed_out <br/><br/> signed_in <br/><br/> accepted_tos <br/><br/> updated_name <br/><br/> updated_email <br/><br/> enabled_mfa <br/><br/> disabled_mfa |
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+
+<NextBlock
+  steps={[
+    {
+      text: 'Audit log',
+      link: '/concepts/audit-log'
+    }
+  ]}
+></NextBlock>

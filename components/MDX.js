@@ -16,6 +16,7 @@ export const components = {
   h2: (props) => <AnchorLink {...props} heading='h2' />,
   h3: (props) => <AnchorLink {...props} heading='h3' />,
   NextBlock,
+  ImageBlock,
   InfoBlock,
   VideoBlock,
   GetHelp
