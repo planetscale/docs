@@ -18,28 +18,25 @@ import manage from './manage.png'
 
 2. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
 
-<InfoBlock type="note">
-  You can connect to PlanetScale from any platform that supports MySQL. These
-  connection strings are in place to let you hit the ground running. Please let
-  us know if we're missing your favorite framework in this list or if you have any suggestions. We support pre-generating connection strings for Go, Java, .Net, PHP, Laravel, Symfony, Prisma, Python, Rails, and Rust.
+<InfoBlock type='note'>
+  You can connect to PlanetScale from any platform that supports MySQL. These connection strings are in place to let you
+  hit the ground running. Please let us know if we're missing your favorite framework in this list or if you have any
+  suggestions. We support pre-generating connection strings for Go, Java, .Net, PHP, Laravel, Symfony, Prisma, Python,
+  Rails, and Rust.
 </InfoBlock>
 
 <ImageBlock alt='Browse connection string in formats' src={formats} />
 
-<InfoBlock type="tip">
-  Make sure you copy the connection string for your application and the
-  "General" format. We don't save the password in clear text, so there's
-  no way to retrieve the password after you leave this page.
+<InfoBlock type='tip'>
+  Make sure you copy the connection string for your application and the "General" format. We don't save the password in
+  clear text, so there's no way to retrieve the password after you leave this page.
 </InfoBlock>
 
 ## Managing passwords
 
 Once you've created the password, you can head over to the "**Passwords**" settings page available at `Organization > Database > Settings > Passwords` to manage them.
 
-<InfoBlock type="tip">
-  You can also create passwords for branches other than{' '}
-  `main` on this page.
-</InfoBlock>
+<InfoBlock type='tip'>You can also create passwords for branches other than `main` on this page.</InfoBlock>
 
 <ImageBlock alt='Manage passwords page' src={manage} />
 
@@ -53,7 +50,7 @@ Since the **username & password** pair is unique, the only metadata you can edit
 
 Deleting a password will invalidate the username & password pair and **disconnect any active clients using this password**.
 
-<InfoBlock type="note">
+<InfoBlock type='note'>
   Any open database connections authenticated with a deleted password will be disconnected within five minutes.
 </InfoBlock>
 
@@ -82,9 +79,9 @@ It may take up to five minutes for all active clients to be disconnected.
 PlanetScale only stores hashes and metadata about your database passwords.
 To add an extra layer of security to your database, we do not store any passwords in plain text.
 
-<InfoBlock type="note">
-  In the event that you lose a password, we cannot recover it for you. We
-  recommend creating a new password with the same access level.
+<InfoBlock type='note'>
+  In the event that you lose a password, we cannot recover it for you. We recommend creating a new password with the
+  same access level.
 </InfoBlock>
 
 ## GitHub Secret Scanning integration

@@ -33,6 +33,7 @@ Currently, the following regions are supported, with their respective PlanetScal
 ## Selecting the database region
 
 PlanetScale allows you to select the region for the [`main` branch](/docs/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region.
+
 <ImageBlock alt='Select your database region.' src={database} />
 
 Once you select a region for your `main` branch, it cannot be changed.
@@ -57,9 +58,7 @@ creation as well. By default, it is set to the same region as its database.
 
 <ImageBlock alt='Select your branch region.' src={branch} />
 
-<InfoBlock type='note'>
-  Once you select a branch region, it cannot be changed.
-</InfoBlock>
+<InfoBlock type='note'>Once you select a branch region, it cannot be changed.</InfoBlock>
 
 You can also select the region while creating a branch via the CLI by using the
 `--region` flag with the region's slug.
@@ -84,17 +83,23 @@ If you do need to move to a different region, we recommend taking the following 
 
 1. Create a new branch in the new region.
 2. [Backup and dump](/docs/reference/database) the original branch with:
+
 ```bash
 pscale database dump <DATABASE_NAME> <BRANCH_NAME>
 ```
+
 3. Restore the dump to the new branch with:
+
 ```bash
 pscale database restore-dump <DATABASE_NAME> <BRANCH_NAME>
 ```
+
 4. If this is for a production branch, [promote the new branch](/docs/reference/branch) to production:
+
 ```bash
 pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
+
 5. Swap out the credentials in your app with the new branch.
 
 It's important to note that this will require downtime if done on a production branch, as the dump and restore process will take time to complete. To avoid data loss, you can temporarily block writes in your application before doing the dump, and re-enable them after the final credential swap.

@@ -16,11 +16,11 @@ A password hashing function is a one-way function which means that your password
 
 PlanetScale checks passwords when a user sets them during sign-up or when changing the password. The first check is that the password needs to have enough entropy. Entropy is a measure for the amount of randomness a password contains. Read more about how we use entropy for [user-friendly strong passwords in the PlanetScale blog](/blog/using-entropy-for-user-friendly-strong-passwords).
 
-PlanetScale also checks the password against [Have I been pwned](https://haveibeenpwned.com). *Have I been pwned* is a large database containing passwords seen in security breaches.
+PlanetScale also checks the password against [Have I been pwned](https://haveibeenpwned.com). _Have I been pwned_ is a large database containing passwords seen in security breaches.
 
-PlanetScale does **not** send the password you enter to *Have I been pwned*. The *Have I been pwned* API provides anonymity through [the Cloudflare k-anonymity implementation](https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/). This ensures that no other provider can identify the password that you have entered.
+PlanetScale does **not** send the password you enter to _Have I been pwned_. The _Have I been pwned_ API provides anonymity through [the Cloudflare k-anonymity implementation](https://blog.cloudflare.com/validating-leaked-passwords-with-k-anonymity/). This ensures that no other provider can identify the password that you have entered.
 
-The password is also not associated in any way with the email address you use to sign up. This information is not shared with *Have I been pwned*, nor is this information needed for the leaked passwords API they provide.
+The password is also not associated in any way with the email address you use to sign up. This information is not shared with _Have I been pwned_, nor is this information needed for the leaked passwords API they provide.
 
 ## Need help?
 

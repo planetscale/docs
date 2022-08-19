@@ -39,6 +39,7 @@ Once you delete a region, you will no longer be charged for the storage or row r
 ## Concepts
 
 ### Replication across regions
+
 PlanetScale replicates your data across regions with an asynchronous strategy, first storing your changes in the primary region and then forwarding them to your read-only region(s). The time that it takes those changes to propagate to your read-only region can be defined as "replication lag" and be measured by issuing the following statement to your read-only regions:
 
 ```sql

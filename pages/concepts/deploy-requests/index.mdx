@@ -10,7 +10,7 @@ import approve from './approve.png'
 
 Deploy requests are an integral part of the [PlanetScale workflow](/docs/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. You can also [undo deployments](#revert-a-schema-change) without losing any data that was written during that time.
 
-<VideoBlock src="/docs/img/docs/deploy-request.mp4"></VideoBlock>
+<VideoBlock src='/docs/img/docs/deploy-request.mp4'></VideoBlock>
 
 ## Create a deploy request
 
@@ -55,7 +55,8 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! The **Rewind feature** allows you to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
 
 <InfoBlock type='note'>
-  The Rewind feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this feature.
+  The Rewind feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this
+  feature.
 </InfoBlock>
 
 ### How to revert a schema change with Rewind
