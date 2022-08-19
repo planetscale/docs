@@ -9,9 +9,10 @@ function PageInfo({ lastUpdatedOn, router }) {
     lastUpdatedOnDate = new Date(Date.parse(lastUpdatedOn))
   }
 
-  const url = router.asPath.indexOf('concepts') > 0
-    ? `https://github.com/planetscale/docs/blob/main/pages${router.asPath}/index.mdx`
-    : `https://github.com/planetscale/docs/blob/main/pages${router.asPath}.mdx`
+  const url =
+    router.asPath.indexOf('concepts') > 0
+      ? `https://github.com/planetscale/docs/blob/main/pages${router.asPath}/index.mdx`
+      : `https://github.com/planetscale/docs/blob/main/pages${router.asPath}.mdx`
 
   const options = { month: 'long' }
 
