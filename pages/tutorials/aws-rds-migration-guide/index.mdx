@@ -37,13 +37,13 @@ The master username can be located under the “**Configuration”** tab. The ma
 
 <InfoBlock type='note'>
   If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
-  tool user permissions page](/docs/reference/import-tool-user-requirements) to create an account that can be used to import
-  your database.
+  tool user permissions page](/docs/reference/import-tool-user-requirements) to create an account that can be used to
+  import your database.
 </InfoBlock>
 
 ## Configuring the RDS security group
 
-In order for PlanetScale to connect to your RDS database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP addresses page](/import-tool-migration-addresses) to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
+In order for PlanetScale to connect to your RDS database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP addresses page](/docs/reference/import-tool-migration-addresses) to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
 
 ```
 3.209.149.66
