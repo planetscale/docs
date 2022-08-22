@@ -20,24 +20,27 @@ PlanetScale can push metrics to Datadog to assist your team with understanding y
 
 Once complete, a "PlanetScale" dashboard will be available with incoming metrics from PlanetScale.
 
-<ImageBlock alt='Image of the PlanetScale Default Dashboard in Datadog showing overview metrics, table and row breakdowns, info about connections, and query rates' src={dashboard} />
+<ImageBlock
+  alt='Image of the PlanetScale Default Dashboard in Datadog showing overview metrics, table and row breakdowns, info about connections, and query rates'
+  src={dashboard}
+/>
 
 ## Metrics We Collect
 
 Once configured, PlanetScale collects the following metrics from every branch in your organization.
 
-| **Metric name** | **Metric type** | **Description** |
-| --------------- | --------------- | --------------- |
-| planetscale.connections   | gauge | Number of active connections to a database branch. *Shown as connection.* |
-| planetscale.rows_read     | count | Number of rows read from a database branch. *Shown as row.* |
-| planetscale.rows_written  | count | Number of rows written to a database branch. *Shown as row.* |
-| planetscale.tables.cumulative_query_time  | count | Cumulative active query time in a database branch, by table and statement. *Shown as nanosecond.* |
-| planetscale.tables.queries    | count | Number of queries issued to a database branch, by table and statement. *Shown as query.* |
-| planetscale.tables.rows_deleted   | count | Number of rows deleted from a database branch, by table. *Shown as row.* |
-| planetscale.tables.rows_inserted  | count | Number of rows inserted into a database branch, by table. *Shown as row.* |
-| planetscale.tables.rows_selected  | count | Number of rows selected in a database branch, by table. *Shown as row.* |
-| planetscale.tables.rows_updated   | count | Number of rows updated in a database branch, by table. *Shown as row.* |
-| planetscale.tables.storage    | gauge | Total bytes stored in a database branch, by table. *Shown as byte.* |
+| **Metric name**                          | **Metric type** | **Description**                                                                                   |
+| ---------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------- |
+| planetscale.connections                  | gauge           | Number of active connections to a database branch. _Shown as connection._                         |
+| planetscale.rows_read                    | count           | Number of rows read from a database branch. _Shown as row._                                       |
+| planetscale.rows_written                 | count           | Number of rows written to a database branch. _Shown as row._                                      |
+| planetscale.tables.cumulative_query_time | count           | Cumulative active query time in a database branch, by table and statement. _Shown as nanosecond._ |
+| planetscale.tables.queries               | count           | Number of queries issued to a database branch, by table and statement. _Shown as query._          |
+| planetscale.tables.rows_deleted          | count           | Number of rows deleted from a database branch, by table. _Shown as row._                          |
+| planetscale.tables.rows_inserted         | count           | Number of rows inserted into a database branch, by table. _Shown as row._                         |
+| planetscale.tables.rows_selected         | count           | Number of rows selected in a database branch, by table. _Shown as row._                           |
+| planetscale.tables.rows_updated          | count           | Number of rows updated in a database branch, by table. _Shown as row._                            |
+| planetscale.tables.storage               | gauge           | Total bytes stored in a database branch, by table. _Shown as byte._                               |
 
 ## Billing
 

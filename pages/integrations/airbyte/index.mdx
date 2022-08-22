@@ -105,18 +105,21 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
 <ImageBlock alt='Airbyte - PlanetScale replication frequency' src={replicationFrequency} />
 
 <InfoBlock>
-  <strong>Important:</strong> The sync frequency will affect your PlanetScale billing. The rows read during sync are counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of all tables selected every time the sync runs.
-  <br/>
-  You can find more information about your plan's read limits in our <a href="/docs/concepts/billing#planet-scale-plans">Billing documentation</a>.
+  <strong>Important:</strong> The sync frequency will affect your PlanetScale billing. The rows read during sync are
+  counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of
+  all tables selected every time the sync runs.
+  <br />
+  You can find more information about your plan's read limits in our{' '}
+  <a href='/docs/concepts/billing#planet-scale-plans'>Billing documentation</a>.
 </InfoBlock>
 
 4. Choose the Destination Namespace configuration from the dropdown. This is where the data will be stored in the destination.
-5. *(Optional)* Choose your destination stream prefix.
+5. _(Optional)_ Choose your destination stream prefix.
 6. Select the data you want to sync. You should see a list of table names. You can select all or choose which ones to sync individually.
 7. Choose what type of sync mode you'd like to use for each source table.
 
-- **Incremental** &mdash; Incremental sync pulls *only* the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/13.0/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
-- **Full refresh** &mdash; Full refresh pulls *all* data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
+- **Incremental** &mdash; Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/13.0/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
+- **Full refresh** &mdash; Full refresh pulls _all_ data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
 
 <ImageBlock alt='Airbyte - PlanetScale stream sync' src={streams} />
 
