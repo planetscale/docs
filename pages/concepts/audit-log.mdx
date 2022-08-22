@@ -1,0 +1,61 @@
+---
+title: 'Audit log'
+subtitle: "Search your organization's audit log to review member actions and events."
+date: '2022-08-04'
+---
+
+import event from '../../images/audit-log--event.png'
+
+## Overview
+
+The organization audit log grants [Organization Administrators](/docs/concepts/access-control#organization-administrator) access to review **actions** performed by individual members of the organization. In addition, each audit log includes **events** detailing who performed the **action** and when it happened.
+
+Audit log retainment period is [based on your plan](/docs/concepts/billing#planet-scale-plans):
+
+- **Hobby** &mdash; 5 days
+- **Scaler** &mdash; 15 days
+- **Team** &mdash; 60 days
+- **Enterprise** &mdash; Unlimited
+
+<InfoBlock type='note'>
+  Organization audit log access is limited to{' '}
+  <a href='/docs/concepts/access-control#organization-administrator'>Organization Administrators</a>.
+</InfoBlock>
+
+## Review your organization audit log
+
+You can review your organization audit log under your PlanetScale **organization** settings: `app.planetscale.com/<org>/settings/audit-log`.
+
+Once there, you can filter the audit log by **Actor** and/or **Action**.
+
+Clicking and expanding individual log **event** names empowers you to investigate additional metadata that can provide broader context around what changed.
+
+<ImageBlock alt='Click to expand individual log events.' src={event} />
+
+## Audited organization events
+
+You can track the following organization **events** in your PlanetScale account:
+
+| PlanetScale organization events | Actions                                                                                                 |
+| ------------------------------- | ------------------------------------------------------------------------------------------------------- |
+| branch                          | created <br/><br/> deleted                                                                              |
+| database                        | created <br/><br/> deleted                                                                              |
+| deploy_request                  | approved <br/><br/> closed <br/><br/> created <br/><br/> deleted <br/><br/> queued <br/><br/> unqueued  |
+| integration                     | created <br/><br/> deleted                                                                              |
+| organization_invitation         | created <br/><br/> deleted                                                                              |
+| organization_membership         | created                                                                                                 |
+| organization                    | joined <br/><br/> removed_member <br/><br/> disabled_sso <br/><br/> enabled_sso <br/><br/> updated_role |
+| service_token                   | created <br/><br/> deleted <br/><br/> granted_access                                                    |
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
+
+<NextBlock
+  steps={[
+    {
+      text: 'Non-blocking schema changes',
+      link: '/concepts/nonblocking-schema-changes'
+    }
+  ]}
+></NextBlock>
