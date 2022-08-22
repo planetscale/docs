@@ -4,6 +4,12 @@ subtitle: 'Extract, load, and transform your PlanetScale data with Stitch.'
 date: '2022-08-01'
 ---
 
+import apiToken from './api-token.png'
+import configure from './configure.png'
+import connect from './connect.png'
+import integration from './integration.png'
+import success from './success.png'
+
 With the PlanetScale Connect (beta), you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
 
 We implemented an [Stitch Singer Tap](https://stitchdata.com/) as the pipeline between your PlanetScale source and selected destination. This document will walk you through how to connect your PlanetScale database to Stitch.
@@ -15,11 +21,11 @@ into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/i
 1. Sign up for a [StitchData](https://app.stitchdata.com/signup) account
 2. Once you've signed up, create an Integration by clicking on **Add Integration**.
 3. On the marketplace screen, type in **import** to narrow the list down to the **Import API**
-![Add Stitch Integration](/docs/img/docs/stitch-add-integration.png)
+<ImageBlock alt='Add Stitch Integration' src={integration} />
 4. On the next screen, configure your integration name and destination.
-![Configure Stitch Integration](/docs/img/docs/stitch-configure-integration.png)
+<ImageBlock alt='Configure Stitch Integration' src={configure} />
 5. Once the integration is created, save the access token for use with the PlanetScale tap.
- ![Save Stitch API Token](/docs/img/docs/stitch-api-token.png)
+<ImageBlock alt='Save Stitch API Token' src={apiToken} />
 
 ### Step 2 : Configure the PlanetScale Stitch Tap
 In this step, we will connect your PlanetScale database to the PlanetScale Singer Tap.
@@ -27,7 +33,7 @@ In this step, we will connect your PlanetScale database to the PlanetScale Singe
 1. Click on the database and branch you want to connect to.
 2. Click "Connect", and select "Stitch source" from the "Connect with" dropdown.
 3. Leave this tab open, as you'll need to copy these credentials shortly.
-![Stitch Source config](/docs/img/docs/stitch-source-config.png)
+<ImageBlock alt='Stitch Source config' src={connect} />
 4. Copy the contents of `source.json` as a file on your local file system, and save it as `source.json`. This will now act
 as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` to your database.
 
@@ -99,7 +105,7 @@ HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 ```
 
 8. In this example, you should see that Stitch loaded `21` records to be replicated.
-![Completed Stitch import](/docs/img/docs/stitch-import-done.png)
+<ImageBlock alt='Completed Stitch import' src={success} />
 
 9. To incrementally sync from this last sync position, pass the path to last saved state in step 7 as the `--state` argument when you run sync.
 
