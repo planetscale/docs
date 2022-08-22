@@ -5,10 +5,10 @@ date: '2022-08-01'
 ---
 
 <InfoBlock type='note'>
-  This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically
-  the recommendation to use `prisma db push` instead of {' '}`prisma migrate
-  dev` with shadow branches. Also, you previously needed to turn on the ability to automatically
-  copy the Prisma migration metadata. You no longer need to do this. Read more below.
+  This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically the
+  recommendation to use `prisma db push` instead of `prisma migrate dev` with shadow branches. Also, you previously
+  needed to turn on the ability to automatically copy the Prisma migration metadata. You no longer need to do this. Read
+  more below.
 </InfoBlock>
 
 ## Introduction
@@ -55,9 +55,8 @@ pscale connect prisma-playground main --port 3309
 ```
 
 <InfoBlock type='note'>
-  This step assumes you created a new PlanetScale database and the `main` branch
-  has not been promoted to production yet. You will need to create a new development branch if
-  the `main` branch has been promoted to production.
+  This step assumes you created a new PlanetScale database and the `main` branch has not been promoted to production
+  yet. You will need to create a new development branch if the `main` branch has been promoted to production.
 </InfoBlock>
 
 3. Update your `prisma/schema.prisma` file with the following schema:
@@ -130,9 +129,7 @@ pscale shell prisma-playground main
 describe Post;
 ```
 
-<InfoBlock type='tip'>
-  Use the `exit` command to exit the MySQL shell.
-</InfoBlock>
+<InfoBlock type='tip'>Use the `exit` command to exit the MySQL shell.</InfoBlock>
 
 Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch.
 
@@ -198,7 +195,7 @@ describe Post;
 
 ## What's next?
 
-Now that you've successfully conducted your first automatic Prisma migration in PlanetScale and know how to handle future migrations, it's time to deploy your application with a PlanetScale database! Let's learn how to [deploy an application with a PlanetScale database to Vercel](/tutorial/deploy-to-vercel).
+Now that you've successfully conducted your first automatic Prisma migration in PlanetScale and know how to handle future migrations, it's time to deploy your application with a PlanetScale database! Let's learn how to [deploy an application with a PlanetScale database to Vercel](/docs/tutorials/deploy-to-vercel).
 
 ## Need help?
 
