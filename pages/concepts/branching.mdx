@@ -6,6 +6,7 @@ date: '2022-08-01'
 
 import deployRequest from '../../images/branching--deploy-request.png'
 import diagram from '../../images/branching--diagram.png'
+import Link from 'next/link'
 
 ## Overview
 
@@ -162,8 +163,8 @@ pscale branch delete <DATABASE_NAME> <BRANCH_NAME>
 We recommend deleting branches after a deploy request is complete or if you are no longer using the branch for testing.
 
 <InfoBlock type='note'>
-  Only <a href='/docs/concepts/access-control#organization-administrator'>Organization Administrators</a> have
-  permission to delete production branches.
+  Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) have permission to delete
+  production branches.
 </InfoBlock>
 
 You cannot delete a branch that's [set as default](#default-branches). To delete, it set another branch as the default first.
