@@ -31,7 +31,7 @@ export default function Overview() {
           non-blocking schema changes, reverting schema changes, and more.
         </p>
         <p>
-          <ButtonLink href='/concepts/planetscale-workflow' variant='secondary'>
+          <ButtonLink href='/docs/concepts/planetscale-workflow' variant='secondary'>
             Learn more
           </ButtonLink>
         </p>
