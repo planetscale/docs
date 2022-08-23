@@ -5,6 +5,8 @@ className: 'ignore-img-borders'
 date: '2022-08-01'
 ---
 
+import example from '../../images/connect-symfony-app--example.png'
+
 ## Introduction
 
 In this tutorial, you'll learn how to connect a Symfony application to a PlanetScale MySQL database using a sample Symfony starter app.
@@ -177,7 +179,7 @@ This will purge your database and load the placeholder data into it.
 
 The `templates/product/index.html.twig` file pulls this data from the `product` table with the help of the `src/Controller/ProductController.php` file.
 
-![Symfony PlanetScale starter app homepage](/docs/img/docs/symfony-planetscale-app.png)
+<ImageBlock alt='Symfony PlanetScale starter app homepage' src={example} />
 
 ## Add data manually
 

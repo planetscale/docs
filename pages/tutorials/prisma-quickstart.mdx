@@ -4,6 +4,9 @@ subtitle: 'Learn how to integrate Prisma with PlanetScale'
 date: '2022-07-22'
 ---
 
+import schema from '../../images/prisma-quickstart--schema.png'
+import studio from '../../images/prisma-quickstart--studio.png'
+
 ## Overview
 
 This guide will show you how to:
@@ -257,7 +260,7 @@ You can leave `id`, `createdAt`, and `updatedAt` blank as they will auto-fill wi
 
 To add the record, click the green "**Save 1 change**" button.
 
-![Prisma Studio showing the Star table with one record](/docs/img/docs/prisma_studio_example.png)
+<ImageBlock alt='Prisma Studio showing the Star table with one record' src={studio} />
 
 ## Add an API route
 
@@ -334,7 +337,7 @@ In the dashboard, select the `initial-setup` branch. On the "**Overview**" tab, 
 
 PlanetScale will check to make sure there are no conflicts between the two branches. If not, you'll get the message "This deploy request is deployable". You can click on the "**Schema changes**" tab to see a diff of the schema changes to be deployed.
 
-![Example of the Star table schema in a deploy request on PlanetScale](/docs/img/docs/prisma_deploy_request_schema.png)
+<ImageBlock alt='Example of the Star table schema in a deploy request on PlanetScale' src={schema} />
 
 Now, you're ready to deploy the `initial-setup` branch to production! On the "**Summary**" tab of the deploy request, click the button "**Add changes to deploy queue**". The deployment has now been added to the deploy queue.
 

@@ -5,6 +5,10 @@ className: 'ignore-img-borders'
 date: '2022-08-01'
 ---
 
+import console from '../../images/connect-laravel-app--console.png'
+import database from '../../images/connect-laravel-app--database.png'
+import example from '../../images/connect-laravel-app--example.png'
+
 ## Introduction
 
 In this tutorial, you'll learn how to connect a Laravel application to a PlanetScale MySQL database using a sample Laravel starter app.
@@ -59,7 +63,7 @@ If this is your first time in the dashboard, you'll be prompted to go through a 
 
 Finally, click "**Create database**".
 
-![Create a new database modal](/docs/img/docs/laravel-quickstart/create-database.png)
+<ImageBlock alt='Create a new database modal' src={database} />
 
 <InfoBlock type='note'>
   If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/concepts/database-imports).
@@ -174,7 +178,7 @@ You should get the message "Database seeding completed successfully".
 
 The `resources/views/home.blade.php` file pulls this data from the `stars` table with the help of the `app/Http/Controllers/StarController.php` file.
 
-![Laravel PlanetScale starter app homepage](/docs/img/docs/laravel-planetscale-example-data.png)
+<ImageBlock alt='Laravel PlanetScale starter app homepage' src={example} />
 
 ## Add data manually
 
@@ -213,7 +217,7 @@ VALUES  ('Sagittarius', 3);
 SELECT * FROM stars;
 ```
 
-![PlanetScale web console](/docs/img/docs/laravel-quickstart/planetscale-web-console.png)
+<ImageBlock alt='PlanetScale web console' src={console} />
 
 ### Add data with Laravel Tinker
 

@@ -4,6 +4,9 @@ subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connec
 date: '2022-08-01'
 ---
 
+import database from '../../images/connect-nextjs-app--database.png'
+import production from '../../images/connect-nextjs-app--production.png'
+
 In this tutorial, you'll create a [Next.js](https://nextjs.org/) application that uses [Tailwind CSS](https://tailwindcss.com/) for styling and [Prisma](https://www.prisma.io/) to connect to a [PlanetScale](https://planetscale.com) database.
 
 
@@ -21,7 +24,7 @@ If this is your first time in the dashboard, you'll be prompted to go through a 
 
 Finally, click "**Create database**".
 
-![Create a new database modal](/docs/img/docs/nextjs-quickstart/create-database.png)
+<ImageBlock alt='Create a new database modal' src={database} />
 
 <InfoBlock type='note'>
   If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/concepts/database-imports).
@@ -98,7 +101,7 @@ After you have your application running locally, you may want to deploy it to pr
 
 You can do this in the PlanetScale dashboard by clicking the "**Branches**" tab, and then clicking the "**Promote a branch to production**" button either in the banner or under the "**...**".
 
-![Promote a branch to production](/docs/img/docs/nextjs-quickstart/promote-a-branch-to-production.png)
+<ImageBlock alt='Promote a branch to production' src={production} />
 
 ### Deploy to Vercel
 
