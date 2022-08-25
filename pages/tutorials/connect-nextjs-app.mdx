@@ -57,14 +57,14 @@ mv .env.example .env
 
 Next, you need to generate a database username and password so that you can use it to connect to your application.
 
-In your PlanetScale dashboard, select your database, click "**Connect**", and select "**Node.js**" from the "**Connect with**" dropdown.
+In your PlanetScale dashboard, select your database, click "**Connect**", and select "**Prisma**" from the "**Connect with**" dropdown.
 
 As long as you're an organization administrator, this will generate a username and password that has administrator privileges to the database.
 
 Copy the `DATABASE_URL` string from the `.env` tab and paste it into your own `.env` file. The structure will look like this:
 
 ```sh
-DATABASE_URL='mysql://<USERNAME>:<PASSWORD>@<HOST>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}'
+DATABASE_URL='mysql://<USERNAME>:<PASSWORD>@<HOST>/<DATABASE_NAME>?sslaccept=strict'
 ```
 
 Your PlanetScale database should now be connected to your application.
