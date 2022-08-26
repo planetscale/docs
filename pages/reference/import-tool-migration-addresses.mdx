@@ -1,8 +1,11 @@
 ---
 title: 'Import tool public IP addresses'
 subtitle: 'List of the IP addresses you must allow when importing a database using the Import tool'
-date: '2022-08-05'
+date: '2022-08-24'
+internal: "IPs are pulled from https://github.com/planetscale/ps-turtle/blob/main/psturtle_data.go"
 ---
+
+import region from '../../images/import-tool-migration-addresses--region.png'
 
 When importing a database using our [Import tool](/docs/concepts/database-imports), you need to grant a set of IP addresses access to your MySQL database so that PlanetScale can make the connection.
 
@@ -10,11 +13,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
 
 <InfoBlock type='note'>
   This IP reference guide is meant to be used in combination with our{' '}
-  <a href='/docs/concepts/database-imports'>Database Import guide</a> or one of our platform-specific guides under "Migration
-  guides" in the left nav.
+  <a href='/docs/concepts/database-imports'>Database Import guide</a> or one of our platform-specific guides under
+  "Migration guides" in the left nav.
 </InfoBlock>
 
-![The New database section of the Import database tool.](/docs/img/docs/import-tool-region-highlight.png)
+<ImageBlock alt='The New database section of the Import database tool.' src={region} />
 
 | Region                                | IP Addresses                                                                                                                                                                                                                                                                         |
 | ------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -27,3 +30,4 @@ The set of IP addresses that you should use depends on the region of the [Planet
 | **AWS sa-east-1 (Sao Paulo)**         | 3.209.149.66 <br /> 3.215.97.46 <br /> 34.193.111.15 <br />52.67.181.44<br />54.94.201.50<br />54.94.231.88<br />                                                                                                                                                                    |
 | **AWS us-east-1 (Northern Virginia)** | 3.209.149.66 <br /> 3.215.97.46 <br /> 34.193.111.15 <br />23.23.187.137<br />52.6.141.108<br />52.70.2.89<br />50.17.188.76<br />52.2.251.189<br />52.72.234.74<br />35.174.68.24<br />52.5.253.172<br />54.156.81.4<br />34.200.24.255<br />35.174.79.154<br />44.199.177.24<br /> |
 | **AWS us-west-2 (Oregon)**            | 3.209.149.66 <br /> 3.215.97.46 <br /> 34.193.111.15 <br />35.81.228.185<br />52.35.206.238<br />54.70.167.41<br />                                                                                                                                                                  |
+| **AWS eu-west-2 (London)**            | 3.209.149.66 <br /> 3.215.97.46 <br /> 34.193.111.15 <br />18.132.105.164 <br /> 3.10.132.119 <br /> 3.11.110.64 <br />                                                                                                                                                                  |

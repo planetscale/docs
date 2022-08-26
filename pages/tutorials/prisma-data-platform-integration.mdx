@@ -4,6 +4,12 @@ subtitle: 'Use the Prisma Data Platform to auto-generate a project with Prisma a
 date: '2022-08-01'
 ---
 
+import configuration from '../../images/prisma-data-platform-integration--configuration.png'
+import database from '../../images/prisma-data-platform-integration--database.png'
+import login from '../../images/prisma-data-platform-integration--login.png'
+import project from '../../images/prisma-data-platform-integration--project.png'
+import templates from '../../images/prisma-data-platform-integration--templates.png'
+
 ## Overview
 
 The following guide will show you how to integrate PlanetScale with a Prisma application using the Prisma Data Platform integration and, optionally, deploy it to Vercel.
@@ -23,7 +29,7 @@ If you're importing, click "**Import a Prisma repository**", and then select the
 
 Make sure your imported project has a `schema.prisma` file. You can specify the path of the file in the "**Prisma Schema path**" input box. This file must be relative to the repository root.
 
-![Prisma Data Platform project configuration](/docs/img/docs/prisma-cloud-configuration.png)
+<ImageBlock alt='Prisma Data Platform project configuration' src={project} />
 
 ## Select a template
 
@@ -33,7 +39,7 @@ If you're creating a new project, you can choose to start with a pre-built templ
   If you choose the Empty template, you'll need to define a model in your `schema.prisma` file in your repository before deploying to Vercel. If you want to test the deployment without making modifications, we recommend choosing a different template.
 </InfoBlock>
 
-![Prisma Data Platform project template options](/docs/img/docs/prisma-cloud-templates.png)
+<ImageBlock alt='Prisma Data Platform project template options' src={templates} />
 
 ## Configure the environment
 
@@ -42,7 +48,7 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 1. In the "**Database Provider**" dropdown, select "**PlanetScale MySQL**"
 2. Click the "**Link your PlanetScale account**" button to authenticate with PlanetScale.
 
-![Prisma Data Platform project database provider PlanetScale](/docs/img/docs/prisma-planetscale-login.png)
+<ImageBlock alt='Prisma Data Platform project database provider PlanetScale' src={login} />
 
 3. This will kick off the OAuth flow where Prisma will request limited access to your **Databases**, and **Organization**.
 4. Click "**Allow access**".
@@ -50,14 +56,14 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 6. Select your **PlanetScale Organization**.
 7. Under "**PlanetScale Region**", choose the [region closest to your or your application](/docs/concepts/regions).
 
-![Prisma Data Platform project PlanetScale configuration](/docs/img/docs/prisma-planetscale-configuration.png)
+<ImageBlock alt='Prisma Data Platform project PlanetScale configuration' src={configuration} />
 
 8. Finally, under "**Prisma Data Proxy**", select the location closest to you or your application.
 9. Once you're ready to proceed, click the green "**Create project**" button at the bottom. You'll see a loading screen for a few seconds while your database is being configured.
 
 Your PlanetScale database has been automatically created and is ready to populate with data! Head to your [PlanetScale dashboard](https://app.planetscale.com) to check it out.
 
-![PlanetScale dashboard with new Prisma + PlanetScale database](/docs/img/docs/prisma-planetscale-database.png)
+<ImageBlock alt='PlanetScale dashboard with new Prisma + PlanetScale database' src={database} />
 
 ## Deploy the project (Optional)
 
