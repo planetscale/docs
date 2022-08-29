@@ -4,6 +4,13 @@ subtitle: 'Create, schedule, and restore backups for your PlanetScale databases.
 date: '2022-08-01'
 ---
 
+import dbbackupsview from '../../images/back-up-and-restore--view-backups.png'
+import createnewbackup from '../../images/back-up-and-restore--create-new-backup.png'
+import createnewbackupschedule from '../../images/back-up-and-restore--create-new-backup-schedule.png'
+import newbackupschedule from '../../images/back-up-and-restore--new-backup-schedule.png'
+import manualbackuprow from '../../images/back-up-and-restore--manual-backup-row.png'
+import manualbackupcost from '../../images/back-up-and-restore--manual-backup-cost.png'
+import restoredbrancheslist from '../../images/back-up-and-restore--restored-branches-list.png'
 import schedule from '../../images/back-up-and-restore--schedule.png'
 import restore from '../../images/back-up-and-restore--restore.png'
 import settings from '../../images/back-up-and-restore--settings.png'
@@ -20,9 +27,11 @@ PlanetScale provides the ability to create, schedule, and restore backups for pr
 
 ## View backups
 
-To view backups for either `main` or your _development_ branches, go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+To view backups for all of your branches, go to your database backups page: `app.planetscale.com/<org>/<database>/backups`.
 
 Once there, you'll find additional details about your backup history.
+
+<ImageBlock alt='View backups for your database' src={dbbackupsview} />
 
 ## Create manual backups
 
@@ -30,27 +39,39 @@ In addition to the daily default backups that PlanetScale schedules for your dat
 
 To create a manual backup, follow the steps outlined below:
 
-1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+1. Go to your database backups page: `app.planetscale.com/<org>/<database>/backups`.
 
-2. Click the **Create manual backup** button.
+2. Click the **Create new backup** button.
 
-This will bring up a pop-up modal that prompts you to _name_ your **backup** and select how long you wish to keep the backup.
+This will bring up a pop-up modal that prompts you to pick a **branch** to backup, _name_ your backup, and select how long you wish to keep the backup.
 
-<ImageBlock alt='Manual backup pop-up modal' src={settings} />
+<ImageBlock alt='Manual backup pop-up modal' src={createnewbackup} />
 
-3. Click the **Backup up now** button to finish the backup and close the pop-up modal.
+3. Click the **Create backup** button to finish the backup and close the pop-up modal.
+
+4. Manual backups are not free and are denoted by the `$` icon next to their name in the list view on the backups page. 
+
+<ImageBlock alt='Manual backups are shown with a $ sign' src={manualbackuprow} />
+
+5. To see the cost associated with storage of a manual backup, click on the backup name. You will see the cost per month on the details page.
+
+<ImageBlock alt='Monthly storage cost for a Manual backup' src={manualbackupcost} />
 
 ## Schedule backups
 
-You can add additional **scheduled backups** for both your `main` and _development_ branches, billed at $0.023 per GB per month.
+You can add additional **scheduled backups** for your branches, billed at $0.023 per GB per month.
 
-1. Go to your database backups settings page: `app.planetscale.com/<org>/<database>/settings/backups`.
+1. Go to your database backups page: `app.planetscale.com/<org>/<database>/backups`.
 
-2. Click the **New schedule** button.
+2. Select the type of branch (`Production branches` | `Development branches` ) you'd like to be backed up by the new backup schedule.
+
+<ImageBlock alt='Schedule backup pop-up modal' src={newbackupschedule} />
+
+3. Click the **Add new schedule** button.
 
 This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
 
-<ImageBlock alt='Schedule backup pop-up modal' src={schedule} />
+<ImageBlock alt='Schedule backup pop-up modal' src={createnewbackupschedule} />
 
 3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
 
@@ -65,7 +86,7 @@ This will bring up a pop-up modal that prompts you to configure backup frequency
 
 To restore a backup to a new branch, click on the individual backup to see the option to restore them.
 
-1. Go to your branch backups page: `app.planetscale.com/<org>/<database>/<branch>/backups`.
+1. Go to your database backups page: `app.planetscale.com/<org>/<database>/backups`.
 
 2. Select the backup you wish to restore.
 
@@ -77,6 +98,9 @@ This will bring up a pop-up modal that prompts you to name your branch.
 
 4. Click the **Restore backup** button to finish restoring your backup and to close the pop-up modal.
 
+5. To see all branches that are `restored` from a backup, head to the backup details and you'll see a list of those branches. 
+
+<ImageBlock alt='Branches restored from a backup' src={restoredbrancheslist} />
 ## Need help?
 
 Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
