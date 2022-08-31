@@ -36,8 +36,8 @@ PlanetScale will check if the request is deployable. This process includes check
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 7.  Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
-8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the chance to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
-9. On the "**Summary**" tab, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable Gated Deployments in this step.
+8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
+9. When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
 10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
 11. After you deploy, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
@@ -109,13 +109,13 @@ You may see some temporary `_vt` tables in your database. These are used to faci
 
 Gated Deployments give you more control over when a migration goes live after the deployment process completes.
 
-This feature is helpful if you have long-running migrations. Depending on the size of your database, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With Gated Deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment.
+This feature is helpful if you have long-running migrations. For very large or complex databases, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With Gated Deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment while you're there to monitor it.
 
 <InfoBlock type='note'>
   If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.
 </InfoBlock>
 
-For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](https://planetscale.com/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale?utm_medium=docs&utm_content=deploy-requests) blog post.
+For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](https://planetscale.com/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale) blog post.
 
 ## Need help?
 
