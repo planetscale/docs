@@ -100,7 +100,7 @@ There are also some edge cases where reverting a schema change is not possible. 
 3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert rows that would otherwise conflict with that constraint, the revert may fail.
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
-For an in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](https://planetscale.com/blog/behind-the-scenes-how-we-built-rewind) blog post.
+For an in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](/blog/behind-the-scenes-how-we-built-rewind) blog post.
 
 ### Billing considerations
 
@@ -114,7 +114,7 @@ Gated Deployments give you more control over when a migration goes live after th
 
 As part of our non-blocking schema change process, instead of directly modifying table(s) when you deploy a deploy request, we make a copy of the affected table(s) and apply changes to the copy. We get the data from the original table and the copy table in sync, and once complete, initiate a quick cutover where we swap the tables.
 
-With Gated Deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment.
+With Gated Deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment. Gated Deployments can be enabled on each deploy request by unchecking the "Auto-apply changes box" before you deploy.
 
 This feature is helpful if you have long-running migrations. For very large or complex databases, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With Gated Deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment while you're there to monitor it.
 
