@@ -26,9 +26,7 @@ const ButtonLink = ({ children, variant, size, className, iconOnly, disabled, ..
 
   return (
     <Link {...props}>
-      <a className={classNames}>
-        {children}
-      </a>
+      <a className={classNames}>{children}</a>
     </Link>
   )
 }
