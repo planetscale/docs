@@ -1,10 +1,12 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2022-08-01'
+date: '2022-09-06'
 ---
 
 import approve from '../../images/deploy-requests--approve.png'
+import gatedDeployments from '../../images/deploy-requests--gated-deployments.png'
+import applyChanges from '../../images/deploy-requests--apply-changes.png'
 
 ## Overview
 
@@ -35,10 +37,14 @@ PlanetScale will check if the request is deployable. This process includes check
 4. To review the schema changes, click the "**Schema changes**" tab.
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
-7. Once the request is approved, if required, it's ready to be added to the deploy queue. On the "**Summary**" tab, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments.
-8. After you deploy, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
 <ImageBlock alt='PlanetScale deploy request - approve changes' src={approve} />
+
+7.  Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
+8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
+9.  When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
+10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
+11. After you deploy, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
 If you would like to require approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Deploy requests require approval before deploy**" box. You must be an Organization Administrator to enable this.
 
@@ -94,13 +100,40 @@ There are also some edge cases where reverting a schema change is not possible. 
 3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert rows that would otherwise conflict with that constraint, the revert may fail.
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
-For an in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](https://planetscale.com/blog/behind-the-scenes-how-we-built-rewind) blog post.
+For an in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](/blog/behind-the-scenes-how-we-built-rewind) blog post.
 
 ### Billing considerations
 
 The process of reverting a schema change will not count toward your `read`, `write`, or storage limits. You will not be charged for the background processes we run, like creating a copy of the affected schema and data.
 
 You may see some temporary `_vt` tables in your database. These are used to facilitate the deployment and revert process and do not count toward your storage.
+
+## Gated Deployments
+
+Gated Deployments give you more control over when a migration goes live after the deployment process completes.
+
+As part of our non-blocking schema change process, instead of directly modifying table(s) when you deploy a deploy request, we make a copy of the affected table(s) and apply changes to the copy. We get the data from the original table and the copy table in sync, and once complete, initiate a quick cutover where we swap the tables.
+
+With Gated Deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment. Gated Deployments can be enabled on each deploy request by unchecking the "Auto-apply changes box" before you deploy.
+
+This feature is helpful if you have long-running migrations. For very large or complex databases, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With Gated Deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment while you're there to monitor it.
+
+### Enable Gated Deployments
+
+1. When you open a deploy request, uncheck the "**Auto-apply changes**" box.
+
+<ImageBlock alt='PlanetScale deploy request - Auto-apply changes checkbox unchecked' src={gatedDeployments} />
+
+2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
+3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.
+
+<ImageBlock alt='PlanetScale deploy request - Apply changes from deployment button' src={applyChanges} />
+
+<InfoBlock type='note'>
+  If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.
+</InfoBlock>
+
+For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](https://planetscale.com/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale) blog post.
 
 ## Need help?
 
