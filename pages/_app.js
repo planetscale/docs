@@ -64,7 +64,9 @@ export function App({ Component, pageProps }) {
           <link rel='apple-touch-icon' href='/docs/apple-touch-icon.png' />
           <link rel='manifest' href='/docs/manifest.webmanifest' />
         </Head>
-        <Component {...pageProps} />
+        <Page>
+          <Component {...pageProps} />
+        </Page>
       </MDXProvider>
     </ThemeProvider>
   )
