@@ -2,9 +2,12 @@ import React from 'react'
 
 import Router from 'next/router'
 
-// Track client-side page views with Segment
+// Manully track client-side page views with Segment if the user is logged in
+// GTM will track all page views via a page view tag
 Router.events.on('routeChangeComplete', (url) => {
-  window.analytics.page(url)
+  if (window.analytics.user().id()) {
+    window.analytics.page(url)
+  }
 })
 
 const Page = ({ children }) => <div>{children}</div>
