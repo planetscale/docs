@@ -4,7 +4,7 @@
 
 - Install homebrew (https://brew.sh/)
 - Install node and npm
-- Git clone this repository (`git@github.com:planetscale/docs.planetscale.com.git`)
+- Git clone this repository (`git@github.com:planetscale/docs-private.git`)
 - Switch to repository's folder
 - Install package dependencies with `npm install`
 - Execute `npx next dev` or `npm run dev` to start a local nextJS server
