@@ -6,6 +6,7 @@ import Head from 'next/head'
 import { useRouter } from 'next/router'
 
 import { MDXProvider, components } from '../components/MDX'
+import Page from '../components/SegmentPageTracker'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()
