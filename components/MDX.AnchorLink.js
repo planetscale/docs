@@ -5,25 +5,24 @@ import kebabcase from 'lodash.kebabcase'
 
 class AnchorLink extends React.Component {
   render() {
-    const { children, heading } = this.props
+    const { children, heading: Heading } = this.props
 
     const id = getIdFromChildren(children)
 
     return (
       <a className='text-primary' href={`#${id}`}>
-        <h1
+        <Heading
           className={cn('font-semibold', {
-            'text-2l mb-3 mt-4': heading === 'h1',
-            'text-xl mb-2 mt-3': heading === 'h2',
-            'text-lg mb-2 mt-3': heading === 'h3',
-            'text-base mb-1 mt-2': heading === 'h4' || heading === 'h5',
-            'text-sm mb-1 mt-2': heading === 'h6'
+            'text-2l mb-3 mt-4': Heading === 'h1',
+            'text-xl mb-2 mt-3': Heading === 'h2',
+            'text-lg mb-2 mt-3': Heading === 'h3',
+            'text-base mb-1 mt-2': Heading === 'h4' || Heading === 'h5',
+            'text-sm mb-1 mt-2': Heading === 'h6'
           })}
-          as={heading}
           id={id}
         >
           {children}
-        </h1>
+        </Heading>
       </a>
     )
   }
