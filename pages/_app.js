@@ -5,8 +5,8 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
+import Analytics from '../components/Analytics'
 import { MDXProvider, components } from '../components/MDX'
-import Page from '../components/SegmentPageTracker'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()
@@ -65,9 +65,10 @@ export function App({ Component, pageProps }) {
           <link rel='apple-touch-icon' href='/docs/apple-touch-icon.png' />
           <link rel='manifest' href='/docs/manifest.webmanifest' />
         </Head>
-        <Page>
+
+        <Analytics>
           <Component {...pageProps} />
-        </Page>
+        </Analytics>
       </MDXProvider>
     </ThemeProvider>
   )
