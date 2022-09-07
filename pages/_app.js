@@ -5,8 +5,8 @@ import { ThemeProvider } from 'next-themes'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
-import { MDXProvider, components } from '../components/MDX'
 import Analytics from '../components/Analytics'
+import { MDXProvider, components } from '../components/MDX'
 
 export function App({ Component, pageProps }) {
   const router = useRouter()

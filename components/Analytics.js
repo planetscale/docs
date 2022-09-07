@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+
 import Cookies from 'js-cookie'
 import Router, { useRouter } from 'next/router'
 
@@ -19,7 +20,7 @@ const Analytics = ({ children }) => {
 export default Analytics
 
 function trackIdentifiedPage(url) {
-  if (window && window.analytics && typeof Cookies.get('signed_in') !== 'undefined') {
+  if (typeof window !== 'undefined' && window.analytics && typeof Cookies.get('signed_in') !== 'undefined') {
     window.analytics.page(url)
   }
 }
