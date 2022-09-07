@@ -22,12 +22,12 @@ function csp() {
     'block-all-mixed-content',
     "default-src 'self'",
     "frame-src 'none'",
-    `connect-src 'self' https://cdn.segment.com https://api.segment.io https://*.algolia.net https://*.algolianet.com ${
+    `connect-src 'self' https://cdn.segment.com https://api.segment.io https://*.algolia.net https://*.algolianet.com https://youtube.com https://www.youtube.com https://www.youtube-nocookie.com https://noembed.com ${
       isDev && 'ws:'
     }`,
-    `script-src 'self' '${segmentInlineSHA}' '${nextThemeInlineScriptHash}' https://cdn.jsdelivr.net https://cdn.segment.com 'unsafe-eval'`,
+    `script-src 'self' '${segmentInlineSHA}' '${nextThemeInlineScriptHash}' https://cdn.jsdelivr.net https://cdn.segment.com https://www.youtube.com 'unsafe-eval'`,
     "style-src 'self' https://cdn.jsdelivr.net 'unsafe-inline'",
-    "img-src 'self' https://www.netlify.com https://vercel.com data:",
+    "img-src 'self' https://www.netlify.com https://vercel.com https://i.ytimg.com data:",
     "prefetch-src 'self'",
     `form-action 'self'`,
     "frame-ancestors 'none'"
