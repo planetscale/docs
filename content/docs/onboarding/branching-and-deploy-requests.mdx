@@ -25,22 +25,21 @@ There are currently two types of branches in PlanetScale:
 
 ### Production branches
 
-Production branches should be used for the production version of your application. There are certain restrictions in place on production branches in PlanetScale:
+Production branches should be used for the production version of your application. TThere are certain measures in place on production branches to protect your production data:
 
 - Direct DDL is not permitted. You can only apply schema changes using Deploy requests (covered later in this guide).
 - Console access is disabled by default.
-
-Production branches also have at least one read-only replica internally to automatically protect your database against outages.
+- Production branches include at least one read-only replica internally to automatically protect your database against outages.
 
 <InfoBlock type="note">
 
-Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc
+Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc.
 
 </InfoBlock>
 
 ### Non-production branches
 
-Your database can have 1 or more non-production branches, which are used for making changes or experimenting with your database structure. These branches do not have the same restrictions as production branches, but also do not have the same resiliency.
+Your database can have one or more non-production branches, depending on your plan. Non-production branches are used for making changes or experimenting with your database structure. These branches do not have the same protective restrictions or resiliency as production branches.
 
 ### Deploy requests
 

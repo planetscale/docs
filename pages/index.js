@@ -177,13 +177,13 @@ export default function Overview() {
 
         <h2 className='mb-1 text-xl font-semibold'>New to PlanetScale?</h2>
         <p className='mb-2'>
-          Follow this step by step guide to quickly get up and running in PlanetScale. You’ll learn the following:
+          Follow this step-by-step guide to quickly get up and running with PlanetScale. You’ll learn the following:
         </p>
         <ol className='grid grid-cols-2 mb-2 ml-2 list-decimal font-bold gap-1'>
-          <li>Account setup.</li>
-          <li className='order-3'>Creating your first database.</li>
-          <li className='order-2'>Branching and deployments.</li>
-          <li className='order-last'>Connecting to your database.</li>
+          <li>Account setup</li>
+          <li className='order-3'>Creating your first database</li>
+          <li className='order-2'>Branching and deployments</li>
+          <li className='order-last'>Connecting to your database</li>
         </ol>
         <p>
           <ButtonLink href='/onboarding/create-an-account' variant='secondary'>
