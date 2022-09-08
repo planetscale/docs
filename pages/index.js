@@ -183,7 +183,7 @@ export default function Overview() {
           <li>Account setup</li>
           <li className='order-3'>Creating your first database</li>
           <li className='order-2'>Branching and deployments</li>
-          <li className='order-last'>Connecting to your database.</li>
+          <li className='order-last'>Connecting to your database</li>
         </ol>
         <p>
           <ButtonLink href='/onboarding/create-an-account' variant='secondary'>
