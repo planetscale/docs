@@ -14,7 +14,6 @@
     "@mdx-js/react": "^2.1.1",
     "@next/mdx": "^12.2.4",
     "@segment/snippet": "^4.15.3",
-    "@tailwindcss/aspect-ratio": "^0.4.2",
     "@tailwindcss/forms": "^0.5.2",
     "classnames": "^2.3.1",
     "gray-matter": "^4.0.3",
@@ -29,8 +28,6 @@
     "react-copy-to-clipboard": "^5.1.0",
     "react-dom": "latest",
     "react-inlinesvg": "^3.0.0",
-    "react-lite-youtube-embed": "^2.3.1",
-    "react-player": "^2.10.1",
     "remark-gfm": "^3.0.1"
   },
   "devDependencies": {
