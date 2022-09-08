@@ -177,7 +177,7 @@ export default function Overview() {
 
         <h2 className='mb-1 text-xl font-semibold'>New to PlanetScale?</h2>
         <p className='mb-2'>
-          Follow this step by step guide to quickly get up and running in PlanetScale. You’ll learn the following:
+          Follow this step-by-step guide to quickly get up and running with PlanetScale. You’ll learn the following:
         </p>
         <ol className='grid grid-cols-2 mb-2 ml-2 list-decimal font-bold gap-1'>
           <li>Account setup</li>
