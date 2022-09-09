@@ -63,7 +63,7 @@ A typical strategy with branching would go something like this:
 
 Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them. 
 
-Start by navigating to the `travel_db` database. If you haven’t already, click the button that says **"Promote a branch to production"** to flag the default `main` branch as a production branch.
+Start by navigating to the `travel_db` database, click the Branches tab, and select the `main` branch. Click the button that says **"Promote a branch to production"** to flag the default `main` branch as a production branch.
 
 ![The Overview tab of the database.](/docs/img/docs/branching-and-deployments/the-overview-tab-of-the-database.png)
 
@@ -139,7 +139,9 @@ PlanetScale will automatically check to see if your changes can be deployed by c
 
 ![The deploy request view while changes are being evaluated.](/docs/img/docs/branching-and-deployments/the-deploy-request-view-while-changes-are-being-evaluated.png)
 
-Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out.
+Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out. 
+
+There is also the option to auto-apply your changes after PlanetScale has finished staging them. This option is selected by default. If it is disabled, PlanetScale will stage your changes and wait for you to manually apply them before making them live, which can be helpful under certain circumstances.
 
 ![The deploy request view after changes have been evaluated and can be deployed.](/docs/img/docs/branching-and-deployments/the-deploy-request-view-after-changes-have-been-evaluated-and-can-be-deployed.png)
 
