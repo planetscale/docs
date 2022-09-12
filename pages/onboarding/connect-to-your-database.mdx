@@ -4,6 +4,19 @@ subtitle: Understand how to connect your application to your PlanetScale databas
 date: '2022-09-13'
 ---
 
+import ButtonLink from '../../components/ButtonLink.js'
+import Icon from '../../components/Icon.js'
+import QuickStartsGrid from '../../components/QuickStartsGrid.js'
+import ImportGuidesGrid from '../../components/ImportGuidesGrid.js'
+import overview from '../../images/connect-to-your-database--the-overview-tab-of-the-database-with-the-connect-button-highlighted.png'
+import modal from '../../images/connect-to-your-database--the-connect-to-modal.png'
+import modalNewPass from '../../images/connect-to-your-database--the-connect-to-modal-after-the-new-password-button-has-been-clicked.png'
+import lang from '../../images/connect-to-your-database--the-language-framework-selector-of-the-connect-modal.png'
+import gomodal from '../../images/connect-to-your-database--the-connect-modal-with-go-selected.png'
+import mainmodal from '../../images/connect-to-your-database--the-main-go-file-provided-with-the-connection-details.png'
+import branches from '../../images/connect-to-your-database--the-branches-tab.png'
+import connect from '../../images/connect-to-your-database--the-connect-button-of-the-dev-branch.png'
+
 ## Overview
 
 Now that you have your database set up, the next step is to connect it to your application. Most database systems, including PlanetScale, allow applications to connect using connection strings. Connection strings are strings that contain your database credentials and other connection information needed to connect to your database.
@@ -20,25 +33,24 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 
 Open the `travel_db` and click the **"Connect"** button.
 
-![The Overview tab of the database with the Connect button highlighted.](/docs/img/docs/connect-to-your-database/the-overview-tab-of-the-database-with-the-connect-button-highlighted.png)
+<ImageBlock alt="The Overview tab of the database with the Connect button highlighted." src={overview} />
 
 The following modal will provide the information required to connect to your database. If this is your first time accessing the **Connect** modal, the password will be displayed in plain text, otherwise, the password will be masked.
 
-![The Connect to modal.](/docs/img/docs/connect-to-your-database/the-connect-to-modal.png)
+<ImageBlock alt="The Connect to modal." src={modal} />
 
 If you need to generate a new password, simply click the **"New password"** button to generate a new set of credentials.
 
-![The Connect to modal after the New password button has been clicked.](/docs/img/docs/connect-to-your-database/the-connect-to-modal-after-the-new-password-button-has-been-clicked.png)
+<ImageBlock alt="The Connect to modal after the New password button has been clicked." src={modalNewPass} />
 
 If you want a language/framework-specific connection string, you can use the **"Connect with"** dropdown and pick the option that best suits what you are building with. 
 
-![The language/framework selector of the Connect modal.](/docs/img/docs/connect-to-your-database/the-language-framework-selector-of-the-connect-modal.png)
+<ImageBlock alt="The language/framework selector of the Connect modal." src={lang} />
 
 Selecting any of these options not only provides the connection string specific to your environment, but also a sample file that can be used in your code. For example, if you select **"Go"** from the list of options, you’ll be provided a sample **.env** file that contains the connection string as well as a **main.go** file that has the necessary code to connect to PlanetScale using that connection string.
 
-![The Connect modal with Go selected.](/docs/img/docs/connect-to-your-database/the-connect-modal-with-go-selected.png)
-
-![The main.go file provided with the connection details.](/docs/img/docs/connect-to-your-database/the-main-go-file-provided-with-the-connection-details.png)
+<ImageBlock alt="The Connect modal with Go selected." src={gomodal} />
+<ImageBlock alt="The main.go file provided with the connection details." src={mainmodal} />
 
 ## Branches and connection strings
 
@@ -50,11 +62,11 @@ To create a connection string for another branch, simply navigate to the branch,
 
 Click on **"Branches"**, then select the **"dev"** branch from the list.
 
-![The branches tab.](/docs/img/docs/connect-to-your-database/the-branches-tab.png)
+<ImageBlock alt="The branches tab." src={branches} />
 
 In the Overview tab of the `dev` branch, there is a Connect button. Clicking that button will display the same modal as earlier, but the connection string will be for that specific branch instead of `main`.
 
-![The Connect button of the dev branch.](/docs/img/docs/connect-to-your-database/the-connect-button-of-the-dev-branch.png)
+<ImageBlock alt="The Connect button of the dev branch." src={connect} />
 
 ## What's next?
 

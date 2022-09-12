@@ -1,7 +1,6 @@
 import React from 'react'
 
 import Link from 'next/link'
-// import SVG from 'react-inlinesvg'
 
 function QuickStartCard({ href, imgPath, title, children }) {
   return (
