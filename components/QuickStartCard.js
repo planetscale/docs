@@ -8,9 +8,7 @@ function QuickStartCard({ href, imgPath, title, children }) {
     <Link href={href}>
       <a className='quick-start-card flex flex-col items-center h-full p-3 text-center border rounded hover:bg-secondary'>
         <div className='inline-block img-wrapper h-[32px]'>
-          {/* eslint-disable-next-line jsx-a11y/alt-text */}
-          <img src={imgPath} style={{ maxHeight: '32px', border: '0px' }} />
-          {/* <SVG src={svgPath} height={32} width={37} className='mb-2 text-black dark:text-white' /> */}
+          <img alt={title} src={imgPath} style={{ maxHeight: '32px', border: '0px' }} />
         </div>
         <h3 className='text-lg font-semibold text-primary mb-sm'>{title}</h3>
         {children && <p className='text-secondary'>{children}</p>}
