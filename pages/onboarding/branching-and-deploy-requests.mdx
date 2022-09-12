@@ -4,6 +4,31 @@ subtitle: Explore how to utilize branching in PlanetScale, a key feature of the 
 date: '2022-09-13'
 ---
 
+import ButtonLink from '../../components/ButtonLink.js'
+import Icon from '../../components/Icon.js'
+import overview from "../../images/branching-and-deploy-requests--the-overview-tab-of-the-database.png"
+import modal from "../../images/branching-and-deploy-requests--the-promote-branch-modal.png"
+import saulgoodConsole from "../../images/branching-and-deploy-requests--the-console-of-the-main-branch-after-changes-have-been-deployed.png"
+import saulgood from "../../images/branching-and-deploy-requests--the-deploy-request-view-after-changes-have-been-deployed.png"
+import summary from "../../images/branching-and-deploy-requests--the-summary-tab-of-the-deploy-request.png"
+import diff from "../../images/branching-and-deploy-requests--the-schema-changes-tab-with-the-diff-between-branches.png"
+import prgood from "../../images/branching-and-deploy-requests--the-deploy-request-view-after-changes-have-been-evaluated-and-can-be-deployed.png"
+import evaluating from "../../images/branching-and-deploy-requests--the-deploy-request-view-while-changes-are-being-evaluated.png"
+import devBranch from "../../images/branching-and-deploy-requests--the-overview-tab-of-the-dev-branch.png"
+import branchPicker2 from "../../images/branching-and-deploy-requests--the-branch-quick-access-menu.png"
+import console3 from "../../images/branching-and-deploy-requests--the-console-of-the-main-branch-with-the-output-of-the-describe-command.png"
+import branchesTab from "../../images/branching-and-deploy-requests--the-branches-tab.png"
+import settings from "../../images/branching-and-deploy-requests--the-settings-view-of-where-to-allow-console-access-for-production-branches.png"
+import badconsole from "../../images/branching-and-deploy-requests--the-disabled-console-tab.png"
+import branchPicker from "../../images/branching-and-deploy-requests--how-to-quickly-access-different-branches.png"
+import console2 from "../../images/branching-and-deploy-requests--the-console-with-the-output-of-the-describe-comamnd.png"
+import console from "../../images/branching-and-deploy-requests--the-console-with-the-output-of-the-alter-command.png"
+import branchView from "../../images/branching-and-deploy-requests--the-view-of-the-branch-after-its-been-initialized.png"
+import branchInit from "../../images/branching-and-deploy-requests--the-view-of-the-branch-being-initialized.png"
+import modal2 from "../../images/branching-and-deploy-requests--the-new-branch-modal.png"
+import overview2 from "../../images/branching-and-deploy-requests--the-overview-tab-of-the-database-with-the-new-branch-button-highlighted.png"
+
+
 ## Overview
 
 Now that you have an account and database set up, we can explore one of the key features of PlanetScale: branching. 
@@ -68,35 +93,38 @@ We're going to promote our existing branch to production, create a new developme
 
 Start by navigating to the `travel_db` database, click the **"Branches"** tab, and select the `main` branch. Click the button that says **"Promote a branch to production"** to flag the default `main` branch as a production branch.
 
-![The Overview tab of the database.](/docs/img/docs/branching-and-deployments/the-overview-tab-of-the-database.png)
+<ImageBlock alt="The Overview tab of the database." src={overview} />
 
 In the modal that appears, `main` should be selected. Click **"Promote branch"**.
 
-![The Promote branch modal.](/docs/img/docs/branching-and-deployments/the-promote-branch-modal.png)
+<ImageBlock alt="The Promote branch modal." src={modal} />
+
 ### Create a dev branch
+
 Back in the database **"Overview"** tab, click the **"New branch"** button to create a new branch.
 
-![The Overview tab of the database with the New branch button highlighted.](/docs/img/docs/branching-and-deployments/the-overview-tab-of-the-database-with-the-new-branch-button-highlighted.png)
+<ImageBlock alt="The Overview tab of the database with the New branch button highlighted." src={overview2} />
 
 In the **New branch** modal, you’ll see options to name the branch, select the base, and even change the region for this branch. Name the branch `dev` and click **"Create branch"**.
 
-![The New branch modal.](/docs/img/docs/branching-and-deployments/the-new-branch-modal.png)
+<ImageBlock alt="The New branch modal." src={modal2} />
 
 The branch takes a few minutes to initialize. Wait for this process to complete before proceeding.
 
-![The view of the branch being initialized.](/docs/img/docs/branching-and-deployments/the-view-of-the-branch-being-initialized.png)
+<ImageBlock alt="The view of the branch being initialized." src={branchInit} />
 
 Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Overview"** tab.
 
-![The view of the branch after its been initialized.](/docs/img/docs/branching-and-deployments/the-view-of-the-branch-after-its-been-initialized.png)
+<ImageBlock alt="The view of the branch after its been initialized." src={branchView} />
+
 ### Make a schema change
-Now that the branch is initialized, let’s update the schema of our `hotels` table and add a `description` column. Click the Console tab and run the following script.
+Now that the branch is initialized, let’s update the schema of our `hotels` table and add a `description` column. Click the **"Console"** tab and run the following script.
 
 ```sql
 ALTER TABLE hotels ADD description VARCHAR(500); 
 ```
 
-![The console with the output of the ALTER command.](/docs/img/docs/branching-and-deployments/the-console-with-the-output-of-the-alter-command.png)
+<ImageBlock alt="The console with the output of the ALTER command." src={console} />
 
 Now run the following command to see the structure of the table in the `dev` branch. You’ll see the new `description` column in the table structure.
 
@@ -104,23 +132,23 @@ Now run the following command to see the structure of the table in the `dev` bra
 DESCRIBE hotels;
 ```
 
-![The console with the output of the DESCRIBE comamnd.](/docs/img/docs/branching-and-deployments/the-console-with-the-output-of-the-describe-comamnd.png)
+<ImageBlock alt="The console with the output of the DESCRIBE command." src={console2} />
 
 Before we merge these changes, let's double-check the `main` branch of the database and compare the structure of the same table. To quickly switch branches, click the branch name in the header and select **"main"** from the list.
 
-![How to quickly access different branches.](/docs/img/docs/branching-and-deployments/how-to-quickly-access-different-branches.png)
+<ImageBlock alt="How to quickly access different branches." src={branchPicker} />
 
 Since `main` is a production branch, if you click on **"Console"**, you’ll get a notice that it is disabled on production branches. 
 
-![The disabled Console tab.](/docs/img/docs/branching-and-deployments/the-disabled-console-tab.png)
+<ImageBlock alt="The disabled Console tab." src={badconsole} />
 
 In a working environment, you’d want it to stay like this since it protects the data in that branch. For the sake of the guide though, we can turn this protection off so we can check the structure of the table. Click on the database name in the header and click the **"Settings"** tab to access the general database settings. Check the box that says **"Allow web console access to production branches"**, then click **"Save database settings"**.
 
-![The settings view of where to allow console access for production branches.](/docs/img/docs/branching-and-deployments/the-settings-view-of-where-to-allow-console-access-for-production-branches.png)
+<ImageBlock alt="The settings view of where to allow console access for production branches." src={settings} />
 
 To access the `main` branch again, click the **"Branches"** tab, then the **"main"** branch from the list.
 
-![The branches tab.](/docs/img/docs/branching-and-deployments/the-branches-tab.png)
+<ImageBlock alt="The branches tab." src={branchesTab} />
 
 Click the **"Console"** tab and it should be available now. Run the following command to see the structure of the `hotels` table. 
 
@@ -128,37 +156,38 @@ Click the **"Console"** tab and it should be available now. Run the following co
 DESCRIBE hotels;
 ```
 
-![The console of the main branch with the output of the DESCRIBE command.](/docs/img/docs/branching-and-deployments/the-console-of-the-main-branch-with-the-output-of-the-describe-command.png)
+<ImageBlock alt="The console of the main branch with the output of the DESCRIBE command." src={console3} />
 
 Notice how `description` is missing. This is because we made the change on the `dev` branch and haven’t merged the changes into `main`. Let’s fix that now. Click the branch name in the header and access the **"dev"** branch.
 
-![The branch quick access menu.](/docs/img/docs/branching-and-deployments/the-branch-quick-access-menu.png)
+<ImageBlock alt="The branch quick access menu." src={branchPicker2} />
+
 ### Create a deploy request
 On the **"Overview"** tab, you can now create a deploy request. Enter a comment (optional), then click "Create deploy request".
 
-![The Overview tab of the dev branch.](/docs/img/docs/branching-and-deployments/the-overview-tab-of-the-dev-branch.png)
+<ImageBlock alt="The Overview tab of the dev branch." src={devBranch} />
 
 PlanetScale will automatically check to see if your changes can be deployed by comparing the schemas between the `dev` and `main` branches.
 
-![The deploy request view while changes are being evaluated.](/docs/img/docs/branching-and-deployments/the-deploy-request-view-while-changes-are-being-evaluated.png)
+<ImageBlock alt="The deploy request view while changes are being evaluated." src={evaluating} />
 
 Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out. 
 
 There is also the option to auto-apply your changes after PlanetScale has finished staging them. This option is selected by default. If it is disabled, PlanetScale will stage your changes and wait for you to manually apply them before making them live, which can be helpful under certain circumstances.
 
-![The deploy request view after changes have been evaluated and can be deployed.](/docs/img/docs/branching-and-deployments/the-deploy-request-view-after-changes-have-been-evaluated-and-can-be-deployed.png)
+<ImageBlock alt="The deploy request view after changes have been evaluated and can be deployed." src={prgood} />
 
 You also have the option to view the schema changes by clicking the **"View schema changes button"** or clicking the **"Schema changes"** tab. This will show a diff between the schemas so you can see what changes will be applied. 
 
-![The Schema changes tab with the diff between branches.](/docs/img/docs/branching-and-deployments/the-schema-changes-tab-with-the-diff-between-branches.png)
+<ImageBlock alt="The Schema changes tab with the diff between branches." src={diff} />
 
 Once you are done exploring, click the **"Deploy changes"** button on the summary tab.
 
-![The Summary tab of the deploy request.](/docs/img/docs/branching-and-deployments/the-summary-tab-of-the-deploy-request.png)
+<ImageBlock alt="The Summary tab of the deploy request." src={summary} />
 
 Once the changes are deployed, the status of the deployment will be displayed, along with how long the deployment took and who initiated it.
 
-![The deploy request view after changes have been deployed.](/docs/img/docs/branching-and-deployments/the-deploy-request-view-after-changes-have-been-deployed.png)
+<ImageBlock alt="The deploy request view after changes have been deployed." src={saulgood} />
 
 Head back to the console of the `main` branch and run the `DESCRIBE` command again. Notice how the `main` branch now has the `description` column that was added to `dev` earlier in the guide.
 
@@ -166,7 +195,7 @@ Head back to the console of the `main` branch and run the `DESCRIBE` command aga
 DESCRIBE hotels;
 ```
 
-![The console of the main branch after changes have been deployed.](/docs/img/docs/branching-and-deployments/the-console-of-the-main-branch-after-changes-have-been-deployed.png)
+<ImageBlock alt="The console of the main branch after changes have been deployed." src={saulgoodConsole} />
 
 ## What's next?
 
