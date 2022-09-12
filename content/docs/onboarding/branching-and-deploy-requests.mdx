@@ -57,7 +57,7 @@ A typical strategy with branching would go something like this:
 - A developer decides to extend a form in the application and needs to add a new field. They create a branch in the code to manage their changes.
 - Because this is a new data field, a new column must be added to the corresponding table in PlanetScale. The developer adds this column to the `dev` branch of the PlanetScale database.
 - After the new field has been added to the code, the developer creates a pull request to merge the code branches, and a **Deploy request** in PlanetScale to merge the database changes.
-- Both the pull request and Deploy request are merged. The new version of the application goes live, and the schema changes are safely applied to the `main` branch of the database with zero downtime to the users of the application.
+- The PlanetScale deploy request is merged first to ensure that the column exists in the database before the application code starts writing to it. Once live, the application code pull request is merged in. With this branching workflow, the schema changes are safely applied to the `main` branch of the database without any table locking occurring and zero downtime to the users of the application.
 
 ## Branching in action
 
