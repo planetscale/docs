@@ -1,0 +1,46 @@
+---
+title: 'Handling table and column renames'
+subtitle: 'How to manage table and column renames with online DDL and no downtime'
+date: '2022-08-01'
+---
+
+## Overview
+
+In SQL, it is possible to `RENAME` either a column or a table using an [`ALTER` statement](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html). This keeps the data and type of the column or entire table the same and changes only the name.
+
+PlanetScale does not support this method of table and column renames.
+
+If you do need to rename a column or table, the following section covers how you should do it with PlanetScale using [Deploy Requests](/docs/concepts/deploy-requests).
+
+## How to rename a column on PlanetScale
+
+1. Create a new column with the new name.
+2. Update the application to write to both columns with new data.
+3. Backfill all the data in the new column for rows that are still missing that information.
+4. Optionally, add constraints like `NOT NULL` to the new column once all the data is backfilled.
+5. Update the application to only use the new column, and remove any references to the old column name.
+6. Drop the old column.
+
+This means at least two deploy requests are needed (potentially more if you want to enforce `NOT NULL` without a `DEFAULT`), where you first add the newly named column and then drop the old one.
+
+## Why not support renames?
+
+There are two reasons why renames are not supported. The first reason is that PlanetScale uses a declarative model for determining the changes between schemas. This means that there is no way to know for sure if something is a rename or if it was an add and drop column. The second reason is that safely performing a rename requires downtime for your application.
+
+### Declarative model for schema migrations
+
+PlanetScale uses a declarative model to determine schema changes. This means that we look at the end state of two branches and compare them to find the difference. When you rename a column, there is no way to know whether there was a rename or if a column was added and dropped in a development branch.
+
+It would be possible to apply heuristics to determine if something looks like a rename, but this is not 100% guaranteed to be correct. For example, if a column is renamed and a second column is dropped adjacent to the one that was renamed, it is impossible to determine which column to rename with certainty.
+
+Because of this, we only detect simple cases that look like a rename and alert the user on that in a deploy request. While it would be possible to generate a `RENAME` in such a case, we don't know if that is correct, and do not want to execute any schema changes that are not requested.
+
+### Downtime with renames
+
+When using a `RENAME`, downtime for your application can only be avoided with significant and complex logic on the application side. While the application is running, suddenly a column disappears and another one appears that contains the same data. This means that the application both needs to be able to handle the state when this happens and know that the data is the same.
+
+Usually the only way to handle a column rename is to simultaneously deploy the application, but that is very difficult as it races with the database changes and is not perfectly atomic and synchronized with the schema change.
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

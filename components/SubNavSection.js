@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import classNames from 'classnames'
+import cn from 'classnames'
 
 import NavItem from './NavItem'
 
@@ -20,7 +20,7 @@ const SubNavSection = ({ page, subpages, categoryID }) => {
         {page['display']}
       </button>
       <div
-        className={classNames('ml-1.5 pl-2.5 border-l', {
+        className={cn('ml-1.5 pl-2.5 border-l', {
           hidden: !showSubNav
         })}
       >

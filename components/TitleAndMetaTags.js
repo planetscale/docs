@@ -41,7 +41,7 @@ export function TitleAndMetaTags({ url, pathname, title, type, description, bann
     }
   }
 
-  const currentUrl = pathname ? `${url}/${pathname}` : url
+  const currentUrl = pathname ? `${url}${pathname}` : url
 
   return (
     <Head>

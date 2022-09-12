@@ -1,0 +1,137 @@
+---
+title: 'AWS Lambda connection strings'
+subtitle: 'Learn how to securely use your PlanetScale MySQL connection strings with AWS Lambda Functions'
+date: '2022-08-01'
+---
+
+import aws from '../../images/aws-lambda-connection-strings--aws.png'
+import branches from '../../images/aws-lambda-connection-strings--branches.png'
+import configuration from '../../images/aws-lambda-connection-strings--configuration.png'
+import connect from '../../images/aws-lambda-connection-strings--connect.png'
+import create from '../../images/aws-lambda-connection-strings--create.png'
+import createFunction from '../../images/aws-lambda-connection-strings--create-function.png'
+import dashboard from '../../images/aws-lambda-connection-strings--dashboard.png'
+import environmentVariables from '../../images/aws-lambda-connection-strings--environment-variables.png'
+import functions from '../../images/aws-lambda-connection-strings--functions.png'
+import node from '../../images/aws-lambda-connection-strings--node.png'
+import production from '../../images/aws-lambda-connection-strings--production.png'
+import promote from '../../images/aws-lambda-connection-strings--promote.png'
+import promoted from '../../images/aws-lambda-connection-strings--promoted.png'
+import select from '../../images/aws-lambda-connection-strings--select.png'
+import source from '../../images/aws-lambda-connection-strings--source.png'
+import success from '../../images/aws-lambda-connection-strings--success.png'
+import test from '../../images/aws-lambda-connection-strings--test.png'
+import upload from '../../images/aws-lambda-connection-strings--upload.png'
+
+## Introduction
+
+In this guide, you'll learn how to properly store and use PlanetScale MySQL connection strings for use in AWS Lambda Functions. We'll use a [pre-built NodeJS](https://github.com/planetscale/aws-connection-strings-example) app for this example, but you can follow along using your own application as well.
+
+## Prerequisites
+
+- An AWS account
+- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+
+## Set up the database
+
+<InfoBlock type='note'>
+  If you already have a database with a production branch, skip to [the next section](#configure-the-lambda-function).
+</InfoBlock>
+
+Let's start by creating the database. In the PlanetScale dashboard, click the "**New database**" button followed by "**Create new database**". Name the database **lambda-connection-strings,** or any other name that you prefer. Click "**Create database**".
+
+<ImageBlock alt='The PlanetScale dashboard' src={dashboard} />
+
+<ImageBlock alt='The new database modal' src={create} />
+
+Once your database has finished initializing, access the console of the main branch by heading to **Branches** in the top nav, followed by **main**, then **Console**.
+
+<ImageBlock alt='The dashboard branches tab' src={branches} />
+
+<ImageBlock alt='The console' src={console} />
+
+Create a simple table & insert some data using the following script:
+
+```sql
+CREATE TABLE Tasks(
+	Id int PRIMARY KEY AUTO_INCREMENT,
+	Name varchar(100),
+	IsDone bit
+);
+
+INSERT INTO Tasks (Name) VALUES ('Clean the kitchen');
+INSERT INTO Tasks (Name) VALUES ('Fold the laundry');
+INSERT INTO Tasks (Name) VALUES ('Watch the sportsball game');
+```
+
+You may run `SELECT * FROM Tasks` to ensure the data was properly added from the console.
+
+<ImageBlock alt='Records from the console' src={select} />
+
+Now we need to promote the **main** branch to production. Click the **Overview** tab, then **Promote a branch to production**. Since there is only one branch, it will be selected by default in the confirmation modal. Click on **Promote branch**.
+
+<ImageBlock alt='The option to promote a branch' src={production} />
+
+<ImageBlock alt='The modal to promote to production branch' src={promote} />
+
+Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button in the upper right, select **NodeJS** from the **Connect with** dropdown, and note the details in the .env tab of the modal. These details will be required to connect to the database.
+
+<ImageBlock alt='The dashboard after the database has been promoted' src={promoted} />
+
+<ImageBlock alt='The connection string for this database' src={connect} />
+
+## Configure the Lambda function
+
+Secrets in AWS Lambda functions, which include database connection strings, are often stored as environment variables with the Lambda function. We’ll be uploading a sample NodeJS app that has been provided and storing the connection string from the previous section as an environment variable to test.
+
+Start by cloning the following Git repository:
+
+```bash
+git clone https://github.com/planetscale/aws-connection-strings-example.git
+```
+
+Log into the AWS Console, use the universal search to search for ‘**Lambda**’, and select it from the list of services.
+
+<ImageBlock alt='Search for Lambda in the AWS Console' src={aws} />
+
+Create a new function using the **Create function** button in the upper right of the console.
+
+<ImageBlock alt='The default view of Lambda functions' src={functions} />
+
+Name your function **lambda-connection-strings** (or any other name that suits you) and select **NodeJS** under **Runtime**. The other fields can be left as default. Click **Create function** to finish the initial setup of your Lambda.
+
+<ImageBlock alt='The view to create a Lambda function' src={createFunction} />
+
+On the next view, about halfway down the page you’ll see a section called **Code source**. Click the **Upload from** button, then **.zip file**.
+
+<ImageBlock alt='The default NodeJS Lambda function' src={node} />
+
+Click the **Upload** button which will display a file browser. Select the **aws-connection-strings-example.zip** file from the **dist** folder of the provided repository. Click **Save** once it’s been selected.
+
+<ImageBlock alt='The modal to upload code' src={upload} />
+
+The contents of the code editor under **Code source** should have updated to show the code stored in the zip file.
+
+<ImageBlock alt='The code of the Lambda function that was uploaded' src={source} />
+
+### Configure environment variables
+
+Next, you need to set the PlanetScale `DATABASE_URL` environment variable that you copied earlier. Select the **Configuration** tab, and click **Edit**.
+
+<ImageBlock alt='The configuration tab' src={configuration} />
+
+You’ll be presented with a view to add or update environment variables. Click **Add environment variable** and the view will update with a row to add an environment variable. Set the **Key** field to **DATABASE_URL** and the **Value** to the connection string taken from the previous section. Click **Save** once finished.
+
+<ImageBlock alt='The view to manage environment variables' src={environmentVariables} />
+
+Finally, test the function by selecting the **Test** tab, and then clicking the **Test** button.
+
+<ImageBlock alt='The test tab' src={test} />
+
+An **Execution results** box will display above the **Test event** section. If the box is green, it likely means everything executed as expected. Click the dropdown next to **Details** to see the results of the query. Since the results of the query were logged out to the console, they will be displayed in the **Log output** section.
+
+<ImageBlock alt='The execution results' src={success} />
+
+## Need help?
+
+Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

@@ -6,5 +6,13 @@ module.exports = {
   "tabWidth": 2,
   "useTabs": false,
   "jsxSingleQuote": true,
-  "bracketSpacing": true
+  "bracketSpacing": true,
+  "overrides": [
+    {
+      "files": "*.mdx",
+      "options": {
+        "printWidth": 120
+      }
+    }
+  ]
 }

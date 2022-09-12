@@ -1,0 +1,92 @@
+---
+title: Node.js example using the PlanetScale serverless driver 
+subtitle: Learn the PlanetScale serverless driver by running a local Node.js project.
+date: '2022-08-18'
+---
+
+## Overview
+
+This guide will cover how to use the provided Node.js sample application using the PlanetScale serverless driver for JavaScript. Before following this guide, make sure you've [enabled the feature](/docs/tutorials/planetscale-serverless-driver) and created a password to use with the driver.
+
+<InfoBlock type="note">
+
+This guide will be using VS Code as the IDE, but you may use your preferred IDE.
+
+</InfoBlock>
+
+## Use the sample repository
+
+We offer a sample repository that can be used as an educational resource. It is an Express API that can be run locally with sample `SELECT`, `INSERT`, `UPDATE`, and `DELETE` statements mapped to the proper API endpoints.
+
+To follow along, you’ll need the following:
+
+- A PlanetScale account, as well as knowing how to create a database.
+- The PlanetScale CLI is installed on your computer, which will be used to seed data.
+
+Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**. 
+
+![How to create a new database.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/how-to-create-a-new-database.png)
+
+Name the database `travel_db`. Click **"Create database"**.
+
+![The New database modal.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-new-database-modal.png)
+
+Wait for the database to finish initializing before moving on. 
+
+![The travel_db initializing.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-travel_db-initializing.png)
+
+Enable the **PlanetScale serverless driver for JavaScript** feature by clicking on **"Settings"** > **"Beta features"**, then clicking **"Enroll"** in the PlanetScale serverless driver for JavaScript section.
+
+![Enable PlanetScale serverless driver for JavaScript for travel_db.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/enable-serverless-driver-for-travel_db.png)
+
+Generate a set of credentials by clicking the **"Connect"** button. 
+
+![The Connect button in the PlanetScale dashboard.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-connect-button-in-the-planetscale-dashboard.png)
+
+Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
+
+![The Connect modal.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-connect-modal.png)
+
+On your workstation, open a terminal and clone the repository to your computer by running the following command:
+
+```bash
+git clone https://github.com/planetscale/database-js-starter
+```
+
+Navigate to the `scripts` folder and run the `seed_database.sh` script to populate a small database simulating a travel agency.
+
+```bash
+cd database-js-starter/scripts
+./seed-database.sh
+```
+
+<InfoBlock type="note">
+
+If you are using Windows, run this command through the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/)
+
+</InfoBlock>
+
+Create a new file file named `.env` in the root of the project and paste in the sample provided from PlanetScale.
+
+![The .env example.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-env-example.png)
+
+To run the project, run the following commands from the root of the project.
+
+```bash
+npm install
+npm start
+```
+
+If the project is running properly, you should receive a message stating that the API is running.
+
+![The terminal running the sample project.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-terminal-running-the-sample-project.png)
+
+The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action. 
+
+![An example of a POST request to the sample project.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/an-example-of-a-post-request-to-the-sample-project.png)
+
+If you check the terminal where the API was started, the response from the `execute` function is logged out for review. 
+
+![The console output after a hotel is added.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-console-output-after-a-hotel-is-added.png)
+
+<GetHelp />

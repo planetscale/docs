@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 
-import classNames from 'classnames'
+import cn from 'classnames'
 import Cookies from 'js-cookie'
 import Link from 'next/link'
 
@@ -35,7 +35,7 @@ export default function Header() {
       <div className='relative z-40 w-full py-3 mx-auto border-b bg-primary text-primary'>
         {/* Overlay */}
         <div
-          className={classNames('md:hidden duration-300 fixed z-30 inset-0 transition-opacity', {
+          className={cn('md:hidden duration-300 fixed z-30 inset-0 transition-opacity', {
             'opacity-0 pointer-events-none': !showMobileNav,
             'opacity-100 pointer-events-auto': showMobileNav
           })}
@@ -57,7 +57,7 @@ export default function Header() {
           </div>
 
           <div
-            className={classNames(
+            className={cn(
               'col-start-1 col-span-2 md:col-span-1 pt-3 md:pt-0 row-start-3 md:col-start-2 md:row-start-1 md:flex',
               {
                 hidden: !showMobileNav
@@ -67,7 +67,7 @@ export default function Header() {
             <SearchBar />
           </div>
           <div
-            className={classNames(
+            className={cn(
               'col-start-1 col-span-2 md:col-span-1 row-start-2 pt-5 md:pt-0 md:row-start-1 md:col-start-3 md:justify-end md:flex',
               {
                 hidden: !showMobileNav
@@ -92,7 +92,7 @@ export default function Header() {
           </div>
         </header>
         <div
-          className={classNames('relative z-40 w-full px-3 pt-3 sm:px-6 lg:px-8 sm:w-1/2 md:hidden', {
+          className={cn('relative z-40 w-full px-3 pt-3 sm:px-6 lg:px-8 sm:w-1/2 md:hidden', {
             hidden: !showMobileNav
           })}
         >
