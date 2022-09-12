@@ -53,7 +53,7 @@ Most applications have at least two environments, a production environment where
 
 A typical strategy with branching would go something like this:
 
-- The PlanetScale database has two branches, `main` and `dev`.
+- The PlanetScale database has two branches: `main` and `dev`.
 - A developer decides to extend a form in the application and needs to add a new field. They create a branch in the code to manage their changes.
 - Because this is a new data field, a new column must be added to the corresponding table in PlanetScale. The developer adds this column to the `dev` branch of the PlanetScale database.
 - After the new field has been added to the code, the developer creates a pull request to merge the code branches, and a **Deploy request** in PlanetScale to merge the database changes.
