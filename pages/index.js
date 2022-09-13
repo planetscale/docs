@@ -27,7 +27,7 @@ export default function Overview() {
             height='84'
             viewBox='0 0 720 84'
             fill='none'
-            className='max-w-fit'
+            className='max-w-fit h-auto w-full'
             xmlns='http://www.w3.org/2000/svg'
           >
             <path
