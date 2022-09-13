@@ -186,8 +186,8 @@ export default function Overview() {
           <li className='order-last'>Connecting to your database</li>
         </ol>
         <p>
-          <ButtonLink href='/onboarding/create-an-account' variant='secondary'>
-            Get started
+          <ButtonLink href='/onboarding/create-an-account' variant='secondary' className='text-lg'>
+            Get started with PlanetScale
           </ButtonLink>
         </p>
       </div>
