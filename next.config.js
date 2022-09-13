@@ -16,7 +16,7 @@ function csp() {
     "base-uri 'self'",
     'block-all-mixed-content',
     "default-src 'self'",
-    "frame-src 'none'",
+    'frame-src https://player.vimeo.com',
     `connect-src 'self' https://cdn.segment.com https://api.segment.io https://*.algolia.net https://*.algolianet.com ${
       isDev && 'ws:'
     }`,

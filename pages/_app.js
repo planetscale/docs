@@ -64,6 +64,7 @@ export function App({ Component, pageProps }) {
           <link rel='icon' href={favicon} sizes='any' type='image/svg+xml' />
           <link rel='apple-touch-icon' href='/docs/apple-touch-icon.png' />
           <link rel='manifest' href='/docs/manifest.webmanifest' />
+          <script src='https://player.vimeo.com/api/player.js'></script>
         </Head>
 
         <Analytics>
