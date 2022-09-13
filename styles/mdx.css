@@ -99,6 +99,18 @@
     border: 1px solid var(--border-primary);
     border-radius: 6px;
   }
+
+  .quick-start-card {
+    .img-wrapper {
+      margin-bottom: 10px;
+
+      img {
+        background-color: white;
+        padding: 2px;
+      }
+    }
+
+  }
 }
 
 .ignore-img-borders {
