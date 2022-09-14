@@ -1,20 +1,13 @@
-import React, { useEffect } from 'react'
+import React from 'react'
+
+import Script from 'next/script'
 
 export default function VimeoEmbed(props) {
   const { alt, src } = props
 
-  useEffect(() => {
-    const script = document.createElement('script')
-    script.src = 'https://player.vimeo.com/api/player.js'
-    script.async = true
-    document.body.appendChild(script)
-    return () => {
-      document.body.removeChild(script)
-    }
-  }, [])
-
   return (
     <div className='mt-3'>
+      <Script src='https://player.vimeo.com/api/player.js' />
       <div className='mb-3 w-100 relative h-0 rounded' style={{ paddingBottom: '56.25%' }}>
         <iframe
           src={src}
