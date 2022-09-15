@@ -1,9 +1,0 @@
-{
-  "name": "PlanetScale Documentation",
-  "short_name": "Documentation",
-  "start_url": "https://planetscale.com/docs",
-  "icons": [
-    { "src": "/docs/icon-192.png", "type": "image/png", "sizes": "192x192" },
-    { "src": "/docs/icon-512.png", "type": "image/png", "sizes": "512x512" }
-  ]
-}
