@@ -36,7 +36,7 @@ PlanetScale will check if the request is deployable. This process includes check
 3. Under "**Summary**", you'll see if the request is deployable.
 4. To review the schema changes, click the "**Schema changes**" tab.
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
-6. If you have required deploy requests to be approved before deployment, you'll also see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
+6. If you have required deploy requests to be approved before deployment, other users in your Organization will see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 
 <ImageBlock alt='PlanetScale deploy request - approve changes' src={approve} />
 
@@ -46,7 +46,7 @@ PlanetScale will check if the request is deployable. This process includes check
 10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
 11. After you deploy, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
 
-If you would like to require approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Deploy requests require approval before deploy**" box. You must be an Organization Administrator to enable this.
+If you would like to require an administrator's approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Require administrator approval for deploy requests**" box. You must be an Organization Administrator to enable this restriction. Please note you will not be able to approve your own deploy requests.
 
 ## Close a deploy request
 
