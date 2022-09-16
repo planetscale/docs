@@ -1,0 +1,38 @@
+name: Sync downstream
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  sync-downstream:
+    runs-on: ubuntu-latest
+
+    strategy:
+      fail-fast: false
+      matrix:
+        directory:
+          - 'concepts'
+          - 'integrations'
+          - 'learn'
+          - 'reference'
+          - 'support'
+          - 'tutorials'
+
+    name: Sync docs/${{ matrix.directory }}
+
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      - name: Sync downstream
+        run: bash scripts/sync-downstream.sh
+        env:
+          COMMIT_MESSAGE: '🤖'
+          SOURCE_DIRECTORY: 'pages/${{ matrix.directory }}'
+          TARGET_DIRECTORY: 'docs/${{ matrix.directory }}'
+          TARGET_BRANCH: next
+          PAT: ${{ secrets.PAT }}
