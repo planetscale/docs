@@ -32,7 +32,7 @@
     "simple-functional-loader": "^1.2.1"
   },
   "devDependencies": {
-    "autoprefixer": "^10.4.10",
+    "autoprefixer": "^10.4.11",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
