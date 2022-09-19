@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: PlanetScale Support
+    url: https://support.planetscale.com
+    about: Need help? Contact the PlanetScale Support team.
+  - name: PlanetScale discussion board
+    url: https://github.com/planetscale/discussion/discussions
+    about: Read through existing PlanetScale discussions or ask a question.

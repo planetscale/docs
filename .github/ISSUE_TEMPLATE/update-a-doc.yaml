@@ -1,0 +1,23 @@
+name: Update an existing doc
+description: Report a bug or request more information about an existing doc.
+labels:
+  - content-update
+body:
+  - type: markdown
+    attributes:
+      value:
+        Does one of our existing docs need an update? Let us know here!
+
+  - type: input
+    attributes:
+      label: Which doc needs an update?
+      description: Link to the doc that needs to be updated
+    validations:
+      required: true
+
+  - type: textarea
+    attributes:
+      label: What needs to be updated?
+      description: Please be as detailed as possible here. If you ran into a bug following a doc, the more information you can include, the bettter.
+    validations:
+      required: true
