@@ -1,0 +1,23 @@
+name: Request a doc
+description: Request new documentation or content around some topic.
+labels:
+  - new-content
+body:
+  - type: markdown
+    attributes:
+      value: |
+        If you want to request content around some topic that isn't covered or that you'd like more information on, you're in the right place! Fill out the information below, and we'll try to get something in the works.
+
+  - type: textarea
+    attributes:
+      label: What type of content do you want to see?
+      description: Please be as detailed as possible so we can make sure any new we content addresses your request.
+    validations:
+      required: true
+
+  - type: input
+    attributes:
+      label: Is this specific to a language/framework?
+      description: If so, include the language/framework here.
+    validations:
+      required: false
