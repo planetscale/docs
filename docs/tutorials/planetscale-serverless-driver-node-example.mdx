@@ -1,8 +1,19 @@
 ---
-title: Node.js example using the PlanetScale serverless driver 
+title: Node.js example using the PlanetScale serverless driver
 subtitle: Learn the PlanetScale serverless driver by running a local Node.js project.
 date: '2022-08-18'
 ---
+
+import img3 from '../../images/planetscale-serverless-driver-node-example--enable-serverless-driver-for-travel_db.png'
+import img5 from '../../images/planetscale-serverless-driver-node-example--the-connect-modal.png'
+import img7 from '../../images/planetscale-serverless-driver-node-example--the-terminal-running-the-sample-project.png'
+import img9 from '../../images/planetscale-serverless-driver-node-example--the-console-output-after-a-hotel-is-added.png'
+import img2 from '../../images/planetscale-serverless-driver-node-example--the-travel_db-initializing.png'
+import img1 from '../../images/planetscale-serverless-driver-node-example--the-new-database-modal.png'
+import img4 from '../../images/planetscale-serverless-driver-node-example--the-connect-button-in-the-planetscale-dashboard.png'
+import img6 from '../../images/planetscale-serverless-driver-node-example--the-env-example.png'
+import img8 from '../../images/planetscale-serverless-driver-node-example--an-example-of-a-post-request-to-the-sample-project.png'
+import img0 from '../../images/planetscale-serverless-driver-node-example--how-to-create-a-new-database.png'
 
 ## Overview
 
@@ -23,29 +34,29 @@ To follow along, you’ll need the following:
 - A PlanetScale account, as well as knowing how to create a database.
 - The PlanetScale CLI is installed on your computer, which will be used to seed data.
 
-Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**. 
+Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**.
 
-![How to create a new database.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/how-to-create-a-new-database.png)
+<ImageBlock alt='How to create a new database.' src={img0} />
 
 Name the database `travel_db`. Click **"Create database"**.
 
-![The New database modal.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-new-database-modal.png)
+<ImageBlock alt='The New database modal.' src={img1} />
 
-Wait for the database to finish initializing before moving on. 
+Wait for the database to finish initializing before moving on.
 
-![The travel_db initializing.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-travel_db-initializing.png)
+<ImageBlock alt='The travel_db initializing.' src={img2} />
 
 Enable the **PlanetScale serverless driver for JavaScript** feature by clicking on **"Settings"** > **"Beta features"**, then clicking **"Enroll"** in the PlanetScale serverless driver for JavaScript section.
 
-![Enable PlanetScale serverless driver for JavaScript for travel_db.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/enable-serverless-driver-for-travel_db.png)
+<ImageBlock alt='Enable PlanetScale serverless driver for JavaScript for travel_db.' src={img3} />
 
-Generate a set of credentials by clicking the **"Connect"** button. 
+Generate a set of credentials by clicking the **"Connect"** button.
 
-![The Connect button in the PlanetScale dashboard.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-connect-button-in-the-planetscale-dashboard.png)
+<ImageBlock alt='The Connect button in the PlanetScale dashboard.' src={img4} />
 
 Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
 
-![The Connect modal.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-connect-modal.png)
+<ImageBlock alt='The Connect modal.' src={img5} />
 
 On your workstation, open a terminal and clone the repository to your computer by running the following command:
 
@@ -68,7 +79,7 @@ If you are using Windows, run this command through the [Windows Subsystem for Li
 
 Create a new file file named `.env` in the root of the project and paste in the sample provided from PlanetScale.
 
-![The .env example.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-env-example.png)
+<ImageBlock alt='The .env example.' src={img6} />
 
 To run the project, run the following commands from the root of the project.
 
@@ -79,14 +90,14 @@ npm start
 
 If the project is running properly, you should receive a message stating that the API is running.
 
-![The terminal running the sample project.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-terminal-running-the-sample-project.png)
+<ImageBlock alt='The terminal running the sample project.' src={img7} />
 
-The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action. 
+The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action.
 
-![An example of a POST request to the sample project.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/an-example-of-a-post-request-to-the-sample-project.png)
+<ImageBlock alt='An example of a POST request to the sample project.' src={img8} />
 
-If you check the terminal where the API was started, the response from the `execute` function is logged out for review. 
+If you check the terminal where the API was started, the response from the `execute` function is logged out for review.
 
-![The console output after a hotel is added.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-console-output-after-a-hotel-is-added.png)
+<ImageBlock alt='The console output after a hotel is added.' src={img9} />
 
 <GetHelp />

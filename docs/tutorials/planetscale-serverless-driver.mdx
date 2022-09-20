@@ -4,13 +4,18 @@ subtitle: Learn about the PlanetScale serverless driver for JavaScript.
 date: '2022-08-18'
 ---
 
+import img0 from '../../images/planetscale-serverless-driver--the-location-in-the-planetscale-dashboard-where-the-driver-can-be-enabled.png'
+import img1 from '../../images/planetscale-serverless-driver--how-to-create-a-new-password-in-the-planetscale-dashboard.png'
+import img2 from '../../images/planetscale-serverless-driver--the-new-password-modal.png'
+import img3 from '../../images/planetscale-serverless-driver--the-new-password-modal-after-the-password-has-been-created.png'
+
 ## Overview
 
 This article will cover how to enable the PlanetScale serverless driver for JavaScript and why you'd want to use it for your projects.
 
 ## Why use the PlanetScale serverless driver for JavaScript
 
-Before learning how to use the PlanetScale serverless driver for JavaScript, it’s worth understanding why you should use this over other MySQL packages available in the directory. Some serverless & edge function hosts do not permit arbitrary outbound TCP connections, which is how many MySQL clients operate. 
+Before learning how to use the PlanetScale serverless driver for JavaScript, it’s worth understanding why you should use this over other MySQL packages available in the directory. Some serverless & edge function hosts do not permit arbitrary outbound TCP connections, which is how many MySQL clients operate.
 
 Using the PlanetScale serverless driver for JavaScript provides a means of accessing your database and executing queries over an HTTP connection, which is generally not blocked by cloud providers. If you encounter issues using MySQL packages with PlanetScale, use the serverless driver instead.
 
@@ -20,18 +25,18 @@ In order to use the PlanetScale serverless driver for JavaScript, the feature mu
 
 You can find the option to enable the feature under **"Settings"** > **"Beta features"**. Click **"Enroll"** to enable the feature.
 
-![The location in the PlanetScale dashboard where the driver can be enabled.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-location-in-the-planetscale-dashboard-where-the-driver-can-be-enabled.png)
+<ImageBlock alt='The location in the PlanetScale dashboard where the driver can be enabled.' src={img0} />
 
 Once the feature is enabled, you’ll need to generate a new set of credentials to use the driver. You may do this by navigating to **"Settings"** > **"Password"** and clicking **"New password"**.
 
-![How to create a new password in the PlanetScale dashboard.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/how-to-create-a-new-password-in-the-planetscale-dashboard.png)
+<ImageBlock alt='How to create a new password in the PlanetScale dashboard.' src={img1} />
 
-Give the password a name and click **"Generate password"**. 
+Give the password a name and click **"Generate password"**.
 
-![The New password modal.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-new-password-modal.png)
+<ImageBlock alt='The New password modal.' src={img2} />
 
-The new credentials that will be generated should have a hostname like `<REGION>.connect.psdb.cloud`. 
+The new credentials that will be generated should have a hostname like `<REGION>.connect.psdb.cloud`.
 
-![The New password modal after the password has been created.](/docs/img/docs/using-the-planetscale-serverless-driver-for-js/the-new-password-modal-after-the-password-has-been-created.png)
+<ImageBlock alt='The New password modal after the password has been created.' src={img3} />
 
 <GetHelp />
