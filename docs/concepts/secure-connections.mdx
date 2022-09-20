@@ -1,7 +1,7 @@
 ---
 title: 'Connecting to PlanetScale securely'
 subtitle: 'How to connect to PlanetScale securely when using connection strings.'
-date: '2022-08-01'
+date: '2022-09-19'
 ---
 
 ## Connecting to PlanetScale securely
@@ -28,6 +28,10 @@ Many clients are based on `libmysqlclient`. These clients require configuration 
 Again, if you don't configure this, things will work but your connection to PlanetScale will be vulnerable to man-in-the-middle attacks.
 
 If you're looking for an easy-to-use MySQL client, we recommend [Arctype](https://arctype.com/). [Arctype integrates with PlanetScale](https://docs.arctype.com/connect/planetscale) to let you connect to and switch between branches, create deploy requests, and more.
+
+<InfoBlock type='note'>
+  Some MySQL clients, like Sequel Pro, do not have full SSL support and will not work with PlanetScale. 
+</InfoBlock>
 
 ## Certificate Authorities
 
