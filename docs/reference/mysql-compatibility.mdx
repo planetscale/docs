@@ -1,7 +1,7 @@
 ---
 title: 'MySQL compatibility'
 subtitle: 'Learn what MySQL syntax, functions, and more are supported by PlanetScale'
-date: '2022-08-11'
+date: '2022-09-23'
 ---
 
 ## Overview
@@ -31,7 +31,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | `ALTER TABLE...RENAME COLUMN` | ✖️ | Renaming columns and tables may be destructive. See our [guide for column rename recommendations](/docs/learn/handling-table-and-column-renames).    |
 | `CREATE DATABASE` | ✖️ | You cannot `CREATE` a PlanetScale database from the MySQL command line, however, this is supported in the [PlanetScale CLI](/docs/reference/database). |
 | `DROP DATABASE` | ✖️ | You cannot `DROP` a PlanetScale database from the MYSQL command line, however, this is supported in the [PlanetScale CLI](/docs/reference/database). |
-| `JSON_*` | ✖️ | Not all [JSON functions](https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html) are supported. |
+| `JSON_TABLE` | ✖️ | The [`JSON_TABLE` function](https://dev.mysql.com/doc/refman/8.0/en/json-table-functions.html#function_json-table) is not yet supported. All other [JSON SQL functions](https://dev.mysql.com/doc/refman/8.0/en/json-function-reference.html) should work. |
 | `PROCEDURE` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `FUNCTION` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
 | `TRIGGER` | ✖️ | We do not support any form of [stored routines](https://dev.mysql.com/doc/refman/8.0/en/stored-routines.html). |
@@ -50,7 +50,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | **No unique key** | ✖️ | We require all tables have a [unique, non-null key](/docs/learn/change-single-unique-key) that remains unchanged during migrations. |
 | **Direct DDL** | ✖️ | We do [not allow Direct DDL](/docs/learn/how-online-schema-change-tools-work) on [production branches](/docs/concepts/branching). |
 | **Disabled binary logs** | ❗ | You must have binary logs enabled if importing a database using our [database importer tool](/docs/concepts/database-imports). See our [Import doc](/docs/concepts/database-imports#server-configuration-issues) for more required configuration. |
-
+| **Large JSON documents** | ❗ | MySQL supports JSON documents up to 1 GB in size. However, we do not recommend to store more than a few MB in a JSON document for performance reasons. |
 
 ## Additional assistance
 
