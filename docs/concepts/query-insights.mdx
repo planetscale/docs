@@ -1,7 +1,7 @@
 ---
 title: 'Query Insights'
 subtitle: 'Find and optimize long-running queries in your application.'
-date: '2022-08-04'
+date: '2022-09-23'
 ---
 
 import branches from '../../images/query-insights--branches.png'
@@ -11,10 +11,19 @@ import metrics from '../../images/query-insights--metrics.png'
 import queries from '../../images/query-insights--queries.png'
 import query from '../../images/query-insights--query.png'
 import timeframe from '../../images/query-insights--timeframe.png'
+import errors from '../../images/query-insights--errors.png'
+import errorsDetailed from '../../images/query-insights--errors-detailed-view.png'
 
-PlanetScale Insights, currently in beta, gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, and more. You can scroll through the performance graph to detect the time that a query was impacted and, if applicable, the [Deploy Request](/docs/concepts/deploy-requests) that affected it.
+PlanetScale Insights, currently in beta, gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, producing errors, and more. You can scroll through the performance graph to detect the time that a query was impacted and, if applicable, the [Deploy Request](/docs/concepts/deploy-requests) that affected it.
 
 You can also see a [list of all queries](#queries-list) performed on your database in the last 24 hours. For further analysis, you can sort these by metrics like amount of rows read, time per query, and more.
+
+## Insights page overview
+
+To view Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Insights**" tab.
+
+Below is an overview of what you'll find on this page. If you'd like to see a practical example of how to use Insights to debug a performance issue, check out our [Announcing Insights blog post](/blog/introducing-planetscale-insights-advanced-query-monitoring).
+
 
 <VideoBlock
   alt='This video shows an example Insights page. All explanations are covered in this doc.'
@@ -26,19 +35,14 @@ You can also see a [list of all queries](#queries-list) performed on your databa
   analytics, <a href='/docs/concepts/billing'>upgrade to a paid plan</a>.
 </InfoBlock>
 
-## Insights page overview
 
-To view Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Insights**" tab.
-
-Below is an overview of what you'll find on this page. If you'd like to see a practical example of how to use Insights to debug a performance issue, check out our [Announcing Insights blog post](/blog/introducing-planetscale-insights-advanced-query-monitoring).
-
-### Branch selection
+## Branch selection
 
 <ImageBlock alt='PlanetScale Insights branch selection' src={branches} />
 
 The dropdown on the top right lets you select which branch you want to analyze. The selection applies to the entire Insights page.
 
-### Insights graph
+## Insights graph
 
 <ImageBlock alt='PlanetScale Insights graph' src={graph} />
 
@@ -46,7 +50,7 @@ This graph depicts your database activity over a 24-hour period. You'll also see
 
 You can click the dates listed above the graph to scroll through the past seven days. If you're on our free Hobby plan, activity is limited to the previous 24 hours.
 
-### Graph metrics selection
+## Graph metrics selection
 
 <ImageBlock alt='PlanetScale Insights graph metrics selection - rows written' src={metrics} />
 
@@ -58,8 +62,9 @@ The available options are:
 - **Rows written per second** &mdash; Total count followed by rows written per second.
 - **Query latency (ms)** &mdash; Two line charts showing p50 and p90 latency. This means 50% and 90% of requests, respectively, completed faster than the time listed.
 - **Queries per second** &mdash; Total queries per second.
+- **Query errors** &mdash; Any errors that have been captured on your database. See the **Errors** tab on the table below for a deep dive.
 
-### Queries list
+## Queries list
 
 <ImageBlock alt='PlanetScale Insights recent queries list' src={queries} />
 
@@ -83,7 +88,7 @@ You may see some placeholder values in the queries, such as `:v1`. This is becau
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
-### Query deep dive
+## Query deep dive
 
 Clicking on a query in the Queries list will open a new page with more information about that query, such as:
 
@@ -99,6 +104,18 @@ Note, if you're viewing the `EXPLAIN` plan on a production branch, this button w
 
 <ImageBlock alt='PlanetScale Insights query pattern w/ explain plan' src={query} />
 <ImageBlock alt='PlanetScale Insights explain plan' src={explain} />
+
+## Database errors
+
+The table underneath the top graph also contains an **Errors** tab, which shows you a list of database error messages that have been captured over the last 24 hours. You can click the dates listed above the graph to scroll through the past seven days. If you're on our free Hobby plan, activity is limited to the previous 24 hours.
+
+<ImageBlock alt='PlanetScale Insights errors tab' src={errors} />
+
+You can click on any of the error messages on the Errors tab to open a more detailed view. This view shows you the individual queries that produced the error, when they ran, how long they ran, and any query tags attached to them.
+
+<ImageBlock alt='PlanetScale Insights errors tab deep dive showing queries' src={errorsDetailed} />
+
+
 
 ## Need help?
 
