@@ -44,7 +44,7 @@ PlanetScale will check if the request is deployable. This process includes check
 8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
 9.  When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
 10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
-11. After you deploy, you have **30 minutes to "undo"** it using our [Rewind feature](#revert-a-schema-change).
+11. After you deploy, you have **30 minutes to "undo"** it using our [schema revert feature](#revert-a-schema-change).
 
 If you would like to require an administrator's approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Require administrator approval for deploy requests**" box. You must be an Organization Administrator to enable this restriction. Please note you will not be able to approve your own deploy requests.
 
@@ -58,23 +58,23 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 
 ## Revert a schema change
 
-If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! The **Rewind feature** allows you to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
+If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! You have the option to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
 
 <InfoBlock type='note'>
-  The Rewind feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this
+  The schema revert feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this
   feature.
 </InfoBlock>
 
-### How to revert a schema change with Rewind
+### How to revert a schema change
 
 You can revert a deployment for **up to 30 minutes** after the deploying. After the 30 minute period is up, the deployment becomes permanent, and you will no longer have the option to revert.
 
-You must first agree to the beta terms before you can use Rewind. Go to the database Settings page, click "**Beta features**", and check "Enroll this database in the Rewind limited beta" to opt-in.
+You must first agree to the beta terms before you can use the schema revert feature. Go to the database Settings page, click "**Beta features**", find the "**Revert schema changes**" section, and click "**Enroll**" to opt-in.
 
 <VideoBlock src='/docs/img/docs/revert-schema-change.mp4' />
 
 1. Select the deploy request you want to revert.
-2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the Rewind limited beta terms.
+2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the limited beta terms.
 3. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
 4. We will immediately revert your production database back to its previous schema.
 5. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
@@ -100,7 +100,7 @@ There are also some edge cases where reverting a schema change is not possible. 
 3. If you deploy a schema change that removes a unique key or relaxes a unique constraint, and in the time between deployment and attempting to revert, you insert rows that would otherwise conflict with that constraint, the revert may fail.
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
-For an in-depth look at how Rewind works, check out our [Behind the scenes: how we built Rewind](/blog/behind-the-scenes-how-we-built-rewind) blog post.
+For an in-depth look at how this process works, check out our [Behind the scenes: how schema reverts work](/blog/behind-the-scenes-how-schema-reverts-work) blog post.
 
 ### Billing considerations
 
