@@ -1,20 +1,17 @@
 ---
 title: 'PlanetScale and Prisma Data Platform integration'
 subtitle: 'Use the Prisma Data Platform to auto-generate a project with Prisma and PlanetScale and deploy it to Vercel.'
-date: '2022-08-01'
+date: '2022-09-28'
 ---
 
-import configuration from '../../images/prisma-data-platform-integration--configuration.png'
 import database from '../../images/prisma-data-platform-integration--database.png'
-import login from '../../images/prisma-data-platform-integration--login.png'
 import project from '../../images/prisma-data-platform-integration--project.png'
 import templates from '../../images/prisma-data-platform-integration--templates.png'
 
 ## Overview
 
-The following guide will show you how to integrate PlanetScale with a Prisma application using the Prisma Data Platform integration and, optionally, deploy it to Vercel.
+The following guide will show you how to integrate PlanetScale with a Prisma application using the Prisma Data Platform integration.
 
-**This feature is currently in Prisma Early Access.**
 ## Configure the project
 
 First, navigate to [Prisma Data Platform](https://cloud.prisma.io/projects/) to create your project. Authenticate with your GitHub account and then click on the "**New Project**" button to [start a new project](https://cloud.prisma.io/projects/create).
@@ -33,10 +30,10 @@ Make sure your imported project has a `schema.prisma` file. You can specify the 
 
 ## Select a template
 
-If you're creating a new project, you can choose to start with a pre-built template. If you'd prefer to start from scratch, select the "Empty" option.
+In order for Prisma Data Platform to work seamlessly with PlanetScale, you need to pick the "Empty" template.
 
 <InfoBlock type="note">
-  If you choose the Empty template, you'll need to define a model in your `schema.prisma` file in your repository before deploying to Vercel. If you want to test the deployment without making modifications, we recommend choosing a different template.
+  Currently, you cannot use one of the existing templates with PlanetScale. If you do, you will likely see a "foreign key constraints are not allowed error." You will need to edit your Prisma schema file in your GitHub repo and push to the repo and PlanetScale as described below.
 </InfoBlock>
 
 <ImageBlock alt='Prisma Data Platform project template options' src={templates} />
@@ -45,54 +42,43 @@ If you're creating a new project, you can choose to start with a pre-built templ
 
 Next, you need to connect your Prisma project to your PlanetScale database. Here's what you need to do to create and configure your database:
 
-1. In the "**Database Provider**" dropdown, select "**PlanetScale MySQL**"
-2. Click the "**Link your PlanetScale account**" button to authenticate with PlanetScale.
-
-<ImageBlock alt='Prisma Data Platform project database provider PlanetScale' src={login} />
-
-3. This will kick off the OAuth flow where Prisma will request limited access to your **Databases**, and **Organization**.
-4. Click "**Allow access**".
-5. The "**PlanetScale Database Name**" field will auto-populate based on your project name. You can change this if you prefer a different name. Keep in mind, the database name can only use lowercase alphanumeric characters and underscores. We allow dashes, but we don't recommend using them, as they may need to be escaped in some instances.
-6. Select your **PlanetScale Organization**.
-7. Under "**PlanetScale Region**", choose the [region closest to your or your application](/docs/concepts/regions).
-
-<ImageBlock alt='Prisma Data Platform project PlanetScale configuration' src={configuration} />
-
-8. Finally, under "**Prisma Data Proxy**", select the location closest to you or your application.
-9. Once you're ready to proceed, click the green "**Create project**" button at the bottom. You'll see a loading screen for a few seconds while your database is being configured.
-
-Your PlanetScale database has been automatically created and is ready to populate with data! Head to your [PlanetScale dashboard](https://app.planetscale.com) to check it out.
-
-<ImageBlock alt='PlanetScale dashboard with new Prisma + PlanetScale database' src={database} />
-
-## Deploy the project (Optional)
-
-And just like that, your new **Prisma + PlanetScale** project is ready!
-
-In this next step, you can deploy your project to [Vercel](https://vercel.com) with the click of a button. If you're not ready to deploy, **copy down the variable values listed on this page**, as you won't be able to see some of them again. Once you have them copied somewhere for reference, click on the "**Skip**" button at the bottom.
+1. Log in to [https://app.planetscale.com](https://app.planetscale.com) and create a new database or select an existing one.
+2. In a non-production branch, select the "**Connect**" button and select "**Prisma**" in the dropdown.
+3. Copy the PlanetScale connection string without the quotes or the variable name. The connection string looks similar to: `mysql://doianhxp9mla:************@wspfgipy7tg7.us-east-2.psdb.cloud/prisma-planetscale?sslaccept=strict`
+4. In Prisma, in the "**Connection string**" field, paste the connection string. 
+5. Under "**Prisma Data Proxy**", select the location closest to you or your application.
+6. Once you're ready to proceed, click the green "**Create project**" button at the bottom. You'll see a loading screen for a few seconds while your project is being configured.
+7. Once done, you can "**Skip**" the deploy step. There is one last thing you need to do to make your PlanetScale database ready to use with the Prisma Data Platform.
+8. Go to your GitHub account and `git clone` the project that Prisma created locally. 
+9. Navigate to your `prisma/schema.prisma` file and update it so that the `client` and `datasource` look similar to the following schema:
 
 <InfoBlock type="note">
-  If you chose an empty template, you'll need to define a model in your `schema.prisma` file before deploying.
+  If you are using an existing Prisma project, you can skip updating the schema in steps 9 and 10.
 </InfoBlock>
 
-To deploy to Vercel, follow the instructions below:
+```js
+generator client {
+  provider        = "prisma-client-js" //If you want to use TypeScript, use "prisma-client-ts"
+  previewFeatures = ["referentialIntegrity"]
+}
 
-1. First, click on the "**Deploy**" button. This will take you to the Vercel dashboard where you'll import your project. Sign in with your existing Vercel account or [create a new one](https://vercel.com/signup).
-2. Once in the dashboard, create a new team or click "Skip".
-3. Under "**Configure Project**", find the section titled "**Required Environment Variables**".
-4. Enter in the value for `DATABASE_URL`. This is the Prisma Data Proxy URL used to query your database from your serverless function. You can find this value under Step 2 back in the Prisma project creation window.
-5. Copy the `DATABASE_MIGRATE_URL` from your Prisma window in Step 3 and paste it in as the value for `DATABASE_MIGRATE_URL` in your Vercel dashboard.
-6. Finally, paste in `dataproxy` as the value for `PRISMA_CLIENT_ENGINE_TYPE` in your Vercel dashboard.
+datasource db {
+  provider             = "mysql"
+  url                  = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+```
 
-Once you're finished, click on the "Deploy" button in your Vercel dashboard.
+10. You can now add your tables in the `schema.prisma` file following the schema above. You can either create your own tables, or, if you need an example, you can copy the schema we used in [Beam, a sample application](https://github.com/planetscale/beam/blob/main/prisma/schema.prisma). Learn more about data modeling with Prisma in the [Prisma schema documentation](https://www.prisma.io/docs/concepts/components/prisma-schema). Make sure to `git commit` and `git push` this to your repo. Prisma will pick up these changes to your schema.
+11. Lastly, you need to push your new schema to PlanetScale. To do this, locally, create a `.env` file to store your `DATABASE_URL` in your project folder. 
+12. Go back to your non-production branch of PlanetScale and create a new password using the "**Connect**" button and select "**Prisma**" in the dropdown.
+12. Copy the full `DATABASE_URL` variable with the connection string into your `.env` file and save.
+13. Locally, run `npx prisma db push`, which will push your database schema to PlanetScale.
+14. Your PlanetScale database is now ready! In the Prisma Data Platform, you will now be ready to use the Data Browser, Query Console, Data Proxy, and you are ready to start building!
 
 <InfoBlock type="note">
-  You may need to <a href="https://github.com/apps/vercel">install the Vercel GitHub integration</a> to deploy to Vercel from a GitHub repository.
+  When you are ready to deploy your application to production and promote your branch in PlanetScale to production, make sure to change your connection string in the Prisma Data Platform for your new production branch. Remember: You will need to make a non-production branch to make changes to your Prisma schema.
 </InfoBlock>
-
-Your deployment will begin and you'll see the build progress in the Vercel dashboard. Back in the Prisma Data Platform window, click on "Done".
-
-You can now view your live site from your Vercel dashboard. If you chose a starter template, you'll see some API endpoints you can hit to explore your data.
 
 ## Exploring PlanetScale
 
