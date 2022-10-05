@@ -11,6 +11,8 @@ import metrics from '../../images/query-insights--metrics.png'
 import queries from '../../images/query-insights--queries.png'
 import query from '../../images/query-insights--query.png'
 import timeframe from '../../images/query-insights--timeframe.png'
+import unnormalizedData from '../../images/query-insights--unnormalized-data.png'
+import optIn from '../../images/query-insights--opt-in.png'
 import errors from '../../images/query-insights--errors.png'
 import errorsDetailed from '../../images/query-insights--errors-detailed-view.png'
 
@@ -76,6 +78,10 @@ You can also sort the columns for quick analysis.
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
+<InfoBlock type='note'>
+  You have the option to <a href="#complete-query-collection">opt in to complete query collection</a> to see the full SQL statements.
+</InfoBlock>
+
 **Available query statistics**:
 
 - **Count** &mdash; The number of times this query has run.
@@ -115,7 +121,19 @@ You can click on any of the error messages on the Errors tab to open a more deta
 
 <ImageBlock alt='PlanetScale Insights errors tab deep dive showing queries' src={errorsDetailed} />
 
+## Complete query collection
 
+If you would prefer to view the raw query data using Insights, you can enable this option in your database settings page. In the dashboard, select your database, click "**Settings**", scroll down until you see "**Complete query collection**", and click "**Enable**" to opt in.
+
+<ImageBlock alt='PlanetScale Insights complete query collection opt in' src={optIn} />
+
+With this enabled, Insights will gather the complete raw SQL statements and display them when a query deep dive is selected and in the `EXPLAIN` plan. For example, if you select a query from the table on the Insights page, the query pattern and the selected queries below it will display the full query.
+
+<ImageBlock alt='PlanetScale Insights unnormalized data in query deep dive' src={unnormalizedData} />
+
+Enabling complete query collection is beneficial when performance varies significantly within the same query pattern, and you need to see the full SQL statement, without placeholders, to identify the correct source of the performance issue.
+
+However, full queries may contain personally identifiable information, so it's important to consider this before opting in to the feature. Because of this, only [Organization Administrators](/docs/concepts/access-control#organization-administrator) can choose to opt a database into complete query collection. Please read our [Privacy Policy](/legal/privacy) for more information on how we collect, process, and disclose your personally identifiable information.
 
 ## Need help?
 
