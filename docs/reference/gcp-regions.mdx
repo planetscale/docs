@@ -1,0 +1,25 @@
+---
+title: GCP regions
+subtitle: Learn about our available GCP regions (in beta) and some of the limitations that come with using them.
+date: '2022-10-10'
+---
+
+We currently support some Google Cloud Provider regions for creating databases and branches. GCP support is in beta, so there are some limitations, which will be covered in this document.
+
+## Available GCP regions
+
+- (Beta) GCP North America (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
+
+## GCP beta limitations
+
+As GCP region support is currently in beta, there are some limitations to its use.
+
+### Portals
+
+You currently cannot create [read-only regions](/docs/concepts/read-only-regions) using GCP regions. In addition, if your production database branch is using a GCP region, you cannot spin up a read-only replica using an AWS region.
+
+### Using AWS and GCP regions
+
+If you have a database with branches in both AWS and GCP regions, you cannot restore backups between those AWS and GCP regions using our [backup tool](/docs/concepts/back-up-and-restore). It is, however, possible to manually import a backup using a MySQL dump.
+
+<GetHelp />
