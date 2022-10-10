@@ -9,7 +9,11 @@ import form from '../../images/read-only-regions--form.png'
 
 ## Overview
 
-With the PlanetScale Portals (beta), you can replicate your production database across the globe by creating read-only regions in any PlanetScale [region of availability](/docs/concepts/regions).
+With the PlanetScale Portals (beta), you can replicate your production database across the globe by creating read-only regions in any available [AWS PlanetScale region](/docs/concepts/regions).
+
+<InfoBlock type='note'>
+  Portals is not currently supported in [GCP regions](/docs/reference/gcp-regions).
+</InfoBlock>
 
 This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your applications and users.
 
@@ -21,7 +25,7 @@ This feature supports globally distributed applications by enabling your databas
 
 <ImageBlock alt='Add read-only region on production branch' src={branch} />
 
-4. Select the desired region from the dropdown of [available regions](/docs/concepts/regions).
+4. Select the desired AWS region from the dropdown of [available regions](/docs/concepts/regions).
 
 <ImageBlock alt='Select read-only region on production branch' src={form} />
 

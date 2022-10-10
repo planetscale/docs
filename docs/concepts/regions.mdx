@@ -20,6 +20,7 @@ A number of resources exist to help find which region has the lowest latency fro
 
 Currently, the following regions are supported, with their respective PlanetScale slugs:
 
+### AWS regions
 - AWS us-east-1 (Northern Virginia) &mdash; `us-east`
 - AWS us-west-2 (Oregon) &mdash; `us-west`
 - AWS eu-west-1 (Dublin) &mdash; `eu-west`
@@ -30,6 +31,12 @@ Currently, the following regions are supported, with their respective PlanetScal
 - AWS ap-southeast-2 (Sydney) &mdash; `aws-ap-southeast-2`
 - AWS sa-east-1 (Sao Paulo) &mdash; `aws-sa-east-1`
 - AWS eu-west-2 (London) &mdash; `aws-eu-west-2`
+
+### GCP regions
+
+Note, GCP regions are in beta and currently have some limitations, which you can read about in our [GCP documentation](/docs/reference/gcp-regions).
+
+- (Beta) GCP North America (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
 
 ## Selecting the database region
 
@@ -108,12 +115,3 @@ It's important to note that this will require downtime if done on a production b
 ## Need help?
 
 Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
-
-<NextBlock
-  steps={[
-    {
-      text: 'Non-blocking schema changes',
-      link: '/concepts/nonblocking-schema-changes'
-    }
-  ]}
-></NextBlock>
