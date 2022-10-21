@@ -41,7 +41,7 @@ The modal will update, displaying your service token where the Name field was. C
 
 <ImageBlock alt='Service token detail page' src={serviceToken} />
 
-Copy the ID of the service token as it is required to use the service token with the CLI. 
+Copy the ID of the service token as it is required to use the service token with the CLI.
 
 Service tokens are configured with granular permissions per database. Before you can use a service token, these permissions must be added. Click **"Add database access"** to open the Database access permissions modal.
 
@@ -104,7 +104,7 @@ Service tokens can also be created and managed directy from the [PlanetScale CLI
 
 Use the following command to create a service token:
 
-```
+```bash
 pscale service-token create
 ```
 
@@ -116,13 +116,13 @@ You can add database access permissions to your service token for each database 
 
 To add database access permissions, use the command:
 
-```
+```bash
 pscale service-token add-access <SERVICE_TOKEN_ID> <ACCESS_PERMISSION> --database <DB_NAME>
 ```
 
 For example, to give a service token the ability to create, read, and delete branches on a specific database, use the following command:
 
-```
+```bash
 pscale service-token add-access <SERVICE_TOKEN_ID> read_branch delete_branch create_branch --database <DB_NAME>
 ```
 
@@ -134,7 +134,7 @@ You can also remove database access permissions for a service token.
 
 Use the following command to remove one or more permissions:
 
-```
+```bash
 pscale service-token delete-access <SERVICE_TOKEN_ID> <ACCESS_PERMISSION> --database <DB_NAME>
 ```
 
@@ -142,7 +142,7 @@ pscale service-token delete-access <SERVICE_TOKEN_ID> <ACCESS_PERMISSION> --data
 
 To delete a service token, run the following command:
 
-```
+```bash
 pscale service-token delete <SERVICE_TOKEN_ID>
 ```
 

@@ -54,19 +54,19 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
 
 1. Create a database:
 
-```
+```bash
  pscale database create <database>
 ```
 
 2. Create a development branch:
 
-```
+```bash
 pscale branch create <database> <branch>
 ```
 
 3. Make a schema change on this branch:
 
-```
+```bash
  	pscale shell <database> <branch>
 ```
 
@@ -94,7 +94,7 @@ CREATE TABLE `reminders` (
 
 5. Create a deployment request by running:
 
-```
+```bash
 pscale deploy-request create <database> <branch>
 ```
 
@@ -106,13 +106,13 @@ PlanetScale displays the difference between what is currently in the `main` bran
 
 - To _deploy_ the **deploy request** created in _Step 5_, run the following command:
 
-```
+```bash
 pscale deploy-request deploy <database> <deploy-request-number>
 ```
 
 - To find your `deploy-request-number`, simply run:
 
-```
+```bash
 pscale deploy-request list <database>
 ```
 
