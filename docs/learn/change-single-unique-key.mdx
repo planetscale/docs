@@ -21,7 +21,7 @@ Altering a single unique key can be accomplished in 3 steps. Each step is a [sep
 
 1. Add a temporary unique key. To change a lone unique key you will first need to add another unique key that PlanetScale can use during the migration. In a new branch, add a new key on a unique column or combination of columns. The target columns should not contain null values.
 
-   ```
+   ```sql
    ALTER TABLE table_name ADD UNIQUE KEY temp_unique_key (`column`,`column2`);
    ```
 
@@ -31,7 +31,7 @@ Altering a single unique key can be accomplished in 3 steps. Each step is a [sep
 
    Our example drops the existing primary key and replaces it with a compound primary key.
 
-   ```
+   ```sql
    ALTER TABLE table_name DROP PRIMARY KEY, ADD PRIMARY KEY(`column`,`column2`);
    ```
 
@@ -41,7 +41,7 @@ Altering a single unique key can be accomplished in 3 steps. Each step is a [sep
 
    In a new branch, drop the temporary key.
 
-   ```
+   ```sql
    ALTER TABLE table_name DROP KEY temp_unique_key;
    ```
 
