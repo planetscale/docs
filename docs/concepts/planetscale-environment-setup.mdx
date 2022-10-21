@@ -27,7 +27,7 @@ How to install or verify Homebrew is on your computer:
 1. Open Terminal.
 2. Check if you have Homebrew installed by running the following command:
 
-```
+```bash
 brew -v
 ```
 
@@ -38,19 +38,19 @@ brew -v
 
 - Run the following command:
 
-```
+```bash
 brew install planetscale/tap/pscale
 ```
 
 - To install the MySQL command-line client:
 
-```
+```bash
 brew install mysql-client
 ```
 
 To upgrade to the latest version:
 
-```
+```bash
 brew upgrade pscale
 ```
 
@@ -64,13 +64,13 @@ The MySQL command-line client can be installed via your package manager.
 
 - Debian-based distributions:
 
-```
+```bash
 sudo apt-get install mysql-client
 ```
 
 - RPM-based distributions:
 
-```
+```bash
 sudo yum install community-mysql
 ```
 
@@ -84,14 +84,14 @@ Instructions for installing the MySQL client on other Linux distributions can be
 
 On Windows, `pscale` is available via [scoop](https://scoop.sh/), and as a downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page:
 
-```
+```bash
 scoop bucket add pscale https://github.com/planetscale/scoop-bucket.git
 scoop install pscale
 ```
 
 To upgrade to the latest version:
 
-```
+```bash
 scoop update pscale
 ```
 
@@ -121,7 +121,3 @@ pscale version
 ```
 
 You're all set! Check out our [CLI reference page](/docs/reference/planetscale-cli) to explore all that's possible with the PlanetScale CLI.
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

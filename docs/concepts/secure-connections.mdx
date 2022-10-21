@@ -17,7 +17,7 @@ When you are using passwords to connect to PlanetScale, it is essential to corre
 
 With the MySQL command line client, you need to use the `VERIFY_IDENTITY` mode and provide the path to the system roots on your system. The examples below use the most common Linux configuration, but the path might be different in your case. Please check the [CA root configuration](#ca-root-configuration) below to find the appropriate path for your operating system and distribution.
 
-```
+```bash
 mysql --ssl-mode=VERIFY_IDENTITY --ssl-ca=/etc/ssl/certs/ca-certificates.crt
 ```
 
@@ -30,7 +30,7 @@ Again, if you don't configure this, things will work but your connection to Plan
 If you're looking for an easy-to-use MySQL client, we recommend [Arctype](https://arctype.com/). [Arctype integrates with PlanetScale](https://docs.arctype.com/connect/planetscale) to let you connect to and switch between branches, create deploy requests, and more.
 
 <InfoBlock type='note'>
-  Some MySQL clients, like Sequel Pro, do not have full SSL support and will not work with PlanetScale. 
+  Some MySQL clients, like Sequel Pro, do not have full SSL support and will not work with PlanetScale.
 </InfoBlock>
 
 ## Certificate Authorities
@@ -113,7 +113,3 @@ If you are using a language that requires specifying the CA root path, like C or
   We strongly discourage downloading only the current CA that we are using, as PlanetScale reserves the right to change
   our CA. We will however always use a CA that is commonly available.
 </InfoBlock>
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
