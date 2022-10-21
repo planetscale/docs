@@ -32,7 +32,7 @@ Also, the migrations table created when `prisma migrate` runs can also be mislea
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```
+```bash
 pscale auth login
 ```
 
@@ -44,13 +44,13 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 
 1. Create a new _prisma-playground_ database:
 
-```
+```bash
 pscale db create prisma-playground
 ```
 
 2. Connect to the database branch:
 
-```
+```bash
 pscale connect prisma-playground main --port 3309
 ```
 
@@ -121,11 +121,11 @@ Unlike the `prisma migrate dev` command, it will not create a migrations folder 
 
 After `db push` is successful, you can see the table created in your terminal. For example, to see the `Post` table:
 
-```
+```bash
 pscale shell prisma-playground main
 ```
 
-```SQL
+```sql
 describe Post;
 ```
 
@@ -135,7 +135,7 @@ Or you can see it in the PlanetScale UI under the Schema tab in your `main` bran
 
 7. Now that the initial schema has been added, promote your `main` branch to production status:
 
-```
+```bash
 pscale branch promote prisma-playground main
 ```
 
@@ -147,13 +147,13 @@ Let's take a look:
 
 1. Create a new _development_ branch from `main` called `add-subtitle-to-posts`:
 
-```
+```bash
 pscale branch create prisma-playground add-subtitle-to-posts
 ```
 
 2. Close the proxy connection to your `main` branch (if still open) and connect to the new `add-subtitle-to-posts` development branch:
 
-```
+```bash
 pscale connect prisma-playground add-subtitle-to-posts --port 3309
 ```
 
@@ -175,21 +175,21 @@ npx prisma db push
 
 You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
-```
+```bash
 pscale deploy-request create prisma-playground add-subtitle-to-posts
 ```
 
-```
+```bash
 pscale deploy-request deploy prisma-playground 1
 ```
 
 7. Once the deploy request is merged, you can see the results in your main branch's `Post` table:
 
-```
+```bash
 pscale shell prisma-playground main
 ```
 
-```SQL
+```sql
 describe Post;
 ```
 

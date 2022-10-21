@@ -212,7 +212,7 @@ You may need to [install the MySQL command line client](/docs/concepts/planetsca
 
 Run the following command in your terminal:
 
-```
+```bash
 pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
@@ -267,7 +267,7 @@ PlanetScale [does not support foreign key constraints](/docs/learn/operating-wit
 
 The [PlanetScale custom database backend](https://github.com/planetscale/django_psdb_engine) manages this, but if you want to do it manually in each model. For example, in the `models.py` file for the example in this document, we define the foreign key on the `category` table with the following:
 
-```py
+```python
 category = models.ForeignKey(Category, on_delete=models.DO_NOTHING, db_constraint=False)
 ```
 

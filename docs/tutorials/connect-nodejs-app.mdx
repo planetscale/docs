@@ -104,7 +104,7 @@ You can also get these exact values to copy/paste from your [PlanetScale dashboa
 
 1. Authenticate the CLI with the following command:
 
-```
+```bash
 pscale auth login
 ```
 
@@ -143,13 +143,13 @@ mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={
 
 3. In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed above. It should look something like this:
 
-```env
+```bash
 DATABASE_URL=mysql://xxxxxxxxxxxxx:pscale_pw_xxxxxxx@xxxxxx.us-east-2.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
 ```
 
 4. Finally, run your Express application with:
 
-```
+```bash
 node app.js
 ```
 
@@ -159,7 +159,7 @@ Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the da
 
 Use the following command to create a connection to your database and start the application:
 
-```
+```bash
 pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
 ```
 

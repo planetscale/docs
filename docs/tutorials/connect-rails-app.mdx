@@ -17,7 +17,7 @@ In this tutorial, you’re going to create a simple Rails application named _blo
 - Install the [PlanetScale CLI](https://github.com/planetscale/cli).
 - Authenticate the CLI with the following command:
 
-```
+```bash
 pscale auth login
 ```
 
@@ -57,13 +57,13 @@ At this point, you have accomplished two things: you've created a Rails project 
 
 1. Using the `pscale` CLI, create a new database also named _blog_:
 
-```
+```bash
 pscale database create blog
 ```
 
 2. Using the `pscale` CLI, create a new database password for the `main` branch of your database named _blog_:
 
-```
+```bash
 pscale password create blog main <PASSWORD_NAME>
 ```
 
@@ -140,7 +140,7 @@ bin/rails db:migrate
 
 4. Now, give it a whirl to make sure you can query the new table with the `pscale` CLI:
 
-```
+```bash
 pscale shell blog main
 ```
 
@@ -169,7 +169,7 @@ blog/main> describe users;
 
 A production branch is a highly available, protected database branch. Direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/docs/concepts/planetscale-workflow).
 
-```
+```bash
 pscale branch promote blog main
 ```
 

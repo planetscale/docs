@@ -47,7 +47,7 @@ Let's add another table to your existing `blog` schema:
 
 1. Create an `add-posts-table` development branch from `main` in your database _blog_:
 
-```
+```bash
 pscale branch create blog add-posts-table
 ```
 
@@ -62,7 +62,7 @@ ls db/migrate
 
 Connect to the new branch:
 
-```
+```bash
 pscale shell blog add-posts-table
 ```
 
@@ -83,7 +83,7 @@ One way to do this is to create a new password for the `add-posts-table` branch 
 
 In a separate terminal, establish the connection:
 
-```
+```bash
 pscale connect blog add-posts-table --port 3309
 ```
 
@@ -146,11 +146,11 @@ blog/add-posts-table> select * from schema_migrations;
 
 You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
-```
+```bash
 pscale deploy-request create blog add-posts-table
 ```
 
-```
+```bash
 pscale deploy-request deploy blog 1
 ```
 
@@ -160,7 +160,7 @@ To create the deploy request, PlanetScale looks at the differences between the s
 
 In a `pscale` shell for `main` you can verify that the changes from `add-posts-table` were deployed successfully.
 
-```
+```bash
 pscale shell blog main
 ```
 
