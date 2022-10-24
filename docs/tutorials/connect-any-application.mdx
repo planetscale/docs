@@ -39,7 +39,7 @@ There are two ways to generate a new username and password for your branch:
 5. Copy the credentials.
 6. Paste them in your application's MySQL configuration file (often just a `.env` file). The layout and name of this file will vary depending on the application language, but it may look something like this:
 
-```
+```bash
 DATABASE=<DATABASE_NAME>
 USERNAME=<USERNAME>
 HOST=<HOST_NAME>
@@ -51,7 +51,7 @@ Check out our language integration guides in the side navigation for more explic
 
 7. To ensure a secure connection, you must validate the server-side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
-```
+```bash
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
@@ -88,7 +88,7 @@ Please save the values below as they will not be shown again.
 
 3. Paste the values from the console output into your application's MySQL configuration file. The layout and name of this file will vary depending on the application language, but it may look something like this:
 
-```
+```bash
 DATABASE=<DATABASE_NAME>
 USERNAME=<USERNAME>
 HOST=<ACCESS HOST URL>
@@ -98,7 +98,7 @@ SSL= // This is covered in the next step
 
 4. To ensure a secure connection, you must validate the server-side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
-```
+```bash
 MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
 ```
 
@@ -126,7 +126,7 @@ This establishes a secure connection and opens a port on your local machine that
 
 3. In your application's MySQL configuration file, use the following to connect:
 
-```
+```bash
 DATABASE=<DATABASE_NAME>
 HOST=127.0.0.1
 PORT=3306 // use the value that was returned in the console
@@ -151,7 +151,3 @@ Here's the general workflow that you'll go through to get schema changes from de
 7. Bonus: If you realize you made a mistake, you can click "Revert changes" to [undo a schema change](/docs/concepts/deploy-requests#revert-a-schema-change).
 
 Note: you must already have [a production branch](/docs/concepts/branching#promote-a-branch-to-production) in place to create a deploy request.
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

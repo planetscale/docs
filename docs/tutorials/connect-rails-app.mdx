@@ -29,13 +29,13 @@ Open the command line and follow these steps:
 
 1. Create a Rails app named _blog_ by running the following command:
 
-```
+```bash
 rails new blog
 ```
 
 2. Change into the directory you just created, the `blog` Rails app:
 
-```
+```bash
 cd blog
 ```
 
@@ -111,7 +111,7 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
 
 1. Create a Rails migration and call it `CreateUsers`:
 
-```
+```bash
 rails generate migration CreateUsers
 ```
 
@@ -134,7 +134,7 @@ end
 
 3. Run your migration:
 
-```
+```bash
 bin/rails db:migrate
 ```
 
@@ -186,7 +186,3 @@ If you're interested in learning how to secure your application's connection to 
 ## What's next?
 
 Now that you've successfully connected your Rails app to PlanetScale, it's time to make more schema changes to your tables! Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database, or how to keep your **schema_migrations** table up-to-date between development and production branches with [automatic schema migrations](/docs/tutorials/automatic-rails-migrations).
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

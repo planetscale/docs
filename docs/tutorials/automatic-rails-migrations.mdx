@@ -55,7 +55,7 @@ When the branch is ready, you can verify that the `schema_migrations` table is u
 
 Check the timestamp in your codebase:
 
-```
+```bash
 ls db/migrate
 20211014210422_create_users.rb
 ```
@@ -68,7 +68,7 @@ pscale shell blog add-posts-table
 
 Query the migration table:
 
-```
+```sql
 blog/add-posts-table> select * from schema_migrations;
 +----------------+
 | version        |
@@ -100,7 +100,7 @@ development:
 
 3. Create the second Rails migration and call it `CreatePosts`:
 
-```
+```bash
 rails generate migration CreatePosts
 ```
 
@@ -122,7 +122,7 @@ end
 
 4. Run the CreatePosts migration:
 
-```
+```bash
 rake db:migrate
 ```
 
@@ -132,7 +132,7 @@ At this point, Rails creates the `posts` table and inserts another `timestamp` i
 
 You can verify the change in `schema_migrations` yourself:
 
-```
+```sql
 blog/add-posts-table> select * from schema_migrations;
 +----------------+
 | version        |
@@ -164,7 +164,7 @@ In a `pscale` shell for `main` you can verify that the changes from `add-posts-t
 pscale shell blog main
 ```
 
-```
+```sql
 blog/|⚠ main ⚠|> show tables;
 +----------------------+
 | Tables_in_blog       |
@@ -190,7 +190,3 @@ In this tutorial, we learned how to use the PlanetScale deployment process with 
 ## What's next?
 
 Learn more about how PlanetScale allows you to make [schema changes](/docs/concepts/nonblocking-schema-changes) to your production databases without downtime or locking tables.
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

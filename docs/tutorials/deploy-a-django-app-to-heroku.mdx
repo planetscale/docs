@@ -82,10 +82,7 @@ django-heroku
 The **Procfile** in your project tells Heroku how it should start up the project. The file must be in the root of the project and not in a subdirectory. Here is the **Procfile** used to deploy the **django-example** project to Heroku:
 
 ```
-
 web: gunicorn --chdir ./mysite mysite.wsgi --log-file -
-
 ```
 
 After these steps have been completed, you may redeploy your application to Heroku. To view a complete example, please refer to the [heroku-deployment branch](https://github.com/planetscale/django-example/tree/heroku-deployment) of the sample repository. This concludes the guide on deploying a Django application to Heroku.
-<GetHelp />

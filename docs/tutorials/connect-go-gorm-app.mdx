@@ -96,7 +96,7 @@ Take note of the values returned to you, as you won't be able to see this passwo
 
 2. Open the `.env` file in your Go app and update `DSN` as follows:
 
-```
+```bash
 DSN="<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true"
 ```
 
@@ -120,7 +120,7 @@ If you're following this guide exactly and haven't created any branches, you can
 
 3. Open the `.env` file in your Go app and update it as follows:
 
-```
+```bash
 DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>"
 ```
 
@@ -237,7 +237,3 @@ Once you're done with development, you can [promote your `main` branch to produc
 When you're reading to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll open a [deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
 
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

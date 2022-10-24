@@ -17,7 +17,7 @@ import gorunoutput from '../../images/connect-go-app--new-db-modal.png'
 
 ## Introduction
 
-In this guide, you’ll learn how to connect to a PlanetScale MySQL database with Go by exploring a sample API built using the Gin routing framework. 
+In this guide, you’ll learn how to connect to a PlanetScale MySQL database with Go by exploring a sample API built using the Gin routing framework.
 
 **Prerequisites:**
 
@@ -36,7 +36,7 @@ Start in PlanetScale by creating a new database named `products_db`.
 
 <ImageBlock alt='The New database modal' src={newdbmodal} />
 
-Once the database has finished initializing, head to **"Branches"** > **"main"**. 
+Once the database has finished initializing, head to **"Branches"** > **"main"**.
 
 <ImageBlock alt='The Branches tab' src={branches} />
 
@@ -59,7 +59,7 @@ INSERT INTO `products` (name, price) VALUES
   ('Edge Properties 3', 15);
 ```
 
-Finally, head to the **"Overview"** tab and click **"Connect"**. 
+Finally, head to the **"Overview"** tab and click **"Connect"**.
 
 <ImageBlock alt='The location of the Connect button' src={connect} />
 
@@ -71,7 +71,7 @@ Change the **"Connect with"** dropdown to **Go** and copy the contents of the **
 
 Start by opening a terminal on your workstation and clone the sample repository provided.
 
-```
+```bash
 git clone https://github.com/planetscale/golang-example-gin.git
 ```
 
@@ -196,10 +196,10 @@ func CreateProduct(c *gin.Context) {
 	if err != nil {
 		log.Fatal("(CreateProduct) c.BindJSON", err)
 	}
-	
+
 	// This query has multiple `?` parameter placeholders
 	query := `INSERT INTO products (name, price) VALUES (?, ?)`
-	// The `Exec` function takes in a query, as well as the values for 
+	// The `Exec` function takes in a query, as well as the values for
 	//     the parameters in the order they are defined
 	res, err := db.Exec(query, newProduct.Name, newProduct.Price)
 	if err != nil {
@@ -213,5 +213,3 @@ func CreateProduct(c *gin.Context) {
 	c.JSON(http.StatusOK, newProduct)
 }
 ```
-
-<GetHelp />

@@ -108,7 +108,7 @@ DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
 
 6. In another terminal, use the `db push` command to push the schema defined in `prisma/schema.prisma`:
 
-```
+```bash
 npx prisma db push
 ```
 
@@ -167,7 +167,7 @@ subtitle  String   @db.VarChar(255)
 
 5. Run `db push` again to update the schema in PlanetScale:
 
-```
+```bash
 npx prisma db push
 ```
 
@@ -196,7 +196,3 @@ describe Post;
 ## What's next?
 
 Now that you've successfully conducted your first automatic Prisma migration in PlanetScale and know how to handle future migrations, it's time to deploy your application with a PlanetScale database! Let's learn how to [deploy an application with a PlanetScale database to Vercel](/docs/tutorials/deploy-to-vercel).
-
-## Need help?
-
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.

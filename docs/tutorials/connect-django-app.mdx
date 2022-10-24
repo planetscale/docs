@@ -95,7 +95,7 @@ Take note of the values returned to you, as you won't be able to see this passwo
 
 1. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
 
-```
+```bash
 DB_HOST=<ACCESS HOST URL>
 DB_PORT=3306
 DB_NAME=<DATABASE_NAME>
@@ -138,7 +138,7 @@ If you're following this guide exactly and haven't created any new branches, you
 
 3. Open the `.env` file in your Django app and update it as follows:
 
-```
+```bash
 DB_HOST=127.0.0.1
 DB_PORT=3306
 DB_NAME=<DATABASE_NAME>
@@ -278,6 +278,3 @@ This isn't necessary to do in every model if you're pulling in the `django_psdb_
 Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch protected by direct schema changes.
 
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
-
-## Need help?
-Get help from [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions) to see how others are using PlanetScale.
