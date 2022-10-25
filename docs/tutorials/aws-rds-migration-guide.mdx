@@ -47,6 +47,7 @@ This document will demonstrate how to migrate a database from AWS Relational Dat
 Before you can perform a migration, you’ll need to make sure the following is configured:
 
 - [Your database’s gtid and binlog_format settings are properly configured.](#configure-gtid-and-binlog-settings)
+- [Your database’s binlog retention settings are properly configured.](#configure-binlog-retention-hours)
 
 You’ll also need to gather the following pieces of information from the AWS Console:
 
@@ -243,3 +244,31 @@ You’ll be presented with a page to confirm the database you want to reboot. Cl
 You can view the status of the database in the primary list of databases for this account/region. This view does not refresh automatically, click the “**Refresh”** button to update the view.
 
 <ImageBlock alt='A view of the databases in RDS with status & the refresh button highlighted.' src={img27} />
+
+### Configure binlog retention hours
+You may need to specify the number of hours to retain binary logs in your AWS RDS database.
+
+By default, this value is `NULL`, which means that binary logs are purged immediately.
+
+You need to specify a period with enough time for replication to occur. For most cases, 48 hours should be sufficient, but you may need to set it higher for large imports.
+
+<InfoBlock type='warning'>
+  Keep in mind, you can go to longer binlog retention periods at the cost of extra disk space on your source database. You should evaluate how large your binlogs are for daily use to determine if you would like to increase the value beyond 48 hours, as there's a chance you may run out of disk space, depending on your configuration. If you need assistance, please reach out to the [PlanetScale Support team](https://support.planetscale.com).
+</InfoBlock>
+
+To specify the number of hours for Amazon RDS to retain binary logs on a DB instance, use the `mysql.rds_set_configuration()` stored procedure as shown in the following example:
+
+```bash
+call mysql.rds_set_configuration('binlog retention hours', 48);
+```
+Once you call this function, confirm that the value is set correctly by calling this function: 
+
+```bash
+CALL mysql.rds_show_configuration;
+
++------------------------+-------+-----------------------------------------------------------------------------------------------------------+
+| name                   | value | description                                                                                               |
++------------------------+-------+-----------------------------------------------------------------------------------------------------------+
+| binlog retention hours | 48    | binlog retention hours specifies the duration in hours before binary logs are automatically deleted.      |
++------------------------+-------+-----------------------------------------------------------------------------------------------------------+
+```
