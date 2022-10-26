@@ -4,6 +4,7 @@ subtitle: 'Create a development or staging environment for your database through
 date: '2022-08-01'
 ---
 
+import VimeoEmbed from '../../components/VimeoEmbed'
 import deployRequest from '../../images/branching--deploy-request.png'
 import diagram from '../../images/branching--diagram.png'
 
@@ -39,7 +40,10 @@ PlanetScale provides two types of database branches:
 
 ## Promote a branch to production
 
-<VideoBlock src='/docs/img/docs/promote-a-branch-to-production.mp4' />
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763913898'
+  alt='Demonstration of how to promote a branch to production'
+/>
 
 PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
@@ -63,7 +67,10 @@ It's possible to run multiple production branches simultaneously, within [your p
 
 ## Create a development branch
 
-<VideoBlock src='/docs/img/docs/create-new-branch.mp4' />
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763914056'
+  alt='Demonstration of how to create a PlanetScale branch'
+/>
 
 If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes.
 
@@ -87,7 +94,10 @@ Once you're satisfied with the schema changes you have made on a branch, you can
 
 ### 1. Create a deploy request
 
-<VideoBlock src='/docs/img/docs/create-deploy-request.mp4' />
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763914026'
+  alt='Demonstration of how to create a deploy request'
+/>
 
 If you are working in a team, the [deploy request](/docs/concepts/deploy-requests) creates an opportunity for your teammates to review the changes you have made before they are deployed to production.
 
@@ -107,7 +117,10 @@ pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
 
 ### 2. Review the deploy request
 
-<VideoBlock src='/docs/img/docs/add-to-deploy-queue.mp4' />
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763913969'
+  alt='Demonstration of how to add a deploy request to the deploy queue'
+/>
 
 The deploy request includes a schema diff so that you can review the schema changes introduced by the deploy request against the production branch.
 

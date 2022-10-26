@@ -4,6 +4,7 @@ subtitle: 'Learn how to create and revert non-blocking schema changes with Plane
 date: '2022-09-06'
 ---
 
+import VimeoEmbed from '../../components/VimeoEmbed'
 import approve from '../../images/deploy-requests--approve.png'
 import gatedDeployments from '../../images/deploy-requests--gated-deployments.png'
 import applyChanges from '../../images/deploy-requests--apply-changes.png'
@@ -12,7 +13,10 @@ import applyChanges from '../../images/deploy-requests--apply-changes.png'
 
 Deploy requests are an integral part of the [PlanetScale workflow](/docs/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. You can also [undo deployments](#revert-a-schema-change) without losing any data that was written during that time.
 
-<VideoBlock src='/docs/img/docs/deploy-request.mp4'></VideoBlock>
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763914107'
+  alt='Demonstration of how to make schema changes with deploy requests'
+/>
 
 ## Create a deploy request
 
@@ -23,7 +27,10 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 3. Add a comment about the deploy request.
 4. Click "**Create deploy request**".
 
-<VideoBlock src='/docs/img/docs/create-deploy-request.mp4' />
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763914026'
+  alt='Demonstration of how to create a PlanetScale deploy request'
+/>
 
 ## Review and deploy a deploy request
 
@@ -71,7 +78,10 @@ You can revert a deployment for **up to 30 minutes** after the deploying. After 
 
 You must first agree to the beta terms before you can use the schema revert feature. Go to the database Settings page, click "**Beta features**", find the "**Revert schema changes**" section, and click "**Enroll**" to opt-in.
 
-<VideoBlock src='/docs/img/docs/revert-schema-change.mp4' />
+<VimeoEmbed
+  src='https://player.vimeo.com/video/763913760'
+  alt='Demonstration of how to revert a schema change'
+/>
 
 1. Select the deploy request you want to revert.
 2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the limited beta terms.
