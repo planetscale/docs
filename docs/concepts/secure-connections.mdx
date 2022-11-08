@@ -4,6 +4,8 @@ subtitle: 'How to connect to PlanetScale securely when using connection strings.
 date: '2022-09-19'
 ---
 
+import InfoBlock from '@/components/MDX.InfoBlock'
+
 ## Connecting to PlanetScale securely
 
 When you are using passwords to connect to PlanetScale, it is essential to correctly validate the server side certificate that PlanetScale provides. If you don't configure it properly, your connection will be vulnerable to man-in-the-middle attacks. The server certificates that PlanetScale uses are signed by a commonly available system root. How to configure this properly depends on the client you are using to connect to MySQL.
