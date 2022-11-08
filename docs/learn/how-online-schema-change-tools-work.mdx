@@ -4,6 +4,8 @@ subtitle: 'Technical overview of the concepts behind online schema change logic'
 date: '2022-07-22'
 ---
 
+import InfoBlock from '@/components/MDX.InfoBlock'
+
 ## The schema change problem
 
 Changing a table's schema is one of the most challenging problems in relational databases, and in MySQL in particular. In today's accelerated and rapid development cycles, engineers find that they need to make schema changes sometimes on a daily basis. Direct `ALTER TABLE` is a blocking operation, which renders the table completely inaccessible, even for reads.

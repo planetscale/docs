@@ -4,6 +4,8 @@ subtitle: "Three step process for changing a table's single unique or primary ke
 date: '2022-08-01'
 ---
 
+import InfoBlock from '@/components/MDX.InfoBlock'
+
 ## Overview
 
 To migrate data safely and [without downtime](/docs/concepts/nonblocking-schema-changes), PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. This requirement can cause difficulty if, for example, you attempt to ALTER the primary key of a table with no other unique keys.
