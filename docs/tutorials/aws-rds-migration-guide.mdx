@@ -4,34 +4,36 @@ subtitle: Learn how to import your database from AWS RDS into PlanetScale.
 date: '2022-08-01'
 ---
 
-import img23 from '../../images/aws-rds-migration-guide--the-configuration-tab-with-the-new-parameter-group-applying.png'
-import img0 from '../../images/aws-rds-migration-guide--the-connectivity-and-security-tab-of-the-database-in-rds.png'
-import img2 from '../../images/aws-rds-migration-guide--the-connectivity-and-security-tab-of-the-database-view-in-rds.png'
-import img11 from '../../images/aws-rds-migration-guide--the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png'
-import img18 from '../../images/aws-rds-migration-guide--the-binlog_format-configuration-required.png'
-import img19 from '../../images/aws-rds-migration-guide--the-gtid-configurations-that-are-required.png'
-import img7 from '../../images/aws-rds-migration-guide--the-import-external-database-form.png'
-import img8 from '../../images/aws-rds-migration-guide--the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png'
-import img13 from '../../images/aws-rds-migration-guide--the-configuration-tab-of-the-database-view-in-rds.png'
-import img12 from '../../images/aws-rds-migration-guide--one-of-the-gtid-errors-that-display-in-the-planetscale-import-database-form-when-the-connection-is-not-successful.png'
-import img15 from '../../images/aws-rds-migration-guide--the-form-used-to-create-a-parameter-group.png'
-import img22 from '../../images/aws-rds-migration-guide--the-confirmation-view-that-is-displayed-when-modifying-rds-database-settings.png'
-import img26 from '../../images/aws-rds-migration-guide--the-confirmation-dialog-to-reboot-the-database.png'
-import img10 from '../../images/aws-rds-migration-guide--the-database-import-view-once-the-initial-import-has-been-completed.png'
-import img17 from '../../images/aws-rds-migration-guide--the-header-of-the-view-when-editing-a-parameter-group.png'
-import img25 from '../../images/aws-rds-migration-guide--the-database-view-and-where-the-option-to-reboot-the-database-is-located.png'
-import img27 from '../../images/aws-rds-migration-guide--a-view-of-the-databases-in-rds-with-status-and-the-refresh-button-highlighted.png'
-import img3 from '../../images/aws-rds-migration-guide--the-view-of-security-groups-associated-with-the-rds-instance.png'
-import img5 from '../../images/aws-rds-migration-guide--the-default-view-of-all-databases-in-the-planetscale-organization.png'
-import img6 from '../../images/aws-rds-migration-guide--the-join-beta-view.png'
-import img16 from '../../images/aws-rds-migration-guide--the-list-of-parameter-groups-in-rds.png'
-import img20 from '../../images/aws-rds-migration-guide--the-list-of-databases-in-rds.png'
-import img21 from '../../images/aws-rds-migration-guide--the-additional-configuration-section-of-the-database-configuration-view.png'
-import img24 from '../../images/aws-rds-migration-guide--the-configuration-tab-with-the-pending-reboot-status.png'
-import img1 from '../../images/aws-rds-migration-guide--the-configuration-tab-of-the-database-in-rds.png'
-import img4 from '../../images/aws-rds-migration-guide--the-edit-inbound-rules-view-where-source-traffic-can-be-allowed.png'
-import img9 from '../../images/aws-rds-migration-guide--the-database-import-view-during-the-initial-import-process.png'
-import img14 from '../../images/aws-rds-migration-guide--the-parameter-groups-view-in-rds.png'
+import ImageBlock from '@/components/MDX.ImageBlock'
+import InfoBlock from '@/components/MDX.InfoBlock'
+import img0 from '@/images/aws-rds-migration-guide--the-connectivity-and-security-tab-of-the-database-in-rds.png'
+import img1 from '@/images/aws-rds-migration-guide--the-configuration-tab-of-the-database-in-rds.png'
+import img10 from '@/images/aws-rds-migration-guide--the-database-import-view-once-the-initial-import-has-been-completed.png'
+import img11 from '@/images/aws-rds-migration-guide--the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png'
+import img12 from '@/images/aws-rds-migration-guide--one-of-the-gtid-errors-that-display-in-the-planetscale-import-database-form-when-the-connection-is-not-successful.png'
+import img13 from '@/images/aws-rds-migration-guide--the-configuration-tab-of-the-database-view-in-rds.png'
+import img14 from '@/images/aws-rds-migration-guide--the-parameter-groups-view-in-rds.png'
+import img15 from '@/images/aws-rds-migration-guide--the-form-used-to-create-a-parameter-group.png'
+import img16 from '@/images/aws-rds-migration-guide--the-list-of-parameter-groups-in-rds.png'
+import img17 from '@/images/aws-rds-migration-guide--the-header-of-the-view-when-editing-a-parameter-group.png'
+import img18 from '@/images/aws-rds-migration-guide--the-binlog_format-configuration-required.png'
+import img19 from '@/images/aws-rds-migration-guide--the-gtid-configurations-that-are-required.png'
+import img2 from '@/images/aws-rds-migration-guide--the-connectivity-and-security-tab-of-the-database-view-in-rds.png'
+import img20 from '@/images/aws-rds-migration-guide--the-list-of-databases-in-rds.png'
+import img21 from '@/images/aws-rds-migration-guide--the-additional-configuration-section-of-the-database-configuration-view.png'
+import img22 from '@/images/aws-rds-migration-guide--the-confirmation-view-that-is-displayed-when-modifying-rds-database-settings.png'
+import img23 from '@/images/aws-rds-migration-guide--the-configuration-tab-with-the-new-parameter-group-applying.png'
+import img24 from '@/images/aws-rds-migration-guide--the-configuration-tab-with-the-pending-reboot-status.png'
+import img25 from '@/images/aws-rds-migration-guide--the-database-view-and-where-the-option-to-reboot-the-database-is-located.png'
+import img26 from '@/images/aws-rds-migration-guide--the-confirmation-dialog-to-reboot-the-database.png'
+import img27 from '@/images/aws-rds-migration-guide--a-view-of-the-databases-in-rds-with-status-and-the-refresh-button-highlighted.png'
+import img3 from '@/images/aws-rds-migration-guide--the-view-of-security-groups-associated-with-the-rds-instance.png'
+import img4 from '@/images/aws-rds-migration-guide--the-edit-inbound-rules-view-where-source-traffic-can-be-allowed.png'
+import img5 from '@/images/aws-rds-migration-guide--the-default-view-of-all-databases-in-the-planetscale-organization.png'
+import img6 from '@/images/aws-rds-migration-guide--the-join-beta-view.png'
+import img7 from '@/images/aws-rds-migration-guide--the-import-external-database-form.png'
+import img8 from '@/images/aws-rds-migration-guide--the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png'
+import img9 from '@/images/aws-rds-migration-guide--the-database-import-view-during-the-initial-import-process.png'
 
 ## Overview
 
@@ -261,7 +263,7 @@ To specify the number of hours for Amazon RDS to retain binary logs on a DB inst
 ```bash
 call mysql.rds_set_configuration('binlog retention hours', 48);
 ```
-Once you call this function, confirm that the value is set correctly by calling this function: 
+Once you call this function, confirm that the value is set correctly by calling this function:
 
 ```bash
 CALL mysql.rds_show_configuration;
