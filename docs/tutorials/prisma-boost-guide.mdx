@@ -37,12 +37,8 @@ Here is an example of performing this operation on the `PrismaClient` once its i
 ```js
 import { PrismaClient } from '@prisma/client'
 
-let prisma
-
-if (!prisma) {
-	prisma = new PrismaClient();
-	primsa.$queryRaw`SET @@boost_cached_queries = true`
-}
+const prisma = new PrismaClient();
+primsa.$queryRaw`SET @@boost_cached_queries = true`
 
 if (process.env.NODE_ENV === "development") global.prisma = prisma;
 
@@ -60,11 +56,8 @@ const prisma = global.prisma || new PrismaClient();
 
 if (process.env.NODE_ENV === "development") global.prisma = prisma;
 
-let boostedPrisma;
-if (!boostedPrisma) {
-	boostedPrisma = new PrismaClient();
-	boostedPrisma.$queryRaw`SET @@boost_cached_queries = true`
-}
+const boostedPrisma = new PrismaClient();
+boostedPrisma.$queryRaw`SET @@boost_cached_queries = true`
 
 export {
   prisma,
