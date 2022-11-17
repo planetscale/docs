@@ -24,12 +24,12 @@ Use `pscale [command] [command]` to start up the `pscale` CLI in your terminal.
 | [`audit-log`](/docs/reference/audit-log)      | `list`                    | `-h`, `--org string` |  List all [audit logs](/docs/concepts/audit-log#review-your-organization-audit-log) |
 | [`auth`](/docs/reference/auth)           | `login`, `logout`         | `-h` | Authenticate via console |
 | [`backup`](/docs/reference/backup)        | `create`, `delete`, `list`, `restore`, `show` | `-h`, `--org string` | Manage [branch backups](/docs/concepts/back-up-and-restore)|
-| [`branch`](/docs/reference/branch)         | `create`, `delete`, `diff`, `list`, `promote`, `refresh-schema`, `schema`, `show`, `switch` | `-h`, `--org string` |Manage [branches](/docs/concepts/branching)|
+| [`branch`](/docs/reference/branch)         | `create`, `delete`, `diff`, `keyspaces`, `list`, `promote`, `refresh-schema`, `schema`, `show`, `switch`, `vschema` | `-h`, `--org string` |Manage [branches](/docs/concepts/branching)|
 | [`completion`](/docs/reference/completion)     | `bash`, `zsh`, `fish`, `powershell` | `-h` |Generate completion script for specified shell|
-| [`connect`](/docs/reference/connect)        | `<database_name>` `<branch_name>` | `--execute string`, `--execute-env-url string`, `--execute-protocol string`, `-h`, `--host string`, `--org string`, `--port string`, `--remote-addr string` |Create a [secure connection](/docs/tutorials/connect-any-application#option-2-connect-using-the-planetscale-proxy) to the given database and branch|
+| [`connect`](/docs/reference/connect)        | `<database_name>` `<branch_name>` | `--execute string`, `--execute-env-url string`, `--execute-protocol string`, `--help`, `--host string`, `--org string`, `--port string`, `--remote-addr string`, `--role string` |Create a [secure connection](/docs/tutorials/connect-any-application#option-2-connect-using-the-planetscale-proxy) to the given database and branch|
 | [`database`](/docs/reference/database)       | `create`, `delete`, `dump`, `list`, `restore-dump`, `show` | `-h` | Manage databases|
-| [`deploy-request`](/docs/reference/deploy-request) | `close`, `create`, `deploy`, `diff`, `list`, `review`, `show` | `-h` | Manage [deploy request](/docs/concepts/branching#1-create-a-deploy-request)|
-| `help`           |  | `-h` | View help for any command |
+| [`deploy-request`](/docs/reference/deploy-request) | `apply`, `cancel`, `close`, `create`, `deploy`, `diff`, `edit`, `list`, `revert`, `review`, `show`, `skip-revert` | `-h` | Manage [deploy requests](/docs/concepts/branching#1-create-a-deploy-request) including [gated deployments](/docs/concepts/deploy-requests#gated-deployments)|
+| `help`           | `audit-log`, `auth`, `backup`, `branch`, `completion`, `connect`, `data-import`, `database`, `deploy-request`, `help`, `org`, `password`, `region`, `service-token`, `shell`, `signup`  | `-h` | View help for any command |
 | [`org`](/docs/reference/org)            | `list`, `show`, `switch`   | `-h` | Manage and switch [organizations](/docs/concepts/access-control)|
 | [`password`](/docs/reference/password)       | `create`, `delete`, `list`   | `-h`, `--org string`| Manage [branch credentials](/docs/concepts/connection-strings) |
 | [`region`](/docs/reference/region)         | `list`        | `--org string` | View available [regions](/docs/concepts/regions)|
