@@ -1,0 +1,219 @@
+---
+title: Branching and deploy requests
+subtitle: Explore how to utilize branching in PlanetScale, a key feature of the platform.
+date: '2022-09-13'
+---
+
+import ButtonLink from '@/components/ButtonLink'
+import Icon from '@/components/Icon'
+import ImageBlock from '@/components/MDX.ImageBlock'
+import InfoBlock from '@/components/MDX.InfoBlock'
+import VimeoEmbed from '@/components/VimeoEmbed'
+import badconsole from '@/images/branching-and-deploy-requests--the-disabled-console-tab.png'
+import branchInit from '@/images/branching-and-deploy-requests--the-view-of-the-branch-being-initialized.png'
+import branchPicker from '@/images/branching-and-deploy-requests--how-to-quickly-access-different-branches.png'
+import branchPicker2 from '@/images/branching-and-deploy-requests--the-branch-quick-access-menu.png'
+import branchView from '@/images/branching-and-deploy-requests--the-view-of-the-branch-after-its-been-initialized.png'
+import branchesTab from '@/images/branching-and-deploy-requests--the-branches-tab.png'
+import console from '@/images/branching-and-deploy-requests--the-console-with-the-output-of-the-alter-command.png'
+import console2 from '@/images/branching-and-deploy-requests--the-console-with-the-output-of-the-describe-comamnd.png'
+import console3 from '@/images/branching-and-deploy-requests--the-console-of-the-main-branch-with-the-output-of-the-describe-command.png'
+import devBranch from '@/images/branching-and-deploy-requests--the-overview-tab-of-the-dev-branch.png'
+import diff from '@/images/branching-and-deploy-requests--the-schema-changes-tab-with-the-diff-between-branches.png'
+import evaluating from '@/images/branching-and-deploy-requests--the-deploy-request-view-while-changes-are-being-evaluated.png'
+import modal from '@/images/branching-and-deploy-requests--the-promote-branch-modal.png'
+import modal2 from '@/images/branching-and-deploy-requests--the-new-branch-modal.png'
+import overview from '@/images/branching-and-deploy-requests--the-overview-tab-of-the-database.png'
+import overview2 from '@/images/branching-and-deploy-requests--the-overview-tab-of-the-database-with-the-new-branch-button-highlighted.png'
+import prgood from '@/images/branching-and-deploy-requests--the-deploy-request-view-after-changes-have-been-evaluated-and-can-be-deployed.png'
+import saulgood from '@/images/branching-and-deploy-requests--the-deploy-request-view-after-changes-have-been-deployed.png'
+import saulgoodConsole from '@/images/branching-and-deploy-requests--the-console-of-the-main-branch-after-changes-have-been-deployed.png'
+import settings from '@/images/branching-and-deploy-requests--the-settings-view-of-where-to-allow-console-access-for-production-branches.png'
+import summary from '@/images/branching-and-deploy-requests--the-summary-tab-of-the-deploy-request.png'
+import workflow from '@/images/planetscale-workflow.png'
+
+<VimeoEmbed
+  src='https://player.vimeo.com/video/748936870'
+  alt='Branching and deploy requests'
+/>
+
+## Overview
+
+Now that you have an account and database set up, we can explore one of the key features of PlanetScale: branching.
+
+<InfoBlock type="note">
+
+This guide continues from the [previous entry](/docs/onboarding/create-a-database) describing how to create a database. If you do not have a database created, follow the steps in that guide before proceeding
+
+</InfoBlock>
+
+## What are branches?
+
+Branches are copies of your database schema that live in a completely separate environment from each other. Making changes in one branch does not affect other branches until you merge them, just like you manage code branches in your projects.
+
+There are currently two types of branches in PlanetScale:
+
+- Production branches
+- Non-production branches
+
+### Production branches
+
+Production branches should be used for the production version of your application. There are certain measures in place on production branches to protect your production data:
+
+- Direct DDL is not permitted. You can only apply schema changes using Deploy requests (covered later in this guide).
+- Console access is disabled by default.
+- Production branches include at least one read-only replica internally to automatically protect your database against outages.
+
+<InfoBlock type="note">
+
+Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc.
+
+</InfoBlock>
+
+### Non-production branches
+
+Your database can have one or more non-production branches, depending on your plan. Non-production branches are used for making changes or experimenting with your database structure. These branches do not have the same protective restrictions or resiliency as production branches.
+
+### Deploy requests
+
+Deploy requests are how changes from one database branch are applied to another. They are similar to pull requests in your code repositories, but for databases. When a new Deploy request is created, you can view the changes, comment on them, and collaborate with your team just like you would a PR.
+
+## Typical branching strategy
+
+<ImageBlock alt='The PlanetScale workflow.' src={workflow} />
+
+Most applications have at least two environments, a production environment where active users work with the application, and a development environment where developers extend the application and test changes. PlanetScale is built with this in mind, which is why branching is such a fundamental feature.
+
+A typical strategy with branching would go something like this:
+
+- The PlanetScale database has two branches: `main` and `dev`.
+- A developer decides to extend a form in the application and needs to add a new field. They create a branch in the code to manage their changes.
+- Because this is a new data field, a new column must be added to the corresponding table in PlanetScale. The developer adds this column to the `dev` branch of the PlanetScale database.
+- After the new field has been added to the code, the developer creates a pull request to merge the code branches, and a **Deploy request** in PlanetScale to merge the database changes.
+- The PlanetScale deploy request is merged first to ensure that the column exists in the database before the application code starts writing to it. Once live, the application code pull request is merged in. With this branching workflow, the schema changes are safely applied to the `main` branch of the database without any table locking occurring and zero downtime to the users of the application.
+
+## Branching in action
+
+Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them.
+We're going to promote our existing branch to production, create a new development branch, add a new column, create a deploy request, and deploy it to production.
+
+### Promote dev branch to production
+
+Start by navigating to the `travel_db` database, click the **"Branches"** tab, and select the `main` branch. Click the button that says **"Promote a branch to production"** to flag the default `main` branch as a production branch.
+
+<ImageBlock alt='The Overview tab of the database.' src={overview} />
+
+In the modal that appears, `main` should be selected. Click **"Promote branch"**.
+
+<ImageBlock alt='The Promote branch modal.' src={modal} />
+
+### Create a dev branch
+
+Back in the database **"Overview"** tab, click the **"New branch"** button to create a new branch.
+
+<ImageBlock alt='The Overview tab of the database with the New branch button highlighted.' src={overview2} />
+
+In the **New branch** modal, you’ll see options to name the branch, select the base, and even change the region for this branch. Name the branch `dev` and click **"Create branch"**.
+
+<ImageBlock alt='The New branch modal.' src={modal2} />
+
+The branch takes a few minutes to initialize. Wait for this process to complete before proceeding.
+
+<ImageBlock alt='The view of the branch being initialized.' src={branchInit} />
+
+Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Overview"** tab.
+
+<ImageBlock alt='The view of the branch after its been initialized.' src={branchView} />
+
+### Make a schema change
+
+Now that the branch is initialized, let’s update the schema of our `hotels` table and add a `description` column. Click the **"Console"** tab and run the following script.
+
+```sql
+ALTER TABLE hotels ADD description VARCHAR(500);
+```
+
+<ImageBlock alt='The console with the output of the ALTER command.' src={console} />
+
+Now run the following command to see the structure of the table in the `dev` branch. You’ll see the new `description` column in the table structure.
+
+```sql
+DESCRIBE hotels;
+```
+
+<ImageBlock alt='The console with the output of the DESCRIBE command.' src={console2} />
+
+Before we merge these changes, let's double-check the `main` branch of the database and compare the structure of the same table. To quickly switch branches, click the branch name in the header and select **"main"** from the list.
+
+<ImageBlock alt='How to quickly access different branches.' src={branchPicker} />
+
+Since `main` is a production branch, if you click on **"Console"**, you’ll get a notice that it is disabled on production branches.
+
+<ImageBlock alt='The disabled Console tab.' src={badconsole} />
+
+In a working environment, you’d want it to stay like this since it protects the data in that branch. For the sake of the guide though, we can turn this protection off so we can check the structure of the table. Click on the database name in the header and click the **"Settings"** tab to access the general database settings. Check the box that says **"Allow web console access to production branches"**, then click **"Save database settings"**.
+
+<ImageBlock alt='The settings view of where to allow console access for production branches.' src={settings} />
+
+To access the `main` branch again, click the **"Branches"** tab, then the **"main"** branch from the list.
+
+<ImageBlock alt='The branches tab.' src={branchesTab} />
+
+Click the **"Console"** tab and it should be available now. Run the following command to see the structure of the `hotels` table.
+
+```sql
+DESCRIBE hotels;
+```
+
+<ImageBlock alt='The console of the main branch with the output of the DESCRIBE command.' src={console3} />
+
+Notice how `description` is missing. This is because we made the change on the `dev` branch and haven’t merged the changes into `main`. Let’s fix that now. Click the branch name in the header and access the **"dev"** branch.
+
+<ImageBlock alt='The branch quick access menu.' src={branchPicker2} />
+
+### Create a deploy request
+
+On the **"Overview"** tab, you can now create a deploy request. Enter a comment (optional), then click "Create deploy request".
+
+<ImageBlock alt='The Overview tab of the dev branch.' src={devBranch} />
+
+PlanetScale will automatically check to see if your changes can be deployed by comparing the schemas between the `dev` and `main` branches.
+
+<ImageBlock alt='The deploy request view while changes are being evaluated.' src={evaluating} />
+
+Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out.
+
+There is also the option to auto-apply your changes after PlanetScale has finished staging them. This option is selected by default. If it is disabled, PlanetScale will stage your changes and wait for you to manually apply them before making them live, which can be helpful under certain circumstances.
+
+<ImageBlock alt='The deploy request view after changes have been evaluated and can be deployed.' src={prgood} />
+
+You also have the option to view the schema changes by clicking the **"View schema changes button"** or clicking the **"Schema changes"** tab. This will show a diff between the schemas so you can see what changes will be applied.
+
+<ImageBlock alt='The Schema changes tab with the diff between branches.' src={diff} />
+
+Once you are done exploring, click the **"Deploy changes"** button on the summary tab.
+
+<ImageBlock alt='The Summary tab of the deploy request.' src={summary} />
+
+Once the changes are deployed, the status of the deployment will be displayed, along with how long the deployment took and who initiated it.
+
+<ImageBlock alt='The deploy request view after changes have been deployed.' src={saulgood} />
+
+Head back to the console of the `main` branch and run the `DESCRIBE` command again. Notice how the `main` branch now has the `description` column that was added to `dev` earlier in the guide.
+
+```sql
+DESCRIBE hotels;
+```
+
+<ImageBlock alt='The console of the main branch after changes have been deployed.' src={saulgoodConsole} />
+
+## What's next?
+
+You should have a good understanding of the core concepts of PlanetScale at this point. In the next guide, we’ll cover how you can connect to your PlanetScale database using the language or client of your choice.
+
+<ButtonLink href="/onboarding/create-a-database" className="mb-0">
+  <span><Icon name="chevron-left" size="large" className="inline-block" /> Create a database </span>
+</ButtonLink>
+<ButtonLink href="/onboarding/connect-to-your-database" className="mb-0">
+  <span>Connect to your database <Icon name="chevron-right" size="large" className="inline-block" /></span>
+</ButtonLink>
