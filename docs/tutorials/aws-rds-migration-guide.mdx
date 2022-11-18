@@ -48,7 +48,7 @@ This document will demonstrate how to migrate a database from AWS Relational Dat
 
 Before you can perform a migration, you’ll need to make sure the following is configured:
 
-- [Your database’s gtid and binlog_format settings are properly configured.](#configure-gtid-and-binlog-settings)
+- [Your database’s GTID and binlog_format settings are properly configured.](#configure-gtid-and-binlog-settings)
 - [Your database’s binlog retention settings are properly configured.](#configure-binlog-retention-hours)
 
 You’ll also need to gather the following pieces of information from the AWS Console:
@@ -160,12 +160,27 @@ This concludes the process used to import a database into PlanetScale from AWS R
 
 ## Troubleshooting
 
-This will create an account that has full access to the database that you can use for the migration.
+### Enable binary logging
 
-### Configure gtid and binlog settings
+If binary logging is disabled on your RDS server, you'll receive an error like this from the importer: "External database settings are not compatible with PlanetScale: log_bin must be ON, but found: OFF".
+
+On RDS MySQL servers, binary logging can't be directly enabled by changing a parameter. Instead, to set `log_bin` to on, [enable automated backups](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_WorkingWithAutomatedBackups.html#USER_WorkingWithAutomatedBackups.Enabling) by setting their retention period to any value greater than zero days.
+
+Once that change has been applied, you can verify that `log_bin` is `on` in a MySQL session:
+
+```
+mysql> show variables like 'log_bin';
++---------------+-------+
+| Variable_name | Value |
++---------------+-------+
+| log_bin       | ON    |
++---------------+-------+
+```
+
+### Configure GTID and binlog settings
 
 <ImageBlock
-  alt='One of the gtid errors that display in the PlanetScale Import database form when the connection is not successful.'
+  alt='One of the GTID errors that display in the PlanetScale Import database form when the connection is not successful.'
   src={img12}
 />
 
@@ -203,7 +218,7 @@ Search for “**gtid”** in the search box, and update the following settings t
 
 Click “**Save changes”** once you are done.
 
-<ImageBlock alt='The gtid configurations that are required.' src={img19} />
+<ImageBlock alt='The GTID configurations that are required.' src={img19} />
 
 Now you need to associate the parameter group to the database. Select “**Databases”** from the left nav, check the **select box** next to your database, and click “**Modify”** from the toolbar.
 
