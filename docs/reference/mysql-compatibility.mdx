@@ -8,7 +8,7 @@ import InfoBlock from '@/components/MDX.InfoBlock'
 
 ## Overview
 
-PlanetScale is built on top of open-source Vitess, a database clustering system for horizontal scaling of MySQL. Consequently, PlanetScale is only compatible with MySQL databases.
+PlanetScale is built on top of open-source Vitess, a database clustering system for horizontal scaling of MySQL. Consequently, PlanetScale is only compatible with MySQL databases. 
 
 If you're [importing an existing database](/docs/concepts/database-imports), PlanetScale supports MySQL database versions `5.7` through `8.0`.
 
@@ -53,6 +53,12 @@ If you're attempting to import a database using our Import tool, there are some 
 | **Direct DDL** | ✖️ | We do [not allow Direct DDL](/docs/learn/how-online-schema-change-tools-work) on [production branches](/docs/concepts/branching). |
 | **Disabled binary logs** | ❗ | You must have binary logs enabled if importing a database using our [database importer tool](/docs/concepts/database-imports). See our [Import doc](/docs/concepts/database-imports#server-configuration-issues) for more required configuration. |
 | **Large JSON documents** | ❗ | MySQL supports JSON documents up to 1 GB in size. However, we do not recommend to store more than a few MB in a JSON document for performance reasons. |
+
+## FAQ
+
+### Postgres support
+
+PlanetScale does not support PostgreSQL. We have worked with customers to migrate their Postgres databases to MySQL/PlanetScale. If you have questions about migrating, [get in touch](/contact).
 
 ## Additional assistance
 
