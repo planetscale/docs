@@ -61,13 +61,12 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 ```js
 generator client {
   provider        = "prisma-client-js" //If you want to use TypeScript, use "prisma-client-ts"
-  previewFeatures = ["referentialIntegrity"]
 }
 
 datasource db {
   provider             = "mysql"
   url                  = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
+  relationMode = "prisma"
 }
 ```
 

@@ -67,12 +67,11 @@ pscale connect prisma-playground main --port 3309
 datasource db {
   provider = "mysql"
   url      = env("DATABASE_URL")
-  referentialIntegrity = "prisma"
+  relationMode = "prisma"
 }
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["referentialIntegrity"]
 }
 
 model Post {
