@@ -1,12 +1,13 @@
 ---
 title: 'Prisma with PlanetScale quickstart'
 subtitle: 'Learn how to integrate Prisma with PlanetScale'
-date: '2022-07-22'
+date: '2022-11-29'
 ---
 
 import ImageBlock from '@/components/MDX.ImageBlock'
 import schema from '@/images/prisma-quickstart--schema.png'
 import studio from '@/images/prisma-quickstart--studio.png'
+import InfoBlock from '@/components/MDX.InfoBlock'
 
 ## Overview
 
@@ -96,6 +97,10 @@ npx prisma init
 ```
 
 This creates the `prisma` directory with a file named `schema.prisma`. This file will hold your [Prisma schema configuration](https://www.prisma.io/docs/concepts/components/prisma-schema), which includes your data sources (PlanetScale), generators ([Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client)), and data models.
+
+<InfoBlock type='note'>
+  In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
+</InfoBlock>
 
 Open up the `prisma/schema.prisma` file and paste in the following:
 
