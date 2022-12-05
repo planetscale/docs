@@ -5,7 +5,6 @@ date: '2022-08-18'
 ---
 
 import ImageBlock from '@/components/MDX.ImageBlock'
-import img0 from '@/images/planetscale-serverless-driver--the-location-in-the-planetscale-dashboard-where-the-driver-can-be-enabled.png'
 import img1 from '@/images/planetscale-serverless-driver--how-to-create-a-new-password-in-the-planetscale-dashboard.png'
 import img2 from '@/images/planetscale-serverless-driver--the-new-password-modal.png'
 import img3 from '@/images/planetscale-serverless-driver--the-new-password-modal-after-the-password-has-been-created.png'
@@ -20,15 +19,7 @@ Before learning how to use the PlanetScale serverless driver for JavaScript, it�
 
 Using the PlanetScale serverless driver for JavaScript provides a means of accessing your database and executing queries over an HTTP connection, which is generally not blocked by cloud providers. If you encounter issues using MySQL packages with PlanetScale, use the serverless driver instead.
 
-## Enable a database for the serverless driver
-
-In order to use the PlanetScale serverless driver for JavaScript, the feature must be enabled on the database level. By enabling the feature, new credentials created by PlanetScale will have a different hostname that is enabled for HTTP access. The feature is currently in beta, and enabling the feature does not impact existing credentials that are currently in use.
-
-You can find the option to enable the feature under **"Settings"** > **"Beta features"**. Click **"Enroll"** to enable the feature.
-
-<ImageBlock alt='The location in the PlanetScale dashboard where the driver can be enabled.' src={img0} />
-
-Once the feature is enabled, you’ll need to generate a new set of credentials to use the driver. You may do this by navigating to **"Settings"** > **"Password"** and clicking **"New password"**.
+You’ll need to generate a new set of credentials to use the driver. You may do this by navigating to **"Settings"** > **"Password"** and clicking **"New password"**.
 
 <ImageBlock alt='How to create a new password in the PlanetScale dashboard.' src={img1} />
 
