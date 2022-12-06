@@ -93,44 +93,50 @@ There are three simple steps to the database import process. You can cancel the 
   import process. Schema changes are not replicated between databases in either direction.
 </InfoBlock>
 
-### Step 1: Performing initial import
+### Step 1: Performing the initial import
 
 <ImageBlock alt='Step 1 of database import - Initial import' src={initial} />
 
-During step one, the data and schema from your external database are imported into your PlanetScale database. The connection remains open during this phase and in `read-only` mode.
+During this phase, the data and schema from your external database are imported into your PlanetScale database. The PlanetScale database is in `read-only` mode.
 
-While in `read-only` mode, you're already able to take advantage of PlanetScale features. You can generate a password to [connect to your new database](/docs/concepts/secure-connections) in a MySQL client or [in your application locally](/docs/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
+While in `read-only` mode, you're already able to take advantage of PlanetScale features such as:
+1. You can generate a password to [connect to your new database](/docs/concepts/secure-connections) in a MySQL client or [in your application locally](/docs/tutorials/connect-any-application) by clicking the "**Connect**" dropdown underneath the import flow.
+2. You can also view [Query Insights](/docs/concepts/query-insights), branches, and database settings by clicking around in the top nav.
 
-At this point, you can also view [Query Insights](/docs/concepts/query-insights), branches, and database settings by clicking around in the top nav.
 
-Once the import is finished, your database is in Replica mode.
+Once the initial import has finished, your PlanetScale database will be in **Replica** mode.
 
 ### Step 2: Replica mode
 
 <ImageBlock alt='Step 2 of database import - Replica mode' src={replica} />
 
-While in Replica mode, we'll **continue watching your external database and automatically update your PlanetScale database** with any changes using [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html).
-
-In other words, any changes made to the rows in your external database will also appear in your PlanetScale database. For example, if a user makes a new comment on your blog application while you're importing, the new row representing that comment will be added to the comment table on PlanetScale as well. This ensures you **won't experience any data loss** while going through the import process.
-
-In replica mode, you can read from the PlanetScale database but your application should remain connected to the external database so that the databases stay in sync. Any updates that are made to your PlanetScale database will not be copied back to your external database. To replicate data in that direction, you will need to turn on "Primary mode".
-
-So, once you're ready for PlanetScale to become your _primary_ database, [connect your live application](/docs/tutorials/connect-any-application) to the PlanetScale database and click "Enable primary mode" to move to the next stage.
+In this mode, your external database is the primary but PlanetScale will direct reads and writes to the appropriate database. [Connect your live application](/docs/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app.
 
 <InfoBlock type='note'>
   If you gave your PlanetScale database a different name than the one you're importing from, make sure your application
   is referencing the correct database name.
 </InfoBlock>
 
+Queries sent to PlanetScale will be served directly from the PlanetScale database but writes will be routed **back to your external database** and their results will be replicated back to PlanetScale to keep both databases in sync. Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/) to allow your PlanetScale database act as a "data router".
+
+We'll **continue watching your external database and automatically update your PlanetScale database** with any changes using [Binary Log File Replication](https://dev.mysql.com/doc/refman/8.0/en/binlog-replication-configuration-overview.html). In other words, any writes made directly to your external database will also appear in your PlanetScale database. This ensures you **won't experience any data loss** while updating your application's connection string to point at PlanetScale. For example, if a user makes a new comment on your blog application during this stage of the import, the comment will be written to both databases no matter which database the application was pointed at. This ensures you **won't experience any data loss** while going through the import process, or if you decide to cancel the import into PlanetScale.
+
+Once you're ready for PlanetScale to become your _primary_ database, click "Enable primary mode" to move to the next stage.
+
 ### Step 3: Primary mode
 
 <ImageBlock alt='Step 3 of database import - Primary mode' src={primary} />
 
-During this stage, PlanetScale replaces your external database as the primary database. It is now ready to accept both reads and writes. Behind the scenes, we essentially reverse the direction of the replication in the previous step. This means that all queries from your application should be sent to the PlanetScale database and updates will be replicated back to your external database.
+During this stage, PlanetScale replaces your external database as the primary database. It will serve both reads and writes. Behind the scenes, we essentially reverse the direction of the routing in the previous step. This means that all read and writes will go straight to the PlanetScale database and updates will be replicated back to your external database.
 
-In the context of the blog application example, this means that if a user makes a new comment, the comment will be written to the PlanetScale database and then copied back to your external database as well. Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data while going through the import process.
+In the context of the blog application example, this means that if a user makes a new comment, the comment will be written to the PlanetScale database first and then copied back to your external database. 
+Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data while going through the import process.
 
-If you're happy with everything and ready to fully switch over, you can click on the "**Finish**" to finalize the import.
+<InfoBlock type='note'>
+  In Primary mode, any writes made directly to the external database will not be replicated to the PlanetScale database. Your application should be connected directly to the PlanetScale database.
+</InfoBlock>
+
+If you're happy with everything and ready to fully switch over, you can click on the "**Finish import**" button to finalize the import.
 
 When you finalize the import, we will detach your external database. The connection to that database will be closed and all connection information will be deleted from PlanetScale. This will also cut off replication, so your PlanetScale database will no longer update your external database.
 
