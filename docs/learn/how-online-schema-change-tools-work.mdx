@@ -4,8 +4,6 @@ subtitle: 'Technical overview of the concepts behind online schema change logic'
 date: '2022-07-22'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 ## The schema change problem
 
 Changing a table's schema is one of the most challenging problems in relational databases, and in MySQL in particular. In today's accelerated and rapid development cycles, engineers find that they need to make schema changes sometimes on a daily basis. Direct `ALTER TABLE` is a blocking operation, which renders the table completely inaccessible, even for reads.
@@ -123,9 +121,9 @@ We illustrate below the _pseudo code_ used by Online Schema Change tools to iter
 
 6. Assign `(@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at) := (@this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at)` and repeat.
 
-<InfoBlock type="note">
+{% callout %}
   The above pseudo-code is just a simplification of the process.
-</InfoBlock>
+{% /callout %}
 
 There are several extra considerations that go into the full process, such as:
 
