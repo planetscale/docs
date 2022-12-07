@@ -1,6 +1,6 @@
 ---
 title: 'Deploy to Vercel'
-subtitle: "Learn how to connect your PlanetScale database to deploy on Vercel"
+subtitle: 'Learn how to connect your PlanetScale database to deploy on Vercel'
 date: '2022-08-01'
 ---
 
@@ -51,7 +51,7 @@ In Vercel, you'll set it as follows:
 - **NAME** = `DATABASE_URL`
 - **VALUE** = `mysql://xxxxxxxxx:************@xxxxxxxxxx.us-east-3.psdb.cloud/my_database?sslaccept=strict`
 
-*Note: The credentials are blurred for the example, but when you paste them in, use the actual values.*
+_Note: The credentials are blurred for the example, but when you paste them in, use the actual values._
 
 ![Vercel dashboard - Environment variables](/docs/tutorials/deploy-to-vercel/environment-variables.png)
 
@@ -80,12 +80,14 @@ To access the configuration page:
 3. Click the "**Configure**" button.
 
 {% callout %}
-  If you're modifying an existing connection on a Vercel project, these environment variable values will be regenerated and overwritten.
+If you're modifying an existing connection on a Vercel project, these environment variable values will be regenerated and overwritten.
 {% /callout %}
 
 {% callout title="When removing the Vercel integration" %}
-* Environment variables are removed from all projects tied to the integration.
-* Your application will no longer be able to connect to your PlanetScale database.
+
+- Environment variables are removed from all projects tied to the integration.
+- Your application will no longer be able to connect to your PlanetScale database.
+
 {% /callout %}
 
 ## What's next?

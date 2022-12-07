@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-  PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
 {% /callout %}
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) when building an application with Node.js. It will start with a simple code snippet that will be used to always execute a query through the cache server, then expand into using separate connections.
@@ -20,14 +20,14 @@ const mysql = require('mysql2/promise')
 
 ;(async () => {
   const connection = await mysql.createConnection(process.env.DATABASE_URL)
-  let [rows] = await connection.query("select * from users")
+  let [rows] = await connection.query('select * from users')
 })()
 ```
 
 In order to enable a connection to use PlanetScale Boost, the `@@boost_cached_queries` session variable needs to be set with the following code:
 
 ```js
-await connection.execute("SET @@boost_cached_queries = true")
+await connection.execute('SET @@boost_cached_queries = true')
 ```
 
 Any code written after that session variable has been set will proxy requests through the Boost server. A fully updated code snippet would look like this:
@@ -38,8 +38,8 @@ const mysql = require('mysql2/promise')
 
 ;(async () => {
   const connection = await mysql.createConnection(process.env.DATABASE_URL)
-	connection.execute("SET @@boost_cached_queries = true")
-  let [rows] = await connection.query("SELECT * FROM users")
+  connection.execute('SET @@boost_cached_queries = true')
+  let [rows] = await connection.query('SELECT * FROM users')
 })()
 ```
 
@@ -56,15 +56,12 @@ const mysql = require('mysql2/promise')
 ;(async () => {
   // Create the standard connection
   const connection = await mysql.createConnection(process.env.DATABASE_URL)
-  connection.execute("SET @@boost_cached_queries = true")
-  let [rows] = await connection.query("SELECT * FROM users")
+  connection.execute('SET @@boost_cached_queries = true')
+  let [rows] = await connection.query('SELECT * FROM users')
 
   // Create a Boost-enabled connection
   const boostedConnection = await mysql.createConnection(process.env.DATABASE_URL)
-  await boostedConnection.execute("SET @@boost_cached_queries = true")
-  let [rowsFromCache] = await connection.query("SELECT * FROM users")
+  await boostedConnection.execute('SET @@boost_cached_queries = true')
+  let [rowsFromCache] = await connection.query('SELECT * FROM users')
 })()
 ```
-
-
-

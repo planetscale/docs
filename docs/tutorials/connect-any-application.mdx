@@ -12,7 +12,7 @@ If you're just getting started and still need to set up a database, we recommend
 
 PlanetScale uses [database branches](/docs/concepts/branching) to create a development-friendly workflow. Your database is initially created with a default branch, `main`, which is meant to serve as a development branch before promoting it to production.
 
-While *developing* your application, you'll need to connect to a *development* branch. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/docs/concepts/branching) for more information about the branching workflow.
+While _developing_ your application, you'll need to connect to a _development_ branch. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/docs/concepts/branching) for more information about the branching workflow.
 
 There are two ways to connect your app to PlanetScale. Both are covered below.
 
@@ -70,7 +70,7 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
 {% callout %}
-  The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
 {% /callout %}
 
 2. Take note of the values returned. You won't be able to see this password again.
@@ -108,7 +108,7 @@ If you're **unsure what to put here**, we recommend selecting your application's
 
 ## Option 2: Connect using the PlanetScale proxy
 
-Another way to connect your application to your PlanetScale database *during development* is using the PlanetScale proxy. You won't have to fiddle with configuring any credential details, as that's handled by PlanetScale. It's as simple as a single CLI command.
+Another way to connect your application to your PlanetScale database _during development_ is using the PlanetScale proxy. You won't have to fiddle with configuring any credential details, as that's handled by PlanetScale. It's as simple as a single CLI command.
 
 You'll use the CLI to establish a secure connection to PlanetScale. It will listen on a local port that your application can connect to. The main benefit of this method is you won't have to generate and remember multiple passwords every time you're creating or switching to a new branch.
 

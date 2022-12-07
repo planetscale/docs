@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-  PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
 {% /callout %}
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) in Go. We'll first go over a simple example showing how to enable PlanetScale Boost for all queries, and then expand on it to create a separate connection that has the query cache enabled.
@@ -78,7 +78,9 @@ func main() {
 	log.Println("Successfully connected to PlanetScale!")
 }
 ```
+
 Using this method, all of your queries will be run through the boosted connection, even those that aren't using PlanetScale Boost. This may make it difficult to tell which queries are actually being boosted. For this reason, we recommend setting up two separate connections: one for regular queries and one for boosted queries.
+
 ## Set up multiple connections
 
 Our recommended strategy for working with PlanetScale Boost is to use two separate connections so you can be explicit when executing your queries. Below is an updated version of the snippet with an additional function that enables query caching on a database connection:

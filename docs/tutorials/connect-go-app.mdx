@@ -18,7 +18,7 @@ In this guide, you’ll learn how to connect to a PlanetScale MySQL database wit
 - The [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) (optional)
 
 {% callout type="tip" %}
-  Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect repo](https://github.com/planetscale/connection-examples/tree/main/go).
+Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect repo](https://github.com/planetscale/connection-examples/tree/main/go).
 {% /callout %}
 
 ## Create the database
@@ -88,11 +88,11 @@ The terminal should update with the following output.
 Now that the project is running, let’s explore the code to see how everything works. All of the code is stored in `main.go`, with each of the core SQL operations mapped by HTTP method in the `main` function:
 
 | HTTP Method Name | Query Type |
-| --- | --- |
-| get | SELECT |
-| post | INSERT |
-| put | UPDATE |
-| delete | DELETE |
+| ---------------- | ---------- |
+| get              | SELECT     |
+| post             | INSERT     |
+| put              | UPDATE     |
+| delete           | DELETE     |
 
 ```go
 func main() {

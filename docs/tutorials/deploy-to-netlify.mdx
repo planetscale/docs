@@ -1,6 +1,6 @@
 ---
 title: 'Deploy to Netlify'
-subtitle: "Learn how to connect your PlanetScale database to deploy on Netlify"
+subtitle: 'Learn how to connect your PlanetScale database to deploy on Netlify'
 date: '2022-08-01'
 ---
 
@@ -34,7 +34,7 @@ This guide will walk you through setting up and deploying your PlanetScale datab
 3. Click "**Site settings**".
 4. Click "**Build & deploy**," then "**Environment**".
 5. Click "**Edit variable**".
-5. Click "**New variable**" and copy each value from your PlanetScale dashboard into a new environment variable in Netlify. Once you're done with one, click "**Add**" and continue to the next, if applicable.
+6. Click "**New variable**" and copy each value from your PlanetScale dashboard into a new environment variable in Netlify. Once you're done with one, click "**Add**" and continue to the next, if applicable.
 
 For example, if you're using Prisma, your connection string will look similar to this:
 
@@ -43,7 +43,7 @@ DATABASE_URL='mysql://xxxxxxxxx:************@xxxxxxxxxx.us-east-3.psdb.cloud/my-
 ```
 
 {% callout %}
-  Your environment variable name will be the same in your application's code. We used `DATABASE_URL` as an example, but this can be given a different name.
+Your environment variable name will be the same in your application's code. We used `DATABASE_URL` as an example, but this can be given a different name.
 {% /callout %}
 
 In Netlify, you'll set it as follows:
@@ -51,7 +51,7 @@ In Netlify, you'll set it as follows:
 - **Key** = `DATABASE_URL`
 - **Value** = `mysql://xxxxxxxxx:************@xxxxxxxxxx.us-east-3.psdb.cloud/my-database?sslaccept=strict`
 
-*Note: The credentials are blurred for the example, but when you paste them in, use the actual values.*
+_Note: The credentials are blurred for the example, but when you paste them in, use the actual values._
 
 ![Netlify dashboard - Environment variables](/docs/tutorials/deploy-to-netlify/environment-variables.png)
 

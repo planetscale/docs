@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-  PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
 {% /callout %}
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) when building an application with the PlanetScale serverless driver for Javascript. It will start with a simple code snippet that will be used to always execute a query through the cache server, then expand into using separate connections for boosted queries.
@@ -23,20 +23,19 @@ dotenv.config()
 const config = {
   host: process.env.DATABASE_HOST,
   username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
+  password: process.env.DATABASE_PASSWORD
 }
 
-;(async() => {
+;(async () => {
   const conn = await connect(config)
-  const results = await conn.execute("SELECT * FROM users")
+  const results = await conn.execute('SELECT * FROM users')
 })()
-
 ```
 
 In order to enable a connection to use PlanetScale Boost, the `@@boost_cached_queries` session variable needs to be set with the following code:
 
 ```js
-await conn.execute("SET @@boost_cached_queries = true")
+await conn.execute('SET @@boost_cached_queries = true')
 ```
 
 Any query written after that session variable has been set will proxy requests through the Boost server. A fully updated code snippet would look like this:
@@ -50,13 +49,13 @@ dotenv.config()
 const config = {
   host: process.env.DATABASE_HOST,
   username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
+  password: process.env.DATABASE_PASSWORD
 }
 
-;(async() => {
+;(async () => {
   const conn = await connect(config)
-  await conn.execute("SET @@boost_cached_queries = true")
-  const results = await conn.execute("SELECT * FROM users")
+  await conn.execute('SET @@boost_cached_queries = true')
+  const results = await conn.execute('SELECT * FROM users')
 })()
 ```
 
@@ -75,15 +74,15 @@ dotenv.config()
 const config = {
   host: process.env.DATABASE_HOST,
   username: process.env.DATABASE_USERNAME,
-  password: process.env.DATABASE_PASSWORD,
+  password: process.env.DATABASE_PASSWORD
 }
 
-;(async() => {
+;(async () => {
   const conn = await connect(config)
-  const results = await conn.execute("SELECT * FROM users")
+  const results = await conn.execute('SELECT * FROM users')
 
   const boostedConnection = await connect(config)
-  await boostedConnection.execute("SET @@boost_cached_queries = true")
-  const boostedResults = await boostedConnection.execute("SELECT * FROM users")
+  await boostedConnection.execute('SET @@boost_cached_queries = true')
+  const boostedResults = await boostedConnection.execute('SELECT * FROM users')
 })()
 ```

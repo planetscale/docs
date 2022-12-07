@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-  PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
 {% /callout %}
 
 ## How to use PlanetScale Boost in a Rails application
@@ -34,7 +34,6 @@ Star.joins(repository: :tags).where(spammy: false).where(tags: {name: "trending"
 
 This is the simplest way to get started using PlanetScale Boost. We recommend going a step further and setting up separate connections for your cached and un-cached queries.
 Doing this will allow you to be confident you're getting up-to-date data when [reading your own writes](https://docs.planetscale.com/docs/concepts/query-caching-with-planetscale-boost#replication-lag-and-read-your-writes).
-
 
 ## PlanetScale Boost with multiple connections
 
