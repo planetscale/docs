@@ -4,14 +4,11 @@ subtitle: 'Use the PlanetScale CLI to create development branches, open deploy r
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import cli from '@/images/planetscale-cli--cli.png'
-
 ## Getting Started
 
 Make sure to first [set up your PlanetScale developer environment](/docs/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
 
-<ImageBlock alt='PlanetScale CLI' src={cli} />
+![PlanetScale CLI](/docs/reference/planetscale-cli/cli.png)
 
 Ready to take these commands for a run on the terminal?
 
@@ -58,10 +55,32 @@ You may use the following flags with the PlanetScale CLI commands.
 
 To add **service tokens** for your organization, here's a complete list of access permissions that can be granted to a token:
 
-| **Token Access Permissions**                                                                 | **What they control**                                       |
-| -------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
-| `read_branch` <br/><br/> `delete_branch` <br/><br/> `create_branch`                          | CRUD on _Branches_ of a `Database`                          |
-| `connect_branch`                                                                             | Connect to **development** _Branches_ of a `Database`       |
-| `connect_production_branch`                                                                  | Connect to **production** _Branches_ of a `Database`        |
-| `read_deploy_request` <br/><br/> `create_deploy_request` <br/><br/> `approve_deploy_request` | _Deploy Requests_ on _Branches_ of a `Database`             |
-| `read_comment` <br/><br/> `create_comment`                                                   | Comments of _Deploy Requests_ on _Branches_ of a `Database` |
+{% table %}
+* **Token Access Permissions**
+* **What they control**
+---
+* `read_branch`
+
+  `delete_branch`
+
+  `create_branch`
+* CRUD on _Branches_ of a `Database`
+---
+* `connect_branch`
+* Connect to **development** _Branches_ of a `Database`
+---
+* `connect_production_branch`
+* Connect to **production** _Branches_ of a `Database`
+---
+* `read_deploy_request`
+
+  `create_deploy_request`
+
+  `approve_deploy_request`
+* _Deploy Requests_ on _Branches_ of a `Database`
+---
+* `read_comment`
+
+  `create_comment`
+* Comments of _Deploy Requests_ on _Branches_ of a `Database`
+{% /table %}

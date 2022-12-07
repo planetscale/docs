@@ -4,8 +4,6 @@ subtitle: 'List of the grants required to import a database into PlanetScale usi
 date: '2022-07-25'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 When importing a database using our [Import tool](/docs/concepts/database-imports), you will need to connect to your existing database with a user that has the proper permissions to set up the necessary configurations to start importing data.
 
 Below is the minimum set of permissions needed and what each allows the user to do:
@@ -24,11 +22,11 @@ Below is the minimum set of permissions needed and what each allows the user to 
 | Table  | `_vt`                    | `DROP`               | Enable databases, tables, and views to be dropped.                           |
 | Table  | `_vt`                    | `ALTER`              | Enable use of ALTER TABLE.                                                   |
 
-<InfoBlock type='note'>
+{% callout %}
   The descriptions in the table above were taken from the MySQL docs. For a full list of all possible grants and their
   impact, please refer to the [GRANT Statement page](https://dev.mysql.com/doc/refman/8.0/en/grant.html) of the MySQL
   docs, and locate the section titled **Privileges Supported by MySQL**.
-</InfoBlock>
+{% /callout %}
 
 ## Script to create user
 

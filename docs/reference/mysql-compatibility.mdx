@@ -4,11 +4,9 @@ subtitle: 'Learn what MySQL syntax, functions, and more are supported by PlanetS
 date: '2022-09-23'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 ## Overview
 
-PlanetScale is built on top of open-source Vitess, a database clustering system for horizontal scaling of MySQL. Consequently, PlanetScale is only compatible with MySQL databases. 
+PlanetScale is built on top of open-source Vitess, a database clustering system for horizontal scaling of MySQL. Consequently, PlanetScale is only compatible with MySQL databases.
 
 If you're [importing an existing database](/docs/concepts/database-imports), PlanetScale supports MySQL database versions `5.7` through `8.0`.
 
@@ -22,10 +20,11 @@ If you're attempting to import a database using our Import tool, there are some 
 
 ### Queries, functions, syntax, data types, and SQL modes
 
-<InfoBlock>
-❗ = <i>Limitations in support</i> <br/>
-✖️ = <i>Not supported</i>
-</InfoBlock>
+{% callout %}
+❗ = _Limitations in support_
+
+✖️ = _Not supported_
+{% /callout %}
 
 | Statement     | Support | Description |
 | ------------- | ------- | --------------------------------------- |
