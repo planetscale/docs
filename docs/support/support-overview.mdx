@@ -4,8 +4,6 @@ subtitle: 'Overview of PlanetScale Support'
 date: '2022-08-01'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 PlanetScale believes all our users, from those running small, free Hobby databases to those running large, mission-critical workloads, deserve to get the help they need.
 
 We are committed to providing the following support options.
@@ -42,28 +40,62 @@ We are committed to providing the following support options.
 
 ## Initial Response Times
 
-<InfoBlock type="note">
-  Tickets must be submitted through web ticketing to be eligible for response times.<br /><br />
-  12x5 means from 6am to 6pm Pacific Standard Time (UTC -8), Monday through Friday, excluding public holidays in the United States.<br /><br />
-  Standard support includes a target first response time of 2 business days.
-</InfoBlock>
+{% callout %}
+Tickets must be submitted through web ticketing to be eligible for response times.
 
-| Support Plan                | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
-|-----------------------------|-------------------|----------------|-----------------------|------------------------|
-| Hobby            | N/A      | N/A    | N/A           | N/A            |
-| Standard (Scaler/Team)      | 12x5              | 12x5           | 12x5                  | 12x5                   |
-| Business (Optional Upgrade) | 1 hour (24x7)     | 4 hours (24x7) | 1 business day (12x5) | 2 business days (12x5) |
-| Enterprise (Optional Upgrade)| 15 minutes (24x7) | 1 hour (24x7)  | 4 hours (12x5)        | 12 hours (12x5)        |
+12x5 means from 6am to 6pm Pacific Standard Time (UTC -8), Monday through Friday, excluding public holidays in the United States.
+
+Standard support includes a target first response time of 2 business days.
+{% /callout %}
+
+| Support Plan                  | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
+| ----------------------------- | ----------------- | -------------- | --------------------- | ---------------------- |
+| Hobby                         | N/A               | N/A            | N/A                   | N/A                    |
+| Standard (Scaler/Team)        | 12x5              | 12x5           | 12x5                  | 12x5                   |
+| Business (Optional Upgrade)   | 1 hour (24x7)     | 4 hours (24x7) | 1 business day (12x5) | 2 business days (12x5) |
+| Enterprise (Optional Upgrade) | 15 minutes (24x7) | 1 hour (24x7)  | 4 hours (12x5)        | 12 hours (12x5)        |
 
 ## Ticket Priorities
 
-| Priority      | Description |
-|---------------|-------------|
-| P4 (Low)      | One or more of: <ul><li>General platform and workflow questions</li><li>Feature requests</li><li>General product feedback</li></ul> |
-| P3 (Normal)   | One or more of: <ul><li>Partial, non-critical loss of functionality of the PlanetScale platform. Users are able to continue using core platform functionality.</li><li>A non-production application running against the PlanetScale platform is impaired or down.</li><li>There is a partial, non-critical loss of use of the platform with a medium-to-low business impact. Short-term workaround is available.</li></ul> |
-| P2 (High)     | One or more of: <ul><li>A production application is experiencing performance issues due to the PlanetScale platform.</li><li>Intermittent issues and reduced quality of service for significant features.</li><li>Operations can continue in a restricted fashion, although long-term productivity might be adversely affected.</li><li>A temporary workaround is available for an issue that was previously a P1 (Urgent).</li></ul> |
-| P1 (Urgent)   | One or more of: <ul><li>Production applications are down due to the PlanetScale platform and no workaround is immediately available.</li><li>A complete loss of ability to serve queries, commit transactions, or a significant feature impacting production workflows is completely unavailable.</li><li>All or a substantial portion of your data on PlanetScale production branches is at significant risk of loss or corruption.</li><li> A confirmed security incident has been identified.</li></ul> |
+{% table %}
+* Priority
+* Description
+---
+* P4 (Low)
+* One or more of:
+  {% list type="checkmark" %}
+  * General platform and workflow questions
+  * Feature requests
+  * General product feedback
+  {% /list %}
+---
+* P3 (Normal)
+* One or more of:
+  {% list type="checkmark" %}
+  * Partial, non-critical loss of functionality of the PlanetScale platform. Users are able to continue using core platform functionality.
+  * A non-production application running against the PlanetScale platform is impaired or down.
+  * There is a partial, non-critical loss of use of the platform with a medium-to-low business impact. Short-term workaround is available.
+  {% /list %}
+---
+* P2 (High)
+* One or more of:
+  {% list type="checkmark" %}
+  * A production application is experiencing performance issues due to the PlanetScale platform.
+  * Intermittent issues and reduced quality of service for significant features.
+  * Operations can continue in a restricted fashion, although long-term productivity might be adversely affected.
+  * A temporary workaround is available for an issue that was previously a P1 (Urgent).
+  {% /list %}
+---
+* P1 (Urgent)
+* One or more of:
+  {% list type="checkmark" %}
+  * Production applications are down due to the PlanetScale platform and no workaround is immediately available.
+  * A complete loss of ability to serve queries, commit transactions, or a significant feature impacting production workflows is completely unavailable.
+  * All or a substantial portion of your data on PlanetScale production branches is at significant risk of loss or corruption.
+  * A confirmed security incident has been identified.
+  {% /list %}
+{% /table %}
 
-<InfoBlock type="note">
-  PlanetScale Support has the ability to update a ticket's priority if it does not generally match these guidelines.
-</InfoBlock>
+{% callout %}
+PlanetScale Support has the ability to update a ticket's priority if it does not generally match these guidelines.
+{% /callout %}
