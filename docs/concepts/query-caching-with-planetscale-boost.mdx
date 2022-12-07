@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-  PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
 {% /callout %}
 
 ## Overview
@@ -74,8 +74,8 @@ const user = conn.query("SELECT id, username, email FROM users WHERE id = 1006â€
 ```
 
 {% callout type="warning" %}
-  Make sure that all queries you want to accelerate using PlanetScale Boost are using a cache-enabled connection in your
-  application.
+Make sure that all queries you want to accelerate using PlanetScale Boost are using a cache-enabled connection in your
+application.
 {% /callout %}
 
 #### Option 2: Single connection for all queries
@@ -116,11 +116,10 @@ An example of this behavior is a case where the application creates a new object
 
 While a query is cached, any columns used by the query cannot be changed in a deploy request. The cached query must be removed and then re-added after the deploy request has completed.
 
-### SELECT * queries
+### SELECT \* queries
 
 When adding queries to PlanetScale Boost, we recommend selecting specific columns rather than using `select *`. When using `select *` you will not be able to make any changes to the table
 used in a deploy request while the cached query is active.
-
 
 ## When to use PlanetScale Boost
 
@@ -140,10 +139,10 @@ While a broad range of typical application queries can be accelerated, not all q
 
 PlanetScale Boost does not support all valid SQL queries.
 
-* Query parameters are only supported within the context of `WHERE` statements and need to be used with either `=` or `IN` equality.
-* Only one `IN` operator is supported per `WHERE` clause in your query.
-* Expressions need to return consistent results. This means that using `NOW()` or `RAND()` in results is not supported.
-* Expressions used in queries need to be supported by the Vitess evaluation engine. For instance, some functions aren't currently supported, which are listed in [this Vitess issue](https://github.com/vitessio/vitess/issues/9647).
+- Query parameters are only supported within the context of `WHERE` statements and need to be used with either `=` or `IN` equality.
+- Only one `IN` operator is supported per `WHERE` clause in your query.
+- Expressions need to return consistent results. This means that using `NOW()` or `RAND()` in results is not supported.
+- Expressions used in queries need to be supported by the Vitess evaluation engine. For instance, some functions aren't currently supported, which are listed in [this Vitess issue](https://github.com/vitessio/vitess/issues/9647).
 
 The PlanetScale Boost engine is under active development and improving rapidly during the limited beta period. Aspects such as expression support in Vitess will continue to evolve.
 

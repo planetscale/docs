@@ -37,7 +37,7 @@ PlanetScale will check if the request is deployable. This process includes check
 ![PlanetScale deploy request - approve changes](/docs/concepts/deploy-requests/approve.png)
 
 7.  Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
-8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
+8.  Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
 9.  When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
 10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
 11. After you deploy, you have **30 minutes to "undo"** it using our [schema revert feature](#revert-a-schema-change).
@@ -57,8 +57,8 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! You have the option to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
 
 {% callout %}
-  The schema revert feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this
-  feature.
+The schema revert feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this
+feature.
 {% /callout %}
 
 ### How to revert a schema change
@@ -126,7 +126,7 @@ This feature is helpful if you have long-running migrations. For very large or c
 ![PlanetScale deploy request - Apply changes from deployment button](/docs/concepts/deploy-requests/apply-changes.png)
 
 {% callout %}
-  If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.
+If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.
 {% /callout %}
 
 For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale) blog post.

@@ -11,7 +11,7 @@ Multi-factor authentication (MFA) provides better safety for your databases and 
 PlanetScale allows users logging in with an email address and password to set MFA as a requirement for logging into the user account.
 
 {% callout %}
-  If you're authenticating via GitHub OAuth or [SSO](/docs/concepts/sso), MFA settings will not be displayed.
+If you're authenticating via GitHub OAuth or [SSO](/docs/concepts/sso), MFA settings will not be displayed.
 {% /callout %}
 
 ### Authentication providers
@@ -33,8 +33,8 @@ This will bring up a pop-up modal with a _QR code_ and some `recovery codes` tha
 ![Pop-up modal with QR code and recovery codes](/docs/concepts/mfa/recovery-codes.png)
 
 {% callout type="warning" %}
-    Recovery codes are the only account recovery method accepted when MFA is enabled. If you lose both your TOTP app and
-    the recovery codes, there is no way to regain access to your account.
+Recovery codes are the only account recovery method accepted when MFA is enabled. If you lose both your TOTP app and
+the recovery codes, there is no way to regain access to your account.
 {% /callout %}
 
 3. Scan the QR Code with your preferred TOTP app and enter the generated code.
@@ -46,8 +46,8 @@ This will bring up a pop-up modal with a _QR code_ and some `recovery codes` tha
 ![Copy the recovery codes](/docs/concepts/mfa/copy.png)
 
 {% callout type="tip" %}
-  Recovery codes are only visible during the MFA setup process. Make sure the recovery codes are copied and saved some
-  place secure before continuing.
+Recovery codes are only visible during the MFA setup process. Make sure the recovery codes are copied and saved some
+place secure before continuing.
 {% /callout %}
 
 6. Click **Done** to close the pop-up modal.
@@ -67,12 +67,14 @@ You can use one of the `recovery codes` in the place of a TOTP token on the seco
 ## Disable MFA
 
 {% callout type="warning" %}
-  We strongly recommend that you do not disable MFA to avoid unauthorized access to your user account.
+We strongly recommend that you do not disable MFA to avoid unauthorized access to your user account.
 {% /callout %}
 
 {% callout title="Effects of disabling MFA" %}
-* Any devices setup with the QR code for your account will no longer be able to produce valid OTP tokens.
-* Any recovery codes that were generated when MFA was enabled will no longer be valid.
+
+- Any devices setup with the QR code for your account will no longer be able to produce valid OTP tokens.
+- Any recovery codes that were generated when MFA was enabled will no longer be valid.
+
 {% /callout %}
 
 You can disable MFA for your user account under your PlanetScale account settings.
@@ -90,5 +92,7 @@ You can disable MFA for your user account under your PlanetScale account setting
 4. Click the **Disable** button to close the pop-up modal.
 
 {% callout title="Next steps" %}
-  * [Service tokens in organizations](/docs/reference/planetscale-cli#service-tokens-in-organizations)
+
+- [Service tokens in organizations](/docs/reference/planetscale-cli#service-tokens-in-organizations)
+
 {% /callout %}
