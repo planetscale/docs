@@ -20,32 +20,32 @@ pscale audit-log <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command** | **Description**        |
-| -------- | ------------------------------------ |
-| `list` | List all audit logs in an organization |
+| **Sub-command** | **Description**                        |
+| --------------- | -------------------------------------- |
+| `list`          | List all audit logs in an organization |
 
 ### Available flags
 
-| **Flag** | **Description**        |
-| -------- | --------------------------------------- |
-| `-h`, `--help` | View help for `audit-log` command |
-| `--action` | Filter based on action type |
-| `--limit` int | The number of events to return. Min: 1, Max: 100 |
-| `--starting-after` string | The ID of the audit log to start after (for pagination) |
-| `--org <ORGANIZATION_NAME>` | The organization for the current user |
+| **Flag**                    | **Description**                                         |
+| --------------------------- | ------------------------------------------------------- |
+| `-h`, `--help`              | View help for `audit-log` command                       |
+| `--action`                  | Filter based on action type                             |
+| `--limit` int               | The number of events to return. Min: 1, Max: 100        |
+| `--starting-after` string   | The ID of the audit log to start after (for pagination) |
+| `--org <ORGANIZATION_NAME>` | The organization for the current user                   |
 
 ### Global flags
 
-| **Command** | **Description**        |
-| -------- | --------------------------------------- |
-| `--api-token <TOKEN>` | The API token to use for authenticating against the PlanetScale API. |
-| `--api-url <URL>` | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`. |
-| `--config <CONFIG_FILE>` | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. |
-| `--debug` | Enable debug mode. |
-| `-f`, `--format <FORMAT>` | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
-| `--no-color` | Disable color output. |
-| `--service-token <TOKEN>` | The service token for authenticating. |
-| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating. |
+| **Command**                     | **Description**                                                                      |
+| ------------------------------- | ------------------------------------------------------------------------------------ |
+| `--api-token <TOKEN>`           | The API token to use for authenticating against the PlanetScale API.                 |
+| `--api-url <URL>`               | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`.     |
+| `--config <CONFIG_FILE>`        | Config file. Default is `$HOME/.config/planetscale/pscale.yml`.                      |
+| `--debug`                       | Enable debug mode.                                                                   |
+| `-f`, `--format <FORMAT>`       | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
+| `--no-color`                    | Disable color output.                                                                |
+| `--service-token <TOKEN>`       | The service token for authenticating.                                                |
+| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                             |
 
 ## Examples
 

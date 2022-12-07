@@ -2,7 +2,7 @@
 title: 'Import tool public IP addresses'
 subtitle: 'List of the IP addresses you must allow when importing a database using the Import tool'
 date: '2022-08-24'
-internal: "IPs are pulled from https://github.com/planetscale/ps-turtle/blob/main/psturtle_data.go"
+internal: 'IPs are pulled from https://github.com/planetscale/ps-turtle/blob/main/psturtle_data.go'
 ---
 
 When importing a database using our [Import tool](/docs/concepts/database-imports), you need to grant a set of IP addresses access to your MySQL database so that PlanetScale can make the connection.
@@ -10,19 +10,22 @@ When importing a database using our [Import tool](/docs/concepts/database-import
 The set of IP addresses that you should use depends on the region of the [PlanetScale branch](/docs/concepts/branching) that you're importing to. You can find this under the "Region" field in the "New database" section of the Import tool.
 
 {% callout %}
-  This IP reference guide is meant to be used in combination with our
-  [Database Import guide](/docs/concepts/database-imports) or one of our platform-specific guides under
-  "Migration guides" in the left nav.
+This IP reference guide is meant to be used in combination with our
+[Database Import guide](/docs/concepts/database-imports) or one of our platform-specific guides under
+"Migration guides" in the left nav.
 {% /callout %}
 
 ![The New database section of the Import database tool.](/docs/reference/import-tool-migration-addresses/region.png)
 
 {% table %}
-* Region
-* IP Addresses
+
+- Region
+- IP Addresses
+
 ---
-* **AWS ap-northeast-1 (Tokyo)**
-* 3.209.149.66
+
+- **AWS ap-northeast-1 (Tokyo)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -33,9 +36,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   35.75.255.19
 
   52.68.124.171
+
 ---
-* **AWS ap-south-1 (Mumbai)**
-* 3.209.149.66
+
+- **AWS ap-south-1 (Mumbai)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -46,9 +51,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   3.6.202.71
 
   65.2.95.185
+
 ---
-* **AWS ap-southeast-2 (Sydney)**
-* 3.209.149.66
+
+- **AWS ap-southeast-2 (Sydney)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -59,9 +66,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   54.252.39.42
 
   54.253.218.226
+
 ---
-* **AWS eu-central-1 (Frankfurt)**
-* 3.209.149.66
+
+- **AWS eu-central-1 (Frankfurt)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -78,9 +87,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   3.124.172.21
 
   3.68.245.99
+
 ---
-* **AWS eu-west-1 (Dublin)**
-* 3.209.149.66
+
+- **AWS eu-west-1 (Dublin)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -97,9 +108,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   54.220.84.112
 
   54.77.173.187
+
 ---
-* **AWS sa-east-1 (Sao Paulo)**
-* 3.209.149.66
+
+- **AWS sa-east-1 (Sao Paulo)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -110,9 +123,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   54.94.201.50
 
   54.94.231.88
+
 ---
-* **AWS us-east-1 (Northern Virginia)**
-* 3.209.149.66
+
+- **AWS us-east-1 (Northern Virginia)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -141,9 +156,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   35.174.79.154
 
   44.199.177.24
+
 ---
-* **AWS us-west-2 (Oregon)**
-* 3.209.149.66
+
+- **AWS us-west-2 (Oregon)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -154,9 +171,11 @@ The set of IP addresses that you should use depends on the region of the [Planet
   52.35.206.238
 
   54.70.167.41
+
 ---
-* **AWS eu-west-2 (London)**
-* 3.209.149.66
+
+- **AWS eu-west-2 (London)**
+- 3.209.149.66
 
   3.215.97.46
 
@@ -167,4 +186,5 @@ The set of IP addresses that you should use depends on the region of the [Planet
   3.10.132.119
 
   3.11.110.64
+
 {% /table %}
