@@ -11,8 +11,8 @@ To migrate data safely and [without downtime](/docs/concepts/nonblocking-schema-
 If you attempt to deploy such a schema change, the deploy request will fail with the error `All tables must have at least one unique, not-null key that remains unchanged during the migration`.
 
 {% callout %}
-  This example adds a temporary unique key but you could also use a unique index
-  or create the temporary key by adding a unique constraint.
+This example adds a temporary unique key but you could also use a unique index
+or create the temporary key by adding a unique constraint.
 {% /callout %}
 
 ## How to change a table's single unique key

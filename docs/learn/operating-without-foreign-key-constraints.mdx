@@ -28,9 +28,9 @@ We believe the advantages of Online DDL such as [branching](/docs/concepts/branc
 In other words, if you **enforce referential integrity at the application level instead of at the database level**, you open the door to all of those benefits.
 
 {% callout %}
-  You can still think in terms of foreign key relationships; of parent tables and child tables; of rows referencing each
-  other. You can structure your tables in the exact same way without FOREIGN KEY constraints as you would with the
-  constraints. It's just how these relationships are enforced that changes.
+You can still think in terms of foreign key relationships; of parent tables and child tables; of rows referencing each
+other. You can structure your tables in the exact same way without FOREIGN KEY constraints as you would with the
+constraints. It's just how these relationships are enforced that changes.
 {% /callout %}
 
 To understand how to work without foreign key constraints, we must first understand foreign key functionality.
@@ -55,8 +55,8 @@ CREATE TABLE child_table (
 ```
 
 {% callout type="tip" %}
-  In MySQL, foreign keys are only implemented by the storage engine layer, namely the default and popular InnoDB engine.
-  A FOREIGN KEY constraint isn't a separate entity. It lives within the child's table space.
+In MySQL, foreign keys are only implemented by the storage engine layer, namely the default and popular InnoDB engine.
+A FOREIGN KEY constraint isn't a separate entity. It lives within the child's table space.
 {% /callout %}
 
 `FOREIGN KEY` constraints are available for row deletion (`ON DELETE`) and row updates (`ON UPDATE`). In this document, we discuss `ON DELETE` as it is the more impactful of the two. The discussion is relevant to `ON UPDATE` constraints, as well.
@@ -106,9 +106,9 @@ CREATE TABLE child_table (
 ```
 
 {% callout type="tip" %}
-  Each FOREIGN KEY constraint requires an index covering the referenced column(s) on both sides of the connection. The
-  index parent_id_idx is _required_ by the constraint. We can drop that key in our constraint-free table, depending
-  on the type of queries we might use to retrieve data from the tables.
+Each FOREIGN KEY constraint requires an index covering the referenced column(s) on both sides of the connection. The
+index parent*id_idx is \_required* by the constraint. We can drop that key in our constraint-free table, depending
+on the type of queries we might use to retrieve data from the tables.
 {% /callout %}
 
 ## Developing an app with no FOREIGN KEY constraints

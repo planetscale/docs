@@ -73,7 +73,7 @@ It is impractical, or inefficient, to copy all rows from the original table to t
 
 We reasonably know where the table starts. But where does it "end"? Consider a table with an `AUTO_INCREMENT PRIMARY KEY` column. As we work to copy the table rows, the app writes more rows into the table, pushing the end farther and farther. This creates an illusion of a never ending flow. However, this is not the case. The tools evaluate the first and last rows (as ordered by the iteration key), and only copy rows in that range. Any excessive rows beyond that range will be captured by following the ongoing changes. It is imperative then to begin capturing changes _before_ evaluating row range.
 
-Copying, say, `100` rows at a time will very likely yield with an image inconsistent with a single snapshot of all rows. As we copy the first `100` rows, new rows can be added, removed or updated in the next `100` rows range. As we advance in our copy phase, the data gets more and more skewed from the original imaginary snapshot from the migration starting point. That is in fact not a  problem, as the skew serves us to reflect an even more updated image of the data. We are interested not in the data snapshot at the _start_ of the migration, but at the _end_ of it. We want the ghost table to be aligned with the original table at such point when we can swap the two without data loss. Applying the ongoing changes is of course the key to achieving that. More on the interaction of row copy and ongoing changes later on.
+Copying, say, `100` rows at a time will very likely yield with an image inconsistent with a single snapshot of all rows. As we copy the first `100` rows, new rows can be added, removed or updated in the next `100` rows range. As we advance in our copy phase, the data gets more and more skewed from the original imaginary snapshot from the migration starting point. That is in fact not a problem, as the skew serves us to reflect an even more updated image of the data. We are interested not in the data snapshot at the _start_ of the migration, but at the _end_ of it. We want the ghost table to be aligned with the original table at such point when we can swap the two without data loss. Applying the ongoing changes is of course the key to achieving that. More on the interaction of row copy and ongoing changes later on.
 
 It's simple to consider how we may iterate a table with, say, a `AUTO_INCREMENT PRIMARY KEY`. It's easy to imagine iterating rows `[1..100]`, `[101..200]`, `[201..300]` and so forth. But we must then also consider real life situations:
 
@@ -84,45 +84,53 @@ It's simple to consider how we may iterate a table with, say, a `AUTO_INCREMENT 
 We illustrate below the _pseudo code_ used by Online Schema Change tools to iterate a table using a key with any number and type of columns. For clarity, let's assume two columns `(file_name, submitted_at)`; the logic remains similar, though somewhat more detailed, the more columns we iterate by.
 
 1. Grab the minimum value via:
-  ```sql
-  SELECT file_name, submitted_at FROM original_table ORDER BY file_name, submitted_at ASC LIMIT 1 INTO @first_entry_file_name, @first_entry_submitted_at`
-  ```
+
+   ```sql
+   SELECT file_name, submitted_at FROM original_table ORDER BY file_name, submitted_at ASC LIMIT 1 INTO @first_entry_file_name, @first_entry_submitted_at`
+   ```
+
 2. Grab the maximum value via:
-  ```sql
-  SELECT file_name, submitted_at FROM original_table ORDER BY file_name DESC, submitted_at DESC LIMIT 1 INTO @last_entry_file_name, @last_entry_submitted_at`
-  ```
+
+   ```sql
+   SELECT file_name, submitted_at FROM original_table ORDER BY file_name DESC, submitted_at DESC LIMIT 1 INTO @last_entry_file_name, @last_entry_submitted_at`
+   ```
+
 3. Assign `(@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at) := (@first_entry_file_name, @first_entry_submitted_at)` and repeat.
 4. For any iteration: evaluate the next range:
-  ```sql
-  SELECT file_name, submitted_at FROM (
-    SELECT file_name, submitted_at FROM original_table
-    WHERE
-      (file_name, submitted_at) > (@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at)
-      AND
-      (file_name, submitted_at) <>= (@last_entry_file_name, @last_entry_submitted_at)
-    ORDER BY file_name, submitted_at LIMIT 100
-  ) ORDER BY file_name DESC, submitted_at DESC LIMIT 1
-  INTO @this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at
-  ```
-  In words, get the last `file_name, submitted_at` values counting `100` rows starting immediately after end of previous iteration, but also don't exceed our "end" position.
+
+   ```sql
+   SELECT file_name, submitted_at FROM (
+     SELECT file_name, submitted_at FROM original_table
+     WHERE
+       (file_name, submitted_at) > (@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at)
+       AND
+       (file_name, submitted_at) <>= (@last_entry_file_name, @last_entry_submitted_at)
+     ORDER BY file_name, submitted_at LIMIT 100
+   ) ORDER BY file_name DESC, submitted_at DESC LIMIT 1
+   INTO @this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at
+   ```
+
+   In words, get the last `file_name, submitted_at` values counting `100` rows starting immediately after end of previous iteration, but also don't exceed our "end" position.
 
 5. Follow up with copy:
-  ```sql
-  INSERT INTO ghost_table (<columns...>)
-    SELECT <columns...>
-    FROM original_table
-      WHERE
-        (file_name, submitted_at) > (@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at)
-        AND
-        (file_name, submitted_at) <= (@this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at)
-    ORDER BY file_name, submitted_at
-  ```
-  The two queries could have been executed as one, but by first evaluating the range using only the key columns, this process is actually more efficient.
+
+   ```sql
+   INSERT INTO ghost_table (<columns...>)
+     SELECT <columns...>
+     FROM original_table
+       WHERE
+         (file_name, submitted_at) > (@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at)
+         AND
+         (file_name, submitted_at) <= (@this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at)
+     ORDER BY file_name, submitted_at
+   ```
+
+   The two queries could have been executed as one, but by first evaluating the range using only the key columns, this process is actually more efficient.
 
 6. Assign `(@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at) := (@this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at)` and repeat.
 
 {% callout %}
-  The above pseudo-code is just a simplification of the process.
+The above pseudo-code is just a simplification of the process.
 {% /callout %}
 
 There are several extra considerations that go into the full process, such as:
@@ -156,7 +164,6 @@ Most tools run some form of monitoring over the affected server or of its replic
 The single most important metric, by far, is replication lag. How the tools discover the replicas, choose which replicas to consider, respond to topology changes, is a matter of implementation and of a different discussion. However, the tools that do observe replicas all try to maintain as low replication lag as possible, and will step back once that lag grows. What the threshold is, is configurable. On extremely busy and sensitive systems this may be as low as `1` second. Other environments may tolerate _minutes_ of lag.
 
 Not all tools can throttle completely. Specifically, trigger based tools can only throttle the row copy process, but not the ongoing changes tracking. Non-trigger based tools are able to completely halt any processing, or choose to take lower precedence over production traffic. For more information about trigger based vs non-trigger based tools, check out our doc on [Comparison of online schema change tools](/docs/learn/online-schema-change-tools-comparison#trigger-based-vs-triggerless).
-
 
 ## Determining when cut-over is possible
 
