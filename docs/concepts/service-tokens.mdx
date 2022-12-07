@@ -4,54 +4,42 @@ subtitle: 'Learn how to work with service tokens, an alternate way to autheticat
 date: '2022-09-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import dbAccessPerms from '@/images/service-tokens--db-access-permissions.png'
-import deleteToken from '@/images/service-tokens--delete-service-token.png'
-import modal from '@/images/service-tokens--new-service-token-modal.png'
-import modifyDbPerms from '@/images/service-tokens--modify-db-perms.png'
-import modifyDbPermsModal from '@/images/service-tokens--modify-db-access-perms-modal.png'
-import removeAccess from '@/images/service-tokens--service-token-remove-access.png'
-import serviceToken from '@/images/service-tokens--modal-with-service-token.png'
-import serviceTokenConfigView from '@/images/service-tokens--service-token-add-db-access.png'
-import settings from '@/images/service-tokens--service-tokens-settings-page.png'
-
 ## Overview
 
 PlanetScale provides the ability to create service tokens for your PlanetScale organization via the CLI or directly in the UI. Service tokens provide an alternate authentication method to be used with the PlanetScale CLI and are typically used in automated scenarios where `pscale auth login` cannot be used.
 
-<InfoBlock type='warning'>
+{% callout type="warning" %}
   Service tokens are not recommended for connecting to production databases. Instead, connect securely to your database
-  using PlanetScale <a href='/docs/concepts/connection-strings'>connection strings</a>.
-</InfoBlock>
+  using PlanetScale [connection strings](/docs/concepts/connection-strings).
+{% /callout %}
 
 ## Create service tokens using the PlanetScale dashboard
 
 To create a service token using the dashboard, log into your organization and click **"Settings"** > **"Service tokens"** > **"New service token"**.
 
-<ImageBlock alt='Service token settings page' src={settings} />
+![Service token settings page](/docs/concepts/service-tokens/service-tokens-settings-page.png)
 
 Give the token a name (this is used for your reference only) and click **"Create service token"**.
 
-<ImageBlock alt='New service token pop-up modal' src={modal} />
+![New service token pop-up modal](/docs/concepts/service-tokens/new-service-token-modal.png)
 
 The modal will update, displaying your service token where the Name field was. Copy the token and click **"Edit token permissions"** to proceed.
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   Be sure to copy the service token after you create it. There's no way to retrieve the token value once you leave this page.
-</InfoBlock>
+{% /callout %}
 
-<ImageBlock alt='Service token detail page' src={serviceToken} />
+![Service token detail page](/docs/concepts/service-tokens/modal-with-service-token.png)
 
 Copy the ID of the service token as it is required to use the service token with the CLI.
 
 Service tokens are configured with granular permissions per database. Before you can use a service token, these permissions must be added. Click **"Add database access"** to open the Database access permissions modal.
 
-<ImageBlock alt="The service token configuration view." src={serviceTokenConfigView} />
+![The service token configuration view.](/docs/concepts/service-tokens/service-token-add-db-access.png)
 
 Select the database you want to grant access for and check the box next to each permission option you need to grant. Once you are done, click **"Save permissions"**.
 
-<ImageBlock alt="The Database access permissions modal." src={dbAccessPerms} />
+![The Database access permissions modal.](/docs/concepts/service-tokens/db-access-permissions.png)
 
 Your service token is now configured for use with the PlanetScale CLI.
 
@@ -80,21 +68,21 @@ pscale branch create <DB_NAME> <BRANCH_NAME> --org <ORG_NAME> --service-token <S
 
 If you want to modify the permissions granted to a service token for a specific database, open the service token from the settings pane and click **"Manage permissions"** for the database permissions you want to modify.
 
-<ImageBlock alt="The location of the Manage permissions option." src={modifyDbPerms} />
+![The location of the Manage permissions option.](/docs/concepts/service-tokens/modify-db-perms.png)
 
 This will open a modal that allows you to modify the permissons the service token has to access that database.
 
-<ImageBlock alt="The Database access permissions modal while modifying permissions." src={modifyDbPermsModal} />
+![The Database access permissions modal while modifying permissions.](/docs/concepts/service-tokens/modify-db-access-perms-modal.png)
 
 To remove access to a database entirely, click **"Remove access"** on the line for that database.
 
-<ImageBlock alt="Remove database access for a service token." src={removeAccess} />
+![Remove database access for a service token.](/docs/concepts/service-tokens/service-token-remove-access.png)
 
 ## Delete a service token
 
 You can delete a service token at any time from the service token detail page. Simply click the **"Delete service token"** button.
 
-<ImageBlock alt="Delete service token." src={deleteToken} />
+![Delete service token.](/docs/concepts/service-tokens/delete-service-token.png)
 
 Deleting a service token will sever any database connections that use the given service token.
 

@@ -4,21 +4,6 @@ subtitle: 'Find and optimize long-running queries in your application.'
 date: '2022-12-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import VimeoEmbed from '@/components/VimeoEmbed'
-import branches from '@/images/query-insights--branches.png'
-import errors from '@/images/query-insights--errors.png'
-import errorsDetailed from '@/images/query-insights--errors-detailed-view.png'
-import explain from '@/images/query-insights--explain.png'
-import graph from '@/images/query-insights--graph.png'
-import metrics from '@/images/query-insights--metrics.png'
-import optIn from '@/images/query-insights--opt-in.png'
-import queries from '@/images/query-insights--queries.png'
-import query from '@/images/query-insights--query.png'
-import timeframe from '@/images/query-insights--timeframe.png'
-import unnormalizedData from '@/images/query-insights--unnormalized-data.png'
-
 PlanetScale Insights gives you a detailed look into the active queries running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, producing errors, and more. You can scroll through the performance graph to detect the time that a query was impacted and, if applicable, the [Deploy Request](/docs/concepts/deploy-requests) that affected it.
 
 You can also see a [list of all queries](#queries-list) performed on your database in the last 24 hours. For further analysis, you can sort these by metrics like amount of rows read, time per query, and more.
@@ -29,26 +14,23 @@ To view Insights for your database, head to the [PlanetScale dashboard](https://
 
 Below is an overview of what you'll find on this page. If you'd like to see a practical example of how to use Insights to debug a performance issue, check out our [Announcing Insights blog post](/blog/introducing-planetscale-insights-advanced-query-monitoring).
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763945350'
-  alt='This video shows an example Insights page. All explanations are covered in this doc.'
-/>
+{% vimeo src="https://player.vimeo.com/video/763945350" caption="This video shows an example Insights page. All explanations are covered in this doc." /%}
 
-<InfoBlock type='note'>
+{% callout %}
   On the free Hobby plan, query insights are limited to the previous 24 hours. To unlock the full seven days of
-  analytics, <a href='/docs/concepts/billing'>upgrade to a paid plan</a>.
-</InfoBlock>
+  analytics, [upgrade to a paid plan](/docs/concepts/billing).
+{% /callout %}
 
 
 ## Branch selection
 
-<ImageBlock alt='PlanetScale Insights branch selection' src={branches} />
+![PlanetScale Insights branch selection](/docs/concepts/query-insights/branches.png)
 
 The dropdown on the top right lets you select which branch you want to analyze. The selection applies to the entire Insights page.
 
 ## Insights graph
 
-<ImageBlock alt='PlanetScale Insights graph' src={graph} />
+![PlanetScale Insights graph](/docs/concepts/query-insights/graph.png)
 
 This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
@@ -56,7 +38,7 @@ You can click the dates listed above the graph to scroll through the past seven 
 
 ## Graph metrics selection
 
-<ImageBlock alt='PlanetScale Insights graph metrics selection - rows written' src={metrics} />
+![PlanetScale Insights graph metrics selection - rows written](/docs/concepts/query-insights/metrics.png)
 
 The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the metric(s) for that time period.
 
@@ -70,19 +52,19 @@ The available options are:
 
 ## Queries list
 
-<ImageBlock alt='PlanetScale Insights recent queries list' src={queries} />
+![PlanetScale Insights recent queries list](/docs/concepts/query-insights/queries.png)
 
 The table underneath the graph shows all queries performed on your database in the past 24 hours. To further narrow down query analysis, you can select a time range from the above graph to restrict the table to queries that happened in that time frame.
 
 You can also sort the columns for quick analysis.
 
-<ImageBlock alt='Insights queries selected time range' src={timeframe} />
+![Insights queries selected time range](/docs/concepts/query-insights/timeframe.png)
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
-<InfoBlock type='note'>
-  You have the option to <a href="#complete-query-collection">opt in to complete query collection</a> to see the full SQL statements.
-</InfoBlock>
+{% callout %}
+  You have the option to [opt in to complete query collection](#complete-query-collection) to see the full SQL statements.
+{% /callout %}
 
 **Available query statistics**:
 
@@ -110,28 +92,28 @@ If you'd like to further interact with the query, click "Open query in web conso
 
 Note, if you're viewing the `EXPLAIN` plan on a production branch, this button will be disabled unless you enable production web console access in your database Settings page.
 
-<ImageBlock alt='PlanetScale Insights query pattern w/ explain plan' src={query} />
-<ImageBlock alt='PlanetScale Insights explain plan' src={explain} />
+![PlanetScale Insights query pattern w/ explain plan](/docs/concepts/query-insights/query.png)
+![PlanetScale Insights explain plan](/docs/concepts/query-insights/explain.png)
 
 ## Database errors
 
 The table underneath the top graph also contains an **Errors** tab, which shows you a list of database error messages that have been captured over the last 24 hours. You can click the dates listed above the graph to scroll through the past seven days. If you're on our free Hobby plan, activity is limited to the previous 24 hours.
 
-<ImageBlock alt='PlanetScale Insights errors tab' src={errors} />
+![PlanetScale Insights errors tab](/docs/concepts/query-insights/errors.png)
 
 You can click on any of the error messages on the Errors tab to open a more detailed view. This view shows you the individual queries that produced the error, when they ran, how long they ran, and any query tags attached to them.
 
-<ImageBlock alt='PlanetScale Insights errors tab deep dive showing queries' src={errorsDetailed} />
+![PlanetScale Insights errors tab deep dive showing queries](/docs/concepts/query-insights/errors-detailed-view.png)
 
 ## Complete query collection
 
 If you would prefer to view the raw query data using Insights, you can enable this option in your database settings page. In the dashboard, select your database, click "**Settings**", scroll down until you see "**Complete query collection**", and click "**Enable**" to opt in.
 
-<ImageBlock alt='PlanetScale Insights complete query collection opt in' src={optIn} />
+![PlanetScale Insights complete query collection opt in](/docs/concepts/query-insights/opt-in.png)
 
 With this enabled, Insights will gather the complete raw SQL statements and display them when a query deep dive is selected and in the `EXPLAIN` plan. For example, if you select a query from the table on the Insights page, the query pattern and the selected queries below it will display the full query.
 
-<ImageBlock alt='PlanetScale Insights unnormalized data in query deep dive' src={unnormalizedData} />
+![PlanetScale Insights unnormalized data in query deep dive](/docs/concepts/query-insights/unnormalized-data.png)
 
 Enabling complete query collection is beneficial when performance varies significantly within the same query pattern, and you need to see the full SQL statement, without placeholders, to identify the correct source of the performance issue.
 

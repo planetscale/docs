@@ -4,18 +4,15 @@ subtitle: 'Create a development or staging environment for your database pre-see
 date: '2022-07-22'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import VimeoEmbed from '@/components/VimeoEmbed'
-import branch from '@/images/data-branching--branch.png'
-
 ## Overview
 
 The PlanetScale Data Branching&trade; feature (beta) allows you to create isolated copies of your database that include both the schema and data. This differs from our [regular branching feature](/docs/concepts/branching), which only includes the schema.
 
 This feature is only available for organizations on the [`Team`](/pricing) plan.
 
-<InfoBlock type='note'>The Data Branching feature is currently in beta.</InfoBlock>
+{% callout %}
+The Data Branching feature is currently in beta.
+{% /callout %}
 
 ## Enable the Data Branching&trade; feature for your database.
 
@@ -26,10 +23,7 @@ Before you can use the feature, you have to enable it in your database settings 
 3. Scroll to the option with the text "**Enable Data Branching&trade;**"
 4. Enable this option and click "**Save database settings**".
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763958358'
-  alt='Demonstration of how to enable the Data Branching&trade; feature'
-/>
+{% vimeo src="https://player.vimeo.com/video/763958358" caption="Demonstration of how to enable the Data Branching&trade; feature" /%}
 
 ## Create a development branch with data & schema from the Base branch
 
@@ -39,13 +33,10 @@ Before you can use the feature, you have to enable it in your database settings 
 - **None** &mdash; Creates a database branch with only the **schema** copied to the new branch.
 - **From most recent backup** &mdash; Creates a database branch with both the **schema and data** from the latest backup of the Base branch.
 
-<ImageBlock alt='PlanetScale dashboard new branch dialog with seed option' src={branch} />
+![PlanetScale dashboard new branch dialog with seed option](/docs/concepts/data-branching/branch.png)
 3. Once you've selected an option, click "**Create branch**" to create a new branch.
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763956895'
-  alt='Demonstration of how to create a PlanetScale branch with data'
-/>
+{% vimeo src="https://player.vimeo.com/video/763956895" caption="Demonstration of how to create a PlanetScale branch with data" /%}
 
 ### FAQ
 

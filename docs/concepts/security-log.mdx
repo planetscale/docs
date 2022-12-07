@@ -4,10 +4,6 @@ subtitle: 'The security log tracks authentication and security-related actions c
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import NextBlock from '@/components/MDX.NextBlock'
-import filter from '@/images/security-log--filter.png'
-
 ## Overview
 
 The Security log gives you insight into recent authentication and other security-related `actions` for your account. Your security log also details when you performed each `action`.
@@ -22,21 +18,32 @@ You can review your security log in your PlanetScale account settings.
 
 Once there, you can filter your Security log by `Action`.
 
-<ImageBlock alt='Filter your security log by Action.' src={filter} />
+![Filter your security log by Action.](/docs/concepts/security-log/filter.png)
 
 ## Security log events
 
 You can track the following `events` in your PlanetScale account:
 
-| PlanetScale security log events | Actions                                                                                                                                                 |
-| ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| user                            | signed_out <br/><br/> signed_in <br/><br/> accepted_tos <br/><br/> updated_name <br/><br/> updated_email <br/><br/> enabled_mfa <br/><br/> disabled_mfa |
+{% table %}
+* PlanetScale security log events
+* Actions
+---
+* user
+* signed_out
 
-<NextBlock
-  steps={[
-    {
-      text: 'Audit log',
-      link: '/concepts/audit-log'
-    }
-  ]}
-/>
+  signed_in
+
+  accepted_tos
+
+  updated_name
+
+  updated_email
+
+  enabled_mfa
+
+  disabled_mfa
+{% /table %}
+
+{% callout title="Next steps" %}
+  * [Audit log](/docs/concepts/audit-log)
+{% /callout %}

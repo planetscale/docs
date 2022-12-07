@@ -4,11 +4,9 @@ subtitle: 'Improve query performance with PlanetScale Boost query caching.'
 date: '2022-11-15'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
-<InfoBlock type='note'>
+{% callout %}
   PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
-</InfoBlock>
+{% /callout %}
 
 ## Overview
 
@@ -75,10 +73,10 @@ const boostedQuery = boostedConn.query("SELECT COUNT(id) FROM big_table WHERE se
 const user = conn.query("SELECT id, username, email FROM users WHERE id = 1006”)
 ```
 
-<InfoBlock type='warning'>
+{% callout type="warning" %}
   Make sure that all queries you want to accelerate using PlanetScale Boost are using a cache-enabled connection in your
   application.
-</InfoBlock>
+{% /callout %}
 
 #### Option 2: Single connection for all queries
 

@@ -4,13 +4,6 @@ subtitle: 'Create a development or staging environment for your database through
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import NextBlock from '@/components/MDX.NextBlock'
-import VimeoEmbed from '@/components/VimeoEmbed'
-import deployRequest from '@/images/branching--deploy-request.png'
-import diagram from '@/images/branching--diagram.png'
-
 ## Overview
 
 PlanetScale allows you to branch database schemas the same way you branch your code.
@@ -26,7 +19,7 @@ PlanetScale allows you to branch database schemas the same way you branch your c
 7. You then add it to the **deploy queue**, and PlanetScale will begin the deployment.
 8. The schema changes are deployed in a way that causes **ZERO downtime**. No individual tables get locked, and production is not slowed down during the migration. This is what we call **non-blocking schema changes**. You can learn more about this process in our [Non-blocking schema changes documentation](/docs/concepts/nonblocking-schema-changes).
 
-<ImageBlock alt='PlanetScale Branching Flow Diagram' src={diagram} />
+![PlanetScale Branching Flow Diagram](/docs/concepts/branching/diagram.png)
 
 ## Development and production branches
 
@@ -36,17 +29,14 @@ PlanetScale provides two types of database branches:
 
 - **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups. To make a change to a production branch, you must [create a deploy request](#deploy-a-branch).
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a
   production branch. Instead, create a development branch, and make your changes there.
-</InfoBlock>
+{% /callout %}
 
 ## Promote a branch to production
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763913898'
-  alt='Demonstration of how to promote a branch to production'
-/>
+{% vimeo src="https://player.vimeo.com/video/763913898" caption="Demonstration of how to promote a branch to production" /%}
 
 PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
@@ -70,10 +60,7 @@ It's possible to run multiple production branches simultaneously, within [your p
 
 ## Create a development branch
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763914056'
-  alt='Demonstration of how to create a PlanetScale branch'
-/>
+{% vimeo src="https://player.vimeo.com/video/763914056" caption="Demonstration of how to create a PlanetScale branch" /%}
 
 If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes.
 
@@ -97,10 +84,7 @@ Once you're satisfied with the schema changes you have made on a branch, you can
 
 ### 1. Create a deploy request
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763914026'
-  alt='Demonstration of how to create a deploy request'
-/>
+{% vimeo src="https://player.vimeo.com/video/763914026" caption="Demonstration of how to create a deploy request" /%}
 
 If you are working in a team, the [deploy request](/docs/concepts/deploy-requests) creates an opportunity for your teammates to review the changes you have made before they are deployed to production.
 
@@ -110,7 +94,7 @@ If you are working in a team, the [deploy request](/docs/concepts/deploy-request
 4. (_Optional_) Add a comment describing your deploy request.
 5. Click "**Create deploy request**".
 
-<ImageBlock alt='PlanetScale deploy request example' src={deployRequest} />
+![PlanetScale deploy request example](/docs/concepts/branching/deploy-request.png)
 
 6. (_Optional_) You can also create a deploy request from the [PlanetScale CLI](/docs/reference/deploy-request) with the following command:
 
@@ -120,10 +104,7 @@ pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
 
 ### 2. Review the deploy request
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763913969'
-  alt='Demonstration of how to add a deploy request to the deploy queue'
-/>
+{% vimeo src="https://player.vimeo.com/video/763913969" caption="Demonstration of how to add a deploy request to the deploy queue" /%}
 
 The deploy request includes a schema diff so that you can review the schema changes introduced by the deploy request against the production branch.
 
@@ -177,10 +158,10 @@ pscale branch delete <DATABASE_NAME> <BRANCH_NAME>
 
 We recommend deleting branches after a deploy request is complete or if you are no longer using the branch for testing.
 
-<InfoBlock type='note'>
+{% callout %}
   Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) have permission to delete
   production branches.
-</InfoBlock>
+{% /callout %}
 
 You cannot delete a branch that's [set as default](#default-branches). To delete, it set another branch as the default first.
 
@@ -202,15 +183,7 @@ Many frameworks and migration tools keep track of data schema changes in a migra
 
 You can see how this works in this [Rails migration tutorial](/docs/tutorials/automatic-rails-migrations).
 
-<NextBlock
-  steps={[
-    {
-      text: 'Non-blocking schema changes',
-      link: '/concepts/nonblocking-schema-changes'
-    },
-    {
-      text: 'Regions',
-      link: '/concepts/regions'
-    }
-  ]}
-/>
+{% callout title="Next steps" %}
+  * [Non-blocking schema changes](/docs/concepts/nonblocking-schema-changes)
+  * [Regions](/docs/concepts/regions)
+{% /callout %}

@@ -4,8 +4,6 @@ subtitle: 'Explore roles, permissions, and access control options at an organiza
 date: '2022-08-01'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 ## Organization access control
 
 When you set up your PlanetScale account, you're asked to create an **Organization**.
@@ -105,10 +103,10 @@ You can follow the steps below to assign roles to your members. You must be an O
 
 You can also invite new members to your organization and assign roles once they accept their invitation. New members will be added with the [`Organization Member`](#organization-member) role by default.
 
-<InfoBlock type='note'>
+{% callout %}
   Member role management is issued at the organization level. Each organization in your account may have different
   members with different access levels.
-</InfoBlock>
+{% /callout %}
 
 ## Assign roles at a database level
 
@@ -121,9 +119,9 @@ There are two ways to assign database-level roles to Organization members:
 
 To assign a member the role of `Database Administrator`, follow the steps outlined below. You must be an Organization Administrator or an existing Database Administrator to manage the `Database Administrator` role.
 
-<InfoBlock type='note'>
+{% callout %}
   Members that create a database are automatically assigned the role of `Database Administrator` for that database.
-</InfoBlock>
+{% /callout %}
 
 1. In the [PlanetScale dashboard](https://app.planetscale.com), click on the name of the database you want to add a Database Administrator to.
 2. Click on the "**Settings**" tab in the top navigation.

@@ -4,12 +4,6 @@ subtitle: 'Selecting a region during database and branch creation.'
 date: '2022-11-16'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import branch from '@/images/regions--branch.png'
-import database from '@/images/regions--database.png'
-import restrict from '@/images/regions--restrict.png'
-
 ## Overview
 
 PlanetScale currently offers database deployment in multiple regions. Select the region closest to your application servers to reduce latency between your database and application. Deploy development branches in the region closest to your own location to reduce latency when working with the branch.
@@ -20,9 +14,9 @@ A number of resources exist to help find which region has the lowest latency fro
 
 ## Available regions
 
-<InfoBlock type='note'>
+{% callout %}
   If you don't see your preferred region(s) in the following list, [get in touch](/contact) to let us know what region(s) you would like to see added. Also, Managed Cloud plans can be deployed in any region(s) with three availability zones. See the [Deployment options documentation](/concepts/deployment-options#managed-cloud) for more information.
-</InfoBlock>
+{% /callout %}
 
 Currently, the following regions are supported, with their respective PlanetScale slugs:
 
@@ -48,16 +42,16 @@ GCP regions are in beta and currently have some limitations, which you can read 
 
 PlanetScale allows you to select the region for the [`main` branch](/docs/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region.
 
-<ImageBlock alt='Select your database region.' src={database} />
+![Select your database region.](/docs/concepts/regions/database.png)
 
 Once you select a region for your `main` branch, it cannot be changed.
 
 You can also select the region while creating a database via the CLI by using
 the `--region` flag with the region's slug.
 
-<InfoBlock type='note'>
+{% callout %}
   If you do not select a region during database creation using the CLI, it will be set to AWS `us-east-1`.
-</InfoBlock>
+{% /callout %}
 
 Here's an example command for creating a database with a different region:
 
@@ -70,9 +64,11 @@ pscale database create <DATABASE_NAME> --region us-west
 PlanetScale allows you to select a region for development branches during
 creation as well. By default, it is set to the same region as its database.
 
-<ImageBlock alt='Select your branch region.' src={branch} />
+![Select your branch region.](/docs/concepts/regions/branch.png)
 
-<InfoBlock type='note'>Once you select a branch region, it cannot be changed.</InfoBlock>
+{% callout %}
+Once you select a branch region, it cannot be changed.
+{% /callout %}
 
 You can also select the region while creating a branch via the CLI by using the
 `--region` flag with the region's slug.
@@ -87,7 +83,7 @@ pscale branch create my-production-database add-tables --region eu-west
 
 [Organization Administrators](/docs/concepts/access-control#organization-administrator) can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
 
-<ImageBlock alt='Restrict your branches to one region.' src={restrict} />
+![Restrict your branches to one region.](/docs/concepts/regions/restrict.png)
 
 ## Changing branch and database regions
 

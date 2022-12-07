@@ -4,12 +4,6 @@ subtitle: 'Query your database directly from the PlanetScale UI'
 date: '2022-08-09'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import describe from '@/images/web-console--describe.png'
-import production from '@/images/web-console--production.png'
-import show from '@/images/web-console--show.png'
-import tab from '@/images/web-console--tab.png'
-
 ## Overview
 
 The PlanetScale web console is an interactive interface for running MySQL queries and DDL (Create, Alter, and Delete) against your PlanetScale database branches.
@@ -20,7 +14,7 @@ The PlanetScale web console can be used to query to any database branch; however
 
 To access the web console, navigate to any web console enabled database branch and click on the Console tab in the database navigation.
 
-<ImageBlock alt='Console tab' src={tab} />
+![Console tab](/docs/concepts/web-console/tab.png)
 
 You can also access the web console directly by adding `/console` to the URL from any databases branch page,
 `app.planetscale.com/<org>/<database>/<branch>/console`.
@@ -31,11 +25,11 @@ The following are examples of MySQL statements you may find useful within the we
 
 Use `SHOW TABLES;` to see a list of the tables in your database branch.
 
-<ImageBlock alt='SHOW TABLES; in the console' src={show} />
+![SHOW TABLES; in the console](/docs/concepts/web-console/show.png)
 
 Use `DESCRIBE table_name;` to obtain information about a given table's structure.
 
-<ImageBlock alt='DESCRIBE table_name; in the console' src={describe} />
+![DESCRIBE table_name; in the console](/docs/concepts/web-console/describe.png)
 
 Use `EXPLAIN` in front of `SELECT`, `DELETE`, `INSERT`, `REPLACE` and `UPDATES` statements to learn how the database is executing a query. This can be useful for optimizing slow queries.
 
@@ -58,6 +52,6 @@ You can enable the web console for production branches in the settings page for 
 
 Select the checkbox for "Production branch web console access". Then click the "Save database settings" button to save your changes.
 
-<ImageBlock alt='Enable product branch web console access' src={production} />
+![Enable product branch web console access](/docs/concepts/web-console/production.png)
 
 This will enable the ability to use the web console to run queries against production branches for the given database.

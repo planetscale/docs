@@ -4,9 +4,6 @@ subtitle: 'Understand and select your preferred authentication method in PlanetS
 date: '2022-08-01'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-import NextBlock from '@/components/MDX.NextBlock'
-
 ## Overview
 
 There are three ways to authenticate with PlanetScale: _email address and password_, _single sign-on_, and _OAuth via GitHub_.
@@ -29,21 +26,16 @@ Once [SSO](/docs/concepts/sso) is enabled for an `organization`, all members are
 
 Users can authenticate with PlanetScale using their GitHub account.
 
-<InfoBlock type='warning'>
+{% callout type="warning" %}
   PlanetScale doesn't maintain the passwords for these accounts. Losing access to your GitHub account prevents accessing
   your PlanetScale account.
-</InfoBlock>
+{% /callout %}
 
-<InfoBlock type='note'>
-  Enabling SSO removes OAuth access for all members of your <em>organization</em>, meaning they will no longer be able
+{% callout %}
+  Enabling SSO removes OAuth access for all members of your _organization_, meaning they will no longer be able
   to sign in with their GitHub credentials.
-</InfoBlock>
+{% /callout %}
 
-<NextBlock
-  steps={[
-    {
-      text: 'Multi-factor authentication',
-      link: '/concepts/mfa'
-    }
-  ]}
-/>
+{% callout title="Next steps" %}
+  * [Multi-factor authentication](/docs/concepts/mfa)
+{% /callout %}

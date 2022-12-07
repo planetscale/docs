@@ -4,14 +4,6 @@ subtitle: 'Fine-tune individual database access with teams'
 date: '2022-08-04'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import create from '@/images/teams--create.png'
-import database from '@/images/teams--database.png'
-import managed from '@/images/sso--managed.png'
-import member from '@/images/teams--member.png'
-import settings from '@/images/teams--settings.png'
-
 ## Overview
 
 PlanetScale allows you to create teams within organizations. This allows you to easily manage administrator access to one or multiple databases all in one spot.
@@ -20,10 +12,10 @@ PlanetScale allows you to create teams within organizations. This allows you to 
 
 You can manage teams straight from your PlanetScale dashboard by going to "**Settings**" > "**Teams**".
 
-<InfoBlock type='note'>
-  Only <a href='/docs/concepts/access-control#organization-administrator'>Organization Administrators</a> can create and
+{% callout %}
+  Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) can create and
   manage Teams.
-</InfoBlock>
+{% /callout %}
 
 Once you add databases to a team, any members on that team will have [Database Administrator access](/docs/concepts/access-control#database-level-permissions) to those databases. Review our [Access control documentation](/docs/concepts/access-control) to understand the full scope of Database Administrator access.
 
@@ -31,7 +23,7 @@ Once you add databases to a team, any members on that team will have [Database A
 
 1. On your PlanetScale overview page, click "**Settings**".
 2. Click "**Teams**" in the left nav.
-   <ImageBlock alt='Dashboard UI - Create a PlanetScale team' src={create} />
+   ![Dashboard UI - Create a PlanetScale team](/docs/concepts/teams/create.png)
 3. Give your team a name and description (_optional_).
 4. Click "**Create team**".
 
@@ -47,20 +39,20 @@ Once you add databases to a team, any members on that team will have [Database A
 
 Now, when you go to the Settings page for any databases you've added to a team, you'll also be able to view and revoke access straight from the database Administrators page.
 
-<ImageBlock alt='Dashboard UI - Database Administrators settings page' src={settings} />
+![Dashboard UI - Database Administrators settings page](/docs/concepts/teams/settings.png)
 
 ### Remove members and databases
 
 To remove a member from a team, find their name in the member list and click "**Remove**". At this time, you'll also be able to delete any passwords this member has created to ensure you've completely revoked their access to the database.
 
-<ImageBlock alt='Dashboard UI - Delete a member from a team' src={member} />
+![Dashboard UI - Delete a member from a team](/docs/concepts/teams/member.png)
 
 To remove a database from a team, click the "**x**" next to the database name under "Administrator permissions". This will remove database administrator access for all members of the team.
 
-<ImageBlock alt='Dashboard UI - Delete a database from a team' src={database} />
+![Dashboard UI - Delete a database from a team](/docs/concepts/teams/database.png)
 
 ## Directory Sync with Teams
 
 If you have [SSO with Directory Sync](/docs/concepts/sso#directory-sync) enabled, all Teams will be managed by your Directory Sync directory. You can add and remove database access to teams, but member management must be done through your directory.
 
-<ImageBlock alt='Dashboard UI - Directory-managed Teams page' src={managed} />
+![Dashboard UI - Directory-managed Teams page](/docs/concepts/sso/managed.png)

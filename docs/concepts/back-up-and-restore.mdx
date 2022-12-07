@@ -4,29 +4,15 @@ subtitle: 'Create, schedule, and restore backups for your PlanetScale databases.
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import NextBlock from '@/components/MDX.NextBlock'
-import createnewbackup from '@/images/back-up-and-restore--create-new-backup.png'
-import createnewbackupschedule from '@/images/back-up-and-restore--create-new-backup-schedule.png'
-import dbbackupsview from '@/images/back-up-and-restore--view-backups.png'
-import manualbackupcost from '@/images/back-up-and-restore--manual-backup-cost.png'
-import manualbackuprow from '@/images/back-up-and-restore--manual-backup-row.png'
-import newbackupschedule from '@/images/back-up-and-restore--new-backup-schedule.png'
-import restore from '@/images/back-up-and-restore--restore.png'
-import restoredbrancheslist from '@/images/back-up-and-restore--restored-branches-list.png'
-import schedule from '@/images/back-up-and-restore--schedule.png'
-import settings from '@/images/back-up-and-restore--settings.png'
-
 ## Overview
 
 PlanetScale provides the ability to create, schedule, and restore backups for production and development database branches.
 
-<InfoBlock type='note'>
-  Daily backups of database branches are included free of charge for all databases. Our{' '}
-  <a href='/docs/concepts/billing#planetscale-plans'>Scaler and Team plans</a> include automated backups every 12
+{% callout %}
+  Daily backups of database branches are included free of charge for all databases. Our
+  [Scaler and Team plans](/docs/concepts/billing#planetscale-plans) include automated backups every 12
   hours.
-</InfoBlock>
+{% /callout %}
 
 ## View backups
 
@@ -34,7 +20,7 @@ To view backups for all of your branches, go to your database backups page: `app
 
 Once there, you'll find additional details about your backup history.
 
-<ImageBlock alt='View backups for your database' src={dbbackupsview} />
+![View backups for your database](/docs/concepts/back-up-and-restore/view-backups.png)
 
 ## Create manual backups
 
@@ -48,17 +34,17 @@ To create a manual backup, follow the steps outlined below:
 
 This will bring up a pop-up modal that prompts you to pick a **branch** to backup, _name_ your backup, and select how long you wish to keep the backup.
 
-<ImageBlock alt='Manual backup pop-up modal' src={createnewbackup} />
+![Manual backup pop-up modal](/docs/concepts/back-up-and-restore/create-new-backup.png)
 
 3. Click the **Create backup** button to finish the backup and close the pop-up modal.
 
 4. Manual backups are not free and are denoted by the `$` icon next to their name in the list view on the backups page.
 
-<ImageBlock alt='Manual backups are shown with a $ sign' src={manualbackuprow} />
+![Manual backups are shown with a $ sign](/docs/concepts/back-up-and-restore/manual-backup-row.png)
 
 5. To see the cost associated with storage of a manual backup, click on the backup name. You will see the cost per month on the details page.
 
-<ImageBlock alt='Monthly storage cost for a Manual backup' src={manualbackupcost} />
+![Monthly storage cost for a Manual backup](/docs/concepts/back-up-and-restore/manual-backup-cost.png)
 
 ## Schedule backups
 
@@ -68,22 +54,22 @@ You can add additional **scheduled backups** for your branches, billed at $0.023
 
 2. Select the type of branch (`Production branches` | `Development branches` ) you'd like to be backed up by the new backup schedule.
 
-<ImageBlock alt='Schedule backup pop-up modal' src={newbackupschedule} />
+![Schedule backup pop-up modal](/docs/concepts/back-up-and-restore/new-backup-schedule.png)
 
 3. Click the **Add new schedule** button.
 
 This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
 
-<ImageBlock alt='Schedule backup pop-up modal' src={createnewbackupschedule} />
+![Schedule backup pop-up modal](/docs/concepts/back-up-and-restore/create-new-backup-schedule.png)
 
 3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
 
-<InfoBlock type='note'>
-  For additional scheduled backups beyond the included default (daily for the{' '}
-  <a href='/docs/concepts/billing#planetscale-plans'>free Hobby plan</a> and every 12 hours for the{' '}
-  <a href='/docs/concepts/billing#planetscale-plans'>Scaler and Team plans</a>), you will be billed{' '}
-  <b>$0.023 per GB per month</b>.
-</InfoBlock>
+{% callout %}
+  For additional scheduled backups beyond the included default (daily for the
+  [free Hobby plan](/docs/concepts/billing#planetscale-plans) and every 12 hours for the
+  [Scaler and Team plans](/docs/concepts/billing#planetscale-plans), you will be billed
+  __$0.023 per GB per month__.
+{% /callout %}
 
 ## Restore from a backup
 
@@ -97,19 +83,14 @@ To restore a backup to a new branch, click on the individual backup to see the o
 
 This will bring up a pop-up modal that prompts you to name your branch.
 
-<ImageBlock alt='Restore backup pop-up modal' src={restore} />
+![Restore backup pop-up modal](/docs/concepts/back-up-and-restore/restore.png)
 
 4. Click the **Restore backup** button to finish restoring your backup and to close the pop-up modal.
 
 5. To see all branches that are `restored` from a backup, head to the backup details and you'll see a list of those branches.
 
-<ImageBlock alt='Branches restored from a backup' src={restoredbrancheslist} />
+![Branches restored from a backup](/docs/concepts/back-up-and-restore/restored-branches-list.png)
 
-<NextBlock
-  steps={[
-    {
-      text: 'Audit log',
-      link: '/concepts/audit-log'
-    }
-  ]}
-/>
+{% callout title="Next steps" %}
+  * [Audit log](/docs/concepts/audit-log)
+{% /callout %}
