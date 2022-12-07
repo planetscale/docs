@@ -4,27 +4,13 @@ subtitle: Learn the PlanetScale serverless driver by running a local Node.js pro
 date: '2022-08-18'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import img0 from '@/images/planetscale-serverless-driver-node-example--how-to-create-a-new-database.png'
-import img1 from '@/images/planetscale-serverless-driver-node-example--the-new-database-modal.png'
-import img2 from '@/images/planetscale-serverless-driver-node-example--the-travel_db-initializing.png'
-import img4 from '@/images/planetscale-serverless-driver-node-example--the-connect-button-in-the-planetscale-dashboard.png'
-import img5 from '@/images/planetscale-serverless-driver-node-example--the-connect-modal.png'
-import img6 from '@/images/planetscale-serverless-driver-node-example--the-env-example.png'
-import img7 from '@/images/planetscale-serverless-driver-node-example--the-terminal-running-the-sample-project.png'
-import img8 from '@/images/planetscale-serverless-driver-node-example--an-example-of-a-post-request-to-the-sample-project.png'
-import img9 from '@/images/planetscale-serverless-driver-node-example--the-console-output-after-a-hotel-is-added.png'
-
 ## Overview
 
 This guide will cover how to use the provided Node.js sample application using the PlanetScale serverless driver for JavaScript. Before following this guide, make sure you've created a password to use with the driver.
 
-<InfoBlock type="note">
-
+{% callout %}
 This guide will be using VS Code as the IDE, but you may use your preferred IDE.
-
-</InfoBlock>
+{% /callout %}
 
 ## Use the sample repository
 
@@ -37,23 +23,23 @@ To follow along, you’ll need the following:
 
 Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**.
 
-<ImageBlock alt='How to create a new database.' src={img0} />
+![How to create a new database.](/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database.png)
 
 Name the database `travel_db`. Click **"Create database"**.
 
-<ImageBlock alt='The New database modal.' src={img1} />
+![The New database modal.](/docs/tutorials/planetscale-serverless-driver-node-example/the-new-database-modal.png)
 
 Wait for the database to finish initializing before moving on.
 
-<ImageBlock alt='The travel_db initializing.' src={img2} />
+![The travel_db initializing.](/docs/tutorials/planetscale-serverless-driver-node-example/the-travel_db-initializing.png)
 
 Generate a set of credentials by clicking the **"Connect"** button.
 
-<ImageBlock alt='The Connect button in the PlanetScale dashboard.' src={img4} />
+![The Connect button in the PlanetScale dashboard.](/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard.png)
 
 Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
 
-<ImageBlock alt='The Connect modal.' src={img5} />
+![The Connect modal.](/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-modal.png)
 
 On your workstation, open a terminal and clone the repository to your computer by running the following command:
 
@@ -68,15 +54,13 @@ cd database-js-starter/scripts
 ./seed-database.sh
 ```
 
-<InfoBlock type="note">
-
+{% callout %}
 If you are using Windows, run this command through the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/)
+{% /callout %}
 
-</InfoBlock>
+Create a new file file named `.env` in the root of the project and paste in the sample provided from PlanetScale.
 
-Create a new file named `.env` in the root of the project and paste in the sample provided from PlanetScale.
-
-<ImageBlock alt='The .env example.' src={img6} />
+![The .env example.](/docs/tutorials/planetscale-serverless-driver-node-example/the-env-example.png)
 
 To run the project, run the following commands from the root of the project.
 
@@ -87,12 +71,12 @@ npm start
 
 If the project is running properly, you should receive a message stating that the API is running.
 
-<ImageBlock alt='The terminal running the sample project.' src={img7} />
+![The terminal running the sample project.](/docs/tutorials/planetscale-serverless-driver-node-example/the-terminal-running-the-sample-project.png)
 
 The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action.
 
-<ImageBlock alt='An example of a POST request to the sample project.' src={img8} />
+![An example of a POST request to the sample project.](/docs/tutorials/planetscale-serverless-driver-node-example/an-example-of-a-post-request-to-the-sample-project.png)
 
 If you check the terminal where the API was started, the response from the `execute` function is logged out for review.
 
-<ImageBlock alt='The console output after a hotel is added.' src={img9} />
+![The console output after a hotel is added.](/docs/tutorials/planetscale-serverless-driver-node-example/the-console-output-after-a-hotel-is-added.png)

@@ -5,10 +5,6 @@ className: 'ignore-img-borders'
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import example from '@/images/connect-symfony-app--example.png'
-
 ## Introduction
 
 In this tutorial, you'll learn how to connect a Symfony application to a PlanetScale MySQL database using a sample Symfony starter app.
@@ -100,11 +96,11 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 
 A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
 
-<InfoBlock type='note'>
+{% callout %}
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
   your database overview page, click "Settings", and then click "Passwords".
-</InfoBlock>
+{% /callout %}
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -181,7 +177,7 @@ This will purge your database and load the placeholder data into it.
 
 The `templates/product/index.html.twig` file pulls this data from the `product` table with the help of the `src/Controller/ProductController.php` file.
 
-<ImageBlock alt='Symfony PlanetScale starter app homepage' src={example} />
+![Symfony PlanetScale starter app homepage](/docs/tutorials/connect-symfony-app/example.png)
 
 ## Add data manually
 
@@ -207,9 +203,9 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 
 This will open up a MySQL shell connected to the specified database and branch.
 
-<InfoBlock type='note'>
+{% callout %}
   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-</InfoBlock>
+{% /callout %}
 
 Add a record to the `product` table:
 

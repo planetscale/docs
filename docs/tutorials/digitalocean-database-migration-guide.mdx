@@ -4,30 +4,14 @@ subtitle: Learn how to migrate a database from a DigitalOcean MySQL cluster into
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import img0 from '@/images/digital-ocean-database-migration-guide--the-overview-of-the-database-cluster.png'
-import img1 from '@/images/digital-ocean-database-migration-guide--the-users-and-databases-view-of-the-cluster-with-the-databases-section-highlighted.png'
-import img10 from '@/images/digital-ocean-database-migration-guide--the-default-view-of-the-database-in-planetscale-while-the-import-is-in-progress.png'
-import img11 from '@/images/digital-ocean-database-migration-guide--the-view-of-the-database-in-planetscale-once-the-initial-import-has-completed.png'
-import img12 from '@/images/digital-ocean-database-migration-guide--the-view-of-the-database-in-planetscale-once-the-database-is-set-to-primary-mode.png'
-import img2 from '@/images/digital-ocean-database-migration-guide--the-settings-tab-of-the-database-cluster-in-digital-ocean.png'
-import img3 from '@/images/digital-ocean-database-migration-guide--the-trusted-sources-section-of-the-settings-tab.png'
-import img4 from '@/images/digital-ocean-database-migration-guide--the-settings-tab-of-the-database-cluster-in-digitalocean-with-the-global-sql-mode-section-highlighted.png'
-import img5 from '@/images/digital-ocean-database-migration-guide--an-example-of-removing-the-ansi_quotes-setting-from-the-global-sql-mode-settings.png'
-import img6 from '@/images/digital-ocean-database-migration-guide--the-default-view-of-all-databases-in-the-planetscale-organization.png'
-import img7 from '@/images/digital-ocean-database-migration-guide--the-join-beta-view.png'
-import img8 from '@/images/digital-ocean-database-migration-guide--the-import-external-database-form.png'
-import img9 from '@/images/digital-ocean-database-migration-guide--the-notice-shown-when-planetscale-has-successfully-connected-to-the-external-database.png'
-
 ## Introduction
 
 In this article, we’ll walk through migrating a MySQL database from DigitalOcean to PlanetScale using the [Import tool](/docs/concepts/database-imports).
 
-<InfoBlock type='note'>
+{% callout %}
   This guide assumes you are using MySQL on DigitalOcean. Other database systems available through DigitalOcean will not
   work with the PlanetScale import tool.
-</InfoBlock>
+{% /callout %}
 
 ## Prerequisites
 
@@ -40,17 +24,17 @@ Before you can start migrating your database, you’ll also need to collect the 
 
 Most of this information is located on the landing page of your cluster.
 
-<ImageBlock alt='The Overview of the database cluster.' src={img0} />
+![The Overview of the database cluster.](/docs/tutorials/digitalocean-database-migration-guide/the-overview-of-the-database-cluster.png)
 
 You can view the list of databases in the "**Users & Databases**" tab. This article will use the default database created when the cluster was initialized, named `defaultdb`.
 
-<ImageBlock alt='The Users & Databases view of the cluster with the Databases section highlighted.' src={img1} />
+![The Users & Databases view of the cluster with the Databases section highlighted.](/docs/tutorials/digitalocean-database-migration-guide/the-users-and-databases-view-of-the-cluster-with-the-databases-section-highlighted.png)
 
-<InfoBlock type='note'>
+{% callout %}
   If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
   tool user permissions page](/docs/reference/import-tool-user-requirements) to create an account that can be used to
   import your database.
-</InfoBlock>
+{% /callout %}
 
 ## Update trusted sources
 
@@ -76,53 +60,50 @@ In order for PlanetScale to connect to your DigitalOcean database, you must allo
 
 In the DigitalOcean dashboard, navigate to the “**Settings”** tab of your database and locate **Trusted sources** in the list of configuration items. Click “**Edit”** and the row should change to allow edits to the setting.
 
-<ImageBlock alt='The Settings tab of the database cluster in Digital Ocean.' src={img2} />
+![The Settings tab of the database cluster in Digital Ocean.](/docs/tutorials/digitalocean-database-migration-guide/the-settings-tab-of-the-database-cluster-in-digital-ocean.png)
 
 When you enter an IP address from the list, a message will appear below the input box asking if you want to add that IP as an address. Click that message to add it to the list. Repeat this step for each IP address that needs to be added, then click “**Save**” once you are done.
 
-<ImageBlock alt='The Trusted sources section of the Settings tab.' src={img3} />
+![The Trusted sources section of the Settings tab.](/docs/tutorials/digitalocean-database-migration-guide/the-trusted-sources-section-of-the-settings-tab.png)
 
 ### Disable ANSI_QUOTES setting
 
 The default settings for MySQL databases on DigitalOcean is to have `ANSI_QUOTES` enabled in the global MySQL settings, which is not supported by PlanetScale. To remove this setting, navigate to the "**Settings**" tab of your cluster and locate the section titled **Global SQL mode**. Click “**Edit**” in that section to change the configuration settings.
 
-<ImageBlock
-  alt='The Settings tab of the database cluster in DigitalOcean with the Global SQL mode section highlighted.'
-  src={img4}
-/>
+![The Settings tab of the database cluster in DigitalOcean with the Global SQL mode section highlighted.](/docs/tutorials/digitalocean-database-migration-guide/the-settings-tab-of-the-database-cluster-in-digitalocean-with-the-global-sql-mode-section-highlighted.png)
 
 To remove the `ANSI_QUOTES` setting, click the “**x**” next to the tag and click “**Save**.” The change should apply immediately.
 
-<ImageBlock alt='An example of removing the ANSI_QUOTES setting from the Global SQL mode settings.' src={img5} />
+![An example of removing the ANSI_QUOTES setting from the Global SQL mode settings.](/docs/tutorials/digitalocean-database-migration-guide/an-example-of-removing-the-ansi_quotes-setting-from-the-global-sql-mode-settings.png)
 
 ## Importing your database
 
 In the PlanetScale dashboard, click “**New database”**, then “**Import database”**.
 
-<ImageBlock alt='The default view of all databases in the PlanetScale organization.' src={img6} />
+![The default view of all databases in the PlanetScale organization.](/docs/tutorials/digitalocean-database-migration-guide/the-default-view-of-all-databases-in-the-planetscale-organization.png)
 
 The Import database feature is in beta at the time of this writing. If this is your first time accessing this feature, you will be prompted to opt into using the feature. Click “**Join beta”** to proceed.
 
-<ImageBlock alt='The Join beta view.' src={img7} />
+![The Join beta view.](/docs/tutorials/digitalocean-database-migration-guide/the-join-beta-view.png)
 
 Complete the form using the information gathered in the previous section. Click “**Connect to database”,** and the import tool will attempt to connect to your DigitalOcean database.
 
-<ImageBlock alt='The Import external database form.' src={img8} />
+![The Import external database form.](/docs/tutorials/digitalocean-database-migration-guide/the-import-external-database-form.png)
 
 The “**Connect to database**” button will update with the status of the connection. If the connection is successful, click “**Begin database import**” to migrate your data to PlanetScale.
 
-<ImageBlock alt='The notice shown when PlanetScale has successfully connected to the external database.' src={img9} />
+![The notice shown when PlanetScale has successfully connected to the external database.](/docs/tutorials/digitalocean-database-migration-guide/the-notice-shown-when-planetscale-has-successfully-connected-to-the-external-database.png)
 
 You’ll then be moved to a page where you can monitor the import status of the database from DigitalOcean.
 
-<ImageBlock alt='The default view of the database in PlanetScale while the import is in progress.' src={img10} />
+![The default view of the database in PlanetScale while the import is in progress.](/docs/tutorials/digitalocean-database-migration-guide/the-default-view-of-the-database-in-planetscale-while-the-import-is-in-progress.png)
 
 Once the initial import has been completed, the first card in the Database import section will update to reflect the status of the import. If it is successful, you’ll have the option to “**Enable primary mode**,” which will prepare the PlanetScale database to be used as the primary data source. Click “**Enable primary mode**” & you’ll be presented with a confirmation modal to proceed.
 
-<ImageBlock alt='The view of the database in PlanetScale once the initial import has completed.' src={img11} />
+![The view of the database in PlanetScale once the initial import has completed.](/docs/tutorials/digitalocean-database-migration-guide/the-view-of-the-database-in-planetscale-once-the-initial-import-has-completed.png)
 
 Once Primary mode is enabled, you can complete the migration by clicking “**Finish import**” and confirming on the modal that will display. This will remove any synchronization occurring between DigitalOcean and PlanetScale.
 
-<ImageBlock alt='The view of the database in PlanetScale once the database is set to primary mode.' src={img12} />
+![The view of the database in PlanetScale once the database is set to primary mode.](/docs/tutorials/digitalocean-database-migration-guide/the-view-of-the-database-in-planetscale-once-the-database-is-set-to-primary-mode.png)
 
 This concludes the guide to migrating a database from DigitalOcean to PlanetScale.

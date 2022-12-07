@@ -4,11 +4,6 @@ subtitle: 'Learn how to integrate Prisma with PlanetScale'
 date: '2022-11-29'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import schema from '@/images/prisma-quickstart--schema.png'
-import studio from '@/images/prisma-quickstart--studio.png'
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 ## Overview
 
 This guide will show you how to:
@@ -98,11 +93,9 @@ npx prisma init
 
 This creates the `prisma` directory with a file named `schema.prisma`. This file will hold your [Prisma schema configuration](https://www.prisma.io/docs/concepts/components/prisma-schema), which includes your data sources (PlanetScale), generators ([Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client)), and data models.
 
-<InfoBlock type='note'>
+{% callout %}
   In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
-  You can learn more about Prisma's Relation mode in the{' '}
-  <a href='https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode'>Prisma docs</a>.
-</InfoBlock>
+{% /callout %}
 
 Open up the `prisma/schema.prisma` file and paste in the following:
 
@@ -267,7 +260,7 @@ You can leave `id`, `createdAt`, and `updatedAt` blank as they will auto-fill wi
 
 To add the record, click the green "**Save 1 change**" button.
 
-<ImageBlock alt='Prisma Studio showing the Star table with one record' src={studio} />
+![Prisma Studio showing the Star table with one record](/docs/tutorials/prisma-quickstart/studio.png)
 
 ## Add an API route
 
@@ -344,7 +337,7 @@ In the dashboard, select the `initial-setup` branch. On the "**Overview**" tab, 
 
 PlanetScale will check to make sure there are no conflicts between the two branches. If not, you'll get the message "This deploy request is deployable". You can click on the "**Schema changes**" tab to see a diff of the schema changes to be deployed.
 
-<ImageBlock alt='Example of the Star table schema in a deploy request on PlanetScale' src={schema} />
+![Example of the Star table schema in a deploy request on PlanetScale](/docs/tutorials/prisma-quickstart/schema.png)
 
 Now, you're ready to deploy the `initial-setup` branch to production! On the "**Summary**" tab of the deploy request, click the button "**Add changes to deploy queue**". The deployment has now been added to the deploy queue.
 

@@ -5,17 +5,13 @@ className: 'ignore-img-borders'
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import example from '@/images/connect-php-app--example.png'
-
 ## Introduction
 
 In this tutorial, you'll learn how to connect a PHP application to a PlanetScale MySQL database with a sample PHP starter app using [MySQLi](https://www.php.net/manual/en/book.mysqli.php).
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   Already have a PHP application and just want to connect to PlanetScale? Check out the [PHP quick connect repo](https://github.com/planetscale/connection-examples/tree/main/php).
-</InfoBlock>
+{% /callout %}
 
 ## Prerequisites
 
@@ -28,7 +24,7 @@ In this tutorial, you'll learn how to connect a PHP application to a PlanetScale
 
 This guide uses [a simple PHP app](https://github.com/planetscale/php-example) that displays a list of products stored in a PlanetScale database. If you have an existing application, you can also use that.
 
-<ImageBlock alt='PHP sample application homepage' src={example} />
+![PHP sample application homepage](/docs/tutorials/connect-php-app/example.png)
 
 1. Clone the starter PHP application:
 
@@ -128,11 +124,11 @@ pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 
 A default branch, `main`, was created when you created the database, so you can use that for `BRANCH_NAME`.
 
-<InfoBlock type='note'>
+{% callout %}
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
   your database overview page, click "Settings", and then click "Passwords".
-</InfoBlock>
+{% /callout %}
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -202,10 +198,10 @@ if ($mysqli->connect_error) {
 
 This removes all references to `username`, `password`, and `ssl`.
 
-<InfoBlock type='note'>
+{% callout %}
   It's important to make sure that you add the SSL check back if you switch back to username and password credentials.
   We're intentionally commenting it out instead of deleting it in case you switch back.
-</InfoBlock>
+{% /callout %}
 
 5. Refresh your PHP homepage, and you should see the message that you're connected to your database!
 
@@ -292,9 +288,9 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 
 This will open up a MySQL shell connected to the specified database and branch.
 
-<InfoBlock type='note'>
+{% callout %}
   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-</InfoBlock>
+{% /callout %}
 
 2. Create the `categories` table:
 

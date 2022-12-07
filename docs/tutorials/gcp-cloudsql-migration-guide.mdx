@@ -4,28 +4,14 @@ subtitle: Learn how to migrate your database from Google Cloud Platform (GCP) Cl
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import img0 from '@/images/gcp-cloudsql-migration-guide--the-gcp-cloudsql-console-with-the-ip-address-highlighted.png'
-import img1 from '@/images/gcp-cloudsql-migration-guide--the-databases-list-in-the-gcp-console.png'
-import img10 from '@/images/gcp-cloudsql-migration-guide--the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png'
-import img2 from '@/images/gcp-cloudsql-migration-guide--the-database-import-tool-region.png'
-import img3 from '@/images/gcp-cloudsql-migration-guide--the-form-to-add-a-new-authorized-network-in-the-gcp-console.png'
-import img4 from '@/images/gcp-cloudsql-migration-guide--the-default-view-of-all-databases-in-the-planetscale-organization.png'
-import img5 from '@/images/gcp-cloudsql-migration-guide--the-join-beta-view.png'
-import img6 from '@/images/gcp-cloudsql-migration-guide--the-import-database-form.png'
-import img7 from '@/images/gcp-cloudsql-migration-guide--the-note-displayed-when-the-planetscale-import-tool-can-connect-to-the-external-database.png'
-import img8 from '@/images/gcp-cloudsql-migration-guide--the-database-import-view-during-the-initial-import-process.png'
-import img9 from '@/images/gcp-cloudsql-migration-guide--the-database-import-view-once-the-initial-import-has-been-completed.png'
-
 ## Overview
 
 This document will demonstrate how to migrate a database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster to PlanetScale using our [Import tool](/docs/concepts/database-imports).
 
-<InfoBlock type='note'>
+{% callout %}
   This guide assumes you are using MySQL on GCP. Other database systems available through GCP will not work with the
   PlanetScale import tool.
-</InfoBlock>
+{% /callout %}
 
 ## Prerequisites
 
@@ -39,64 +25,58 @@ You’ll also need to gather the following pieces of information from the GCP Co
 
 The public IP address can be found in the **Overview tab** of your CloudSQL cluster under the **Connect to this instance** section.
 
-<ImageBlock alt='The GCP CloudSQL console with the IP address highlighted.' src={img0} />
+![The GCP CloudSQL console with the IP address highlighted.](/docs/tutorials/gcp-cloudsql-migration-guide/the-gcp-cloudsql-console-with-the-ip-address-highlighted.png)
 
 A list of your databases can be found in the **Databases** tab. In this guide, we’ll be using the `tasksdb` database.
 
-<ImageBlock alt='The Databases list in the GCP console.' src={img1} />
+![The Databases list in the GCP console.](/docs/tutorials/gcp-cloudsql-migration-guide/the-databases-list-in-the-gcp-console.png)
 
 The `root` username is the account set up by default for all CloudSQL instances. The password for that account was set during the creation of the instance.
 
-<InfoBlock type='note'>
+{% callout %}
   If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
   tool user permissions page](/docs/reference/import-tool-user-requirements) to create an account that can be used to
   import your database.
-</InfoBlock>
+{% /callout %}
 
 ## Allow PlanetScale to connect to your CloudSQL instance
 
 For PlanetScale to connect to your database, you’ll need to update the Authorized networks for your cluster. The specific IP addresses to permit depend on the region selected for your new database, which is in the **New database** section of the import tool in the **Region** field.
 
-<ImageBlock alt='The New database section of the Import database tool.' src={img2} />
+![The New database section of the Import database tool.](/docs/tutorials/gcp-cloudsql-migration-guide/the-database-import-tool-region.png)
 
 You will need to allow traffic for each IP address listed under that region on the [Import tool public IP addresses](/docs/reference/import-tool-migration-addresses) page. To permit traffic from these IP addresses to your database in GCP, select **Connections** from the navigation on the left. Under **Authorized networks**, click “**Add network**”. This will display an inline form for you to add a network. The name of the field is arbitrary, but the **Network** field should contain the IP address that needs access to your database. Click “**Done**” to add the new entry. Perform this step for each IP address for the selected region, then click “**Save**” to apply the settings.
 
-<ImageBlock alt='The form to add a new authorized network in the GCP console.' src={img3} />
+![The form to add a new authorized network in the GCP console.](/docs/tutorials/gcp-cloudsql-migration-guide/the-form-to-add-a-new-authorized-network-in-the-gcp-console.png)
 
 ## Importing your database
 
 In the PlanetScale dashboard, click “**New database**”, then “**Import database**”.
 
-<ImageBlock alt='The default view of all databases in the PlanetScale organization.' src={img4} />
+![The default view of all databases in the PlanetScale organization.](/docs/tutorials/gcp-cloudsql-migration-guide/the-default-view-of-all-databases-in-the-planetscale-organization.png)
 
 At the time of this writing, the Import database feature is in beta. If this is your first time accessing this feature, you will be prompted to opt into using the feature. Click “**Join beta”** to proceed.
 
-<ImageBlock alt='The Join beta view.' src={img5} />
+![The Join beta view.](/docs/tutorials/gcp-cloudsql-migration-guide/the-join-beta-view.png)
 
 Complete the form using the information gathered in the previous section. Click "**Connect to database”** and the import tool will attempt to connect to your GCP CloudSQL instance.
 
-<ImageBlock alt='The Import database form.' src={img6} />
+![The Import database form.](/docs/tutorials/gcp-cloudsql-migration-guide/the-import-database-form.png)
 
 If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
 
-<ImageBlock
-  alt='The note that is displayed when the PlanetScale import tool can connect to the external database.'
-  src={img7}
-/>
+![The note that is displayed when the PlanetScale import tool can connect to the external database.](/docs/tutorials/gcp-cloudsql-migration-guide/the-note-displayed-when-the-planetscale-import-tool-can-connect-to-the-external-database.png)
 
 The following view will show you the progress of your data being imported.
 
-<ImageBlock alt='The Database import view during the initial import process.' src={img8} />
+![The Database import view during the initial import process.](/docs/tutorials/gcp-cloudsql-migration-guide/the-database-import-view-during-the-initial-import-process.png)
 
 Once your database has finished importing, the view will update to show the database that was created in PlanetScale, as well as the option to enable primary mode. This button will make the PlanetScale version of the database the primary replica. Clicking “**Enable primary mode”** will display a modal where you can confirm that you want to make this change.
 
-<ImageBlock alt='The Database import view once the initial import has been completed.' src={img9} />
+![The Database import view once the initial import has been completed.](/docs/tutorials/gcp-cloudsql-migration-guide/the-database-import-view-once-the-initial-import-has-been-completed.png)
 
 After primary mode is enabled, the third card in the flow will update to give you two options. **Enable replica mode** will revert the change performed in the previous step, whereas **Finish import** will detach the databases from replication and future changes to either the PlanetScale database or the CloudSQL database will not be replicated to each other. Click “**Finish import”** to complete the import process. Confirm in the modal that will be displayed.
 
-<ImageBlock
-  alt='The Database import view after the PlanetScale database has been flagged as the primary database.'
-  src={img10}
-/>
+![The Database import view after the PlanetScale database has been flagged as the primary database.](/docs/tutorials/gcp-cloudsql-migration-guide/the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png)
 
 This concludes the process used to import a database into PlanetScale from GCP CloudSQL.

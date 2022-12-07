@@ -4,15 +4,13 @@ subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connec
 date: '2022-08-01'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 ## Introduction
 
 In this tutorial, you’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. You’ll perform the initial migration from your local Rails application, and set up the database for future development.
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   Already have a Rails application and just want to connect to PlanetScale? Check out the [Rails quick connect repo](https://github.com/planetscale/connection-examples/tree/main/ruby).
-</InfoBlock>
+{% /callout %}
 
 ## Prerequisites
 
@@ -70,9 +68,9 @@ pscale database create blog
 pscale password create blog main <PASSWORD_NAME>
 ```
 
-<InfoBlock type='note'>
+{% callout %}
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-</InfoBlock>
+{% /callout %}
 
 3. Take note of the values returned to you, as they will not be shown again.
 
@@ -102,9 +100,9 @@ development:
 
 The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/docs/concepts/secure-connections#ca-root-configuration) for more information.
 
-<InfoBlock type='note'>
-  You're configuring the <b>development</b> Rails environment here for the sake of expedience. In actual use, the <b>main</b> database branch would typically serve the <b>production</b> environment.
-</InfoBlock>
+{% callout %}
+  You're configuring the __development__ Rails environment here for the sake of expedience. In actual use, the <b>main</b> database branch would typically serve the <b>production</b> environment.
+{% /callout %}
 
 Because this is a Rails app, you can also enable [Automatic Rails migrations](/docs/tutorials/automatic-rails-migrations) from the database's settings page. Select your database, click on the `main` branch, click "**Settings**", check the "**Automatically copy migration data**" box, and select "**Rails**" from the dropdown.
 

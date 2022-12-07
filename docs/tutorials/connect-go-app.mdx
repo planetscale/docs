@@ -4,18 +4,7 @@ subtitle: Learn how to use Go with PlanetScale by exploring a demo Go API built 
 date: '2022-10-11'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import VimeoEmbed from '@/components/VimeoEmbed'
-import branches from '@/images/connect-go-app--branches.png'
-import connect from '@/images/connect-go-app--connect.png'
-import connectmodal from '@/images/connect-go-app--connect-modal.png'
-import console from '@/images/connect-go-app--console.png'
-import getoutput from '@/images/connect-go-app--go-run-output.png'
-import gorunoutput from '@/images/connect-go-app--new-db-modal.png'
-import newdbmodal from '@/images/connect-go-app--new-db-modal.png'
-
-<VimeoEmbed src="https://player.vimeo.com/video/759188218" alt="Connect to PlanetScale with Go" />
+{% vimeo src="https://player.vimeo.com/video/759188218" caption="Connect to PlanetScale with Go" /%}
 
 ## Introduction
 
@@ -28,23 +17,23 @@ In this guide, you’ll learn how to connect to a PlanetScale MySQL database wit
 - [VS Code](https://code.visualstudio.com/download) (optional)
 - The [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) (optional)
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect repo](https://github.com/planetscale/connection-examples/tree/main/go).
-</InfoBlock>
+{% /callout %}
 
 ## Create the database
 
 Start in PlanetScale by creating a new database named `products_db`.
 
-<ImageBlock alt='The New database modal' src={newdbmodal} />
+![The New database modal](/docs/tutorials/connect-go-app/new-db-modal.png)
 
 Once the database has finished initializing, head to **"Branches"** > **"main"**.
 
-<ImageBlock alt='The Branches tab' src={branches} />
+![The Branches tab](/docs/tutorials/connect-go-app/branches.png)
 
 Click on **"Console"** to open the web console.
 
-<ImageBlock alt='The Console tab' src={console} />
+![The Console tab](/docs/tutorials/connect-go-app/console.png)
 
 Run the following two commands to create a sample table and insert some data:
 
@@ -63,11 +52,11 @@ INSERT INTO `products` (name, price) VALUES
 
 Finally, head to the **"Overview"** tab and click **"Connect"**.
 
-<ImageBlock alt='The location of the Connect button' src={connect} />
+![The location of the Connect button](/docs/tutorials/connect-go-app/connect.png)
 
 Change the **"Connect with"** dropdown to **Go** and copy the contents of the **.env** tab, as you’ll need it for the next section.
 
-<ImageBlock alt='The Connect modal' src={connectmodal} />
+![The Connect modal](/docs/tutorials/connect-go-app/connect-modal.png)
 
 ## Run the demo project
 
@@ -92,7 +81,7 @@ go run .
 
 The terminal should update with the following output.
 
-<ImageBlock alt='The output of the GET test' src={getoutput} />
+![The output of the GET test](/docs/tutorials/connect-go-app/go-run-output.png)
 
 ## Exploring the code
 
@@ -134,11 +123,11 @@ func main() {
 
 Open the `tests.http` file, which contains HTTP requests that can be sent to test the API. Running the `get {{hostname}}/products` test is the equivalent of running `SELECT * FROM products` in SQL and returning the results as JSON.
 
-<InfoBlock type="warning">
+{% callout type="warning" %}
 If you do not wish to use VS Code with the Rest Client plugin, you may use `tests.http` as a reference for your preferred IDE and API testing software.
-</InfoBlock>
+{% /callout %}
 
-<ImageBlock alt='The terminal output of the go run command' src={gorunoutput} />
+![The terminal output of the go run command](/docs/tutorials/connect-go-app/go-run-output.png)
 
 This is the `GetProducts` function defined in `main.go`. Notice how the `query` variable is the `SELECT` statement, which is passed into `db.Query` before being scanned into a slice of `Product` structs.
 

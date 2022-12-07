@@ -5,13 +5,6 @@ className: 'ignore-img-borders'
 date: '2022-08-05'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import VimeoEmbed from '@/components/VimeoEmbed'
-import branches from '@/images/planetscale-quick-start-guide--branches.png'
-import create from '@/images/planetscale-quick-start-guide--create.png'
-import promote from '@/images/planetscale-quick-start-guide--promote.png'
-
 ## Overview
 
 The following guide will show you how to:
@@ -26,10 +19,7 @@ If you already have your PlanetScale database set up, you may find the [Connecti
 This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started-—-planetscale-dashboard) or using the [PlanetScale CLI](#getting-started-—-planetscale-cli).
 
 
-<VimeoEmbed
-  src='https://player.vimeo.com/video/763913923'
-  alt='A video demo of everything covered in this guide'
-/>
+{% vimeo src="https://player.vimeo.com/video/763913923" caption="A video demo of everything covered in this guide" /%}
 
 ## Getting started &mdash; PlanetScale dashboard
 
@@ -44,7 +34,7 @@ Follow these steps to create a database:
 3. Select a [region](/docs/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Finally, click the "**Create database**" button to deploy your database.
 
-<ImageBlock alt='Create database modal' src={create} />
+![Create database modal](/docs/tutorials/planetscale-quick-start-guide/create.png)
 
 Your database is created with an [**initial development branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
@@ -54,7 +44,7 @@ This quickstart demonstrates how to create and use two relational tables: `categ
 
 1. From your database's overview page, click on the "**Branches**" tab in the database navigation.
 
-<ImageBlock alt='Branches' src={branches} />
+![Branches](/docs/tutorials/planetscale-quick-start-guide/branches.png)
 
 2. Click on the `main` branch.
 3. Click on the "**Console**" tab. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
@@ -77,12 +67,12 @@ CREATE TABLE products (
 );
 ```
 
-<InfoBlock type='note'>
-  PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign
-  keys, as shown in this example. For more information, check out our{' '}
-  <a href='/docs/learn/operating-without-foreign-key-constraints'>Operating without foreign key constraints</a>{' '}
+{% callout %}
+  PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
+  keys, as shown in this example. For more information, check out our
+  [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
   documentation.
-</InfoBlock>
+{% /callout %}
 
 5. You can confirm that the tables have been added by running:
 
@@ -120,9 +110,9 @@ If you click on the "**Schema**" tab in the database navigation and click the "*
 
 All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
 
-<InfoBlock type='note'>
-  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>.
-</InfoBlock>
+{% callout %}
+  A development branch is intended for applying schema changes and is __not intended for use in production__.
+{% /callout %}
 
 Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
 
@@ -132,7 +122,7 @@ A production branch is a highly available, protected database branch with automa
 
 1. Click "Overview" in the navigation, and you'll see a banner with information about promoting to production.
 
-<ImageBlock alt='Create database modal' src={promote} />
+![Create database modal](/docs/tutorials/planetscale-quick-start-guide/promote.png)
 
 2. Click the "Promote branch" button.
 3. In the modal that opens, select the branch you want to promote to production
@@ -156,11 +146,11 @@ When you want to continue development on your database:
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/docs/concepts/deploy-requests) to merge the changes into your production branch
 
-<InfoBlock type='note'>
-  When you branch off of a production branch, your development branch will have the same schema as production, but it{' '}
-  <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock
+{% callout %}
+  When you branch off of a production branch, your development branch will have the same schema as production, but it
+  __will not__ copy over any data from the production database. We suggest seeding development branches with mock
   data.
-</InfoBlock>
+{% /callout %}
 
 ## Getting started &mdash; PlanetScale CLI
 
@@ -191,9 +181,9 @@ pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 - **DATABASE_NAME** &mdash; Your database name can contain lowercase, alphanumeric characters, or underscores. We allow dashes, but don't recommend them, as they may need to be escaped in some instances.
 - **REGION_SLUG** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions).
 
-<InfoBlock type='note'>
-  If you do not specify a region, your database will automatically be deployed to <b>US East - Northern Virginia</b>.
-</InfoBlock>
+{% callout %}
+  If you do not specify a region, your database will automatically be deployed to __US East - Northern Virginia__.
+{% /callout %}
 
 Your database will deploy with an initial development branch, `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
@@ -228,12 +218,12 @@ CREATE TABLE products (
 );
 ```
 
-<InfoBlock type='note'>
-  PlanetScale does not support foreign key <i>constraints</i>, but we do support the use of relationships with foreign
-  keys, as shown in this example. For more information, check out our{' '}
-  <a href='/docs/learn/operating-without-foreign-key-constraints'>Operating without foreign key constraints</a>{' '}
+{% callout %}
+  PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
+  keys, as shown in this example. For more information, check out our
+  [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
   documentation.
-</InfoBlock>
+{% /callout %}
 
 3. You can confirm that the table has been added by running:
 
@@ -283,9 +273,9 @@ SELECT * FROM categories;
 
 All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
 
-<InfoBlock type='note'>
-  A development branch is intended for applying schema changes and is <b>not intended for use in production</b>.
-</InfoBlock>
+{% callout %}
+  A development branch is intended for applying schema changes and is __not intended for use in production__.
+{% /callout %}
 
 Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
 
@@ -315,8 +305,8 @@ When you want to continue development on your database:
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/docs/concepts/deploy-requests) to merge the changes into your production branch
 
-<InfoBlock type='note'>
-  When you branch off of a production branch, your development branch will have the same schema as production, but it{' '}
-  <b>will not</b> copy over any data from the production database. We suggest seeding development branches with mock
+{% callout %}
+  When you branch off of a production branch, your development branch will have the same schema as production, but it
+  __will not__ copy over any data from the production database. We suggest seeding development branches with mock
   data.
-</InfoBlock>
+{% /callout %}

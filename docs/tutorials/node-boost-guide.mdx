@@ -4,11 +4,9 @@ subtitle: 'Learn how to use PlanetScale Boost in a Node.js application.'
 date: '2022-11-15'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
-<InfoBlock type='note'>
+{% callout %}
   PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
-</InfoBlock>
+{% /callout %}
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) when building an application with Node.js. It will start with a simple code snippet that will be used to always execute a query through the cache server, then expand into using separate connections.
 
@@ -60,7 +58,7 @@ const mysql = require('mysql2/promise')
   const connection = await mysql.createConnection(process.env.DATABASE_URL)
   connection.execute("SET @@boost_cached_queries = true")
   let [rows] = await connection.query("SELECT * FROM users")
-  
+
   // Create a Boost-enabled connection
   const boostedConnection = await mysql.createConnection(process.env.DATABASE_URL)
   await boostedConnection.execute("SET @@boost_cached_queries = true")

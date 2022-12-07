@@ -4,15 +4,13 @@ subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connec
 date: '2022-08-01'
 ---
 
-import InfoBlock from '@/components/MDX.InfoBlock'
-
 ## Introduction
 
 In this tutorial, you'll create a simple Node.js and Express.js application and connect it to a PlanetScale database.
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   Already have a Node.js application and just want to connect to PlanetScale? Check out the [Node.js quick connect repo](https://github.com/planetscale/connection-examples/tree/main/nodejs).
-</InfoBlock>
+{% /callout %}
 
 ## Prerequisites
 
@@ -34,9 +32,9 @@ To do this, use the PlanetScale CLI shell to open a MySQL shell where you can ma
 pscale shell <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-<InfoBlock type='note'>
+{% callout %}
   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-</InfoBlock>
+{% /callout %}
 
 Create the `users` table:
 
@@ -116,9 +114,9 @@ pscale auth login
 pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
 ```
 
-<InfoBlock type='note'>
+{% callout %}
   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-</InfoBlock>
+{% /callout %}
 
 Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -165,9 +163,9 @@ Use the following command to create a connection to your database and start the 
 pscale connect <DATABASE_NAME> <BRANCH_NAME> --execute 'node app.js'
 ```
 
-<InfoBlock type='note'>
+{% callout %}
   Running `pscale connect` with the execute flag will pass a `DATABASE_URL` to the Node application, enabling it to connect to PlanetScale. Don't forget to look in `app.js` to see how the DATABASE_URL is used.
-</InfoBlock>
+{% /callout %}
 
 Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the data from your `users` table!
 

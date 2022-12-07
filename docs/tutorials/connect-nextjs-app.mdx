@@ -4,11 +4,6 @@ subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connec
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import database from '@/images/connect-nextjs-app--database.png'
-import production from '@/images/connect-nextjs-app--production.png'
-
 In this tutorial, you'll create a [Next.js](https://nextjs.org/) application that uses [Tailwind CSS](https://tailwindcss.com/) for styling and [Prisma](https://www.prisma.io/) to connect to a [PlanetScale](/) database.
 
 
@@ -26,11 +21,11 @@ If this is your first time in the dashboard, you'll be prompted to go through a 
 
 Finally, click "**Create database**".
 
-<ImageBlock alt='Create a new database modal' src={database} />
+![Create a new database modal](/docs/tutorials/connect-nextjs-app/database.png)
 
-<InfoBlock type='note'>
+{% callout %}
   If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/concepts/database-imports).
-</InfoBlock>
+{% /callout %}
 
 A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
 
@@ -103,7 +98,7 @@ After you have your application running locally, you may want to deploy it to pr
 
 You can do this in the PlanetScale dashboard by clicking the "**Branches**" tab, and then clicking the "**Promote a branch to production**" button either in the banner or under the "**...**".
 
-<ImageBlock alt='Promote a branch to production' src={production} />
+![Promote a branch to production](/docs/tutorials/connect-nextjs-app/production.png)
 
 ### Deploy to Vercel
 
@@ -113,9 +108,9 @@ If you'd like to deploy to Vercel, check out our [Deploy to Vercel documentation
 
 If you'd like to deploy to Netlify, check out our [Deploy to Netlify documentation](/docs/tutorials/deploy-to-netlify).
 
-<InfoBlock type='note'>
+{% callout %}
   If you are deploying the `nextjs-starter` repo, the `Netlify.toml` file in this repository includes the configuration for you to customize the `PLANETSCALE_PRISMA_DATABASE_URL` property on the initial deploy.
-</InfoBlock>
+{% /callout %}
 
 ## What's next?
 

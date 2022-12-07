@@ -5,12 +5,6 @@ className: 'ignore-img-borders'
 date: '2022-08-01'
 ---
 
-import ImageBlock from '@/components/MDX.ImageBlock'
-import InfoBlock from '@/components/MDX.InfoBlock'
-import console from '@/images/connect-laravel-app--console.png'
-import database from '@/images/connect-laravel-app--database.png'
-import example from '@/images/connect-laravel-app--example.png'
-
 ## Introduction
 
 In this tutorial, you'll learn how to connect a Laravel application to a PlanetScale MySQL database using a sample Laravel starter app.
@@ -65,11 +59,11 @@ If this is your first time in the dashboard, you'll be prompted to go through a 
 
 Finally, click "**Create database**".
 
-<ImageBlock alt='Create a new database modal' src={database} />
+![Create a new database modal](/docs/tutorials/connect-laravel-app/database.png)
 
-<InfoBlock type='note'>
+{% callout %}
   If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/concepts/database-imports).
-</InfoBlock>
+{% /callout %}
 
 A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
 
@@ -92,9 +86,9 @@ In your PlanetScale dashboard, select your database, click "**Connect**", and se
 
 As long as you're an organization administrator, this will generate a username and password that has administrator privileges to the database.
 
-<InfoBlock type='tip'>
+{% callout type="tip" %}
   If the password value is blurred, you need to click "**New password**" to generate a new one.
-</InfoBlock>
+{% /callout %}
 
 Copy the contents of the `.env` tab and paste them into your own `.env` file in your Laravel application. The structure will look like this:
 
@@ -148,13 +142,13 @@ Now that you're connected, let's add some data to see it in action. The sample a
 - `database/migrations/2021_12_20_194637_create_stars_table.php` &mdash; Creates a `stars` table
 - `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
 
-<InfoBlock type='note'>
+{% callout %}
 PlanetScale does not support foreign key *constraints*, but we do support the use of relationships with foreign keys, as shown in the Stars migration file in this example.
 
 You can use the [`foreignId()` method](https://laravel.com/docs/migrations#foreign-key-constraints) to create a relationship between the `constellations` and `stars` tables, but you cannot enforce referential integrity with the `constrained()` method.
 
 For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation.
-</InfoBlock>
+{% /callout %}
 
 There are also two seeders, `database/seeders/ConstellationSeeder.php` and `database/seeders/StarSeeder.php`, that will add two rows to the each table. Let's run those now.
 
@@ -180,7 +174,7 @@ You should get the message "Database seeding completed successfully".
 
 The `resources/views/home.blade.php` file pulls this data from the `stars` table with the help of the `app/Http/Controllers/StarController.php` file.
 
-<ImageBlock alt='Laravel PlanetScale starter app homepage' src={example} />
+![Laravel PlanetScale starter app homepage](/docs/tutorials/connect-laravel-app/example.png)
 
 ## Add data manually
 
@@ -219,7 +213,7 @@ VALUES  ('Sagittarius', 3);
 SELECT * FROM stars;
 ```
 
-<ImageBlock alt='PlanetScale web console' src={console} />
+![PlanetScale web console](/docs/tutorials/connect-laravel-app/console.png)
 
 ### Add data with Laravel Tinker
 
