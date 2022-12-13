@@ -22,17 +22,17 @@ Before you can perform the migration, you’ll need to gather the following info
 
 The server name and admin login name can be located on the **Overview** tab of the MySQL instance in Azure.
 
-![The server name and server admin login name located in the Azure dashboard.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-server-name-and-server-admin-login-name-located-in-the-azure-dashboard.png)
+![The server name and server admin login name located in the Azure dashboard.](/docs/imports/azure-database-for-mysql-migration-guide/the-server-name-and-server-admin-login-name-located-in-the-azure-dashboard.png)
 
 The server admin password is the same password you set when initially creating the database instance.
 
 To view your available databases, select the **Databases** tab from the sidebar.
 
-![The databases tab of the Azure dashboard.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-databases-tab-of-the-azure-dashboard.png)
+![The databases tab of the Azure dashboard.](/docs/imports/azure-database-for-mysql-migration-guide/the-databases-tab-of-the-azure-dashboard.png)
 
 ## Configure firewall rules
 
-In order for PlanetScale to connect to your Azure database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP addresses page](/docs/reference/import-tool-migration-addresses) to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
+In order for PlanetScale to connect to your Azure database, you must allow traffic into the database through the associated security group. The specific IP addresses you will need to allow depend on the region you plan to host your PlanetScale database. Check the [Import tool public IP addresses page](/docs/imports/import-tool-migration-addresses) to determine the IP addresses to allow before continuing. This guide will use the **AWS us-east-1 (North Virginia)** region so we’ll allow the following addresses:
 
 ```
 3.209.149.66
@@ -54,7 +54,7 @@ In order for PlanetScale to connect to your Azure database, you must allow traff
 
 To allow traffic into your Azure database, navigate to the “**Networking**” section from the sidebar and locate the **Firewall rules** section. There are already a series of inputs allowing you to add entries into the Firewall rules, each of which will permit network traffic from that IP address. Add a new entry for each address required, then click “Save” from the toolbar.
 
-![The networking tab of the Azure dashboard.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-networking-tab-of-the-azure-dashboard.png)
+![The networking tab of the Azure dashboard.](/docs/imports/azure-database-for-mysql-migration-guide/the-networking-tab-of-the-azure-dashboard.png)
 
 ## Configure MySQL server settings
 
@@ -70,33 +70,33 @@ To access these settings in Azure, select “**Server parameters**” from the s
 For “**gtid_mode**”, you’ll need to update the value in sequence displayed in the dropdown until it is set to “**ON**”. For example, if the current setting is “**OFF_PERMISSIVE**”, you’ll need to first change it to “**ON_PERMISSIVE**”, save the changes, then set it to “**ON**” in that order.
 {% /callout %}
 
-![How to access gtid settings in the Azure dashboard.](/docs/tutorials/azure-database-for-mysql-migration-guide/how-to-access-gtid-settings-in-the-azure-dashboard.png)
+![How to access gtid settings in the Azure dashboard.](/docs/imports/azure-database-for-mysql-migration-guide/how-to-access-gtid-settings-in-the-azure-dashboard.png)
 
 ## Import your database
 
 In the PlanetScale dashboard, click “**New database”**, then “**Import database”**.
 
-![The default view of all databases in the PlanetScale organization.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-default-view-of-all-databases-in-the-planetscale-organization.png)
+![The default view of all databases in the PlanetScale organization.](/docs/imports/azure-database-for-mysql-migration-guide/the-default-view-of-all-databases-in-the-planetscale-organization.png)
 
 At the time of writing this, the Import database feature is in beta. If this is your first time accessing this feature, you will be prompted to opt into using the feature. Click “**Join beta”** to proceed.
 
-![The Join beta view.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-join-beta-view.png)
+![The Join beta view.](/docs/imports/azure-database-for-mysql-migration-guide/the-join-beta-view.png)
 
 Complete the form using the information gathered in the previous section. Also make sure the “**SSL Verification”** field is set to “**Verify certificate and hostname**”. Click “**Connect to database”** and the import tool will attempt to connect to your Azure MySQL instance.
 
-![The Import external database form.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-import-external-database-form.png)
+![The Import external database form.](/docs/imports/azure-database-for-mysql-migration-guide/the-import-external-database-form.png)
 
 If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
 
-![The message that shows at the bottom of the form indicating that the connection was successful.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png)
+![The message that shows at the bottom of the form indicating that the connection was successful.](/docs/imports/azure-database-for-mysql-migration-guide/the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png)
 
 The following view will show you the progress of your data being imported.
 
-![The Database import view during the initial import process.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-database-import-view-during-the-initial-import-process.png)
+![The Database import view during the initial import process.](/docs/imports/azure-database-for-mysql-migration-guide/the-database-import-view-during-the-initial-import-process.png)
 
 Once your database has finished importing, the view will update to show the database that was created in PlanetScale, as well as the option to enable primary mode. This button will make the PlanetScale version of the database the primary replica. Clicking “**Enable primary mode”** will display a modal where you can confirm that you want to make this change.
 
-![The Database import view once the initial import has been completed.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-database-import-view-once-the-initial-import-has-been-completed.png)
+![The Database import view once the initial import has been completed.](/docs/imports/azure-database-for-mysql-migration-guide/the-database-import-view-once-the-initial-import-has-been-completed.png)
 
 After primary mode is enabled, the third card in the flow will update to give you two options:
 
@@ -105,6 +105,6 @@ After primary mode is enabled, the third card in the flow will update to give yo
 
 Click “**Finish import”** to complete the import process. Confirm in the modal that will be displayed.
 
-![The Database import view after the PlanetScale database has been flagged as the primary database.](/docs/tutorials/azure-database-for-mysql-migration-guide/the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png)
+![The Database import view after the PlanetScale database has been flagged as the primary database.](/docs/imports/azure-database-for-mysql-migration-guide/the-database-import-view-after-the-planetscale-database-has-been-flagged-as-the-primary-database.png)
 
 This concludes the process used to import a database into PlanetScale from Azure Database for MySQL.

@@ -4,7 +4,7 @@ subtitle: 'List of the grants required to import a database into PlanetScale usi
 date: '2022-07-25'
 ---
 
-When importing a database using our [Import tool](/docs/concepts/database-imports), you will need to connect to your existing database with a user that has the proper permissions to set up the necessary configurations to start importing data.
+When importing a database using our [Import tool](/docs/imports/database-imports), you will need to connect to your existing database with a user that has the proper permissions to set up the necessary configurations to start importing data.
 
 Below is the minimum set of permissions needed and what each allows the user to do:
 

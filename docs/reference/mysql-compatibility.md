@@ -8,7 +8,7 @@ date: '2022-09-23'
 
 PlanetScale is built on top of open-source Vitess, a database clustering system for horizontal scaling of MySQL. Consequently, PlanetScale is only compatible with MySQL databases.
 
-If you're [importing an existing database](/docs/concepts/database-imports), PlanetScale supports MySQL database versions `5.7` through `8.0`.
+If you're [importing an existing database](/docs/imports/database-imports), PlanetScale supports MySQL database versions `5.7` through `8.0`.
 
 New PlanetScale databases are created on MySQL 8 with character set `utf8mb4_0900_ai_ci`. PlanetScale only supports `utf8`, `utf8mb4`, and `utf8mb3` character sets.
 
@@ -16,7 +16,7 @@ New PlanetScale databases are created on MySQL 8 with character set `utf8mb4_090
 
 The following reference guide will cover some MySQL syntax, features, and more that PlanetScale either does not support or has limitations around. We are actively working on driving up compatibility, but it's an ongoing effort and will take some time to complete. See this [project board on GitHub](https://github.com/vitessio/vitess/projects/4) to learn what the Vitess team is currently focusing on.
 
-If you're attempting to import a database using our Import tool, there are some additional requirements that you can find in our [Database imports documentation](/docs/concepts/database-imports#import-limitations).
+If you're attempting to import a database using our Import tool, there are some additional requirements that you can find in our [Database imports documentation](/docs/imports/database-imports#import-limitations).
 
 ### Queries, functions, syntax, data types, and SQL modes
 
@@ -44,14 +44,14 @@ If you're attempting to import a database using our Import tool, there are some 
 
 ## Miscellaneous
 
-| Action                        | Support | Description                                                                                                                                                                                                                                       |
-| ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Empty schemas**             | ✖️      | Databases with empty schemas are invalid. You cannot deploy a schema change to production if no tables exist.                                                                                                                                     |
-| **Non-InnoDB Storage engine** | ✖️      | We only support [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) storage engine.                                                                                                                                      |
-| **No unique key**             | ✖️      | We require all tables have a [unique, non-null key](/docs/learn/change-single-unique-key) that remains unchanged during migrations.                                                                                                               |
-| **Direct DDL**                | ✖️      | We do [not allow Direct DDL](/docs/learn/how-online-schema-change-tools-work) on [production branches](/docs/concepts/branching). This includes `TRUNCATE` statements.                                                                            |
-| **Disabled binary logs**      | ❗      | You must have binary logs enabled if importing a database using our [database importer tool](/docs/concepts/database-imports). See our [Import doc](/docs/concepts/database-imports#server-configuration-issues) for more required configuration. |
-| **Large JSON documents**      | ❗      | MySQL supports JSON documents up to 1 GB in size. However, we do not recommend to store more than a few MB in a JSON document for performance reasons.                                                                                            |
+| Action                        | Support | Description                                                                                                                                                                                                                                     |
+| ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Empty schemas**             | ✖️      | Databases with empty schemas are invalid. You cannot deploy a schema change to production if no tables exist.                                                                                                                                   |
+| **Non-InnoDB Storage engine** | ✖️      | We only support [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) storage engine.                                                                                                                                    |
+| **No unique key**             | ✖️      | We require all tables have a [unique, non-null key](/docs/learn/change-single-unique-key) that remains unchanged during migrations.                                                                                                             |
+| **Direct DDL**                | ✖️      | We do [not allow Direct DDL](/docs/learn/how-online-schema-change-tools-work) on [production branches](/docs/concepts/branching). This includes `TRUNCATE` statements.                                                                          |
+| **Disabled binary logs**      | ❗      | You must have binary logs enabled if importing a database using our [database importer tool](/docs/imports/database-imports). See our [Import doc](/docs/imports/database-imports#server-configuration-issues) for more required configuration. |
+| **Large JSON documents**      | ❗      | MySQL supports JSON documents up to 1 GB in size. However, we do not recommend to store more than a few MB in a JSON document for performance reasons.                                                                                          |
 
 ## FAQ
 

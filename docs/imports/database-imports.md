@@ -26,7 +26,7 @@ To import an existing database into PlanetScale:
 Importing a database will **not** count towards your `read` or `write` usage.
 {% /callout %}
 
-![Select name and region for new database import](/docs/concepts/database-imports/form.png)
+![Select name and region for new database import](/docs/imports/database-imports/form.png)
 
 4. Fill in the following connection values with information from your existing hosted database:
 
@@ -67,13 +67,13 @@ If the connection fails, you'll get an error message in the dashboard. Double-ch
 
 If you're importing a large database (that uses over 5 GB of storage) and are on the [Hobby plan](/pricing), you will receive a prompt as shown below to upgrade your plan:
 
-![Upgrade your hobby plan if importing more than 5 GB](/docs/concepts/database-imports/upgrade.png)
+![Upgrade your hobby plan if importing more than 5 GB](/docs/imports/database-imports/upgrade.png)
 
 You can use the **Add new card** button here to add a credit card and upgrade your account.
 
 Once you've successfully upgraded your plan, you should be able to continue importing your external database into PlanetScale.
 
-![Account upgraded, continue to importing database](/docs/concepts/database-imports/upgraded.png)
+![Account upgraded, continue to importing database](/docs/imports/database-imports/upgraded.png)
 
 ## Import process
 
@@ -86,7 +86,7 @@ import process. Schema changes are not replicated between databases in either di
 
 ### Step 1: Performing the initial import
 
-![Step 1 of database import - Initial import](/docs/concepts/database-imports/initial.png)
+![Step 1 of database import - Initial import](/docs/imports/database-imports/initial.png)
 
 During this phase, the data and schema from your external database are imported into your PlanetScale database. The PlanetScale database is in `read-only` mode.
 
@@ -99,7 +99,7 @@ Once the initial import has finished, your PlanetScale database will be in **Rep
 
 ### Step 2: Replica mode
 
-![Step 2 of database import - Replica mode](/docs/concepts/database-imports/replica.png)
+![Step 2 of database import - Replica mode](/docs/imports/database-imports/replica.png)
 
 In this mode, your external database is the primary but PlanetScale will direct reads and writes to the appropriate database. [Connect your live application](/docs/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app.
 
@@ -116,7 +116,7 @@ Once you're ready for PlanetScale to become your _primary_ database, click "Enab
 
 ### Step 3: Primary mode
 
-![Step 3 of database import - Primary mode](/docs/concepts/database-imports/primary.png)
+![Step 3 of database import - Primary mode](/docs/imports/database-imports/primary.png)
 
 During this stage, PlanetScale replaces your external database as the primary database. It will serve both reads and writes. Behind the scenes, we essentially reverse the direction of the routing in the previous step. This means that all read and writes will go straight to the PlanetScale database and updates will be replicated back to your external database.
 
