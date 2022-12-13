@@ -48,7 +48,7 @@ Once you're ready to deploy schema changes from your development branch to produ
 
 ### Revert a schema change
 
-The final piece of the non-blocking schema change workflow is the ability to [revert a recently deployed schema change](/docs/concepts/deploy-requests/#revert-a-schema-change) without losing any data that was written since deploying.
+The final piece of the non-blocking schema change workflow is the ability to [revert a recently deployed schema change](/docs/concepts/deploy-requests#revert-a-schema-change) without losing any data that was written since deploying.
 
 {% vimeo src="https://player.vimeo.com/video/763913760" caption="Demonstration of how to revert a schema change" /%}
 
