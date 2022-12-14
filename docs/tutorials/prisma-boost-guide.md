@@ -27,7 +27,7 @@ export default prisma
 In order to instruct the `PrismaClient` to use PlanetScale Boost, the `@@boost_cached_queries` session variable needs to be set using the `$queryRaw` function:
 
 ```js
-primsa.$queryRaw`SET @@boost_cached_queries = true`
+prisma.$queryRaw`SET @@boost_cached_queries = true`
 ```
 
 Here is an example of performing this operation on the `PrismaClient` once its initialized:
@@ -36,7 +36,7 @@ Here is an example of performing this operation on the `PrismaClient` once its i
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
-primsa.$queryRaw`SET @@boost_cached_queries = true`
+prisma.$queryRaw`SET @@boost_cached_queries = true`
 
 if (process.env.NODE_ENV === 'development') global.prisma = prisma
 
