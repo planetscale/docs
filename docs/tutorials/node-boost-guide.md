@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
 {% /callout %}
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) when building an application with Node.js. It will start with a simple code snippet that will be used to always execute a query through the cache server, then expand into using separate connections.

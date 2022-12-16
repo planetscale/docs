@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
 {% /callout %}
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) in Go. We'll first go over a simple example showing how to enable PlanetScale Boost for all queries, and then expand on it to create a separate connection that has the query cache enabled.

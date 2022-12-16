@@ -14,7 +14,7 @@ A **`FOREIGN KEY` _constraint_ is a database construct**, an implementation that
 
 You are encouraged to use the relational model and associate tables by "pointing" rows from one table to another. It is just the enforcement at the database level, the `CONSTRAINT ... FOREIGN KEY` definition, that is not allowed in your schemas.
 
-We'll soon cover an example of what a schema looks like [with and without foreign key constraints](#how-does-your-schema-look-without-foreign-key-constraints?) so that this small difference is clear.
+We'll soon cover an example of what a schema looks like [with and without foreign key constraints](#how-does-your-schema-look-without-foreign-key-constraints) so that this small difference is clear.
 
 ## Why not support foreign key constraints?
 

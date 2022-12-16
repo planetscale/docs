@@ -5,10 +5,10 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
 {% /callout %}
 
-This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) using the Prisma ORM for JavaScript. It will follow along with the [Prisma quickstart guide](https://planetscale.com/docs/tutorials/prisma-quickstart), with a modified `PrismaClient` that sets the proper session variables to enable PlanetScale Boost.
+This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) using the Prisma ORM for JavaScript. It will follow along with the [Prisma quickstart guide](/docs/tutorials/prisma-quickstart), with a modified `PrismaClient` that sets the proper session variables to enable PlanetScale Boost.
 
 ## Enable PlanetScale Boost on a PrismaClient
 

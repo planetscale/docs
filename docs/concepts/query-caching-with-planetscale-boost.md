@@ -5,7 +5,7 @@ date: '2022-11-15'
 ---
 
 {% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) today.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
 {% /callout %}
 
 ## Overview
@@ -16,7 +16,7 @@ While PlanetScale Boost is in beta, we don’t recommend using it in your critic
 
 ## How to use PlanetScale Boost
 
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](https://planetscale.com/features/boost) to get access for your organization. If your organization is accepted into the beta, you will receive an email with further instructions on how to get started. Please share any feedback or questions you have by posting on the GitHub discussion board, which is included in your welcome email.
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) to get access for your organization. If your organization is accepted into the beta, you will receive an email with further instructions on how to get started. Please share any feedback or questions you have by posting on the GitHub discussion board, which is included in your welcome email.
 
 ### Add a query to your cache
 
@@ -30,7 +30,7 @@ Navigate to the "Boost" tab in the PlanetScale console, which will appear once y
 6. Choose the cache size.
 7. Click **"Add to cache"**.
 
-You also have the option to [add queries directly from the Insights page](https://planetscale.com/docs/concepts/query-insights) in the dashboard. Click on an individual query in Insights, and you'll see a **"Cache query"** button on that page.
+You also have the option to [add queries directly from the Insights page](/docs/concepts/query-insights) in the dashboard. Click on an individual query in Insights, and you'll see a **"Cache query"** button on that page.
 
 ### Using cached queries in your application
 
