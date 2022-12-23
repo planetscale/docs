@@ -1,7 +1,7 @@
 ---
 title: 'Strategies for maintaining referential integrity'
 subtitle: 'How to design systems that maintain referential integrity without foreign key constraints'
-date: '2022-12-1'
+date: '2022-12-01'
 ---
 
 Since PlanetScale [does not support foreign key constraints](/docs/learn/operating-without-foreign-key-constraints), cascading actions need to be addressed via code instead of letting the database engine handle them for you. This document outlines some recommended strategies for building a system that handles those actions for you.
