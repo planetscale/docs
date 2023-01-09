@@ -86,7 +86,7 @@ On Windows, `pscale` is available via [scoop](https://scoop.sh/), and as a downl
 
 ```bash
 scoop bucket add pscale https://github.com/planetscale/scoop-bucket.git
-scoop install pscale
+scoop install pscale mysql
 ```
 
 To upgrade to the latest version:
