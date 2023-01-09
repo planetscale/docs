@@ -8,7 +8,7 @@ if [ -n "${PAT:=}" ]
 then
 	GIT_CMD_REPOSITORY="https://planetscale:$PAT@github.com/$DESTINATION_REPOSITORY.git"
 else
-	echo "::error::PAT is empty."
+	echo "::error::PAT is empty"
 	exit 1
 fi
 
@@ -19,7 +19,7 @@ trap 'rm -rf -- "$CLONE_DIR"' EXIT
 echo "[+] Git version"
 git --version
 
-echo "[+] Cloning destination git repository docs"
+echo "[+] Cloning destination git repository"
 git config --global user.email "operations+build@planetscale.com"
 git config --global user.name "PlanetScale Actions Bot"
 
@@ -39,21 +39,19 @@ mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
 ABSOLUTE_DESTINATION_DIRECTORY="$CLONE_DIR/$DESTINATION_DIRECTORY/"
 
-echo "[+] Deleting $ABSOLUTE_DESTINATION_DIRECTORY"
+echo "[+] Clearing $ABSOLUTE_DESTINATION_DIRECTORY"
 rm -rf "$ABSOLUTE_DESTINATION_DIRECTORY"
-
-echo "[+] Creating (now empty) $ABSOLUTE_DESTINATION_DIRECTORY"
 mkdir -p "$ABSOLUTE_DESTINATION_DIRECTORY"
 
-echo "[+] Listing Current Directory Location"
+echo "[+] Listing $PWD"
 ls -al
 
-echo "[+] Listing root Location"
+echo "[+] Listing /"
 ls -al /
 
 mv "$TEMP_DIR/.git" "$CLONE_DIR/.git"
 
-echo "[+] List contents of $SOURCE_DIRECTORY"
+echo "[+] Listing $SOURCE_DIRECTORY"
 ls "$SOURCE_DIRECTORY"
 
 echo "[+] Checking if local $SOURCE_DIRECTORY exist"
@@ -70,11 +68,11 @@ cd "$CLONE_DIR"
 echo "[+] Files that will be pushed"
 ls -la
 
-echo "[+] Set directory is safe ($CLONE_DIR)"
+echo "[+] Set $CLONE_DIR as safe directory"
 # https://github.com/cpina/github-action-push-to-another-repository/issues/64
 git config --global --add safe.directory "$CLONE_DIR"
 
-echo "[+] Adding git commit"
+echo "[+] Adding git files"
 git add .
 
 echo "[+] git status:"
