@@ -14,6 +14,7 @@ fi
 
 
 CLONE_DIR=$(mktemp -d)
+trap 'rm -rf -- "$CLONE_DIR"' EXIT
 
 echo "[+] Git version"
 git --version
@@ -33,6 +34,7 @@ git config --global user.name "PlanetScale Actions Bot"
 ls -la "$CLONE_DIR"
 
 TEMP_DIR=$(mktemp -d)
+trap 'rm -rf -- "$TEMP_DIR"' EXIT
 mv "$CLONE_DIR/.git" "$TEMP_DIR/.git"
 
 ABSOLUTE_DESTINATION_DIRECTORY="$CLONE_DIR/$DESTINATION_DIRECTORY/"
