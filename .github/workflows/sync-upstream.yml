@@ -1,0 +1,21 @@
+name: Sync upstream
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  sync-downstream:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Sync upstream
+        run: bash script/sync-upstream.sh
+        env:
+          DESTINATION_BRANCH: main
+          DESTINATION_DIRECTORY: 'content/docs'
+          DESTINATION_REPOSITORY: planetscale/docs-private
+          PAT: ${{ secrets.PAT }}
+          SOURCE_DIRECTORY: 'docs'
