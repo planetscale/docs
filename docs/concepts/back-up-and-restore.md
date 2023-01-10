@@ -60,7 +60,7 @@ You can add additional **scheduled backups** for your branches, billed at $0.023
 
 This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
 
-![Schedule backup pop-up modal](/docs/concepts/back-up-and-restore/create-new-backup-schedule.png)
+![Schedule backup pop-up modal](/docs/concepts/back-up-and-restore/new-backup-schedule.png)
 
 3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
 

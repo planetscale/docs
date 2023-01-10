@@ -20,7 +20,7 @@ The team building PlanetScale is made up of passionate industry experts that hav
 
 Since our GA launch in November 2021, PlanetScale has grown rapidly, both in [features](#planetscale-features) and [customers](/customers).
 
-Ultimately, our goal is to usher in a [new era of databases](https://principles.planetscale.com). One that brings the database closer to the application instead of treating it like a separate part of the stack that only select people know how to operate. One that makes downtime and data loss a problem of the past. One that scales effortlessly, no matter how large or fast your data grows.
+Ultimately, our goal is to usher in a [new era of databases](/principles). One that brings the database closer to the application instead of treating it like a separate part of the stack that only select people know how to operate. One that makes downtime and data loss a problem of the past. One that scales effortlessly, no matter how large or fast your data grows.
 
 ## PlanetScale features
 
