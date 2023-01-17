@@ -2,6 +2,8 @@
 title: 'PlanetScale Connect - Airbyte'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
 date: '2022-08-26'
+meta:
+  title: 'Connect with Airbyte ELT'
 ---
 
 With the PlanetScale Connect (beta), you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.

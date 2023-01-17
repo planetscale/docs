@@ -2,6 +2,9 @@
 title: 'Datadog integration'
 subtitle: 'Push usage and performance metrics about your PlanetScale databases to Datadog.'
 date: '2022-08-03'
+meta:
+  title: 'Monitor with Datadog'
+  description: 'Push metrics to Datadog to better understand your database usage and performance'
 ---
 
 PlanetScale can push metrics to Datadog to assist your team with understanding your database usage and performance.

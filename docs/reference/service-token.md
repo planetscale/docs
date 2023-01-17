@@ -2,6 +2,8 @@
 title: 'PlanetScale CLI commands - service-token'
 subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
 date: '2022-08-02'
+meta:
+  title: 'CLI reference - service-token'
 ---
 
 ## Getting Started

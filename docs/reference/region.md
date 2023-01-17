@@ -2,6 +2,8 @@
 title: 'PlanetScale CLI commands - region'
 subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
 date: '2022-08-23'
+meta:
+  title: 'CLI reference - region'
 ---
 
 ## Getting Started
