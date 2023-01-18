@@ -32,7 +32,7 @@ This guide will walk you through setting up and deploying your PlanetScale datab
 1. Go to your Edgio dashboard.
 2. Click on your Edgio project.
 3. Click "**Configuration**".
-4. On top of the paeg, click on **Edit v1**
+4. On top of the page, click on **Edit v1**
 5. Scroll down to "**Environment Variables**".
 6. Click "**Add Variables**".
 7. Copy each value from your PlanetScale dashboard into a new environment variable in Edgio. Once you're done with one, click "**Add Variable**" and continue to the next, if applicable.
