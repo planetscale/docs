@@ -54,7 +54,7 @@ In Edgio, you'll set it as follows:
 
 _Note: The credentials are blurred for the example, but when you paste them in, use the actual values._
 
-![Edgio Dashboard - Environment variables]([/docs/tutorials/deploy-to-edgio/environment-variables.png](https://user-images.githubusercontent.com/46300090/213299795-5afd9182-a193-4dd8-aa76-d7411fa42376.png))
+![Edgio Dashboard - Environment variables](https://user-images.githubusercontent.com/46300090/213299795-5afd9182-a193-4dd8-aa76-d7411fa42376.png)
 
 After you have saved, click activate on the top, and the site will be automatically redeployed.
 
