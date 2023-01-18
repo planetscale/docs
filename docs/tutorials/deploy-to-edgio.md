@@ -56,7 +56,7 @@ _Note: The credentials are blurred for the example, but when you paste them in, 
 
 ![Edgio Dashboard - Environment variables]([/docs/tutorials/deploy-to-edgio/environment-variables.png](https://user-images.githubusercontent.com/46300090/213299795-5afd9182-a193-4dd8-aa76-d7411fa42376.png))
 
-After you have saved, you will need to rebuild the site with the new environment variable.
+After you have saved, click activate on the top, and the site will be automatically redeployed.
 
 ## What's next?
 
