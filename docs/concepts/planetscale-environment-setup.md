@@ -74,12 +74,6 @@ sudo apt-get install mysql-client
 sudo yum install community-mysql
 ```
 
-**Manually**
-
-Download the pre-compiled binaries from the [releases](https://github.com/planetscale/cli/releases/latest) page and copy to the desired location.
-
-Instructions for installing the MySQL client on other Linux distributions can be found in the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/linux-installation.html).
-
 ### Windows instructions
 
 On Windows, `pscale` is available via [scoop](https://scoop.sh/), and as a downloadable binary from the [releases](https://github.com/planetscale/cli/releases/latest) page:
@@ -96,6 +90,7 @@ scoop update pscale
 ```
 
 **Installation via binary**
+
 Download the latest [Windows release](https://github.com/planetscale/cli/releases/latest) and unzip the `pscale.exe` file into the folder of your choice. Then, run it from PowerShell or whatever terminal you regularly use.
 
 The MySQL command-line client is available in the [Windows MySQL Installer](https://dev.mysql.com/doc/refman/8.0/en/windows-installation.html). To launch `pscale shell` you will need to have the `mysql.exe` executable's directory in your shell's PATH.
@@ -105,6 +100,26 @@ In PowerShell, add that directory to your current shell's PATH:
 ```powershell
 $env:path += ";C:\Program Files\MySQL\MySQL Server 8.0\bin"
 ```
+
+## Manual setup (any OS)
+
+If you prefer to manually install the `pscale` binary for your operating system, the following two methods may be used.
+
+### Download the binary
+
+Download the pre-compiled binaries from the [releases](https://github.com/planetscale/cli/releases/latest) page and download the binary for your operating system to the desired location. The binary may be run using the terminal of your choice from that location.
+
+### Install using `bin`
+
+[bin](https://github.com/marcosnils/bin) is a cross-platform tool to manage binary files. You can install the `pscale` CLI using `bin` with the following command:
+
+```bash
+bin install https://github.com/planetscale/cli
+```
+
+### Install the MySQL Client
+
+In either case, the MySQL client will need to be installed separately as well. To do so, refer to the [official documentation](https://dev.mysql.com/doc/refman/8.0/en/installing.html) and select the operation system you are working with.
 
 ## Using the PlanetScale CLI
 
