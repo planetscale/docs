@@ -21,7 +21,7 @@ Organization audit log access is limited to [Organization Administrators](/docs/
 
 ## Review your organization audit log
 
-You can review your organization audit log under your PlanetScale **organization** settings: `app.planetscale.com/<org>/settings/audit-log`.
+You can review your organization audit log under [your PlanetScale **organization** settings](https://app.planetscale.com/~/settings/audit-log).
 
 Once there, you can filter the audit log by **Actor** and/or **Action**.
 

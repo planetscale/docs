@@ -39,7 +39,7 @@ If you enable SSO and Directory Sync, the Directory will remain the source of tr
 Please see the [Directory Sync](#directory-sync) section for more information.
 {% /callout %}
 
-After SSO has been enabled for your account, you can configure it under your PlanetScale organization settings: `app.planetscale.com/<YOUR_ORG>/settings/sso`.
+After SSO has been enabled for your account, you can configure it under [your PlanetScale organization settings](https://app.planetscale.com/~/settings/sso).
 
 **Organization administrators** can _enable_, _configure_, and _disable_ SSO for all members of your organization.
 
