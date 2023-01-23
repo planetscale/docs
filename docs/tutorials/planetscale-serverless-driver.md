@@ -6,7 +6,7 @@ date: '2022-08-18'
 
 ## Overview
 
-This article will cover how to enable the PlanetScale serverless driver for JavaScript and why you'd want to use it for your projects.
+This article will cover the PlanetScale serverless driver for JavaScript and why you'd want to use it for your projects.
 
 ## Why use the PlanetScale serverless driver for JavaScript
 
