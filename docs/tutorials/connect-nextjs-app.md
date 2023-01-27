@@ -89,7 +89,7 @@ Run the app with following command:
 npm run dev
 ```
 
-Open your browser at [localhost:3000](localhost:3000) to see the running application.
+Open your browser at [localhost:3000](http://localhost:3000) to see the running application.
 
 ## Deploy your app
 

@@ -313,7 +313,7 @@ Finally, start up your Next application by running the following:
 npm run dev
 ```
 
-You can now see all your `Star` table data at [`localhost:3000/api/stars`](localhost:3000/api/stars).
+You can now see all your `Star` table data at [`localhost:3000/api/stars`](http://localhost:3000/api/stars).
 
 ## Deploy development branch to production
 
