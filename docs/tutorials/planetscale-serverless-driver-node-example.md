@@ -1,12 +1,12 @@
 ---
 title: Node.js example using the PlanetScale serverless driver
 subtitle: Learn the PlanetScale serverless driver by running a local Node.js project.
-date: '2022-08-18'
+date: '2023-01-30'
 ---
 
 ## Overview
 
-This guide will cover how to use the provided Node.js sample application using the PlanetScale serverless driver for JavaScript. Before following this guide, make sure you've created a password to use with the driver.
+This guide will cover how to use the provided Node.js sample application using the PlanetScale serverless driver for JavaScript.
 
 {% callout %}
 This guide will be using VS Code as the IDE, but you may use your preferred IDE.
@@ -25,11 +25,7 @@ Start by creating a database in PlanetScale by clicking **"New database"** > **"
 
 ![How to create a new database.](/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database.png)
 
-Name the database `travel_db`. Click **"Create database"**.
-
-![The New database modal.](/docs/tutorials/planetscale-serverless-driver-node-example/the-new-database-modal.png)
-
-Wait for the database to finish initializing before moving on.
+Name the database `travel_db`. Click **"Create database"**. Wait for the database to finish initializing before moving on.
 
 ![The travel_db initializing.](/docs/tutorials/planetscale-serverless-driver-node-example/the-travel_db-initializing.png)
 
@@ -39,7 +35,11 @@ Generate a set of credentials by clicking the **"Connect"** button.
 
 Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
 
-![The Connect modal.](/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-modal.png)
+![The Connect modal.](/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal.png)
+
+{% callout %}
+When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You might notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`.
+{% /callout %}
 
 On your workstation, open a terminal and clone the repository to your computer by running the following command:
 
@@ -58,9 +58,7 @@ cd database-js-starter/scripts
 If you are using Windows, run this command through the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/)
 {% /callout %}
 
-Create a new file named `.env` in the root of the project and paste in the sample provided from PlanetScale.
-
-![The .env example.](/docs/tutorials/planetscale-serverless-driver-node-example/the-env-example.png)
+Create a new file named `.env` in the root of the project and paste in the sample provided from PlanetScale that you copied earlier.
 
 To run the project, run the following commands from the root of the project.
 
@@ -71,12 +69,8 @@ npm start
 
 If the project is running properly, you should receive a message stating that the API is running.
 
-![The terminal running the sample project.](/docs/tutorials/planetscale-serverless-driver-node-example/the-terminal-running-the-sample-project.png)
-
 The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action.
 
 ![An example of a POST request to the sample project.](/docs/tutorials/planetscale-serverless-driver-node-example/an-example-of-a-post-request-to-the-sample-project.png)
 
 If you check the terminal where the API was started, the response from the `execute` function is logged out for review.
-
-![The console output after a hotel is added.](/docs/tutorials/planetscale-serverless-driver-node-example/the-console-output-after-a-hotel-is-added.png)
