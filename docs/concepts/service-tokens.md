@@ -17,11 +17,11 @@ using PlanetScale [connection strings](/docs/concepts/connection-strings).
 
 To create a service token using the dashboard, log into your organization and click **"Settings"** > **"Service tokens"** > **"New service token"**.
 
-![Service token settings page](/docs/concepts/service-tokens/service-tokens-settings-page.png?v2)
+![Service token settings page](/docs/concepts/service-tokens/service-tokens-settings-page-2.png)
 
 Give the token a name (this is used for your reference only) and click **"Create service token"**.
 
-![New service token pop-up modal](/docs/concepts/service-tokens/new-service-token-modal.png?v2)
+![New service token pop-up modal](/docs/concepts/service-tokens/new-service-token-modal-2.png)
 
 The modal will update, displaying your service token where the Name field was. Copy the ID and token values as you'll need them moving forward. Click **"Edit token permissions"** to proceed.
 
@@ -29,7 +29,7 @@ The modal will update, displaying your service token where the Name field was. C
 Be sure to copy the service token after you create it. There's no way to retrieve the token value once you leave this page.
 {% /callout %}
 
-![Service token detail page](/docs/concepts/service-tokens/modal-with-service-token.png?v2)
+![Service token detail page](/docs/concepts/service-tokens/modal-with-service-token-2.png)
 
 ## Assign service token permissions
 
@@ -39,21 +39,21 @@ Service tokens are configured with granular permissions, both for the organizati
 
 Organization permissions are required when performing operations that are specific to the organization and not for an individual database. To enable a service token for performing these operations, locate the **Organization access** section and click **"Add organization permissions"**.
 
-![The Organization access section.](/docs/concepts/service-tokens/add-org-perms.png)
+![The Organization access section.](/docs/concepts/service-tokens/add-org-perms-2.png)
 
 In the **Organization access permissions** modal, check the box next to each of the permission scopes that you want to assign to the token. Click **"Save permissions"** once finished.
 
-![The Organization permissions mmodal.](/docs/concepts/service-tokens/org-access-perms.png)
+![The Organization permissions mmodal.](/docs/concepts/service-tokens/org-access-perms-2.png)
 
 ### Add database permissions
 
 In order to perform operations specific to a database, permissions need to be assigned per-database. To do this, locate the section titled **Database access** and click **"Add database access"** to open the **Database access permissions** modal.
 
-![The service token configuration view.](/docs/concepts/service-tokens/add-db-perms.png)
+![The service token configuration view.](/docs/concepts/service-tokens/add-db-perms-2.png)
 
 Select the database you want to grant access to and check the box next to each permission option you need to grant. Once you are done, click **"Save permissions"**.
 
-![The Database access permissions modal.](/docs/concepts/service-tokens/db-access-permissions.png?v2)
+![The Database access permissions modal.](/docs/concepts/service-tokens/db-access-permissions-2.png)
 
 ## Use a service token with the PlanetScale CLI
 
@@ -92,25 +92,25 @@ Refer to the [API docs](https://api-docs.planetscale.com/reference/getting-start
 
 If you want to modify the permissions granted to a service token, starty by opening the service token from the settings pane. To modify organization permissions, select the three dots next to the organization name and click **"Edit permissions"**.
 
-![The location of the Edit permissions option for organization permissions.](/docs/concepts/service-tokens/edit-org-perms.png)
+![The location of the Edit permissions option for organization permissions.](/docs/concepts/service-tokens/edit-org-perms-2.png)
 
 This will open a modal that allows you to modify the permissions the service token has to access that organization.
 
-![The Organization access permissions modal while modifying permissions.](/docs/concepts/service-tokens/edit-org-perms-modal.png)
+![The Organization access permissions modal while modifying permissions.](/docs/concepts/service-tokens/edit-org-perms-modal-2.png)
 
 To modify the permissions granted for a database, locate the database name in the **Database access** section and perform the same steps as above.
 
-![The location of the Edit permissions option for database permissions.](/docs/concepts/service-tokens/edit-db-perms.png)
+![The location of the Edit permissions option for database permissions.](/docs/concepts/service-tokens/edit-db-perms-2.png)
 
 To remove access to a database entirely, click **"Remove database"** in the dropdown for that database.
 
-![Remove database access for a service token.](/docs/concepts/service-tokens/del-db-perms.png)
+![Remove database access for a service token.](/docs/concepts/service-tokens/del-db-perms-2.png)
 
 ## Delete a service token
 
 You can delete a service token at any time from the service token detail page. Simply click the **"Delete service token"** button.
 
-![Delete service token.](/docs/concepts/service-tokens/delete-service-token.png?v2)
+![Delete service token.](/docs/concepts/service-tokens/delete-service-token-2.png)
 
 Deleting a service token will sever any database connections that use the given service token.
 
