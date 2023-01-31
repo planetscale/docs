@@ -17,11 +17,11 @@ using PlanetScale [connection strings](/docs/concepts/connection-strings).
 
 To create a service token using the dashboard, log into your organization and click **"Settings"** > **"Service tokens"** > **"New service token"**.
 
-![Service token settings page](/docs/concepts/service-tokens/service-tokens-settings-page.png)
+![Service token settings page](/docs/concepts/service-tokens/service-tokens-settings-page.png?v2)
 
 Give the token a name (this is used for your reference only) and click **"Create service token"**.
 
-![New service token pop-up modal](/docs/concepts/service-tokens/new-service-token-modal.png)
+![New service token pop-up modal](/docs/concepts/service-tokens/new-service-token-modal.png?v2)
 
 The modal will update, displaying your service token where the Name field was. Copy the ID and token values as you'll need them moving forward. Click **"Edit token permissions"** to proceed.
 
@@ -29,7 +29,7 @@ The modal will update, displaying your service token where the Name field was. C
 Be sure to copy the service token after you create it. There's no way to retrieve the token value once you leave this page.
 {% /callout %}
 
-![Service token detail page](/docs/concepts/service-tokens/modal-with-service-token.png)
+![Service token detail page](/docs/concepts/service-tokens/modal-with-service-token.png?v2)
 
 ## Assign service token permissions
 
@@ -53,7 +53,7 @@ In order to perform operations specific to a database, permissions need to be as
 
 Select the database you want to grant access to and check the box next to each permission option you need to grant. Once you are done, click **"Save permissions"**.
 
-![The Database access permissions modal.](/docs/concepts/service-tokens/db-access-permissions.png)
+![The Database access permissions modal.](/docs/concepts/service-tokens/db-access-permissions.png?v2)
 
 ## Use a service token with the PlanetScale CLI
 
@@ -110,7 +110,7 @@ To remove access to a database entirely, click **"Remove database"** in the drop
 
 You can delete a service token at any time from the service token detail page. Simply click the **"Delete service token"** button.
 
-![Delete service token.](/docs/concepts/service-tokens/delete-service-token.png)
+![Delete service token.](/docs/concepts/service-tokens/delete-service-token.png?v2)
 
 Deleting a service token will sever any database connections that use the given service token.
 
