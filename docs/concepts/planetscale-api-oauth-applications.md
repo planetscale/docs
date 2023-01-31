@@ -6,7 +6,7 @@ date: '2023-01-31'
 
 # PlanetScale API overview
 
-The PlanetScale API allows you to manage your PlanetScale databases programmatically. The API is currently in **beta**. The API supports many actions you can take in the PlanetScale web app or CLI and can be used to integrate the PlanetScale into your existing workflows and tools via API.
+The PlanetScale API allows you to manage your PlanetScale databases programmatically. The API is currently in **beta**. The API supports many actions you can take in the PlanetScale web app or CLI and can be used to integrate PlanetScale into your existing workflows and tools.
 
 The PlanetScale API does **not** include direct access to the data in the database. Some endpoints will consist of database schema information or connection information. You will still need to use a [client library, object–relational mapping tool (ORM)](/docs/tutorials/connect-any-application), or the [PlanetScale serverless driver](/docs/tutorials/planetscale-serverless-driver) to read from and write data to your PlanetScale database.
 
