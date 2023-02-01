@@ -204,6 +204,10 @@ To ensure that we can migrate your data to PlanetScale with zero downtime, we ch
 
 **\*** PlanetScale requires that either `expire_logs_days` or `binlog_expire_logs_seconds` is set to a valid value. If both of these values are set, the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`.
 
+### Import user account issues
+
+Please follow [the Import tool user requirements guide](/docs/imports/import-tool-user-requirements#script-to-create-user) to ensure that the database user performing the import has the right set of Grants and permissions on the external database.
+
 #### Check these values for your database server
 
 To check what your database server currently has these values set to, run the following query in a MySQL console connected to your database server:
