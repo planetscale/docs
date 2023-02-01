@@ -22,19 +22,19 @@ pscale branch <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command**                                   | **Sub-command flags**                                                                              | **Description**                                                          |
-| ------------------------------------------------- | -------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `create <DATABASE_NAME> <BRANCH_NAME>`            | `--from <SOURCE_BRANCH>`, `--region <BRANCH_REGION>`, `--restore <BACKUP_NAME>`, `--web`, `--wait` | Create a new branch on the specified database                            |
-| `delete <DATABASE_NAME> <BRANCH_NAME>`            | `--force`                                                                                          | Delete the specified branch from the a database                          |
-| `diff <DATABASE_NAME> <BRANCH_NAME>`              | `--web`                                                                                            | Show the diff of the specified branch against the parent branch.         |
-| `keyspaces <DATABASE_NAME> <BRANCH_NAME>`         |                                                                                                    | Show information for sharded keyspaces.                                  |
-| `list <DATABASE_NAME>`                            | `--web`                                                                                            | List all branches of a database                                          |
-| `promote <DATABASE_NAME> <BRANCH_NAME>`           |                                                                                                    | Promote a database branch to production                                  |
-| `refresh-schema <DATABASE_NAME> <BRANCH_NAME>`    |                                                                                                    | Refresh the schema for a database branch                                 |
-| `schema <DATABASE_NAME> <BRANCH_NAME>`            | `--web`                                                                                            | Show the schema of a branch                                              |
-| `show <DATABASE_NAME> <BRANCH_NAME>`              | `--web`                                                                                            | Show a specific backup of a branch                                       |
-| `switch <BRANCH_NAME> --database <DATABASE_NAME>` | `--database <DATABASE_NAME>`\*, `--create`, `parent-branch <BRANCH_NAME>`                          | Switch to the specified branch                                           |
-| `vschema <DATABASE_NAME> <BRANCH_NAME>`           |                                                                                                    | Show the vschema for a sharded keyspace. Empty on non-sharded keyspaces. |
+| **Sub-command**                                   | **Sub-command flags**                                                                                            | **Description**                                                          |
+| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `create <DATABASE_NAME> <BRANCH_NAME>`            | `--from <SOURCE_BRANCH>`, `--region <BRANCH_REGION>`, `--restore <BACKUP_NAME>`, `--seed-data` `--web`, `--wait` | Create a new branch on the specified database                            |
+| `delete <DATABASE_NAME> <BRANCH_NAME>`            | `--force`                                                                                                        | Delete the specified branch from the a database                          |
+| `diff <DATABASE_NAME> <BRANCH_NAME>`              | `--web`                                                                                                          | Show the diff of the specified branch against the parent branch.         |
+| `keyspaces <DATABASE_NAME> <BRANCH_NAME>`         |                                                                                                                  | Show information for sharded keyspaces.                                  |
+| `list <DATABASE_NAME>`                            | `--web`                                                                                                          | List all branches of a database                                          |
+| `promote <DATABASE_NAME> <BRANCH_NAME>`           |                                                                                                                  | Promote a database branch to production                                  |
+| `refresh-schema <DATABASE_NAME> <BRANCH_NAME>`    |                                                                                                                  | Refresh the schema for a database branch                                 |
+| `schema <DATABASE_NAME> <BRANCH_NAME>`            | `--web`                                                                                                          | Show the schema of a branch                                              |
+| `show <DATABASE_NAME> <BRANCH_NAME>`              | `--web`                                                                                                          | Show a specific backup of a branch                                       |
+| `switch <BRANCH_NAME> --database <DATABASE_NAME>` | `--database <DATABASE_NAME>`\*, `--create`, `parent-branch <BRANCH_NAME>`                                        | Switch to the specified branch                                           |
+| `vschema <DATABASE_NAME> <BRANCH_NAME>`           |                                                                                                                  | Show the vschema for a sharded keyspace. Empty on non-sharded keyspaces. |
 
 > \* _Flag is required_
 
@@ -42,16 +42,17 @@ pscale branch <SUB-COMMAND> <FLAG>
 
 Some of the sub-commands have additional flags unique to the sub-command. This section covers what each of those does. See the above table for which context.
 
-| **Sub-command flag**            | **Description**                                                                           | **Applicable sub-commands**                |
-| ------------------------------- | ----------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `--from <SOURCE_BRANCH>`        | Parent branch that you want to create a new branch off of                                 | `create`                                   |
-| `--region <BRANCH_REGION>`      | Region where database should be created                                                   | `create`                                   |
-| `--restore <BACKUP_NAME>`       | Create a new branch from a specified backup                                               | `create`                                   |
-| `--web`                         | Perform the action in your web browser                                                    | `create`, `diff`, `list`, `schema`, `show` |
-| `--wait`                        | Wait until the branch is ready                                                            | `create`                                   |
-| `----database <DATABASE_NAME>`  | Specify the database name                                                                 | `switch`                                   |
-| `--create`                      | Create a new branch if it does not exist                                                  | `switch`                                   |
-| `--parent-branch <BRANCH_NAME>` | If a new branch is being created, use this to specify a parent branch. Default is `main`. | `switch`                                   |
+| **Sub-command flag**            | **Description**                                                                                      | **Applicable sub-commands**                |
+| ------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `--from <SOURCE_BRANCH>`        | Parent branch that you want to create a new branch off of                                            | `create`                                   |
+| `--region <BRANCH_REGION>`      | Region where database should be created                                                              | `create`                                   |
+| `--restore <BACKUP_NAME>`       | Create a new branch from a specified backup                                                          | `create`                                   |
+| `--seed-data`                   | Create a new branch and seed data using the [Data Branching™ feature](/docs/concepts/data-branching) | `create`                                   |
+| `--web`                         | Perform the action in your web browser                                                               | `create`, `diff`, `list`, `schema`, `show` |
+| `--wait`                        | Wait until the branch is ready                                                                       | `create`                                   |
+| `--database <DATABASE_NAME>`    | Specify the database name                                                                            | `switch`                                   |
+| `--create`                      | Create a new branch if it does not exist                                                             | `switch`                                   |
+| `--parent-branch <BRANCH_NAME>` | If a new branch is being created, use this to specify a parent branch. Default is `main`.            | `switch`                                   |
 
 ### Available flags
 
