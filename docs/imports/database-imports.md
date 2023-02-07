@@ -37,7 +37,7 @@ Importing a database will **not** count towards your `read` or `write` usage.
 - **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
 {% callout %}
-You must have [binary logs](https://dev.mysql.com/doc/internals/en/binary-log-overview.html) enabled on the
+You must have [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) enabled on the
 database you're importing.
 {% /callout %}
 
