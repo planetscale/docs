@@ -95,22 +95,22 @@ If you do need to move to a different region, we recommend taking the following 
 1. Create a new branch in the new region.
 2. [Backup and dump](/docs/reference/database) the original branch with:
 
-```bash
-pscale database dump <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale database dump <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
 3. Restore the dump to the new branch with:
 
-```bash
-pscale database restore-dump <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale database restore-dump <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
 4. If this is for a production branch, [promote the new branch](/docs/reference/branch) to production:
 
-```bash
-pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
 5. Swap out the credentials in your app with the new branch.
 
-It's important to note that this will require downtime if done on a production branch, as the dump and restore process will take time to complete. To avoid data loss, you can temporarily block writes in your application before doing the dump, and re-enable them after the final credential swap.
+   It's important to note that this will require downtime if done on a production branch, as the dump and restore process will take time to complete. To avoid data loss, you can temporarily block writes in your application before doing the dump, and re-enable them after the final credential swap.

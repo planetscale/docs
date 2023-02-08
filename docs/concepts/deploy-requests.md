@@ -34,11 +34,11 @@ PlanetScale will check if the request is deployable. This process includes check
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, other users in your Organization will see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 
-![PlanetScale deploy request - approve changes](/docs/concepts/deploy-requests/approve.png)
+   ![PlanetScale deploy request - approve changes](/docs/concepts/deploy-requests/approve.png)
 
-7.  Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
-8.  Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
-9.  When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
+7. Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
+8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
+9. When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
 10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
 11. After you deploy, you have **30 minutes to "undo"** it using our [schema revert feature](#revert-a-schema-change).
 

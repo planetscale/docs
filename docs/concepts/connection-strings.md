@@ -8,11 +8,11 @@ date: '2022-12-06'
 
 1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
 
-![Database overview page](/docs/concepts/connection-strings/connect.png)
+   ![Database overview page](/docs/concepts/connection-strings/connect.png)
 
-1. On this dialog, click the `New password` button. This will generate a **unique username & password pair** that can only be used to only access the `main` branch of your database. Take note of this password, as you won't be able to see it again.
+2. On this dialog, click the `New password` button. This will generate a **unique username & password pair** that can only be used to only access the `main` branch of your database. Take note of this password, as you won't be able to see it again.
 
-2. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
+3. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
 
 {% callout %}
 You can connect to PlanetScale from any platform that supports MySQL. These connection strings are in place to let you
