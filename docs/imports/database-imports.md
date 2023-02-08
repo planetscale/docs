@@ -84,7 +84,7 @@ Do not execute DDL (Data Definition Language) statements, CREATE, DROP, ALTER, T
 import process. Schema changes are not replicated between databases in either direction.
 {% /callout %}
 
-### Step 1: Performing the initial import
+### Step 1: Copying schema and data
 
 ![Step 1 of database import - Initial import](/docs/imports/database-imports/initial.png)
 
