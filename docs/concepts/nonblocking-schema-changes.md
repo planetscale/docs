@@ -52,71 +52,71 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
 
 1. Create a database:
 
-```bash
- pscale database create <database>
-```
+   ```bash
+   pscale database create <database>
+   ```
 
 2. Create a development branch:
 
-```bash
-pscale branch create <database> <branch>
-```
+   ```bash
+   pscale branch create <database> <branch>
+   ```
 
 3. Make a schema change on this branch:
 
-```bash
- 	pscale shell <database> <branch>
-```
+   ```bash
+   pscale shell <database> <branch>
+   ```
 
-{% callout type="tip" %}
-A schema change is any change you make to the tables in your database environment created within the PlanetScale
-branch. (i.e., create, drop, and alter statements )
-{% /callout %}
+   {% callout type="tip" %}
+   A schema change is any change you make to the tables in your database environment created within the PlanetScale
+   branch. (i.e., create, drop, and alter statements )
+   {% /callout %}
 
-{% callout type="warning" %}
-You can only apply direct schema changes to the development branch, not to `main`.
-{% /callout %}
+   {% callout type="warning" %}
+   You can only apply direct schema changes to the development branch, not to `main`.
+   {% /callout %}
 
-Here is a sample CREATE table schema change you could try using:
+   Here is a sample CREATE table schema change you could try using:
 
-```sql
-CREATE TABLE `reminders` (
-  `id` bigint NOT NULL AUTO_INCREMENT,
-  `body` varchar(1024) NOT NULL,
-  `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
-  `is_done` tinyint(1) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
-```
+   ```sql
+   CREATE TABLE `reminders` (
+     `id` bigint NOT NULL AUTO_INCREMENT,
+     `body` varchar(1024) NOT NULL,
+     `created_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+     `updated_at` datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+     `is_done` tinyint(1) NOT NULL DEFAULT '0',
+     PRIMARY KEY (`id`)
+   ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+   ```
 
 4. Test changes on branch locally.
 
 5. Create a deployment request by running:
 
-```bash
-pscale deploy-request create <database> <branch>
-```
+   ```bash
+   pscale deploy-request create <database> <branch>
+   ```
 
 6. Fix any schema conflicts.
 
-PlanetScale displays the difference between what is currently in the `main` branch and your branch. Go back to _Step 3_ of the workflow and test out new schema changes to fix the schema conflict. If you did not encounter any schema conflicts, you're ready for _Step 7_.
+   PlanetScale displays the difference between what is currently in the `main` branch and your branch. Go back to _Step 3_ of the workflow and test out new schema changes to fix the schema conflict. If you did not encounter any schema conflicts, you're ready for _Step 7_.
 
 7. Deploy the deploy request.
 
-- To _deploy_ the **deploy request** created in _Step 5_, run the following command:
+   - To _deploy_ the **deploy request** created in _Step 5_, run the following command:
 
-```bash
-pscale deploy-request deploy <database> <deploy-request-number>
-```
+     ```bash
+     pscale deploy-request deploy <database> <deploy-request-number>
+     ```
 
-- To find your `deploy-request-number`, simply run:
+   - To find your `deploy-request-number`, simply run:
 
-```bash
-pscale deploy-request list <database>
-```
+     ```bash
+     pscale deploy-request list <database>
+     ```
 
-Copy the value from `NUMBER` and use that digit as your `deploy-request-number`.
+   Copy the value from `NUMBER` and use that digit as your `deploy-request-number`.
 
 ## Limitations
 
