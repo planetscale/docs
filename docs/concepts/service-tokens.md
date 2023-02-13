@@ -144,7 +144,7 @@ For example, to give a service token the ability to create, read, and delete bra
 pscale service-token add-access <SERVICE_TOKEN_ID> read_branch delete_branch create_branch --database <DB_NAME>
 ```
 
-A complete list of service token access permissions can be found [here](/docs/reference/planetscale-cli#service-tokens-in-organizations).
+A complete list of service token access permissions can be found in the [PlanetScale API documentation](https://api-docs.planetscale.com/reference/service-tokens#access-permissions).
 
 ### Remove database access permissions
 

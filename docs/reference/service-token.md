@@ -71,7 +71,7 @@ pscale service-token add-access <TOKEN_ID> read_branch delete_branch create_bran
 
 This will add the following permissions to the specified access token: `read_branch`, `delete_branch`, `create_branch`. The output will show the updated permissions on all databases.
 
-You can find a list of all permissions in our [Access control doc](/docs/reference/planetscale-cli#service-tokens-in-organizations).
+You can find a list of all permissions in the [PlanetScale API documentation](https://api-docs.planetscale.com/reference/service-tokens#access-permissions).
 
 **Output:**
 

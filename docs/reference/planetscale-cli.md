@@ -51,51 +51,6 @@ You may use the following flags with the PlanetScale CLI commands.
 | `--service-token-id string` | The Service Token ID for authenticating                                                  |
 | `--version`                 | Show pscale version                                                                      |
 
-## Service tokens in organizations
+## Service tokens permissions
 
-To add **service tokens** for your organization, here's a complete list of access permissions that can be granted to a token:
-
-{% table %}
-
-- **Token Access Permissions**
-- **What they control**
-
----
-
-- `read_branch`
-
-  `delete_branch`
-
-  `create_branch`
-
-- CRUD on _Branches_ of a `Database`
-
----
-
-- `connect_branch`
-- Connect to **development** _Branches_ of a `Database`
-
----
-
-- `connect_production_branch`
-- Connect to **production** _Branches_ of a `Database`
-
----
-
-- `read_deploy_request`
-
-  `create_deploy_request`
-
-  `approve_deploy_request`
-
-- _Deploy Requests_ on _Branches_ of a `Database`
-
----
-
-- `read_comment`
-
-  `create_comment`
-
-- Comments of _Deploy Requests_ on _Branches_ of a `Database`
-
-{% /table %}
+A complete list of access permissions available for use with service tokens can be found in the [PlanetScale API documentation](https://api-docs.planetscale.com/reference/service-tokens#access-permissions).

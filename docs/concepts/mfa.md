@@ -90,9 +90,3 @@ You can disable MFA for your user account under your PlanetScale account setting
 ![Disable MFA pop-up modal](/docs/concepts/mfa/modal.png)
 
 4. Click the **Disable** button to close the pop-up modal.
-
-{% callout title="Next steps" %}
-
-- [Service tokens in organizations](/docs/reference/planetscale-cli#service-tokens-in-organizations)
-
-{% /callout %}
