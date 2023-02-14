@@ -37,7 +37,9 @@ Currently, the following regions are supported, with their respective PlanetScal
 
 GCP regions are in beta and currently have some limitations, which you can read about in our [GCP documentation](/docs/reference/gcp-regions).
 
-- (Beta) GCP North America (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
+- (Beta) GCP us-central1 (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
+- (Beta) GCP us-east4 (Ashburn, Virginia) &mdash; `gcp-us-east4`
+- (Beta) GCP northamerica-northeast1 (Montréal, Québec, Canada) &mdash; `gcp-northamerica-northeast1`
 
 ## Selecting the database region
 

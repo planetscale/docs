@@ -12,7 +12,9 @@ We currently support some Google Cloud Provider regions for creating databases a
 We are still adding more GCP regions throughout beta. If you don't see your preferred GCP region(s) in the following list, [get in touch](/contact) to let us know what GCP region(s) you would like to see added. Also, Managed Cloud plans can be deployed in any region(s). See the [Deployment options documentation](/concepts/deployment-options#managed-cloud) for more information.
 {% /callout %}
 
-- (Beta) GCP North America (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
+- (Beta) GCP us-central1 (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
+- (Beta) GCP us-east4 (Ashburn, Virginia) &mdash; `gcp-us-east4`
+- (Beta) GCP northamerica-northeast1 (Montréal, Québec, Canada) &mdash; `gcp-northamerica-northeast1`
 
 ## GCP beta limitations
 
