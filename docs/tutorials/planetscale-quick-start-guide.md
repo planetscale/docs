@@ -43,40 +43,40 @@ This quickstart demonstrates how to create and use two relational tables: `categ
 
 1. From your database's overview page, click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
 
-![Branches](/docs/tutorials/planetscale-quick-start-guide/branches.png)
+   ![Branches](/docs/tutorials/planetscale-quick-start-guide/branches.png)
 
 2. By default the `main` branch is preselected. Click **"Connect"**.
 3. Create the `categories` and `products` tables by running the following commands in the web console:
 
-```sql
-CREATE TABLE categories (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name varchar(255) NOT NULL
-);
-```
+   ```sql
+   CREATE TABLE categories (
+     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     name varchar(255) NOT NULL
+   );
+   ```
 
-```sql
-CREATE TABLE products (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name varchar(255) NOT NULL,
-  image_url varchar(255),
-  category_id INT,
-  KEY category_id_idx (category_id)
-);
-```
+   ```sql
+   CREATE TABLE products (
+     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     name varchar(255) NOT NULL,
+     image_url varchar(255),
+     category_id INT,
+     KEY category_id_idx (category_id)
+   );
+   ```
 
-{% callout %}
-PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
-keys, as shown in this example. For more information, check out our
-[Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
-documentation.
-{% /callout %}
+   {% callout %}
+   PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
+   keys, as shown in this example. For more information, check out our
+   [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
+   documentation.
+   {% /callout %}
 
-5. You can confirm that the tables have been added by running:
+4. You can confirm that the tables have been added by running:
 
-```sql
-SHOW TABLES;
-```
+   ```sql
+   SHOW TABLES;
+   ```
 
 ### Insert data into your database
 
@@ -120,7 +120,7 @@ A production branch is a highly available, protected database branch with automa
 
 1. Click "Overview" in the navigation, and you'll see a banner with information about promoting to production.
 
-![Create database modal](/docs/tutorials/planetscale-quick-start-guide/promote.png)
+   ![Create database modal](/docs/tutorials/planetscale-quick-start-guide/promote.png)
 
 2. Click the "Promote branch" button.
 3. In the modal that opens, select the branch you want to promote to production
@@ -191,53 +191,53 @@ To add a schema to your database, you will need to connect to MySQL, so [make su
 
 1. Run the following command:
 
-```bash
-pscale shell <DATABASE_NAME> main
-```
+   ```bash
+   pscale shell <DATABASE_NAME> main
+   ```
 
-You are now connected to your `main` branch and can run MySQL queries against it.
+   You are now connected to your `main` branch and can run MySQL queries against it.
 
 2. Create the `categories` and `products` tables by running the following:
 
-```sql
-CREATE TABLE categories (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name varchar(255) NOT NULL
-);
-```
+   ```sql
+   CREATE TABLE categories (
+     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     name varchar(255) NOT NULL
+   );
+   ```
 
-```sql
-CREATE TABLE products (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name varchar(255) NOT NULL,
-  image_url varchar(255),
-  category_id INT,
-  KEY category_id_idx (category_id)
-);
-```
+   ```sql
+   CREATE TABLE products (
+     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     name varchar(255) NOT NULL,
+     image_url varchar(255),
+     category_id INT,
+     KEY category_id_idx (category_id)
+   );
+   ```
 
-{% callout %}
-PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
-keys, as shown in this example. For more information, check out our
-[Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
-documentation.
-{% /callout %}
+   {% callout %}
+   PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
+   keys, as shown in this example. For more information, check out our
+   [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
+   documentation.
+   {% /callout %}
 
 3. You can confirm that the table has been added by running:
 
-```sql
-SHOW TABLES;
-```
+   ```sql
+   SHOW TABLES;
+   ```
 
 4. To see the table schemas, run:
 
-```sql
-DESCRIBE categories;
-```
+   ```sql
+   DESCRIBE categories;
+   ```
 
-```sql
-DESCRIBE products;
-```
+   ```sql
+   DESCRIBE products;
+   ```
 
 ### Insert data into your database
 
@@ -245,25 +245,25 @@ Now that you have your schema set up, let's insert some data.
 
 1. Run the following commands to add one entry to each table:
 
-```sql
-INSERT INTO `categories` (name)
-VALUES  ('Office supplies');
-```
+   ```sql
+   INSERT INTO `categories` (name)
+   VALUES  ('Office supplies');
+   ```
 
-```sql
-INSERT INTO `products` (name, image_url, category_id)
-VALUES  ('Ballpoint pen', 'https://example.com/500x500', '1');
-```
+   ```sql
+   INSERT INTO `products` (name, image_url, category_id)
+   VALUES  ('Ballpoint pen', 'https://example.com/500x500', '1');
+   ```
 
 2. You can confirm the data has been added with:
 
-```sql
-SELECT * FROM products;
-```
+   ```sql
+   SELECT * FROM products;
+   ```
 
-```sql
-SELECT * FROM categories;
-```
+   ```sql
+   SELECT * FROM categories;
+   ```
 
 3. Exit the shell by typing `exit`.
 
