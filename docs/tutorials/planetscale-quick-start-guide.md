@@ -16,13 +16,13 @@ The following guide will show you how to:
 
 If you already have your PlanetScale database set up, you may find the [Connecting your application](/docs/tutorials/connect-any-application) or [Branching](/docs/concepts/branching) guides more helpful.
 
-This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started-—-planetscale-dashboard) or using the [PlanetScale CLI](#getting-started-—-planetscale-cli).
+This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started--planetscale-dashboard) or using the [PlanetScale CLI](#getting-started--planetscale-cli).
 
 {% vimeo src="https://player.vimeo.com/video/763913923" caption="A video demo of everything covered in this guide" /%}
 
 ## Getting started &mdash; PlanetScale dashboard
 
-You'll need [ a PlanetScale account](https://auth.planetscale.com/sign-up) to complete this guide.
+You'll need [a PlanetScale account](https://auth.planetscale.com/sign-up) to complete this guide.
 
 ### Create a database
 
@@ -41,13 +41,12 @@ Your database is created with an [**initial development branch**](/docs/concepts
 
 This quickstart demonstrates how to create and use two relational tables: `categories` and `products`.
 
-1. From your database's overview page, click on the "**Branches**" tab in the database navigation.
+1. From your database's overview page, click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
 
 ![Branches](/docs/tutorials/planetscale-quick-start-guide/branches.png)
 
-2. Click on the `main` branch.
-3. Click on the "**Console**" tab. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
-4. Create the `categories` and `products` tables by running the following commands in the web console:
+2. By default the `main` branch is preselected. Click **"Connect"**.
+3. Create the `categories` and `products` tables by running the following commands in the web console:
 
 ```sql
 CREATE TABLE categories (
