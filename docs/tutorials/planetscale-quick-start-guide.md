@@ -43,7 +43,7 @@ This quickstart demonstrates how to create and use two relational tables: `categ
 
 1. From your database's overview page, click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
 
-   ![Branches](/docs/tutorials/planetscale-quick-start-guide/branches.png)
+   ![Branches](/docs/tutorials/planetscale-quick-start-guide/the-console-tab.png)
 
 2. By default the `main` branch is preselected. Click **"Connect"**.
 3. Create the `categories` and `products` tables by running the following commands in the web console:
@@ -120,7 +120,7 @@ A production branch is a highly available, protected database branch with automa
 
 1. Click "Overview" in the navigation, and you'll see a banner with information about promoting to production.
 
-   ![Create database modal](/docs/tutorials/planetscale-quick-start-guide/promote.png)
+   ![Create database modal](/docs/tutorials/planetscale-quick-start-guide/the-main-branch-overview.png)
 
 2. Click the "Promote branch" button.
 3. In the modal that opens, select the branch you want to promote to production

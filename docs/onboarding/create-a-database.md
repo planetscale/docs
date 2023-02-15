@@ -44,10 +44,14 @@ Next, you’ll be dropped into the dashboard for that specific database. Let's t
 5. **Console** &mdash; Lets you run MySQL commands against branches.
 6. **Backups** &mdash; Shows you backup schedule and all backups for this database across production and development branches.
 7. **Settings** &mdash; Lets you tweak various aspects of your database like who has access to it, beta feature opt-ins, and plan management.
+8. **Connect** &mdash; Provides connection details that applications can use to connect to your database.
+9. **New branch** &mdash; Allows you to create a new branch of your schema.
 
 ![The dashboard of a database on PlanetScale.](/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale.png)
 
 Now let’s add a table and some columns to the database. PlanetScale databases leverage branches to let you create copies of your database so you can safely experiment with the schema without affecting your main production database. Branches will be covered more in detail in the next article, but since they are an integral part of the system, you’ll always be working within a database branch. The default branch created for all databases is `main`. Click on **"Console"** to get access to an in-browser MySQL shell, by default your `main` database is selected. Click **"Connect"**.
+
+![The console tab.](/docs/onboarding/create-a-database/the-console-tab.png)
 
 Run the following command in that console to create your first table:
 
