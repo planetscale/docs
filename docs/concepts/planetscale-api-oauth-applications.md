@@ -4,7 +4,7 @@ subtitle: 'Manage your PlanetScale databases programmatically.'
 date: '2023-01-31'
 ---
 
-# PlanetScale API overview
+## PlanetScale API overview
 
 The PlanetScale API allows you to manage your PlanetScale databases programmatically. The API is currently in **beta**. The API supports many actions you can take in the PlanetScale web app or CLI and can be used to integrate PlanetScale into your existing workflows and tools.
 
