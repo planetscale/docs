@@ -31,6 +31,6 @@ If you decide to script the CLI in your pipeline, you can use `pscale branch del
 {% callout title="Next steps" %}
 In this guide, we discussed the Test phase and dedicated database branches can be used to assist with integration testing. Next up is the Release phase, where the new software is set up for a successful deployment into production.
 
-- [The Release phase](/docs/devops/the-release-release-of-devops)
+- [The Release phase](/docs/devops/the-release-phase-of-devops)
 
 {% /callout %}

@@ -25,6 +25,6 @@ If you are at the Scalar tier and above, PlanetScale databases support multiple 
 {% callout title="Next steps" %}
 In this guide, we discussed the Release phase and how your production database can be set up for a live cutover using deploy requests. Next up is the Deploy phase, where all of the work is deployed to your production environment.
 
-- [The Deploy phase](/docs/devops/the-deploy-release-of-devops)
+- [The Deploy phase](/docs/devops/the-deploy-phase-of-devops)
 
 {% /callout %}
