@@ -18,7 +18,7 @@ The following table details these limits:
 | Per-query row              | 10k   |
 | Per-query DML timeout      | 30s   |
 | Per-query `SELECT` timeout | 30s   |
-| Per-transaction timeout    | 30s   |
+| Per-transaction timeout    | 20s   |
 
 ## Recommendations for handling limits
 
