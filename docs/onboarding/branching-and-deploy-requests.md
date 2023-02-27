@@ -4,8 +4,6 @@ subtitle: Explore how to utilize branching in PlanetScale, a key feature of the 
 date: '2022-09-13'
 ---
 
-{% vimeo src="https://player.vimeo.com/video/748936870" caption="Branching and deploy requests" /%}
-
 ## Overview
 
 Now that you have an account and database set up, we can explore one of the key features of PlanetScale: branching.
@@ -64,13 +62,9 @@ We're going to promote our existing branch to production, create a new developme
 
 ### Promote dev branch to production
 
-Start by navigating to the `travel_db` database, click the **"Branches"** tab, and select the `main` branch. Click the button that says **"Promote a branch to production"** to flag the default `main` branch as a production branch.
+Start by navigating to the `beam-demo` database, click the **"Branches"** tab, and select the `main` branch. Click the button that says **"Promote to production branch"** to flag the default `main` branch as a production branch.
 
 ![The Overview tab of the database.](/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database.png)
-
-In the modal that appears, `main` should be selected. Click **"Promote branch"**.
-
-![The Promote branch modal.](/docs/onboarding/branching-and-deploy-requests/the-promote-branch-modal.png)
 
 ### Create a dev branch
 
@@ -82,79 +76,45 @@ In the **New branch** modal, you’ll see options to name the branch, select the
 
 ![The New branch modal.](/docs/onboarding/branching-and-deploy-requests/the-new-branch-modal.png)
 
-The branch takes a few minutes to initialize. Wait for this process to complete before proceeding.
-
-![The view of the branch being initialized.](/docs/onboarding/branching-and-deploy-requests/the-view-of-the-branch-being-initialized.png)
-
-Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Overview"** tab.
-
-![The view of the branch after its been initialized.](/docs/onboarding/branching-and-deploy-requests/the-view-of-the-branch-after-its-been-initialized.png)
+The branch takes a few minutes to initialize. Wait for this process to complete before proceeding. Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Overview"** tab.
 
 ### Make a schema change
 
-Now that the branch is initialized, let’s update the schema of our `hotels` table and add a `description` column. Click the **"Console"** tab and run the following script.
+Now that the branch is initialized, let’s update the schema of our `Post` table and add a `summary` column. Click the **"Console"** tab and run the following script.
+
+![The new branch after initializing.](/docs/onboarding/branching-and-deploy-requests/the-new-branch-after-initializing.png)
 
 ```sql
-ALTER TABLE hotels ADD description VARCHAR(500);
+ALTER TABLE Post ADD summary VARCHAR(1024);
+```
+
+Now run the following command to see the structure of the table in the `dev` branch. You’ll see the new `summary` column in the table structure.
+
+```sql
+DESCRIBE Post;
 ```
 
 ![The console with the output of the ALTER command.](/docs/onboarding/branching-and-deploy-requests/the-console-with-the-output-of-the-alter-command.png)
 
-Now run the following command to see the structure of the table in the `dev` branch. You’ll see the new `description` column in the table structure.
+Before we merge these changes, let's double-check the `main` branch of the database and compare the structure of the same table. Run the following command in `main`'s console to see the structure of the `Post` table.
 
 ```sql
-DESCRIBE hotels;
-```
-
-![The console with the output of the DESCRIBE command.](/docs/onboarding/branching-and-deploy-requests/the-console-with-the-output-of-the-describe-comamnd.png)
-
-Before we merge these changes, let's double-check the `main` branch of the database and compare the structure of the same table. To quickly switch branches, click the branch name in the header and select **"main"** from the list.
-
-![How to quickly access different branches.](/docs/onboarding/branching-and-deploy-requests/how-to-quickly-access-different-branches.png)
-
-Since `main` is a production branch, if you click on **"Console"**, you’ll get a notice that it is disabled on production branches.
-
-![The disabled Console tab.](/docs/onboarding/branching-and-deploy-requests/the-disabled-console-tab.png)
-
-In a working environment, you’d want it to stay like this since it protects the data in that branch. For the sake of the guide though, we can turn this protection off so we can check the structure of the table. Click on the database name in the header and click the **"Settings"** tab to access the general database settings. Check the box that says **"Allow web console access to production branches"**, then click **"Save database settings"**.
-
-![The settings view of where to allow console access for production branches.](/docs/onboarding/branching-and-deploy-requests/the-settings-view-of-where-to-allow-console-access-for-production-branches.png)
-
-To access the `main` branch again, click the **"Branches"** tab, then the **"main"** branch from the list.
-
-![The branches tab.](/docs/onboarding/branching-and-deploy-requests/the-branches-tab.png)
-
-Click the **"Console"** tab and it should be available now. Run the following command to see the structure of the `hotels` table.
-
-```sql
-DESCRIBE hotels;
+DESCRIBE Post;
 ```
 
 ![The console of the main branch with the output of the DESCRIBE command.](/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-with-the-output-of-the-describe-command.png)
 
-Notice how `description` is missing. This is because we made the change on the `dev` branch and haven’t merged the changes into `main`. Let’s fix that now. Click the branch name in the header and access the **"dev"** branch.
-
-![The branch quick access menu.](/docs/onboarding/branching-and-deploy-requests/the-branch-quick-access-menu.png)
+Notice how `summary` is missing. This is because we made the change on the `dev` branch and haven’t merged the changes into `main`. Let’s fix that now.
 
 ### Create a deploy request
 
-On the **"Overview"** tab, you can now create a deploy request. Enter a comment (optional), then click "Create deploy request".
+On the **"Overview"** tab, you can now create a deploy request. Enter an optional comment, then click "Create deploy request".
 
 ![The Overview tab of the dev branch.](/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-dev-branch.png)
 
-PlanetScale will automatically check to see if your changes can be deployed by comparing the schemas between the `dev` and `main` branches.
-
-![The deploy request view while changes are being evaluated.](/docs/onboarding/branching-and-deploy-requests/the-deploy-request-view-while-changes-are-being-evaluated.png)
-
-Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out.
+PlanetScale will automatically check to see if your changes can be deployed by comparing the schemas between the `dev` and `main` branches. Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out.
 
 There is also the option to auto-apply your changes after PlanetScale has finished staging them. This option is selected by default. If it is disabled, PlanetScale will stage your changes and wait for you to manually apply them before making them live, which can be helpful under certain circumstances.
-
-![The deploy request view after changes have been evaluated and can be deployed.](/docs/onboarding/branching-and-deploy-requests/the-deploy-request-view-after-changes-have-been-evaluated-and-can-be-deployed.png)
-
-You also have the option to view the schema changes by clicking the **"View schema changes button"** or clicking the **"Schema changes"** tab. This will show a diff between the schemas so you can see what changes will be applied.
-
-![The Schema changes tab with the diff between branches.](/docs/onboarding/branching-and-deploy-requests/the-schema-changes-tab-with-the-diff-between-branches.png)
 
 Once you are done exploring, click the **"Deploy changes"** button on the summary tab.
 
@@ -164,10 +124,10 @@ Once the changes are deployed, the status of the deployment will be displayed, a
 
 ![The deploy request view after changes have been deployed.](/docs/onboarding/branching-and-deploy-requests/the-deploy-request-view-after-changes-have-been-deployed.png)
 
-Head back to the console of the `main` branch and run the `DESCRIBE` command again. Notice how the `main` branch now has the `description` column that was added to `dev` earlier in the guide.
+Head back to the console of the `main` branch and run the `DESCRIBE` command again. Notice how the `main` branch now has the `summary` column that was added to `dev` earlier in the guide.
 
 ```sql
-DESCRIBE hotels;
+DESCRIBE Post;
 ```
 
 ![The console of the main branch after changes have been deployed.](/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-after-changes-have-been-deployed.png)
