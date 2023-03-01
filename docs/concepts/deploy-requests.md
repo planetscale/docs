@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2022-09-06'
+date: '2023-03-01'
 ---
 
 ## Overview
@@ -14,12 +14,15 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 
 **Note**: Your database must have a **production branch** before you can create a deploy request.
 
-1. Go to the overview page of the development branch you want to deploy to production.
-2. Under "**Create a deploy request**", select the branch you want to deploy to.
-3. Add a comment about the deploy request.
-4. Click "**Create deploy request**".
+1. Click on "**Branches**".
+2. Select the development branch you want to deploy to production.
+3. This page shows you a diff of the schema against its parent branch.
+4. To the right of the page, you'll see a dropdown that says "**Deploy to**".
+5. Select the branch you want to.
+6. Optionally, add a comment about the deploy request.
+7. Click "**Create deploy request**".
 
-{% vimeo src="https://player.vimeo.com/video/763914026" caption="Demonstration of how to create a PlanetScale deploy request" /%}
+![Example of deploy request on branch page](/docs/concepts/deploy-requests/deploy-request-page.png)
 
 ## Review and deploy a deploy request
 

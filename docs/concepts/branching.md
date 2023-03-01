@@ -1,7 +1,7 @@
 ---
 title: 'Branching'
 subtitle: 'Create a development or staging environment for your database through branches'
-date: '2022-08-01'
+date: '2023-03-01'
 ---
 
 ## Overview

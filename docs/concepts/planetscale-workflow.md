@@ -1,10 +1,10 @@
 ---
 title: 'The PlanetScale workflow'
 subtitle: 'Use the PlanetScale workflow for branching databases, non-blocking schema changes and more.'
-date: '2022-07-22'
+date: '2023-03-01'
 ---
 
-![](/img/planetscale-workflow.png)
+![Diagram showing PlanetScale workflow](/img/planetscale-workflow.png)
 
 ## Serverless databases
 
