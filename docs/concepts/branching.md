@@ -94,7 +94,7 @@ If you are working in a team, the [deploy request](/docs/concepts/deploy-request
 4. (_Optional_) Add a comment describing your deploy request.
 5. Click "**Create deploy request**".
 
-![PlanetScale deploy request example](/docs/concepts/branching/deploy-request.png)
+![PlanetScale deploy request example](/docs/concepts/branching/deploy-request-page.png)
 
 6. (_Optional_) You can also create a deploy request from the [PlanetScale CLI](/docs/reference/deploy-request) with the following command:
 
