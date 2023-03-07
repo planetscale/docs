@@ -1,29 +1,29 @@
 ---
-title: 'Data Branching™'
+title: 'Data Branching®'
 subtitle: 'Create a development or staging environment for your database pre-seeded with data and schema'
 date: '2022-07-22'
 ---
 
 ## Overview
 
-The PlanetScale Data Branching&trade; feature (beta) allows you to create isolated copies of your database that include both the schema and data. This differs from our [regular branching feature](/docs/concepts/branching), which only includes the schema.
+The PlanetScale Data Branching® feature (beta) allows you to create isolated copies of your database that include both the schema and data. This differs from our [regular branching feature](/docs/concepts/branching), which only includes the schema.
 
 This feature is only available for organizations on the [`Team`](/pricing) plan.
 
 {% callout %}
-The Data Branching feature is currently in beta.
+The Data Branching® feature is currently in beta.
 {% /callout %}
 
-## Enable the Data Branching&trade; feature for your database.
+## Enable the Data Branching® feature for your database.
 
 Before you can use the feature, you have to enable it in your database settings page.
 
 1. Navigate to the database that you'd like to enable.
 2. Click on the "**Settings**" link in the header navigation bar.
-3. Scroll to the option with the text "**Enable Data Branching&trade;**"
+3. Scroll to the option with the text "**Enable Data Branching®**"
 4. Enable this option and click "**Save database settings**".
 
-{% vimeo src="https://player.vimeo.com/video/763958358" caption="Demonstration of how to enable the Data Branching&trade; feature" /%}
+{% vimeo src="https://player.vimeo.com/video/763958358" caption="Demonstration of how to enable the Data Branching® feature" /%}
 
 ## Create a development branch with data & schema from the Base branch
 
@@ -58,6 +58,6 @@ Before you can use the feature, you have to enable it in your database settings 
 
    PlanetScale does not provide data syncing between a production branch and a development branch.
 
-5. **Will enabling the Data Branching feature affect my billing?**
+5. **Will enabling the Data Branching® feature affect my billing?**
 
    PlanetScale will bill for the data inside of the new branch as part of your [overall database's plan](/docs/concepts/billing#planetscale-plans). In this way, it is no different than if you filled the branch up manually.

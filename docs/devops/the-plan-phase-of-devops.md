@@ -16,9 +16,9 @@ If your process dictates that a branch be created for the active iteration befor
 
 A branch of a PlanetScale database is a completely isolated MySQL instance that has an exact copy of the schema of the upstream database. It allows developers to make changes to the schema of the branch without worrying about affecting the production database. Credentials required to connect to database branches are also unique to each branch. In other words, even branches within the same database environment have unique connection strings. Refer to the [documentation on branching](/docs/concepts/branching) to learn more.
 
-### Data Branching™
+### Data Branching®
 
-PlanetScale also offers [Data Branching™](/docs/concepts/data-branching) in some pricing tiers. With Data Branching™, PlanetScale will automatically restore the latest version of the backup of a production branch into the new branch being created. This can help create a sandboxed environment for developers to work with that exactly mimics your production environment without affecting production data.
+PlanetScale also offers [Data Branching®](/docs/concepts/data-branching) in some pricing tiers. With Data Branching®, PlanetScale will automatically restore the latest version of the backup of a production branch into the new branch being created. This can help create a sandboxed environment for developers to work with that exactly mimics your production environment without affecting production data.
 
 ### Automate branching via the PlanetScale CLI
 

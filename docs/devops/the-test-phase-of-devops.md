@@ -16,7 +16,7 @@ Since database [schema branches](/docs/concepts/branching) in PlanetScale are is
 
 ### Seed with production data
 
-If your tier includes the Data Branching™, you can spin up yet another production-like environment by utilizing data from the most recent backup of the production branch database. This will ensure that your automated tests (as well as manual QA tests) will similate production as close as possible instead of relying on pre-determined test data. This can provide a greater opportunity for test to break and need revisiting, avoiding potential issues in production.
+If your tier includes the Data Branching®, you can spin up yet another production-like environment by utilizing data from the most recent backup of the production branch database. This will ensure that your automated tests (as well as manual QA tests) will similate production as close as possible instead of relying on pre-determined test data. This can provide a greater opportunity for test to break and need revisiting, avoiding potential issues in production.
 
 ### Seed data with the PlanetScale CLI
 

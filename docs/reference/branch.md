@@ -47,7 +47,7 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 | `--from <SOURCE_BRANCH>`        | Parent branch that you want to create a new branch off of                                            | `create`                                   |
 | `--region <BRANCH_REGION>`      | Region where database should be created                                                              | `create`                                   |
 | `--restore <BACKUP_NAME>`       | Create a new branch from a specified backup                                                          | `create`                                   |
-| `--seed-data`                   | Create a new branch and seed data using the [Data Branching™ feature](/docs/concepts/data-branching) | `create`                                   |
+| `--seed-data`                   | Create a new branch and seed data using the [Data Branching® feature](/docs/concepts/data-branching) | `create`                                   |
 | `--web`                         | Perform the action in your web browser                                                               | `create`, `diff`, `list`, `schema`, `show` |
 | `--wait`                        | Wait until the branch is ready                                                                       | `create`                                   |
 | `--database <DATABASE_NAME>`    | Specify the database name                                                                            | `switch`                                   |
