@@ -12,12 +12,12 @@ We are committed to providing the following support options.
 
 - Included with all plans
 - Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
-- Ability to [submit support tickets](https://support.planetscale.com/)
+- Ability to [submit support tickets](https://support.planetscale.com)
 
 ### Standard
 
 - Included with all Scaler and Team plans
-- Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com/)
+- Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com)
 - Target response time of 2 business days
 
 ### Business
