@@ -15,7 +15,7 @@ A number of resources exist to help find which region has the lowest latency fro
 ## Available regions
 
 {% callout %}
-If you don't see your preferred region(s) in the following list, [get in touch](/contact) to let us know what region(s) you would like to see added. Also, Managed Cloud plans can be deployed in any region(s) with three availability zones. See the [Deployment options documentation](/concepts/deployment-options#managed-cloud) for more information.
+If you don't see your preferred region(s) in the following list, [get in touch](/contact) to let us know what region(s) you would like to see added. Also, Managed Cloud plans can be deployed in any region(s) with three availability zones. See the [Deployment options documentation](/docs/concepts/deployment-options#managed-cloud) for more information.
 {% /callout %}
 
 Currently, the following regions are supported, with their respective PlanetScale slugs:
