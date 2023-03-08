@@ -36,8 +36,6 @@ production branch. Instead, create a development branch, and make your changes t
 
 ## Promote a branch to production
 
-{% vimeo src="https://player.vimeo.com/video/763913898" caption="Demonstration of how to promote a branch to production" /%}
-
 PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
 
 ### Promote a development branch to production
@@ -57,6 +55,19 @@ pscale branch promote <DATABASE_NAME> <BRANCH_NAME>
 ```
 
 It's possible to run multiple production branches simultaneously, within [your plan's limits](/docs/concepts/billing#planetscale-plans). Keep in mind, PlanetScale does not provide data syncing between production branches.
+
+### Demote a production branch to development
+
+Sometimes, you might need to demote a production branch to a development branch. This can be done from the production branch's overview page in the PlanetScale app (located in the right column of the page).
+
+Be aware when demoting a production branch to a development branch:
+
+- The branch will allow direct schema changes (also known as direct DDL), which can result in lost data; this is different than using a deploy request to make a schema change
+- Automatic, scheduled production branch backups will no longer run
+- Any read-only regions will be removed
+- The branch will no longer have high-availability features
+
+If you are on an Enterprise plan, only an administrator for your organization can request to demote a branch, and the demotion request will need to be approved by another administrator. Once the first administrator requests to demote a production branch, the second administrator can approve the demotion on the production branch's overview page. You will see the request from the first administrator and a **Demote to development branch** button to complete the demotion.
 
 ## Create a development branch
 
