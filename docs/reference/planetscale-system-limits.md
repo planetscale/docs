@@ -15,7 +15,7 @@ The following table details these limits:
 
 | Type                       | Limit |
 | -------------------------- | ----- |
-| Per-query row              | 10k   |
+| Per-query row              | 100k  |
 | Per-query DML timeout      | 30s   |
 | Per-query `SELECT` timeout | 30s   |
 | Per-transaction timeout    | 20s   |
@@ -24,7 +24,7 @@ The following table details these limits:
 
 These limits are enforced for the safety of your database. However, we do understand you may run into a situation where the limits are a blocker. Here are some best practices for solving common issues presented by the limits:
 
-**What should I do if I have a query that returns more than 10,000 records?**
+**What should I do if I have a query that returns more than 100,000 records?**
 
 We recommend trying to break up large queries, e.g. through pagination.
 
