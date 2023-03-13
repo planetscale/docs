@@ -19,11 +19,11 @@ To connect to a PlanetScale database, you'll need four pieces of information:
 
 The easiest way to gather this information is by accessing the branch of the database you wish to connect to and selecting the **"Connect"** button from the **"Overview"** tab.
 
-![Open the Connect modal.](/docs/tutorials/connect-mysql-gui/connect.png)
+![Open the Connect modal.](/assets/docs/tutorials/connect-mysql-gui/connect.png)
 
 In the **Connect** modal, select **"General"** under the **Connect with** options. This will display the connection details as a list instead of a language or framework-specific connection string.
 
-![The Connect modal.](/docs/tutorials/connect-mysql-gui/connect-modal.png)
+![The Connect modal.](/assets/docs/tutorials/connect-mysql-gui/connect-modal.png)
 
 {% callout %}
 As a security best practice, passwords are only displayed when they are created. If you do not know the password, you may generate a new credential set by clicking the **"New password"** button in the **Connect** modal.
@@ -33,11 +33,11 @@ As a security best practice, passwords are only displayed when they are created.
 
 In the application you are using, enter the access information you gathered in the previous step into the appropriate fields. Make sure to check **"Require SSL"** as SSL is required to connect to a PlanetScale database. Click **"Connect"** once you are finished.
 
-![The new connection window in Sequel Ace.](/docs/tutorials/connect-mysql-gui/ace-connect.png)
+![The new connection window in Sequel Ace.](/assets/docs/tutorials/connect-mysql-gui/ace-connect.png)
 
 If the connection is successful, you should be able to query your database and perform other [supported operations](/docs/reference/mysql-compatibility).
 
-![A sample query in Sequel Ace.](/docs/tutorials/connect-mysql-gui/ace-query.png)
+![A sample query in Sequel Ace.](/assets/docs/tutorials/connect-mysql-gui/ace-query.png)
 
 ## Caveats
 

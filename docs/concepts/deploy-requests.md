@@ -22,7 +22,7 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 6. Optionally, add a comment about the deploy request.
 7. Click "**Create deploy request**".
 
-![Example of deploy request on branch page](/docs/concepts/deploy-requests/deploy-request-page.png)
+![Example of deploy request on branch page](/assets/docs/concepts/deploy-requests/deploy-request-page.png)
 
 ## Review and deploy a deploy request
 
@@ -37,7 +37,7 @@ PlanetScale will check if the request is deployable. This process includes check
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, other users in your Organization will see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 
-   ![PlanetScale deploy request - approve changes](/docs/concepts/deploy-requests/approve.png)
+   ![PlanetScale deploy request - approve changes](/assets/docs/concepts/deploy-requests/approve.png)
 
 7. Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
 8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
@@ -121,12 +121,12 @@ This feature is helpful if you have long-running migrations. For very large or c
 
 1. When you open a deploy request, uncheck the "**Auto-apply changes**" box.
 
-![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/docs/concepts/deploy-requests/gated-deployments.png)
+![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments.png)
 
 2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
 3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.
 
-![PlanetScale deploy request - Apply changes from deployment button](/docs/concepts/deploy-requests/apply-changes.png)
+![PlanetScale deploy request - Apply changes from deployment button](/assets/docs/concepts/deploy-requests/apply-changes.png)
 
 {% callout %}
 If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.

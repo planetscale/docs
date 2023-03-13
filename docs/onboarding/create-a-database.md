@@ -23,15 +23,15 @@ If you’ve come here directly from creating your account, you should be at one 
 
 The first one is presented right after you verify your email address. Click **"create"** if you are here.
 
-![The first screen you’ll see after signing up for PlanetScale.](/docs/onboarding/create-a-database/the-first-screen-youll-see-after-signing-up-for-planetscale.png)
+![The first screen you’ll see after signing up for PlanetScale.](/assets/docs/onboarding/create-a-database/the-first-screen-youll-see-after-signing-up-for-planetscale.png)
 
 The second possible screen will be shown if you’ve stepped through the in-app guide. Click **"Create your first database"** if you are here.
 
-![The screen you’ll see after stepping through the wizard after creating an account.](/docs/onboarding/create-a-database/the-screen-youll-see-after-stepping-through-the-wizard-after-creating-an-account.png)
+![The screen you’ll see after stepping through the wizard after creating an account.](/assets/docs/onboarding/create-a-database/the-screen-youll-see-after-stepping-through-the-wizard-after-creating-an-account.png)
 
 A modal should appear asking you to name the database and select the region. There are several geographical regions you can host your database. You will want to select the region closest to your application servers connecting to the database. For this example, leave the region set to "AWS us-east-1" and name the database `beam-demo`. Click **"Create database"**.
 
-![The New database modal.](/docs/onboarding/create-a-database/the-new-database-modal.png)
+![The New database modal.](/assets/docs/onboarding/create-a-database/the-new-database-modal.png)
 
 Next, you’ll be dropped into the dashboard for that specific database. Let's take a look at the layout and what each element does before moving on.
 
@@ -45,7 +45,7 @@ Next, you’ll be dropped into the dashboard for that specific database. Let's t
 8. **Connect** &mdash; Provides connection details that applications can use to connect to your database.
 9. **New branch** &mdash; Allows you to create a new branch of your schema.
 
-![The dashboard of a database on PlanetScale.](/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale.png)
+![The dashboard of a database on PlanetScale.](/assets/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale.png)
 
 Now let’s add a table and some columns to the database. PlanetScale databases leverage branches to let you create copies of your database so you can safely experiment with the schema without affecting your main production database. Branches will be covered more in detail in the next article, but since they are an integral part of the system, you’ll always be working within a database branch. The default branch created for all databases is `main`. Click on **"Console"** to get access to an in-browser MySQL shell.
 
@@ -70,7 +70,7 @@ Now run the following command to see the structure of the table that was just cr
 DESCRIBE Post;
 ```
 
-![The Console view of a database branch, with the output of the CREATE TABLE statement.](/docs/onboarding/create-a-database/the-console-view-of-a-database-branch-with-the-output-of-the-create-table-statement.png)
+![The Console view of a database branch, with the output of the CREATE TABLE statement.](/assets/docs/onboarding/create-a-database/the-console-view-of-a-database-branch-with-the-output-of-the-create-table-statement.png)
 
 {% callout title="Next steps" %}
 In this guide, we explored the PlanetScale dashboard, created a database, and created a simple table in that database. Next, we’ll explore the concept of database branching and how it can fit into your development workflow.

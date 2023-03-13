@@ -52,7 +52,7 @@ Now that Airbyte is running locally, let's set up the custom PlanetScale source.
 
 You can find the [PlanetScale Airbyte Source Dockerhub release page here](https://hub.docker.com/r/planetscale/airbyte-source).
 
-![Airbyte new PlanetScale connector](/docs/integrations/airbyte/connector.png)
+![Airbyte new PlanetScale connector](/assets/docs/integrations/airbyte/connector.png)
 
 ### Fill in PlanetScale connection information
 
@@ -75,7 +75,7 @@ You're now ready to connect your PlanetScale database to Airbyte.
 - **Password**: Paste in the copied value for `password`
 - **Shards**: Sharding is only supported on our Enterprise plan. Please [reach out to us](/contact) for more information.
 
-![Airbyte - PlanetScale source setup](/docs/integrations/airbyte/source.png)
+![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/source.png)
 
 9. Click "**Set up source**" to connect.
 
@@ -98,7 +98,7 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
 2. Select the destination you want to sync your PlanetScale data to.
 3. Choose a sync frequency, which is how often we will connect to your PlanetScale database to download data.
 
-![Airbyte - PlanetScale replication frequency](/docs/integrations/airbyte/replication-frequency.png)
+![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
 
 {% callout %}
 **Important:** The sync frequency will affect your PlanetScale billing. The rows read during sync are
@@ -117,7 +117,7 @@ You can find more information about your plan's read limits in our
 - **Incremental** &mdash; Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/13.0/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
 - **Full refresh** &mdash; Full refresh pulls _all_ data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
 
-![Airbyte - PlanetScale stream sync](/docs/integrations/airbyte/streams.png)
+![Airbyte - PlanetScale stream sync](/assets/docs/integrations/airbyte/streams.png)
 
 8. Click "**Set up connection**".
 
@@ -143,4 +143,4 @@ Every Airbyte connection sync will count toward [your plan's `rows read`](/docs/
 
 At any point, you can disable any incremental or full syncs by going to the 'Connection' settings page and clicking 'Delete this connection'. This will not touch any of the source or destination data, but will prevent Airbyte from doing any further operations.
 
-![Airbyte - PlanetScale disconnection](/docs/integrations/airbyte/disconnect.png)
+![Airbyte - PlanetScale disconnection](/assets/docs/integrations/airbyte/disconnect.png)

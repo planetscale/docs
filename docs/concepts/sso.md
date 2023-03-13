@@ -73,7 +73,7 @@ Once you enable Directory Sync, existing Teams will be cleared, as all Teams mus
 
 You can find the directory-managed members under "**Settings**" > "**Members**", and directory-managed Teams under "**Settings**" > "**Teams**".
 
-![Dashboard UI - Directory-managed Teams page](/docs/concepts/sso/managed.png)
+![Dashboard UI - Directory-managed Teams page](/assets/docs/concepts/sso/managed.png)
 
 {% callout title="Next steps" %}
 

@@ -42,7 +42,7 @@ PlanetScale makes sure not to exhaust your resources; the deployment may be thro
 production queries.
 {% /callout %}
 
-![PlanetScale non-blocking schema changes diagram](/docs/concepts/nonblocking-schema-changes/diagram.png)
+![PlanetScale non-blocking schema changes diagram](/assets/docs/concepts/nonblocking-schema-changes/diagram.png)
 
 ## PlanetScale workflow
 

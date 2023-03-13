@@ -17,7 +17,7 @@ This guide will show you how to get up and running with the [Netlify, Next.js, a
 
 You can see a [live demo of the starter application here](https://nextjs-planetscale-starter.netlify.app/).
 
-![Example of the dashboard application](/docs/tutorials/nextjs-planetscale-netlify-template/example.png)
+![Example of the dashboard application](/assets/docs/tutorials/nextjs-planetscale-netlify-template/example.png)
 
 {% callout %}
 If you're coming from the **[Netlify Template](https://templates.netlify.com/template/nextjs-planetscale-starter/)** and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just read through the prerequisites and then skip the first section to [go straight to the local setup](#set-up-the-project-locally).
@@ -67,7 +67,7 @@ yarn next
 
 Navigate to [http://localhost:3000/](http://localhost:3000/) in your browser to view the PlanetScale Next.js Starter app.
 
-![Next.js PlanetScale Starter application homepage](/docs/tutorials/nextjs-planetscale-netlify-template/starter.png)
+![Next.js PlanetScale Starter application homepage](/assets/docs/tutorials/nextjs-planetscale-netlify-template/starter.png)
 
 ## Database setup
 

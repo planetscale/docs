@@ -21,15 +21,15 @@ If you already have a database with a production branch, skip to [the next secti
 
 Let's start by creating the database. In the PlanetScale dashboard, click the "**New database**" button followed by "**Create new database**". Name the database **lambda-connection-strings,** or any other name that you prefer. Click "**Create database**".
 
-![The PlanetScale dashboard](/docs/tutorials/aws-lambda-connection-strings/dashboard.png)
+![The PlanetScale dashboard](/assets/docs/tutorials/aws-lambda-connection-strings/dashboard.png)
 
-![The new database modal](/docs/tutorials/aws-lambda-connection-strings/create.png)
+![The new database modal](/assets/docs/tutorials/aws-lambda-connection-strings/create.png)
 
 Once your database has finished initializing, access the console of the main branch by heading to **Branches** in the top nav, followed by **main**, then **Console**.
 
-![The dashboard branches tab](/docs/tutorials/aws-lambda-connection-strings/branches.png)
+![The dashboard branches tab](/assets/docs/tutorials/aws-lambda-connection-strings/branches.png)
 
-![The console](/docs/tutorials/aws-lambda-connection-strings/console.png)
+![The console](/assets/docs/tutorials/aws-lambda-connection-strings/console.png)
 
 Create a simple table & insert some data using the following script:
 
@@ -47,19 +47,19 @@ INSERT INTO Tasks (Name) VALUES ('Watch the sportsball game');
 
 You may run `SELECT * FROM Tasks` to ensure the data was properly added from the console.
 
-![Records from the console](/docs/tutorials/aws-lambda-connection-strings/select.png)
+![Records from the console](/assets/docs/tutorials/aws-lambda-connection-strings/select.png)
 
 Now we need to promote the **main** branch to production. Click the **Overview** tab, then **Promote a branch to production**. Since there is only one branch, it will be selected by default in the confirmation modal. Click on **Promote branch**.
 
-![The option to promote a branch](/docs/tutorials/aws-lambda-connection-strings/production.png)
+![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production.png)
 
-![The modal to promote to production branch](/docs/tutorials/aws-lambda-connection-strings/promote.png)
+![The modal to promote to production branch](/assets/docs/tutorials/aws-lambda-connection-strings/promote.png)
 
 Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button in the upper right, select **NodeJS** from the **Connect with** dropdown, and note the details in the .env tab of the modal. These details will be required to connect to the database.
 
-![The dashboard after the database has been promoted](/docs/tutorials/aws-lambda-connection-strings/promoted.png)
+![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted.png)
 
-![The connection string for this database](/docs/tutorials/aws-lambda-connection-strings/connect.png)
+![The connection string for this database](/assets/docs/tutorials/aws-lambda-connection-strings/connect.png)
 
 ## Configure the Lambda function
 
@@ -73,42 +73,42 @@ git clone https://github.com/planetscale/aws-connection-strings-example.git
 
 Log into the AWS Console, use the universal search to search for ‘**Lambda**’, and select it from the list of services.
 
-![Search for Lambda in the AWS Console](/docs/tutorials/aws-lambda-connection-strings/aws.png)
+![Search for Lambda in the AWS Console](/assets/docs/tutorials/aws-lambda-connection-strings/aws.png)
 
 Create a new function using the **Create function** button in the upper right of the console.
 
-![The default view of Lambda functions](/docs/tutorials/aws-lambda-connection-strings/functions.png)
+![The default view of Lambda functions](/assets/docs/tutorials/aws-lambda-connection-strings/functions.png)
 
 Name your function **lambda-connection-strings** (or any other name that suits you) and select **NodeJS** under **Runtime**. The other fields can be left as default. Click **Create function** to finish the initial setup of your Lambda.
 
-![The view to create a Lambda function](/docs/tutorials/aws-lambda-connection-strings/create-function.png)
+![The view to create a Lambda function](/assets/docs/tutorials/aws-lambda-connection-strings/create-function.png)
 
 On the next view, about halfway down the page you’ll see a section called **Code source**. Click the **Upload from** button, then **.zip file**.
 
-![The default NodeJS Lambda function](/docs/tutorials/aws-lambda-connection-strings/node.png)
+![The default NodeJS Lambda function](/assets/docs/tutorials/aws-lambda-connection-strings/node.png)
 
 Click the **Upload** button which will display a file browser. Select the **aws-connection-strings-example.zip** file from the **dist** folder of the provided repository. Click **Save** once it’s been selected.
 
-![The modal to upload code](/docs/tutorials/aws-lambda-connection-strings/upload.png)
+![The modal to upload code](/assets/docs/tutorials/aws-lambda-connection-strings/upload.png)
 
 The contents of the code editor under **Code source** should have updated to show the code stored in the zip file.
 
-![The code of the Lambda function that was uploaded](/docs/tutorials/aws-lambda-connection-strings/source.png)
+![The code of the Lambda function that was uploaded](/assets/docs/tutorials/aws-lambda-connection-strings/source.png)
 
 ### Configure environment variables
 
 Next, you need to set the PlanetScale `DATABASE_URL` environment variable that you copied earlier. Select the **Configuration** tab, and click **Edit**.
 
-![The configuration tab](/docs/tutorials/aws-lambda-connection-strings/configuration.png)
+![The configuration tab](/assets/docs/tutorials/aws-lambda-connection-strings/configuration.png)
 
 You’ll be presented with a view to add or update environment variables. Click **Add environment variable** and the view will update with a row to add an environment variable. Set the **Key** field to **DATABASE_URL** and the **Value** to the connection string taken from the previous section. Click **Save** once finished.
 
-![The view to manage environment variables](/docs/tutorials/aws-lambda-connection-strings/environment-variables.png)
+![The view to manage environment variables](/assets/docs/tutorials/aws-lambda-connection-strings/environment-variables.png)
 
 Finally, test the function by selecting the **Test** tab, and then clicking the **Test** button.
 
-![The test tab](/docs/tutorials/aws-lambda-connection-strings/test.png)
+![The test tab](/assets/docs/tutorials/aws-lambda-connection-strings/test.png)
 
 An **Execution results** box will display above the **Test event** section. If the box is green, it likely means everything executed as expected. Click the dropdown next to **Details** to see the results of the query. Since the results of the query were logged out to the console, they will be displayed in the **Log output** section.
 
-![The execution results](/docs/tutorials/aws-lambda-connection-strings/success.png)
+![The execution results](/assets/docs/tutorials/aws-lambda-connection-strings/success.png)

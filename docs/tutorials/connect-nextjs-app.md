@@ -20,7 +20,7 @@ If this is your first time in the dashboard, you'll be prompted to go through a 
 
 Finally, click "**Create database**".
 
-![Create a new database modal](/docs/tutorials/connect-nextjs-app/database.png)
+![Create a new database modal](/assets/docs/tutorials/connect-nextjs-app/database.png)
 
 {% callout %}
 If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
@@ -97,7 +97,7 @@ After you have your application running locally, you may want to deploy it to pr
 
 You can do this in the PlanetScale dashboard by clicking the "**Branches**" tab, and then clicking the "**Promote a branch to production**" button either in the banner or under the "**...**".
 
-![Promote a branch to production](/docs/tutorials/connect-nextjs-app/production.png)
+![Promote a branch to production](/assets/docs/tutorials/connect-nextjs-app/production.png)
 
 ### Deploy to Vercel
 

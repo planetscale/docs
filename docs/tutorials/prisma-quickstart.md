@@ -263,7 +263,7 @@ You can leave `id`, `createdAt`, and `updatedAt` blank as they will auto-fill wi
 
 To add the record, click the green "**Save 1 change**" button.
 
-![Prisma Studio showing the Star table with one record](/docs/tutorials/prisma-quickstart/studio.png)
+![Prisma Studio showing the Star table with one record](/assets/docs/tutorials/prisma-quickstart/studio.png)
 
 ## Add an API route
 
@@ -340,7 +340,7 @@ In the dashboard, select the `initial-setup` branch. On the "**Overview**" tab, 
 
 PlanetScale will check to make sure there are no conflicts between the two branches. If not, you'll get the message "This deploy request is deployable". You can click on the "**Schema changes**" tab to see a diff of the schema changes to be deployed.
 
-![Example of the Star table schema in a deploy request on PlanetScale](/docs/tutorials/prisma-quickstart/schema.png)
+![Example of the Star table schema in a deploy request on PlanetScale](/assets/docs/tutorials/prisma-quickstart/schema.png)
 
 Now, you're ready to deploy the `initial-setup` branch to production! On the "**Summary**" tab of the deploy request, click the button "**Add changes to deploy queue**". The deployment has now been added to the deploy queue.
 

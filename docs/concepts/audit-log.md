@@ -27,7 +27,7 @@ Once there, you can filter the audit log by **Actor** and/or **Action**.
 
 Clicking and expanding individual log **event** names empowers you to investigate additional metadata that can provide broader context around what changed.
 
-![Click to expand individual log events.](/docs/concepts/audit-log/event.png)
+![Click to expand individual log events.](/assets/docs/concepts/audit-log/event.png)
 
 ## Audited organization events
 

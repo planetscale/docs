@@ -23,7 +23,7 @@ Once you add databases to a team, any members on that team will have [Database A
 
 1. On your PlanetScale overview page, click "**Settings**".
 2. Click "**Teams**" in the left nav.
-   ![Dashboard UI - Create a PlanetScale team](/docs/concepts/teams/create.png)
+   ![Dashboard UI - Create a PlanetScale team](/assets/docs/concepts/teams/create.png)
 3. Give your team a name and description (_optional_).
 4. Click "**Create team**".
 
@@ -39,20 +39,20 @@ Once you add databases to a team, any members on that team will have [Database A
 
 Now, when you go to the Settings page for any databases you've added to a team, you'll also be able to view and revoke access straight from the database Administrators page.
 
-![Dashboard UI - Database Administrators settings page](/docs/concepts/teams/settings.png)
+![Dashboard UI - Database Administrators settings page](/assets/docs/concepts/teams/settings.png)
 
 ### Remove members and databases
 
 To remove a member from a team, find their name in the member list and click "**Remove**". At this time, you'll also be able to delete any passwords this member has created to ensure you've completely revoked their access to the database.
 
-![Dashboard UI - Delete a member from a team](/docs/concepts/teams/member.png)
+![Dashboard UI - Delete a member from a team](/assets/docs/concepts/teams/member.png)
 
 To remove a database from a team, click the "**x**" next to the database name under "Administrator permissions". This will remove database administrator access for all members of the team.
 
-![Dashboard UI - Delete a database from a team](/docs/concepts/teams/database.png)
+![Dashboard UI - Delete a database from a team](/assets/docs/concepts/teams/database.png)
 
 ## Directory Sync with Teams
 
 If you have [SSO with Directory Sync](/docs/concepts/sso#directory-sync) enabled, all Teams will be managed by your Directory Sync directory. You can add and remove database access to teams, but member management must be done through your directory.
 
-![Dashboard UI - Directory-managed Teams page](/docs/concepts/sso/managed.png)
+![Dashboard UI - Directory-managed Teams page](/assets/docs/concepts/sso/managed.png)

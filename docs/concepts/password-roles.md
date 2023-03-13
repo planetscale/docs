@@ -20,7 +20,7 @@ PlanetScale allows you to [create and manage passwords](/docs/concepts/connectio
 1. Go to your database settings page.
 2. Click "**Passwords**" > "**New password**".
 3. Give it a name, select the role from the dropdown, select the branch, and click "**Generate password**".
-   ![PlanetScale password roles](/docs/concepts/password-roles/roles.png)
+   ![PlanetScale password roles](/assets/docs/concepts/password-roles/roles.png)
 
 Once a password is created, **its role cannot be changed**.
 

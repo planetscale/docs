@@ -18,7 +18,7 @@ If you're already well versed in versioned schema migrations and just want to se
 
 The following example uses the default Laravel example application with the `artisan` command to perform versioned migrations. When the application is scaffolded, a `database/migrations` folder will be created within the project that contains a base set of migration scripts.
 
-![The default migrations of the Laravel example app](/docs/devops/versioned-migrations/laravel-migrations.png)
+![The default migrations of the Laravel example app](/assets/docs/devops/versioned-migrations/laravel-migrations.png)
 
 Here are the contents of that first file. It is using PHP to define the structure of a table. When read by `artisan`, it will be converted to the DDL that is required to create the same structure in MySQL.
 
@@ -236,4 +236,4 @@ For additional examples of handling versioned schema changes with PlanetScale, s
 - [Building PlanetScale with PlanetScale](/blog/building-planetscale-with-planetscale)
 - [Zero downtime Laravel migrations](https://planetscale.com/blog/zero-downtime-laravel-migrations)
 
-![The automatic migrations setting](/docs/devops/versioned-migrations/auto-migrations-setting.png)
+![The automatic migrations setting](/assets/docs/devops/versioned-migrations/auto-migrations-setting.png)

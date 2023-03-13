@@ -59,7 +59,7 @@ If this is your first time in the dashboard, you'll be prompted to go through a 
 
 Finally, click "**Create database**".
 
-![Create a new database modal](/docs/tutorials/connect-laravel-app/database.png)
+![Create a new database modal](/assets/docs/tutorials/connect-laravel-app/database.png)
 
 {% callout %}
 If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
@@ -174,7 +174,7 @@ You should get the message "Database seeding completed successfully".
 
 The `resources/views/home.blade.php` file pulls this data from the `stars` table with the help of the `app/Http/Controllers/StarController.php` file.
 
-![Laravel PlanetScale starter app homepage](/docs/tutorials/connect-laravel-app/example.png)
+![Laravel PlanetScale starter app homepage](/assets/docs/tutorials/connect-laravel-app/example.png)
 
 ## Add data manually
 
@@ -213,7 +213,7 @@ VALUES  ('Sagittarius', 3);
 SELECT * FROM stars;
 ```
 
-![PlanetScale web console](/docs/tutorials/connect-laravel-app/console.png)
+![PlanetScale web console](/assets/docs/tutorials/connect-laravel-app/console.png)
 
 ### Add data with Laravel Tinker
 

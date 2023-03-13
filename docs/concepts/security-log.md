@@ -18,7 +18,7 @@ You can review your security log in your PlanetScale account settings.
 
 Once there, you can filter your Security log by `Action`.
 
-![Filter your security log by Action.](/docs/concepts/security-log/filter.png)
+![Filter your security log by Action.](/assets/docs/concepts/security-log/filter.png)
 
 ## Security log events
 

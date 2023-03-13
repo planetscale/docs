@@ -24,7 +24,7 @@ Development branches provide isolated copies of your database schema where you c
 
 Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups.
 
-We also offer a [Data Branching®](/docs/concepts/data-branching) feature, which allows you to create an isolated replica of your database for development that includes both the schema **and** data.
+We also offer a [Data Branching®](/assets/docs/concepts/data-branching) feature, which allows you to create an isolated replica of your database for development that includes both the schema **and** data.
 
 Learn more about [branching databases](/docs/concepts/branching).
 

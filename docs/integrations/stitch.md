@@ -20,11 +20,11 @@ into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/i
 1. Sign up for a [StitchData](https://app.stitchdata.com/signup) account
 2. Once you've signed up, create an Integration by clicking on **Add Integration**.
 3. On the marketplace screen, type in **import** to narrow the list down to the **Import API**
-   ![Add Stitch Integration](/docs/integrations/stitch/integration.png)
+   ![Add Stitch Integration](/assets/docs/integrations/stitch/integration.png)
 4. On the next screen, configure your integration name and destination.
-   ![Configure Stitch Integration](/docs/integrations/stitch/configure.png)
+   ![Configure Stitch Integration](/assets/docs/integrations/stitch/configure.png)
 5. Once the integration is created, save the access token for use with the PlanetScale tap.
-   ![Save Stitch API Token](/docs/integrations/stitch/api-token.png)
+   ![Save Stitch API Token](/assets/docs/integrations/stitch/api-token.png)
 
 ### Step 2 : Configure the PlanetScale Stitch Tap
 
@@ -33,7 +33,7 @@ In this step, we will connect your PlanetScale database to the PlanetScale Singe
 1. Click on the database and branch you want to connect to.
 2. Click "Connect", and select "Stitch source" from the "Connect with" dropdown.
 3. Leave this tab open, as you'll need to copy these credentials shortly.
-   ![Stitch Source config](/docs/integrations/stitch/connect.png)
+   ![Stitch Source config](/assets/docs/integrations/stitch/connect.png)
 4. Copy the contents of `source.json` as a file on your local file system, and save it as `source.json`. This will now act
    as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` to your database.
 
@@ -106,6 +106,6 @@ HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
 
 8. In this example, you should see that Stitch loaded `21` records to be replicated.
 
-   ![Completed Stitch import](/docs/integrations/stitch/success.png)
+   ![Completed Stitch import](/assets/docs/integrations/stitch/success.png)
 
 9. To incrementally sync from this last sync position, pass the path to last saved state in step 7 as the `--state` argument when you run sync.

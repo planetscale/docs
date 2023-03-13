@@ -64,17 +64,17 @@ We're going to promote our existing branch to production, create a new developme
 
 Start by navigating to the `beam-demo` database, click the **"Branches"** tab, and select the `main` branch. Click the button that says **"Promote to production branch"** to flag the default `main` branch as a production branch.
 
-![The Overview tab of the database.](/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database.png)
+![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database.png)
 
 ### Create a dev branch
 
 Back in the database **"Overview"** tab, click the **"New branch"** button to create a new branch.
 
-![The Overview tab of the database with the New branch button highlighted.](/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database-with-the-new-branch-button-highlighted.png)
+![The Overview tab of the database with the New branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database-with-the-new-branch-button-highlighted.png)
 
 In the **New branch** modal, you’ll see options to name the branch, select the base, and even change the region for this branch. Name the branch `dev` and click **"Create branch"**.
 
-![The New branch modal.](/docs/onboarding/branching-and-deploy-requests/the-new-branch-modal.png)
+![The New branch modal.](/assets/docs/onboarding/branching-and-deploy-requests/the-new-branch-modal.png)
 
 The branch takes a few minutes to initialize. Wait for this process to complete before proceeding. Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Overview"** tab.
 
@@ -82,7 +82,7 @@ The branch takes a few minutes to initialize. Wait for this process to complete 
 
 Now that the branch is initialized, let’s update the schema of our `Post` table and add a `summary` column. Click the **"Console"** tab and run the following script.
 
-![The new branch after initializing.](/docs/onboarding/branching-and-deploy-requests/the-new-branch-after-initializing.png)
+![The new branch after initializing.](/assets/docs/onboarding/branching-and-deploy-requests/the-new-branch-after-initializing.png)
 
 ```sql
 ALTER TABLE Post ADD summary VARCHAR(1024);
@@ -94,7 +94,7 @@ Now run the following command to see the structure of the table in the `dev` bra
 DESCRIBE Post;
 ```
 
-![The console with the output of the ALTER command.](/docs/onboarding/branching-and-deploy-requests/the-console-with-the-output-of-the-alter-command.png)
+![The console with the output of the ALTER command.](/assets/docs/onboarding/branching-and-deploy-requests/the-console-with-the-output-of-the-alter-command.png)
 
 Before we merge these changes, let's double-check the `main` branch of the database and compare the structure of the same table. Run the following command in `main`'s console to see the structure of the `Post` table.
 
@@ -102,7 +102,7 @@ Before we merge these changes, let's double-check the `main` branch of the datab
 DESCRIBE Post;
 ```
 
-![The console of the main branch with the output of the DESCRIBE command.](/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-with-the-output-of-the-describe-command.png)
+![The console of the main branch with the output of the DESCRIBE command.](/assets/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-with-the-output-of-the-describe-command.png)
 
 Notice how `summary` is missing. This is because we made the change on the `dev` branch and haven’t merged the changes into `main`. Let’s fix that now.
 
@@ -110,7 +110,7 @@ Notice how `summary` is missing. This is because we made the change on the `dev`
 
 On the **"Overview"** tab, you can now create a deploy request. Enter an optional comment, then click "Create deploy request".
 
-![The Overview tab of the dev branch.](/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-dev-branch.png)
+![The Overview tab of the dev branch.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-dev-branch.png)
 
 PlanetScale will automatically check to see if your changes can be deployed by comparing the schemas between the `dev` and `main` branches. Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out.
 
@@ -118,11 +118,11 @@ There is also the option to auto-apply your changes after PlanetScale has finish
 
 Once you are done exploring, click the **"Deploy changes"** button on the summary tab.
 
-![The Summary tab of the deploy request.](/docs/onboarding/branching-and-deploy-requests/the-summary-tab-of-the-deploy-request.png)
+![The Summary tab of the deploy request.](/assets/docs/onboarding/branching-and-deploy-requests/the-summary-tab-of-the-deploy-request.png)
 
 Once the changes are deployed, the status of the deployment will be displayed, along with how long the deployment took and who initiated it.
 
-![The deploy request view after changes have been deployed.](/docs/onboarding/branching-and-deploy-requests/the-deploy-request-view-after-changes-have-been-deployed.png)
+![The deploy request view after changes have been deployed.](/assets/docs/onboarding/branching-and-deploy-requests/the-deploy-request-view-after-changes-have-been-deployed.png)
 
 Head back to the console of the `main` branch and run the `DESCRIBE` command again. Notice how the `main` branch now has the `summary` column that was added to `dev` earlier in the guide.
 
@@ -130,7 +130,7 @@ Head back to the console of the `main` branch and run the `DESCRIBE` command aga
 DESCRIBE Post;
 ```
 
-![The console of the main branch after changes have been deployed.](/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-after-changes-have-been-deployed.png)
+![The console of the main branch after changes have been deployed.](/assets/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-after-changes-have-been-deployed.png)
 
 {% callout title="Next steps" %}
 You should have a good understanding of the core concepts of PlanetScale at this point. In the next guide, we’ll cover how you can connect to your PlanetScale database using the language or client of your choice.

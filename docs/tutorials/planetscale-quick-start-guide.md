@@ -33,7 +33,7 @@ Follow these steps to create a database:
 3. Select a [region](/docs/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Finally, click the "**Create database**" button to deploy your database.
 
-![Create database modal](/docs/tutorials/planetscale-quick-start-guide/create.png)
+![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/create.png)
 
 Your database is created with an [**initial development branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
@@ -43,7 +43,7 @@ This quickstart demonstrates how to create and use two relational tables: `categ
 
 1. From your database's overview page, click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
 
-   ![Branches](/docs/tutorials/planetscale-quick-start-guide/the-console-tab.png)
+   ![Branches](/assets/docs/tutorials/planetscale-quick-start-guide/the-console-tab.png)
 
 2. By default the `main` branch is preselected. Click **"Connect"**.
 3. Create the `categories` and `products` tables by running the following commands in the web console:
@@ -120,7 +120,7 @@ A production branch is a highly available, protected database branch with automa
 
 1. Click "Overview" in the navigation, and you'll see a banner with information about promoting to production.
 
-   ![Create database modal](/docs/tutorials/planetscale-quick-start-guide/the-main-branch-overview.png)
+   ![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/the-main-branch-overview.png)
 
 2. Click the "Promote branch" button.
 3. In the modal that opens, select the branch you want to promote to production

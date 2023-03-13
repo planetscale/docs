@@ -23,19 +23,19 @@ To follow along, you’ll need the following:
 
 Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**.
 
-![How to create a new database.](/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database.png)
+![How to create a new database.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database.png)
 
 Name the database `travel_db`. Click **"Create database"**. Wait for the database to finish initializing before moving on.
 
-![The travel_db initializing.](/docs/tutorials/planetscale-serverless-driver-node-example/the-travel_db-initializing.png)
+![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-travel_db-initializing.png)
 
 Generate a set of credentials by clicking the **"Connect"** button.
 
-![The Connect button in the PlanetScale dashboard.](/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard.png)
+![The Connect button in the PlanetScale dashboard.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard.png)
 
 Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
 
-![The Connect modal.](/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal.png)
+![The Connect modal.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal.png)
 
 {% callout %}
 When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You might notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`.
@@ -71,6 +71,6 @@ If the project is running properly, you should receive a message stating that th
 
 The `tests.http` file is designed to work with the [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client), but can be used as a reference when testing with the tool of your choosing. If you are using the plugin, you may click the **"Send request"** button that appears above each request to see the API in action.
 
-![An example of a POST request to the sample project.](/docs/tutorials/planetscale-serverless-driver-node-example/an-example-of-a-post-request-to-the-sample-project.png)
+![An example of a POST request to the sample project.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/an-example-of-a-post-request-to-the-sample-project.png)
 
 If you check the terminal where the API was started, the response from the `execute` function is logged out for review.

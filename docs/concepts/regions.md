@@ -45,7 +45,7 @@ GCP regions are in beta and currently have some limitations, which you can read 
 
 PlanetScale allows you to select the region for the [`main` branch](/docs/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region.
 
-![Select your database region.](/docs/concepts/regions/database.png)
+![Select your database region.](/assets/docs/concepts/regions/database.png)
 
 Once you select a region for your `main` branch, it cannot be changed.
 
@@ -67,7 +67,7 @@ pscale database create <DATABASE_NAME> --region us-west
 PlanetScale allows you to select a region for development branches during
 creation as well. By default, it is set to the same region as its database.
 
-![Select your branch region.](/docs/concepts/regions/branch.png)
+![Select your branch region.](/assets/docs/concepts/regions/branch.png)
 
 {% callout %}
 Once you select a branch region, it cannot be changed.
@@ -86,7 +86,7 @@ pscale branch create my-production-database add-tables --region eu-west
 
 [Organization Administrators](/docs/concepts/access-control#organization-administrator) can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
 
-![Restrict your branches to one region.](/docs/concepts/regions/restrict.png)
+![Restrict your branches to one region.](/assets/docs/concepts/regions/restrict.png)
 
 ## Changing branch and database regions
 

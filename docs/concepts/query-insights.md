@@ -23,13 +23,13 @@ analytics, [upgrade to a paid plan](/docs/concepts/billing).
 
 ## Branch selection
 
-![PlanetScale Insights branch selection](/docs/concepts/query-insights/branches.png)
+![PlanetScale Insights branch selection](/assets/docs/concepts/query-insights/branches.png)
 
 The dropdown on the top right lets you select which branch you want to analyze. The selection applies to the entire Insights page.
 
 ## Insights graph
 
-![PlanetScale Insights graph](/docs/concepts/query-insights/graph.png)
+![PlanetScale Insights graph](/assets/docs/concepts/query-insights/graph.png)
 
 This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
@@ -37,7 +37,7 @@ You can click the dates listed above the graph to scroll through the past seven 
 
 ## Graph metrics selection
 
-![PlanetScale Insights graph metrics selection - rows written](/docs/concepts/query-insights/metrics.png)
+![PlanetScale Insights graph metrics selection - rows written](/assets/docs/concepts/query-insights/metrics.png)
 
 The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the metric(s) for that time period.
 
@@ -51,13 +51,13 @@ The available options are:
 
 ## Queries list
 
-![PlanetScale Insights recent queries list](/docs/concepts/query-insights/queries.png)
+![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries.png)
 
 The table underneath the graph shows all queries performed on your database in the past 24 hours. To further narrow down query analysis, you can select a time range from the above graph to restrict the table to queries that happened in that time frame.
 
 You can also sort the columns for quick analysis.
 
-![Insights queries selected time range](/docs/concepts/query-insights/timeframe.png)
+![Insights queries selected time range](/assets/docs/concepts/query-insights/timeframe.png)
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
@@ -91,28 +91,28 @@ If you'd like to further interact with the query, click "Open query in web conso
 
 Note, if you're viewing the `EXPLAIN` plan on a production branch, this button will be disabled unless you enable production web console access in your database Settings page.
 
-![PlanetScale Insights query pattern w/ explain plan](/docs/concepts/query-insights/query.png)
-![PlanetScale Insights explain plan](/docs/concepts/query-insights/explain.png)
+![PlanetScale Insights query pattern w/ explain plan](/assets/docs/concepts/query-insights/query.png)
+![PlanetScale Insights explain plan](/assets/docs/concepts/query-insights/explain.png)
 
 ## Database errors
 
 The table underneath the top graph also contains an **Errors** tab, which shows you a list of database error messages that have been captured over the last 24 hours. You can click the dates listed above the graph to scroll through the past seven days. If you're on our free Hobby plan, activity is limited to the previous 24 hours.
 
-![PlanetScale Insights errors tab](/docs/concepts/query-insights/errors.png)
+![PlanetScale Insights errors tab](/assets/docs/concepts/query-insights/errors.png)
 
 You can click on any of the error messages on the Errors tab to open a more detailed view. This view shows you the individual queries that produced the error, when they ran, how long they ran, and any query tags attached to them.
 
-![PlanetScale Insights errors tab deep dive showing queries](/docs/concepts/query-insights/errors-detailed-view.png)
+![PlanetScale Insights errors tab deep dive showing queries](/assets/docs/concepts/query-insights/errors-detailed-view.png)
 
 ## Complete query collection
 
 If you would prefer to view the raw query data using Insights, you can enable this option in your database settings page. In the dashboard, select your database, click "**Settings**", scroll down until you see "**Complete query collection**", and click "**Enable**" to opt in.
 
-![PlanetScale Insights complete query collection opt in](/docs/concepts/query-insights/opt-in.png)
+![PlanetScale Insights complete query collection opt in](/assets/docs/concepts/query-insights/opt-in.png)
 
 With this enabled, Insights will gather the complete raw SQL statements and display them when a query deep dive is selected and in the `EXPLAIN` plan. For example, if you select a query from the table on the Insights page, the query pattern and the selected queries below it will display the full query.
 
-![PlanetScale Insights unnormalized data in query deep dive](/docs/concepts/query-insights/unnormalized-data.png)
+![PlanetScale Insights unnormalized data in query deep dive](/assets/docs/concepts/query-insights/unnormalized-data.png)
 
 Enabling complete query collection is beneficial when performance varies significantly within the same query pattern, and you need to see the full SQL statement, without placeholders, to identify the correct source of the performance issue.
 

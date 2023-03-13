@@ -22,7 +22,7 @@ This guide will walk you through setting up and deploying your PlanetScale datab
 2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
-![PlanetScale dashboard connect modal](/docs/tutorials/deploy-to-netlify/prisma.png)
+![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-netlify/prisma.png)
 
 4. If the password is blurred, click "New password" to generate new credentials.
 5. Keep this page open, as you'll need to copy these to Netlify momentarily.
@@ -53,7 +53,7 @@ In Netlify, you'll set it as follows:
 
 _Note: The credentials are blurred for the example, but when you paste them in, use the actual values._
 
-![Netlify dashboard - Environment variables](/docs/tutorials/deploy-to-netlify/environment-variables.png)
+![Netlify dashboard - Environment variables](/assets/docs/tutorials/deploy-to-netlify/environment-variables.png)
 
 After you have saved, you will need to rebuild the site with the new environment variable.
 

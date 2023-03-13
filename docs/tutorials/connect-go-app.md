@@ -25,15 +25,15 @@ Already have a Go application and just want to connect to PlanetScale? Check out
 
 Start in PlanetScale by creating a new database named `products_db`.
 
-![The New database modal](/docs/tutorials/connect-go-app/new-db-modal.png)
+![The New database modal](/assets/docs/tutorials/connect-go-app/new-db-modal.png)
 
 Once the database has finished initializing, head to **"Branches"** > **"main"**.
 
-![The Branches tab](/docs/tutorials/connect-go-app/branches.png)
+![The Branches tab](/assets/docs/tutorials/connect-go-app/branches.png)
 
 Click on **"Console"** to open the web console.
 
-![The Console tab](/docs/tutorials/connect-go-app/console.png)
+![The Console tab](/assets/docs/tutorials/connect-go-app/console.png)
 
 Run the following two commands to create a sample table and insert some data:
 
@@ -52,11 +52,11 @@ INSERT INTO `products` (name, price) VALUES
 
 Finally, head to the **"Overview"** tab and click **"Connect"**.
 
-![The location of the Connect button](/docs/tutorials/connect-go-app/connect.png)
+![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect.png)
 
 Change the **"Connect with"** dropdown to **Go** and copy the contents of the **.env** tab, as you’ll need it for the next section.
 
-![The Connect modal](/docs/tutorials/connect-go-app/connect-modal.png)
+![The Connect modal](/assets/docs/tutorials/connect-go-app/connect-modal.png)
 
 ## Run the demo project
 
@@ -81,7 +81,7 @@ go run .
 
 The terminal should update with the following output.
 
-![The output of the GET test](/docs/tutorials/connect-go-app/go-run-output.png)
+![The output of the GET test](/assets/docs/tutorials/connect-go-app/go-run-output.png)
 
 ## Exploring the code
 
@@ -127,7 +127,7 @@ Open the `tests.http` file, which contains HTTP requests that can be sent to tes
 If you do not wish to use VS Code with the Rest Client plugin, you may use `tests.http` as a reference for your preferred IDE and API testing software.
 {% /callout %}
 
-![The terminal output of the go run command](/docs/tutorials/connect-go-app/go-run-output.png)
+![The terminal output of the go run command](/assets/docs/tutorials/connect-go-app/go-run-output.png)
 
 This is the `GetProducts` function defined in `main.go`. Notice how the `query` variable is the `SELECT` statement, which is passed into `db.Query` before being scanned into a slice of `Product` structs.
 

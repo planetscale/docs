@@ -177,7 +177,7 @@ This will purge your database and load the placeholder data into it.
 
 The `templates/product/index.html.twig` file pulls this data from the `product` table with the help of the `src/Controller/ProductController.php` file.
 
-![Symfony PlanetScale starter app homepage](/docs/tutorials/connect-symfony-app/example.png)
+![Symfony PlanetScale starter app homepage](/assets/docs/tutorials/connect-symfony-app/example.png)
 
 ## Add data manually
 

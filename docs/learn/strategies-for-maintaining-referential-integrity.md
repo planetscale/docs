@@ -8,7 +8,7 @@ Since PlanetScale [does not support foreign key constraints](/docs/learn/operati
 
 The following examples will use the concept of a recipe manager with the following schema. Samples will be provided in SQL, so they are relatively universal regardless of the language or framework used.
 
-![A sample recipes database schema.](/docs/learn/strategies-for-maintaining-referential-integrity/diagram.svg)
+![A sample recipes database schema.](/assets/docs/learn/strategies-for-maintaining-referential-integrity/diagram.svg)
 
 The same scenario will be used for each suggestion below: deleting a recipe and its associated records.
 

@@ -19,7 +19,7 @@ PlanetScale allows you to branch database schemas the same way you branch your c
 7. You then add it to the **deploy queue**, and PlanetScale will begin the deployment.
 8. The schema changes are deployed in a way that causes **ZERO downtime**. No individual tables get locked, and production is not slowed down during the migration. This is what we call **non-blocking schema changes**. You can learn more about this process in our [Non-blocking schema changes documentation](/docs/concepts/nonblocking-schema-changes).
 
-![PlanetScale Branching Flow Diagram](/docs/concepts/branching/diagram.png)
+![PlanetScale Branching Flow Diagram](/assets/docs/concepts/branching/diagram.png)
 
 ## Development and production branches
 
@@ -105,7 +105,7 @@ If you are working in a team, the [deploy request](/docs/concepts/deploy-request
 4. (_Optional_) Add a comment describing your deploy request.
 5. Click "**Create deploy request**".
 
-![PlanetScale deploy request example](/docs/concepts/branching/deploy-request-page.png)
+![PlanetScale deploy request example](/assets/docs/concepts/branching/deploy-request-page.png)
 
 6. (_Optional_) You can also create a deploy request from the [PlanetScale CLI](/docs/reference/deploy-request) with the following command:
 

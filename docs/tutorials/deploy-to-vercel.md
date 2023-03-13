@@ -27,7 +27,7 @@ It will cover two options:
 2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
-![PlanetScale dashboard connect modal](/docs/tutorials/deploy-to-netlify/prisma.png)
+![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-netlify/prisma.png)
 
 1. If the password is blurred, click "New password" to generate new credentials.
 2. Keep this page open, as you'll need to copy these to Vercel momentarily.
@@ -53,7 +53,7 @@ In Vercel, you'll set it as follows:
 
 _Note: The credentials are blurred for the example, but when you paste them in, use the actual values._
 
-![Vercel dashboard - Environment variables](/docs/tutorials/deploy-to-vercel/environment-variables.png)
+![Vercel dashboard - Environment variables](/assets/docs/tutorials/deploy-to-vercel/environment-variables.png)
 
 ## Deploy with the PlanetScale Vercel integration
 
