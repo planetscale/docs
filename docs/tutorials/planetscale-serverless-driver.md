@@ -120,7 +120,7 @@ Here is the content of the `results` object for the `INSERT` statement:
 Alternately, you can name your parameters using the `:param_name` format.
 
 ```js
-const query = 'INSERT INTO hotels (`name`, `address`, `stars`) VALUES (:name, :address :stars)'
+const query = 'INSERT INTO hotels (`name`, `address`, `stars`) VALUES (:name, :address, :stars)'
 const params = {
   name: 'The Galt House',
   address: '140 N Fourth St, Louisville, KY 40202',
