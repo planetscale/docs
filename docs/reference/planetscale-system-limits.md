@@ -1,8 +1,16 @@
 ---
 title: 'PlanetScale system limits'
 subtitle: 'Learn about system limits that PlanetScale puts in place to protect your database.'
-date: '2023-01-30'
+date: '2023-03-17'
 ---
+
+## Table limits
+
+Database schemas are limited to a total of `2048` tables, including views.
+
+Individual tables are limited to a maximum of `1017` columns each.
+
+## Query limits
 
 PlanetScale has enforced some system limits to prevent long-running queries or transactions from:
 
@@ -20,7 +28,7 @@ The following table details these limits:
 | Per-query `SELECT` timeout | 30s   |
 | Per-transaction timeout    | 20s   |
 
-## Recommendations for handling limits
+### Recommendations for handling query limits
 
 These limits are enforced for the safety of your database. However, we do understand you may run into a situation where the limits are a blocker. Here are some best practices for solving common issues presented by the limits:
 
@@ -41,7 +49,7 @@ Keep your transactions small and short-lived. For transactional workloads that a
 
 We recommend using [PlanetScale Connect](/blog/extract-load-and-transform-your-data-with-planetscale-connect) (via [Airbyte](/docs/integrations/airbyte) or [Stitch](/docs/integrations/stitch)) to extract your data to any compatible destination (e.g. BigQuery, Redshift, etc.). The analytics queries should then be performed at those destinations.
 
-## OLAP mode
+### OLAP mode
 
 While it is possible to bypass these safety limits using `OLAP` mode (`SET workload = OLAP`), we do not recommend this for the reasons listed at the beginning of this doc.
 
