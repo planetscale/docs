@@ -190,21 +190,39 @@ This IP reference guide is meant to be used in combination with our
 ---
 
 - **GCP us-central1 (Council Bluffs, Iowa)**
-- 34.171.148.176
+- 3.209.149.66
+
+  3.215.97.46
+
+  34.193.111.15
+
+  34.171.148.176
 
   35.193.174.51
 
 ---
 
 - **GCP us-east4 (Ashburn, Virginia)**
-- 34.150.215.97
+- 3.209.149.66
+
+  3.215.97.46
+
+  34.193.111.15
+
+  34.150.215.97
 
   35.221.28.36
 
 ---
 
 - **GCP northamerica-northeast1 (Montréal, Québec)**
-- 34.152.35.20
+- 3.209.149.66
+
+  3.215.97.46
+
+  34.193.111.15
+
+  34.152.35.20
 
   34.95.20.47
 
