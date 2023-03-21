@@ -56,7 +56,6 @@ const mysql = require('mysql2/promise')
 ;(async () => {
   // Create the standard connection
   const connection = await mysql.createConnection(process.env.DATABASE_URL)
-  connection.execute('SET @@boost_cached_queries = true')
   let [rows] = await connection.query('SELECT * FROM users')
 
   // Create a Boost-enabled connection
