@@ -16,7 +16,7 @@ We are committed to providing the following support options.
 
 ### Standard
 
-- Included with all Scaler and Team plans
+- Included only for Scaler and Team plans
 - Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com)
 - Target response time of 2 business days
 
