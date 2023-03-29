@@ -30,61 +30,61 @@ Open the command line and follow these steps:
 
 1. Create a Rails app named _blog_ by running the following command:
 
-```bash
-rails new blog
-```
+   ```bash
+   rails new blog
+   ```
 
 2. Change into the directory you just created, the `blog` Rails app:
 
-```bash
-cd blog
-```
+   ```bash
+   cd blog
+   ```
 
 3. Next, add the `mysql2` gem to your _Gemfile_:
 
-```ruby
-gem "mysql2"
-```
+   ```ruby
+   gem "mysql2"
+   ```
 
 4. Then run `bundle install`
 
-At this point, you have accomplished two things: you've created a Rails project called _blog_ and installed the libraries that you'll need to connect to your PlanetScale database. Now, it’s time to create a PlanetScale database.
+   At this point, you have accomplished two things: you've created a Rails project called _blog_ and installed the libraries that you'll need to connect to your PlanetScale database. Now, it’s time to create a PlanetScale database.
 
-## Create a PlanetScale database and password
+   ## Create a PlanetScale database and password
 
-**Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
+   **Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
 
 ### Using the CLI to create a connection string
 
 1. Using the `pscale` CLI, create a new database also named _blog_:
 
-```bash
-pscale database create blog
-```
+   ```bash
+   pscale database create blog
+   ```
 
 2. Using the `pscale` CLI, create a new database password for the `main` branch of your database named _blog_:
 
-```bash
-pscale password create blog main <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create blog main <PASSWORD_NAME>
+   ```
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
 3. Take note of the values returned to you, as they will not be shown again.
 
-```
-  NAME                  BRANCH   USERNAME       ACCESS HOST URL                     ROLE     ROLE DESCRIPTION   PASSWORD
- --------------------- -------- -------------- ----------------------------------- -------- ------------------ -------------------------------------------------------
-  development-password  main     xxxxxxxx   xxxxxxxxxx.us-east-3.psdb.cloud   writer   Can Read & Write   pscale_pw_xxxxxxxxxxxxxxxxxxxxx
-```
+   ```
+     NAME                  BRANCH   USERNAME       ACCESS HOST URL                     ROLE     ROLE DESCRIPTION   PASSWORD
+    --------------------- -------- -------------- ----------------------------------- -------- ------------------ -------------------------------------------------------
+     development-password  main     xxxxxxxx   xxxxxxxxxx.us-east-3.psdb.cloud   writer   Can Read & Write   pscale_pw_xxxxxxxxxxxxxxxxxxxxx
+   ```
 
 ## Configure Rails and PlanetScale
 
 Let's set up the Rails application to talk to the new database.
 
-1. Open `config/database.yml` and configure the `development` database settings with your new credentials from the output in the previous step:
+Open `config/database.yml` and configure the `development` database settings with your new credentials from the output in the previous step:
 
 ```yaml
 development:
@@ -112,59 +112,59 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
 
 1. Create a Rails migration and call it `CreateUsers`:
 
-```bash
-rails generate migration CreateUsers
-```
+   ```bash
+   rails generate migration CreateUsers
+   ```
 
-This rails command begins the migration for your table that is currently empty and generates a Ruby file that’ll be named something like this:
-`db/migrate/20211014210422_create_users.rb`
+   This rails command begins the migration for your table that is currently empty and generates a Ruby file that’ll be named something like this:
+   `db/migrate/20211014210422_create_users.rb`
 
 2. Fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**.
 
-```ruby
-class CreateUsers < ActiveRecord::Migration[6.1]
-  def change
-    create_table :users do |t|
-      t.string :name
-      t.string :email
-      t.timestamps
-    end
-  end
-end
-```
+   ```ruby
+   class CreateUsers < ActiveRecord::Migration[6.1]
+     def change
+       create_table :users do |t|
+         t.string :name
+         t.string :email
+         t.timestamps
+       end
+     end
+   end
+   ```
 
 3. Run your migration:
 
-```bash
-bin/rails db:migrate
-```
+   ```bash
+   bin/rails db:migrate
+   ```
 
 4. Now, give it a whirl to make sure you can query the new table with the `pscale` CLI:
 
-```bash
-pscale shell blog main
-```
+   ```bash
+   pscale shell blog main
+   ```
 
-```sql
-blog/main> show tables;
-+----------------------+
-| Tables_in_blog       |
-+----------------------+
-| ar_internal_metadata |
-| schema_migrations    |
-| users                |
-+----------------------+
-blog/main> describe users;
-+------------+--------------+------+-----+---------+----------------+
-| Field      | Type         | Null | Key | Default | Extra          |
-+------------+--------------+------+-----+---------+----------------+
-| id         | bigint       | NO   | PRI | NULL    | auto_increment |
-| name       | varchar(255) | YES  |     | NULL    |                |
-| email      | varchar(255) | YES  |     | NULL    |                |
-| created_at | datetime(6)  | NO   |     | NULL    |                |
-| updated_at | datetime(6)  | NO   |     | NULL    |                |
-+------------+--------------+------+-----+---------+----------------+
-```
+   ```sql
+   blog/main> show tables;
+   +----------------------+
+   | Tables_in_blog       |
+   +----------------------+
+   | ar_internal_metadata |
+   | schema_migrations    |
+   | users                |
+   +----------------------+
+   blog/main> describe users;
+   +------------+--------------+------+-----+---------+----------------+
+   | Field      | Type         | Null | Key | Default | Extra          |
+   +------------+--------------+------+-----+---------+----------------+
+   | id         | bigint       | NO   | PRI | NULL    | auto_increment |
+   | name       | varchar(255) | YES  |     | NULL    |                |
+   | email      | varchar(255) | YES  |     | NULL    |                |
+   | created_at | datetime(6)  | NO   |     | NULL    |                |
+   | updated_at | datetime(6)  | NO   |     | NULL    |                |
+   +------------+--------------+------+-----+---------+----------------+
+   ```
 
 ## Promote your main branch to a production branch
 

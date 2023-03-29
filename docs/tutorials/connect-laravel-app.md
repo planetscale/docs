@@ -21,30 +21,30 @@ This guide will integrate [a simple Laravel 9 app](https://github.com/planetscal
 
 1. Clone the starter Laravel application:
 
-```bash
-git clone https://github.com/planetscale/laravel-example.git
-```
+   ```bash
+   git clone https://github.com/planetscale/laravel-example.git
+   ```
 
 2. Enter into the folder and install the dependencies:
 
-```bash
-cd laravel-example
-composer install
-```
+   ```bash
+   cd laravel-example
+   composer install
+   ```
 
-You may need to run `composer update` if you haven't updated in a while.
+   You may need to run `composer update` if you haven't updated in a while.
 
 3. Copy the `.env.example` file into `.env`:
 
-```bash
-cp .env.example .env
-```
+   ```bash
+   cp .env.example .env
+   ```
 
 4. Start the application:
 
-```bash
-php artisan serve
-```
+   ```bash
+   php artisan serve
+   ```
 
 You can view the application at [http://localhost:8000](http://localhost:8000).
 
@@ -112,26 +112,26 @@ To connect with the PlanetScale proxy, you need to install and use the [PlanetSc
 
 1. Open a connection by running the following:
 
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale connect <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
+   If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
 
 2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env` file in your Laravel app and update it as follows:
 
-```bash
-DB_CONNECTION=mysql
-DB_HOST=127.0.0.1
-DB_PORT=3306 # Get this from the output of the previous step
-DB_DATABASE=<DATABASE_NAME>
-DB_USERNAME=
-DB_PASSWORD=
-```
+   ```bash
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306 # Get this from the output of the previous step
+   DB_DATABASE=<DATABASE_NAME>
+   DB_USERNAME=
+   DB_PASSWORD=
+   ```
 
-The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. You can leave `DB_USERNAME` and `DB_PASSWORD` blank.
+   The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. You can leave `DB_USERNAME` and `DB_PASSWORD` blank.
 
 Refresh your Laravel homepage and you should see the message that you're connected to your database!
 
@@ -156,19 +156,19 @@ There are also two seeders, `database/seeders/ConstellationSeeder.php` and `data
 
 2. In your terminal in the root of the Laravel project, run the following to run the migration:
 
-```bash
-php artisan migrate
-```
+   ```bash
+   php artisan migrate
+   ```
 
-You should get a message that the migration table was successfully created.
+   You should get a message that the migration table was successfully created.
 
 3. Next, seed the database by running:
 
-```bash
-php artisan db:seed
-```
+   ```bash
+   php artisan db:seed
+   ```
 
-You should get the message "Database seeding completed successfully".
+   You should get the message "Database seeding completed successfully".
 
 4. Refresh your Laravel homepage and you'll see a list of stars and their constellations printed out.
 
@@ -195,23 +195,23 @@ From here, you can run MySQL queries and DDL against your database branch.
 
 1. Add a record to the `constellations` table:
 
-```sql
-INSERT INTO `constellations` (name)
-VALUES  ('Kaus Media');
-```
+   ```sql
+   INSERT INTO `constellations` (name)
+   VALUES  ('Kaus Media');
+   ```
 
 2. Add a record to the `stars` table:
 
-```sql
-INSERT INTO `stars` (name, constellation_id)
-VALUES  ('Sagittarius', 3);
-```
+   ```sql
+   INSERT INTO `stars` (name, constellation_id)
+   VALUES  ('Sagittarius', 3);
+   ```
 
 3. Refresh the Laravel homepage to see the new record. You can also verify it was added in the console with:
 
-```sql
-SELECT * FROM stars;
-```
+   ```sql
+   SELECT * FROM stars;
+   ```
 
 ![PlanetScale web console](/assets/docs/tutorials/connect-laravel-app/console.png)
 
@@ -221,29 +221,29 @@ Laravel comes with a powerful tool called [Tinker](https://laravel.com/docs/9.x/
 
 1. In your terminal, run the following command:
 
-```bash
-php artisan tinker
-```
+   ```bash
+   php artisan tinker
+   ```
 
 2. Insert a new record into the `constellations` table with:
 
-```php
-DB::table('constellations')->insert(['name'=>'Kaus Media']);
-```
+   ```php
+   DB::table('constellations')->insert(['name'=>'Kaus Media']);
+   ```
 
-2. Insert a new record into the `stars` table with:
+3. Insert a new record into the `stars` table with:
 
-```php
-DB::table('stars')->insert(['name'=>'Sagitarrius', 'constellation'=>3]);
-```
+   ```php
+   DB::table('stars')->insert(['name'=>'Sagitarrius', 'constellation'=>3]);
+   ```
 
-3. Refresh your Laravel application homepage to see your new data. You can also run the following command in Tinker to see all records in the `stars` table.
+4. Refresh your Laravel application homepage to see your new data. You can also run the following command in Tinker to see all records in the `stars` table.
 
-```php
-App\Models\Star::all();
-```
+   ```php
+   App\Models\Star::all();
+   ```
 
-4. Type `exit` to exit Tinker.
+5. Type `exit` to exit Tinker.
 
 ## What's next?
 

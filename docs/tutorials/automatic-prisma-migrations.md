@@ -44,108 +44,108 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 
 1. Create a new _prisma-playground_ database:
 
-```bash
-pscale db create prisma-playground
-```
+   ```bash
+   pscale db create prisma-playground
+   ```
 
 2. Connect to the database branch:
 
-```bash
-pscale connect prisma-playground main --port 3309
-```
+   ```bash
+   pscale connect prisma-playground main --port 3309
+   ```
 
-{% callout %}
-This step assumes you created a new PlanetScale database and the `main` branch has not been promoted to production
-yet. You will need to create a new development branch if the `main` branch has been promoted to production.
-{% /callout %}
+   {% callout %}
+   This step assumes you created a new PlanetScale database and the `main` branch has not been promoted to production
+   yet. You will need to create a new development branch if the `main` branch has been promoted to production.
+   {% /callout %}
 
 3. Update your `prisma/schema.prisma` file with the following schema:
 
-{% callout %}
-In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
+   {% callout %}
+   In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
 
-You can learn more about Prisma's Relation mode in the
-[Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
-{% /callout %}
+   You can learn more about Prisma's Relation mode in the
+   [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
+   {% /callout %}
 
-```js
-datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
-  relationMode = "prisma"
-}
+   ```js
+   datasource db {
+     provider = "mysql"
+     url      = env("DATABASE_URL")
+     relationMode = "prisma"
+   }
 
-generator client {
-  provider = "prisma-client-js"
-}
+   generator client {
+     provider = "prisma-client-js"
+   }
 
-model Post {
-  id        Int      @default(autoincrement()) @id
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  title     String   @db.VarChar(255)
-  content   String?
-  published Boolean  @default(false)
-  author    User     @relation(fields: [authorId], references: [id])
-  authorId  Int
-}
+   model Post {
+     id        Int      @default(autoincrement()) @id
+     createdAt DateTime @default(now())
+     updatedAt DateTime @updatedAt
+     title     String   @db.VarChar(255)
+     content   String?
+     published Boolean  @default(false)
+     author    User     @relation(fields: [authorId], references: [id])
+     authorId  Int
+   }
 
-model Profile {
-  id     Int     @default(autoincrement()) @id
-  bio    String?
-  user   User    @relation(fields: [userId], references: [id])
-  userId Int     @unique
-}
+   model Profile {
+     id     Int     @default(autoincrement()) @id
+     bio    String?
+     user   User    @relation(fields: [userId], references: [id])
+     userId Int     @unique
+   }
 
-model User {
-  id      Int      @default(autoincrement()) @id
-  email   String   @unique
-  name    String?
-  posts   Post[]
-  profile Profile?
-}
-```
+   model User {
+     id      Int      @default(autoincrement()) @id
+     email   String   @unique
+     name    String?
+     posts   Post[]
+     profile Profile?
+   }
+   ```
 
 4. Update your `.env` file:
 
-```shell
-DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
-```
+   ```shell
+   DATABASE_URL="mysql://root@127.0.0.1:3309/prisma-playground"
+   ```
 
-6. In another terminal, use the `db push` command to push the schema defined in `prisma/schema.prisma`:
+5. In another terminal, use the `db push` command to push the schema defined in `prisma/schema.prisma`:
 
-```bash
-npx prisma db push
-```
+   ```bash
+   npx prisma db push
+   ```
 
-Unlike the `prisma migrate dev` command, it will not create a migrations folder containing a SQL file with the SQL used to update the schema in your PlanetScale database. PlanetScale will be tracking your migrations in this workflow.
+   Unlike the `prisma migrate dev` command, it will not create a migrations folder containing a SQL file with the SQL used to update the schema in your PlanetScale database. PlanetScale will be tracking your migrations in this workflow.
 
-{% callout type="tip" %}
-You can learn more about the `prisma db push` command in the
-[Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push).
-{% /callout %}
+   {% callout type="tip" %}
+   You can learn more about the `prisma db push` command in the
+   [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push).
+   {% /callout %}
 
-After `db push` is successful, you can see the table created in your terminal. For example, to see the `Post` table:
+   After `db push` is successful, you can see the table created in your terminal. For example, to see the `Post` table:
 
-```bash
-pscale shell prisma-playground main
-```
+   ```bash
+   pscale shell prisma-playground main
+   ```
 
-```sql
-describe Post;
-```
+   ```sql
+   describe Post;
+   ```
 
-{% callout type="tip" %}
-Use the `exit` command to exit the MySQL shell.
-{% /callout %}
+   {% callout type="tip" %}
+   Use the `exit` command to exit the MySQL shell.
+   {% /callout %}
 
-Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch.
+   Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch.
 
-7. Now that the initial schema has been added, promote your `main` branch to production status:
+6. Now that the initial schema has been added, promote your `main` branch to production status:
 
-```bash
-pscale branch promote prisma-playground main
-```
+   ```bash
+   pscale branch promote prisma-playground main
+   ```
 
 ## Execute succeeding Prisma migrations in PlanetScale
 
@@ -155,51 +155,51 @@ Let's take a look:
 
 1. Create a new _development_ branch from `main` called `add-subtitle-to-posts`:
 
-```bash
-pscale branch create prisma-playground add-subtitle-to-posts
-```
+   ```bash
+   pscale branch create prisma-playground add-subtitle-to-posts
+   ```
 
 2. Close the proxy connection to your `main` branch (if still open) and connect to the new `add-subtitle-to-posts` development branch:
 
-```bash
-pscale connect prisma-playground add-subtitle-to-posts --port 3309
-```
+   ```bash
+   pscale connect prisma-playground add-subtitle-to-posts --port 3309
+   ```
 
-4. In the `prisma/schema.prisma` file, update the `Post` model:
+3. In the `prisma/schema.prisma` file, update the `Post` model:
 
-Add a new `subtitle` field to `Post`:
+   Add a new `subtitle` field to `Post`:
 
-```
-subtitle  String   @db.VarChar(255)
-```
+   ```
+   subtitle  String   @db.VarChar(255)
+   ```
 
-5. Run `db push` again to update the schema in PlanetScale:
+4. Run `db push` again to update the schema in PlanetScale:
 
-```bash
-npx prisma db push
-```
+   ```bash
+   npx prisma db push
+   ```
 
-6. Open a deploy request for your `add-subtitle-to-posts` branch, so that you can deploy these changes to `main`.
+5. Open a deploy request for your `add-subtitle-to-posts` branch, so that you can deploy these changes to `main`.
 
-You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
+   You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
-```bash
-pscale deploy-request create prisma-playground add-subtitle-to-posts
-```
+   ```bash
+   pscale deploy-request create prisma-playground add-subtitle-to-posts
+   ```
 
-```bash
-pscale deploy-request deploy prisma-playground 1
-```
+   ```bash
+   pscale deploy-request deploy prisma-playground 1
+   ```
 
-7. Once the deploy request is merged, you can see the results in your main branch's `Post` table:
+6. Once the deploy request is merged, you can see the results in your main branch's `Post` table:
 
-```bash
-pscale shell prisma-playground main
-```
+   ```bash
+   pscale shell prisma-playground main
+   ```
 
-```sql
-describe Post;
-```
+   ```sql
+   describe Post;
+   ```
 
 ## What's next?
 

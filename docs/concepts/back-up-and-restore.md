@@ -32,19 +32,19 @@ To create a manual backup, follow the steps outlined below:
 
 2. Click the **Create new backup** button.
 
-This will bring up a pop-up modal that prompts you to pick a **branch** to backup, _name_ your backup, and select how long you wish to keep the backup.
+   This will bring up a pop-up modal that prompts you to pick a **branch** to backup, _name_ your backup, and select how long you wish to keep the backup.
 
-![Manual backup pop-up modal](/assets/docs/concepts/back-up-and-restore/create-new-backup.png)
+   ![Manual backup pop-up modal](/assets/docs/concepts/back-up-and-restore/create-new-backup.png)
 
 3. Click the **Create backup** button to finish the backup and close the pop-up modal.
 
 4. Manual backups are not free and are denoted by the `$` icon next to their name in the list view on the backups page.
 
-![Manual backups are shown with a $ sign](/assets/docs/concepts/back-up-and-restore/manual-backup-row.png)
+   ![Manual backups are shown with a $ sign](/assets/docs/concepts/back-up-and-restore/manual-backup-row.png)
 
 5. To see the cost associated with storage of a manual backup, click on the backup name. You will see the cost per month on the details page.
 
-![Monthly storage cost for a Manual backup](/assets/docs/concepts/back-up-and-restore/manual-backup-cost.png)
+   ![Monthly storage cost for a Manual backup](/assets/docs/concepts/back-up-and-restore/manual-backup-cost.png)
 
 ## Schedule backups
 
@@ -54,15 +54,15 @@ You can add additional **scheduled backups** for your branches, billed at $0.023
 
 2. Select the type of branch (`Production branches` | `Development branches` ) you'd like to be backed up by the new backup schedule.
 
-![Schedule backup pop-up modal](/assets/docs/concepts/back-up-and-restore/new-backup-schedule.png)
+   ![Schedule backup pop-up modal](/assets/docs/concepts/back-up-and-restore/new-backup-schedule.png)
 
 3. Click the **Add new schedule** button.
 
-This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
+   This will bring up a pop-up modal that prompts you to configure backup frequency, select how long you wish to keep the backup, and to _name_ your **schedule**.
 
-![Schedule backup pop-up modal](/assets/docs/concepts/back-up-and-restore/new-backup-schedule.png)
+   ![Schedule backup pop-up modal](/assets/docs/concepts/back-up-and-restore/new-backup-schedule.png)
 
-3. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
+4. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
 
 {% callout %}
 For additional scheduled backups beyond the included default (daily for the
@@ -81,15 +81,15 @@ To restore a backup to a new branch, click on the individual backup to see the o
 
 3. Click the **Restore backup** button.
 
-This will bring up a pop-up modal that prompts you to name your branch.
+   This will bring up a pop-up modal that prompts you to name your branch.
 
-![Restore backup pop-up modal](/assets/docs/concepts/back-up-and-restore/restore.png)
+   ![Restore backup pop-up modal](/assets/docs/concepts/back-up-and-restore/restore.png)
 
 4. Click the **Restore backup** button to finish restoring your backup and to close the pop-up modal.
 
 5. To see all branches that are `restored` from a backup, head to the backup details and you'll see a list of those branches.
 
-![Branches restored from a backup](/assets/docs/concepts/back-up-and-restore/restored-branches-list.png)
+   ![Branches restored from a backup](/assets/docs/concepts/back-up-and-restore/restored-branches-list.png)
 
 {% callout title="Next steps" %}
 

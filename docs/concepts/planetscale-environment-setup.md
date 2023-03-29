@@ -27,9 +27,9 @@ How to install or verify Homebrew is on your computer:
 1. Open Terminal.
 2. Check if you have Homebrew installed by running the following command:
 
-```bash
-brew -v
-```
+   ```bash
+   brew -v
+   ```
 
 3. If you don't see "Homebrew" and a version number, then download and [install Homebrew](https://brew.sh/).
 4. Once you've installed Homebrew, repeat _Step 2_ to verify.

@@ -22,30 +22,30 @@ This guide will integrate [a simple Symfony app](https://github.com/planetscale/
 
 1. Clone the starter Symfony application:
 
-```bash
-git clone https://github.com/planetscale/symfony-example.git
-```
+   ```bash
+   git clone https://github.com/planetscale/symfony-example.git
+   ```
 
 2. Enter into the folder and install the dependencies:
 
-```bash
-cd symfony-example
-composer install
-```
+   ```bash
+   cd symfony-example
+   composer install
+   ```
 
 3. Rename the `.env.example` file to `.env.local`:
 
-```bash
-mv .env.example .env.local
-```
+   ```bash
+   mv .env.example .env.local
+   ```
 
-Once you deploy to production, don't forget to update `.env.local` to `.env`.
+   Once you deploy to production, don't forget to update `.env.local` to `.env`.
 
 4. Start the application:
 
-```bash
-symfony serve
-```
+   ```bash
+   symfony serve
+   ```
 
 You can view the application at [http://localhost:8000](http://localhost:8000).
 
@@ -57,15 +57,15 @@ You can create a database either in the [PlanetScale dashboard](https://app.plan
 
 1. Authenticate the CLI with the following command:
 
-```bash
-pscale auth login
-```
+   ```bash
+   pscale auth login
+   ```
 
 2. Create a new database with a default `main` branch with the following command:
 
-```bash
-pscale database create <DATABASE_NAME> --region <REGION_SLUG>
-```
+   ```bash
+   pscale database create <DATABASE_NAME> --region <REGION_SLUG>
+   ```
 
 This tutorial uses `symfony_example` for `DATABASE_NAME`, but you can use any name with lowercase, alphanumeric characters, or underscores. You can also use dashes, but we don't recommend them, as they may need to be escaped in some instances.
 
@@ -90,25 +90,25 @@ You can also get these exact values to to copy/paste from your [PlanetScale dash
 
 1. Create a username and password with the PlanetScale CLI by running:
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+   ```
 
-A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
+   A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
-credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+   your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
-Take note of the values returned to you, as you won't be able to see this password again.
+   Take note of the values returned to you, as you won't be able to see this password again.
 
 2. Open the `.env.local` file in your Symfony app, find the database connection section, and replace the existing `DATABASE_URL` value with:
 
-```bash
-DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAME>?serverVersion=8.0"
-```
+   ```bash
+   DATABASE_URL="mysql://<USERNAME>:<PASSWORD>@<ACCESS_HOST_URL>:3306/<DATABASE_NAME>?serverVersion=8.0"
+   ```
 
 Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL` and `DATABASE_NAME` with the appropriate values from the CLI output above.
 
@@ -120,30 +120,30 @@ To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https:/
 
 1. Open a connection by running the following:
 
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale connect <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
+   If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
 
 2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env.local` file in your Symfony app and update it as follows:
 
-```bash
-DB_HOST=127.0.0.1
-DB_PORT=3306 # Get this from the output of the previous step
-DB_NAME=
-DATABASE_URL=mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?serverVersion=5.7
-```
+   ```bash
+   DB_HOST=127.0.0.1
+   DB_PORT=3306 # Get this from the output of the previous step
+   DB_NAME=
+   DATABASE_URL=mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?serverVersion=5.7
+   ```
 
-The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
+   The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
 
 4. Open up `config/packages/doctrine.yaml`. Under `option`, you'll see a line for the SSL certificate that was used to connect with username and password:
 
-```php
-!php/const:PDO::MYSQL_ATTR_SSL_CA: /etc/ssl/cert.pem
-```
+   ```php
+   !php/const:PDO::MYSQL_ATTR_SSL_CA: /etc/ssl/cert.pem
+   ```
 
 Delete that line and save.
 
@@ -159,19 +159,19 @@ There are also two seeder files, `src/DataFixtures/CategoryFixtures.php` and `sr
 
 2. In your terminal in the root of the Symfony project, run the following to run the migrations:
 
-```bash
-symfony console doctrine:migrations:migrate
-```
+   ```bash
+   symfony console doctrine:migrations:migrate
+   ```
 
-You will get a message asking you to confirm. Type "yes" and hit enter to proceed.
+   You will get a message asking you to confirm. Type "yes" and hit enter to proceed.
 
 3. Next, seed the database by running:
 
-```bash
-symfony console doctrine:fixtures:load
-```
+   ```bash
+   symfony console doctrine:fixtures:load
+   ```
 
-This will purge your database and load the placeholder data into it.
+   This will purge your database and load the placeholder data into it.
 
 4. Refresh your Symfony homepage and you'll see a list of products and their category printed out.
 
@@ -235,16 +235,16 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 3. Click on "**Console**"
 4. Add a new record to the `product` table with:
 
-```sql
-INSERT INTO `store_product` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/150.png', 2);
-```
+   ```sql
+   INSERT INTO `store_product` (name, description, image, category_id)
+   VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/150.png', 2);
+   ```
 
 5. You can confirm that it was added by running:
 
-```sql
-select * from product;
-```
+   ```sql
+   select * from product;
+   ```
 
 You can now refresh the [Symfony homepage](http://localhost:8000) to see the new record.
 

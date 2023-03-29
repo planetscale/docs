@@ -24,25 +24,25 @@ This guide integrates a simple Django application with PlanetScale. The applicat
 
 1. Clone the starter Django application and switch into the project folder:
 
-```bash
-git clone https://github.com/planetscale/django-example.git
-cd django-example
-```
+   ```bash
+   git clone https://github.com/planetscale/django-example.git
+   cd django-example
+   ```
 
 2. Start the virtual environment:
 
-```bash
-python3 -m venv env
-source env/bin/activate
-```
+   ```bash
+   python3 -m venv env
+   source env/bin/activate
+   ```
 
-For Windows, use `env/Scripts/activate`.
+   For Windows, use `env/Scripts/activate`.
 
 3. Install the required packages:
 
-```bash
-pip install -r ./requirements.txt
-```
+   ```bash
+   pip install -r ./requirements.txt
+   ```
 
 ## Set up the database
 
@@ -81,46 +81,46 @@ Both options are covered below.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+   ```
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
-You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Django**". If the password is blurred, click "**New password**".
+   You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Django**". If the password is blurred, click "**New password**".
 
-Take note of the values returned to you, as you won't be able to see this password again.
+   Take note of the values returned to you, as you won't be able to see this password again.
 
-1. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
+2. Open the .env file in your Django app, find the database connection section, and fill it in as follows:
 
-```bash
-DB_HOST=<ACCESS HOST URL>
-DB_PORT=3306
-DB_NAME=<DATABASE_NAME>
-DB_USER=<USERNAME>
-DB_PASSWORD=<PLAIN TEXT>
-MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
-```
+   ```bash
+   DB_HOST=<ACCESS HOST URL>
+   DB_PORT=3306
+   DB_NAME=<DATABASE_NAME>
+   DB_USER=<USERNAME>
+   DB_PASSWORD=<PLAIN TEXT>
+   MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+   ```
 
-The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system](/docs/concepts/secure-connections#ca-root-configuration).
+   The value for `MYSQL_ATTR_SSL_CA` may differ [depending on your operating system](/docs/concepts/secure-connections#ca-root-configuration).
 
 3. Next, in the `mysite/settings.py` file, scroll down and look for the `DATABASES` object. Replace it with the following:
 
-```python
-DATABASES = {
-  'default': {
-    'ENGINE': 'django_psdb_engine',
-    'NAME': os.environ.get('DB_NAME'),
-    'HOST': os.environ.get('DB_HOST'),
-    'PORT': os.environ.get('DB_PORT'),
-    'USER': os.environ.get('DB_USER'),
-    'PASSWORD': os.environ.get('DB_PASSWORD'),
-    'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
-  }
-}
-```
+   ```python
+   DATABASES = {
+     'default': {
+       'ENGINE': 'django_psdb_engine',
+       'NAME': os.environ.get('DB_NAME'),
+       'HOST': os.environ.get('DB_HOST'),
+       'PORT': os.environ.get('DB_PORT'),
+       'USER': os.environ.get('DB_USER'),
+       'PASSWORD': os.environ.get('DB_PASSWORD'),
+       'OPTIONS': {'ssl': {'ca': os.environ.get('MYSQL_ATTR_SSL_CA')}}
+     }
+   }
+   ```
 
 ### Option 2: Connect with PlanetScale proxy
 
@@ -128,23 +128,23 @@ To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https:/
 
 1. Open a connection by running the following:
 
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale connect <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-If you're following this guide exactly and haven't created any new branches, you'll use the default branch, `main`, for `BRANCH_NAME`.
+   If you're following this guide exactly and haven't created any new branches, you'll use the default branch, `main`, for `BRANCH_NAME`.
 
 2. A secure connection to your database will be established and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env` file in your Django app and update it as follows:
 
-```bash
-DB_HOST=127.0.0.1
-DB_PORT=3306
-DB_NAME=<DATABASE_NAME>
-```
+   ```bash
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_NAME=<DATABASE_NAME>
+   ```
 
-The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
+   The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
 
 ## Optional &mdash; Bring in PlanetScale custom database wrapper
 
@@ -154,19 +154,19 @@ Because PlanetScale doesn't support foreign key constraints, you need to pull in
 
 1. Run the following to pull it in:
 
-```bash
-git clone https://github.com/planetscale/django_psdb_engine.git
-```
+   ```bash
+   git clone https://github.com/planetscale/django_psdb_engine.git
+   ```
 
 2. In your `settings.py` file, add `django_psdb_engine` as the database engine.
 
-```python
-DATABASES = {
-    'default': {
-        'ENGINE': 'django_psdb_engine',
-    }
-}
-```
+   ```python
+   DATABASES = {
+       'default': {
+           'ENGINE': 'django_psdb_engine',
+       }
+   }
+   ```
 
 ## Run migrations and seeder
 
@@ -248,16 +248,16 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 3. Click on "**Console**"
 4. Add a new record to the `store_product` table with:
 
-```sql
-INSERT INTO `store_product` (name, description, image, category_id)
-VALUES  ('Product 3', 'Product 3 description', 'https://via.placeholder.com/300.png?text=Product1', 1);
-```
+   ```sql
+   INSERT INTO `store_product` (name, description, image, category_id)
+   VALUES  ('Product 3', 'Product 3 description', 'https://via.placeholder.com/300.png?text=Product1', 1);
+   ```
 
 5. You can confirm that it was added by running:
 
-```sql
-select * from store_product;
-```
+   ```sql
+   select * from store_product;
+   ```
 
 You can also head to the [`/products`](http://localhost:8000/products) endpoint in your Django application to see the new data.
 

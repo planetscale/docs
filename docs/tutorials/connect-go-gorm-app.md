@@ -25,21 +25,21 @@ This guide will integrate [a simple Go (Golang) app](https://github.com/planetsc
 
 1. Clone the starter Go application:
 
-```bash
-git clone https://github.com/planetscale/golang-example.git
-```
+   ```bash
+   git clone https://github.com/planetscale/golang-example.git
+   ```
 
 2. Enter into the folder:
 
-```bash
-cd golang-example
-```
+   ```bash
+   cd golang-example
+   ```
 
 3. Copy the `.env.example` file into `.env`:
 
-```bash
-cp .env.example .env
-```
+   ```bash
+   cp .env.example .env
+   ```
 
 ## Set up the database
 
@@ -49,19 +49,19 @@ You can create a database in the [PlanetScale dashboard](https://app.planetscale
 
 1. Authenticate the CLI with the following command:
 
-```bash
-pscale auth login
-```
+   ```bash
+   pscale auth login
+   ```
 
 2. Create a new database with a default `main` branch with the following command:
 
-```bash
-pscale database create <DATABASE_NAME> --region <REGION_SLUG>
-```
+   ```bash
+   pscale database create <DATABASE_NAME> --region <REGION_SLUG>
+   ```
 
-For `DATABASE_NAME`, you can use any name with lowercase, alphanumeric characters, or underscores. You can also use dashes, but we don't recommend them, as they may need to be escaped in some instances.
+   For `DATABASE_NAME`, you can use any name with lowercase, alphanumeric characters, or underscores. You can also use dashes, but we don't recommend them, as they may need to be escaped in some instances.
 
-For `REGION_SLUG`, choose a region closest to you from the [available regions](/docs/concepts/regions#available-regions) or leave it blank.
+   For `REGION_SLUG`, choose a region closest to you from the [available regions](/docs/concepts/regions#available-regions) or leave it blank.
 
 That's it! Your database is ready to use. Next, let's connect it to the Go application and then add some data.
 
@@ -78,29 +78,29 @@ Both options are covered below.
 
 1. Create a username and password with the PlanetScale CLI by running:
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+   ```
 
-A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
+   A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
-credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+   your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
-Take note of the values returned to you, as you won't be able to see this password again.
+   Take note of the values returned to you, as you won't be able to see this password again.
 
 2. Open the `.env` file in your Go app and update `DSN` as follows:
 
-```bash
-DSN="<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true"
-```
+   ```bash
+   DSN="<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true"
+   ```
 
-Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
+   Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
 
-You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Go**".
+   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Go**".
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -108,21 +108,21 @@ To connect with the PlanetScale proxy, you need the [PlanetScale CLI](https://gi
 
 1. Open a connection by running the following:
 
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale connect <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
+   If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
 
 2. A secure connection to your database will be established, and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env` file in your Go app and update it as follows:
 
-```bash
-DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>"
-```
+   ```bash
+   DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>"
+   ```
 
-The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
+   The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
 
 ## Run migrations and seeder
 
@@ -132,18 +132,18 @@ Let's run those now.
 
 1. First, start your Go app with:
 
-```bash
-go run .
-```
+   ```bash
+   go run .
+   ```
 
 2. Next, navigate to [`localhost:8080/seed`](http://localhost:8080/seed) to run the migrations and the seeder.
 
 3. You can now see the products and categories:
 
-- Get all products &mdash; [`localhost:8080/products`](http://localhost:8080/products)
-- Get all categories &mdash; [`localhost:8080/categories`](http://localhost:8080/categories)
-- Get a single product &mdash; [`localhost:8080/product/{id}`](http://localhost:8080/products/1)
-- Get a single category &mdash; [`localhost:8080/category/{id}`](http://localhost:8080/categories/1)
+   - Get all products &mdash; [`localhost:8080/products`](http://localhost:8080/products)
+   - Get all categories &mdash; [`localhost:8080/categories`](http://localhost:8080/categories)
+   - Get a single product &mdash; [`localhost:8080/product/{id}`](http://localhost:8080/products/1)
+   - Get a single category &mdash; [`localhost:8080/category/{id}`](http://localhost:8080/categories/1)
 
 ### Foreign key constraints
 
@@ -175,34 +175,34 @@ You may need to install the MySQL command line client if you haven't already.
 
 1. Run the following command in your terminal:
 
-```bash
-pscale shell <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale shell <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-This will open up a MySQL shell connected to the specified database and branch.
+   This will open up a MySQL shell connected to the specified database and branch.
 
-{% callout %}
-A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-{% /callout %}
+   {% callout %}
+   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
+   {% /callout %}
 
 2. Add a record to the `products` table:
 
-```sql
-INSERT INTO `products` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png', 2);
-```
+   ```sql
+   INSERT INTO `products` (name, description, image, category_id)
+   VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png', 2);
+   ```
 
-The value `id` will be filled with a default value.
+   The value `id` will be filled with a default value.
 
 3. You can verify it was added in the PlanetScale CLI MySQL shell with:
 
-```sql
-SELECT * FROM products;
-```
+   ```sql
+   SELECT * FROM products;
+   ```
 
 4. Type `exit` to exit the shell.
 
-You can now navigated the [Go products page](http://localhost:8080/products) to see the new record.
+   You can now navigated the [Go products page](http://localhost:8080/products) to see the new record.
 
 ### Add data with PlanetScale dashboard console
 
@@ -215,16 +215,16 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 3. Click on "**Console**"
 4. Add a new record to the `product` table with:
 
-```sql
-INSERT INTO `products` (name, description, image, category_id)
-VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png', 2);
-```
+   ```sql
+   INSERT INTO `products` (name, description, image, category_id)
+   VALUES  ('Spaceship', 'Get ready for the trip of a lifetime', 'https://via.placeholder.com/300.png', 2);
+   ```
 
 5. You can confirm that it was added by running:
 
-```sql
-SELECT * FROM products;
-```
+   ```sql
+   SELECT * FROM products;
+   ```
 
 You can now refresh the [Go products page](http://localhost:8080/products) to see the new record.
 

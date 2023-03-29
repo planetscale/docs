@@ -104,54 +104,54 @@ You can also get these exact values to copy/paste from your [PlanetScale dashboa
 
 1. Authenticate the CLI with the following command:
 
-```bash
-pscale auth login
-```
+   ```bash
+   pscale auth login
+   ```
 
 2. Using the PlanetScale CLI, create a new username and password for the branch of your database:
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+   ```
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
-Take note of the values returned to you, as you won't be able to see this password again.
+   Take note of the values returned to you, as you won't be able to see this password again.
 
-```
-Password production-password was successfully created.
-Please save the values below as they will not be shown again
+   ```
+   Password production-password was successfully created.
+   Please save the values below as they will not be shown again
 
-  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
- --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
-  production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx
-```
+     NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
+    --------------------- -------------- ----------------------------------- ------------------ -------------------------------------------------------
+     production-password   xxxxxxxxxxxxx   xxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxxx
+   ```
 
-2. Next, create your `.env` file by renaming the `.env.example` file to `.env`:
+3. Next, create your `.env` file by renaming the `.env.example` file to `.env`:
 
-```bash
-mv .env.example .env
-```
+   ```bash
+   mv .env.example .env
+   ```
 
-1. Use the values from the CLI output in step 1 to construct your connection string that will be used to connect your Node app to your PlanetScale database. Create your connection string in the following format:
+4. Use the values from the CLI output in step 1 to construct your connection string that will be used to connect your Node app to your PlanetScale database. Create your connection string in the following format:
 
-```
-mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
-```
+   ```
+   mysql://<USERNAME>:<PLAIN_TEXT_PASSWORD>@<ACCESS_HOST_URL>/<DATABASE_NAME>?ssl={"rejectUnauthorized":true}
+   ```
 
-3. In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed above. It should look something like this:
+5. In the `.env` file, fill in the `DATABASE_URL` variable with the value you constructed above. It should look something like this:
 
-```bash
-DATABASE_URL=mysql://xxxxxxxxxxxxx:pscale_pw_xxxxxxx@xxxxxx.us-east-2.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
-```
+   ```bash
+   DATABASE_URL=mysql://xxxxxxxxxxxxx:pscale_pw_xxxxxxx@xxxxxx.us-east-2.psdb.cloud/express_database?ssl={"rejectUnauthorized":true}
+   ```
 
-4. Finally, run your Express application with:
+6. Finally, run your Express application with:
 
-```bash
-node app.js
-```
+   ```bash
+   node app.js
+   ```
 
 Navigate to [http://localhost:3000](http://localhost:3000) and you'll see the data from your `users` table!
 

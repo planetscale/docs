@@ -31,33 +31,33 @@ There are two ways to generate a new username and password for your branch:
 2. Click "**Connect**".
 3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
-![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials.png)
+   ![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials.png)
 
 4. If the password isn't visible, click "New password".
 5. Copy the credentials.
 6. Paste them in your application's MySQL configuration file (often just a `.env` file). The layout and name of this file will vary depending on the application language, but it may look something like this:
 
-```bash
-DATABASE=<DATABASE_NAME>
-USERNAME=<USERNAME>
-HOST=<HOST_NAME>
-PASSWORD=<PASSWORD>
-SSL= // more information about this in next step
-```
+   ```bash
+   DATABASE=<DATABASE_NAME>
+   USERNAME=<USERNAME>
+   HOST=<HOST_NAME>
+   PASSWORD=<PASSWORD>
+   SSL= // more information about this in next step
+   ```
 
-Check out our language integration guides in the side navigation for more explicit instructions.
+   Check out our language integration guides in the side navigation for more explicit instructions.
 
 7. To ensure a secure connection, you must validate the server-side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
-```bash
-MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
-```
+   ```bash
+   MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+   ```
 
-The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/docs/concepts/secure-connections#ca-root-configuration).
+   The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/docs/concepts/secure-connections#ca-root-configuration).
 
-Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
+   Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+   If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
 
 ### Generate credentials in the PlanetScale CLI
 
@@ -65,46 +65,46 @@ If you prefer working from the CLI, you can quickly spin up new credentials ther
 
 1. Run the following command in the CLI to create a new username and password for your branch.
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+   ```
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
 2. Take note of the values returned. You won't be able to see this password again.
 
-```
-Password production-password was successfully created.
-Please save the values below as they will not be shown again.
+   ```
+   Password production-password was successfully created.
+   Please save the values below as they will not be shown again.
 
-  NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
- --------------------- ------------- --------------------------------- ------------------ --------------------------------
-  production-password   xxxxxxxxxx   xxxxxxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxx_xxxxxxxxxxxxx
-```
+     NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
+    --------------------- ------------- --------------------------------- ------------------ --------------------------------
+     production-password   xxxxxxxxxx   xxxxxxxxxx.us-east-2.psdb.cloud   Can Read & Write   pscale_pw_xxxxxx_xxxxxxxxxxxxx
+   ```
 
 3. Paste the values from the console output into your application's MySQL configuration file. The layout and name of this file will vary depending on the application language, but it may look something like this:
 
-```bash
-DATABASE=<DATABASE_NAME>
-USERNAME=<USERNAME>
-HOST=<ACCESS HOST URL>
-PASSWORD=<PASSWORD>
-SSL= // This is covered in the next step
-```
+   ```bash
+   DATABASE=<DATABASE_NAME>
+   USERNAME=<USERNAME>
+   HOST=<ACCESS HOST URL>
+   PASSWORD=<PASSWORD>
+   SSL= // This is covered in the next step
+   ```
 
 4. To ensure a secure connection, you must validate the server-side certificate from PlanetScale. This configuration depends on your application, but often it just means adding a line to your `.env` file similar to this:
 
-```bash
-MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
-```
+   ```bash
+   MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+   ```
 
-The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/docs/concepts/secure-connections#ca-root-configuration).
+   The path to the certificate depends on your system. The above example shows the path for macOS, but you can find others in our [Secure connections documentation](/docs/concepts/secure-connections#ca-root-configuration).
 
-Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
+   Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 from the previous section) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+   If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 from the previous section) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
 
 ## Option 2: Connect using the PlanetScale proxy
 
@@ -114,21 +114,21 @@ You'll use the CLI to establish a secure connection to PlanetScale. It will list
 
 1. Make sure you have [the CLI set up](/docs/concepts/planetscale-environment-setup), and then run the following command:
 
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale connect <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-This establishes a secure connection and opens a port on your local machine that you can use to connect to any MySQL client.
+   This establishes a secure connection and opens a port on your local machine that you can use to connect to any MySQL client.
 
 2. Take note of the address it returns to you. By default it is `127.0.0.1:3306`. The CLI will use a different port if `3306` is unavailable.
 
 3. In your application's MySQL configuration file, use the following to connect:
 
-```bash
-DATABASE=<DATABASE_NAME>
-HOST=127.0.0.1
-PORT=3306 // use the value that was returned in the console
-```
+   ```bash
+   DATABASE=<DATABASE_NAME>
+   HOST=127.0.0.1
+   PORT=3306 // use the value that was returned in the console
+   ```
 
 Your application should now be connected to the specified PlanetScale database branch!
 

@@ -22,40 +22,40 @@ To import an existing database into PlanetScale:
 2. Give your imported database a name and [select a region](/docs/concepts/regions) from the dropdown.
 3. We recommend using the same name as the database you're importing from to avoid having to update any database name references throughout your application code. If you'd prefer to use a different database name, just make sure to update your app where applicable once you fully switch over to PlanetScale.
 
-{% callout %}
-Importing a database will **not** count towards your `read` or `write` usage.
-{% /callout %}
+   {% callout %}
+   Importing a database will **not** count towards your `read` or `write` usage.
+   {% /callout %}
 
-![Select name and region for new database import](/assets/docs/imports/database-imports/form.png)
+   ![Select name and region for new database import](/assets/docs/imports/database-imports/form.png)
 
 4. Fill in the following connection values with information from your existing hosted database:
 
-- **Host name** &mdash; The address where the database is hosted.
-- **Port** &mdash; The port where your database is hosted. The default MySQL port is `3306`.
-- **SSL verification mode** &mdash; If your database server provides a valid SSL certificate, please set this to `Required`, otherwise select `Disabled`.
-- **Database name** &mdash; The exact name of the database you want to import.
-- **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
+   - **Host name** &mdash; The address where the database is hosted.
+   - **Port** &mdash; The port where your database is hosted. The default MySQL port is `3306`.
+   - **SSL verification mode** &mdash; If your database server provides a valid SSL certificate, please set this to `Required`, otherwise select `Disabled`.
+   - **Database name** &mdash; The exact name of the database you want to import.
+   - **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
-{% callout %}
-You must have [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) enabled on the
-database you're importing.
-{% /callout %}
+   {% callout %}
+   You must have [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) enabled on the
+   database you're importing.
+   {% /callout %}
 
 5. You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
 
-For the "Authenticate with mTLS option", you'll need to provide the following:
+   For the "Authenticate with mTLS option", you'll need to provide the following:
 
-- **SSL client certificate** &mdash; Certificate to authenticate PlanetScale with your database server.
-- **SSL client key** &mdash; This is the private key for the client certificate
+   - **SSL client certificate** &mdash; Certificate to authenticate PlanetScale with your database server.
+   - **SSL client key** &mdash; This is the private key for the client certificate
 
 6. From here you, can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
 
 7. (Optional) Under Advanced settings, you have the option to enter the following:
 
-- **SSL server name override**
-- **SSL CA certificate chain** &mdash; If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
+   - **SSL server name override**
+   - **SSL CA certificate chain** &mdash; If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
 
-For more information about certificates from a Certificate Authority, check out our [Secure connections documentation](/docs/concepts/secure-connections#certificate-authorities).
+   For more information about certificates from a Certificate Authority, check out our [Secure connections documentation](/docs/concepts/secure-connections#certificate-authorities).
 
 ### Test the connection
 

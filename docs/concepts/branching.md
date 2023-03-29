@@ -141,9 +141,9 @@ PlanetScale also provides insight on the deploy queue, listing all of the schema
 2. To add a deploy request to the deploy queue, click “**Add changes to the deploy queue**” on the deploy request page.
 3. (_Optional_) You can also run the following command with the [PlanetScale CLI](/docs/reference/deploy-request):
 
-```bash
-pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
-```
+   ```bash
+   pscale deploy-request deploy <DATABASE_NAME> <DEPLOY_REQUEST_NUMBER>
+   ```
 
 4. If successful, you'll get the message "These changes have been deployed".
 5. Your deploy request has now been merged into production. You can click on the "Deploy requests" tab of the database to see the list of previous deploys.

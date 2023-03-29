@@ -121,7 +121,7 @@ This feature is helpful if you have long-running migrations. For very large or c
 
 1. When you open a deploy request, uncheck the "**Auto-apply changes**" box.
 
-![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments.png)
+   ![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments.png)
 
 2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
 3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.

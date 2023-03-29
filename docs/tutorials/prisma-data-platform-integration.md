@@ -48,28 +48,28 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 8. Go to your GitHub account and `git clone` the project that Prisma created locally.
 9. Navigate to your `prisma/schema.prisma` file and update it so that the `client` and `datasource` look similar to the following schema:
 
-{% callout %}
-If you are using an existing Prisma project, you can skip updating the schema in steps 9 and 10.
-{% /callout %}
+   {% callout %}
+   If you are using an existing Prisma project, you can skip updating the schema in steps 9 and 10.
+   {% /callout %}
 
-{% callout %}
-In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
+   {% callout %}
+   In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
 
-You can learn more about Prisma's Relation mode in the
-[Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
-{% /callout %}
+   You can learn more about Prisma's Relation mode in the
+   [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
+   {% /callout %}
 
-```js
-generator client {
-  provider        = "prisma-client-js" //If you want to use TypeScript, use "prisma-client-ts"
-}
+   ```js
+   generator client {
+     provider        = "prisma-client-js" //If you want to use TypeScript, use "prisma-client-ts"
+   }
 
-datasource db {
-  provider             = "mysql"
-  url                  = env("DATABASE_URL")
-  relationMode = "prisma"
-}
-```
+   datasource db {
+     provider             = "mysql"
+     url                  = env("DATABASE_URL")
+     relationMode = "prisma"
+   }
+   ```
 
 10. You can now add your tables in the `schema.prisma` file following the schema above. You can either create your own tables, or, if you need an example, you can copy the schema we used in [Beam, a sample application](https://github.com/planetscale/beam/blob/main/prisma/schema.prisma). Learn more about data modeling with Prisma in the [Prisma schema documentation](https://www.prisma.io/docs/concepts/components/prisma-schema). Make sure to `git commit` and `git push` this to your repo. Prisma will pick up these changes to your schema.
 11. Lastly, you need to push your new schema to PlanetScale. To do this, locally, create a `.env` file to store your `DATABASE_URL` in your project folder.

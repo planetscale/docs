@@ -28,28 +28,28 @@ This guide uses [a simple PHP app](https://github.com/planetscale/php-example) t
 
 1. Clone the starter PHP application:
 
-```bash
-git clone https://github.com/planetscale/php-example.git
-```
+   ```bash
+   git clone https://github.com/planetscale/php-example.git
+   ```
 
 2. Enter into the folder and install the dependencies:
 
-```bash
-cd php-example
-composer install
-```
+   ```bash
+   cd php-example
+   composer install
+   ```
 
 3. Rename the `.env.example` file to `.env`:
 
-```bash
-mv .env.example .env
-```
+   ```bash
+   mv .env.example .env
+   ```
 
 4. Start the application:
 
-```bash
-php -S localhost:8000
-```
+   ```bash
+   php -S localhost:8000
+   ```
 
 You can view the application at [http://localhost:8000](http://localhost:8000).
 
@@ -64,15 +64,15 @@ This guide will use the CLI, but you can follow the database setup instructions 
 1. Install the [PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
 2. Authenticate in the CLI with the following command:
 
-```bash
-pscale auth login
-```
+   ```bash
+   pscale auth login
+   ```
 
 3. Create a new database with the following command:
 
-```bash
-pscale database create <DATABASE_NAME> --region <REGION_SLUG>
-```
+   ```bash
+   pscale database create <DATABASE_NAME> --region <REGION_SLUG>
+   ```
 
 You can use any name with lowercase, alphanumeric characters, or underscores. You can also use dashes, but we don't recommend them, as they may need to be escaped in some instances.
 
@@ -118,37 +118,37 @@ If you're not using the CLI, you can get the exact values to copy/paste from you
 
 1. Create a username and password with the PlanetScale CLI by running:
 
-```bash
-pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
-```
+   ```bash
+   pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
+   ```
 
-A default branch, `main`, was created when you created the database, so you can use that for `BRANCH_NAME`.
+   A default branch, `main`, was created when you created the database, so you can use that for `BRANCH_NAME`.
 
-{% callout %}
-The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
-credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-your database overview page, click "Settings", and then click "Passwords".
-{% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+   your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
-Take note of the values returned to you, as you won't be able to see this password again.
+   Take note of the values returned to you, as you won't be able to see this password again.
 
 2. Open the `.env` file in your PHP app:
 
-```bash
-HOST=<ACCESS_HOST_URL>
-DATABASE=<DATABASE_NAME>
-USERNAME=<USERNAME>
-PASSWORD=<PASSWORD>
-MYSQL_ATTR_SSL_CA=
-```
+   ```bash
+   HOST=<ACCESS_HOST_URL>
+   DATABASE=<DATABASE_NAME>
+   USERNAME=<USERNAME>
+   PASSWORD=<PASSWORD>
+   MYSQL_ATTR_SSL_CA=
+   ```
 
-Fill in your database name. For `USERNAME`, `PASSWORD`, and `HOST`, use the corresponding values from the CLI output.
+   Fill in your database name. For `USERNAME`, `PASSWORD`, and `HOST`, use the corresponding values from the CLI output.
 
 3. For `MYSQL_ATTR_SSL_CA`, use our [CA root configuration doc](/docs/concepts/secure-connections#ca-root-configuration) to find the correct value for your system. For example, if you're on MacOS, it would be:
 
-```bash
-MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
-```
+   ```bash
+   MYSQL_ATTR_SSL_CA=/etc/ssl/cert.pem
+   ```
 
 4. Refresh your PHP homepage, and you should see the message that you're connected to your database!
 
@@ -158,50 +158,50 @@ We recommend connecting with a username and password, but you can also open a qu
 
 1. Open a connection by running the following:
 
-```bash
-pscale connect <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale connect <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
+   If you're following this guide exactly and haven't created any branches, you can use the default branch, `main`.
 
 2. A secure connection to your database will be established, and you'll see a local address you can use to connect to your application.
 
 3. Open the `.env` file in your PHP app and update it as follows:
 
-```bash
-HOST=127.0.0.1
-PORT=3306 # Get this from the output of the previous step
-DATABASE=<DATABASE_NAME>
-```
+   ```bash
+   HOST=127.0.0.1
+   PORT=3306 # Get this from the output of the previous step
+   DATABASE=<DATABASE_NAME>
+   ```
 
-The connection uses port `3306` by default, but we'll assign a random port if `3306` is in use. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
+   The connection uses port `3306` by default, but we'll assign a random port if `3306` is in use. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
 
-1. Open `db.php` and replace it with the following:
+4. Open `db.php` and replace it with the following:
 
-```php
-<?php
-$hostname = $_ENV['HOST'];
-$dbName = $_ENV['DATABASE'];
-$port = $_ENV['PORT'];
-// $ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
+   ```php
+   <?php
+   $hostname = $_ENV['HOST'];
+   $dbName = $_ENV['DATABASE'];
+   $port = $_ENV['PORT'];
+   // $ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
 
-$mysqli = mysqli_init();
-// $mysqli->ssl_set(NULL, NULL, $ssl, NULL, NULL);
-$mysqli->real_connect($hostname, '', '', $dbName, $port);
+   $mysqli = mysqli_init();
+   // $mysqli->ssl_set(NULL, NULL, $ssl, NULL, NULL);
+   $mysqli->real_connect($hostname, '', '', $dbName, $port);
 
-if ($mysqli->connect_error) {
-    echo 'not connected to the database';
-} else {
-    echo "Connected successfully";
-}
-```
+   if ($mysqli->connect_error) {
+       echo 'not connected to the database';
+   } else {
+       echo "Connected successfully";
+   }
+   ```
 
-This removes all references to `username`, `password`, and `ssl`.
+   This removes all references to `username`, `password`, and `ssl`.
 
-{% callout %}
-It's important to make sure that you add the SSL check back if you switch back to username and password credentials.
-We're intentionally commenting it out instead of deleting it in case you switch back.
-{% /callout %}
+   {% callout %}
+   It's important to make sure that you add the SSL check back if you switch back to username and password credentials.
+   We're intentionally commenting it out instead of deleting it in case you switch back.
+   {% /callout %}
 
 5. Refresh your PHP homepage, and you should see the message that you're connected to your database!
 
@@ -224,53 +224,53 @@ If you don't care to install the MySQL client or the PlanetScale CLI, another qu
 3. Click on "**Console**"
 4. Create the `categories` table:
 
-```sql
-CREATE TABLE categories (
-id INT AUTO_INCREMENT NOT NULL,
-name VARCHAR(255) NOT NULL,
-description VARCHAR(255) NOT NULL,
-PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
-```
+   ```sql
+   CREATE TABLE categories (
+   id INT AUTO_INCREMENT NOT NULL,
+   name VARCHAR(255) NOT NULL,
+   description VARCHAR(255) NOT NULL,
+   PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+   ```
 
 5. Create the `products` table:
 
-```sql
-CREATE TABLE products (
-id INT AUTO_INCREMENT NOT NULL,
-name VARCHAR(255) NOT NULL,
-description VARCHAR(255) NOT NULL,
-image VARCHAR(255) NOT NULL,
-category_id INT NOT NULL,
-PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
-```
+   ```sql
+   CREATE TABLE products (
+   id INT AUTO_INCREMENT NOT NULL,
+   name VARCHAR(255) NOT NULL,
+   description VARCHAR(255) NOT NULL,
+   image VARCHAR(255) NOT NULL,
+   category_id INT NOT NULL,
+   PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
+   ```
 
-PlanetScale does not support foreign key constraints, but we do support the concept of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
+   PlanetScale does not support foreign key constraints, but we do support the concept of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
 
 6. Add data to the `products` table with:
 
-```sql
-INSERT INTO `products` (name, description, image, category_id) VALUES
-('Shoes', 'Description for Shoes', 'https://via.placeholder.com/150.png', '1'),
-('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
-('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4');
-```
+   ```sql
+   INSERT INTO `products` (name, description, image, category_id) VALUES
+   ('Shoes', 'Description for Shoes', 'https://via.placeholder.com/150.png', '1'),
+   ('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
+   ('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4');
+   ```
 
 7. Add data to the `categories` table with:
 
-```sql
-INSERT INTO `categories` (name, description) VALUES
-('Clothing', 'Description for Clothing'),
-('Electronics', 'Description for Electronics'),
-('Appliances', 'Description for Appliances'),
-('Health', 'Description for Health');
-```
+   ```sql
+   INSERT INTO `categories` (name, description) VALUES
+   ('Clothing', 'Description for Clothing'),
+   ('Electronics', 'Description for Electronics'),
+   ('Appliances', 'Description for Appliances'),
+   ('Health', 'Description for Health');
+   ```
 
 8. You can confirm that it was added by running:
 
-```sql
-SELECT * FROM products;
-SELECT * FROM categories;
-```
+   ```sql
+   SELECT * FROM products;
+   SELECT * FROM categories;
+   ```
 
 You can now refresh the [PHP homepage](http://localhost:8000) to see the new record.
 
@@ -282,68 +282,68 @@ You may need to [install the MySQL command line client](/docs/concepts/planetsca
 
 1. Run the following command in your terminal:
 
-```bash
-pscale shell <DATABASE_NAME> <BRANCH_NAME>
-```
+   ```bash
+   pscale shell <DATABASE_NAME> <BRANCH_NAME>
+   ```
 
-This will open up a MySQL shell connected to the specified database and branch.
+   This will open up a MySQL shell connected to the specified database and branch.
 
-{% callout %}
-A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-{% /callout %}
+   {% callout %}
+   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
+   {% /callout %}
 
 2. Create the `categories` table:
 
-```sql
-CREATE TABLE categories (
-  id INT AUTO_INCREMENT NOT NULL,
-  name VARCHAR(255) NOT NULL,
-  description VARCHAR(255) NOT NULL
-);
-```
+   ```sql
+   CREATE TABLE categories (
+     id INT AUTO_INCREMENT NOT NULL,
+     name VARCHAR(255) NOT NULL,
+     description VARCHAR(255) NOT NULL
+   );
+   ```
 
 3. Create the `products` table:
 
-```sql
-CREATE TABLE products (
-  id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  name VARCHAR(255) NOT NULL,
-  description VARCHAR(255) NOT NULL,
-  image VARCHAR(255) NOT NULL,
-  category_id INT NOT NULL,
-  KEY category_id_idx (category_id)
-);
-```
+   ```sql
+   CREATE TABLE products (
+     id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+     name VARCHAR(255) NOT NULL,
+     description VARCHAR(255) NOT NULL,
+     image VARCHAR(255) NOT NULL,
+     category_id INT NOT NULL,
+     KEY category_id_idx (category_id)
+   );
+   ```
 
-PlanetScale does not support foreign key constraints, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
+   PlanetScale does not support foreign key constraints, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
 
 4. Add some records to the `products` table:
 
-```sql
-INSERT INTO `products` (name, description, image, category_id) VALUES
-('Shoes', 'Description for Shoes', 'https://via.placeholder.com/150.png', '1'),
-('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
-('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4');
-```
+   ```sql
+   INSERT INTO `products` (name, description, image, category_id) VALUES
+   ('Shoes', 'Description for Shoes', 'https://via.placeholder.com/150.png', '1'),
+   ('Hat', 'Description for Hats', 'https://via.placeholder.com/150.png', '1'),
+   ('Bicycle', 'Description for Bicycle', 'https://via.placeholder.com/150.png', '4');
+   ```
 
-The value `id` will be filled with a default value.
+   The value `id` will be filled with a default value.
 
 5. Add some data to the `categories` table:
 
-```sql
-INSERT INTO `categories` (name, description) VALUES
-('Clothing', 'Description for Clothing'),
-('Electronics', 'Description for Electronics'),
-('Appliances', 'Description for Appliances'),
-('Health', 'Description for Health');
-```
+   ```sql
+   INSERT INTO `categories` (name, description) VALUES
+   ('Clothing', 'Description for Clothing'),
+   ('Electronics', 'Description for Electronics'),
+   ('Appliances', 'Description for Appliances'),
+   ('Health', 'Description for Health');
+   ```
 
 6. You can verify everything was added in the PlanetScale CLI MySQL shell with:
 
-```sql
-SELECT * FROM products;
-SELECT * FROM categories;
-```
+   ```sql
+   SELECT * FROM products;
+   SELECT * FROM categories;
+   ```
 
 7. Type `exit` to exit the shell.
 

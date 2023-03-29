@@ -49,141 +49,141 @@ Let's add another table to your existing `blog` schema:
 
 1. Create an `add-posts-table` development branch from `main` in your database _blog_:
 
-```bash
-pscale branch create blog add-posts-table
-```
+   ```bash
+   pscale branch create blog add-posts-table
+   ```
 
-When the branch is ready, you can verify that the `schema_migrations` table is up-to-date with `main` by checking for the timestamp of your `Create Users` migration file. Your migration will have a different timestamp than the one shown here.
+   When the branch is ready, you can verify that the `schema_migrations` table is up-to-date with `main` by checking for the timestamp of your `Create Users` migration file. Your migration will have a different timestamp than the one shown here.
 
-Check the timestamp in your codebase:
+   Check the timestamp in your codebase:
 
-```bash
-ls db/migrate
-20211014210422_create_users.rb
-```
+   ```bash
+   ls db/migrate
+   20211014210422_create_users.rb
+   ```
 
-Connect to the new branch:
+   Connect to the new branch:
 
-```bash
-pscale shell blog add-posts-table
-```
+   ```bash
+   pscale shell blog add-posts-table
+   ```
 
-Query the migration table:
+   Query the migration table:
 
-```sql
-blog/add-posts-table> select * from schema_migrations;
-+----------------+
-| version        |
-+----------------+
-| 20211014210422 |
-+----------------+
-```
+   ```sql
+   blog/add-posts-table> select * from schema_migrations;
+   +----------------+
+   | version        |
+   +----------------+
+   | 20211014210422 |
+   +----------------+
+   ```
 
 2. Connect your development environment to the new branch:
 
-One way to do this is to create a new password for the `add-posts-table` branch and update `config/database.yml` with the new username, password, and host. Another is to use `pscale connect` to establish a secure connection on a local port. Since the `add-posts-table` branch won't be needed after the migration, let's use the `pscale connect` proxy.
+   One way to do this is to create a new password for the `add-posts-table` branch and update `config/database.yml` with the new username, password, and host. Another is to use `pscale connect` to establish a secure connection on a local port. Since the `add-posts-table` branch won't be needed after the migration, let's use the `pscale connect` proxy.
 
-In a separate terminal, establish the connection:
+   In a separate terminal, establish the connection:
 
-```bash
-pscale connect blog add-posts-table --port 3309
-```
+   ```bash
+   pscale connect blog add-posts-table --port 3309
+   ```
 
-Then, update `config/database.yml` to connect through the proxy:
+   Then, update `config/database.yml` to connect through the proxy:
 
-```yaml
-development:
-  <<: *default
-  adapter: mysql2
-  database: blog
-  host: 127.0.0.1
-  port: 3309
-```
+   ```yaml
+   development:
+     <<: *default
+     adapter: mysql2
+     database: blog
+     host: 127.0.0.1
+     port: 3309
+   ```
 
 3. Create the second Rails migration and call it `CreatePosts`:
 
-```bash
-rails generate migration CreatePosts
-```
+   ```bash
+   rails generate migration CreatePosts
+   ```
 
-Find the new migration file in `db/migrate` and add a few details for the new Posts table:
+   Find the new migration file in `db/migrate` and add a few details for the new Posts table:
 
-```ruby
-class CreatePosts < ActiveRecord::Migration[7.0]
-  def change
-    create_table :posts do |t|
-      t.string :title
-      t.text :content
-      t.bool :published
-      t.references :user
-      t.timestamps
-    end
-  end
-end
-```
+   ```ruby
+   class CreatePosts < ActiveRecord::Migration[7.0]
+     def change
+       create_table :posts do |t|
+         t.string :title
+         t.text :content
+         t.bool :published
+         t.references :user
+         t.timestamps
+       end
+     end
+   end
+   ```
 
 4. Run the CreatePosts migration:
 
-```bash
-rake db:migrate
-```
+   ```bash
+   rake db:migrate
+   ```
 
-This command runs the new migration against your `add-posts-table` _development_ branch.
+   This command runs the new migration against your `add-posts-table` _development_ branch.
 
-At this point, Rails creates the `posts` table and inserts another `timestamp` into the `schema_migrations` table on your development branch.
+   At this point, Rails creates the `posts` table and inserts another `timestamp` into the `schema_migrations` table on your development branch.
 
-You can verify the change in `schema_migrations` yourself:
+   You can verify the change in `schema_migrations` yourself:
 
-```sql
-blog/add-posts-table> select * from schema_migrations;
-+----------------+
-| version        |
-+----------------+
-| 20211014210422 |
-| 20220224221753 |
-+----------------+
-```
+   ```sql
+   blog/add-posts-table> select * from schema_migrations;
+   +----------------+
+   | version        |
+   +----------------+
+   | 20211014210422 |
+   | 20220224221753 |
+   +----------------+
+   ```
 
 5. Open a deploy request for your `add-posts-table` branch, and deploy your changes to `main`.
 
-You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
+   You can complete the deploy request either in the web app or with the `pscale deploy-request` command.
 
-```bash
-pscale deploy-request create blog add-posts-table
-```
+   ```bash
+   pscale deploy-request create blog add-posts-table
+   ```
 
-```bash
-pscale deploy-request deploy blog 1
-```
+   ```bash
+   pscale deploy-request deploy blog 1
+   ```
 
-To create the deploy request, PlanetScale looks at the differences between the schemas of `main` and `add-posts-table` and plans a `create table` statement to add the new table to `main`. When you deploy, PlanetScale runs that ` create table` statement and copies the second row from `schema_migrations` in `add-posts-table` to the `schema_migrations` table in `main`.`
+   To create the deploy request, PlanetScale looks at the differences between the schemas of `main` and `add-posts-table` and plans a `create table` statement to add the new table to `main`. When you deploy, PlanetScale runs that ` create table` statement and copies the second row from `schema_migrations` in `add-posts-table` to the `schema_migrations` table in `main`.`
 
 6. Verify the changes in your `main` branch:
 
-In a `pscale` shell for `main` you can verify that the changes from `add-posts-table` were deployed successfully.
+   In a `pscale` shell for `main` you can verify that the changes from `add-posts-table` were deployed successfully.
 
-```bash
-pscale shell blog main
-```
+   ```bash
+   pscale shell blog main
+   ```
 
-```sql
-blog/|⚠ main ⚠|> show tables;
-+----------------------+
-| Tables_in_blog       |
-+----------------------+
-| posts                |
-| schema_migrations    |
-| users                |
-+----------------------+
+   ```sql
+   blog/|⚠ main ⚠|> show tables;
+   +----------------------+
+   | Tables_in_blog       |
+   +----------------------+
+   | posts                |
+   | schema_migrations    |
+   | users                |
+   +----------------------+
 
-blog/|⚠ main ⚠|> select * from schema_migrations;
-+----------------+
-| version        |
-+----------------+
-| 20220223232425 |
-| 20220224221753 |
-+----------------+
-```
+   blog/|⚠ main ⚠|> select * from schema_migrations;
+   +----------------+
+   | version        |
+   +----------------+
+   | 20220223232425 |
+   | 20220224221753 |
+   +----------------+
+   ```
 
 ## Summary
 
