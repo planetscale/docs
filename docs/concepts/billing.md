@@ -85,9 +85,9 @@ You can add additional development branches to Scaler and Team plans in **packs 
 
 ### User scheduled backups
 
-We run automatic daily backups for every branch for free. On the Scaler and Team plans, we run automated backups every 12 hours.
+We run automatic daily backups for every branch for free. On the Scaler and Team plans, we run automated backups every 12 hours. Disk space for backups is not counted against your plan's storage limit.
 
-You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, we charge **$0.023 per GB** per month.
+You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, storage is billed at **$0.023 per GB** per month. Backups include system tables as well as your data and start at around 140MB.
 
 ### Single Sign-on (SSO)
 
