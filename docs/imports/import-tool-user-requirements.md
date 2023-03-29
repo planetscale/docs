@@ -16,6 +16,7 @@ Below is the minimum set of permissions needed and what each allows the user to 
 | Table  | `<DATABASE_NAME>`, `_vt` | `SELECT`             | Enable use of SELECT.                                                        |
 | Table  | `<DATABASE_NAME>`, `_vt` | `INSERT`             | Enable use of INSERT.                                                        |
 | Table  | `<DATABASE_NAME>`        | `LOCK TABLES`        | Enable use of LOCK TABLES on tables for which you have the SELECT privilege. |
+| Table  | `<DATABASE_NAME>`        | `SHOW VIEW`          | Enable use of SHOW VIEW.                                                     |
 | Table  | `<DATABASE_NAME>`, `_vt` | `UPDATE`             | Enable use of UPDATE.                                                        |
 | Table  | `<DATABASE_NAME>`, `_vt` | `DELETE`             | Enable use of DELETE.                                                        |
 | Table  | `_vt`                    | `CREATE`             | Enable database and table creation.                                          |
@@ -38,6 +39,6 @@ This script can be used to create a user with the necessary permissions. The use
 ```sql
 CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
 GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'migration_user'@'%';
-GRANT SELECT, INSERT, UPDATE, DELETE, LOCK TABLES ON `<DATABASE_NAME>`.* TO 'migration_user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW, LOCK TABLES ON `<DATABASE_NAME>`.* TO 'migration_user'@'%';
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `_vt`.* TO 'migration_user'@'%';
 ```
