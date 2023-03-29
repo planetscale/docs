@@ -8,6 +8,10 @@ date: '2022-08-01'
 
 This guide will walk you through setting up and deploying your PlanetScale database on Netlify.
 
+{% callout %}
+This doc is intended for users that are manually storing a connection string in an environment variable in Netlify. If you want to use the Netlify integration, which handles this for you, see the [PlanetScale integration in the Netlify docs](https://docs.netlify.com/integrations/planetscale-integration).
+{% /callout %}
+
 ## Prerequisites
 
 - A PlanetScale database &mdash; If you haven't created a database, refer to our [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide) to get started
