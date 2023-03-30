@@ -4,9 +4,7 @@ subtitle: 'Improve query performance with PlanetScale Boost query caching.'
 date: '2022-11-15'
 ---
 
-{% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
-{% /callout %}
+{% callout %} PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today. {% /callout %}
 
 ## Overview
 
@@ -73,10 +71,7 @@ const boostedQuery = boostedConn.query("SELECT COUNT(id) FROM big_table WHERE se
 const user = conn.query("SELECT id, username, email FROM users WHERE id = 1006”)
 ```
 
-{% callout type="warning" %}
-Make sure that all queries you want to accelerate using PlanetScale Boost are using a cache-enabled connection in your
-application.
-{% /callout %}
+{% callout type="warning" %} Make sure that all queries you want to accelerate using PlanetScale Boost are using a cache-enabled connection in your application. {% /callout %}
 
 #### Option 2: Single connection for all queries
 
@@ -118,8 +113,7 @@ While a query is cached, any columns used by the query cannot be changed in a de
 
 ### SELECT \* queries
 
-When adding queries to PlanetScale Boost, we recommend selecting specific columns rather than using `select *`. When using `select *` you will not be able to make any changes to the table
-used in a deploy request while the cached query is active.
+When adding queries to PlanetScale Boost, we recommend selecting specific columns rather than using `select *`. When using `select *` you will not be able to make any changes to the table used in a deploy request while the cached query is active.
 
 ## When to use PlanetScale Boost
 
@@ -148,5 +142,4 @@ The PlanetScale Boost engine is under active development and improving rapidly d
 
 ## PlanetScale Boost pricing
 
-During the limited beta period, PlanetScale Boost is free. We appreciate all your feedback and questions. Once the limited beta has ended, all users will need to opt-in to using the paid version. We will not automatically transition you to the paid version.
-We will notify all beta users via email before the end of the beta.
+During the limited beta period, PlanetScale Boost is free. We appreciate all your feedback and questions. Once the limited beta has ended, all users will need to opt-in to using the paid version. We will not automatically transition you to the paid version. We will notify all beta users via email before the end of the beta.

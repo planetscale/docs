@@ -6,11 +6,7 @@ date: '2022-08-01'
 
 ## Overview
 
-{% callout type="tip" %}
-To make non-blocking schema changes in PlanetScale, you'll first need a basic understanding of
-[branching](/docs/concepts/branching), the core PlanetScale feature that provide schema changes. Our
-branching concepts page is a great place to start.
-{% /callout %}
+{% callout type="tip" %} To make non-blocking schema changes in PlanetScale, you'll first need a basic understanding of [branching](/docs/concepts/branching), the core PlanetScale feature that provide schema changes. Our branching concepts page is a great place to start. {% /callout %}
 
 **Non-blocking schema changes** in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.
 
@@ -37,10 +33,7 @@ At a high level, this is what happens during the _non-blocking schema change_ pr
 5. You click `Deploy changes`. Your deploy is added to a queue and run immediately or when existing deploys are complete.
 6. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production branch.
 
-{% callout %}
-PlanetScale makes sure not to exhaust your resources; the deployment may be throttled to avoid any impact on
-production queries.
-{% /callout %}
+{% callout %} PlanetScale makes sure not to exhaust your resources; the deployment may be throttled to avoid any impact on production queries. {% /callout %}
 
 ![PlanetScale non-blocking schema changes diagram](/assets/docs/concepts/nonblocking-schema-changes/diagram.png)
 
@@ -68,14 +61,9 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
    pscale shell <database> <branch>
    ```
 
-   {% callout type="tip" %}
-   A schema change is any change you make to the tables in your database environment created within the PlanetScale
-   branch. (i.e., create, drop, and alter statements )
-   {% /callout %}
+   {% callout type="tip" %} A schema change is any change you make to the tables in your database environment created within the PlanetScale branch. (i.e., create, drop, and alter statements ) {% /callout %}
 
-   {% callout type="warning" %}
-   You can only apply direct schema changes to the development branch, not to `main`.
-   {% /callout %}
+   {% callout type="warning" %} You can only apply direct schema changes to the development branch, not to `main`. {% /callout %}
 
    Here is a sample CREATE table schema change you could try using:
 

@@ -4,16 +4,11 @@ subtitle: 'Learn about security and compliance with PlanetScale'
 date: '2022-11-18'
 ---
 
-PlanetScale is committed to delivering a powerful and easy-to-use database
-platform while keeping your data secure. The security of our systems is of
-the utmost importance and we consistently aim to improve our security posture by
-building security into every layer of our products.
+PlanetScale is committed to delivering a powerful and easy-to-use database platform while keeping your data secure. The security of our systems is of the utmost importance and we consistently aim to improve our security posture by building security into every layer of our products.
 
 ## Compliance reporting
 
-PlanetScale continuously monitors and reports primarily using System and Organization
-Controls (SOC) 2 Type 2. To receive a copy of the report please
-[contact Support](https://support.planetscale.com).
+PlanetScale continuously monitors and reports primarily using System and Organization Controls (SOC) 2 Type 2. To receive a copy of the report please [contact Support](https://support.planetscale.com).
 
 ## HIPAA
 
@@ -45,42 +40,29 @@ Encrypted data is transmitted to PlanetScale databases through three major paths
 
 ### Additional data protection controls
 
-Communications to the PlanetScale API and Dashboard are encrypted using TLS 1.3.
-Certificates are issued by an established third party certificate authority.
+Communications to the PlanetScale API and Dashboard are encrypted using TLS 1.3. Certificates are issued by an established third party certificate authority.
 
 ## Corporate security
 
 ### Background checks
 
-Background checks are performed on new team members during onboarding (within
-30 days of their start date) as permitted by local law.
+Background checks are performed on new team members during onboarding (within 30 days of their start date) as permitted by local law.
 
 ### Security training
 
-All team members complete security awareness training covering company security
-policies and procedures during onboarding (within 30 days of their hire date).
-Trainings are required annually thereafter for all employees.
+All team members complete security awareness training covering company security policies and procedures during onboarding (within 30 days of their hire date). Trainings are required annually thereafter for all employees.
 
-The training material is designed to assist the employee in how to identify and
-respond to social engineering and other cybersecurity risks they may encounter
-as part of their role at PlanetScale.
+The training material is designed to assist the employee in how to identify and respond to social engineering and other cybersecurity risks they may encounter as part of their role at PlanetScale.
 
 ## Security operations
 
 ### Endpoints
 
-All company-provided devices are managed with [Kandji](https://kandji.io).
-Device configuration is based on the Center for Internet Security (CIS)
-level 1 benchmark and is continuously enforced. Mobile device management
-deploys and enables relevant services to ensure corporate endpoints are
-appropriately monitored.
+All company-provided devices are managed with [Kandji](https://kandji.io). Device configuration is based on the Center for Internet Security (CIS) level 1 benchmark and is continuously enforced. Mobile device management deploys and enables relevant services to ensure corporate endpoints are appropriately monitored.
 
 ### Detection and response
 
-PlanetScale employs measures for both corporate endpoints and cloud instances
-to collect, analyze, and store events, connections, and other potentially
-relevant metadata in real time. Automated systems match events against internal
-and known bad patterns and intelligence streams.
+PlanetScale employs measures for both corporate endpoints and cloud instances to collect, analyze, and store events, connections, and other potentially relevant metadata in real time. Automated systems match events against internal and known bad patterns and intelligence streams.
 
 ## Vulnerability disclosure
 
@@ -108,8 +90,7 @@ PlanetScale is not actively seeking the following types of reports:
 
 ### Reporting a vulnerability
 
-If you believe you have discovered a security vulnerability in a PlanetScale product or its Production Environment, please let us know immediately.
-You can submit your vulnerability findings to [security@planetscale.com](mailto:security@planetscale.com).
+If you believe you have discovered a security vulnerability in a PlanetScale product or its Production Environment, please let us know immediately. You can submit your vulnerability findings to [security@planetscale.com](mailto:security@planetscale.com).
 
 If applicable, please include the following pieces of information in your report:
 

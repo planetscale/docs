@@ -9,11 +9,7 @@ When importing a database using our [Import tool](/docs/imports/database-imports
 
 The set of IP addresses that you should use depends on the region of the [PlanetScale branch](/docs/concepts/branching) that you're importing to. You can find this under the "Region" field in the "New database" section of the Import tool.
 
-{% callout %}
-This IP reference guide is meant to be used in combination with our
-[Database Import guide](/docs/imports/database-imports) or one of our platform-specific guides under
-"Migration guides" in the left nav.
-{% /callout %}
+{% callout %} This IP reference guide is meant to be used in combination with our [Database Import guide](/docs/imports/database-imports) or one of our platform-specific guides under "Migration guides" in the left nav. {% /callout %}
 
 ![The New database section of the Import database tool.](/assets/docs/imports/import-tool-migration-addresses/region.png)
 

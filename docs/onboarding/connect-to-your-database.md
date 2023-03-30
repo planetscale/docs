@@ -10,9 +10,7 @@ Now that you have your database set up, the next step is to connect it to your a
 
 In this guide, you’ll learn how to generate a connection string for your application and how branches affect the connection strings.
 
-{% callout %}
-This guide continues from the [previous entry](/docs/onboarding/branching-and-deploy-requests) describing how branching & deployments work. Please follow the steps in that guide before proceeding.
-{% /callout %}
+{% callout %} This guide continues from the [previous entry](/docs/onboarding/branching-and-deploy-requests) describing how branching & deployments work. Please follow the steps in that guide before proceeding. {% /callout %}
 
 ## Create a connection string
 

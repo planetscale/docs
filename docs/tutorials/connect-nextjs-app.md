@@ -22,9 +22,7 @@ Finally, click "**Create database**".
 
 ![Create a new database modal](/assets/docs/tutorials/connect-nextjs-app/database.png)
 
-{% callout %}
-If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
-{% /callout %}
+{% callout %} If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports). {% /callout %}
 
 A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
 
@@ -107,9 +105,7 @@ If you'd like to deploy to Vercel, check out our [Deploy to Vercel documentation
 
 If you'd like to deploy to Netlify, check out our [Deploy to Netlify documentation](/docs/tutorials/deploy-to-netlify).
 
-{% callout %}
-If you are deploying the `nextjs-starter` repo, the `Netlify.toml` file in this repository includes the configuration for you to customize the `PLANETSCALE_PRISMA_DATABASE_URL` property on the initial deploy.
-{% /callout %}
+{% callout %} If you are deploying the `nextjs-starter` repo, the `Netlify.toml` file in this repository includes the configuration for you to customize the `PLANETSCALE_PRISMA_DATABASE_URL` property on the initial deploy. {% /callout %}
 
 ## What's next?
 

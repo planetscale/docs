@@ -22,9 +22,7 @@ To import an existing database into PlanetScale:
 2. Give your imported database a name and [select a region](/docs/concepts/regions) from the dropdown.
 3. We recommend using the same name as the database you're importing from to avoid having to update any database name references throughout your application code. If you'd prefer to use a different database name, just make sure to update your app where applicable once you fully switch over to PlanetScale.
 
-   {% callout %}
-   Importing a database will **not** count towards your `read` or `write` usage.
-   {% /callout %}
+   {% callout %} Importing a database will **not** count towards your `read` or `write` usage. {% /callout %}
 
    ![Select name and region for new database import](/assets/docs/imports/database-imports/form.png)
 
@@ -36,10 +34,7 @@ To import an existing database into PlanetScale:
    - **Database name** &mdash; The exact name of the database you want to import.
    - **Username** &mdash; The username of the user used to connect to the database. This user **must** have `read` and `write` access.
 
-   {% callout %}
-   You must have [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) enabled on the
-   database you're importing.
-   {% /callout %}
+   {% callout %} You must have [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) enabled on the database you're importing. {% /callout %}
 
 5. You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
 
@@ -79,10 +74,7 @@ Once you've successfully upgraded your plan, you should be able to continue impo
 
 There are three simple steps to the database import process. You can cancel the import at any time by clicking "Cancel import" in the top right corner. If you cancel, we'll delete all connection information.
 
-{% callout %}
-Do not execute DDL (Data Definition Language) statements, CREATE, DROP, ALTER, TRUNCATE, etc., on either database during the
-import process. Schema changes are not replicated between databases in either direction.
-{% /callout %}
+{% callout %} Do not execute DDL (Data Definition Language) statements, CREATE, DROP, ALTER, TRUNCATE, etc., on either database during the import process. Schema changes are not replicated between databases in either direction. {% /callout %}
 
 ### Step 1: Copying schema and data
 
@@ -103,10 +95,7 @@ Once the initial import has finished, your PlanetScale database will be in **Rep
 
 In this mode, your external database is the primary but PlanetScale will direct reads and writes to the appropriate database. [Connect your live application](/docs/tutorials/connect-any-application) to the PlanetScale database and ensure that it is fully compatible with your app.
 
-{% callout %}
-If you gave your PlanetScale database a different name than the one you're importing from, make sure your application
-is referencing the correct database name.
-{% /callout %}
+{% callout %} If you gave your PlanetScale database a different name than the one you're importing from, make sure your application is referencing the correct database name. {% /callout %}
 
 Queries sent to PlanetScale will be served directly from the PlanetScale database but writes will be routed **back to your external database** and their results will be replicated back to PlanetScale to keep both databases in sync. Behind the scenes, we're using [Vitess's powerful Schema Routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/) to allow your PlanetScale database act as a "data router".
 
@@ -120,12 +109,9 @@ Once you're ready for PlanetScale to become your _primary_ database, click "Enab
 
 During this stage, PlanetScale replaces your external database as the primary database. It will serve both reads and writes. Behind the scenes, we essentially reverse the direction of the routing in the previous step. This means that all read and writes will go straight to the PlanetScale database and updates will be replicated back to your external database.
 
-In the context of the blog application example, this means that if a user makes a new comment, the comment will be written to the PlanetScale database first and then copied back to your external database.
-Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data while going through the import process.
+In the context of the blog application example, this means that if a user makes a new comment, the comment will be written to the PlanetScale database first and then copied back to your external database. Why copy it back? If you decide you want to cancel the import and switch back to your external database, you can be confident that you didn't lose any new or changed data while going through the import process.
 
-{% callout %}
-In Primary mode, any writes made directly to the external database will not be replicated to the PlanetScale database. Your application should be connected directly to the PlanetScale database.
-{% /callout %}
+{% callout %} In Primary mode, any writes made directly to the external database will not be replicated to the PlanetScale database. Your application should be connected directly to the PlanetScale database. {% /callout %}
 
 If you're happy with everything and ready to fully switch over, you can click on the "**Finish import**" button to finalize the import.
 
@@ -183,24 +169,22 @@ It may also help to check out the official [MySQL documentation about Primary Ke
 
 #### Invalid charset
 
-PlanetScale supports the following charsets: `utf8`, `utf8mb4`, `utf8mb3`.
-If your table uses any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
+PlanetScale supports the following charsets: `utf8`, `utf8mb4`, `utf8mb3`. If your table uses any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
 
 #### Unsupported feature
 
-You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
-Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html) for more information.
+You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html). Please consult the official [MySQL documentation about alternative storage engines](https://dev.mysql.com/doc/refman/8.0/en/storage-engines.html) for more information.
 
 ### Server configuration issues
 
 To ensure that we can migrate your data to PlanetScale with zero downtime, we check your database for some required configuration values, as described below:
 
-| Variable                       | Required Value | Documentation                                                                                                                  |
-| :----------------------------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------- |
-| `gtid_mode`                    | `ON`           | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_mode)                       |
-| `binlog_format`                | `ROW`          | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format)              |
-| `expire_logs_days`\*           | `> 2`          | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days)           |
-| `binlog_expire_logs_seconds`\* | `> 172800`     | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) |
+| Variable | Required Value | Documentation |
+| :-- | :-- | :-- |
+| `gtid_mode` | `ON` | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_mode) |
+| `binlog_format` | `ROW` | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format) |
+| `expire_logs_days`\* | `> 2` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days) |
+| `binlog_expire_logs_seconds`\* | `> 172800` | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) |
 
 **\*** PlanetScale requires that either `expire_logs_days` or `binlog_expire_logs_seconds` is set to a valid value. If both of these values are set, the value of `binlog_expire_logs_seconds` takes precedence over `expire_logs_days`.
 

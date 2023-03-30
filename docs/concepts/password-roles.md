@@ -19,8 +19,7 @@ PlanetScale allows you to [create and manage passwords](/docs/concepts/connectio
 
 1. Go to your database settings page.
 2. Click "**Passwords**" > "**New password**".
-3. Give it a name, select the role from the dropdown, select the branch, and click "**Generate password**".
-   ![PlanetScale password roles](/assets/docs/concepts/password-roles/roles.png)
+3. Give it a name, select the role from the dropdown, select the branch, and click "**Generate password**". ![PlanetScale password roles](/assets/docs/concepts/password-roles/roles.png)
 
 Once a password is created, **its role cannot be changed**.
 
@@ -33,10 +32,7 @@ The access level available to these roles is shown in the table below.
 | Read/write | ✖️                     | ✔                             | ✔              |
 | Admin      | ✔                      | ✔                             | ✔              |
 
-{% callout %}
-The default role for all passwords created by the **Connect** button is `Administrator`. Passwords with custom roles
-must be created from your database settings page.
-{% /callout %}
+{% callout %} The default role for all passwords created by the **Connect** button is `Administrator`. Passwords with custom roles must be created from your database settings page. {% /callout %}
 
 ## Troubleshooting
 
@@ -58,7 +54,4 @@ The following errors indicate that you do not have the permissions needed to per
 
 `DDL command denied to user ‘planetscale-writer' for table my-new-table’ (ACL check error) (CallerID: planetscale-writer)`
 
-{% callout %}
-If your pscale CLI version is less than 0.94.0, please upgrade your installation by following [this
-document](/docs/concepts/planetscale-environment-setup)
-{% /callout %}
+{% callout %} If your pscale CLI version is less than 0.94.0, please upgrade your installation by following [this document](/docs/concepts/planetscale-environment-setup) {% /callout %}

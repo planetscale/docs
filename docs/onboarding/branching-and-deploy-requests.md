@@ -8,9 +8,7 @@ date: '2022-09-13'
 
 Now that you have an account and database set up, we can explore one of the key features of PlanetScale: branching.
 
-{% callout %}
-This guide continues from the [previous entry](/docs/onboarding/create-a-database) describing how to create a database. If you do not have a database created, follow the steps in that guide before proceeding
-{% /callout %}
+{% callout %} This guide continues from the [previous entry](/docs/onboarding/create-a-database) describing how to create a database. If you do not have a database created, follow the steps in that guide before proceeding {% /callout %}
 
 ## What are branches?
 
@@ -29,9 +27,7 @@ Production branches should be used for the production version of your applicatio
 - Console access is disabled by default.
 - Production branches include at least one read-only replica internally to automatically protect your database against outages.
 
-{% callout %}
-Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc.
-{% /callout %}
+{% callout %} Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc. {% /callout %}
 
 ### Non-production branches
 
@@ -57,8 +53,7 @@ A typical strategy with branching would go something like this:
 
 ## Branching in action
 
-Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them.
-We're going to promote our existing branch to production, create a new development branch, add a new column, create a deploy request, and deploy it to production.
+Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them. We're going to promote our existing branch to production, create a new development branch, add a new column, create a deploy request, and deploy it to production.
 
 ### Promote dev branch to production
 
@@ -132,8 +127,7 @@ DESCRIBE Post;
 
 ![The console of the main branch after changes have been deployed.](/assets/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-after-changes-have-been-deployed.png)
 
-{% callout title="Next steps" %}
-You should have a good understanding of the core concepts of PlanetScale at this point. In the next guide, we’ll cover how you can connect to your PlanetScale database using the language or client of your choice.
+{% callout title="Next steps" %} You should have a good understanding of the core concepts of PlanetScale at this point. In the next guide, we’ll cover how you can connect to your PlanetScale database using the language or client of your choice.
 
 - [Connect to your database](/docs/onboarding/connect-to-your-database)
 

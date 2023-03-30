@@ -15,9 +15,7 @@ In this guide, you'll learn how to properly store and use PlanetScale MySQL conn
 
 ## Set up the database
 
-{% callout %}
-If you already have a database with a production branch, skip to [the next section](#configure-the-lambda-function).
-{% /callout %}
+{% callout %} If you already have a database with a production branch, skip to [the next section](#configure-the-lambda-function). {% /callout %}
 
 Let's start by creating the database. In the PlanetScale dashboard, click the "**New database**" button followed by "**Create new database**". Name the database **lambda-connection-strings,** or any other name that you prefer. Click "**Create database**".
 

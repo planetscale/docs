@@ -18,8 +18,7 @@ There are three ways that the build process is typically triggered:
 
 PlanetScale offers tooling and features to support many phases of the DevOps lifecycle, however since the Build phase is primarily focused on code compilation and generating artifacts for testing and deployment, there are no practical ways that our system can directly help during this process.
 
-{% callout title="Next steps" %}
-In this guide, we discussed the Build phase and how deploy requests can be used to merge changes to the test branch ahead of the Test phase, where the artifacts generated from this phase are run through a series of tests to ensure they are ready for production.
+{% callout title="Next steps" %} In this guide, we discussed the Build phase and how deploy requests can be used to merge changes to the test branch ahead of the Test phase, where the artifacts generated from this phase are run through a series of tests to ensure they are ready for production.
 
 - [The Test phase](/docs/devops/the-test-phase-of-devops)
 

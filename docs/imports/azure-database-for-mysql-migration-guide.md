@@ -66,9 +66,7 @@ There are two settings that need to be configured before you can import your dat
 
 To access these settings in Azure, select “**Server parameters**” from the sidebar and enter “**gtid**” in the search bar. Set both “**enforce_gtid_consistency**” and “**gtid_mode**” to “**ON**”. Click “Save”
 
-{% callout %}
-For “**gtid_mode**”, you’ll need to update the value in sequence displayed in the dropdown until it is set to “**ON**”. For example, if the current setting is “**OFF_PERMISSIVE**”, you’ll need to first change it to “**ON_PERMISSIVE**”, save the changes, then set it to “**ON**” in that order.
-{% /callout %}
+{% callout %} For “**gtid_mode**”, you’ll need to update the value in sequence displayed in the dropdown until it is set to “**ON**”. For example, if the current setting is “**OFF_PERMISSIVE**”, you’ll need to first change it to “**ON_PERMISSIVE**”, save the changes, then set it to “**ON**” in that order. {% /callout %}
 
 ![How to access gtid settings in the Azure dashboard.](/assets/docs/imports/azure-database-for-mysql-migration-guide/how-to-access-gtid-settings-in-the-azure-dashboard.png)
 

@@ -20,26 +20,24 @@ This command allows you to create, review, diff, and manage deploy requests.
 pscale deploy-request <SUB-COMMAND> <FLAG>
 ```
 
-{% callout %}
-Your database must have a production branch before you can create a deploy request.
-{% /callout %}
+{% callout %} Your database must have a production branch before you can create a deploy request. {% /callout %}
 
 ### Available sub-commands
 
-| **Sub-command**                           | **Sub-command flags**                                                        | **Description**                                 |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------- |
-| `apply <DATABASE_NAME> <DR_NUMBER>`       |                                                                              | Apply changes to a gated deploy request.        |
-| `cancel <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Cancel a deploy request.                        |
-| `close <DATABASE_NAME> <DR_NUMBER>`       |                                                                              | Close the specified deploy request.             |
-| `create <DATABASE_NAME> <BRANCH_NAME>`    | `--deploy-to <BRANCH_NAME>`                                                  | Create a new deploy request.                    |
-| `deploy <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Deploy the specified deploy request.            |
-| `diff <DATABASE_NAME> <DR_NUMBER>`        | `--web`                                                                      | Show the diff of the specified deploy request.  |
-| `edit <DATABASE_NAME> <DR_NUMBER>`        | `--auto-apply string` Possible values: [enable, disable] (default: "enable") | Edit a deploy request.                          |
-| `list <DATABASE_NAME>`                    | `--web`                                                                      | List all deploy requests for a database.        |
-| `revert <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Revert a deployed deploy request.               |
-| `review <DATABASE_NAME> <DR_NUMBER>`      | `--web`, `--approve`, `--comment <COMMENT>`                                  | Approve or comment on a deploy request.         |
-| `show <DATABASE_NAME> <DR_NUMBER>`        | `--web`                                                                      | Show the specified deploy request.              |
-| `skip-revert <DATABASE_NAME> <DR_NUMBER>` |                                                                              | Skip and close a pending deploy request revert. |
+| **Sub-command** | **Sub-command flags** | **Description** |
+| --- | --- | --- |
+| `apply <DATABASE_NAME> <DR_NUMBER>` |  | Apply changes to a gated deploy request. |
+| `cancel <DATABASE_NAME> <DR_NUMBER>` |  | Cancel a deploy request. |
+| `close <DATABASE_NAME> <DR_NUMBER>` |  | Close the specified deploy request. |
+| `create <DATABASE_NAME> <BRANCH_NAME>` | `--deploy-to <BRANCH_NAME>` | Create a new deploy request. |
+| `deploy <DATABASE_NAME> <DR_NUMBER>` |  | Deploy the specified deploy request. |
+| `diff <DATABASE_NAME> <DR_NUMBER>` | `--web` | Show the diff of the specified deploy request. |
+| `edit <DATABASE_NAME> <DR_NUMBER>` | `--auto-apply string` Possible values: [enable, disable] (default: "enable") | Edit a deploy request. |
+| `list <DATABASE_NAME>` | `--web` | List all deploy requests for a database. |
+| `revert <DATABASE_NAME> <DR_NUMBER>` |  | Revert a deployed deploy request. |
+| `review <DATABASE_NAME> <DR_NUMBER>` | `--web`, `--approve`, `--comment <COMMENT>` | Approve or comment on a deploy request. |
+| `show <DATABASE_NAME> <DR_NUMBER>` | `--web` | Show the specified deploy request. |
+| `skip-revert <DATABASE_NAME> <DR_NUMBER>` |  | Skip and close a pending deploy request revert. |
 
 > \* _Flag is required_
 
@@ -51,12 +49,12 @@ You can also find the number in the PlanetScale dashboard in the URL of the spec
 
 Some of the sub-commands have additional flags unique to the sub-command. This section covers what each of those does. See the above table for which context.
 
-| **Sub-command flag**        | **Description**                                                                      | **Applicable sub-commands** |
-| --------------------------- | ------------------------------------------------------------------------------------ | --------------------------- |
-| `--deploy-to <BRANCH_NAME>` | Specify that the new deploy request deploy to a specified branch. Default is `main`. | `create`                    |
-| `--web`                     | Perform the action in your web browser                                               | `diff`, `list`, `show`      |
-| `--approve`                 | Approve a deploy request                                                             | `review`                    |
-| `--comment <COMMENT>`       | Leave a comment on a deploy request                                                  | `review`                    |
+| **Sub-command flag** | **Description** | **Applicable sub-commands** |
+| --- | --- | --- |
+| `--deploy-to <BRANCH_NAME>` | Specify that the new deploy request deploy to a specified branch. Default is `main`. | `create` |
+| `--web` | Perform the action in your web browser | `diff`, `list`, `show` |
+| `--approve` | Approve a deploy request | `review` |
+| `--comment <COMMENT>` | Leave a comment on a deploy request | `review` |
 
 ### Available flags
 
@@ -67,16 +65,16 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 ### Global flags
 
-| **Command**                     | **Description**                                                                      |
-| ------------------------------- | ------------------------------------------------------------------------------------ |
-| `--api-token <TOKEN>`           | The API token to use for authenticating against the PlanetScale API.                 |
-| `--api-url <URL>`               | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`.     |
-| `--config <CONFIG_FILE>`        | Config file. Default is `$HOME/.config/planetscale/pscale.yml`.                      |
-| `--debug`                       | Enable debug mode.                                                                   |
-| `-f`, `--format <FORMAT>`       | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
-| `--no-color`                    | Disable color output.                                                                |
-| `--service-token <TOKEN>`       | The service token for authenticating.                                                |
-| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                             |
+| **Command** | **Description** |
+| --- | --- |
+| `--api-token <TOKEN>` | The API token to use for authenticating against the PlanetScale API. |
+| `--api-url <URL>` | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`. |
+| `--config <CONFIG_FILE>` | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. |
+| `--debug` | Enable debug mode. |
+| `-f`, `--format <FORMAT>` | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
+| `--no-color` | Disable color output. |
+| `--service-token <TOKEN>` | The service token for authenticating. |
+| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating. |
 
 ## Examples
 

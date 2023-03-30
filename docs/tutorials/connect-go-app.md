@@ -17,9 +17,7 @@ In this guide, you’ll learn how to connect to a PlanetScale MySQL database wit
 - [VS Code](https://code.visualstudio.com/download) (optional)
 - The [VS Code Rest Client plugin](https://marketplace.visualstudio.com/items?itemName=humao.rest-client) (optional)
 
-{% callout type="tip" %}
-Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect repo](https://github.com/planetscale/connection-examples/tree/main/go).
-{% /callout %}
+{% callout type="tip" %} Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect repo](https://github.com/planetscale/connection-examples/tree/main/go). {% /callout %}
 
 ## Create the database
 
@@ -123,9 +121,7 @@ func main() {
 
 Open the `tests.http` file, which contains HTTP requests that can be sent to test the API. Running the `get {{hostname}}/products` test is the equivalent of running `SELECT * FROM products` in SQL and returning the results as JSON.
 
-{% callout type="warning" %}
-If you do not wish to use VS Code with the Rest Client plugin, you may use `tests.http` as a reference for your preferred IDE and API testing software.
-{% /callout %}
+{% callout type="warning" %} If you do not wish to use VS Code with the Rest Client plugin, you may use `tests.http` as a reference for your preferred IDE and API testing software. {% /callout %}
 
 ![The terminal output of the go run command](/assets/docs/tutorials/connect-go-app/go-run-output.png)
 

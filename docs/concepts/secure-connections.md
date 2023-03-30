@@ -8,10 +8,7 @@ date: '2022-12-06'
 
 When you are using passwords to connect to PlanetScale, it is essential to correctly validate the server side certificate that PlanetScale provides. If you don't configure it properly, your connection will be vulnerable to man-in-the-middle attacks. The server certificates that PlanetScale uses are signed by a commonly available system root. How to configure this properly depends on the client you are using to connect to MySQL.
 
-{% callout %}
-We don't guarantee we will continue to sign our certificates using the same CA. We reserve the right to change our CA
-but guarantee that we will use one that is provided on all common systems by default.
-{% /callout %}
+{% callout %} We don't guarantee we will continue to sign our certificates using the same CA. We reserve the right to change our CA but guarantee that we will use one that is provided on all common systems by default. {% /callout %}
 
 ## MySQL command line client
 
@@ -29,9 +26,7 @@ Again, if you don't configure this, things will work but your connection to Plan
 
 For a list of tested MySQL GUI clients, review our article on [how to connect MySQL GUI applications](/docs/tutorials/connect-mysql-gui).
 
-{% callout %}
-Some MySQL clients, like Sequel Pro, do not have full SSL support and will not work with PlanetScale.
-{% /callout %}
+{% callout %} Some MySQL clients, like Sequel Pro, do not have full SSL support and will not work with PlanetScale. {% /callout %}
 
 ## Certificate Authorities
 
@@ -109,7 +104,4 @@ Windows does not provide a file with the CA roots that can be used by your drive
 
 If you are using a language that requires specifying the CA root path, like C or PHP, the [`curl`](https://curl.se) project provides an extracted bundle of root certificates from the [Mozilla CA Certificate program](https://wiki.mozilla.org/CA). You can download the bundle at [https://curl.se/docs/caextract.html](https://curl.se/docs/caextract.html). Once you download the file, you can point at it with the correct configuration options for the driver that you are using.
 
-{% callout %}
-We strongly discourage downloading only the current CA that we are using, as PlanetScale reserves the right to change
-our CA. We will however always use a CA that is commonly available.
-{% /callout %}
+{% callout %} We strongly discourage downloading only the current CA that we are using, as PlanetScale reserves the right to change our CA. We will however always use a CA that is commonly available. {% /callout %}

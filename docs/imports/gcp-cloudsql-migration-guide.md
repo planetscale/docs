@@ -8,10 +8,7 @@ date: '2022-08-01'
 
 This document will demonstrate how to migrate a database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster to PlanetScale using our [Import tool](/docs/imports/database-imports).
 
-{% callout %}
-This guide assumes you are using MySQL on GCP. Other database systems available through GCP will not work with the
-PlanetScale import tool.
-{% /callout %}
+{% callout %} This guide assumes you are using MySQL on GCP. Other database systems available through GCP will not work with the PlanetScale import tool. {% /callout %}
 
 ## Prerequisites
 
@@ -33,11 +30,7 @@ A list of your databases can be found in the **Databases** tab. In this guide, w
 
 The `root` username is the account set up by default for all CloudSQL instances. The password for that account was set during the creation of the instance.
 
-{% callout %}
-If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
-tool user permissions page](/docs/imports/import-tool-user-requirements) to create an account that can be used to
-import your database.
-{% /callout %}
+{% callout %} If you don’t know the admin password, you can create a new set of credentials using the information on the [Import tool user permissions page](/docs/imports/import-tool-user-requirements) to create an account that can be used to import your database. {% /callout %}
 
 ## Allow PlanetScale to connect to your CloudSQL instance
 

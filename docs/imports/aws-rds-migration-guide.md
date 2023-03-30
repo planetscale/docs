@@ -8,10 +8,7 @@ date: '2022-08-01'
 
 This document will demonstrate how to migrate a database from AWS Relational Database Services (RDS) to PlanetScale. We’ll also address some common issues associated with migrating from RDS and how to resolve them.
 
-{% callout %}
-This guide assumes you are using MySQL on RDS. Other database systems available through RDS will not work with the
-PlanetScale import tool.
-{% /callout %}
+{% callout %} This guide assumes you are using MySQL on RDS. Other database systems available through RDS will not work with the PlanetScale import tool. {% /callout %}
 
 ## Prerequisites
 
@@ -36,11 +33,7 @@ The master username can be located under the “**Configuration”** tab. The ma
 
 ![The Configuration tab of the database in RDS.](/assets/docs/imports/aws-rds-migration-guide/the-configuration-tab-of-the-database-in-rds.png)
 
-{% callout %}
-If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
-tool user permissions page](/docs/imports/import-tool-user-requirements) to create an account that can be used to
-import your database.
-{% /callout %}
+{% callout %} If you don’t know the admin password, you can create a new set of credentials using the information on the [Import tool user permissions page](/docs/imports/import-tool-user-requirements) to create an account that can be used to import your database. {% /callout %}
 
 ## Configuring the RDS security group
 
@@ -96,9 +89,7 @@ If the connection was successful, you’ll see the following message. Click “*
 
 ![The message that shows at the bottom of the form indicating that the connection was successful.](/assets/docs/imports/aws-rds-migration-guide/the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png)
 
-{% callout type="warning" %}
-If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.
-{% /callout %}
+{% callout type="warning" %} If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues. {% /callout %}
 
 The following view will show you the progress of your data being imported.
 
@@ -204,9 +195,7 @@ If you opted to apply the changes immediately, you can monitor the status on the
 
 To reboot the database, click the “**Modify”** button near the top of the screen, then “**Reboot”**.
 
-{% callout type="warning" %}
-This will disconnect any users who are actively using the database! Proceed with caution.
-{% /callout %}
+{% callout type="warning" %} This will disconnect any users who are actively using the database! Proceed with caution. {% /callout %}
 
 ![The database view & where the option to reboot the database is located.](/assets/docs/imports/aws-rds-migration-guide/the-database-view-and-where-the-option-to-reboot-the-database-is-located.png)
 
@@ -226,9 +215,7 @@ By default, this value is `NULL`, which means that binary logs are purged immedi
 
 You need to specify a period with enough time for replication to occur. For most cases, 48 hours should be sufficient, but you may need to set it higher for large imports.
 
-{% callout type="warning" %}
-Keep in mind, you can go to longer binlog retention periods at the cost of extra disk space on your source database. You should evaluate how large your binlogs are for daily use to determine if you would like to increase the value beyond 48 hours, as there's a chance you may run out of disk space, depending on your configuration. If you need assistance, please reach out to the [PlanetScale Support team](https://support.planetscale.com).
-{% /callout %}
+{% callout type="warning" %} Keep in mind, you can go to longer binlog retention periods at the cost of extra disk space on your source database. You should evaluate how large your binlogs are for daily use to determine if you would like to increase the value beyond 48 hours, as there's a chance you may run out of disk space, depending on your configuration. If you need assistance, please reach out to the [PlanetScale Support team](https://support.planetscale.com). {% /callout %}
 
 To specify the number of hours for Amazon RDS to retain binary logs on a DB instance, use the `mysql.rds_set_configuration()` stored procedure as shown in the following example:
 

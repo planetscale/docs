@@ -26,15 +26,9 @@ Once [SSO](/docs/concepts/sso) is enabled for an `organization`, all members are
 
 Users can authenticate with PlanetScale using their GitHub account.
 
-{% callout type="warning" %}
-PlanetScale doesn't maintain the passwords for these accounts. Losing access to your GitHub account prevents accessing
-your PlanetScale account.
-{% /callout %}
+{% callout type="warning" %} PlanetScale doesn't maintain the passwords for these accounts. Losing access to your GitHub account prevents accessing your PlanetScale account. {% /callout %}
 
-{% callout %}
-Enabling SSO removes OAuth access for all members of your _organization_, meaning they will no longer be able
-to sign in with their GitHub credentials.
-{% /callout %}
+{% callout %} Enabling SSO removes OAuth access for all members of your _organization_, meaning they will no longer be able to sign in with their GitHub credentials. {% /callout %}
 
 {% callout title="Next steps" %}
 

@@ -4,9 +4,7 @@ subtitle: 'Learn how to use PlanetScale Boost in a Rails application.'
 date: '2022-11-15'
 ---
 
-{% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
-{% /callout %}
+{% callout %} PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today. {% /callout %}
 
 ## How to use PlanetScale Boost in a Rails application
 
@@ -32,13 +30,11 @@ Star.joins(repository: :tags).where(spammy: false).where(tags: {name: "trending"
 #  Star Count (2.1ms)  SELECT COUNT(*) AS `count_all`, `stars`.`repository_id` AS `stars_repository_id` FROM `stars` INNER JOIN `repositories` ON `repositories`.`id` = `stars`.`repository_id` INNER JOIN `repository_tags` ON `repository_tags`.`repository_id` = `repositories`.`id` INNER JOIN `tags` ON `tags`.`id` = `repository_tags`.`tag_id` WHERE `stars`.`spammy` = FALSE AND `tags`.`name` = 'trending' GROUP BY `stars`.`repository_id`
 ```
 
-This is the simplest way to get started using PlanetScale Boost. We recommend going a step further and setting up separate connections for your cached and un-cached queries.
-Doing this will allow you to be confident you're getting up-to-date data when [reading your own writes](/docs/concepts/query-caching-with-planetscale-boost#replication-lag-and-read-your-writes).
+This is the simplest way to get started using PlanetScale Boost. We recommend going a step further and setting up separate connections for your cached and un-cached queries. Doing this will allow you to be confident you're getting up-to-date data when [reading your own writes](/docs/concepts/query-caching-with-planetscale-boost#replication-lag-and-read-your-writes).
 
 ## PlanetScale Boost with multiple connections
 
-Setting up multiple connections is our recommended way of using PlanetScale Boost in Rails. To do this, we will be using Rails
-[multiple databases support](https://guides.rubyonrails.org/active_record_multiple_databases.html) built into ActiveRecord.
+Setting up multiple connections is our recommended way of using PlanetScale Boost in Rails. To do this, we will be using Rails [multiple databases support](https://guides.rubyonrails.org/active_record_multiple_databases.html) built into ActiveRecord.
 
 First, you will need to update your `database.yml` to let Rails know about the new connection.
 

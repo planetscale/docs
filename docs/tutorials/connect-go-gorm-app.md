@@ -8,10 +8,7 @@ date: '2022-12-06'
 
 In this tutorial, you'll learn how to connect a Go application to a PlanetScale MySQL database using a sample Go starter app with GORM.
 
-{% callout type="tip" %}
-Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect
-repo](https://github.com/planetscale/connection-examples/tree/main/go).
-{% /callout %}
+{% callout type="tip" %} Already have a Go application and just want to connect to PlanetScale? Check out the [Go quick connect repo](https://github.com/planetscale/connection-examples/tree/main/go). {% /callout %}
 
 ## Prerequisites
 
@@ -84,11 +81,7 @@ Both options are covered below.
 
    A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
 
-   {% callout %}
-   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
-   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-   your database overview page, click "Settings", and then click "Passwords".
-   {% /callout %}
+   {% callout %} The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords". {% /callout %}
 
    Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -181,9 +174,7 @@ You may need to install the MySQL command line client if you haven't already.
 
    This will open up a MySQL shell connected to the specified database and branch.
 
-   {% callout %}
-   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-   {% /callout %}
+   {% callout %} A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. {% /callout %}
 
 2. Add a record to the `products` table:
 

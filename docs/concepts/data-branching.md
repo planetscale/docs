@@ -10,9 +10,7 @@ The PlanetScale Data Branching® feature (beta) allows you to create isolated co
 
 This feature is only available for organizations on the [`Team`](/pricing) plan.
 
-{% callout %}
-The Data Branching® feature is currently in beta.
-{% /callout %}
+{% callout %} The Data Branching® feature is currently in beta. {% /callout %}
 
 ## Enable the Data Branching® feature for your database.
 
@@ -47,8 +45,7 @@ Before you can use the feature, you have to enable it in your database settings 
 
 2. **Can I pick which tables are copied into the new branch?**
 
-   PlanetScale seeds the new branch with **all the schema & data** from the base branch.
-   We do not offer a way to filter out data or schema when creating a new branch.
+   PlanetScale seeds the new branch with **all the schema & data** from the base branch. We do not offer a way to filter out data or schema when creating a new branch.
 
 3. **Is data in the new branch kept up to date with changes to the base branch?**
 

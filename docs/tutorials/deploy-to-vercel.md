@@ -79,9 +79,7 @@ To access the configuration page:
 2. Click the "**PlanetScale**" integration.
 3. Click the "**Configure**" button.
 
-{% callout %}
-If you're modifying an existing connection on a Vercel project, these environment variable values will be regenerated and overwritten.
-{% /callout %}
+{% callout %} If you're modifying an existing connection on a Vercel project, these environment variable values will be regenerated and overwritten. {% /callout %}
 
 {% callout title="When removing the Vercel integration" %}
 

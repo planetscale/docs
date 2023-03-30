@@ -40,13 +40,11 @@ We are committed to providing the following support options.
 
 ## Initial Response Times
 
-{% callout %}
-Tickets must be submitted through web ticketing to be eligible for response times.
+{% callout %} Tickets must be submitted through web ticketing to be eligible for response times.
 
 12x5 means from 6am to 6pm Pacific Standard Time (UTC -8), Monday through Friday, excluding public holidays in the United States.
 
-Standard support includes a target first response time of 2 business days.
-{% /callout %}
+Standard support includes a target first response time of 2 business days. {% /callout %}
 
 | Support Plan                  | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
 | ----------------------------- | ----------------- | -------------- | --------------------- | ---------------------- |
@@ -65,8 +63,7 @@ Standard support includes a target first response time of 2 business days.
 ---
 
 - P4 (Low)
-- One or more of:
-  {% list type="checkmark" %}
+- One or more of: {% list type="checkmark" %}
 
   - General platform and workflow questions
   - Feature requests
@@ -77,8 +74,7 @@ Standard support includes a target first response time of 2 business days.
 ---
 
 - P3 (Normal)
-- One or more of:
-  {% list type="checkmark" %}
+- One or more of: {% list type="checkmark" %}
 
   - Partial, non-critical loss of functionality of the PlanetScale platform. Users are able to continue using core platform functionality.
   - A non-production application running against the PlanetScale platform is impaired or down.
@@ -89,8 +85,7 @@ Standard support includes a target first response time of 2 business days.
 ---
 
 - P2 (High)
-- One or more of:
-  {% list type="checkmark" %}
+- One or more of: {% list type="checkmark" %}
 
   - A production application is experiencing performance issues due to the PlanetScale platform.
   - Intermittent issues and reduced quality of service for significant features.
@@ -102,8 +97,7 @@ Standard support includes a target first response time of 2 business days.
 ---
 
 - P1 (Urgent)
-- One or more of:
-  {% list type="checkmark" %}
+- One or more of: {% list type="checkmark" %}
 
   - Production applications are down due to the PlanetScale platform and no workaround is immediately available.
   - A complete loss of ability to serve queries, commit transactions, or a significant feature impacting production workflows is completely unavailable.
@@ -114,6 +108,4 @@ Standard support includes a target first response time of 2 business days.
 
 {% /table %}
 
-{% callout %}
-PlanetScale Support has the ability to update a ticket's priority if it does not generally match these guidelines.
-{% /callout %}
+{% callout %} PlanetScale Support has the ability to update a ticket's priority if it does not generally match these guidelines. {% /callout %}
