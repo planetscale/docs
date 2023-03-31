@@ -93,9 +93,12 @@ npx prisma init
 
 This creates the `prisma` directory with a file named `schema.prisma`. This file will hold your [Prisma schema configuration](https://www.prisma.io/docs/concepts/components/prisma-schema), which includes your data sources (PlanetScale), generators ([Prisma Client](https://www.prisma.io/docs/concepts/components/prisma-client)), and data models.
 
-{% callout %} In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
+{% callout %}
+In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
 
-You can learn more about Prisma's Relation mode in the [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode). {% /callout %}
+You can learn more about Prisma's Relation mode in the
+[Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
+{% /callout %}
 
 Open up the `prisma/schema.prisma` file and paste in the following:
 

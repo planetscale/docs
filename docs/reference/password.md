@@ -22,11 +22,11 @@ pscale password <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command** | **Sub-command flags** | **Description** |
-| --- | --- | --- |
-| `create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>` |  | Create new credentials to access a branch's data |
-| `delete <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_ID>` | `--force` | Delete the specified branch credentials |
-| `list <DATABASE_NAME> <BRANCH_NAME>` | `--web` | List all credentials of a database |
+| **Sub-command**                                        | **Sub-command flags** | **Description**                                  |
+| ------------------------------------------------------ | --------------------- | ------------------------------------------------ |
+| `create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>` |                       | Create new credentials to access a branch's data |
+| `delete <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_ID>`   | `--force`             | Delete the specified branch credentials          |
+| `list <DATABASE_NAME> <BRANCH_NAME>`                   | `--web`               | List all credentials of a database               |
 
 The value `<PASSWORD_ID>` represents the ID number of the set of credentials. To find all available credentials and their IDs, run `pscale list <DATABASE_NAME> <BRANCH_NAME>`.
 
@@ -56,16 +56,16 @@ Available roles for the `--role` flag are:
 
 ### Global flags
 
-| **Command** | **Description** |
-| --- | --- |
-| `--api-token <TOKEN>` | The API token to use for authenticating against the PlanetScale API. |
-| `--api-url <URL>` | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`. |
-| `--config <CONFIG_FILE>` | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. |
-| `--debug` | Enable debug mode. |
-| `-f`, `--format <FORMAT>` | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
-| `--no-color` | Disable color output. |
-| `--service-token <TOKEN>` | The service token for authenticating. |
-| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating. |
+| **Command**                     | **Description**                                                                      |
+| ------------------------------- | ------------------------------------------------------------------------------------ |
+| `--api-token <TOKEN>`           | The API token to use for authenticating against the PlanetScale API.                 |
+| `--api-url <URL>`               | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`.     |
+| `--config <CONFIG_FILE>`        | Config file. Default is `$HOME/.config/planetscale/pscale.yml`.                      |
+| `--debug`                       | Enable debug mode.                                                                   |
+| `-f`, `--format <FORMAT>`       | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
+| `--no-color`                    | Disable color output.                                                                |
+| `--service-token <TOKEN>`       | The service token for authenticating.                                                |
+| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                             |
 
 ## Examples
 

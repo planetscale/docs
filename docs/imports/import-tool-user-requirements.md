@@ -8,22 +8,26 @@ When importing a database using our [Import tool](/docs/imports/database-imports
 
 Below is the minimum set of permissions needed and what each allows the user to do:
 
-| Scope | Databases | Grant | Description |
-| --- | --- | --- | --- |
-| Global | n/a | `PROCESS` | Enable the user to see all processes with SHOW PROCESSLIST. |
-| Global | n/a | `REPLICATION SLAVE` | Enable replicas to read binary log events from the source. |
-| Global | n/a | `REPLICATION CLIENT` | Enable the user to ask where source or replica servers are. |
-| Table | `<DATABASE_NAME>`, `_vt` | `SELECT` | Enable use of SELECT. |
-| Table | `<DATABASE_NAME>`, `_vt` | `INSERT` | Enable use of INSERT. |
-| Table | `<DATABASE_NAME>` | `LOCK TABLES` | Enable use of LOCK TABLES on tables for which you have the SELECT privilege. |
-| Table | `<DATABASE_NAME>` | `SHOW VIEW` | Enable use of SHOW VIEW. |
-| Table | `<DATABASE_NAME>`, `_vt` | `UPDATE` | Enable use of UPDATE. |
-| Table | `<DATABASE_NAME>`, `_vt` | `DELETE` | Enable use of DELETE. |
-| Table | `_vt` | `CREATE` | Enable database and table creation. |
-| Table | `_vt` | `DROP` | Enable databases, tables, and views to be dropped. |
-| Table | `_vt` | `ALTER` | Enable use of ALTER TABLE. |
+| Scope  | Databases                | Grant                | Description                                                                  |
+| ------ | ------------------------ | -------------------- | ---------------------------------------------------------------------------- |
+| Global | n/a                      | `PROCESS`            | Enable the user to see all processes with SHOW PROCESSLIST.                  |
+| Global | n/a                      | `REPLICATION SLAVE`  | Enable replicas to read binary log events from the source.                   |
+| Global | n/a                      | `REPLICATION CLIENT` | Enable the user to ask where source or replica servers are.                  |
+| Table  | `<DATABASE_NAME>`, `_vt` | `SELECT`             | Enable use of SELECT.                                                        |
+| Table  | `<DATABASE_NAME>`, `_vt` | `INSERT`             | Enable use of INSERT.                                                        |
+| Table  | `<DATABASE_NAME>`        | `LOCK TABLES`        | Enable use of LOCK TABLES on tables for which you have the SELECT privilege. |
+| Table  | `<DATABASE_NAME>`        | `SHOW VIEW`          | Enable use of SHOW VIEW.                                                     |
+| Table  | `<DATABASE_NAME>`, `_vt` | `UPDATE`             | Enable use of UPDATE.                                                        |
+| Table  | `<DATABASE_NAME>`, `_vt` | `DELETE`             | Enable use of DELETE.                                                        |
+| Table  | `_vt`                    | `CREATE`             | Enable database and table creation.                                          |
+| Table  | `_vt`                    | `DROP`               | Enable databases, tables, and views to be dropped.                           |
+| Table  | `_vt`                    | `ALTER`              | Enable use of ALTER TABLE.                                                   |
 
-{% callout %} The descriptions in the table above were taken from the MySQL docs. For a full list of all possible grants and their impact, please refer to the [GRANT Statement page](https://dev.mysql.com/doc/refman/8.0/en/grant.html) of the MySQL docs, and locate the section titled **Privileges Supported by MySQL**. {% /callout %}
+{% callout %}
+The descriptions in the table above were taken from the MySQL docs. For a full list of all possible grants and their
+impact, please refer to the [GRANT Statement page](https://dev.mysql.com/doc/refman/8.0/en/grant.html) of the MySQL
+docs, and locate the section titled **Privileges Supported by MySQL**.
+{% /callout %}
 
 ## Script to create user
 

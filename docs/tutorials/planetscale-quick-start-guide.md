@@ -65,7 +65,12 @@ This quickstart demonstrates how to create and use two relational tables: `categ
    );
    ```
 
-   {% callout %} PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation. {% /callout %}
+   {% callout %}
+   PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
+   keys, as shown in this example. For more information, check out our
+   [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
+   documentation.
+   {% /callout %}
 
 4. You can confirm that the tables have been added by running:
 
@@ -103,7 +108,9 @@ If you click on the "**Schema**" tab in the database navigation and click the "*
 
 All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
 
-{% callout %} A development branch is intended for applying schema changes and is **not intended for use in production**. {% /callout %}
+{% callout %}
+A development branch is intended for applying schema changes and is **not intended for use in production**.
+{% /callout %}
 
 Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
 
@@ -137,7 +144,11 @@ When you want to continue development on your database:
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/docs/concepts/deploy-requests) to merge the changes into your production branch
 
-{% callout %} When you branch off of a production branch, your development branch will have the same schema as production, but it **will not** copy over any data from the production database. We suggest seeding development branches with mock data. {% /callout %}
+{% callout %}
+When you branch off of a production branch, your development branch will have the same schema as production, but it
+**will not** copy over any data from the production database. We suggest seeding development branches with mock
+data.
+{% /callout %}
 
 ## Getting started &mdash; PlanetScale CLI
 
@@ -168,7 +179,9 @@ pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 - **DATABASE_NAME** &mdash; Your database name can contain lowercase, alphanumeric characters, or underscores. We allow dashes, but don't recommend them, as they may need to be escaped in some instances.
 - **REGION_SLUG** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions).
 
-{% callout %} If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**. {% /callout %}
+{% callout %}
+If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
+{% /callout %}
 
 Your database will deploy with an initial development branch, `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
@@ -203,7 +216,12 @@ To add a schema to your database, you will need to connect to MySQL, so [make su
    );
    ```
 
-   {% callout %} PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation. {% /callout %}
+   {% callout %}
+   PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign
+   keys, as shown in this example. For more information, check out our
+   [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints)
+   documentation.
+   {% /callout %}
 
 3. You can confirm that the table has been added by running:
 
@@ -253,7 +271,9 @@ Now that you have your schema set up, let's insert some data.
 
 All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
 
-{% callout %} A development branch is intended for applying schema changes and is **not intended for use in production**. {% /callout %}
+{% callout %}
+A development branch is intended for applying schema changes and is **not intended for use in production**.
+{% /callout %}
 
 Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
 
@@ -283,4 +303,8 @@ When you want to continue development on your database:
 2. Go through the same process described in this doc to make schema changes
 3. [Create a deploy request](/docs/concepts/deploy-requests) to merge the changes into your production branch
 
-{% callout %} When you branch off of a production branch, your development branch will have the same schema as production, but it **will not** copy over any data from the production database. We suggest seeding development branches with mock data. {% /callout %}
+{% callout %}
+When you branch off of a production branch, your development branch will have the same schema as production, but it
+**will not** copy over any data from the production database. We suggest seeding development branches with mock
+data.
+{% /callout %}

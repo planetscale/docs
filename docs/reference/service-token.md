@@ -22,14 +22,14 @@ pscale service-token <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command** | **Sub-command flags** | **Description** |
-| --- | --- | --- |
-| `add-access <TOKEN_ID> <PERMISSION> <PERMISSION>` | `--database <DATABASE_NAME>` | Add individual permissions to the specified service token in the organization |
-| `create` |  | Create a service token for the organization |
-| `delete <TOKEN_ID>` |  | Delete an entire service token in an organization |
-| `delete-access <TOKEN_ID> <PERMISSION> <PERMISSION>` | `--database <DATABASE_NAME>` | Delete individual permissions granted to a service token in the organization |
-| `list` |  | List the IDs of an organization's service tokens |
-| `show-access` |  | Fetch a service token and its accesses |
+| **Sub-command**                                      | **Sub-command flags**        | **Description**                                                               |
+| ---------------------------------------------------- | ---------------------------- | ----------------------------------------------------------------------------- |
+| `add-access <TOKEN_ID> <PERMISSION> <PERMISSION>`    | `--database <DATABASE_NAME>` | Add individual permissions to the specified service token in the organization |
+| `create`                                             |                              | Create a service token for the organization                                   |
+| `delete <TOKEN_ID>`                                  |                              | Delete an entire service token in an organization                             |
+| `delete-access <TOKEN_ID> <PERMISSION> <PERMISSION>` | `--database <DATABASE_NAME>` | Delete individual permissions granted to a service token in the organization  |
+| `list`                                               |                              | List the IDs of an organization's service tokens                              |
+| `show-access`                                        |                              | Fetch a service token and its accesses                                        |
 
 #### Sub-command flag descriptions
 
@@ -48,16 +48,16 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 ### Global flags
 
-| **Command** | **Description** |
-| --- | --- |
-| `--api-token <TOKEN>` | The API token to use for authenticating against the PlanetScale API. |
-| `--api-url <URL>` | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`. |
-| `--config <CONFIG_FILE>` | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. |
-| `--debug` | Enable debug mode. |
-| `-f`, `--format <FORMAT>` | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
-| `--no-color` | Disable color output. |
-| `--service-token <TOKEN>` | The service token for authenticating. |
-| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating. |
+| **Command**                     | **Description**                                                                      |
+| ------------------------------- | ------------------------------------------------------------------------------------ |
+| `--api-token <TOKEN>`           | The API token to use for authenticating against the PlanetScale API.                 |
+| `--api-url <URL>`               | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`.     |
+| `--config <CONFIG_FILE>`        | Config file. Default is `$HOME/.config/planetscale/pscale.yml`.                      |
+| `--debug`                       | Enable debug mode.                                                                   |
+| `-f`, `--format <FORMAT>`       | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
+| `--no-color`                    | Disable color output.                                                                |
+| `--service-token <TOKEN>`       | The service token for authenticating.                                                |
+| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                             |
 
 ## Examples
 
@@ -75,7 +75,7 @@ You can find a list of all permissions in the [PlanetScale API documentation](ht
 
 **Output:**
 
-| DATABASE | ACCESSES |
-| --- | --- |
-| DATABASE_NAME | approve_deploy_request, connect_branch, connect_production_branch, create_branch, create_comment, create_deploy_request, delete_branch, read_branch, read_comment, read_deploy_request |
-| DATABASE_NAME_2 | read_branch, delete_branch, create_branch |
+| DATABASE        | ACCESSES                                                                                                                                                                               |
+| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| DATABASE_NAME   | approve_deploy_request, connect_branch, connect_production_branch, create_branch, create_comment, create_deploy_request, delete_branch, read_branch, read_comment, read_deploy_request |
+| DATABASE_NAME_2 | read_branch, delete_branch, create_branch                                                                                                                                              |

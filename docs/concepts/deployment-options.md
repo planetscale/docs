@@ -24,7 +24,11 @@ Cloud is the default deployment option. When you sign up for a PlanetScale accou
 
 For companies that need their PlanetScale databases hosted in an isolated AWS or GCP account that **they own themselves**, we also offer a Managed Cloud deployment option.
 
-{% callout %} The Managed Cloud offering is only available on our [Enterprise plan](/docs/concepts/billing#planetscale-plans). If you're interested, please [reach out](/contact) and we can figure out a custom solution for your use case. {% /callout %}
+{% callout %}
+The Managed Cloud offering is only available on our [Enterprise plan](/docs/concepts/billing#planetscale-plans). If
+you're interested, please [reach out](/contact) and we can figure out a custom solution for
+your use case.
+{% /callout %}
 
 ### Managed Cloud highlights
 
@@ -39,7 +43,11 @@ For companies that need their PlanetScale databases hosted in an isolated AWS or
 
 For companies that need their PlanetScale databases hosted in an isolated AWS or GCP account, but don't want to create their own account, we offer the Single-tenant Cloud option.
 
-{% callout %} The Single-tenant Cloud offering is only available on our [Enterprise plan](/docs/concepts/billing#planetscale-plans). If you're interested, please [reach out](/contact) and we can figure out a custom solution for your use case. {% /callout %}
+{% callout %}
+The Single-tenant Cloud offering is only available on our [Enterprise
+plan](/docs/concepts/billing#planetscale-plans). If you're interested, please [reach
+out](/contact) and we can figure out a custom solution for your use case.
+{% /callout %}
 
 ### Single-tenant Cloud highlights
 

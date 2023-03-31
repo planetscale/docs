@@ -61,7 +61,9 @@ Finally, click "**Create database**".
 
 ![Create a new database modal](/assets/docs/tutorials/connect-laravel-app/database.png)
 
-{% callout %} If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports). {% /callout %}
+{% callout %}
+If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
+{% /callout %}
 
 A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
 
@@ -84,7 +86,9 @@ In your PlanetScale dashboard, select your database, click "**Connect**", and se
 
 As long as you're an organization administrator, this will generate a username and password that has administrator privileges to the database.
 
-{% callout type="tip" %} If the password value is blurred, you need to click "**New password**" to generate a new one. {% /callout %}
+{% callout type="tip" %}
+If the password value is blurred, you need to click "**New password**" to generate a new one.
+{% /callout %}
 
 Copy the contents of the `.env` tab and paste them into your own `.env` file in your Laravel application. The structure will look like this:
 
@@ -138,11 +142,13 @@ Now that you're connected, let's add some data to see it in action. The sample a
 - `database/migrations/2021_12_20_194637_create_stars_table.php` &mdash; Creates a `stars` table
 - `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
 
-{% callout %} PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign keys, as shown in the Stars migration file in this example.
+{% callout %}
+PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign keys, as shown in the Stars migration file in this example.
 
 You can use the [`foreignId()` method](https://laravel.com/docs/migrations#foreign-key-constraints) to create a relationship between the `constellations` and `stars` tables, but you cannot enforce referential integrity with the `constrained()` method.
 
-For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation. {% /callout %}
+For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation.
+{% /callout %}
 
 There are also two seeders, `database/seeders/ConstellationSeeder.php` and `database/seeders/StarSeeder.php`, that will add two rows to the each table. Let's run those now.
 

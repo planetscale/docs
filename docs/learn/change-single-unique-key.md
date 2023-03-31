@@ -10,7 +10,10 @@ To migrate data safely and [without downtime](/docs/concepts/nonblocking-schema-
 
 If you attempt to deploy such a schema change, the deploy request will fail with the error `All tables must have at least one unique, not-null key that remains unchanged during the migration`.
 
-{% callout %} This example adds a temporary unique key but you could also use a unique index or create the temporary key by adding a unique constraint. {% /callout %}
+{% callout %}
+This example adds a temporary unique key but you could also use a unique index
+or create the temporary key by adding a unique constraint.
+{% /callout %}
 
 ## How to change a table's single unique key
 
@@ -46,7 +49,8 @@ Altering a single unique key can be accomplished in 3 steps. Each step is a [sep
 
 ## Why?
 
-PlanetScale non-blocking schema changes works by first creating a ghost table, in the likeness of your original table. The ghost table is then altered to match your changed schema. We copy over the data from the original table, as well as stream any changes as they happen to the ghost table. Once this ghost table is in sync with the original, we swap the tables in place. This safely completes the migration.
+PlanetScale non-blocking schema changes works by first creating a ghost table, in the likeness of your original table. The ghost table is then altered to match your changed schema.
+We copy over the data from the original table, as well as stream any changes as they happen to the ghost table. Once this ghost table is in sync with the original, we swap the tables in place. This safely completes the migration.
 
 To do this, we need to have a consistent primary or unique key across both of the tables to reliably replicate the data over. This is why we require a consistent key when migrating your data.
 

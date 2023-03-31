@@ -26,7 +26,9 @@ There are a few requirements for running a Django application in Heroku:
 
 - Proper Config Var setup in Heroku.
 
-{% callout %} This article will make use of the [django-example GitHub repository](https://github.com/planetscale/django-example) that is built for the [Connect a Django application to PlanetScale document](/docs/tutorials/connect-django-app) {% /callout %}
+{% callout %}
+This article will make use of the [django-example GitHub repository](https://github.com/planetscale/django-example) that is built for the [Connect a Django application to PlanetScale document](/docs/tutorials/connect-django-app)
+{% /callout %}
 
 ### Set up the Heroku Config Vars
 
@@ -44,7 +46,9 @@ Select the **Settings** tab of your Heroku project and then “**Reveal Config V
 
 Set up a separate **Config Var** for each line you captured from the PlanetScale dashboard. The one exception is the `MYSQL_ATTR_SSL_CA`, which should be set to `/etc/ssl/certs/ca-certificates.crt`
 
-{% callout %} Heroku uses Ubuntu by default to run applications deployed to their systems, which is why the `MYSQL_ATTR_SSL_CA` value needs to be different than the default values provided by PlanetScale {% /callout %}
+{% callout %}
+Heroku uses Ubuntu by default to run applications deployed to their systems, which is why the `MYSQL_ATTR_SSL_CA` value needs to be different than the default values provided by PlanetScale
+{% /callout %}
 
 ![The Config Vars setup for the project.](/assets/docs/tutorials/deploy-a-django-app-to-heroku/ssl.png)
 

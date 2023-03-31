@@ -30,7 +30,8 @@ We currently support loading data into [Airbyte](/docs/integrations/airbyte) and
 
 If you are a Datadog customer and use their platform to centralize your analytical data, we offer an integration with the service. Our integration will gather similar data that is displayed in Insights and forward it to a PlanetScale dashboard that is automatically created when the integration setup is complete. Refer to the [Datadog integration](/docs/integrations/datadog) article for more details on how this can be configured for your PlanetScale database.
 
-{% callout title="Next steps" %} While the Monitor phase is what concludes the typical DevOps cycle, it loops back into the Plan phases for the next iteration to be set up. At this point, you should be well-equipped to make intelligent decisions on how to integrate PlanetScale into your existing pipelines, or understand how to get started with DevOps altogether!
+{% callout title="Next steps" %}
+While the Monitor phase is what concludes the typical DevOps cycle, it loops back into the Plan phases for the next iteration to be set up. At this point, you should be well-equipped to make intelligent decisions on how to integrate PlanetScale into your existing pipelines, or understand how to get started with DevOps altogether!
 
 Feel free to explore more of our [documentation](/docs) to further your understanding of the platform.
 

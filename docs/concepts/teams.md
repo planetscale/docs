@@ -12,14 +12,18 @@ PlanetScale allows you to create teams within organizations. This allows you to 
 
 You can manage teams straight from your PlanetScale dashboard by going to "**Settings**" > "**Teams**".
 
-{% callout %} Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) can create and manage Teams. {% /callout %}
+{% callout %}
+Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) can create and
+manage Teams.
+{% /callout %}
 
 Once you add databases to a team, any members on that team will have [Database Administrator access](/docs/concepts/access-control#database-level-permissions) to those databases. Review our [Access control documentation](/docs/concepts/access-control) to understand the full scope of Database Administrator access.
 
 ### Create a team
 
 1. On your PlanetScale overview page, click "**Settings**".
-2. Click "**Teams**" in the left nav. ![Dashboard UI - Create a PlanetScale team](/assets/docs/concepts/teams/create.png)
+2. Click "**Teams**" in the left nav.
+   ![Dashboard UI - Create a PlanetScale team](/assets/docs/concepts/teams/create.png)
 3. Give your team a name and description (_optional_).
 4. Click "**Create team**".
 

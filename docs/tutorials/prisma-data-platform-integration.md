@@ -28,7 +28,9 @@ Make sure your imported project has a `schema.prisma` file. You can specify the 
 
 In order for Prisma Data Platform to work seamlessly with PlanetScale, you need to pick the "Empty" template.
 
-{% callout %} Currently, you cannot use one of the existing templates with PlanetScale. If you do, you will likely see a "foreign key constraints are not allowed error." You will need to edit your Prisma schema file in your GitHub repo and push to the repo and PlanetScale as described below. {% /callout %}
+{% callout %}
+Currently, you cannot use one of the existing templates with PlanetScale. If you do, you will likely see a "foreign key constraints are not allowed error." You will need to edit your Prisma schema file in your GitHub repo and push to the repo and PlanetScale as described below.
+{% /callout %}
 
 ![Prisma Data Platform project template options](/assets/docs/tutorials/prisma-data-platform-integration/templates.png)
 
@@ -46,11 +48,16 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 8. Go to your GitHub account and `git clone` the project that Prisma created locally.
 9. Navigate to your `prisma/schema.prisma` file and update it so that the `client` and `datasource` look similar to the following schema:
 
-   {% callout %} If you are using an existing Prisma project, you can skip updating the schema in steps 9 and 10. {% /callout %}
+   {% callout %}
+   If you are using an existing Prisma project, you can skip updating the schema in steps 9 and 10.
+   {% /callout %}
 
-   {% callout %} In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
+   {% callout %}
+   In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
 
-   You can learn more about Prisma's Relation mode in the [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode). {% /callout %}
+   You can learn more about Prisma's Relation mode in the
+   [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
+   {% /callout %}
 
    ```js
    generator client {
@@ -71,7 +78,9 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 14. Locally, run `npx prisma db push`, which will push your database schema to PlanetScale.
 15. Your PlanetScale database is now ready! In the Prisma Data Platform, you will now be ready to use the Data Browser, Query Console, Data Proxy, and you are ready to start building!
 
-{% callout %} When you are ready to deploy your application to production and promote your branch in PlanetScale to production, make sure to change your connection string in the Prisma Data Platform for your new production branch. Remember: You will need to make a non-production branch to make changes to your Prisma schema. {% /callout %}
+{% callout %}
+When you are ready to deploy your application to production and promote your branch in PlanetScale to production, make sure to change your connection string in the Prisma Data Platform for your new production branch. Remember: You will need to make a non-production branch to make changes to your Prisma schema.
+{% /callout %}
 
 ## Exploring PlanetScale
 

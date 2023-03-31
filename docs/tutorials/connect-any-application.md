@@ -69,7 +69,9 @@ If you prefer working from the CLI, you can quickly spin up new credentials ther
    pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
    ```
 
-   {% callout %} The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords". {% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
 2. Take note of the values returned. You won't be able to see this password again.
 

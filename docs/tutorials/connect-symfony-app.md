@@ -96,7 +96,11 @@ You can also get these exact values to to copy/paste from your [PlanetScale dash
 
    A default branch, `main`, is created when you create the database, so you can use that for `BRANCH_NAME`.
 
-   {% callout %} The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords". {% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+   your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
    Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -199,7 +203,9 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 
 This will open up a MySQL shell connected to the specified database and branch.
 
-{% callout %} A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. {% /callout %}
+{% callout %}
+A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
+{% /callout %}
 
 Add a record to the `product` table:
 
@@ -244,4 +250,5 @@ You can now refresh the [Symfony homepage](http://localhost:8000) to see the new
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch protected by direct schema changes. Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch protected by direct schema changes.
+Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.

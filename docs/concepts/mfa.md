@@ -10,7 +10,9 @@ Multi-factor authentication (MFA) provides better safety for your databases and 
 
 PlanetScale allows users logging in with an email address and password to set MFA as a requirement for logging into the user account.
 
-{% callout %} If you're authenticating via GitHub OAuth or [SSO](/docs/concepts/sso), MFA settings will not be displayed. {% /callout %}
+{% callout %}
+If you're authenticating via GitHub OAuth or [SSO](/docs/concepts/sso), MFA settings will not be displayed.
+{% /callout %}
 
 ### Authentication providers
 
@@ -30,7 +32,10 @@ You can enable MFA for your user account under your PlanetScale account settings
 
    ![Pop-up modal with QR code and recovery codes](/assets/docs/concepts/mfa/recovery-codes.png)
 
-   {% callout type="warning" %} Recovery codes are the only account recovery method accepted when MFA is enabled. If you lose both your TOTP app and the recovery codes, there is no way to regain access to your account. {% /callout %}
+   {% callout type="warning" %}
+   Recovery codes are the only account recovery method accepted when MFA is enabled. If you lose both your TOTP app and
+   the recovery codes, there is no way to regain access to your account.
+   {% /callout %}
 
 3. Scan the QR Code with your preferred TOTP app and enter the generated code.
 
@@ -40,7 +45,10 @@ You can enable MFA for your user account under your PlanetScale account settings
 
    ![Copy the recovery codes](/assets/docs/concepts/mfa/copy.png)
 
-   {% callout type="tip" %} Recovery codes are only visible during the MFA setup process. Make sure the recovery codes are copied and saved some place secure before continuing. {% /callout %}
+   {% callout type="tip" %}
+   Recovery codes are only visible during the MFA setup process. Make sure the recovery codes are copied and saved some
+   place secure before continuing.
+   {% /callout %}
 
 6. Click **Done** to close the pop-up modal.
 
@@ -58,7 +66,9 @@ You can use one of the `recovery codes` in the place of a TOTP token on the seco
 
 ## Disable MFA
 
-{% callout type="warning" %} We strongly recommend that you do not disable MFA to avoid unauthorized access to your user account. {% /callout %}
+{% callout type="warning" %}
+We strongly recommend that you do not disable MFA to avoid unauthorized access to your user account.
+{% /callout %}
 
 {% callout title="Effects of disabling MFA" %}
 
