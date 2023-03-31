@@ -32,9 +32,9 @@ pscale org <SUB-COMMAND> <FLAG>
 
 Some of the sub-commands have additional flags unique to the sub-command. This section covers what each of those does. See the above table for which context.
 
-| **Sub-command flag**   | **Description**                                                                                                             | **Applicable sub-commands** |
-| ---------------------- | --------------------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `--save-config <PATH>` | Path to store the organization. By default, the configuration is automatically deduced based on where `pscale` is executed. | `switch`                    |
+| **Sub-command flag** | **Description** | **Applicable sub-commands** |
+| --- | --- | --- |
+| `--save-config <PATH>` | Path to store the organization. By default, the configuration is automatically deduced based on where `pscale` is executed. | `switch` |
 
 ### Available flags
 
@@ -44,16 +44,16 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 ### Global flags
 
-| **Command**                     | **Description**                                                                                                                                     |
-| ------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `--api-token <TOKEN>`           | The API token to use for authenticating against the PlanetScale API.                                                                                |
-| `--api-url <URL>`               | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`.                                                                    |
-| `--config <CONFIG_FILE>`        | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. Local override inside a Git repository is `$CWD/.pscale.yml` in the project's root. |
-| `--debug`                       | Enable debug mode.                                                                                                                                  |
-| `-f`, `--format <FORMAT>`       | Show output in a specific format. Possible values: `human` (default), `json`, `csv`.                                                                |
-| `--no-color`                    | Disable color output.                                                                                                                               |
-| `--service-token <TOKEN>`       | The service token for authenticating.                                                                                                               |
-| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                                                                                            |
+| **Command** | **Description** |
+| --- | --- |
+| `--api-token <TOKEN>` | The API token to use for authenticating against the PlanetScale API. |
+| `--api-url <URL>` | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`. |
+| `--config <CONFIG_FILE>` | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. Local override inside a Git repository is `$CWD/.pscale.yml` in the project's root. |
+| `--debug` | Enable debug mode. |
+| `-f`, `--format <FORMAT>` | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
+| `--no-color` | Disable color output. |
+| `--service-token <TOKEN>` | The service token for authenticating. |
+| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating. |
 
 ## Examples
 

@@ -8,9 +8,7 @@ date: '2022-12-06'
 
 In this tutorial, you'll learn how to connect a Django application to a PlanetScale MySQL database using a pre-built Django application.
 
-{% callout type="tip" %}
-Already have a Django application and just want to connect to PlanetScale? Check out the [Django quick connect repo](https://github.com/planetscale/connection-examples/tree/main/python).
-{% /callout %}
+{% callout type="tip" %} Already have a Django application and just want to connect to PlanetScale? Check out the [Django quick connect repo](https://github.com/planetscale/connection-examples/tree/main/python). {% /callout %}
 
 ## Prerequisites
 
@@ -85,9 +83,7 @@ Both options are covered below.
    pscale password create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>
    ```
 
-   {% callout %}
-   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
-   {% /callout %}
+   {% callout %} The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords". {% /callout %}
 
    You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Django**". If the password is blurred, click "**New password**".
 
@@ -218,9 +214,7 @@ pscale shell <DATABASE_NAME> <BRANCH_NAME>
 
 This will open up a MySQL shell connected to the specified database and branch.
 
-{% callout %}
-A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
-{% /callout %}
+{% callout %} A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. {% /callout %}
 
 Add a record to the `store_product` table:
 

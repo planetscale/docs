@@ -16,10 +16,7 @@ Below is an overview of what you'll find on this page. If you'd like to see a pr
 
 {% vimeo src="https://player.vimeo.com/video/763945350" caption="This video shows an example Insights page. All explanations are covered in this doc." /%}
 
-{% callout %}
-On the free Hobby plan, query insights are limited to the previous 24 hours. To unlock the full seven days of
-analytics, [upgrade to a paid plan](/docs/concepts/billing).
-{% /callout %}
+{% callout %} On the free Hobby plan, query insights are limited to the previous 24 hours. To unlock the full seven days of analytics, [upgrade to a paid plan](/docs/concepts/billing). {% /callout %}
 
 ## Branch selection
 
@@ -61,9 +58,7 @@ You can also sort the columns for quick analysis.
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
-{% callout %}
-You have the option to [opt in to complete query collection](#complete-query-collection) to see the full SQL statements.
-{% /callout %}
+{% callout %} You have the option to [opt in to complete query collection](#complete-query-collection) to see the full SQL statements. {% /callout %}
 
 **Available query statistics**:
 
@@ -91,8 +86,7 @@ If you'd like to further interact with the query, click "Open query in web conso
 
 Note, if you're viewing the `EXPLAIN` plan on a production branch, this button will be disabled unless you enable production web console access in your database Settings page.
 
-![PlanetScale Insights query pattern w/ explain plan](/assets/docs/concepts/query-insights/query.png)
-![PlanetScale Insights explain plan](/assets/docs/concepts/query-insights/explain.png)
+![PlanetScale Insights query pattern w/ explain plan](/assets/docs/concepts/query-insights/query.png) ![PlanetScale Insights explain plan](/assets/docs/concepts/query-insights/explain.png)
 
 ## Database errors
 

@@ -19,11 +19,9 @@ You can see a [live demo of the starter application here](https://nextjs-planets
 
 ![Example of the dashboard application](/assets/docs/tutorials/nextjs-planetscale-netlify-template/example.png)
 
-{% callout %}
-If you're coming from the **[Netlify Template](https://templates.netlify.com/template/nextjs-planetscale-starter/)** and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just read through the prerequisites and then skip the first section to [go straight to the local setup](#set-up-the-project-locally).
+{% callout %} If you're coming from the **[Netlify Template](https://templates.netlify.com/template/nextjs-planetscale-starter/)** and you already clicked deploy, you're in the right place! This tutorial will walk you through how to set up your PlanetScale database so that you can fill in the environment variables in the Netlify dashboard. You'll also learn how to set up your local environment so you can continue to develop and extend this starter template. Just read through the prerequisites and then skip the first section to [go straight to the local setup](#set-up-the-project-locally).
 
-If you're **starting fresh and haven't deployed yet** (or don't want to deploy), you can start from the beginning of this tutorial.
-{% /callout %}
+If you're **starting fresh and haven't deployed yet** (or don't want to deploy), you can start from the beginning of this tutorial. {% /callout %}
 
 ### Prerequisites
 

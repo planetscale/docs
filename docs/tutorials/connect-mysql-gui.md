@@ -25,9 +25,7 @@ In the **Connect** modal, select **"General"** under the **Connect with** option
 
 ![The Connect modal.](/assets/docs/tutorials/connect-mysql-gui/connect-modal.png)
 
-{% callout %}
-As a security best practice, passwords are only displayed when they are created. If you do not know the password, you may generate a new credential set by clicking the **"New password"** button in the **Connect** modal.
-{% /callout %}
+{% callout %} As a security best practice, passwords are only displayed when they are created. If you do not know the password, you may generate a new credential set by clicking the **"New password"** button in the **Connect** modal. {% /callout %}
 
 ## Connect to the database
 

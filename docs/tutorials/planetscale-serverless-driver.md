@@ -10,9 +10,7 @@ Before learning how to use the PlanetScale serverless driver for JavaScript, itâ
 
 Using the PlanetScale serverless driver for JavaScript provides a means of accessing your database and executing queries over an HTTP connection, which is generally not blocked by cloud providers. If you encounter issues using MySQL packages with PlanetScale, use the serverless driver instead.
 
-{% callout %}
-Be sure to check out our [F1 Championship Stats demo application](https://f1.planetscale.com) and [sample repository](https://github.com/planetscale/f1-championship-stats) to find examples for use with Cloudflare Workers, Vercel Edge Functions, and Netlify Edge Functions.
-{% /callout %}
+{% callout %} Be sure to check out our [F1 Championship Stats demo application](https://f1.planetscale.com) and [sample repository](https://github.com/planetscale/f1-championship-stats) to find examples for use with Cloudflare Workers, Vercel Edge Functions, and Netlify Edge Functions. {% /callout %}
 
 ## Add and use the PlanetScale serverless driver for JavaScript to your project
 
@@ -30,9 +28,7 @@ You can get your connection string in the PlanetScale dashboard by clicking on y
 
 ![Serverless driver connection string](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials.png)
 
-{% callout %}
-When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You will notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`.
-{% /callout %}
+{% callout %} When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You will notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`. {% /callout %}
 
 Use the `connect` function to create the connection and return it to an object.
 

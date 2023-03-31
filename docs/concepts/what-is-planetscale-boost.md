@@ -4,9 +4,7 @@ subtitle: 'Learn how PlanetScale works and how it increases the performance of y
 date: '2022-11-15'
 ---
 
-{% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
-{% /callout %}
+{% callout %} PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today. {% /callout %}
 
 ## Like a cache, but better
 

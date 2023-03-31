@@ -31,8 +31,6 @@ The PlanetScale platform also allows you to create OAuth applications. Creating 
 
 With PlanetScale OAuth applications, you can choose what access your application needs, and a user will allow (or deny) your application those accesses on their PlanetScale account.
 
-{% callout %}
-PlanetScale OAuth applications are in limited beta. Sign up for the limited beta in your PlanetScale organization's [**Settings > Beta features**](https://app.planetscale.com/~/settings/beta-features) page. Our team will reach out with more information.
-{% /callout %}
+{% callout %} PlanetScale OAuth applications are in limited beta. Sign up for the limited beta in your PlanetScale organization's [**Settings > Beta features**](https://app.planetscale.com/~/settings/beta-features) page. Our team will reach out with more information. {% /callout %}
 
 You can read more about creating an OAuth application in PlanetScale in the [PlanetScale OAuth documentation](https://api-docs.planetscale.com/reference/oauth).

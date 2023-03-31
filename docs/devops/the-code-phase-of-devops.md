@@ -22,8 +22,7 @@ Local configurations can be simplified as well by using the [PlanetScale CLI](/d
 
 This tunneling process can be run at the same time the local development environment starts by scripting the creation of the tunnel before starting any other dev tools. Since the process uses access-based authentication over connection strings, developers who work at companies where secrets are regularly rotated will not be affected in situations where connection strings for development databases need to be regenerated.
 
-{% callout title="Next steps" %}
-In this guide, we discussed the Code phase and how database branching and the PlanetScale CLI can help developers work a bit easier. The next step in the DevOps cycle is the build phase, where the new code built in this phase is compiled or otherwise set up.
+{% callout title="Next steps" %} In this guide, we discussed the Code phase and how database branching and the PlanetScale CLI can help developers work a bit easier. The next step in the DevOps cycle is the build phase, where the new code built in this phase is compiled or otherwise set up.
 
 - [The Build phase](/docs/devops/the-build-phase-of-devops)
 

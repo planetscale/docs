@@ -10,9 +10,7 @@ PlanetScale offers a scalable, pay-as-you-grow plan model, which means you'll ne
 
 You can find the complete list of plan offerings [in the next section](#planetscale-plans).
 
-{% callout %}
-We used **[gibibytes, otherwise known as binary gigabytes](https://simple.wikipedia.org/wiki/Gibibyte)**, to calculate storage and usage limits. For reference, 1 binary gigabyte is equivalent to 2^30 bytes.
-{% /callout %}
+{% callout %} We used **[gibibytes, otherwise known as binary gigabytes](https://simple.wikipedia.org/wiki/Gibibyte)**, to calculate storage and usage limits. For reference, 1 binary gigabyte is equivalent to 2^30 bytes. {% /callout %}
 
 ### PlanetScale charges on three factors
 
@@ -28,21 +26,21 @@ PlanetScale applies billing plans at the **database level**. You can create seve
 
 We offer four plan options, summarized below:
 
-|                              | **Hobby**      | **Scaler**             | **Team**                        | **Enterprise**                                |
-| ---------------------------- | -------------- | ---------------------- | ------------------------------- | --------------------------------------------- |
-| **Storage/month**            | 5 GB           | 10 GB\*                | 100 GB\*                        | Configurable                                  |
-| **Row reads/month**          | 1 billion      | 100 billion\*          | 500 billion\*                   | Configurable                                  |
-| **Row writes/month**         | 10 million     | 50 million\*           | 100 million\*                   | Configurable                                  |
-| **Production branches**      | 1 per database | 2 per database         | 3 per database                  | _Unlimited_                                   |
-| **Development branches**     | 1 per database | 5 per database         | 10 per database                 | _Unlimited_                                   |
-| **Audit log retention**      | 5 days         | 15 days                | 60 days                         | _Unlimited_                                   |
-| **Concurrent Connections**   | 1,000          | 10,000                 | 10,000                          | _Unlimited_                                   |
-| **Automated Backups**        | Once daily     | Every 12 hours         | Every 12 hours                  | Configurable                                  |
-| **Query Insights retention** | 24 hours       | 7 days                 | 7 days                          | Configurable                                  |
-| **SSO**                      | Not included   | Available as an add-on | Included                        | Included                                      |
-| **Support**                  | Community      | Standard               | Standard, upgrade available\*\* | Business, upgrade available\*\*\*             |
-| **Deployment options**       | Cloud          | Cloud                  | Cloud                           | Cloud, Single-tenant Cloud, and Managed Cloud |
-| **Monthly fee**              | $0             | $29 per database       | $599 per database               | Starting at $2999                             |
+|  | **Hobby** | **Scaler** | **Team** | **Enterprise** |
+| --- | --- | --- | --- | --- |
+| **Storage/month** | 5 GB | 10 GB\* | 100 GB\* | Configurable |
+| **Row reads/month** | 1 billion | 100 billion\* | 500 billion\* | Configurable |
+| **Row writes/month** | 10 million | 50 million\* | 100 million\* | Configurable |
+| **Production branches** | 1 per database | 2 per database | 3 per database | _Unlimited_ |
+| **Development branches** | 1 per database | 5 per database | 10 per database | _Unlimited_ |
+| **Audit log retention** | 5 days | 15 days | 60 days | _Unlimited_ |
+| **Concurrent Connections** | 1,000 | 10,000 | 10,000 | _Unlimited_ |
+| **Automated Backups** | Once daily | Every 12 hours | Every 12 hours | Configurable |
+| **Query Insights retention** | 24 hours | 7 days | 7 days | Configurable |
+| **SSO** | Not included | Available as an add-on | Included | Included |
+| **Support** | Community | Standard | Standard, upgrade available\*\* | Business, upgrade available\*\*\* |
+| **Deployment options** | Cloud | Cloud | Cloud | Cloud, Single-tenant Cloud, and Managed Cloud |
+| **Monthly fee** | $0 | $29 per database | $599 per database | Starting at $2999 |
 
 \* For the Scaler and Team plans, any extra storage over the included amount is billed at $2.50 per additional 1 GB, extra rows read over the included amount are billed at $1 per additional 1 billion, and extra rows written over the included amount are billed at $1.50 per additional 1 million.
 
@@ -50,20 +48,13 @@ We offer four plan options, summarized below:
 
 \*\*\* Enterprise support is available on the Enterprise plan for an additional fee.
 
-{% callout %}
-You are limited to **one free database per organization**. Free databases may be
-[slept](/docs/concepts/database-sleeping) after a 7-day period of inactivity.
-{% /callout %}
+{% callout %} You are limited to **one free database per organization**. Free databases may be [slept](/docs/concepts/database-sleeping) after a 7-day period of inactivity. {% /callout %}
 
 Scaler and Team plans are billed on a **monthly basis**.
 
 For more information about [our `Enterprise` plan](/enterprise), please [reach out to us](/contact). [On our pricing page](/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
 
-{% callout %}
-Plans are priced **per database**. The total charge for a PlanetScale _database_ includes the charge for
-usage on **database branches**. In other words, the total `reads`, `writes`, and storage used by each branch of
-your database will determine the final monthly price.
-{% /callout %}
+{% callout %} Plans are priced **per database**. The total charge for a PlanetScale _database_ includes the charge for usage on **database branches**. In other words, the total `reads`, `writes`, and storage used by each branch of your database will determine the final monthly price. {% /callout %}
 
 ## Plan add-ons
 
@@ -137,10 +128,7 @@ You'll see a table of current and previous monthly invoices. You can download an
 
 To see more details about your billing from the PlanetScale dashboard, click the "**View details**" button on the Billing page next to the month you want to view. This will show you an overview of the charges for all of the databases in your organization.
 
-{% callout %}
-PlanetScale generates both current and past invoices. Even for the **free** plan! You can see the cost had you not
-been on the Hobby plan.
-{% /callout %}
+{% callout %} PlanetScale generates both current and past invoices. Even for the **free** plan! You can see the cost had you not been on the Hobby plan. {% /callout %}
 
 ## Understanding rows read
 
@@ -172,9 +160,9 @@ This table has 15 rows. All of them are read, which is reflected in the `rows` o
 
 ```
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
-| id | select_type | table   | partitions | type | possible_keys | key  | key_len | ref  | rows | filtered | Extra |
+| id | select_type | table | partitions | type | possible_keys | key | key_len | ref | rows | filtered | Extra |
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
-|  1 | SIMPLE      | posts   | NULL       | ALL  | NULL          | NULL | NULL    | NULL |   15 |   100.00 | NULL  |
+|  1 | SIMPLE | posts | NULL | ALL | NULL | NULL | NULL | NULL |   15 |   100.00 | NULL |
 +----+-------------+---------+------------+------+---------------+------+---------+------+------+----------+-------+
 ```
 
@@ -190,10 +178,10 @@ In this case, the estimated count shown in the first set of parentheses does mat
 
 ```
 +-------------------------------------------------------------------------------------------+
-| EXPLAIN                                                                                   |
+| EXPLAIN |
 +-------------------------------------------------------------------------------------------+
-| -> Table scan on posts  (cost=1.75 rows=15) (actual time=0.024..0.038 rows=15 loops=1)    |
-|                                                                                           |
+| -> Table scan on posts  (cost=1.75 rows=15) (actual time=0.024..0.038 rows=15 loops=1) |
+| |
 +-------------------------------------------------------------------------------------------+
 ```
 
@@ -209,9 +197,9 @@ This returned output indicates that 4586 total rows have been read.
 
 ```
 +------------------+-------+
-| Variable_name    | Value |
+| Variable_name | Value |
 +------------------+-------+
-| Innodb_rows_read | 4586  |
+| Innodb_rows_read | 4586 |
 +------------------+-------+
 ```
 

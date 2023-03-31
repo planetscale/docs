@@ -29,10 +29,7 @@ PlanetScale provides two types of database branches:
 
 - **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups. To make a change to a production branch, you must [create a deploy request](#how-to-deploy-a-branch).
 
-{% callout type="tip" %}
-You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a
-production branch. Instead, create a development branch, and make your changes there.
-{% /callout %}
+{% callout type="tip" %} You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a production branch. Instead, create a development branch, and make your changes there. {% /callout %}
 
 ## Promote a branch to production
 
@@ -169,10 +166,7 @@ pscale branch delete <DATABASE_NAME> <BRANCH_NAME>
 
 We recommend deleting branches after a deploy request is complete or if you are no longer using the branch for testing.
 
-{% callout %}
-Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) have permission to delete
-production branches.
-{% /callout %}
+{% callout %} Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) have permission to delete production branches. {% /callout %}
 
 You cannot delete a branch that's [set as default](#default-branches). To delete, it set another branch as the default first.
 

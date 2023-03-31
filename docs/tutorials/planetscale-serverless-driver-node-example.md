@@ -8,9 +8,7 @@ date: '2023-01-30'
 
 This guide will cover how to use the provided Node.js sample application using the PlanetScale serverless driver for JavaScript.
 
-{% callout %}
-This guide will be using VS Code as the IDE, but you may use your preferred IDE.
-{% /callout %}
+{% callout %} This guide will be using VS Code as the IDE, but you may use your preferred IDE. {% /callout %}
 
 ## Use the sample repository
 
@@ -37,9 +35,7 @@ Select **"@planetscale/database"** from the options in the **"Connect with"** dr
 
 ![The Connect modal.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal.png)
 
-{% callout %}
-When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You might notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`.
-{% /callout %}
+{% callout %} When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You might notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`. {% /callout %}
 
 On your workstation, open a terminal and clone the repository to your computer by running the following command:
 
@@ -54,9 +50,7 @@ cd database-js-starter/scripts
 ./seed-database.sh
 ```
 
-{% callout %}
-If you are using Windows, run this command through the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/)
-{% /callout %}
+{% callout %} If you are using Windows, run this command through the [Windows Subsystem for Linux (WSL)](https://docs.microsoft.com/en-us/windows/wsl/) {% /callout %}
 
 Create a new file named `.env` in the root of the project and paste in the sample provided from PlanetScale that you copied earlier.
 

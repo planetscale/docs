@@ -8,9 +8,7 @@ date: '2022-08-18'
 
 This guide will cover how to use the PlanetScale serverless driver for JavaScript in your projects.
 
-{% callout %}
-Be sure to check out our [F1 Championship Stats demo application](https://f1.planetscale.com) and [sample repository](https://github.com/planetscale/f1-championship-stats) to find examples for use with Cloudflare Workers, Vercel Edge Functions, and Netlify Edge Functions.
-{% /callout %}
+{% callout %} Be sure to check out our [F1 Championship Stats demo application](https://f1.planetscale.com) and [sample repository](https://github.com/planetscale/f1-championship-stats) to find examples for use with Cloudflare Workers, Vercel Edge Functions, and Netlify Edge Functions. {% /callout %}
 
 ## Add and use the PlanetScale serverless driver for JavaScript to your project
 

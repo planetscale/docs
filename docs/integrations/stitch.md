@@ -14,17 +14,13 @@ We implemented an [Stitch Singer Tap](https://stitchdata.com/) as the pipeline b
 
 ### Step 1 : Setup an Import API integration in Stitch.
 
-PlanetScale's Stitch tap outputs records and metadata to stdout so that the `http tap` can import them into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/import-api/).
-into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/import-api/)
+PlanetScale's Stitch tap outputs records and metadata to stdout so that the `http tap` can import them into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/import-api/). into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/import-api/)
 
 1. Sign up for a [StitchData](https://app.stitchdata.com/signup) account
 2. Once you've signed up, create an Integration by clicking on **Add Integration**.
-3. On the marketplace screen, type in **import** to narrow the list down to the **Import API**
-   ![Add Stitch Integration](/assets/docs/integrations/stitch/integration.png)
-4. On the next screen, configure your integration name and destination.
-   ![Configure Stitch Integration](/assets/docs/integrations/stitch/configure.png)
-5. Once the integration is created, save the access token for use with the PlanetScale tap.
-   ![Save Stitch API Token](/assets/docs/integrations/stitch/api-token.png)
+3. On the marketplace screen, type in **import** to narrow the list down to the **Import API** ![Add Stitch Integration](/assets/docs/integrations/stitch/integration.png)
+4. On the next screen, configure your integration name and destination. ![Configure Stitch Integration](/assets/docs/integrations/stitch/configure.png)
+5. Once the integration is created, save the access token for use with the PlanetScale tap. ![Save Stitch API Token](/assets/docs/integrations/stitch/api-token.png)
 
 ### Step 2 : Configure the PlanetScale Stitch Tap
 
@@ -32,10 +28,8 @@ In this step, we will connect your PlanetScale database to the PlanetScale Singe
 
 1. Click on the database and branch you want to connect to.
 2. Click "Connect", and select "Stitch source" from the "Connect with" dropdown.
-3. Leave this tab open, as you'll need to copy these credentials shortly.
-   ![Stitch Source config](/assets/docs/integrations/stitch/connect.png)
-4. Copy the contents of `source.json` as a file on your local file system, and save it as `source.json`. This will now act
-   as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` to your database.
+3. Leave this tab open, as you'll need to copy these credentials shortly. ![Stitch Source config](/assets/docs/integrations/stitch/connect.png)
+4. Copy the contents of `source.json` as a file on your local file system, and save it as `source.json`. This will now act as the `PlanetScale source config` when connecting the `PlanetScale Stitch Tap` to your database.
 
 ### Step 3: Run the PlanetScale Stitch Tap
 
@@ -57,10 +51,7 @@ In this step, we will connect your PlanetScale database to the PlanetScale Singe
    ps-singer-tap --config source.json  --discover > schema.json
    ```
 
-4. The `schema.json` file you saved in the previous step is a JSON document
-   that describes all tables & columns available in your PlanetScale database. By default, no tables/columns are selected.
-   You can select a column or table by setting its `selected` property in the table's `metadata` element in the JSON document to be true.
-   Here's an example of selecting the `dept_no` property in a table.
+4. The `schema.json` file you saved in the previous step is a JSON document that describes all tables & columns available in your PlanetScale database. By default, no tables/columns are selected. You can select a column or table by setting its `selected` property in the table's `metadata` element in the JSON document to be true. Here's an example of selecting the `dept_no` property in a table.
 
    ```json
    {
@@ -97,8 +88,7 @@ In this step, we will connect your PlanetScale database to the PlanetScale Singe
    HTTP Tap : INFO : saving state to path : state/state-1656850746251.json
    ```
 
-7. Any state outputted by the PlanetScale Tap will be saved and you can look at the logs for the location.
-   Here is an example of outputted state:
+7. Any state outputted by the PlanetScale Tap will be saved and you can look at the logs for the location. Here is an example of outputted state:
 
    ```bash
    HTTP Tap : INFO : saving state to path : state/state-1656850746251.json

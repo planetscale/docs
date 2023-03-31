@@ -26,13 +26,13 @@ If no branch is specified, you'll be prompted to enter one. If only one branch e
 
 ### Available flags
 
-| **Flag**                    | **Description**                                                                                                                  |
-| --------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `-h`, `--help`              | View help for `shell` command                                                                                                    |
-| `--local-addr <ADDRESS>`    | Local address to bind and listen for connections. By default, the proxy binds to `127.0.0.1` with a random port.                 |
-| `--org <ORGANIZATION_NAME>` | The organization for the current user                                                                                            |
-| `--remote-addr <ADDRESS>`   | PlanetScale database remote network address. By default, the remote address is automatically populated from the PlanetScale API. |
-| `--role <ROLE>`             | Define the access level [with a role](/docs/concepts/password-roles)                                                             |
+| **Flag** | **Description** |
+| --- | --- |
+| `-h`, `--help` | View help for `shell` command |
+| `--local-addr <ADDRESS>` | Local address to bind and listen for connections. By default, the proxy binds to `127.0.0.1` with a random port. |
+| `--org <ORGANIZATION_NAME>` | The organization for the current user |
+| `--remote-addr <ADDRESS>` | PlanetScale database remote network address. By default, the remote address is automatically populated from the PlanetScale API. |
+| `--role <ROLE>` | Define the access level [with a role](/docs/concepts/password-roles) |
 
 Available roles for the `--role` flag are:
 
@@ -43,16 +43,16 @@ Available roles for the `--role` flag are:
 
 ### Global flags
 
-| **Command**                     | **Description**                                                                      |
-| ------------------------------- | ------------------------------------------------------------------------------------ |
-| `--api-token <TOKEN>`           | The API token to use for authenticating against the PlanetScale API.                 |
-| `--api-url <URL>`               | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`.     |
-| `--config <CONFIG_FILE>`        | Config file. Default is `$HOME/.config/planetscale/pscale.yml`.                      |
-| `--debug`                       | Enable debug mode.                                                                   |
-| `-f`, `--format <FORMAT>`       | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
-| `--no-color`                    | Disable color output.                                                                |
-| `--service-token <TOKEN>`       | The service token for authenticating.                                                |
-| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                             |
+| **Command** | **Description** |
+| --- | --- |
+| `--api-token <TOKEN>` | The API token to use for authenticating against the PlanetScale API. |
+| `--api-url <URL>` | The base URL for the PlanetScale API. Default is `https://api.planetscale.com/`. |
+| `--config <CONFIG_FILE>` | Config file. Default is `$HOME/.config/planetscale/pscale.yml`. |
+| `--debug` | Enable debug mode. |
+| `-f`, `--format <FORMAT>` | Show output in a specific format. Possible values: `human` (default), `json`, `csv`. |
+| `--no-color` | Disable color output. |
+| `--service-token <TOKEN>` | The service token for authenticating. |
+| `--service-token-id <TOKEN_ID>` | The service token ID for authenticating. |
 
 ## Examples
 
@@ -74,7 +74,7 @@ DATABASE_NAME/BRANCH_NAME > show tables;
 +---------------+
 | Tables_in_db |
 +---------------+
-| users       |
+| users |
 +---------------+
 DATABASE_NAME/BRANCH_NAME > exit;
 ```

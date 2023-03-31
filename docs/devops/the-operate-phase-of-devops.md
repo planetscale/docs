@@ -28,8 +28,7 @@ As this phase is predominantly about infrastructure and making sure the applicat
 
 When creating databases or branches, you'll be presented with the option to select which [region](/docs/concepts/regions) you'd like your database created in. After creation, you'll also have the option to create [read-only regions](/docs/concepts/read-only-regions) using the Portals feature. This adds a replica of your database in a specific geographical location to more quickly serve queries by users in that area. Traditionally this would require operations teams to set up additional data centers linked by VPN tunnels or private ISP networks to securely synchronize data, but this is all handled by PlanetScale without such complexity.
 
-{% callout title="Next steps" %}
-In this guide, we discussed the Operate phase and discussed features that PlanetScale offers to make the lives of Ops members easier. The last step in the DevOps cycle is the Monitor phase, where feedback and metrics are gathered for decision-making before the next iteration.
+{% callout title="Next steps" %} In this guide, we discussed the Operate phase and discussed features that PlanetScale offers to make the lives of Ops members easier. The last step in the DevOps cycle is the Monitor phase, where feedback and metrics are gathered for decision-making before the next iteration.
 
 - [The Monitor phase](/docs/devops/the-monitor-phase-of-devops)
 

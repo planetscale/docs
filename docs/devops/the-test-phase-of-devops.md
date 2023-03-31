@@ -28,8 +28,7 @@ Once integration tests have completed successfully and all are passing, it is no
 
 If you decide to script the CLI in your pipeline, you can use `pscale branch delete <DATABASE_NAME> <BRANCH_NAME>` to discard the branch and the data it holds. The PlanetScale API offers the `/organizations/<ORGANIZATION>/databases/<DATABASE_NAME>/branches/<BRANCH_NAME>` to delete branches if you want to use `curl` or other tools that can send HTTP requests.
 
-{% callout title="Next steps" %}
-In this guide, we discussed the Test phase and dedicated database branches can be used to assist with integration testing. Next up is the Release phase, where the new software is set up for a successful deployment into production.
+{% callout title="Next steps" %} In this guide, we discussed the Test phase and dedicated database branches can be used to assist with integration testing. Next up is the Release phase, where the new software is set up for a successful deployment into production.
 
 - [The Release phase](/docs/devops/the-release-phase-of-devops)
 

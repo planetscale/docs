@@ -16,8 +16,7 @@ Having a great deployment strategy is key to successfully implementing DevOps, b
 
 As stated previously in this series, Deploy request utilizes shadow tables to synchronize data changes between tables with the old version of the schema and tables with the new version of the schema. If schema revert is enabled, we will continue to synchronize changes between the live and shadow tables for a period AFTER the deploy request is closed and changes applied. This enables you to quickly revert the changes made by a deploy request and instantly bring back the old version of your schema. Having this capability can significantly decrease the time to revert changes, as well as reduce the potential for your application to stay in a bad state long term. This alone can increase developer confidence when it comes to applying changes to the database.
 
-{% callout title="Next steps" %}
-In this guide, we discussed the Deploy phase and how any open deploy requests should be closed at this point, as well as how schema revert can help back out of bad changes quickly. The next step in the DevOps cycle is the Operate phase, where the Operations team maintains the infrastructure that powers the application.
+{% callout title="Next steps" %} In this guide, we discussed the Deploy phase and how any open deploy requests should be closed at this point, as well as how schema revert can help back out of bad changes quickly. The next step in the DevOps cycle is the Operate phase, where the Operations team maintains the infrastructure that powers the application.
 
 - [The Operate phase](/docs/devops/the-operate-phase-of-devops)
 

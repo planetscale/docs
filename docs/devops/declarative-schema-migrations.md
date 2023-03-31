@@ -14,6 +14,7 @@ Transform: AWS::Serverless-2016-10-31
 Description: >
   sam-go-sample
 
+
 Resources:
   HelloWorldFunction:
     Type: AWS::Serverless::Function
@@ -97,9 +98,7 @@ schema "hotels_db" {
 }
 ```
 
-{% callout %}
-Refer to our blog post on [how to use the Atlas CLI with PlanetScale](/blog/declarative-mysql-schemas-with-atlas-cli) for more detail.
-{% /callout %}
+{% callout %} Refer to our blog post on [how to use the Atlas CLI with PlanetScale](/blog/declarative-mysql-schemas-with-atlas-cli) for more detail. {% /callout %}
 
 ## Benefits of a declarative approach
 

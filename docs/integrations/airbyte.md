@@ -10,9 +10,7 @@ With the PlanetScale Connect (beta), you can extract data from your PlanetScale 
 
 We implemented an [Airbyte](https://airbyte.com/) connector as the pipeline between your PlanetScale source and selected destination. This document will walk you through how to connect your PlanetScale database to Airbyte.
 
-{% callout %}
-PlanetScale Connect is currently in beta. To generate a working connection string, you must opt into the beta.
-{% /callout %}
+{% callout %} PlanetScale Connect is currently in beta. To generate a working connection string, you must opt into the beta. {% /callout %}
 
 ## Connect to Airbyte
 
@@ -100,14 +98,9 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
 
    ![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
 
-   {% callout %}
-   **Important:** The sync frequency will affect your PlanetScale billing. The rows read during sync are
-   counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of
-   all tables selected every time the sync runs.
+   {% callout %} **Important:** The sync frequency will affect your PlanetScale billing. The rows read during sync are counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of all tables selected every time the sync runs.
 
-   You can find more information about your plan's read limits in our
-   [Billing documentation](/docs/concepts/billing#planetscale-plans).
-   {% /callout %}
+   You can find more information about your plan's read limits in our [Billing documentation](/docs/concepts/billing#planetscale-plans). {% /callout %}
 
 4. Choose the Destination Namespace configuration from the dropdown. This is where the data will be stored in the destination.
 5. _(Optional)_ Choose your destination stream prefix.

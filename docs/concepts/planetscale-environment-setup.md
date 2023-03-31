@@ -13,10 +13,7 @@ To interact with PlanetScale and manage your databases, you can use the `pscale`
 - Manage your deploy requests
 - ...and more!
 
-{% callout %}
-`pscale` can use the MySQL command-line client to quickly open an interactive shell for a database branch. Optional
-instructions for installing the MySQL client can be found for each platform below.
-{% /callout %}
+{% callout %} `pscale` can use the MySQL command-line client to quickly open an interactive shell for a database branch. Optional instructions for installing the MySQL client can be found for each platform below. {% /callout %}
 
 ### macOS instructions
 

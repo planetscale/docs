@@ -129,9 +129,7 @@ We illustrate below the _pseudo code_ used by Online Schema Change tools to iter
 
 6. Assign `(@previous_iteration_end_entry_file_name, @previous_iteration_end_entry_submitted_at) := (@this_iteration_end_entry_file_name, @this_iteration_end_entry_submitted_at)` and repeat.
 
-{% callout %}
-The above pseudo-code is just a simplification of the process.
-{% /callout %}
+{% callout %} The above pseudo-code is just a simplification of the process. {% /callout %}
 
 There are several extra considerations that go into the full process, such as:
 
