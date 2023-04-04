@@ -109,6 +109,14 @@ Nearly every action you can take in the PlanetScale dashboard can also be done w
 
 With commands for branching, deploy requests, backups, service tokens, and more, the CLI allows teams to work quickly and efficiently. You can use the CLI to extend PlanetScale into your own devops workflow with [GitHub Actions](/blog/using-the-planetscale-cli-with-github-actions-workflows), [AWS CodeBuild](/blog/build-a-multi-stage-pipeline-with-planetscale-and-aws), and more.
 
+### API
+
+Like the CLI, you can programmatically interact with PlanetScale using our [API](/docs/concepts/planetscale-api-oauth-applications).
+
+The API is useful for building PlanetScale into other developer tooling for faster development workflows. For example, you can programmatically create and delete database branches, open and merge deploy requests, and more.
+
+See the [PlanetScale API reference](https://api-docs.planetscale.com) for more information.
+
 ### Portals: Read-only regions
 
 [PlanetScale Portals](/docs/concepts/read-only-regions) allows you to spin up read-only regions with the click of a button. For globally distributed applications, it's important to serve your users as close as possible to their location to prevent high read latency.
