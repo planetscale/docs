@@ -1,7 +1,7 @@
 ---
 title: 'A story of DevOps'
 subtitle: 'Follow along as a small team builds a new feature in their code with DevOps and PlanetScale.'
-date: '2023-03-13'
+date: '2023-04-05'
 ---
 
 ## Intro
@@ -29,7 +29,7 @@ Mechanica uses the following tools in its tech team:
 
 Mechanica uses AWS as its primary cloud provider, with the exception of using PlanetScale for its MySQL database. Their React front end operates as a single-page application and is stored in a dedicated S3 bucket. A CloudFront instance is used in front of it to use a custom domain name, as well as cache the front end as close to end users as possible. The API is written in Go and is running on two Linux EC2 instances in production. A technique called “blue/green” is used with the API, so one instance is always live and the other is used as the staging server.
 
-There are three environments active at any time. A development environment is used for building and testing new functionality by the developers. A test environment is used by Jenkins to run automated tests to ensure that everything is built according to spec. Finally, there is the production environment that's used by Mechanica customers. Although there are three separate environments, a single PlanetScale database is used, with a separate database branch configured for each environment.
+There are three environments active at any time. A development environment is used for building and testing new functionality by the developers. A test environment is used by Jenkins to run automated tests to ensure that everything is built according to spec. Finally, there is the production environment that's used by Mechanica customers. Although there are three separate environments, a single PlanetScale database is used, with a separate database branch configured for each environment. The production database branch also has [safe migrations](/docs/concepts/safe-migrations) enabled. This prevents accidental changes to the schema by enforcing the use of the PlanetScale flow, requiring that schema changes be made using [branching](/docs/concepts/branching) and [deploy requests](/docs/concepts/deploy-requests).
 
 ### The request
 

@@ -1,7 +1,7 @@
 ---
 title: 'Automatic Prisma migrations'
 subtitle: 'How to make changes to your PlanetScale database schema while using Prisma, a next-generation Node.js and TypeScript ORM'
-date: '2022-11-29'
+date: '2023-04-05'
 ---
 
 {% callout %}
@@ -55,8 +55,7 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
    ```
 
    {% callout %}
-   This step assumes you created a new PlanetScale database and the `main` branch has not been promoted to production
-   yet. You will need to create a new development branch if the `main` branch has been promoted to production.
+   This step assumes you created a new PlanetScale database and have not yet enabled [Safe Migrations](/docs/concepts/safe-migrations) on the `main` branch. You will need to create a new development branch otherwise.
    {% /callout %}
 
 3. Update your `prisma/schema.prisma` file with the following schema:
@@ -145,6 +144,12 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 
    ```bash
    pscale branch promote prisma-playground main
+   ```
+
+7. Finally, turn on safe migrations on the `main` branch to enable non-blocking schema changes:
+
+   ```bash
+   pscale branch safe-migrations enable prisma-playground main
    ```
 
 ## Execute succeeding Prisma migrations in PlanetScale

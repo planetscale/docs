@@ -1,7 +1,7 @@
 ---
 title: 'Versioned schema migrations'
 subtitle: 'Learn how the schema migrations are performed iteratively by evolving change scripts.'
-date: '2023-03-13'
+date: '2023-04-05'
 ---
 
 Schema versioning tools have existed long before their declarative counterparts. Instead of having a single file describing the state of the database schema, versioned schema migrations consist of multiple files or scripts that iterate on each other to describe the database as it moves through time. As changes are made to the schema, new files are added to describe those changes. It works very similarly to a system you may already be familiar with: git.
@@ -227,7 +227,17 @@ Depending on the tool, it may not validate the current state of the schema befor
 
 ## How to use versioned schema migrations with PlanetScale
 
-Since DDL is ultimately used to apply changes, your schema migrations need to be performed on a non-production branch in PlanetScale, as [production branches do not support DDL](/docs/concepts/branching#development-and-production-branches). You can connect your development application to the PlanetScale development branch, and run your migrations there. Your development branch will now have the updated schema, and is ready to merge into your production database via a [PlanetScale deploy request](/docs/concepts/deploy-requests).
+How you would use versioned migrations on PlanetScale ultimately depends on if [safe migrations](/docs/concepts/safe-migrations) is enabled for your production branch.
+
+### Without safe migrations
+
+If safe migrations is not enabled for your production branch, versioned migrations would work with PlanetScale branches just as they would with any other MySQL environment. Ideally, you would use different database branches to match your different environments. When your code is ready for production, simply run the upgrade command for your respective migration tools with the connection string for the branch you want the changes to, and your tooling should apply the changes.
+
+That said, enabling safe migrations is a best practice to prevent unintended schema changes, among [enabling other useful features](/docs/concepts/safe-migrations).
+
+### With safe migrations
+
+When safe migrations is enabled on your production branch, use of [branching](/docs/concepts/branching) and [deploy requests](/docs/concepts/deploy-requets) is enforced to enable zero-downtime migrations, and use of direct DDL is restricted as a result. In this scenario, you would create a development branch, connect your development environment to the PlanetScale development branch, and run your migrations there. Your development branch will now have the updated schema, and is ready to merge into your production database via a [PlanetScale deploy request](/docs/concepts/deploy-requests).
 
 Typically when deploy requests are used to merge database branches, it's only the schema that is changed in the target without writing or altering any data. While this may seem like an issue at first (since a table is used to track what changes have been applied), PlanetScale offers a setting in every database to [automatically copy migration data between branches](/docs/concepts/branching#automatically-copy-migration-data). This can be set to several preconfigured ORMs, or you can provide a custom table name to sync between database branches.
 

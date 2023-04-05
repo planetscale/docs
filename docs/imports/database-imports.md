@@ -1,7 +1,7 @@
 ---
 title: 'Database Imports'
 subtitle: 'Import your data from an external MySQL database into your PlanetScale database.'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -135,13 +135,14 @@ When you finalize the import, we will detach your external database. The connect
 
 Your database has been fully imported into PlanetScale and is ready to use!
 
-Next, you'll be taken to your database overview page. If you click on "Branches", you'll see that you now have one [production branch](/docs/concepts/branching#promote-a-development-branch-to-production), `main`, that contains all of the data from your external database. Production branches are highly available and protected from direct schema changes. Your database is also on an [automatic backup schedule](/docs/concepts/back-up-and-restore) whose frequency depends on your plan.
+Next, you'll be taken to your database overview page. If you click on "Branches", you'll see that you now have one [production branch](/docs/concepts/branching#promote-a-development-branch-to-production), `main`, that contains all of the data from your external database. Production branches are highly available and have optional additional protections, such as [safe migrations](/docs/concepts/safe-migrations), to prevent downtime.
 
 ## Next steps
 
 You just fully migrated over your database to PlanetScale with no downtime and no fear of data loss. So what's next? Here are some next steps you can take with your database:
 
 - [Connect to your application](/docs/tutorials/connect-any-application) &mdash; If you haven't already, you can also connect to your application locally.
+- [Enable safe migrations](/docs/concepts/safe-migrations) &mdash; To protect your database from accidental schema changes an enable zero-downtime migrations, it is highly recommended to enable safe migrations on your new production branch.
 - [Create a development branch](/docs/concepts/branching) &mdash; Add PlanetScale to your development workflow with our powerful branching feature. You can branch off of your `main` branch to test schema changes in development, and then merge them into production with our [non-blocking schema change workflow](/docs/concepts/nonblocking-schema-changes). Again, no downtime!
 - [Create a deploy request](/docs/concepts/branching#1-create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
 

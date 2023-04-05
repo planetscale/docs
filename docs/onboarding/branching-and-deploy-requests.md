@@ -1,7 +1,7 @@
 ---
 title: Branching and deploy requests
 subtitle: Explore how to utilize branching in PlanetScale, a key feature of the platform.
-date: '2022-09-13'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -25,9 +25,18 @@ There are currently two types of branches in PlanetScale:
 
 Production branches should be used for the production version of your application. There are certain measures in place on production branches to protect your production data:
 
-- Direct DDL is not permitted. You can only apply schema changes using Deploy requests (covered later in this guide).
 - Console access is disabled by default.
 - Production branches include at least one read-only replica internally to automatically protect your database against outages.
+- Scheduled backups are enabled automatically.
+
+#### Safe migrations
+
+Production branches also support [safe migrations](/docs/concepts/safe-migrations). When safe migrations is enabled, the branch is affected in the following ways:
+
+- The branch will support the PlanetScale non-blocking schema change workflow.
+- Direct DDL is disabled to prevent accidental schema changes. You would instead apply schema changes using Deploy requests (covered later in this guide).
+
+As a best practice, it is recommended that you enable safe migrations on your production branches. The remainder of theses guides will assume it is enabled.
 
 {% callout %}
 Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc.
@@ -39,7 +48,7 @@ Your database can have one or more non-production branches, depending on your pl
 
 ### Deploy requests
 
-Deploy requests are how changes from one database branch are applied to another. They are similar to pull requests in your code repositories, but for databases. When a new Deploy request is created, you can view the changes, comment on them, and collaborate with your team just like you would a PR.
+Deploy requests are how changes from development branches are merged into production branches with safe migrations enabled. They are similar to pull requests in your code repositories, but for databases. When a new Deploy request is created, you can view the changes, comment on them, and collaborate with your team just like you would a PR.
 
 ## Typical branching strategy
 
@@ -66,11 +75,25 @@ Start by navigating to the `beam-demo` database, click the **"Branches"** tab, a
 
 ![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database.png)
 
+### Enable safe migrations
+
+Once the branch has been promoted, an additional card will be added to the UI to indicate that it is indeed a production branch. Click the **"cog"** in the upper right to open a modal with additional configuration options on this branch.
+
+![The production branch UI card.](/assets/docs/onboarding/branching-and-deploy-requests/production-branch-card-with-sm-disabled.png)
+
+Before proceeding, toggle the option labelled **"Enable safe migrations"** and click **"Save"**.
+
+![The safe migrations modal.](/assets/docs/onboarding/branching-and-deploy-requests/prod-branch-options-modal.png)
+
+The card will reflect the safe migrations status on that branch as well add an option to create a new branch.
+
+![The production branch UI card with safe migrations enabled.](/assets/docs/onboarding/branching-and-deploy-requests/production-branch-card-with-sm-enabled.png)
+
 ### Create a dev branch
 
-Back in the database **"Overview"** tab, click the **"New branch"** button to create a new branch.
+Back in the database **"Overview"** tab, click the **"Create new branch"** button to create a new branch.
 
-![The Overview tab of the database with the New branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database-with-the-new-branch-button-highlighted.png)
+![The production branch UI card with the Create new branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/production-branch-card-with-sm-enabled-with-btn-highlighted.png)
 
 In the **New branch** modal, you’ll see options to name the branch, select the base, and even change the region for this branch. Name the branch `dev` and click **"Create branch"**.
 

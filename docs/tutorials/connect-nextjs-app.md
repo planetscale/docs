@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Next.js application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Next.js application'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 In this tutorial, you'll create a [Next.js](https://nextjs.org/) application that uses [Tailwind CSS](https://tailwindcss.com/) for styling and [Prisma](https://www.prisma.io/) to connect to a [PlanetScale](/) database.
@@ -99,6 +99,14 @@ You can do this in the PlanetScale dashboard by clicking the "**Branches**" tab,
 
 ![Promote a branch to production](/assets/docs/tutorials/connect-nextjs-app/production.png)
 
+You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects your production branch from accidental schema changes. This can be done from the PlanetScale dashboard by clicking the **"cog"** in the upper right of the production branch UI card.
+
+![Production branch UI card](/assets/docs/tutorials/connect-nextjs-app/production-branch-card-with-sm-disabled.png)
+
+In the modal, toggle the option labelled **"Enable safe migrations"** then click the **"Enable safe migrations"**. This will close the modal and save the setting.
+
+![Enable safe migrations](/assets/docs/tutorials/connect-nextjs-app/prod-branch-options-modal.png)
+
 ### Deploy to Vercel
 
 If you'd like to deploy to Vercel, check out our [Deploy to Vercel documentation](/docs/tutorials/deploy-to-vercel).
@@ -113,7 +121,7 @@ If you are deploying the `nextjs-starter` repo, the `Netlify.toml` file in this 
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch with an additional replica. You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects the branch from accidental schema changes.
 
 To learn more about PlanetScale, take a look at the following resources:
 

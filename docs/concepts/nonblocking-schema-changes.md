@@ -1,7 +1,7 @@
 ---
 title: 'Non-blocking schema changes'
 subtitle: 'Non-blocking schema changes in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -14,7 +14,7 @@ branching concepts page is a great place to start.
 
 **Non-blocking schema changes** in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.
 
-PlanetScale makes it safe to deploy schema changes to production databases via _development_ and _production branches_. Production (`main`) branches cannot be deleted and can only be updated using deploy requests. Development branches are a separate database with a copy of the `main` branch's schema. Developers can make schema changes in development branches, test locally, and open a deploy request for deploying their changes to the production database.
+PlanetScale makes it safe to deploy schema changes to production databases via _development_ and _production branches with [safe migrations](/docs/concepts-safe-migrations) enabled_. Production branches with safe migrations enabled cannot be deleted and can only be updated using deploy requests. Development branches are a separate database with a copy of the source branch's schema. Developers can make schema changes in development branches, test locally, and open a deploy request for deploying their changes to the production database.
 
 Developers can also comment on deploy requests and request reviewers to approve a deploy request before its schema changes can deploy into the `main` database branch. Currently, requiring approval is a per-database setting is turned off by default. With the setting turned off, developers do not need approval to merge a deploy request.
 
@@ -26,16 +26,16 @@ PlanetScale enables developers to make schema changes without the fear of droppi
 
 ## How do I make non-blocking schema changes with PlanetScale?
 
-All PlanetScale schema changes must occur on a database branch. _(A database branch is a separate database with a copy of the `main` branch's schema.)_
+In order to make non-blocking schema changes, you **must** turn enable [safe migrations](/docs/concepts/safe-migrations) on your production branch. Without safe migrations enabled, your schema changes will run directly on your production branch, which can lead to table locking. When safe migrations is enabled on a branch, all schema changes must occur on a database branch. _(A database branch is a separate database with a copy of the production branch's schema.)_
 
 At a high level, this is what happens during the _non-blocking schema change_ process in PlanetScale:
 
 1. You create a development branch.
-2. You test your changes on this branch before attempting to apply the changes to the `main` branch. _(i.e., You made some changes to the database you wish to deploy to the production database.)_
-3. You open a request to deploy your changes to `main`.
+2. You test your changes on this branch before attempting to apply the changes to the production branch. _(i.e., You made some changes to the database you wish to deploy to the production database.)_
+3. You open a request to deploy your changes to the target branch.
 4. PlanetScale verifies that your schema changes are safe to be deployed to production. If there are any issues or schema conflicts, you'll be shown the errors.
 5. You click `Deploy changes`. Your deploy is added to a queue and run immediately or when existing deploys are complete.
-6. Your deployment makes it to the `main` branch _(i.e., production)_, and you can now see your schema changes in the production branch.
+6. Your deployment makes it to the production branch, and you can now see your schema changes in the production branch.
 
 {% callout %}
 PlanetScale makes sure not to exhaust your resources; the deployment may be throttled to avoid any impact on
@@ -69,12 +69,11 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
    ```
 
    {% callout type="tip" %}
-   A schema change is any change you make to the tables in your database environment created within the PlanetScale
-   branch. (i.e., create, drop, and alter statements )
+   A schema change is any change you make to the tables in your database environment created within the PlanetScale branch. (i.e., create, drop, and alter statements)
    {% /callout %}
 
    {% callout type="warning" %}
-   You can only apply direct schema changes to the development branch, not to `main`.
+   You can only apply direct schema changes to branches without safe migrations enabled.
    {% /callout %}
 
    Here is a sample CREATE table schema change you could try using:
@@ -100,7 +99,7 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
 
 6. Fix any schema conflicts.
 
-   PlanetScale displays the difference between what is currently in the `main` branch and your branch. Go back to _Step 3_ of the workflow and test out new schema changes to fix the schema conflict. If you did not encounter any schema conflicts, you're ready for _Step 7_.
+   PlanetScale displays the difference between what is currently in the production branch and your development branch. Go back to _Step 3_ of the workflow and test out new schema changes to fix the schema conflict. If you did not encounter any schema conflicts, you're ready for _Step 7_.
 
 7. Deploy the deploy request.
 

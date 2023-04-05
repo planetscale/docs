@@ -1,7 +1,7 @@
 ---
 title: 'Automatic Rails migrations'
 subtitle: 'To ensure PlanetScale works well with a traditional Rails development process, we implemented the ability to automatically copy Rails migration metadata as part of our deployment process.'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 {% callout type="tip" %}
@@ -43,7 +43,7 @@ automatically updated with the migration data from your branch.
 
 ## Execute a Rails migration on PlanetScale
 
-Rails migrations follow the PlanetScale [non-blocking schema change](/docs/concepts/nonblocking-schema-changes) workflow. First, the migration is applied to a _development_ branch, and then the development branch is merged into the `main` production branch.
+Rails migrations follow the PlanetScale [non-blocking schema change](/docs/concepts/nonblocking-schema-changes) workflow. First, the migration is applied to a _development_ branch, and then the development branch is merged into the `main` production branch with [safe migrations](/docs/concepts/safe-migrations) enabled.
 
 Let's add another table to your existing `blog` schema:
 

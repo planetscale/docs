@@ -1,7 +1,7 @@
 ---
 title: 'Prisma with PlanetScale quickstart'
 subtitle: 'Learn how to integrate Prisma with PlanetScale'
-date: '2022-11-29'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -319,7 +319,7 @@ You can now see all your `Star` table data at [`localhost:3000/api/stars`](http:
 
 Currently, you're working on the development branch `initial-setup`, which is branched off of the `main` branch. The `initial-setup` development branch is meant for applying schema changes and testing your migrations before you go to production.
 
-Once you're happy with the `initial-setup` branch, you can roll it up to the production branch. To do this, you first need to promote the `main` branch to production. This `main` branch is currently empty, but once it's set as the production branch, you'll be able to roll your changes from `initial-setup` into it.
+Once you're happy with the `initial-setup` branch, you can roll it up to the production branch. To do this, you first need to promote the `main` branch to production. This `main` branch is currently empty, but once it's set as the production branch and enable [safe migrations](/docs/concepts/safe-migrations), you'll be able to roll your changes from `initial-setup` into it.
 
 To promote `main` to production:
 
@@ -328,7 +328,13 @@ To promote `main` to production:
 - Click on the "**Promote branch**" button
 - Click "**Promote branch**" to confirm
 
-Your `main` branch is now in production! A production branch protects you from direct schema changes, gives you high availability, and has automatic scheduled backups.
+To enable safe migrations:
+
+- Click the **"cog"** in the upper right of the production branch card
+- Toggle **"Enable safe migrations"** in the modal
+- Click the **"Enable safe migrations"** button to save and close the modal
+
+Your `main` branch is now in production! A production branch gives you high availability with an additional replica. With safe migrations enabled, the branch is also protected from accidental schema changes and enables no-downtime schema migrations.
 
 This production branch is currently empty. You can confirm this by going to the `main` branch and clicking on the "**Schema**" tab. Let's fix that.
 

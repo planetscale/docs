@@ -1,7 +1,7 @@
 ---
 title: 'Web console'
 subtitle: 'Query your database directly from the PlanetScale dashboard'
-date: '2023-01-30'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -19,7 +19,7 @@ To access the web console, navigate to a database, and click on the "Console" ta
 You can also access the web console directly by adding `/console` to the URL from any database branch page,
 `app.planetscale.com/<org>/<database>/<branch>/console`.
 
-Once you have accessed the web console, you can run queries against your database branch, or apply DDL to non-production branches.
+Once you have accessed the web console, you can run queries against your database branch, or apply DDL to branches without [safe migrations](/docs/concepts/safe-migrations) enabled.
 
 The following are examples of MySQL statements you may find useful within the web console:
 

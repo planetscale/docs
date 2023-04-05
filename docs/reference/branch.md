@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands - branch'
 subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
-date: '2022-11-17'
+date: '2023-04-05'
 meta:
   title: 'CLI reference - branch'
 ---
@@ -22,19 +22,21 @@ pscale branch <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command**                                   | **Sub-command flags**                                                                                            | **Description**                                                          |
-| ------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
-| `create <DATABASE_NAME> <BRANCH_NAME>`            | `--from <SOURCE_BRANCH>`, `--region <BRANCH_REGION>`, `--restore <BACKUP_NAME>`, `--seed-data` `--web`, `--wait` | Create a new branch on the specified database                            |
-| `delete <DATABASE_NAME> <BRANCH_NAME>`            | `--force`                                                                                                        | Delete the specified branch from the a database                          |
-| `diff <DATABASE_NAME> <BRANCH_NAME>`              | `--web`                                                                                                          | Show the diff of the specified branch against the parent branch.         |
-| `keyspaces <DATABASE_NAME> <BRANCH_NAME>`         |                                                                                                                  | Show information for sharded keyspaces.                                  |
-| `list <DATABASE_NAME>`                            | `--web`                                                                                                          | List all branches of a database                                          |
-| `promote <DATABASE_NAME> <BRANCH_NAME>`           |                                                                                                                  | Promote a database branch to production                                  |
-| `refresh-schema <DATABASE_NAME> <BRANCH_NAME>`    |                                                                                                                  | Refresh the schema for a database branch                                 |
-| `schema <DATABASE_NAME> <BRANCH_NAME>`            | `--web`                                                                                                          | Show the schema of a branch                                              |
-| `show <DATABASE_NAME> <BRANCH_NAME>`              | `--web`                                                                                                          | Show a specific backup of a branch                                       |
-| `switch <BRANCH_NAME> --database <DATABASE_NAME>` | `--database <DATABASE_NAME>`\*, `--create`, `parent-branch <BRANCH_NAME>`                                        | Switch to the specified branch                                           |
-| `vschema <DATABASE_NAME> <BRANCH_NAME>`           |                                                                                                                  | Show the vschema for a sharded keyspace. Empty on non-sharded keyspaces. |
+| **Sub-command**                                         | **Sub-command flags**                                                                                            | **Description**                                                          |
+| ------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `create <DATABASE_NAME> <BRANCH_NAME>`                  | `--from <SOURCE_BRANCH>`, `--region <BRANCH_REGION>`, `--restore <BACKUP_NAME>`, `--seed-data` `--web`, `--wait` | Create a new branch on the specified database                            |
+| `delete <DATABASE_NAME> <BRANCH_NAME>`                  | `--force`                                                                                                        | Delete the specified branch from the a database                          |
+| `diff <DATABASE_NAME> <BRANCH_NAME>`                    | `--web`                                                                                                          | Show the diff of the specified branch against the parent branch.         |
+| `keyspaces <DATABASE_NAME> <BRANCH_NAME>`               |                                                                                                                  | Show information for sharded keyspaces.                                  |
+| `list <DATABASE_NAME>`                                  | `--web`                                                                                                          | List all branches of a database                                          |
+| `promote <DATABASE_NAME> <BRANCH_NAME>`                 |                                                                                                                  | Promote a database branch to production                                  |
+| `refresh-schema <DATABASE_NAME> <BRANCH_NAME>`          |                                                                                                                  | Refresh the schema for a database branch                                 |
+| `safe-migrations enable <DATABASE_NAME> <BRANCH_NAME>`  |                                                                                                                  | Enables safe migrations for a database branch                            |
+| `safe-migrations disable <DATABASE_NAME> <BRANCH_NAME>` |                                                                                                                  | Disables safe migrations for a database branch                           |
+| `schema <DATABASE_NAME> <BRANCH_NAME>`                  | `--web`                                                                                                          | Show the schema of a branch                                              |
+| `show <DATABASE_NAME> <BRANCH_NAME>`                    | `--web`                                                                                                          | Show a specific backup of a branch                                       |
+| `switch <BRANCH_NAME> --database <DATABASE_NAME>`       | `--database <DATABASE_NAME>`\*, `--create`, `parent-branch <BRANCH_NAME>`                                        | Switch to the specified branch                                           |
+| `vschema <DATABASE_NAME> <BRANCH_NAME>`                 |                                                                                                                  | Show the vschema for a sharded keyspace. Empty on non-sharded keyspaces. |
 
 > \* _Flag is required_
 

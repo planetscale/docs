@@ -1,14 +1,14 @@
 ---
 title: 'The Release phase of the DevOps cycle'
 subtitle: 'Where the operations teams will set up the environment for a successful launch.'
-date: '2023-03-13'
+date: '2023-04-05'
 ---
 
 The Release phase is where the 'Ops' part of DevOps starts. In the release phase, the primary goal is to ensure that the infrastructure and environment are set up for a successful launch of the updated software. This can include spinning up or down servers, updating operating system configurations, or setting up any other necessary infrastructure to support the application. At this point, the updated code should have been thoroughly tested and confirmed to be working to the best of the team's ability.
 
 ## How PlanetScale helps
 
-Deploy requests in PlanetScale allow you to safely merge schema changes from a development branch into a production branch allowing for zero-downtime deployments of a new version of the database's schema. This is the phase where deploy requests will be utilized to prepare for a successful deployment.
+Deploy requests in PlanetScale allow you to safely merge schema changes from a development branch into a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled. This allows for zero-downtime deployments of a new version of the database's schema. This is the phase where deploy requests will be utilized to prepare for a successful deployment.
 
 ### Deploy requests
 

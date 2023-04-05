@@ -1,25 +1,16 @@
 ---
 title: 'Branching'
 subtitle: 'Create a development or staging environment for your database through branches'
-date: '2023-03-01'
+date: '2023-04-05'
 ---
 
 ## Overview
 
 PlanetScale allows you to branch database schemas the same way you branch your code.
 
-### If you need to make a schema change to your production database, here's how you do it with PlanetScale:
+## What are branches on PlanetScale
 
-1. Create a new **development branch** off of your production branch. This is an isolated copy of your production schema that you're free to play around with.
-2. **Make schema changes** to this copy of your database (drop a column, add a table, etc.).
-3. **Test them out in your development environment** to make sure everything works correctly.
-4. Once you're satisfied with the changes, **create a deploy request**.
-5. PlanetScale will create a **schema diff** comparing your production schema to your development schema that you're requesting to deploy so that you know exactly what changes will be made. We'll also let you know if the deploy request is **able to be deployed**. This means catching issues with your schema, such as missing unique keys, etc.
-6. You can have your team **review your deploy request** and, optionally, **approve** it for deployment.
-7. You then add it to the **deploy queue**, and PlanetScale will begin the deployment.
-8. The schema changes are deployed in a way that causes **ZERO downtime**. No individual tables get locked, and production is not slowed down during the migration. This is what we call **non-blocking schema changes**. You can learn more about this process in our [Non-blocking schema changes documentation](/docs/concepts/nonblocking-schema-changes).
-
-![PlanetScale Branching Flow Diagram](/assets/docs/concepts/branching/diagram.png)
+Database branches on PlanetScale are isolated database instances that allow you flexiblity when developing your application. When your database is first initialized, a single branch is created called `main` and acts as the default branch. When you create additional branches, the schema of the source branch is copied to the new branch, giving you an isolated MySQL instance to develop with. Changes made in one branch, whether to the schema or the data, do not affect any other branches for a given database.
 
 ## Development and production branches
 
@@ -27,26 +18,21 @@ PlanetScale provides two types of database branches:
 
 - **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Note, only the schema is copied, not the data. To create a development branch with data from another branch, see the [Data Branching® feature](/docs/concepts/data-branching) section.
 
-- **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups. To make a change to a production branch, you must [create a deploy request](#how-to-deploy-a-branch).
-
-{% callout type="tip" %}
-You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a
-production branch. Instead, create a development branch, and make your changes there.
-{% /callout %}
+- **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are automatically provided with an additional replica to resist outages, enabling zero-downtime failovers. Production branches also offer [safe migrations](#safe-migrations) as an optional feature, which helps protect the branch from accidental schema changes and enables non-blocking schema migrations.
 
 ## Promote a branch to production
 
-PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will require future schema changes to be made via a deploy request and will engage any custom backup schedules you have configured for production branches in addition to the automatic daily backups.
+PlanetScale provides the ability to **promote any development branch with a valid schema to production**. Promoting a branch to production will automatically create a database replica internally to make your database highly available.
 
 ### Promote a development branch to production
 
 Every new PlanetScale database is created with a development branch named `main`.
 
-This development branch is intended for you to directly apply a schema (without creating a deploy request like you would for a production branch), import data, and experiment with your database before promoting the branch to production.
+This development branch is intended as the starting point for building your database on PlanetScale where you would apply your schema before promoting to production for increased performance and resilience.
 
 That said, you don't have to use the default `main` branch as your production branch. **Any development branch can be promoted to production**.
 
-Once you are satisfied with the changes you've made to your development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch whenever you need to make a schema change.
+Once you are satisfied with the changes you've made to your development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch to experiment with changes as needed.
 
 A branch can be promoted from the branch overview page in the PlanetScale app or by using the [PlanetScale CLI](/docs/reference/branch), as shown below:
 
@@ -62,20 +48,19 @@ Sometimes, you might need to demote a production branch to a development branch.
 
 Be aware when demoting a production branch to a development branch:
 
-- The branch will allow direct schema changes (also known as direct DDL), which can result in lost data; this is different than using a deploy request to make a schema change
-- Automatic, scheduled production branch backups will no longer run
-- Any read-only regions will be removed
+- Development branches are not meant to be used with production workloads
 - The branch will no longer have high-availability features
+- Existing scheduled production branch backup policies will no longer run
+- Any read-only regions will need to be removed
+- You won't have the option to enable [safe migrations](/docs/concepts-safe-migrations)
 
 If you are on an Enterprise plan, only an administrator for your organization can request to demote a branch, and the demotion request will need to be approved by another administrator. Once the first administrator requests to demote a production branch, the second administrator can approve the demotion on the production branch's overview page. You will see the request from the first administrator and a **Demote to development branch** button to complete the demotion.
 
 ## Create a development branch
 
-{% vimeo src="https://player.vimeo.com/video/763914056" caption="Demonstration of how to create a PlanetScale branch" /%}
+If you need to experiment with schema changes, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes.
 
-If you need to make schema changes to your production application, you can create a new development branch off of the production branch. This will copy the production schema into a new branch where you can create and test your changes.
-
-Development branches **will not** copy over production data, just the schema. To create a development branch with data from another branch, see the [Data Branching feature](/docs/concepts/data-branching) section.
+Development branches **will not** copy over production data, just the schema. To create a development branch with data from another branch, see the [Data Branching® feature](/docs/concepts/data-branching) section.
 
 **How to create a development branch**:
 
@@ -89,21 +74,31 @@ Development branches **will not** copy over production data, just the schema. To
 pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-## How to deploy a branch
+## Safe migrations
 
-Once you're satisfied with the schema changes you have made on a branch, you can deploy your changes to production.
+[Safe migrations](/docs/concepts/safe-migrations) is an optional, but recommended, feature that can be enabled on production branches. Branches with safe migrations enabled are restricted from accepting DDL directly. This prevents accidental changes to the database schema, and also enables non-blocking schema migrations. In order to make changes to branches with safe migrations enabled, you must create a new branch, then merge changes using a [deploy request](/docs/concepts/deploy-requests). Using this method, you get to see a schema diff before merging changes, have the option to have your team review changes, and receive [additional checks and warnings](/blog/deploy-requests-now-alert-on-potential-unwanted-changes) prior to making a production schema change.
 
-### 1. Create a deploy request
+To enable safe migrations on an existing production branch, navigate to the branch and click the cog icon in the card labelled "This is a production branch". You'll then be presented with a modal where safe migrations can be enabled.
 
-{% vimeo src="https://player.vimeo.com/video/763914026" caption="Demonstration of how to create a deploy request" /%}
+## How to make schema changes on a branch with safe migrations enabled
+
+Since DDL is restricted on production branches with safe migrations enabled to prevent accidental changes and enable zero-downtime migrations, you'll need to perform the following steps in order to make changes to that branch.
+
+![PlanetScale Branching Flow Diagram](/assets/docs/concepts/branching/diagram.png)
+
+{% callout type="tip" %} You'll see a `ERROR 1105 (HY000): direct DDL is disabled` message if you attempt to make schema changes in a production branch with safe migrations enabled. Instead, create a development branch, and make your changes there. {% /callout %}
+
+### 1. Create a development branch
+
+The first step is to create a new development branch off of the production branch you want to make changes to. This will make a copy of the source branches schema into the newly created development branch where you can perform the necessary changes to the schema.
+
+### 2. Create a deploy request
 
 If you are working in a team, the [deploy request](/docs/concepts/deploy-requests) creates an opportunity for your teammates to review the changes you have made before they are deployed to production.
 
-1. Make sure your database has a **production branch**. You cannot create a deploy request without a production branch to deploy to.
-2. To create the deploy request, go to the branch overview page for the branch you want to deploy.
-3. Select the production branch you want to deploy to from the "**Deploy to**" dropdown.
-4. (_Optional_) Add a comment describing your deploy request.
-5. Click "**Create deploy request**".
+1. To create the deploy request, go to the branch overview page for the branch you want to deploy.
+2. Select the production branch you want to deploy to from the "**Deploy to**" dropdown.
+3. (_Optional_) Add a comment describing your deploy request. . Click "**Create deploy request**".
 
 ![PlanetScale deploy request example](/assets/docs/concepts/branching/deploy-request-page.png)
 
@@ -113,9 +108,7 @@ If you are working in a team, the [deploy request](/docs/concepts/deploy-request
 pscale deploy-request create <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-### 2. Review the deploy request
-
-{% vimeo src="https://player.vimeo.com/video/763913969" caption="Demonstration of how to add a deploy request to the deploy queue" /%}
+### 3. Review the deploy request
 
 The deploy request includes a schema diff so that you can review the schema changes introduced by the deploy request against the production branch.
 
@@ -129,7 +122,7 @@ pscale deploy-request diff <DATABASE> <DEPLOY_REQUEST_NUMBER>
 
 Another benefit of the deploy request review process is that **PlanetScale will determine if certain requests aren't deployable**. For example, if you try to deploy a branch with no unique key, PlanetScale will block the deployment, as the unique key is required.
 
-### 3. Add changes to the deploy queue
+### 4. Add changes to the deploy queue
 
 Once a deploy request has been created and, optionally, approved, you need to add the changes to the deploy queue.
 

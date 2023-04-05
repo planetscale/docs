@@ -2,7 +2,7 @@
 title: 'PlanetScale quickstart guide'
 subtitle: 'Get started with PlanetScale in just a few minutes'
 className: 'ignore-img-borders'
-date: '2022-08-05'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -112,25 +112,28 @@ All of the work you've done so far has been on a development branch, `main`, tha
 A development branch is intended for applying schema changes and is **not intended for use in production**.
 {% /callout %}
 
-Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
+Once you are happy with the changes you have made to your development branch, you can promote the branch to production and enable safe migrations.
 
-A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes, such as `CREATE`, `ALTER`, and `DELETE`, are **not allowed** on production branches to prevent accidental data loss.
+A production branch is a highly available database branch that includes an additional replica. It also has the option to enable [safe migrations](/docs/concepts/safe-migrations), which enables non-blocking schema changes and can protect your database from accidental schema changes.
 
-### To promote a branch to production:
+[Safe migrations](/docs/concepts/safe-migrations) is an optional, but highly recommended, feature that adds an additional layer of protection to your branch by preventing accidental schema modifications and enabling no-downtime schema changes. With safe migrations enabled, any DDL issued directly to the branch will not be accepted. Instead, changes must be made using the PlanetScale flow, where deploy requests are used to safely merge changes in a collaborative environment.
+
+### To promote a branch to production and enable safe migrations:
 
 1. Click "Overview" in the navigation, and you'll see a banner with information about promoting to production.
 
    ![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/the-main-branch-overview.png)
 
 2. Click the "Promote branch" button.
-3. In the modal that opens, select the branch you want to promote to production
-4. Click "Promote branch"
+3. In the modal that opens, select the branch you want to promote to production.
+4. Click "Promote branch".
+5. Click the "cog" in the upper right of the production branch card.
 
-The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides:
+   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled.png)
 
-- Protection from direct schema changes
-- High availability
-- Automatic daily scheduled backups
+6. Toggle "Enable safe migrations" then click the "Enable safe migrations" button.
+
+The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides high availability with an additional replica.
 
 ### What's next?
 

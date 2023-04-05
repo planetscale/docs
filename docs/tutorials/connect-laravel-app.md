@@ -2,7 +2,7 @@
 title: 'Connect a Laravel application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Laravel application'
 className: 'ignore-img-borders'
-date: '2022-12-06'
+date: '2023-04-05'
 ---
 
 ## Introduction
@@ -247,7 +247,7 @@ Laravel comes with a powerful tool called [Tinker](https://laravel.com/docs/9.x/
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch protected by direct schema changes.
+Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) and enable [safe migrations](/docs/concepts/safe-migrations) to get a highly available branch protected by direct schema changes.
 
 To learn more about PlanetScale, take a look at the following resources:
 

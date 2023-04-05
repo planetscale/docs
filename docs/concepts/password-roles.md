@@ -1,7 +1,7 @@
 ---
 title: 'Password roles'
 subtitle: 'Restrict access to your database with password roles'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 ## Overview
@@ -13,7 +13,7 @@ PlanetScale allows you to [create and manage passwords](/docs/concepts/connectio
 - **Read/Write** &mdash; Can query and modify rows
 - **Admin** &mdash; All read/write permissions and can modify schema\*
 
-\* _This does not apply to production branches, as we [do not allow direct DDL](/docs/learn/how-online-schema-change-tools-work) on production branches, even if your password has the `Admin` role._
+\* _This does not apply to production branches with [safe migrations](/docs/concepts/safe-migrations) enabled, as we [do not allow direct DDL](/docs/learn/how-online-schema-change-tools-work) on those branches, even if your password has the `Admin` role._
 
 ## Create a password with custom role
 

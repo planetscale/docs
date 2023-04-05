@@ -1,7 +1,7 @@
 ---
 title: 'Declarative schema migrations'
 subtitle: 'Learn how the schema migrations are performed using a single state definition.'
-date: '2023-03-13'
+date: '2023-04-05'
 ---
 
 The DevOps world has embraced the concept of Infrastructure as Code (IaC) as a way to define infrastructure in configuration files. These configuration files can then be used with orchestration tools to automatically deploy and configure architecture in the hosting provider of your choice.
@@ -121,8 +121,8 @@ It’s also worth considering that databases are inherently stateful, where the 
 
 The [branching flow](/docs/concepts/branching) used by databases hosted in PlanetScale is a form of schema migration in itself. When making changes to a database in PlanetScale, developers will typically create a working branch of the production database branch to make changes to.
 
-Since production branches in PlanetScale restrict the use of DDL (something that these tools ultimately use to make changes), the development branch used in the previous example would be where these tools can be used to control the schema.
+A best practice on PlanetScale is to enable safe migrations to prevent accidental changes to your database schema. Since these branches restrict the use of DDL (something that these tools ultimately use to make changes), the development branch used in the previous example would be where these tools can be used to control the schema.
 
-One possible strategy that teams can use is to open a new branch each time code changes are required, typically at the begining of a development cycle. When a change needs to be made to the datanase schema, a dedicated repository (let’s call it the `db` repository) can be used for developers to check in changes to the definition file. Automated tools can be used to monitor the `db` repository for changes, apply the schema changes to the active development branch, and notify the development team that the schema has changed so they can act accordingly.
+One possible strategy that teams can use is to open a new branch each time code changes are required, typically at the begining of a development cycle. When a change needs to be made to the database schema, a dedicated repository (let’s call it the `db` repository) can be used for developers to check in changes to the definition file. Automated tools can be used to monitor the `db` repository for changes, apply the schema changes to the active development branch, and notify the development team that the schema has changed so they can act accordingly.
 
 When changes need to be applied to the production database branch, [deploy requests](/docs/concepts/deploy-requests) can then be used to review and apply the changes before deploying the latest release.

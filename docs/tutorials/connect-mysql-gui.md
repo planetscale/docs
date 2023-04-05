@@ -1,7 +1,7 @@
 ---
 title: 'Connect a MySQL GUI to PlanetScale'
 subtitle: 'Connect to your PlanetScale database using any MySQL GUI application'
-date: '2022-12-06'
+date: '2023-04-05'
 ---
 
 ## Introduction
@@ -44,7 +44,7 @@ If the connection is successful, you should be able to query your database and p
 While many standard MySQL statements are supported, there are a few caveats worth calling out:
 
 1. Each branch of a PlanetScale database is considered an isolated MySQL database. You'll need separate connection details per branch.
-2. Production branches do not support DDL, so operations that modify the schema of your database or not supported. However, DDL is supported on non-production branches.
+2. Production branches with [safe migrations](/docs/concepts/safe-migrations) enforce the use of [branching](/docs/concepts/branching) and [deploy requests](/docs/concepts/deploy-requests) to safely make schema changes and do not support direct DDL as a result. However, DDL is supported on development branches and production branches without safe migrations enabled (not recommended).
 3. Creating new databases is not supported using any GUI tool.
 
 ## Tested GUIs

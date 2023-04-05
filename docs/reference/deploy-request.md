@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands - deploy-request'
 subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
-date: '2022-11-17'
+date: '2023-04-05'
 meta:
   title: 'CLI reference - deploy-request'
 ---
@@ -21,7 +21,7 @@ pscale deploy-request <SUB-COMMAND> <FLAG>
 ```
 
 {% callout %}
-Your database must have a production branch before you can create a deploy request.
+Your database must have a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled before you can create a deploy request.
 {% /callout %}
 
 ### Available sub-commands

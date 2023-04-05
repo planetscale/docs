@@ -1,7 +1,7 @@
 ---
 title: 'The PlanetScale workflow'
 subtitle: 'Use the PlanetScale workflow for branching databases, non-blocking schema changes and more.'
-date: '2023-03-01'
+date: '2023-04-05'
 ---
 
 ![Diagram showing PlanetScale workflow](/img/planetscale-workflow.png)
@@ -22,21 +22,27 @@ PlanetScale provides two types of database branches: **development** and **produ
 
 Development branches provide isolated copies of your database schema where you can make changes, experiment, or run CI against. Instantly branch your production database to create a staging environment for testing out your schema changes.
 
-Production branches are highly available databases intended for production traffic. They are protected from direct schema changes by default and include automated daily backups.
+Production branches are highly available databases intended for production traffic. They include an additional replica for high availability and are automatically backed up daily.
+
+Production branches can also have [safe migrations](/docs/concepts/safe-migrations) turned on which enables zero-downtime schema migrations, protects against accidental schema changes, and enables better team collaboration through [deploy requests](/docs/concepts/deploy-requests).
 
 We also offer a [Data Branching®](/docs/concepts/data-branching) feature, which allows you to create an isolated replica of your database for development that includes both the schema **and** data.
 
-Learn more about [branching databases](/docs/concepts/branching).
+Learn more about [database branching](/docs/concepts/branching).
 
 ## Non-blocking schema changes
 
-PlanetScale makes it safe to deploy schema changes to production and easy to automate schema management as a part of your CI/CD process. PlanetScale schema changes are applied online and protect against changes that block databases, lock individual tables, or slow down production during the migration.
+PlanetScale makes it safe to deploy schema changes to production and easy to automate schema management as a part of your CI/CD process. Schema changes to production branches with safe migrations enabled are applied online and protect against changes that block databases, lock individual tables, or slow down production during the migration.
 
 Use a development branch to apply schema changes and view the schema diff in the UI or the CLI. Once you’re satisfied with your schema changes, you can open a deploy request.
 
 Learn more about [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes).
 
 ## Deploy requests
+
+{% callout %}
+Your database must have a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled before you can create a deploy request.
+{% /callout %}
 
 [Deploy requests](/docs/concepts/deploy-requests) allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (`CREATE`, `ALTER`, and `DROP`) for each table changed, with a line-by-line schema diff, making it easy to review the changes.
 

@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Rails application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Rails application'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 ## Introduction
@@ -168,10 +168,18 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
 
 ## Promote your main branch to a production branch
 
-A production branch is a highly available, protected database branch. Direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/docs/concepts/planetscale-workflow).
+A production branch is a highly available database branch. When a branch is promoted to production, an additional replica is created to protect the branch from outages.
 
 ```bash
 pscale branch promote blog main
+```
+
+## Enable safe migrations
+
+[Safe migrations](/docs/concepts/safe-migrations) is an optional but highly recommended feature for production branches on PlanetScale. With safe migrations enabled, direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/docs/concepts/planetscale-workflow).
+
+```bash
+pscale branch safe-migrations enable blog main
 ```
 
 Congratulations! You're ready to develop your Rails application against PlanetScale.

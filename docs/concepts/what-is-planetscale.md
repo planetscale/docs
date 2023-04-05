@@ -1,7 +1,7 @@
 ---
 title: 'What is PlanetScale'
 subtitle: 'Learn about what PlanetScale is, how it came to be, and how our unique features can help you scale and improve development speed.'
-date: '2022-12-13'
+date: '2023-04-05'
 ---
 
 ## What is PlanetScale
@@ -36,7 +36,7 @@ Our [non-blocking schema change workflow](/docs/concepts/nonblocking-schema-chan
 
 ### Branching workflow
 
-Our [branching workflow](/docs/concepts/branching) is what enables non-blocking schema changes. Instead of applying schema changes directly to your production database, we let you create branches, which are essentially copies of your database. When you create a new branch off of production, you have an isolated copy of your database that you can use for development to make schema changes.
+Our [branching workflow](/docs/concepts/branching) paired with [safe migrations](/docs/concepts/safe-migrations) is what enables non-blocking schema changes on your production database. Instead of applying schema changes directly to your production database, we let you create branches, which are essentially copies of your database. When you create a new branch off of production, you have an isolated copy of your database that you can use for development to make schema changes.
 
 ![Branching workflow diagram - Create dev branch off of main, make schema changes, make deploy request, resolve schema conflicts, test, deploy to main](/assets/docs/concepts/what-is-planetscale/branching-diagram.png)
 

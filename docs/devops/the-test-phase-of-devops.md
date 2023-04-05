@@ -1,7 +1,7 @@
 ---
 title: 'The Test phase of the DevOps cycle'
 subtitle: 'Where artifacts are run through a series of tests.'
-date: '2023-03-13'
+date: '2023-04-05'
 ---
 
 By this point, new code was written and compiled into artifacts that can be used during deployments, but it was likely only tested on the developers local machines. These development environments are likely not exactly the same as production and, as a result, may not necessarily mean that the same code will work smoothly in production. During the test phase, the artifacts are run through a series of tests, preferably using automation, to ensure the quailty and performance of the code, and to maintain interoperability with any other services or infrastructure as required.
@@ -12,11 +12,11 @@ There are different types of tests that can be run, but the type that PlanetScal
 
 ### Use a dedicated test branch of the database
 
-Since database [schema branches](/docs/concepts/branching) in PlanetScale are isolated copies of your database schema, a dedicated branch can be should be created specifically for this phase. Many organizations configure their environments to move linearly (dev → test → production) throughout their pipeline. This is where the PlanetScale flow deviates from convention a bit. Since non-production branches can only be merged with production branches, and the dev branch (which is non-production) contains the version of our schema with the most recent changes, you'll need to create a branch from the `dev` database branch.
+Since database [schema branches](/docs/concepts/branching) in PlanetScale are isolated copies of your database schema, a dedicated branch can and should be created specifically for this phase. Many organizations configure their environments to move linearly (dev → test → production) throughout their pipeline. This is where the PlanetScale flow deviates from convention a bit. Since non-production branches can only be merged with production branches with [safe migrations](/docs/concepts/safe-migrations), and the dev branch (which is non-production) contains the version of our schema with the most recent changes, you'll need to create a branch from the `dev` database branch.
 
 ### Seed with production data
 
-If your tier includes the Data Branching®, you can spin up yet another production-like environment by utilizing data from the most recent backup of the production branch database. This will ensure that your automated tests (as well as manual QA tests) will similate production as close as possible instead of relying on pre-determined test data. This can provide a greater opportunity for test to break and need revisiting, avoiding potential issues in production.
+If your tier includes the Data Branching®, you can spin up yet another production-like environment by utilizing data from the most recent backup of the production branch database. This will ensure that your automated tests (as well as manual QA tests) will simulate production as close as possible instead of relying on pre-determined test data. This can provide a greater opportunity for the test to break and need revisiting, avoiding potential issues in production.
 
 ### Seed data with the PlanetScale CLI
 

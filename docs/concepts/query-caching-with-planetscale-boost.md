@@ -1,7 +1,7 @@
 ---
 title: 'Query caching with PlanetScale Boost'
 subtitle: 'Improve query performance with PlanetScale Boost query caching.'
-date: '2022-11-15'
+date: '2023-04-05'
 ---
 
 {% callout %}
@@ -17,6 +17,10 @@ While PlanetScale Boost is in beta, we don’t recommend using it in your critic
 ## How to use PlanetScale Boost
 
 PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) to get access for your organization. If your organization is accepted into the beta, you will receive an email with further instructions on how to get started. Please share any feedback or questions you have by posting on the GitHub discussion board, which is included in your welcome email.
+
+{% callout %}
+PlanetScale Boost is only available to production database branches with [safe migrations](/docs/concepts/safe-migrations) enabled.
+{% /callout %}
 
 ### Add a query to your cache
 

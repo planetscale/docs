@@ -1,7 +1,7 @@
 ---
 title: 'Connect any application to PlanetScale'
 subtitle: 'Connect your PlanetScale database to any application using connection strings or the PlanetScale proxy'
-date: '2022-08-01'
+date: '2023-04-05'
 ---
 
 ## Introduction
@@ -134,7 +134,7 @@ Your application should now be connected to the specified PlanetScale database b
 
 ## What's next?
 
-Once your application is connected to a development database branch, you can make schema changes in an isolated development environment without worrying about affecting production. Additionally, the PlanetScale workflow allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) without locking or causing downtime for production databases.
+Once your application is connected to a development database branch, you can make schema changes in an isolated development environment without worrying about affecting production. Additionally, we recommend that [safe migrations](/docs/concepts/safe-migrations) be enabled on your production database branch, which allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) without locking or causing downtime.
 
 ### PlanetScale workflow
 
