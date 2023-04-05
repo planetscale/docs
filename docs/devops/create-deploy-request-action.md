@@ -6,7 +6,9 @@ date: '2023-03-31'
 
 This GitHub Action can be used within your workflows to create new deploy request for your PlanetScale database.
 
-{% callout %} The source code for this action is available [on GitHub](https://github.com/planetscale/create-deploy-request-action). {% /callout %}
+{% callout %}
+The source code for this action is available [on GitHub](https://github.com/planetscale/create-deploy-request-action).
+{% /callout %}
 
 ## Prerequisites
 

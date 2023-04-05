@@ -22,7 +22,8 @@ This means that as long as the deploy request is not "applied" to the target bra
 
 If you are at the Scalar tier and above, PlanetScale databases support multiple production branches. Production branches automatically have an additional failover instance of your database ready behind the scenes to improve redundancy. While there are no tools directly within PlanetScale to assist with blue/green deployments for your database, multiple production branches can significantly reduce the administrative overhead of managing multiple MySQL environments.
 
-{% callout title="Next steps" %} In this guide, we discussed the Release phase and how your production database can be set up for a live cutover using deploy requests. Next up is the Deploy phase, where all of the work is deployed to your production environment.
+{% callout title="Next steps" %}
+In this guide, we discussed the Release phase and how your production database can be set up for a live cutover using deploy requests. Next up is the Deploy phase, where all of the work is deployed to your production environment.
 
 - [The Deploy phase](/docs/devops/the-deploy-phase-of-devops)
 

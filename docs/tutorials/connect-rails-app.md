@@ -8,7 +8,9 @@ date: '2022-08-01'
 
 In this tutorial, you’re going to create a simple Rails application named _blog_ and connect it to a PlanetScale database. You’ll perform the initial migration from your local Rails application, and set up the database for future development.
 
-{% callout type="tip" %} Already have a Rails application and just want to connect to PlanetScale? Check out the [Rails quick connect repo](https://github.com/planetscale/connection-examples/tree/main/ruby). {% /callout %}
+{% callout type="tip" %}
+Already have a Rails application and just want to connect to PlanetScale? Check out the [Rails quick connect repo](https://github.com/planetscale/connection-examples/tree/main/ruby).
+{% /callout %}
 
 ## Prerequisites
 
@@ -66,7 +68,9 @@ Open the command line and follow these steps:
    pscale password create blog main <PASSWORD_NAME>
    ```
 
-   {% callout %} The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords". {% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
 3. Take note of the values returned to you, as they will not be shown again.
 
@@ -96,7 +100,9 @@ development:
 
 The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/docs/concepts/secure-connections#ca-root-configuration) for more information.
 
-{% callout %} You're configuring the **development** Rails environment here for the sake of expedience. In actual use, the **main** database branch would typically serve the **production** environment. {% /callout %}
+{% callout %}
+You're configuring the **development** Rails environment here for the sake of expedience. In actual use, the **main** database branch would typically serve the **production** environment.
+{% /callout %}
 
 Because this is a Rails app, you can also enable [Automatic Rails migrations](/docs/tutorials/automatic-rails-migrations) from the database's settings page. Select your database, click on the `main` branch, click "**Settings**", check the "**Automatically copy migration data**" box, and select "**Rails**" from the dropdown.
 
@@ -110,7 +116,8 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
    rails generate migration CreateUsers
    ```
 
-   This rails command begins the migration for your table that is currently empty and generates a Ruby file that’ll be named something like this: `db/migrate/20211014210422_create_users.rb`
+   This rails command begins the migration for your table that is currently empty and generates a Ruby file that’ll be named something like this:
+   `db/migrate/20211014210422_create_users.rb`
 
 2. Fill in the body of this skeleton file with a few more relevant details, such as a user's **name** and **email**.
 
@@ -141,21 +148,21 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
    ```sql
    blog/main> show tables;
    +----------------------+
-   | Tables_in_blog |
+   | Tables_in_blog       |
    +----------------------+
    | ar_internal_metadata |
-   | schema_migrations |
-   | users |
+   | schema_migrations    |
+   | users                |
    +----------------------+
    blog/main> describe users;
    +------------+--------------+------+-----+---------+----------------+
-   | Field | Type | Null | Key | Default | Extra |
+   | Field      | Type         | Null | Key | Default | Extra          |
    +------------+--------------+------+-----+---------+----------------+
-   | id | bigint | NO | PRI | NULL | auto_increment |
-   | name | varchar(255) | YES | | NULL | |
-   | email | varchar(255) | YES | | NULL | |
-   | created_at | datetime(6) | NO | | NULL | |
-   | updated_at | datetime(6) | NO | | NULL | |
+   | id         | bigint       | NO   | PRI | NULL    | auto_increment |
+   | name       | varchar(255) | YES  |     | NULL    |                |
+   | email      | varchar(255) | YES  |     | NULL    |                |
+   | created_at | datetime(6)  | NO   |     | NULL    |                |
+   | updated_at | datetime(6)  | NO   |     | NULL    |                |
    +------------+--------------+------+-----+---------+----------------+
    ```
 

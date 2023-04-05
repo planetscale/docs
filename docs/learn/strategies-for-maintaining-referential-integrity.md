@@ -56,7 +56,8 @@ DELETE FROM recipes WHERE id = 123
 
 The benefit this approach provides is that the main execution point of your application (ex: an API) would return quicker as you are simply updating a single value in the database. This prevents the user from waiting for those records to be cleaned up.
 
-The downside is that this requires an additional system with its own associated code that would require maintenance. While `DELETE` operations are relatively straightforward, addressing `UPDATE` operations may be a challenge. There is also an inherent delay where stale records would exist in the database between script executions. You can see a full example of how to handle this in Rails in our [Ruby on Rails: 3 tips for deleting data at scale blog post](/blog/ruby-on-rails-3-tips-for-deleting-data-at-scale).
+The downside is that this requires an additional system with its own associated code that would require maintenance. While `DELETE` operations are relatively straightforward, addressing `UPDATE` operations may be a challenge. There is also an inherent delay where stale records would exist in the database between script executions.
+You can see a full example of how to handle this in Rails in our [Ruby on Rails: 3 tips for deleting data at scale blog post](/blog/ruby-on-rails-3-tips-for-deleting-data-at-scale).
 
 ## Asynchronous cleanup using queues
 

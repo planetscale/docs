@@ -16,7 +16,8 @@ To access the web console, navigate to a database, and click on the "Console" ta
 
 ![Web console branch selection](/assets/docs/concepts/web-console/web-console-branch-selection.png)
 
-You can also access the web console directly by adding `/console` to the URL from any database branch page, `app.planetscale.com/<org>/<database>/<branch>/console`.
+You can also access the web console directly by adding `/console` to the URL from any database branch page,
+`app.planetscale.com/<org>/<database>/<branch>/console`.
 
 Once you have accessed the web console, you can run queries against your database branch, or apply DDL to non-production branches.
 
@@ -46,7 +47,8 @@ Use `EXPLAIN` in front of `SELECT`, `DELETE`, `INSERT`, `REPLACE` and `UPDATES` 
 
 By default, the web console is disabled for production branches to prevent accidental data loss.
 
-You can enable the web console for production branches on the "Settings" page for the given database, `app.planetscale.com/<org>/<database>/settings`.
+You can enable the web console for production branches on the "Settings" page for the given database,
+`app.planetscale.com/<org>/<database>/settings`.
 
 Select the checkbox for "Allow web console access to production branches", then scroll down and click the "Save database settings" button to save your changes.
 

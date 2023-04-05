@@ -4,7 +4,12 @@ subtitle: 'How to make changes to your PlanetScale database schema while using P
 date: '2022-11-29'
 ---
 
-{% callout %} This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically the recommendation to use `prisma db push` instead of `prisma migrate dev` with shadow branches. Also, you previously needed to turn on the ability to automatically copy the Prisma migration metadata. You no longer need to do this. Read more below. {% /callout %}
+{% callout %}
+This document has been updated to include the recommended Prisma and PlanetScale workflow, specifically the
+recommendation to use `prisma db push` instead of `prisma migrate dev` with shadow branches. Also, you previously
+needed to turn on the ability to automatically copy the Prisma migration metadata. You no longer need to do this. Read
+more below.
+{% /callout %}
 
 ## Introduction
 
@@ -49,13 +54,19 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
    pscale connect prisma-playground main --port 3309
    ```
 
-   {% callout %} This step assumes you created a new PlanetScale database and the `main` branch has not been promoted to production yet. You will need to create a new development branch if the `main` branch has been promoted to production. {% /callout %}
+   {% callout %}
+   This step assumes you created a new PlanetScale database and the `main` branch has not been promoted to production
+   yet. You will need to create a new development branch if the `main` branch has been promoted to production.
+   {% /callout %}
 
 3. Update your `prisma/schema.prisma` file with the following schema:
 
-   {% callout %} In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
+   {% callout %}
+   In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and became generally available in `4.7.0`. The following schema reflects this change.
 
-   You can learn more about Prisma's Relation mode in the [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode). {% /callout %}
+   You can learn more about Prisma's Relation mode in the
+   [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
+   {% /callout %}
 
    ```js
    datasource db {
@@ -109,7 +120,10 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
 
    Unlike the `prisma migrate dev` command, it will not create a migrations folder containing a SQL file with the SQL used to update the schema in your PlanetScale database. PlanetScale will be tracking your migrations in this workflow.
 
-   {% callout type="tip" %} You can learn more about the `prisma db push` command in the [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push). {% /callout %}
+   {% callout type="tip" %}
+   You can learn more about the `prisma db push` command in the
+   [Prisma docs](https://www.prisma.io/docs/concepts/components/prisma-migrate/db-push).
+   {% /callout %}
 
    After `db push` is successful, you can see the table created in your terminal. For example, to see the `Post` table:
 
@@ -121,7 +135,9 @@ Let's begin with an example flow for running Prisma migrations in PlanetScale:
    describe Post;
    ```
 
-   {% callout type="tip" %} Use the `exit` command to exit the MySQL shell. {% /callout %}
+   {% callout type="tip" %}
+   Use the `exit` command to exit the MySQL shell.
+   {% /callout %}
 
    Or you can see it in the PlanetScale UI under the Schema tab in your `main` branch.
 

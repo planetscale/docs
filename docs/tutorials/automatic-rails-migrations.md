@@ -4,13 +4,20 @@ subtitle: 'To ensure PlanetScale works well with a traditional Rails development
 date: '2022-08-01'
 ---
 
-{% callout type="tip" %} If you are using PlanetScale with a Rails application, go to your database's Settings page in the web app and enable "Automatically copy migration data." Select "Rails/Phoenix" as the migration framework. When enabled, this setting updates the _schema_migrations_ table each time you branch with the latest migration. If disabled, running _rake db:migrate_ will try to run all migrations every time, instead of only the latest one. {% /callout %}
+{% callout type="tip" %}
+If you are using PlanetScale with a Rails application, go to your database's Settings page in the web app and enable
+"Automatically copy migration data." Select "Rails/Phoenix" as the migration framework. When enabled, this setting
+updates the _schema_migrations_ table each time you branch with the latest migration. If disabled, running
+_rake db:migrate_ will try to run all migrations every time, instead of only the latest one.
+{% /callout %}
 
 ## Introduction
 
 In this tutorial, you're going to learn how Rails migrations work with the PlanetScale branching and deployment workflows.
 
-{% callout %} Migration tracking works with any migration tool, not just Rails. For other frameworks, specify the migration table name on your database's Settings page. {% /callout %}
+{% callout %}
+Migration tracking works with any migration tool, not just Rails. For other frameworks, specify the migration table name on your database's Settings page.
+{% /callout %}
 
 ## Prerequisites
 
@@ -29,7 +36,10 @@ Rails tracks an application's migrations in an internal table called `schema_mig
 - Rails queries the `schema_migrations` table to see which migrations have and haven't been run.
 - Any migration that doesn’t appear in the `schema_migrations` table is considered pending and is executed by this task.
 
-{% callout type="tip" %} When you merge a deploy request in PlanetScale, the _schema_migrations_ table in _main_ is automatically updated with the migration data from your branch. {% /callout %}
+{% callout type="tip" %}
+When you merge a deploy request in PlanetScale, the _schema_migrations_ table in _main_ is
+automatically updated with the migration data from your branch.
+{% /callout %}
 
 ## Execute a Rails migration on PlanetScale
 
@@ -63,7 +73,7 @@ Let's add another table to your existing `blog` schema:
    ```sql
    blog/add-posts-table> select * from schema_migrations;
    +----------------+
-   | version |
+   | version        |
    +----------------+
    | 20211014210422 |
    +----------------+
@@ -127,7 +137,7 @@ Let's add another table to your existing `blog` schema:
    ```sql
    blog/add-posts-table> select * from schema_migrations;
    +----------------+
-   | version |
+   | version        |
    +----------------+
    | 20211014210422 |
    | 20220224221753 |
@@ -159,16 +169,16 @@ Let's add another table to your existing `blog` schema:
    ```sql
    blog/|⚠ main ⚠|> show tables;
    +----------------------+
-   | Tables_in_blog |
+   | Tables_in_blog       |
    +----------------------+
-   | posts |
-   | schema_migrations |
-   | users |
+   | posts                |
+   | schema_migrations    |
+   | users                |
    +----------------------+
 
    blog/|⚠ main ⚠|> select * from schema_migrations;
    +----------------+
-   | version |
+   | version        |
    +----------------+
    | 20220223232425 |
    | 20220224221753 |

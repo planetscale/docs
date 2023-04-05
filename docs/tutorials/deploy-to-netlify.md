@@ -8,7 +8,9 @@ date: '2022-08-01'
 
 This guide will walk you through setting up and deploying your PlanetScale database on Netlify.
 
-{% callout %} This doc is intended for users that are manually storing a connection string in an environment variable in Netlify. If you want to use the Netlify integration, which handles this for you, see the [PlanetScale integration in the Netlify docs](https://docs.netlify.com/integrations/planetscale-integration). {% /callout %}
+{% callout %}
+This doc is intended for users that are manually storing a connection string in an environment variable in Netlify. If you want to use the Netlify integration, which handles this for you, see the [PlanetScale integration in the Netlify docs](https://docs.netlify.com/integrations/planetscale-integration).
+{% /callout %}
 
 ## Prerequisites
 
@@ -44,7 +46,9 @@ For example, if you're using Prisma, your connection string will look similar to
 DATABASE_URL='mysql://xxxxxxxxx:************@xxxxxxxxxx.us-east-3.psdb.cloud/my-database?sslaccept=strict'
 ```
 
-{% callout %} Your environment variable name will be the same in your application's code. We used `DATABASE_URL` as an example, but this can be given a different name. {% /callout %}
+{% callout %}
+Your environment variable name will be the same in your application's code. We used `DATABASE_URL` as an example, but this can be given a different name.
+{% /callout %}
 
 In Netlify, you'll set it as follows:
 

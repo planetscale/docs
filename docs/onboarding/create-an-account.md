@@ -28,7 +28,8 @@ Once you confirm, you’ll be prompted to log in. You will then be presented wit
 
 ![The 'Welcome to PlanetScale' landing page.](/assets/docs/onboarding/create-an-account/the-welcome-to-planetscale-landing-page.png)
 
-{% callout title="Next steps" %} Now that you have an account set up, the next step to setting up PlanetScale is by creating a database.
+{% callout title="Next steps" %}
+Now that you have an account set up, the next step to setting up PlanetScale is by creating a database.
 
 - [Create your first database](/docs/onboarding/create-a-database)
 

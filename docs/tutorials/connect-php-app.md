@@ -9,7 +9,9 @@ date: '2022-12-06'
 
 In this tutorial, you'll learn how to connect a PHP application to a PlanetScale MySQL database with a sample PHP starter app using [MySQLi](https://www.php.net/manual/en/book.mysqli.php).
 
-{% callout type="tip" %} Already have a PHP application and just want to connect to PlanetScale? Check out the [PHP quick connect repo](https://github.com/planetscale/connection-examples/tree/main/php). {% /callout %}
+{% callout type="tip" %}
+Already have a PHP application and just want to connect to PlanetScale? Check out the [PHP quick connect repo](https://github.com/planetscale/connection-examples/tree/main/php).
+{% /callout %}
 
 ## Prerequisites
 
@@ -122,7 +124,11 @@ If you're not using the CLI, you can get the exact values to copy/paste from you
 
    A default branch, `main`, was created when you created the database, so you can use that for `BRANCH_NAME`.
 
-   {% callout %} The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords". {% /callout %}
+   {% callout %}
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
+   credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
+   your database overview page, click "Settings", and then click "Passwords".
+   {% /callout %}
 
    Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -192,7 +198,10 @@ We recommend connecting with a username and password, but you can also open a qu
 
    This removes all references to `username`, `password`, and `ssl`.
 
-   {% callout %} It's important to make sure that you add the SSL check back if you switch back to username and password credentials. We're intentionally commenting it out instead of deleting it in case you switch back. {% /callout %}
+   {% callout %}
+   It's important to make sure that you add the SSL check back if you switch back to username and password credentials.
+   We're intentionally commenting it out instead of deleting it in case you switch back.
+   {% /callout %}
 
 5. Refresh your PHP homepage, and you should see the message that you're connected to your database!
 
@@ -279,7 +288,9 @@ You may need to [install the MySQL command line client](/docs/concepts/planetsca
 
    This will open up a MySQL shell connected to the specified database and branch.
 
-   {% callout %} A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`. {% /callout %}
+   {% callout %}
+   A branch, `main`, was automatically created when you created your database, so you can use that for `BRANCH_NAME`.
+   {% /callout %}
 
 2. Create the `categories` table:
 

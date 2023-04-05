@@ -24,7 +24,8 @@ PlanetScale also offers [Data Branching®](/docs/concepts/data-branching) in som
 
 If your project management tools allow for automation, you can use either the [PlanetScale CLI](/docs/reference/planetscale-cli) or [our public API](https://api-docs.planetscale.com/reference/getting-started-with-planetscale-api) to automatically create a branch and credential set whenever a sprint or iteration is created. The `pscale` CLI is a cross-platform command line application that can be used to interact with PlanetScale databases, and the API is a set of HTTP endpoints that can be used to automate certain functions of a PlanetScale database. Refer to either the [`pscale` documentation](/docs/concepts/planetscale-environment-setup) to learn more about the CLI, or the [API documentation](https://api-docs.planetscale.com/reference/getting-started-with-planetscale-api) to learn more about how to use the PlanetScale API.
 
-{% callout title="Next steps" %} In this guide, we touched on the planning process and how project management software can utilize the `pscale` CLI to automatically create branches when a new iteration is kicked off. The next step in the DevOps cycle is the code phase, where developers build the functionality set forth by the planning phase.
+{% callout title="Next steps" %}
+In this guide, we touched on the planning process and how project management software can utilize the `pscale` CLI to automatically create branches when a new iteration is kicked off. The next step in the DevOps cycle is the code phase, where developers build the functionality set forth by the planning phase.
 
 - [The Code phase](/docs/devops/the-code-phase-of-devops)
 

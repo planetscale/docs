@@ -13,7 +13,9 @@ This article is a continuation of the Onboarding series and is the next step aft
 
 This guide will use the database schema used by [Beam](https://github.com/planetscale/beam), an open-source message board.
 
-{% callout %} A schema refers to the structure of the database. The most common parts of a schema are tables and the columns those tables contain. We’ll be working with both in this guide. {% /callout %}
+{% callout %}
+A schema refers to the structure of the database. The most common parts of a schema are tables and the columns those tables contain. We’ll be working with both in this guide.
+{% /callout %}
 
 ## Create a database
 
@@ -70,7 +72,8 @@ DESCRIBE Post;
 
 ![The Console view of a database branch, with the output of the CREATE TABLE statement.](/assets/docs/onboarding/create-a-database/the-console-view-of-a-database-branch-with-the-output-of-the-create-table-statement.png)
 
-{% callout title="Next steps" %} In this guide, we explored the PlanetScale dashboard, created a database, and created a simple table in that database. Next, we’ll explore the concept of database branching and how it can fit into your development workflow.
+{% callout title="Next steps" %}
+In this guide, we explored the PlanetScale dashboard, created a database, and created a simple table in that database. Next, we’ll explore the concept of database branching and how it can fit into your development workflow.
 
 - [Branching and Deploy Requests](/docs/onboarding/branching-and-deploy-requests)
 

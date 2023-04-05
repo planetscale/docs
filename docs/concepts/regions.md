@@ -14,7 +14,9 @@ A number of resources exist to help find which region has the lowest latency fro
 
 ## Available regions
 
-{% callout %} If you don't see your preferred region(s) in the following list, [get in touch](/contact) to let us know what region(s) you would like to see added. Also, Managed Cloud plans can be deployed in any region(s) with three availability zones. See the [Deployment options documentation](/docs/concepts/deployment-options#managed-cloud) for more information. {% /callout %}
+{% callout %}
+If you don't see your preferred region(s) in the following list, [get in touch](/contact) to let us know what region(s) you would like to see added. Also, Managed Cloud plans can be deployed in any region(s) with three availability zones. See the [Deployment options documentation](/docs/concepts/deployment-options#managed-cloud) for more information.
+{% /callout %}
 
 Currently, the following regions are supported, with their respective PlanetScale slugs:
 
@@ -47,9 +49,12 @@ PlanetScale allows you to select the region for the [`main` branch](/docs/concep
 
 Once you select a region for your `main` branch, it cannot be changed.
 
-You can also select the region while creating a database via the CLI by using the `--region` flag with the region's slug.
+You can also select the region while creating a database via the CLI by using
+the `--region` flag with the region's slug.
 
-{% callout %} If you do not select a region during database creation using the CLI, it will be set to AWS `us-east-1`. {% /callout %}
+{% callout %}
+If you do not select a region during database creation using the CLI, it will be set to AWS `us-east-1`.
+{% /callout %}
 
 Here's an example command for creating a database with a different region:
 
@@ -59,13 +64,17 @@ pscale database create <DATABASE_NAME> --region us-west
 
 ## Selecting the branch region
 
-PlanetScale allows you to select a region for development branches during creation as well. By default, it is set to the same region as its database.
+PlanetScale allows you to select a region for development branches during
+creation as well. By default, it is set to the same region as its database.
 
 ![Select your branch region.](/assets/docs/concepts/regions/branch.png)
 
-{% callout %} Once you select a branch region, it cannot be changed. {% /callout %}
+{% callout %}
+Once you select a branch region, it cannot be changed.
+{% /callout %}
 
-You can also select the region while creating a branch via the CLI by using the `--region` flag with the region's slug.
+You can also select the region while creating a branch via the CLI by using the
+`--region` flag with the region's slug.
 
 Here's an example command for creating a branch with a different region:
 

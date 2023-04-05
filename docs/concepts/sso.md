@@ -10,7 +10,10 @@ Single sign-on (SSO) provides additional account security by allowing company ad
 
 Furthermore, SSO allows an administrator to revoke someone’s access to all tools and applications from a single place when they leave a team or the company.
 
-{% callout %} SSO is available as an _add-on_ for our Scaler plan and included in our [Team and Enterprise plans](/docs/concepts/billing#planetscale-plans). {% /callout %}
+{% callout %}
+SSO is available as an _add-on_ for our Scaler plan and included in our
+[Team and Enterprise plans](/docs/concepts/billing#planetscale-plans).
+{% /callout %}
 
 ## Enable SSO for your organization
 
@@ -31,7 +34,10 @@ It's important to understand how enabling SSO will affect your Organization. Onc
   - While they are visible in the Organization they will not be able to authenticate to PlanetScale.
   - If you enabled [Directory Sync](#directory-sync), the Member will be removed from the Organization without manual intervention.
 
-{% callout %} If you enable SSO and Directory Sync, the Directory will remain the source of truth, and Teams will map accordingly. Please see the [Directory Sync](#directory-sync) section for more information. {% /callout %}
+{% callout %}
+If you enable SSO and Directory Sync, the Directory will remain the source of truth, and Teams will map accordingly.
+Please see the [Directory Sync](#directory-sync) section for more information.
+{% /callout %}
 
 After SSO has been enabled for your account, you can configure it under [your PlanetScale organization settings](https://app.planetscale.com/~/settings/sso).
 
@@ -61,7 +67,9 @@ You can now configure Directory Sync using your identity provider.
 
 Directory Sync automatically adds and removes members from your PlanetScale organization to match your SSO directory. If you have groups defined within your SSO provider, it can also automatically create [Teams](/docs/concepts/teams) within your PlanetScale organization mapped to those groups.
 
-{% callout %} Once you enable Directory Sync, existing Teams will be cleared, as all Teams must map to a Directory group. {% /callout %}
+{% callout %}
+Once you enable Directory Sync, existing Teams will be cleared, as all Teams must map to a Directory group.
+{% /callout %}
 
 You can find the directory-managed members under "**Settings**" > "**Members**", and directory-managed Teams under "**Settings**" > "**Teams**".
 

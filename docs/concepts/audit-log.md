@@ -15,7 +15,9 @@ Audit log retainment period is [based on your plan](/docs/concepts/billing#plane
 - **Team** &mdash; 60 days
 - **Enterprise** &mdash; Unlimited
 
-{% callout %} Organization audit log access is limited to [Organization Administrators](/docs/concepts/access-control#organization-administrator). {% /callout %}
+{% callout %}
+Organization audit log access is limited to [Organization Administrators](/docs/concepts/access-control#organization-administrator).
+{% /callout %}
 
 ## Review your organization audit log
 

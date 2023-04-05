@@ -4,7 +4,9 @@ subtitle: 'Learn how to use PlanetScale Boost in a Laravel application.'
 date: '2022-11-15'
 ---
 
-{% callout %} PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today. {% /callout %}
+{% callout %}
+PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
+{% /callout %}
 
 ## How to use PlanetScale Boost in a Laravel application
 
