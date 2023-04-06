@@ -46,10 +46,24 @@ Use the resources below to determine next steps for your application.
 
 Use one of the following quick-starts to get up and running using your preferred language/framework.
 
-{% quickstart-guides /%}
+{% grid columns=4 %}
+{% cell href="/docs/tutorials/connect-django-app" title="Django" imgPath="/img/logos/django.png" /%}
+{% cell href="/docs/tutorials/connect-go-app" title="Go CloudSQL" imgPath="/img/logos/go.png" /%}
+{% cell href="/docs/tutorials/connect-nodejs-app" title="Node.js" imgPath="/img/logos/node.png" /%}
+{% cell href="/docs/tutorials/connect-nextjs-app" title="Next.js" imgPath="/img/logos/next.png" /%}
+{% cell href="/docs/tutorials/connect-laravel-app" title="Laravel" imgPath="/img/logos/laravel.png" /%}
+{% cell href="/docs/tutorials/connect-symfony-app" title="Symfony" imgPath="/img/logos/symfony.png" /%}
+{% cell href="/docs/tutorials/connect-php-app" title="PHP" imgPath="/img/logos/php.png" /%}
+{% cell href="/docs/tutorials/connect-rails-app" title="Rails" imgPath="/img/logos/rails.png" /%}
+{% /grid %}
 
 ## Import your database
 
 Learn how to import an existing MySQL database from supported cloud providers.
 
-{% import-guides /%}
+{% grid columns=4 %}
+{% cell href="/docs/imports/aws-rds-migration-guide" title="AWS RDS" imgPath="/img/logos/aws.png" /%}
+{% cell href="/docs/imports/gcp-cloudsql-migration-guide" title="GCP CloudSQL" imgPath="/img/logos/gcp.png" /%}
+{% cell href="/docs/imports/azure-database-for-mysql-migration-guide" title="Azure MySQL" imgPath="/img/logos/azure.png" /%}
+{% cell href="/docs/imports/digitalocean-database-migration-guide" title="Digital Ocean" imgPath="/img/logos/digitalocean.jpeg" /%}
+{% /grid %}
