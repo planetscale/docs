@@ -12,7 +12,7 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 
 ## Create a deploy request
 
-**Note**: Your database must have a **production branch with [safe migrations](/docs/concepts-safe-migrations) enabled** before you can create a deploy request.
+**Note**: Your database must have a **production branch with [safe migrations](/docs/concepts/safe-migrations) enabled** before you can create a deploy request.
 
 1. Click on "**Branches**".
 2. Select the development branch you want to deploy to the production branch.

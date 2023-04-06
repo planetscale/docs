@@ -16,7 +16,7 @@ Safe migrations and deploy requests provide the option to quickly [revert schema
 
 ## Protection against accidental schema changes
 
-To prevent accidental changes to the database schema which may cause downtime, safe migrations enforces the use of [branching](/docs/concetps/branching) and [deploy requests](/docs/concepts/deploy-requests). This requires that changes be made safely and allows all team members to check and comment on schema changes before they are applied.
+To prevent accidental changes to the database schema which may cause downtime, safe migrations enforces the use of [branching](/docs/concepts/branching) and [deploy requests](/docs/concepts/deploy-requests). This requires that changes be made safely and allows all team members to check and comment on schema changes before they are applied.
 
 With safe migrations enabled, Data Definition Language (DDL) statements issued to production branches with safe migrations enabled will automatically be rejected by PlanetScale. Any `CREATE`, `ALTER`, or `DELETE` commands, whether sent using the PlanetScale built-in console, terminal, or MySQL GUI, will fail when we receive it.
 
