@@ -52,7 +52,7 @@ Be aware when demoting a production branch to a development branch:
 - The branch will no longer have high-availability features
 - Existing scheduled production branch backup policies will no longer run
 - Any read-only regions will need to be removed
-- You won't have the option to enable [safe migrations](/docs/concepts-safe-migrations)
+- You won't have the option to enable [safe migrations](/docs/concepts/safe-migrations)
 
 If you are on an Enterprise plan, only an administrator for your organization can request to demote a branch, and the demotion request will need to be approved by another administrator. Once the first administrator requests to demote a production branch, the second administrator can approve the demotion on the production branch's overview page. You will see the request from the first administrator and a **Demote to development branch** button to complete the demotion.
 
