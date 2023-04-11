@@ -14,7 +14,7 @@ branching concepts page is a great place to start.
 
 **Non-blocking schema changes** in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.
 
-PlanetScale makes it safe to deploy schema changes to production databases via _development_ and _production branches with [safe migrations](/docs/concepts-safe-migrations) enabled_. Production branches with safe migrations enabled cannot be deleted and can only be updated using deploy requests. Development branches are a separate database with a copy of the source branch's schema. Developers can make schema changes in development branches, test locally, and open a deploy request for deploying their changes to the production database.
+PlanetScale makes it safe to deploy schema changes to production databases via _development_ and _production branches with [safe migrations](/docs/concepts/safe-migrations) enabled_. Production branches with safe migrations enabled cannot be deleted and can only be updated using deploy requests. Development branches are a separate database with a copy of the source branch's schema. Developers can make schema changes in development branches, test locally, and open a deploy request for deploying their changes to the production database.
 
 Developers can also comment on deploy requests and request reviewers to approve a deploy request before its schema changes can deploy into the `main` database branch. Currently, requiring approval is a per-database setting is turned off by default. With the setting turned off, developers do not need approval to merge a deploy request.
 
