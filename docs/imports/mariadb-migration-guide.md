@@ -9,7 +9,7 @@ date: '2023-04-19'
 In this article, you’ll learn how to migrate a database from MariaDB, a fork of MySQL, into PlanetScale.
 
 {% callout type="warning" %}
-The steps outlined in this guide used MariaDB version 10.6.12 on an Ubuntu host. Depending on the version of MariaDB you are using, your results may vary. Don't hesitate to [reach out to us](/contact-us) for further assistance.
+The steps outlined in this guide used MariaDB version 10.6.12 on an Ubuntu host. Depending on the version of MariaDB you are using, your results may vary. Don't hesitate to [reach out to us](/contact) for further assistance.
 {% /callout %}
 
 ### Prerequisites
