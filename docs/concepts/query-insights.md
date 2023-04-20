@@ -86,6 +86,7 @@ Clicking on a query in the Queries list will open a new page with more informati
 - **Error messages** &mdash; If any exist.
 - **Query tags** &mdash; If any of the selected queries have [SQL comment](https://google.github.io/sqlcommenter/) tags attached, you'll see the key-value pairs in the table. Note, if you're sending queries with comments using the MySQL shell, make sure you have [enabled comments with the `-c` flag](https://dev.mysql.com/doc/refman/8.0/en/mysql-command-options.html#option_mysql_comments).
 - **Query `EXPLAIN` plan** &mdash; If you toggle "Show explain plan", you can generate the [execution plan](https://dev.mysql.com/blog-archive/mysql-explain-analyze/) for the selected query. You may have to fill in some sample values designated with placeholders like `:v1`. We use placeholders in the patterns both so you can look at whole patterns at once and so the literal values remain private.
+- **Query metrics** &mdash; A graph of the metrics associated with this query. The set of available metrics is the same as the database level metrics graphs.
 
 If you'd like to further interact with the query, click "Open query in web console", and you'll be taken to your in-dashboard web console, where you can run the `EXPLAIN` plan.
 
