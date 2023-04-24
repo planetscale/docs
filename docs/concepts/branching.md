@@ -16,7 +16,7 @@ Database branches on PlanetScale are isolated database instances that allow you 
 
 PlanetScale provides two types of database branches:
 
-- **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Note, only the schema is copied, not the data. To create a development branch with data from another branch, see the [Data Branching® feature](/docs/concepts/data-branching) section.
+- **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Please note that only the schema is copied. A new development branch will not have any data stored in it unless you [restore from a backup](/docs/concepts/back-up-and-restore#restore-from-a-backup). To automatically create a development branch with data from another branch, see the [Data Branching® feature](/docs/concepts/data-branching).
 
 - **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are automatically provided with an additional replica to resist outages, enabling zero-downtime failovers. Production branches also offer [safe migrations](#safe-migrations) as an optional feature, which helps protect the branch from accidental schema changes and enables non-blocking schema migrations.
 
