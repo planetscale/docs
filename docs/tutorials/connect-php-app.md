@@ -91,7 +91,7 @@ There are **two ways to connect** to PlanetScale:
 
 Both options are covered below.
 
-The environment variables you fill in next will be used in the [`db.php` file of the sample application](https://github.com/planetscale/php-example/main/db.php):
+The environment variables you fill in next will be used in the [`db.php` file of the sample application](https://github.com/planetscale/php-example/blob/main/db.php):
 
 ```php
 <?php
