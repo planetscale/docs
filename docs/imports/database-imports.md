@@ -184,7 +184,7 @@ It may also help to check out the official [MySQL documentation about Primary Ke
 
 #### Invalid charset
 
-PlanetScale supports the following charsets: `utf8`, `utf8mb4`, `utf8mb3`.
+PlanetScale supports the following charsets: `utf8`, `utf8mb4`, `utf8mb3`, `latin1`, and `ascii`.
 If your table uses any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
 
 #### Unsupported feature
