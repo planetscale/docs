@@ -59,8 +59,8 @@ out](/contact) and we can figure out a custom solution for your use case.
 
 | Feature                        | Cloud | Single-tenant Cloud | Managed Cloud |
 | ------------------------------ | ----- | ------------------- | ------------- |
-| Isolated AWS or GCP instance   | ✖️    | ✔                   | ✔             |
-| You own the AWS or GCP account | ✖️    | ✖️                  | ✔             |
-| Sharding available             | ✖️    | ✔                   | ✔             |
-| Private database connectivity  | ✖️    | ✔                   | ✔             |
-| Enterprise plan required       | ✖️    | ✔                   | ✔             |
+| Isolated AWS or GCP instance   | ❌    | ✔                   | ✔             |
+| You own the AWS or GCP account | ❌    | ❌                  | ✔             |
+| Sharding available             | ❌    | ✔                   | ✔             |
+| Private database connectivity  | ❌    | ✔                   | ✔             |
+| Enterprise plan required       | ❌    | ✔                   | ✔             |

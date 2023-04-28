@@ -28,9 +28,9 @@ The access level available to these roles is shown in the table below.
 
 | Role name  | Can create/edit schema | Can insert/update/delete rows | Can query rows |
 | :--------- | :--------------------- | :---------------------------- | :------------- |
-| Read-only  | ✖️                     | ✖️                            | ✔              |
-| Write-only | ✖️                     | ✔                             | ✖️             |
-| Read/write | ✖️                     | ✔                             | ✔              |
+| Read-only  | ❌                     | ❌                            | ✔              |
+| Write-only | ❌                     | ✔                             | ❌             |
+| Read/write | ❌                     | ✔                             | ✔              |
 | Admin      | ✔                      | ✔                             | ✔              |
 
 {% callout %}
