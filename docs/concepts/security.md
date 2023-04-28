@@ -17,7 +17,7 @@ Controls (SOC) 2 Type 2. To receive a copy of the report please
 
 ## HIPAA
 
-PlanetScale can enter into Business Associate Agreements (BAAs) with customers deployed on [Single-tenant environments](/docs/concepts/deployment-options#single-tenant-cloud). Please [reach out for more information](/contact), and we'll be in touch shortly.
+PlanetScale can enter into Business Associate Agreements (BAAs) with customers deployed on [Enterprise single-tenant environments](/docs/concepts/deployment-options)(Managed Cloud or Single-tenant Cloud). Please [reach out for more information](/contact), and we'll be in touch shortly.
 
 The customer must determine whether they are a Covered Entity &mdash; or a Business Associate of a Covered Entity &mdash; as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
 

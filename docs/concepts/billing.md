@@ -28,21 +28,21 @@ PlanetScale applies billing plans at the **database level**. You can create seve
 
 We offer four plan options, summarized below:
 
-|                              | **Hobby**      | **Scaler**             | **Team**                        | **Enterprise**                                |
-| ---------------------------- | -------------- | ---------------------- | ------------------------------- | --------------------------------------------- |
-| **Storage/month**            | 5 GB           | 10 GB\*                | 100 GB\*                        | Configurable                                  |
-| **Row reads/month**          | 1 billion      | 100 billion\*          | 500 billion\*                   | Configurable                                  |
-| **Row writes/month**         | 10 million     | 50 million\*           | 100 million\*                   | Configurable                                  |
-| **Production branches**      | 1 per database | 2 per database         | 3 per database                  | _Unlimited_                                   |
-| **Development branches**     | 1 per database | 5 per database         | 10 per database                 | _Unlimited_                                   |
-| **Audit log retention**      | 5 days         | 15 days                | 60 days                         | _Unlimited_                                   |
-| **Concurrent Connections**   | 1,000          | 10,000                 | 10,000                          | _Unlimited_                                   |
-| **Automated Backups**        | Once daily     | Every 12 hours         | Every 12 hours                  | Configurable                                  |
-| **Query Insights retention** | 24 hours       | 7 days                 | 7 days                          | Configurable                                  |
-| **SSO**                      | Not included   | Available as an add-on | Included                        | Included                                      |
-| **Support**                  | Community      | Standard               | Standard, upgrade available\*\* | Business, upgrade available\*\*\*             |
-| **Deployment options**       | Cloud          | Cloud                  | Cloud                           | Cloud, Single-tenant Cloud, and Managed Cloud |
-| **Monthly fee**              | $0             | $29 per database       | $599 per database               | Starting at $2999                             |
+|                                                             | **Hobby**      | **Scaler**             | **Team**                        | **Enterprise**                                |
+| ----------------------------------------------------------- | -------------- | ---------------------- | ------------------------------- | --------------------------------------------- |
+| **Storage/month**                                           | 5 GB           | 10 GB\*                | 100 GB\*                        | Configurable                                  |
+| **Row reads/month**                                         | 1 billion      | 100 billion\*          | 500 billion\*                   | Configurable                                  |
+| **Row writes/month**                                        | 10 million     | 50 million\*           | 100 million\*                   | Configurable                                  |
+| **Production branches**                                     | 1 per database | 2 per database         | 3 per database                  | Configurable                                  |
+| **Development branches**                                    | 1 per database | 5 per database         | 10 per database                 | Configurable                                  |
+| **Audit log retention**                                     | 5 days         | 15 days                | 60 days                         | _Unlimited_                                   |
+| **Concurrent Connections**                                  | 1,000          | 10,000                 | 10,000                          | _Unlimited_                                   |
+| **Automated Backups**                                       | Once daily     | Every 12 hours         | Every 12 hours                  | Configurable                                  |
+| **Query Insights retention**                                | 24 hours       | 7 days                 | 7 days                          | Configurable                                  |
+| **SSO**                                                     | Not included   | Available as an add-on | Included                        | Included                                      |
+| **Support**                                                 | Community      | Standard               | Standard, upgrade available\*\* | Business, upgrade available\*\*\*             |
+| [**Deployment options**](/docs/concepts/deployment-options) | Cloud          | Cloud                  | Cloud                           | Cloud, Single-tenant Cloud, and Managed Cloud |
+| **Monthly fee**                                             | $0             | $29 per database       | $599 per database               | Custom                                        |
 
 \* For the Scaler and Team plans, any extra storage over the included amount is billed at $2.50 per additional 1 GB, extra rows read over the included amount are billed at $1 per additional 1 billion, and extra rows written over the included amount are billed at $1.50 per additional 1 million.
 
