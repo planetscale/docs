@@ -26,6 +26,7 @@ pscale auth <SUB-COMMAND> <FLAG>
 | --------------- | ------------------------------------- |
 | `login`         | Authenticate with the PlanetScale API |
 | `logout`        | Log out of the PlanetScale API        |
+| `check`         | Check if you are authenticated        |
 
 ### Available flags
 
@@ -79,3 +80,19 @@ pscale auth logout
 ```bash
 Press Enter to log out of the PlanetScale API.
 ```
+
+### The `check` sub-command
+
+**Command:**
+
+```bash
+pscale auth check
+```
+
+**Output:**
+
+```bash
+You are authenticated.
+```
+
+If you are not authenticated, exit code 1 will be returned.
