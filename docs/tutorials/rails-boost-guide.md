@@ -43,6 +43,12 @@ Setting up multiple connections is our recommended way of using PlanetScale Boos
 First, you will need to update your `database.yml` to let Rails know about the new connection.
 
 ```yaml
+development:
+  primary:
+    <<: *default
+  primary_replica:
+    <<: *default
+    replica: true # Note: for development/test we do not set `boost_cached_queries` since we are using standard MySQL
 production:
   primary:
     <<: *default
@@ -60,14 +66,17 @@ production:
     host: <%= Rails.application.credentials.planetscale.fetch(:host) %>
     ssl_mode: verify_identity
     sslca: "/etc/ssl/cert.pem"
+    replica: true
     variables:
       boost_cached_queries: true
-
 ```
 
 You now have two connections: `primary` and `primary_with_caching`. You will want to replicate these for all of your environments.
 
-Notice in `primary_with_caching` you have set `boost_cached_queries: true`. Otherwise the connection details for each are identical.
+Make sure to only include the `boost_cached_queries` variable for environments that use PlanetScale. If you use standard MySQL for development/test, you will still need to setup
+the `primary_with_caching` connection, just without the `boost_cached_queries` variable. This allows you to test the connection role in your Rails app without connecting to PlanetScale.
+
+Notice in `primary_with_caching` you have set `boost_cached_queries: true` and `replica: true`. Otherwise the connection details for each are identical.
 
 ### Update ApplicationRecord
 
