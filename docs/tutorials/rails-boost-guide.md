@@ -76,7 +76,7 @@ You now have two connections: `primary` and `primary_with_caching`. You will wan
 Make sure to only include the `boost_cached_queries` variable for environments that use PlanetScale. If you use standard MySQL for development/test, you will still need to setup
 the `primary_with_caching` connection, just without the `boost_cached_queries` variable. This allows you to test the connection role in your Rails app without connecting to PlanetScale.
 
-Notice in `primary_with_caching` you have set `boost_cached_queries: true` and `replica: true`. Otherwise the connection details for each are identical.
+Notice in `primary_with_caching` you have set `boost_cached_queries: true` and `replica: true`. Otherwise, the connection details for each are identical.
 
 ### Update ApplicationRecord
 
