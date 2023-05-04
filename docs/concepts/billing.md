@@ -1,7 +1,7 @@
 ---
 title: 'Billing'
 subtitle: 'PlanetScale pricing was designed for transparency and scalability.'
-date: '2022-08-17'
+date: '2023-03-28'
 ---
 
 ## Overview
@@ -215,8 +215,16 @@ This returned output indicates that 4586 total rows have been read.
 +------------------+-------+
 ```
 
-{% callout title="Next steps" %}
+## Using coupons
 
-- [Branching](/docs/concepts/branching)
+You can redeem a coupon in the PlanetScale dashboard. To redeem a coupon, you must first enter your credit card information. Once you have a credit card on file, go to your Organization Settings page, click "Usage and billing", click "Redeem a coupon" on the right, enter your coupon, and click "Redeem coupon".
 
-{% /callout %}
+{% callout %} You may incur additional costs if your usage continues beyond the period, dollar amount, or any other metrics specified in the coupon terms. Additional costs will be charged to your card on file. If you have any questions about the terms of the coupon, please reach out to [our Support team](#need-help). {% /callout %}
+
+### How do coupons affect invoices
+
+You will see your coupon reflected in your monthly invoice. Go to "Settings" > "Usage and billing" > "Billing" > and select the invoice for the month(s) where your coupon was active. You will see a note at the top of the invoice similar to this:
+
+`Amount reflects your $xx.xx discount with code YOURCOUPONCODE`
+
+![PlanetScale dashboard - Example coupon factored into invoice](/assets/docs/concepts/billing/coupons-in-invoices.png)
