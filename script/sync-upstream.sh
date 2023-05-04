@@ -80,7 +80,7 @@ git status
 
 echo "[+] git diff-index:"
 # git diff-index : to avoid doing the git commit failing if there are no changes to be commit
-git diff-index --quiet HEAD || git commit --message 'docs: downstream' --message "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA" --message $'\nskip-check: true' --cleanup=verbatim
+git diff-index --quiet HEAD || git commit --message 'docs: downstream' --message "https://github.com/$GITHUB_REPOSITORY/commit/$GITHUB_SHA" --message $'\nskip-checks: true' --cleanup=verbatim
 
 echo "[+] Pushing git commit"
 # --set-upstream: sets the branch when pushing to a branch that does not exist
