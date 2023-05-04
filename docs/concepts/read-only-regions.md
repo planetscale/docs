@@ -1,12 +1,12 @@
 ---
 title: 'Read-only regions'
 subtitle: 'Add additional read-only regions to your production database.'
-date: '2022-12-01'
+date: '2023-05-03'
 ---
 
 ## Overview
 
-With the PlanetScale Portals, you can replicate your production database across the globe by creating read-only regions in any available [AWS PlanetScale region](/docs/concepts/regions).
+With PlanetScale Portals, you can replicate your production database across the globe by creating read-only regions in any available [AWS PlanetScale region](/docs/concepts/regions).
 
 {% callout %}
 Portals is not currently supported in [GCP regions](/docs/reference/gcp-regions).
@@ -23,7 +23,7 @@ This feature supports globally distributed applications by enabling your databas
 4. Select the desired AWS region from the dropdown of [available regions](/docs/concepts/regions).
    ![Select read-only region on production branch](/assets/docs/concepts/read-only-regions/form.png)
 5. Click "**Add region**" and wait for your data to finish initially replicating across regions.
-6. Optionally, connect to your new read-only region by clicking the ellipsis and selecting "**Connect**". This will return the connection credentials you can use in your application. Each region has its own connection strings and will only work for the region selected.
+6. Optionally, create credentials for your new read-only region by clicking the ellipsis and selecting "**Connect**". The credentials can only be used to connect to this read-only region. Any additional read-only regions will require their own credentials.
 
 ## How to remove a read-only region
 
