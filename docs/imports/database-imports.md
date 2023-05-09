@@ -187,6 +187,12 @@ It may also help to check out the official [MySQL documentation about Primary Ke
 PlanetScale supports the following charsets: `utf8`, `utf8mb4`, `utf8mb3`, `latin1`, and `ascii`.
 If your table uses any other charset, please consult the official [MySQL documentation about charsets](https://dev.mysql.com/doc/refman/8.0/en/charset.html).
 
+#### Table names with special characters
+
+Tables that are named with characters outside of the standard ASCII set are not supported. These tables may cause the import process to fail during the "Copying schema and data" phase of the import, resulting in a generic message stating that something went wrong.
+
+If any of your table names include special characters, they will need to be renamed before the import will succeed.
+
 #### Unsupported feature
 
 You might see this error if your table requires a storage engine other than [`InnoDB`](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html).
