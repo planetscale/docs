@@ -40,7 +40,9 @@ Learn more about [non-blocking schema changes](/docs/concepts/nonblocking-schema
 
 ## Deploy requests
 
-{% callout %} Your database must have a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled before you can create a deploy request. {% /callout %}
+{% callout %}
+Your database must have a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled before you can create a deploy request.
+{% /callout %}
 
 [Deploy requests](/docs/concepts/deploy-requests) allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (`CREATE`, `ALTER`, and `DROP`) for each table changed, with a line-by-line schema diff, making it easy to review the changes.
 
