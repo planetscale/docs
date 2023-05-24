@@ -226,4 +226,17 @@ This IP reference guide is meant to be used in combination with our
 
   34.95.20.47
 
+---
+
+- **GCP asia-northeast3 (Seoul, South Korea)**
+- 3.209.149.66
+
+  3.215.97.46
+
+  34.193.111.15
+
+  34.64.142.10
+
+  34.64.61.54
+
 {% /table %}
