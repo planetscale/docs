@@ -1,7 +1,7 @@
 ---
 title: 'Regions'
 subtitle: 'Selecting a region during database and branch creation.'
-date: '2022-11-16'
+date: '2023-05-26'
 ---
 
 ## Overview
@@ -22,8 +22,6 @@ Currently, the following regions are supported, with their respective PlanetScal
 
 ### AWS regions
 
-- AWS us-east-1 (Northern Virginia) &mdash; `us-east`
-- AWS us-west-2 (Oregon) &mdash; `us-west`
 - AWS ap-northeast-1 (Tokyo) &mdash; `ap-northeast`
 - AWS ap-south-1 (Mumbai) &mdash; `ap-south`
 - AWS ap-southeast-1 (Singapore) &mdash; `ap-southeast`
@@ -32,6 +30,9 @@ Currently, the following regions are supported, with their respective PlanetScal
 - AWS eu-west-1 (Dublin) &mdash; `eu-west`
 - AWS eu-west-2 (London) &mdash; `aws-eu-west-2`
 - AWS sa-east-1 (Sao Paulo) &mdash; `aws-sa-east-1`
+- AWS us-east-1 (Northern Virginia) &mdash; `us-east`
+- AWS us-east-2 (Ohio) &mdash; `aws-us-east-2`
+- AWS us-west-2 (Oregon) &mdash; `us-west`
 
 ### GCP regions
 

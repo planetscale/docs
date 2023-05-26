@@ -1,7 +1,7 @@
 ---
 title: 'Import tool public IP addresses'
 subtitle: 'List of the IP addresses you must allow when importing a database using the Import tool'
-date: '2022-08-24'
+date: '2023-05-26'
 internal: 'IPs are pulled from https://github.com/planetscale/ps-turtle/blob/main/psturtle_data.go'
 ---
 
@@ -111,6 +111,21 @@ This IP reference guide is meant to be used in combination with our
 
 ---
 
+- **AWS eu-west-2 (London)**
+- 3.209.149.66
+
+  3.215.97.46
+
+  34.193.111.15
+
+  18.132.105.164
+
+  3.10.132.119
+
+  3.11.110.64
+
+---
+
 - **AWS sa-east-1 (Sao Paulo)**
 - 3.209.149.66
 
@@ -159,6 +174,21 @@ This IP reference guide is meant to be used in combination with our
 
 ---
 
+- **AWS us-east-2 (Ohio)**
+- 3.209.149.66
+
+  3.215.97.46
+
+  34.193.111.15
+
+  18.117.23.127
+
+  3.131.243.164
+
+  3.132.168.252
+
+---
+
 - **AWS us-west-2 (Oregon)**
 - 3.209.149.66
 
@@ -171,21 +201,6 @@ This IP reference guide is meant to be used in combination with our
   52.35.206.238
 
   54.70.167.41
-
----
-
-- **AWS eu-west-2 (London)**
-- 3.209.149.66
-
-  3.215.97.46
-
-  34.193.111.15
-
-  18.132.105.164
-
-  3.10.132.119
-
-  3.11.110.64
 
 ---
 

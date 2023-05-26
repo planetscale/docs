@@ -70,4 +70,5 @@ pscale region list
   AWS ap-southeast-2 (Sydney)         aws-ap-southeast-2   Yes
   AWS sa-east-1 (Sao Paulo)           aws-sa-east-1        Yes
   AWS eu-west-2 (London)              aws-eu-west-2        Yes
+  AWS us-east-2 (Ohio)                aws-us-east-2        Yes
 ```
