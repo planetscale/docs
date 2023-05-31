@@ -19,7 +19,7 @@ This feature supports globally distributed applications by enabling your databas
 1. In the [PlanetScale dashboard](https://app.planetscale.com), select the database you want to add a read-only region to.
 2. Click on the production branch.
 3. Click the "**Add region**" button.
-   ![Add read-only region on production branch](/assets/docs/concepts/read-only-regions/branch.png?v2)
+   ![Add read-only region on production branch](/assets/docs/concepts/read-only-regions/branch-2.png?v2)
 4. Select the desired AWS region from the dropdown of [available regions](/docs/concepts/regions).
    ![Select read-only region on production branch](/assets/docs/concepts/read-only-regions/form.png)
 5. Click "**Add region**" and wait for your data to finish initially replicating across regions.

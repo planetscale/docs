@@ -208,7 +208,7 @@ You may need to install the MySQL command line client if you haven't already.
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
-![PlanetScale console insert and select example](/assets/docs/tutorials/connect-go-gorm-app/console.png?v2)
+![PlanetScale console insert and select example](/assets/docs/tutorials/connect-go-gorm-app/console-2.png?v2)
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Go database.
 2. Click on "**Console**".

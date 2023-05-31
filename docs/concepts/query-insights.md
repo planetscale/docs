@@ -23,13 +23,13 @@ analytics, [upgrade to a paid plan](/docs/concepts/billing).
 
 ## Branch selection
 
-![PlanetScale Insights branch selection](/assets/docs/concepts/query-insights/branches.png?v2)
+![PlanetScale Insights branch selection](/assets/docs/concepts/query-insights/branches-2.png?v2)
 
 The dropdown on the top right lets you select which branch you want to analyze. The selection applies to the entire Insights page.
 
 ## Insights graph
 
-![PlanetScale Insights graph](/assets/docs/concepts/query-insights/graph.png?v2)
+![PlanetScale Insights graph](/assets/docs/concepts/query-insights/graph-2.png?v2)
 
 This graph depicts your database activity over a 24-hour period. You'll also see links to any deploy requests at the time that you deployed them.
 
@@ -37,7 +37,7 @@ You can click the dates listed above the graph to scroll through the past seven 
 
 ## Graph metrics selection
 
-![PlanetScale Insights graph metrics selection - rows written](/assets/docs/concepts/query-insights/metrics.png?v2)
+![PlanetScale Insights graph metrics selection - rows written](/assets/docs/concepts/query-insights/metrics-2.png?v2)
 
 The dropdown on the top left lets you select what metric you want to see on the graph. You can hover over a specific time on the graph to see the metric(s) for that time period.
 
@@ -51,13 +51,13 @@ The available options are:
 
 ## Queries list
 
-![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries.png?v2)
+![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries-2.png?v2)
 
 The table underneath the graph shows all queries performed on your database in the past 24 hours. To further narrow down query analysis, you can select a time range from the above graph to restrict the table to queries that happened in that time frame.
 
 You can also sort the columns for quick analysis.
 
-![Insights queries selected time range](/assets/docs/concepts/query-insights/timeframe.png?v2)
+![Insights queries selected time range](/assets/docs/concepts/query-insights/timeframe-2.png?v2)
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 

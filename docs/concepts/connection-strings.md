@@ -8,7 +8,7 @@ date: '2022-12-06'
 
 1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Get connection strings**" button.
 
-   ![Database overview page](/assets/docs/concepts/connection-strings/connect.png?v2)
+   ![Database overview page](/assets/docs/concepts/connection-strings/connect-2.png?v2)
 
 2. On this dialog, click the `New password` button. This will generate a **unique username & password pair** that can only be used to only access the `main` branch of your database. Take note of this password, as you won't be able to see it again.
 
@@ -21,7 +21,7 @@ suggestions. We support pre-generating connection strings for Go, Java, .Net, PH
 Rails, and Rust.
 {% /callout %}
 
-![Browse connection string in formats](/assets/docs/concepts/connection-strings/formats.png?v2)
+![Browse connection string in formats](/assets/docs/concepts/connection-strings/formats-2.png?v2)
 
 {% callout type="tip" %}
 Make sure you copy the connection string for your application and the "General" format. We don't save the password in
@@ -36,7 +36,7 @@ Once you've created the password, you can head over to the "**Passwords**" setti
 You can also create passwords for branches other than `main` on this page.
 {% /callout %}
 
-![Manage passwords page](/assets/docs/concepts/connection-strings/manage.png?v2)
+![Manage passwords page](/assets/docs/concepts/connection-strings/manage-2.png?v2)
 
 Clicking on the `...` icon on the row for your password allows you to pull up the connection string (except the password), rename it, or delete it.
 

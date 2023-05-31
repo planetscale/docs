@@ -31,7 +31,7 @@ There are two ways to generate a new username and password for your branch:
 2. Click "**Get connection strings**".
 3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
-   ![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials.png?v2)
+   ![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials-2.png?v2)
 
 4. If the password isn't visible, click "New password".
 5. Copy the credentials.

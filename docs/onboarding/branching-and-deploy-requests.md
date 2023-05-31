@@ -73,7 +73,7 @@ We're going to promote our existing branch to production, create a new developme
 
 Start by navigating to the `beam-demo` database, click the **"cog"** within the infrastructure card. Click the button that says **"Promote to production branch"** to flag the default `main` branch as a production branch.
 
-![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog.png?v2)
+![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog-2.png?v2)
 
 ### Enable safe migrations
 
@@ -83,13 +83,13 @@ Once the branch has been promoted, click the same **"cog"** to open a modal with
 
 The card will reflect the safe migrations status on that branch as well add an option to create a new branch.
 
-![The production branch UI card with safe migrations enabled.](/assets/docs/onboarding/branching-and-deploy-requests/promoted.png?v2)
+![The production branch UI card with safe migrations enabled.](/assets/docs/onboarding/branching-and-deploy-requests/promoted-2.png?v2)
 
 ### Create a dev branch
 
 Back in the database **"Overview"** tab, click the **"Create new branch"** button to create a new branch.
 
-![The production branch UI card with the Create new branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/new-branch.png?v2)
+![The production branch UI card with the Create new branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/new-branch-2.png?v2)
 
 In the **New branch** modal, you’ll see options to name the branch, select the base, and even change the region for this branch. Name the branch `dev` and click **"Create branch"**.
 
@@ -101,7 +101,7 @@ The branch takes a few minutes to initialize. Wait for this process to complete 
 
 Now that the branch is initialized, let’s update the schema of our `Post` table and add a `summary` column. Click the **"Console"** tab, select the `dev` branch, and click "**Connect**".
 
-![Connect to the console.](/assets/docs/onboarding/branching-and-deploy-requests/console.png?v2)
+![Connect to the console.](/assets/docs/onboarding/branching-and-deploy-requests/console-2.png?v2)
 
 Run the following script to update the schema, followed by a `DESCRIBE` statement to view the changes to that table.
 
