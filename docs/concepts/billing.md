@@ -81,7 +81,7 @@ You can add additional development branches to Scaler and Team plans in **packs 
 4. Select the number of branch packs you'd like to add
 5. Click "Save".
 
-![Billing page branch pack add-ons](/assets/docs/concepts/billing/addons.png)
+![Billing page branch pack add-ons](/assets/docs/concepts/billing/addons.png?v2)
 
 ### User scheduled backups
 
@@ -158,7 +158,7 @@ The `SELECT count(*)` query is a special case. The database engine optimizes thi
 
 With our in-dashboard [Insights tool](/docs/concepts/query-insights), you can explore active queries running against your database. The "**Queries during the last 24 hours**" list has a column that shows the total rows read for that particular query. The "rows read" surfaced here is the same number we use to calculate your total rows read for your billing calculation. In addition, you can click on a particular query to see more information about its performance.
 
-![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries.png)
+![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries.png?v2)
 
 If you'd prefer to test a query on your own, you can calculate the **approximate** rows read using the `EXPLAIN` statement. Running `EXPLAIN` with your query will return information about the query execution plan.
 

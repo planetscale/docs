@@ -88,7 +88,7 @@ pscale branch create my-production-database add-tables --region eu-west
 
 [Organization Administrators](/docs/concepts/access-control#organization-administrator) can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
 
-![Restrict your branches to one region.](/assets/docs/concepts/regions/restrict.png)
+![Restrict your branches to one region.](/assets/docs/concepts/regions/restrict.png?v2)
 
 ## Changing branch and database regions
 

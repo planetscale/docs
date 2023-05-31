@@ -97,7 +97,7 @@ After you have your application running locally, you may want to deploy it to pr
 
 You can do this in the PlanetScale dashboard by clicking the **"cog"** in the upper right of the infrastructure UI card.
 
-![Promote a branch to production](/assets/docs/tutorials/connect-nextjs-app/production.png)
+![Promote a branch to production](/assets/docs/tutorials/connect-nextjs-app/production.png?v2)
 
 You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects your production branch from accidental schema changes. This can be done from the PlanetScale dashboard by clicking the same **"cog"** once the branch has been promoted to production.
 

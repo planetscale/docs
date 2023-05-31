@@ -29,7 +29,7 @@ Start in PlanetScale by creating a new database named `products_db`.
 
 Click on the **"Console"** tab, then "**Get connection strings**".
 
-![The Console tab](/assets/docs/tutorials/connect-go-app/console.png)
+![The Console tab](/assets/docs/tutorials/connect-go-app/console.png?v2)
 
 Run the following two commands to create a sample table and insert some data:
 
@@ -48,11 +48,11 @@ INSERT INTO `products` (name, price) VALUES
 
 Finally, head to the **"Overview"** tab and click **"Connect"**.
 
-![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect.png)
+![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect.png?v2)
 
 Change the **"Connect with"** dropdown to **Go** and copy the contents of the **.env** tab, as you’ll need it for the next section.
 
-![The Connect modal](/assets/docs/tutorials/connect-go-app/connect-modal.png)
+![The Connect modal](/assets/docs/tutorials/connect-go-app/connect-modal.png?v2)
 
 ## Run the demo project
 

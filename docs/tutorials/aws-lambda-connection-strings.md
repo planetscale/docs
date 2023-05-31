@@ -21,11 +21,11 @@ If you already have a database with a production branch, skip to [the next secti
 
 Let's start by creating the database. In the PlanetScale dashboard, click the "**New database**" button followed by "**Create new database**". Name the database **lambda-connection-strings,** or any other name that you prefer. Click "**Create database**".
 
-![The new database modal](/assets/docs/tutorials/aws-lambda-connection-strings/create.png)
+![The new database modal](/assets/docs/tutorials/aws-lambda-connection-strings/create.png?v2)
 
 Once your database has finished initializing, access the console of the main branch by clicking "**Console**", then "**Connect**".
 
-![The console](/assets/docs/tutorials/aws-lambda-connection-strings/console.png)
+![The console](/assets/docs/tutorials/aws-lambda-connection-strings/console.png?v2)
 
 Create a simple table & insert some data using the following script:
 
@@ -47,23 +47,23 @@ You may run `SELECT * FROM Tasks` to ensure the data was properly added from the
 
 Now we need to promote the **main** branch to production and enable [**safe migrations**](/docs/concepts/safe-migrations). Click the **Overview** tab, then click the **cog** icon in the upper right of the infrastructure card.
 
-![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production.png)
+![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production.png?v2)
 
 In the modal that appears, click on **Promote branch**.
 
-![The modal to promote to production branch](/assets/docs/tutorials/aws-lambda-connection-strings/promote.png)
+![The modal to promote to production branch](/assets/docs/tutorials/aws-lambda-connection-strings/promote.png?v2)
 
 Click the **cog** again to reveal the "**Enable safe migrations**" toggle. Turn it on and click the "**Enable safe migrations**" button.
 
-![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations.png)
+![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations.png?v2)
 
 Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Get connection strings** button to open the Connect modal.
 
-![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted.png)
+![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted.png?v2)
 
 Select **NodeJS** from the **Connect with** dropdown, and note the details in the .env tab of the modal. These details will be required to connect to the database.
 
-![The connection string for this database](/assets/docs/tutorials/aws-lambda-connection-strings/connect.png)
+![The connection string for this database](/assets/docs/tutorials/aws-lambda-connection-strings/connect.png?v2)
 
 ## Configure the Lambda function
 
