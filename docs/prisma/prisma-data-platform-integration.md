@@ -39,7 +39,7 @@ Currently, you cannot use one of the existing templates with PlanetScale. If you
 Next, you need to connect your Prisma project to your PlanetScale database. Here's what you need to do to create and configure your database:
 
 1. Log in to [https://app.planetscale.com](https://app.planetscale.com) and create a new database or select an existing one.
-2. In a non-production branch (or production branch with [safe migrations](/docs/concepts/safe-migrations) disabled), select the "**Connect**" button and select "**Prisma**" in the dropdown.
+2. In a non-production branch (or production branch with [safe migrations](/docs/concepts/safe-migrations) disabled), select the "**Get connection strings**" button and select "**Prisma**" in the dropdown.
 3. Copy the PlanetScale connection string without the quotes or the variable name. The connection string looks similar to: `mysql://doianhxp9mla:************@wspfgipy7tg7.us-east-2.psdb.cloud/prisma-planetscale?sslaccept=strict`
 4. In Prisma, in the "**Connection string**" field, paste the connection string.
 5. Under "**Prisma Data Proxy**", select the location closest to you or your application.
@@ -73,7 +73,7 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 
 10. You can now add your tables in the `schema.prisma` file following the schema above. You can either create your own tables, or, if you need an example, you can copy the schema we used in [Beam, a sample application](https://github.com/planetscale/beam/blob/main/prisma/schema.prisma). Learn more about data modeling with Prisma in the [Prisma schema documentation](https://www.prisma.io/docs/concepts/components/prisma-schema). Make sure to `git commit` and `git push` this to your repo. Prisma will pick up these changes to your schema.
 11. Lastly, you need to push your new schema to PlanetScale. To do this, locally, create a `.env` file to store your `DATABASE_URL` in your project folder.
-12. Go back to your working branch of PlanetScale and create a new password using the "**Connect**" button and select "**Prisma**" in the dropdown.
+12. Go back to your working branch of PlanetScale and create a new password using the "**Get connection strings**" button and select "**Prisma**" in the dropdown.
 13. Copy the full `DATABASE_URL` variable with the connection string into your `.env` file and save.
 14. Locally, run `npx prisma db push`, which will push your database schema to PlanetScale.
 15. Your PlanetScale database is now ready! In the Prisma Data Platform, you will now be ready to use the Data Browser, Query Console, Data Proxy, and you are ready to start building!

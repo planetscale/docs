@@ -27,9 +27,9 @@ Start by creating a database in PlanetScale by clicking **"New database"** > **"
 
 Name the database `travel_db`. Click **"Create database"**. Wait for the database to finish initializing before moving on.
 
-![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-travel_db-initializing.png)
+![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/initializing.png)
 
-Generate a set of credentials by clicking the **"Connect"** button.
+Generate a set of credentials by clicking the **"Get connection strings"** button.
 
 ![The Connect button in the PlanetScale dashboard.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard.png)
 

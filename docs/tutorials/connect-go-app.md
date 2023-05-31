@@ -27,11 +27,7 @@ Start in PlanetScale by creating a new database named `products_db`.
 
 ![The New database modal](/assets/docs/tutorials/connect-go-app/new-db-modal.png)
 
-Once the database has finished initializing, head to **"Branches"** > **"main"**.
-
-![The Branches tab](/assets/docs/tutorials/connect-go-app/branches.png)
-
-Click on **"Console"** to open the web console.
+Click on the **"Console"** tab, then "**Get connection strings**".
 
 ![The Console tab](/assets/docs/tutorials/connect-go-app/console.png)
 

@@ -32,7 +32,7 @@ This article will make use of the [django-example GitHub repository](https://git
 
 ### Set up the Heroku Config Vars
 
-It’s important to store the connection details for the PlanetScale database in **Config Vars** in Heroku so they are properly secured. These details can be obtained from the PlanetScale dashboard by clicking the ”**Connect”** button.
+It’s important to store the connection details for the PlanetScale database in **Config Vars** in Heroku so they are properly secured. These details can be obtained from the PlanetScale dashboard by clicking the "**Get connection strings**" button.
 
 ![The location of the “Connect” button in the PlanetScale dashboard.](/assets/docs/tutorials/deploy-a-django-app-to-heroku/database.png)
 

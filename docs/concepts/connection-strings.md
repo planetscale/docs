@@ -6,7 +6,7 @@ date: '2022-12-06'
 
 ## Creating a password
 
-1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
+1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Get connection strings**" button.
 
    ![Database overview page](/assets/docs/concepts/connection-strings/connect.png)
 

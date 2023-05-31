@@ -8,7 +8,11 @@ Now that everything is deployed into production and confirmed working, the opera
 
 ## How PlanetScale helps
 
-All PlanetScale tiers eliminate the need to maintain your MySQL infrastructure by allowing us to do it for you. Additionally, any production branches automatically have failover replicas so even if something fails with one instance internally, a backup is always available to take over while any necessary maintenance is performed by our teams. On top of reducing the necessity of maintaining a MySQL environment, PlanetScale offers additional features that can simplify the jobs of the operations teams.
+All PlanetScale tiers eliminate the need to maintain your MySQL infrastructure by allowing us to do it for you. Additionally, any production branches automatically have failover replicas so even if something fails with one instance internally, a backup is always available to take over while any necessary maintenance is performed by our teams.
+
+![Infrastructure UI card](/assets/docs/devops/the-operate-phase-of-devops/infra.png)
+
+On top of reducing the necessity of maintaining a MySQL environment, PlanetScale offers additional features that can simplify the jobs of the operations teams.
 
 ### Backup and restore
 

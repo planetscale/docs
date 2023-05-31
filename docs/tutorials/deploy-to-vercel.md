@@ -24,10 +24,10 @@ It will cover two options:
 ### Get your connection string from PlanetScale
 
 1. In your [PlanetScale dashboard](https://app.planetscale.com), click on the database you want to connect to.
-2. Click "**Connect**".
+2. Click "**Get connection strings**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
-   ![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-netlify/prisma.png)
+   ![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-vercel/prisma.png)
 
 4. If the password is blurred, click "New password" to generate new credentials.
 5. Keep this page open, as you'll need to copy these to Vercel momentarily.

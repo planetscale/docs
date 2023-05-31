@@ -71,29 +71,25 @@ We're going to promote our existing branch to production, create a new developme
 
 ### Promote dev branch to production
 
-Start by navigating to the `beam-demo` database, click the **"Branches"** tab, and select the `main` branch. Click the button that says **"Promote to production branch"** to flag the default `main` branch as a production branch.
+Start by navigating to the `beam-demo` database, click the **"cog"** within the infrastructure card. Click the button that says **"Promote to production branch"** to flag the default `main` branch as a production branch.
 
-![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-database.png)
+![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog.png)
 
 ### Enable safe migrations
 
-Once the branch has been promoted, an additional card will be added to the UI to indicate that it is indeed a production branch. Click the **"cog"** in the upper right to open a modal with additional configuration options on this branch.
-
-![The production branch UI card.](/assets/docs/onboarding/branching-and-deploy-requests/production-branch-card-with-sm-disabled.png)
-
-Before proceeding, toggle the option labelled **"Enable safe migrations"** and click **"Save"**.
+Once the branch has been promoted, click the same **"cog"** to open a modal with additional configuration options on this branch. Toggle the option labeled **"Enable safe migrations"** and click **"Save"**.
 
 ![The safe migrations modal.](/assets/docs/onboarding/branching-and-deploy-requests/prod-branch-options-modal.png)
 
 The card will reflect the safe migrations status on that branch as well add an option to create a new branch.
 
-![The production branch UI card with safe migrations enabled.](/assets/docs/onboarding/branching-and-deploy-requests/production-branch-card-with-sm-enabled.png)
+![The production branch UI card with safe migrations enabled.](/assets/docs/onboarding/branching-and-deploy-requests/promoted.png)
 
 ### Create a dev branch
 
 Back in the database **"Overview"** tab, click the **"Create new branch"** button to create a new branch.
 
-![The production branch UI card with the Create new branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/production-branch-card-with-sm-enabled-with-btn-highlighted.png)
+![The production branch UI card with the Create new branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/new-branch.png)
 
 In the **New branch** modal, you’ll see options to name the branch, select the base, and even change the region for this branch. Name the branch `dev` and click **"Create branch"**.
 
@@ -103,17 +99,14 @@ The branch takes a few minutes to initialize. Wait for this process to complete 
 
 ### Make a schema change
 
-Now that the branch is initialized, let’s update the schema of our `Post` table and add a `summary` column. Click the **"Console"** tab and run the following script.
+Now that the branch is initialized, let’s update the schema of our `Post` table and add a `summary` column. Click the **"Console"** tab, select the `dev` branch, and click "**Connect**".
 
-![The new branch after initializing.](/assets/docs/onboarding/branching-and-deploy-requests/the-new-branch-after-initializing.png)
+![Connect to the console.](/assets/docs/onboarding/branching-and-deploy-requests/console.png)
+
+Run the following script to update the schema, followed by a `DESCRIBE` statement to view the changes to that table.
 
 ```sql
 ALTER TABLE Post ADD summary VARCHAR(1024);
-```
-
-Now run the following command to see the structure of the table in the `dev` branch. You’ll see the new `summary` column in the table structure.
-
-```sql
 DESCRIBE Post;
 ```
 

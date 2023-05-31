@@ -100,7 +100,7 @@ Both options are covered below.
 
    Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
 
-   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Go**".
+   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Get connection strings**" > "**Connect with**" language dropdown > "**Go**".
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -211,8 +211,8 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 ![PlanetScale console insert and select example](/assets/docs/tutorials/connect-go-gorm-app/console.png)
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Go database.
-2. Click on the "**Branches** and select the `main` branch.
-3. Click on "**Console**"
+2. Click on "**Console**".
+3. Select the `main` branch and click "**Connect**".
 4. Add a new record to the `product` table with:
 
    ```sql

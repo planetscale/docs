@@ -27,8 +27,8 @@ There are two ways to generate a new username and password for your branch:
 
 ### Generate credentials in the PlanetScale dashboard
 
-1. Click on the branch you want to connect to.
-2. Click "**Connect**".
+1. On the database overview page, select the branch you want to connect to from the **Branch** dropdown.
+2. Click "**Get connection strings**".
 3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
    ![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials.png)

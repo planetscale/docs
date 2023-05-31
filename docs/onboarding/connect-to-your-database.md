@@ -16,13 +16,13 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 
 ## Create a connection string
 
-Open the `beam-demo` database and click the **"Connect"** button.
+Open the `beam-demo` database and click the **"Get connection strings"** button.
 
-![The Overview tab of the database with the Connect button highlighted.](/assets/docs/onboarding/connect-to-your-database/the-overview-tab-of-the-database-with-the-connect-button-highlighted.png)
+![The Overview tab of the database with the Connect button highlighted.](/assets/docs/onboarding/connect-to-your-database/connect.png)
 
 The following modal will provide the information required to connect to your database. If this is your first time accessing the **Connect** modal, the password will be displayed in plain text, otherwise, the password will be masked.
 
-![The Connect to modal.](/assets/docs/onboarding/connect-to-your-database/the-connect-to-modal.png)
+![The Connect to modal.](/assets/docs/onboarding/connect-to-your-database/connect-modal.png)
 
 If you need to generate a new password, simply click the **"New password"** button to generate a new set of credentials.
 

@@ -89,7 +89,7 @@ Both options are covered below.
    The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
    {% /callout %}
 
-   You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Django**". If the password is blurred, click "**New password**".
+   You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Get connection strings**" > "**Connect with**" language dropdown > "**Django**". If the password is blurred, click "**New password**".
 
    Take note of the values returned to you, as you won't be able to see this password again.
 
@@ -244,8 +244,8 @@ select * from store_product;
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Django database.
-2. Click on the "**Branches** and select the `main` branch.
-3. Click on "**Console**"
+2. Click on "**Console**".
+3. Select the `main` branch and click "**Connect**".
 4. Add a new record to the `store_product` table with:
 
    ```sql

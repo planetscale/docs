@@ -82,7 +82,7 @@ Both options are covered below.
 
 Next, you need to generate a database username and password so that you can use it to connect to your application.
 
-In your PlanetScale dashboard, select your database, click "**Connect**", and select "**Laravel**" from the "**Connect with**" dropdown.
+In your PlanetScale dashboard, select your database, click "**Get connection strings**", and select "**Laravel**" from the "**Connect with**" dropdown.
 
 As long as you're an organization administrator, this will generate a username and password that has administrator privileges to the database.
 
@@ -189,7 +189,7 @@ The first two options are covered below.
 
 ### Add data in PlanetScale dashboard console
 
-PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches. To access it, click "**Branches**" > your development branch > "**Console**".
+PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches. To access it, click "**Console**" > select your development branch > "**Connect**".
 
 From here, you can run MySQL queries and DDL against your database branch.
 

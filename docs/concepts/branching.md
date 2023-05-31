@@ -78,7 +78,7 @@ pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 
 [Safe migrations](/docs/concepts/safe-migrations) is an optional, but recommended, feature that can be enabled on production branches. Branches with safe migrations enabled are restricted from accepting DDL directly. This prevents accidental changes to the database schema, and also enables non-blocking schema migrations. In order to make changes to branches with safe migrations enabled, you must create a new branch, then merge changes using a [deploy request](/docs/concepts/deploy-requests). Using this method, you get to see a schema diff before merging changes, have the option to have your team review changes, and receive [additional checks and warnings](/blog/deploy-requests-now-alert-on-potential-unwanted-changes) prior to making a production schema change.
 
-To enable safe migrations on an existing production branch, navigate to the branch and click the cog icon in the card labelled "This is a production branch". You'll then be presented with a modal where safe migrations can be enabled.
+To enable safe migrations on an existing production branch, select that branch from the "Branches" dropdown in the infrastructure diagram of the Overview tab and click the gear icon in the upper right of that card . You'll then be presented with a modal where safe migrations can be enabled.
 
 ## How to make schema changes on a branch with safe migrations enabled
 

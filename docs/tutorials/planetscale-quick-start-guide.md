@@ -18,7 +18,7 @@ If you already have your PlanetScale database set up, you may find the [Connecti
 
 This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started--planetscale-dashboard) or using the [PlanetScale CLI](#getting-started--planetscale-cli).
 
-{% vimeo src="https://player.vimeo.com/video/763913923" caption="A video demo of everything covered in this guide" /%}
+{% vimeo src="https://player.vimeo.com/video/830571983" caption="A video demo of everything covered in this guide" /%}
 
 ## Getting started &mdash; PlanetScale dashboard
 
@@ -120,18 +120,16 @@ A production branch is a highly available database branch that includes an addit
 
 ### To promote a branch to production and enable safe migrations:
 
-1. Click "Overview" in the navigation, and you'll see a banner with information about promoting to production.
+1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card.
 
    ![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/the-main-branch-overview.png)
 
-2. Click the "Promote branch" button.
-3. In the modal that opens, select the branch you want to promote to production.
-4. Click "Promote branch".
-5. Click the "cog" in the upper right of the production branch card.
+2. In the modal that opens, click "**Promote branch**".
+3. Click the same "**cog**" to display additional configuration options for the production branch.
 
    ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled.png)
 
-6. Toggle "Enable safe migrations" then click the "Enable safe migrations" button.
+4. Toggle "**Enable safe migrations**", then click the "**Enable safe migrations**" button.
 
 The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides high availability with an additional replica.
 

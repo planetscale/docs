@@ -202,7 +202,7 @@ Next, you need to add some data. You have several different options here. This t
 
 ### Option 1: Add data in PlanetScale dashboard console
 
-In your PlanetScale dashboard, click on the `star-app` database, select the `initial-setup` branch, and click on the "**Console**" tab. This will let you run queries on your development database branch.
+In your PlanetScale dashboard, click on the `star-app` database, click on the "**Console**" tab, select the `initial-setup` branch from the dropdown, and click "**Connect**". This will let you run queries on your development database branch.
 
 The `Star` table is currently empty. To add some data, type in the following and press enter:
 
@@ -324,13 +324,12 @@ Once you're happy with the `initial-setup` branch, you can roll it up to the pro
 To promote `main` to production:
 
 - Go back to your `star-app` database in the PlanetScale dashboard
-- Click on the `main` branch under "**Branches**"
-- Click on the "**Promote branch**" button
+- In the infrastructure card, make sure the `main` branch is selected and click the **"cog"** in the upper right
 - Click "**Promote branch**" to confirm
 
 To enable safe migrations:
 
-- Click the **"cog"** in the upper right of the production branch card
+- Click the same **"cog"** in the upper right of the infrastructure card
 - Toggle **"Enable safe migrations"** in the modal
 - Click the **"Enable safe migrations"** button to save and close the modal
 

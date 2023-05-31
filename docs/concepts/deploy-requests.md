@@ -8,7 +8,7 @@ date: '2023-04-05'
 
 Deploy requests are an integral part of the [PlanetScale workflow](/docs/concepts/planetscale-workflow). Database branching, coupled with deploy requests, allows you to **deploy non-blocking schema changes to your production database with zero downtime**. You can also [undo deployments](#revert-a-schema-change) without losing any data that was written during that time.
 
-{% vimeo src="https://player.vimeo.com/video/763914107" caption="Demonstration of how to make schema changes with deploy requests" /%}
+{% vimeo src="https://player.vimeo.com/video/830571933" caption="Demonstration of how to make schema changes with deploy requests" /%}
 
 ## Create a deploy request
 
@@ -70,7 +70,7 @@ You can revert a deployment for **up to 30 minutes** after the deploying. After 
 
 You must first agree to the beta terms before you can use the schema revert feature. Go to the database Settings page, click "**Beta features**", find the "**Revert schema changes**" section, and click "**Enroll**" to opt-in.
 
-{% vimeo src="https://player.vimeo.com/video/763913760" caption="Demonstration of how to revert a schema change" /%}
+{% vimeo src="https://player.vimeo.com/video/830571822" caption="Demonstration of how to revert a schema change" /%}
 
 1. Select the deploy request you want to revert.
 2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the limited beta terms.

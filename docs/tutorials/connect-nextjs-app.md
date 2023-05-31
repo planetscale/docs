@@ -53,7 +53,7 @@ mv .env.example .env
 
 Next, you need to generate a database username and password so that you can use it to connect to your application.
 
-In your PlanetScale dashboard, select your database, click "**Connect**", and select "**Prisma**" from the "**Connect with**" dropdown.
+In your PlanetScale dashboard, select your database, click "**Get connection strings**", and select "**Prisma**" from the "**Connect with**" dropdown.
 
 As long as you're an organization administrator, this will generate a username and password that has administrator privileges to the database.
 
@@ -95,15 +95,13 @@ Open your browser at [localhost:3000](http://localhost:3000) to see the running 
 
 After you have your application running locally, you may want to deploy it to production. To do so, promote your database branch (`main` by default) to be the production branch ([read the branching documentation for more information](/docs/concepts/branching)).
 
-You can do this in the PlanetScale dashboard by clicking the "**Branches**" tab, and then clicking the "**Promote a branch to production**" button either in the banner or under the "**...**".
+You can do this in the PlanetScale dashboard by clicking the **"cog"** in the upper right of the infrastructure UI card.
 
 ![Promote a branch to production](/assets/docs/tutorials/connect-nextjs-app/production.png)
 
-You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects your production branch from accidental schema changes. This can be done from the PlanetScale dashboard by clicking the **"cog"** in the upper right of the production branch UI card.
+You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects your production branch from accidental schema changes. This can be done from the PlanetScale dashboard by clicking the same **"cog"** once the branch has been promoted to production.
 
-![Production branch UI card](/assets/docs/tutorials/connect-nextjs-app/production-branch-card-with-sm-disabled.png)
-
-In the modal, toggle the option labelled **"Enable safe migrations"** then click the **"Enable safe migrations"**. This will close the modal and save the setting.
+In the modal that will appear, toggle the option labeled **"Enable safe migrations"**, then click the **"Enable safe migrations"**. This will close the modal and save the setting.
 
 ![Enable safe migrations](/assets/docs/tutorials/connect-nextjs-app/prod-branch-options-modal.png)
 
