@@ -44,6 +44,7 @@ If you're attempting to import a database using our Import tool, there are some 
 | `SET GLOBAL sql_mode`         | ❌      | The global SQL mode can not be changed permanently. Set each new session's mode instead with `SET sql_mode`.                                                                                                                                               |
 | `PIPES_AS_CONCAT`             | ❌      | Enabling this SQL mode can interfere with Vitess' evalengine parsing the SQL queries so enabling it may result in incorrect or unexpected results. Please use MySQL's standard dialect instead, e.g. `CONCAT()`.                                           |
 | `ANSI_QUOTES`                 | ❌      | Enabling this SQL mode can interfere with Vitess' evalengine parsing the SQL queries so enabling it may result in incorrect or unexpected results. Please use MySQL's standard quotation instead.                                                          |
+| `ON DUPLICATE KEY UPDATE AS`  | ❌      | In an `INSERT... ON DUPLICATE KEY UPDATE` statement, aliasing the columns or rows is not yet supported.                                                                                                                                                    |
 
 ## Miscellaneous
 
