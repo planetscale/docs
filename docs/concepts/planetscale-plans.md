@@ -38,7 +38,7 @@ Our self-serve plans are flexible enough to handle the majority of customers. Ho
 
 PlanetScale's Enterprise Plan is great for users that want to scale farther, shard horizontally, and run PlanetScale in a dedicated AWS/GCP account. We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
 
-|                             | **Shared Tenancy** | **Single Tenant** | **Managed** |
+|                             | **Shared Tenancy** | **Single-Tenant** | **Managed** |
 | --------------------------- | ------------------ | ----------------- | ----------- |
 | Resource-based pricing      | ✔                  | ✔                 | ✔           |
 | Horizontal sharding         | ✔                  | ✔                 | ✔           |
