@@ -35,7 +35,7 @@ The sharding key, or [Primary Vindex](https://vitess.io/docs/reference/features/
 To determine a Primary Vindex, our team will analyze your schema and query patterns. We generally will ask you for the following information:
 
 1. A copy of your schema.
-2. Some indication of the size of each table in your database. We can typically gather this information by looking at `AUTOINCREMENT` values, but may require additional context in some cases.
+2. Some indication of the size of each table in your database. We can typically gather this information by looking at `AUTO_INCREMENT` values, but may require additional context in some cases.
 3. Information about your common query patterns &mdash; typically your most frequently used 50-100 queries.
 
 Using this holistic view of your database, we can work to determine a good candidate for the Primary Vindex. During this analysis, we also begin to determine which tables should be sharded, whether you'll require secondary vindexes ([Lookup Vindexes](https://vitess.io/docs/reference/features/vindexes/#functional-and-lookup-vindex)), the strategy for tables that don't contain our chosen Primary Vindex, and more.
