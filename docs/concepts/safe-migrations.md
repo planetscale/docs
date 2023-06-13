@@ -54,7 +54,7 @@ There are two ways to disable safe migrations: in the PlanetScale dashboard and 
 
 To disable safe migrations using the PlanetScale dashboard, click the **”cog”** in the upper right of the infrastructure card on the Overview tab of the database.
 
-![Branch UI with enabled with cog highlighted.](/assets/docs/concepts/safe-migrations/branch-card-sm-disabled-2.png?v2)
+![Branch UI with enabled with cog highlighted.](/assets/docs/concepts/safe-migrations/prod-card-cog-2.png?v2)
 
 In the modal, toggle the option labeled **”Enable safe migrations”,** then click the **”Disable safe migrations"** button to save and close the modal. It’s also worth noting that toggling the **”Production branch”** option and saving will also disable safe migrations, as the feature is only permitted on production branches.
 
