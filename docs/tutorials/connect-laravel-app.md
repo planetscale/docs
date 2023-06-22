@@ -2,7 +2,7 @@
 title: 'Connect a Laravel application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Laravel application'
 className: 'ignore-img-borders'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -65,7 +65,7 @@ Finally, click "**Create database**".
 If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
 {% /callout %}
 
-A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
+A [production branch](/docs/concepts/branching), `main`, is automatically created when you create your database. Though safe migrations are off by default, so you can make schema changes directly to this branch. Once you're happy with any schema changes, you can turn on safe migrations to protect from accidental schema changes and enable zero-downtime deployments.
 
 That's it! Your database is ready to use. Next, let's connect it to the Laravel application and then add some data.
 
@@ -189,7 +189,11 @@ The first two options are covered below.
 
 ### Add data in PlanetScale dashboard console
 
-PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches. To access it, click "**Console**" > select your development branch > "**Connect**".
+PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches.
+
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+
+To access it, click "**Console**" > select your branch > "**Connect**".
 
 From here, you can run MySQL queries and DDL against your database branch.
 
@@ -247,7 +251,7 @@ Laravel comes with a powerful tool called [Tinker](https://laravel.com/docs/9.x/
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) and enable [safe migrations](/docs/concepts/safe-migrations) to get a highly available branch protected by direct schema changes.
+Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) to protect from accidental schema changes and enable zero-downtime deployments.
 
 To learn more about PlanetScale, take a look at the following resources:
 

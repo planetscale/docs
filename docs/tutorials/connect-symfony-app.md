@@ -2,7 +2,7 @@
 title: 'Connect a Symfony application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Symfony application'
 className: 'ignore-img-borders'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -230,6 +230,8 @@ You can now refresh the [Symfony homepage](http://localhost:8000) to see the new
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
 
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Symfony database.
 2. Click on the "**Branches** and select the `main` branch.
 3. Click on "**Console**"
@@ -250,6 +252,6 @@ You can now refresh the [Symfony homepage](http://localhost:8000) to see the new
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) and enable [safe migrations](/docs/concepts/safe-migrations) to get a highly available branch protected by direct schema changes.
+Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) on your `main` production branch to protect it against direct schema changes and enable zero-downtime schema migrations.
 
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.

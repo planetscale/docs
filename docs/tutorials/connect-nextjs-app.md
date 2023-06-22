@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Next.js application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Next.js application'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 In this tutorial, you'll create a [Next.js](https://nextjs.org/) application that uses [Tailwind CSS](https://tailwindcss.com/) for styling and [Prisma](https://www.prisma.io/) to connect to a [PlanetScale](/) database.
@@ -26,7 +26,7 @@ Finally, click "**Create database**".
 If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
 {% /callout %}
 
-A [development branch](/docs/concepts/branching), `main`, is automatically created when you create your database. You can use this branch to develop on, and once you're happy with any schema changes, you can promote it to production, where it becomes a highly available, protected database that you can connect your production application to.
+A [production branch](/docs/concepts/branching), `main`, is automatically created when you create your database. Production branches are highly available, protected database that you can connect your production application to. Once you are satisfied with your initial development, you may enable [safe migrations](/dcos/concepts/safe-migrations) to enable zero-downtime migrations and protect the branch from accidental data deletion.
 
 ## Set up the starter Next.js app
 
@@ -93,13 +93,7 @@ Open your browser at [localhost:3000](http://localhost:3000) to see the running 
 
 ## Deploy your app
 
-After you have your application running locally, you may want to deploy it to production. To do so, promote your database branch (`main` by default) to be the production branch ([read the branching documentation for more information](/docs/concepts/branching)).
-
-You can do this in the PlanetScale dashboard by clicking the **"cog"** in the upper right of the infrastructure UI card.
-
-![Promote a branch to production](/assets/docs/tutorials/connect-nextjs-app/production-2.png?v2)
-
-You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects your production branch from accidental schema changes. This can be done from the PlanetScale dashboard by clicking the same **"cog"** once the branch has been promoted to production.
+After you have your application running locally, you may want to deploy it to production. Your database branch (`main` by default) is already a production database branch. You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects your production branch from accidental schema changes. This can be done from the PlanetScale dashboard by clicking the same **"cog"** once the branch has been promoted to production.
 
 In the modal that will appear, toggle the option labeled **"Enable safe migrations"**, then click the **"Enable safe migrations"**. This will close the modal and save the setting.
 
@@ -118,8 +112,6 @@ If you are deploying the `nextjs-starter` repo, the `Netlify.toml` file in this 
 {% /callout %}
 
 ## What's next?
-
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch with an additional replica. You should also enable [safe migrations](/docs/concepts/safe-migrations), which protects the branch from accidental schema changes.
 
 To learn more about PlanetScale, take a look at the following resources:
 

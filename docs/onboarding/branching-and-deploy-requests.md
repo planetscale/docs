@@ -1,7 +1,7 @@
 ---
 title: Branching and deploy requests
 subtitle: Explore how to utilize branching in PlanetScale, a key feature of the platform.
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Overview
@@ -67,17 +67,15 @@ A typical strategy with branching would go something like this:
 ## Branching in action
 
 Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them.
-We're going to promote our existing branch to production, create a new development branch, add a new column, create a deploy request, and deploy it to production.
+We're going to enable safe migrations on the default `main` production branch, create a new development branch, add a new column, create a deploy request, and deploy it to production.
 
-### Promote dev branch to production
+### Enable safe migrations on `main`
 
-Start by navigating to the `beam-demo` database, click the **"cog"** within the infrastructure card. Click the button that says **"Promote to production branch"** to flag the default `main` branch as a production branch.
+Start by navigating to the `beam-demo` database, click the **"cog"** within the infrastructure card.
 
-![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog-2.png?v2)
+![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog-3.png)
 
-### Enable safe migrations
-
-Once the branch has been promoted, click the same **"cog"** to open a modal with additional configuration options on this branch. Toggle the option labeled **"Enable safe migrations"** and click **"Save"**.
+In the modal that appears, toggle the option labeled **"Enable safe migrations"** and click **"Save"**.
 
 ![The safe migrations modal.](/assets/docs/onboarding/branching-and-deploy-requests/prod-branch-options-modal.png)
 

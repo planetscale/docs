@@ -1,7 +1,7 @@
 ---
 title: 'Connect any application to PlanetScale'
-subtitle: 'Connect your PlanetScale database to any application using connection strings or the PlanetScale proxy'
-date: '2023-04-05'
+subtitle: 'Connect your PlanetScale database to any application using connection strings or the PlanetScale proxy.'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -10,9 +10,13 @@ In this tutorial, you'll learn how to connect any application to your PlanetScal
 
 If you're just getting started and still need to set up a database, we recommend starting with the [PlanetScale quick start guide](/docs/tutorials/planetscale-quick-start-guide) first. We also have language/framework-specific guides under "**Integration guides**" if you prefer a more detailed walk-through.
 
-PlanetScale uses [database branches](/docs/concepts/branching) to create a development-friendly workflow. Your database is initially created with a default branch, `main`, which is meant to serve as a development branch before promoting it to production.
+PlanetScale uses [database branches](/docs/concepts/branching) to create a development-friendly workflow. Your database is initially created with a default branch, `main`, which is meant to serve as a production database branch. Production branches are highly available databases intended for production traffic. They are automatically provided with an additional replica to resist outages, enabling zero-downtime failovers.
 
-While _developing_ your application, you'll need to connect to a _development_ branch. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/docs/concepts/branching) for more information about the branching workflow.
+You can connect to a _production_ or _development_ database branch. We recommend creating and connecting to a _development_ branch while in _development_, as it allows you to make schema changes without affecting production. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/docs/concepts/branching) for more information about the branching workflow.
+
+{% callout %}
+Note: By default, production branches have safe migrations turned off. This means that any schema changes you make will be applied immediately. Once you are ready to go to production, we recommend turning on safe migrations if you want to make non-blocking schema changes. Check out our [Safe migrations documentation](/docs/concepts/safe-migrations) for more information.
+{% /callout %}
 
 There are two ways to connect your app to PlanetScale. Both are covered below.
 
@@ -57,7 +61,7 @@ There are two ways to generate a new username and password for your branch:
 
    Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-   If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copying the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+   If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copy the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
 
 ### Generate credentials in the PlanetScale CLI
 
@@ -77,7 +81,7 @@ If you prefer working from the CLI, you can quickly spin up new credentials ther
 
    ```
    Password production-password was successfully created.
-   Please save the values below as they will not be shown again.
+   Please save the values below, as they will not be shown again.
 
      NAME                  USERNAME       ACCESS HOST URL                     ROLE               PASSWORD
     --------------------- ------------- --------------------------------- ------------------ --------------------------------
@@ -120,7 +124,7 @@ You'll use the CLI to establish a secure connection to PlanetScale. It will list
 
    This establishes a secure connection and opens a port on your local machine that you can use to connect to any MySQL client.
 
-2. Take note of the address it returns to you. By default it is `127.0.0.1:3306`. The CLI will use a different port if `3306` is unavailable.
+2. Take note of the address it returns to you. By default, it is `127.0.0.1:3306`. The CLI will use a different port if `3306` is unavailable.
 
 3. In your application's MySQL configuration file, use the following to connect:
 

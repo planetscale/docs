@@ -1,7 +1,7 @@
 ---
 title: 'Branching'
 subtitle: 'Create a development or staging environment for your database through branches'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Overview
@@ -10,7 +10,7 @@ PlanetScale allows you to branch database schemas the same way you branch your c
 
 ## What are branches on PlanetScale
 
-Database branches on PlanetScale are isolated database instances that allow you flexiblity when developing your application. When your database is first initialized, a single branch is created called `main` and acts as the default branch. When you create additional branches, the schema of the source branch is copied to the new branch, giving you an isolated MySQL instance to develop with. Changes made in one branch, whether to the schema or the data, do not affect any other branches for a given database.
+Database branches on PlanetScale are isolated database instances that allow you flexiblity when developing your application. When your database is first initialized, a single production branch is created called `main` and acts as the default branch. When you create additional branches, the schema of the source branch is copied to the new branch, giving you an isolated MySQL instance to develop with. Changes made in one branch, whether to the schema or the data, do not affect any other branches for a given database.
 
 ## Development and production branches
 
@@ -26,13 +26,11 @@ PlanetScale provides the ability to **promote any development branch with a vali
 
 ### Promote a development branch to production
 
-Every new PlanetScale database is created with a development branch named `main`.
-
-This development branch is intended as the starting point for building your database on PlanetScale where you would apply your schema before promoting to production for increased performance and resilience.
+Every new PlanetScale database is created with a production branch named `main`. This branch is intended as the starting point for building your database on PlanetScale and has increased performance and resilience by default when compared to development branches.
 
 That said, you don't have to use the default `main` branch as your production branch. **Any development branch can be promoted to production**.
 
-Once you are satisfied with the changes you've made to your development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch to experiment with changes as needed.
+Once you are satisfied with the changes you've made to a given development branch, you can promote it to production. Going forward, you can continue to make new development branches off of this production branch to experiment with changes as needed.
 
 A branch can be promoted from the branch overview page in the PlanetScale app or by using the [PlanetScale CLI](/docs/reference/branch), as shown below:
 
@@ -143,7 +141,7 @@ PlanetScale also provides insight on the deploy queue, listing all of the schema
 
 ## Default branches
 
-The first database branch that gets promoted to production is automatically set as the default branch for your database. Once you have a production branch, you must always have a default branch.
+The `main` branch is automatically set as the default branch when the database is initialized. However, you can change the default branch if needed.
 
 **How to change the default branch**:
 

@@ -1,7 +1,7 @@
 ---
 title: 'Prisma with PlanetScale quickstart'
 subtitle: 'Learn how to integrate Prisma with PlanetScale'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Overview
@@ -33,7 +33,7 @@ pscale db create star-app --region <REGION>
 
 For the `REGION` value, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions). If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
 
-Your database will deploy with an initial development branch, `main`.
+Your database will deploy with an initial production branch, `main`.
 
 ### Set up branches
 
@@ -202,7 +202,9 @@ Next, you need to add some data. You have several different options here. This t
 
 ### Option 1: Add data in PlanetScale dashboard console
 
-In your PlanetScale dashboard, click on the `star-app` database, click on the "**Console**" tab, select the `initial-setup` branch from the dropdown, and click "**Connect**". This will let you run queries on your development database branch.
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+
+Then, within your `star-app` database, click on the "**Console**" tab, select the `initial-setup` branch from the dropdown, and click "**Connect**". This will let you run queries on your database branch.
 
 The `Star` table is currently empty. To add some data, type in the following and press enter:
 
@@ -319,21 +321,16 @@ You can now see all your `Star` table data at [`localhost:3000/api/stars`](http:
 
 Currently, you're working on the development branch `initial-setup`, which is branched off of the `main` branch. The `initial-setup` development branch is meant for applying schema changes and testing your migrations before you go to production.
 
-Once you're happy with the `initial-setup` branch, you can roll it up to the production branch. To do this, you first need to promote the `main` branch to production. This `main` branch is currently empty, but once it's set as the production branch and enable [safe migrations](/docs/concepts/safe-migrations), you'll be able to roll your changes from `initial-setup` into it.
+Once you're happy with the `initial-setup` branch, you can roll it up to the `main` production branch. To do this, you first need to enable [safe migrations](/docs/concepts/safe-migrations) on the `main` branch. Once safe migrations is enabled on the `main` branch, you'll be able to merge changes from `initial-setup` into `main` using a [deploy request](/docs/concepts/deploy-requests).
 
-To promote `main` to production:
+To enable safe migrations on the `main` branch:
 
 - Go back to your `star-app` database in the PlanetScale dashboard
 - In the infrastructure card, make sure the `main` branch is selected and click the **"cog"** in the upper right
-- Click "**Promote branch**" to confirm
-
-To enable safe migrations:
-
-- Click the same **"cog"** in the upper right of the infrastructure card
 - Toggle **"Enable safe migrations"** in the modal
 - Click the **"Enable safe migrations"** button to save and close the modal
 
-Your `main` branch is now in production! A production branch gives you high availability with an additional replica. With safe migrations enabled, the branch is also protected from accidental schema changes and enables no-downtime schema migrations.
+Your `main` branch is now protected from accidental schema changes and enables no-downtime schema migrations.
 
 This production branch is currently empty. You can confirm this by going to the `main` branch and clicking on the "**Schema**" tab. Let's fix that.
 
@@ -347,7 +344,7 @@ PlanetScale will check to make sure there are no conflicts between the two branc
 
 ![Example of the Star table schema in a deploy request on PlanetScale](/assets/docs/tutorials/prisma-quickstart/schema.png)
 
-Now, you're ready to deploy the `initial-setup` branch to production! On the "**Summary**" tab of the deploy request, click the button "**Add changes to deploy queue**". The deployment has now been added to the deploy queue.
+Now, you're ready to deploy the schema changes in the `initial-setup` branch to production! On the "**Summary**" tab of the deploy request, click the button "**Add changes to deploy queue**". The deployment has now been added to the deploy queue.
 
 Once it's done deploying, you'll get a success message, "These changes have been deployed".
 

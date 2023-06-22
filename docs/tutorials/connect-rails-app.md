@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Rails application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Rails application'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -165,14 +165,6 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
    | updated_at | datetime(6)  | NO   |     | NULL    |                |
    +------------+--------------+------+-----+---------+----------------+
    ```
-
-## Promote your main branch to a production branch
-
-A production branch is a highly available database branch. When a branch is promoted to production, an additional replica is created to protect the branch from outages.
-
-```bash
-pscale branch promote blog main
-```
 
 ## Enable safe migrations
 

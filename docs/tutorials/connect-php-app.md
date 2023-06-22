@@ -2,7 +2,7 @@
 title: 'Connect a PHP application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a PHP application'
 className: 'ignore-img-borders'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -78,7 +78,7 @@ You can use any name with lowercase, alphanumeric characters, or underscores. Yo
 
 For `REGION_SLUG`, choose a region closest to you from the [available regions](/docs/concepts/regions#available-regions) or leave it blank.
 
-The database is created with a default branch, `main`, that's meant to serve as your initial development branch before promoting it to production.
+Your database is created with a default branch, `main`, which is meant to serve as your production database branch.
 
 That's it! Your database is ready to use. Next, let's connect it to the PHP application and then add some data.
 
@@ -351,7 +351,7 @@ You can now refresh the [PHP homepage](http://localhost:8000) to see the new rec
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) and enable [safe migrations](/docs/concepts/safe-migrations) to get a highly available branch protected by direct schema changes.
+Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) on your `main` production branch to protect it against direct schema changes and enable zero-downtime schema migraions.
 
 When you're reading to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll [open a deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
 

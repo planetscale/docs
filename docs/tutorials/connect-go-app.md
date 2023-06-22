@@ -1,7 +1,7 @@
 ---
 title: Connect a Go application to PlanetScale
 subtitle: Learn how to use Go with PlanetScale by exploring a demo Go API built with Gin.
-date: '2022-10-11'
+date: '2023-06-21'
 ---
 
 {% vimeo src="https://player.vimeo.com/video/759188218" caption="Connect to PlanetScale with Go" /%}
@@ -27,7 +27,9 @@ Start in PlanetScale by creating a new database named `products_db`.
 
 ![The New database modal](/assets/docs/tutorials/connect-go-app/new-db-modal.png)
 
-Click on the **"Console"** tab, then "**Get connection strings**".
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+
+Then, click on the **"Console"** tab, then "**Connect**".
 
 ![The Console tab](/assets/docs/tutorials/connect-go-app/console-2.png?v2)
 

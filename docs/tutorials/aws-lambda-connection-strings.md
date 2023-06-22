@@ -1,7 +1,7 @@
 ---
 title: 'AWS Lambda connection strings'
 subtitle: 'Learn how to securely use your PlanetScale MySQL connection strings with AWS Lambda Functions'
-date: '2022-08-01'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -23,9 +23,11 @@ Let's start by creating the database. In the PlanetScale dashboard, click the "*
 
 ![The new database modal](/assets/docs/tutorials/aws-lambda-connection-strings/create-2.png?v2)
 
-Once your database has finished initializing, access the console of the main branch by clicking "**Console**", then "**Connect**".
+Once your database has finished initializing, you'll need to enable the web console on production branches. To do this, go to the "**Settings**" tab, check "**Allow web console access to production branches**", and click "**Save database settings**".
 
-![The console](/assets/docs/tutorials/aws-lambda-connection-strings/console-2.png?v2)
+Now, access the console of the main branch by clicking "**Console**", then "**Connect**".
+
+![The console](/assets/docs/tutorials/aws-lambda-connection-strings/console-3.png)
 
 Create a simple table & insert some data using the following script:
 
@@ -45,15 +47,11 @@ You may run `SELECT * FROM Tasks` to ensure the data was properly added from the
 
 ![Records from the console](/assets/docs/tutorials/aws-lambda-connection-strings/select.png)
 
-Now we need to promote the **main** branch to production and enable [**safe migrations**](/docs/concepts/safe-migrations). Click the **Overview** tab, then click the **cog** icon in the upper right of the infrastructure card.
+Now we need to enable [**safe migrations**](/docs/concepts/safe-migrations) on the **main** branch. Click the **Overview** tab, then click the **cog** icon in the upper right of the infrastructure card.
 
 ![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production-2.png?v2)
 
-In the modal that appears, click on **Promote branch**.
-
-![The modal to promote to production branch](/assets/docs/tutorials/aws-lambda-connection-strings/promote-2.png?v2)
-
-Click the **cog** again to reveal the "**Enable safe migrations**" toggle. Turn it on and click the "**Enable safe migrations**" button.
+Toggle on the "**Enable safe migrations**" option and click the "**Enable safe migrations**" button.
 
 ![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations-2.png?v2)
 

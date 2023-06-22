@@ -1,7 +1,7 @@
 ---
 title: Create a database
 subtitle: Learn the basics of the PlanetScale dashboard by creating your first database.
-date: '2022-09-13'
+date: '2022-06-21'
 ---
 
 ## Overview
@@ -47,7 +47,9 @@ Next, you’ll be dropped into the dashboard for that specific database. Let's t
 
 ![The dashboard of a database on PlanetScale.](/assets/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale-2.png?v2)
 
-Now let’s add a table and some columns to the database. PlanetScale databases leverage branches to let you create copies of your database so you can safely experiment with the schema without affecting your main production database. Branches will be covered more in detail in the next article, but since they are an integral part of the system, you’ll always be working within a database branch. The default branch created for all databases is `main`. Click on **"Console"** to get access to an in-browser MySQL shell.
+Now let’s add a table and some columns to the database. PlanetScale databases leverage branches to let you create copies of your database so you can safely experiment with the schema without affecting your main production database. Branches will be covered more in detail in the next article, but since they are an integral part of the system, you’ll always be working within a database branch. The default branch created for all databases is `main`. Your `main` branch is a production branch, which are highly available database intended for production traffic. Production database branches are automatically provided with an additional replica to resist outages, enabling zero-downtime failovers.
+
+Click on **"Console"** to get access to an in-browser MySQL shell.
 
 Run the following command in that console to create your first table:
 

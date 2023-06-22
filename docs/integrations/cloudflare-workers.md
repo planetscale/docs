@@ -1,7 +1,7 @@
 ---
 title: 'Cloudflare Workers Database Integration'
 subtitle: 'Use the Cloudflare Database Integration feature to automatically connect Workers to your PlanetScale database'
-date: '2023-05-17'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -136,8 +136,8 @@ To test other database operations that are mapped to HTTP methods, you may use t
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) to get a highly available branch with an extra replica. Additionally, it is highly recommended that [safe migrations](/docs/concepts/safe-migrations) be turned on for your production branch to protect from accidental schema changes and enable zero-downtime deployments.
+Once you're done with development, it is highly recommended that [safe migrations](/docs/concepts/safe-migrations) be turned on for your `main` production branch to protect from accidental schema changes and enable zero-downtime deployments.
 
-When you're reading to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll open a [deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
+When you're ready to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll open a [deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
 
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.

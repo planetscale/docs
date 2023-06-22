@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Django application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Django application'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Introduction
@@ -275,6 +275,6 @@ This isn't necessary to do in every model if you're pulling in the `django_psdb_
 
 ## What's next?
 
-Once you're done with development, you can [promote your `main` branch to production](/docs/concepts/branching#promote-a-branch-to-production) and enable [safe migrations](/docs/concepts/safe-migrations) to get a highly available branch protected by direct schema changes.
+Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) to protect from accidental schema changes and enable zero-downtime deployments.
 
 Learn more about how PlanetScale allows you to make [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes) to your database tables without locking or causing downtime for production databases.

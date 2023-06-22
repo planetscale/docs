@@ -2,7 +2,7 @@
 title: 'PlanetScale quickstart guide'
 subtitle: 'Get started with PlanetScale in just a few minutes'
 className: 'ignore-img-borders'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Overview
@@ -35,18 +35,20 @@ Follow these steps to create a database:
 
 ![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/create.png)
 
-Your database is created with an [**initial development branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
+Your database is created with a [**default production branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. While this is just the first branch we create for you, you can always create new development branches (isolated copies of the production schema) off of production to use for development.
 
 ### Add a schema to your database
 
 This quickstart demonstrates how to create and use two relational tables: `categories` and `products`.
 
-1. From your database's overview page, click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
+1. By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+
+2. Click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
 
    ![Branches](/assets/docs/tutorials/planetscale-quick-start-guide/the-console-tab.png)
 
-2. By default the `main` branch is preselected. Click **"Connect"**.
-3. Create the `categories` and `products` tables by running the following commands in the web console:
+3. By default the `main` branch is preselected. Click **"Connect"**.
+4. Create the `categories` and `products` tables by running the following commands in the web console:
 
    ```sql
    CREATE TABLE categories (
@@ -72,7 +74,7 @@ This quickstart demonstrates how to create and use two relational tables: `categ
    documentation.
    {% /callout %}
 
-4. You can confirm that the tables have been added by running:
+5. You can confirm that the tables have been added by running:
 
    ```sql
    SHOW TABLES;
@@ -104,38 +106,27 @@ SELECT * FROM categories;
 
 If you click on the "**Schema**" tab in the database navigation and click the "**Refresh schema**" button, you'll see the new database schema.
 
-### Promote your database branch to production
+### Enable safe migrations on your `main` branch
 
-All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
-
-{% callout %}
-A development branch is intended for applying schema changes and is **not intended for use in production**.
-{% /callout %}
-
-Once you are happy with the changes you have made to your development branch, you can promote the branch to production and enable safe migrations.
+All of the work you've done so far has been on a default production branch, `main`, that was automatically created when you created the database.
 
 A production branch is a highly available database branch that includes an additional replica. It also has the option to enable [safe migrations](/docs/concepts/safe-migrations), which enables non-blocking schema changes and can protect your database from accidental schema changes.
 
 [Safe migrations](/docs/concepts/safe-migrations) is an optional, but highly recommended, feature that adds an additional layer of protection to your branch by preventing accidental schema modifications and enabling no-downtime schema changes. With safe migrations enabled, any DDL issued directly to the branch will not be accepted. Instead, changes must be made using the PlanetScale flow, where deploy requests are used to safely merge changes in a collaborative environment.
 
-### To promote a branch to production and enable safe migrations:
+### To enable safe migrations:
 
-1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card.
-
-   ![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/the-main-branch-overview-2.png?v2)
-
-2. In the modal that opens, click "**Promote branch**".
-3. Click the same "**cog**" to display additional configuration options for the production branch.
+1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card to open a modal.
 
    ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png?v2)
 
-4. Toggle "**Enable safe migrations**", then click the "**Enable safe migrations**" button.
+2. Toggle "**Enable safe migrations**", then click the "**Enable safe migrations**" button.
 
-The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides high availability with an additional replica.
+The `main` branch now contains the `categories` and `products` tables you created, along with the data you inserted. In addition, it is highly available with an additional replica, and is enabled for zero-downtime migrations with [safe migrations](/docs/concepts/safe-migrations).
 
 ### What's next?
 
-Now that you've created a database, applied schema changes, added data, and promoted your branch to production, it's time to connect to your application.
+Now that you've created a database, applied schema changes, added data, and enable safe migrations, it's time to connect to your application.
 
 You can use our [Connect Any Application tutorial](/docs/tutorials/connect-any-application) for a general step-by-step approach, one of our language-specific guides, or head straight to our [Connection Strings documentation](/docs/concepts/connection-strings) for more information about creating connection strings.
 
@@ -184,7 +175,7 @@ pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
 {% /callout %}
 
-Your database will deploy with an initial development branch, `main`, which you will use to apply a schema change and insert data. Think of this as your development environment where you can test schema changes before deploying your database to production. Once you promote your branch to production, you can always create new branches (isolated copies of the production schema) off of production to use for development.
+Your database is created with an [**initial branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. While this is just the first branch we create for you, you can always create new branches (isolated copies of the production schema) off of production to use for development.
 
 ### Add a schema to your database
 
@@ -268,33 +259,25 @@ Now that you have your schema set up, let's insert some data.
 
 3. Exit the shell by typing `exit`.
 
-### Promote your database branch to production
+### Enable safe migrations
 
-All of the work you've done so far has been on a development branch, `main`, that was automatically created when you created the database.
+All of the work you've done so far has been on a default production branch, `main`, that was automatically created when you created the database.
 
-{% callout %}
-A development branch is intended for applying schema changes and is **not intended for use in production**.
-{% /callout %}
+A production branch is a highly available database branch that includes an additional replica. It also has the option to enable [safe migrations](/docs/concepts/safe-migrations), which enables non-blocking schema changes and can protect your database from accidental schema changes.
 
-Once you are happy with the changes you have made to your development branch, you can promote the branch to production.
+[Safe migrations](/docs/concepts/safe-migrations) is an optional, but highly recommended, feature that adds an additional layer of protection to your branch by preventing accidental schema modifications and enabling no-downtime schema changes. With safe migrations enabled, any DDL issued directly to the branch will not be accepted. Instead, changes must be made using the PlanetScale flow, where deploy requests are used to safely merge changes in a collaborative environment.
 
-A production branch is a highly available, protected database branch with automated scheduled backups designed for use in production. Schema changes, such as `CREATE`, `ALTER`, and `DELETE`, are **not allowed** on production branches to prevent accidental data loss.
-
-To promote your branch to production, run:
+To enable safe migrations on your branch, run:
 
 ```bash
-pscale branch promote <DATABASE_NAME> main
+pscale branch safe-migrations enable <DATABASE_NAME> main
 ```
 
-The `main` branch is now your production branch. It contains the `categories` and `products` tables you created, along with the data you inserted. In addition, a production branch provides:
-
-- Protection from direct schema changes
-- High availability
-- Automatic daily scheduled backups
+The `main` branch now contains the `categories` and `products` tables you created, along with the data you inserted. In addition, it is highly available with an additional replica, and is enabled for zero-downtime migrations with [safe migrations](/docs/concepts/safe-migrations).
 
 ### What's next?
 
-Now that you've created a database, applied schema changes, added data, and promoted your branch to production, it's time to connect to your application.
+Now that you've created a database, applied schema changes, added data, and enabled safe migrations, it's time to connect to your application.
 
 You can use our [Connect Any Application tutorial](/docs/tutorials/connect-any-application) for a general step-by-step approach, one of our language-specific guides, or head straight to our [Connection Strings documentation](/docs/concepts/connection-strings) for more information about creating connection strings.
 

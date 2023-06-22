@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale and Prisma Data Platform integration'
 subtitle: 'Use the Prisma Data Platform to auto-generate a project with Prisma and PlanetScale and deploy it to Vercel.'
-date: '2023-04-05'
+date: '2023-06-21'
 ---
 
 ## Overview
@@ -79,7 +79,7 @@ Next, you need to connect your Prisma project to your PlanetScale database. Here
 15. Your PlanetScale database is now ready! In the Prisma Data Platform, you will now be ready to use the Data Browser, Query Console, Data Proxy, and you are ready to start building!
 
 {% callout %}
-When you are ready to deploy your application to production and promote your branch in PlanetScale to production, make sure to change your connection string in the Prisma Data Platform for your new production branch. Remember: You will need to branch without safe migrations enabled to make changes to your Prisma schema. Ideally this would be in a non-production branch.
+When you are ready to deploy your application to production, make sure to change your connection string in the Prisma Data Platform to your new production branch. Remember: You will need a branch without safe migrations enabled to make changes to your Prisma schema. This is typically a development branch created from your `main` production branch.
 {% /callout %}
 
 ## Exploring PlanetScale
