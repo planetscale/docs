@@ -10,7 +10,7 @@ date: '2022-12-06'
 
    ![Database overview page](/assets/docs/concepts/connection-strings/connect-2.png?v2)
 
-2. On this dialog, click the `New password` button. This will generate a **unique username & password pair** that can only be used to only access the `main` branch of your database. Take note of this password, as you won't be able to see it again.
+2. On this dialog, click the `New password` button and you'll have the opportunity to select the branch to create a password for, pick a [password role](/docs/concepts/password-roles), and provide a recognizable name for the new credentials. Clicking `Create password` will then generate a **unique username and password pair** that can only be used to access the designated branch of your database. Take note of this password, as you won't be able to see it again.
 
 3. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
 
