@@ -21,8 +21,6 @@ If you already have a database with a production branch, skip to [the next secti
 
 Let's start by creating the database. In the PlanetScale dashboard, click the "**New database**" button followed by "**Create new database**". Name the database **lambda-connection-strings,** or any other name that you prefer. Click "**Create database**".
 
-![The new database modal](/assets/docs/tutorials/aws-lambda-connection-strings/create-2.png?v2)
-
 Once your database has finished initializing, you'll need to enable the web console on production branches. To do this, go to the "**Settings**" tab, check "**Allow web console access to production branches**", and click "**Save database settings**".
 
 Now, access the console of the main branch by clicking "**Console**", then "**Connect**".

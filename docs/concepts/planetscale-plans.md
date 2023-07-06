@@ -12,25 +12,115 @@ Our plans are split into two general offerings: [Self-serve](#self-serve-plans) 
 
 ## Self-serve plans
 
-Self-serve is comprised of our three plans that you can sign up and pay for straight from the PlanetScale dashboard: **Hobby**, **Scaler**, and **Team**. These plans are all usage-based and include different limits, as outlined in the table below.
+Self-serve is comprised of three plans that you can sign up for from the PlanetScale dashboard. The **Hobby** and **Scaler** are usage-based plans and are billed based on rows read/written to your database. **Scaler Pro** is resource-based and priced on the infrastructure provisioned to support your specific workload.
 
-|                              | **Hobby**                                     | **Scaler**                                          | **Team**                                                                 |
-| ---------------------------- | --------------------------------------------- | --------------------------------------------------- | ------------------------------------------------------------------------ |
-| **Storage/month**            | 5 GB                                          | 10 GB included + $2.50 per additional 1 GB          | 100 GB included + $2.50 per additional 1 GB                              |
-| **Row reads/month**          | 1 billion                                     | 100 billion included + $1 per additional billion    | 500 billion included + $1 per additional billion                         |
-| **Row writes/month**         | 10 million                                    | 50 million included + $1.50 per additional million  | 100 million included + $1.50 per additional million                      |
-| **Production branches**      | 1 per database                                | 2 per database                                      | 3 per database                                                           |
-| **Development branches**     | 1 per database                                | 5 per database                                      | 10 per database                                                          |
-| **Audit log retention**      | 5 days                                        | 15 days                                             | 60 days                                                                  |
-| **Concurrent connections**   | 1,000                                         | 10,000                                              | 10,000                                                                   |
-| **Automated backups**        | Once daily                                    | Every 12 hours                                      | Every 12 hours                                                           |
-| **Query Insights retention** | 24 hours                                      | 7 days                                              | 7 days                                                                   |
-| **SSO**                      | Not included                                  | Available as an add-on                              | Included                                                                 |
-| **Support**                  | [Hobby](/docs/support/support-overview#hobby) | [Standard](/docs/support/support-overview#standard) | [Standard](/docs/support/support-overview#standard), upgrade available\* |
-| **Deployment options**       | Multi-tenant                                  | Multi-tenant                                        | Multi-tenant                                                             |
-| **Monthly fee**              | $0                                            | $29 per database                                    | $599 per database                                                        |
+### Usage-based plans
 
-\* [Business support](/docs/support/support-overview#business) is available on the Team plan for an additional fee.
+|                                                             | **Hobby**      | **Scaler**             |
+| ----------------------------------------------------------- | -------------- | ---------------------- |
+| **Storage/month**                                           | 5 GB           | 10 GB\*                |
+| **Row reads/month**                                         | 1 billion      | 100 billion\*          |
+| **Row writes/month**                                        | 10 million     | 50 million\*           |
+| **Available cluster sizes**                                 | 1              | 1                      |
+| **Availability zones**                                      | 1              | 1                      |
+| **Production branches**                                     | 1 per database | 2 per database         |
+| **Development branches**                                    | 1 per database | 5 per database         |
+| **Concurrent connections**                                  | 1,000          | 10,000                 |
+| **Query Insights retention**                                | 24 hours       | 7 days                 |
+| **Horizontal sharding**                                     | Not included   | Not included           |
+| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant   | Multi-tenant           |
+| **Read only regions**                                       | Not included   | Included               |
+| **Web console**                                             | Included       | Included               |
+| **PlanetScale CLI**                                         | Included       | Included               |
+| **SSO**                                                     | Not included   | Available as an add-on |
+| **Audit log retention**                                     | 5 days         | 15 days                |
+| **Automatic backups**                                       | Daily          | Every 12 hours         |
+| **Support**                                                 | Community      | Standard               |
+| [**Data Branching®**](/docs/concepts/data-branching)        | Not included   | Not included           |
+| **Monthly cost**                                            | $0             | $29 per database       |
+
+### Resource-based plan
+
+The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power depending on the needs of your database.
+
+|            | **Processor** | **Memory** |
+| ---------- | ------------- | ---------- |
+| **PS-10**  | 1/8 vCPU      | 1 GB RAM   |
+| **PS-20**  | 1/4 vCPU      | 2 GB RAM   |
+| **PS-40**  | 1/2 vCPU      | 4 GB RAM   |
+| **PS-80**  | 1 vCPU        | 8 GB RAM   |
+| **PS-160** | 2 vCPU        | 16 GB RAM  |
+| **PS-320** | 4 vCPU        | 32 GB RAM  |
+| **PS-400** | 8 vCPU        | 32 GB RAM  |
+
+On top of processing and memory, all **Scaler Pro** cluster sizes share the following capacities.
+
+|                                                             | **Scaler Pro**                    |
+| ----------------------------------------------------------- | --------------------------------- |
+| **Storage/month**                                           | 10 GB\*                           |
+| **Row reads/month**                                         | _Unlimited_                       |
+| **Row writes/month**                                        | _Unlimited_                       |
+| **Available cluster sizes**                                 | 7                                 |
+| **Availability zones**                                      | 3                                 |
+| **Production branches**                                     | 1 included\*\*                    |
+| **Development branches**                                    | 2 included\*\*                    |
+| **Concurrent Connections**                                  | 10,000                            |
+| **Query Insights retention**                                | 7 days                            |
+| **Horizontal sharding**                                     | Not included                      |
+| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant                      |
+| **Read only regions**                                       | Included                          |
+| **Web console**                                             | Included                          |
+| **PlanetScale CLI**                                         | Included                          |
+| **SSO**                                                     | Available as an add-on\*\*\*      |
+| **Audit log retention**                                     | 15 days                           |
+| **Automatic backups**                                       | Every 12 hours                    |
+| **Support**                                                 | Standard, upgrade available\*\*\* |
+| [**Data Branching®**](/docs/concepts/data-branching)        | Included                          |
+
+\* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
+\*\* Additional production branches are billed at the cost of your selected cluster size per month, additional development branches are billed at $10.00 per branch per month.
+\*\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
+
+#### Additional production branches
+
+Each production branch in the Scaler Pro plan provisions a separate, production database cluster in our infrastructure. Upon adding an additional production branch, you will be prompted to select the cluster size for the new branch. As an example, the following table lists the cost of each available cluster in the AWS us-east-1 region at the time of this writing:
+
+| **Cluster size** | **Cost** |
+| ---------------- | -------- |
+| PS-10            | $39.00   |
+| PS-20            | $59.00   |
+| PS-40            | $99.00   |
+| PS-80            | $179.00  |
+| PS-160           | $349.00  |
+| PS-320           | $699.00  |
+| PS-400           | $999.00  |
+
+If you had a `main` production branch using the **PS-40** cluster size and two addition production branches using the **PS-20** cluster size, the total cost for the database would be **$217.00** per month.
+
+| **Production branch cluster** | **Cost per unit** | **Quantity** | **Total per month** |
+| ----------------------------- | ----------------- | ------------ | ------------------- |
+| PS-40                         | $99.00            | 1            | $99.00              |
+| PS-20                         | $59.00            | 2            | $118.00             |
+| **Grand total**               |                   |              | **$217.00**         |
+
+#### Fractional vCPU allocation
+
+Some tiers of the Scaler Pro plan indicate a fractional vCPU allocation. These branches run on our multi-tenant platform and this indicates the minimum number of cycles dedicated to your workload. The vast majority of the time, there are spare compute cycles available on the underlying machine instances hosting your branch, and those are available to be used by your workload as needed for no additional charge.
+
+If you find the performance of a given query to be substantially inconsistent over the course of a given day, you may want to upgrade to a higher tier for more consistent performance.
+
+### Selecting a self-serve plan
+
+Selecting the correct plan for your database can have a dramatic impact on how it performs, and how much it costs. The plans are designed to grow with you. For example:
+
+- If you are starting a new project or simply experimenting with PlanetScale, the free **Hobby** plan is perfectly suited for you.
+- If you are launching an application, upgrading to the **Scaler** plan is a cost effective way to add features and functionality that will help you scale and iterate on your application.
+- Once your application's usage starts to grow, migrating to **Scaler Pro** will provide consistent performance and pricing.
+- As your application scales, upgrading your **Scaler Pro** cluster to boost the performance of your database is as seamless operation.
+
+If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes. Databases in PlanetScale often come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
+
+If you are unsure as to which plan or cluster size is right for your application, [contact us](/contact-us) to get further assistance.
 
 Our self-serve plans are flexible enough to handle the majority of customers. However, there are several use cases where you may need a more custom plan. This is where our Enterprise offerings shine.
 
@@ -38,15 +128,15 @@ Our self-serve plans are flexible enough to handle the majority of customers. Ho
 
 PlanetScale's Enterprise Plan is great for users that want to scale farther, shard horizontally, and run PlanetScale in a dedicated AWS/GCP account. We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
 
-|                             | **Shared Tenancy** | **Single-Tenant** | **Managed** |
-| --------------------------- | ------------------ | ----------------- | ----------- |
-| Resource-based pricing      | ✔                  | ✔                 | ✔           |
-| Horizontal sharding         | ✔                  | ✔                 | ✔           |
-| Unlimited connections       | ✔                  | ✔                 | ✔           |
-| Customizable feature limits | ✔                  | ✔                 | ✔           |
-| BAAs available              | ❌                 | ✔                 | ✔           |
-| Dedicated AWS/GCP account   | ❌                 | ✔                 | ✔           |
-| Your own AWS/GCP account    | ❌                 | ❌                | ✔           |
+|                             | **Multi-Tenant** | **Single-Tenant** | **Managed** |
+| --------------------------- | ---------------- | ----------------- | ----------- |
+| Resource-based pricing      | ✔                | ✔                 | ✔           |
+| Horizontal sharding         | ✔                | ✔                 | ✔           |
+| Unlimited connections       | ✔                | ✔                 | ✔           |
+| Customizable feature limits | ✔                | ✔                 | ✔           |
+| BAAs available              | ❌               | ✔                 | ✔           |
+| Dedicated AWS/GCP account   | ❌               | ✔                 | ✔           |
+| Your own AWS/GCP account    | ❌               | ❌                | ✔           |
 
 ## How do I know if I need an Enterprise plan?
 

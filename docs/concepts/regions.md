@@ -45,11 +45,7 @@ GCP regions are in beta and currently have some limitations, which you can read 
 
 ## Selecting the database region
 
-PlanetScale allows you to select the region for the [`main` branch](/docs/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region.
-
-![Select your database region.](/assets/docs/concepts/regions/database.png)
-
-Once you select a region for your `main` branch, it cannot be changed.
+PlanetScale allows you to select the region for the [`main` branch](/docs/concepts/branching) of your database during database creation. By default, all database branches created within this database will also be created in this region. Once you select a region for your `main` branch, it cannot be changed.
 
 You can also select the region while creating a database via the CLI by using
 the `--region` flag with the region's slug.

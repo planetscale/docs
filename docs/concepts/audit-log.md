@@ -11,8 +11,7 @@ The organization audit log grants [Organization Administrators](/docs/concepts/a
 Audit log retainment period is [based on your plan](/docs/concepts/billing#planetscale-plans):
 
 - **Hobby** &mdash; 5 days
-- **Scaler** &mdash; 15 days
-- **Team** &mdash; 60 days
+- **Scaler/Scaler Pro** &mdash; 15 days
 - **Enterprise** &mdash; Unlimited
 
 {% callout %}

@@ -29,9 +29,7 @@ The second possible screen will be shown if you’ve stepped through the in-app 
 
 ![The screen you’ll see after stepping through the wizard after creating an account.](/assets/docs/onboarding/create-a-database/the-screen-youll-see-after-stepping-through-the-wizard-after-creating-an-account.png)
 
-A modal should appear asking you to name the database and select the region. There are several geographical regions you can host your database. You will want to select the region closest to your application servers connecting to the database. For this example, leave the region set to "AWS us-east-1" and name the database `beam-demo`. Click **"Create database"**.
-
-![The New database modal.](/assets/docs/onboarding/create-a-database/the-new-database-modal.png)
+Next, you will name the database and select a region. There are several geographical regions you can host your database in. You will want to select the region closest to your application servers connecting to the database. For this example, leave the region set to "AWS us-east-1" and name the database `beam-demo`. Next, select the desired [Plan type](/docs/concepts/billing#planetscale-plans) for your database. Click **"Create database"**.
 
 Next, you’ll be dropped into the dashboard for that specific database. Let's take a look at the layout and what each element does before moving on.
 

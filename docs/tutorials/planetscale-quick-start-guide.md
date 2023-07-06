@@ -28,12 +28,11 @@ You'll need [a PlanetScale account](https://auth.planetscale.com/sign-up) to com
 
 Follow these steps to create a database:
 
-1. Click the "**Create a database**" button on your organization's overview page.
+1. Click "**New database**" > "**Create a database**" on your organization's overview page.
 2. Name your database using lowercase, alphanumeric characters or underscores. You may also use dashes, but we don't recommend that, as sharded databases require them to be escaped.
 3. Select a [region](/docs/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
-4. Finally, click the "**Create database**" button to deploy your database.
-
-![Create database modal](/assets/docs/tutorials/planetscale-quick-start-guide/create.png)
+4. Select the desired [plan type](/docs/concepts/billing#planetscale-plans) for your database.
+5. Finally, click the "**Create database**" button to deploy your database.
 
 Your database is created with a [**default production branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. While this is just the first branch we create for you, you can always create new development branches (isolated copies of the production schema) off of production to use for development.
 

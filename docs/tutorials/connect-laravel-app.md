@@ -56,11 +56,10 @@ Next, you need to set up your PlanetScale database and connect to it in the Lara
 If this is your first time in the dashboard, you'll be prompted to go through a database creation walkthrough where you'll create a new database. Otherwise, click "**New database**" > "**Create new database**".
 
 - **Name** &mdash; You can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
+- **Plan type** &mdash; Select the [desired plan](/docs/concepts/billing#planetscale-plans) for your database.
 - **Region** &mdash; Choose the [region](/docs/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
 
 Finally, click "**Create database**".
-
-![Create a new database modal](/assets/docs/tutorials/connect-laravel-app/database.png)
 
 {% callout %}
 If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).

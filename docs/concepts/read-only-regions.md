@@ -51,7 +51,7 @@ Connecting to a read-only region will allow you to query your data, but will not
 
 ## Availability and pricing
 
-PlanetScale Portals is only available on our [paid Scaler, Team, and Enterprise plans](/pricing).
+PlanetScale Portals is only available on our [paid Scaler, Scaler Pro, and Enterprise plans](/pricing).
 
 ### Storage costs
 

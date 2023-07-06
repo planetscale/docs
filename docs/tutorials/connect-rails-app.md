@@ -50,9 +50,9 @@ Open the command line and follow these steps:
 
    At this point, you have accomplished two things: you've created a Rails project called _blog_ and installed the libraries that you'll need to connect to your PlanetScale database. Now, it’s time to create a PlanetScale database.
 
-   ## Create a PlanetScale database and password
+## Create a PlanetScale database and password
 
-   **Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
+Now you'll need to create credentials for your Rails application to use.
 
 ### Using the CLI to create a connection string
 
@@ -79,6 +79,10 @@ Open the command line and follow these steps:
     --------------------- -------- -------------- ----------------------------------- -------- ------------------ -------------------------------------------------------
      development-password  main     xxxxxxxx   xxxxxxxxxx.us-east-3.psdb.cloud   writer   Can Read & Write   pscale_pw_xxxxxxxxxxxxxxxxxxxxx
    ```
+
+{% callout %}
+**Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
+{% /callout %}
 
 ## Configure Rails and PlanetScale
 

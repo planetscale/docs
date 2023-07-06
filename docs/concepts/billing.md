@@ -6,15 +6,21 @@ date: '2023-03-28'
 
 ## Overview
 
-PlanetScale offers a scalable, pay-as-you-grow plan model, which means you'll never have to over-provision resources while building your application. We offer three base plans: `Hobby`, `Scaler`, and `Team`, as well as an additional customizable `Enterprise` option.
+PlanetScale offers three different plan types:
 
-You can find the complete list of plan offerings [in the next section](#planetscale-plans).
+- [Usage-based](#usage-based-plans) &mdash; based on the rows read and written by the database.
+- [Resource-based](#resource-based-plans) &mdash; billed at a fixed rate depending on your cluster size.
+- [Enterprise](#enterprise-plan) &mdash; custom built solutions based on the needs of your business.
+
+PlanetScale applies billing plans at the **database level**. You can create several databases under one Organization. The usage charges will be scoped to each database, which you can find all together in the [billing section of your Organization](/docs/concepts/billing#organization-usage-and-billing-page). Each plan is further broken down in the following sections.
 
 {% callout %}
 We used **[gibibytes, otherwise known as binary gigabytes](https://simple.wikipedia.org/wiki/Gibibyte)**, to calculate storage and usage limits. For reference, 1 binary gigabyte is equivalent to 2^30 bytes.
 {% /callout %}
 
-### PlanetScale charges on three factors
+## Usage-based plans
+
+PlanetScale provides two usage-based plans: `Hobby` and `Scaler`. These plans are charged on three factors:
 
 - **Reads**: Retrieving or inspecting rows during a query or mutation of any kind to your PlanetScale databases.
 - **Writes**: Adding new information or changing existing information in your PlanetScale databases.
@@ -22,56 +28,51 @@ We used **[gibibytes, otherwise known as binary gigabytes](https://simple.wikipe
 
 See the ["Understanding rows read" section](#understanding-rows-read) for a more in-depth look at the rows read calculation.
 
-## PlanetScale plans
+Some limitations apply to the free tier. See below for more information.
 
-PlanetScale applies billing plans at the **database level**. You can create several databases under one Organization. The usage charges will be scoped to each database, which you can find all together in the [billing section of your Organization](/docs/concepts/billing#organization-usage-and-billing-page). Some limitations apply to the free tier. See below for more information.
+The usage-based plans are summarized below:
 
-We offer four plan options, summarized below:
+|                                                             | **Hobby**      | **Scaler**             |
+| ----------------------------------------------------------- | -------------- | ---------------------- |
+| **Storage/month**                                           | 5 GB           | 10 GB\*                |
+| **Row reads/month**                                         | 1 billion      | 100 billion\*          |
+| **Row writes/month**                                        | 10 million     | 50 million\*           |
+| **Available cluster sizes**                                 | 1              | 1                      |
+| **Availability zones**                                      | 1              | 1                      |
+| **Production branches**                                     | 1 per database | 2 per database         |
+| **Development branches**                                    | 1 per database | 5 per database         |
+| **Concurrent connections**                                  | 1,000          | 10,000                 |
+| **Query Insights retention**                                | 24 hours       | 7 days                 |
+| **Horizontal sharding**                                     | Not included   | Not included           |
+| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant   | Multi-tenant           |
+| **Read only regions**                                       | Not included   | Included               |
+| **Web console**                                             | Included       | Included               |
+| **PlanetScale CLI**                                         | Included       | Included               |
+| **SSO**                                                     | Not included   | Available as an add-on |
+| **Audit log retention**                                     | 5 days         | 15 days                |
+| **Automatic backups**                                       | Daily          | Every 12 hours         |
+| **Support**                                                 | Community      | Standard               |
+| [**Data Branching®**](/docs/concepts/data-branching)        | Not included   | Not included           |
+| **Monthly cost**                                            | $0             | $29 per database       |
 
-|                                                             | **Hobby**      | **Scaler**             | **Team**                        | **Enterprise**                                |
-| ----------------------------------------------------------- | -------------- | ---------------------- | ------------------------------- | --------------------------------------------- |
-| **Storage/month**                                           | 5 GB           | 10 GB\*                | 100 GB\*                        | Configurable                                  |
-| **Row reads/month**                                         | 1 billion      | 100 billion\*          | 500 billion\*                   | Configurable                                  |
-| **Row writes/month**                                        | 10 million     | 50 million\*           | 100 million\*                   | Configurable                                  |
-| **Production branches**                                     | 1 per database | 2 per database         | 3 per database                  | Configurable                                  |
-| **Development branches**                                    | 1 per database | 5 per database         | 10 per database                 | Configurable                                  |
-| **Audit log retention**                                     | 5 days         | 15 days                | 60 days                         | _Unlimited_                                   |
-| **Concurrent Connections**                                  | 1,000          | 10,000                 | 10,000                          | _Unlimited_                                   |
-| **Automated Backups**                                       | Once daily     | Every 12 hours         | Every 12 hours                  | Configurable                                  |
-| **Query Insights retention**                                | 24 hours       | 7 days                 | 7 days                          | Configurable                                  |
-| **SSO**                                                     | Not included   | Available as an add-on | Included                        | Included                                      |
-| **Support**                                                 | Community      | Standard               | Standard, upgrade available\*\* | Business, upgrade available\*\*\*             |
-| [**Deployment options**](/docs/concepts/deployment-options) | Cloud          | Cloud                  | Cloud                           | Cloud, Single-tenant Cloud, and Managed Cloud |
-| **Monthly fee**                                             | $0             | $29 per database       | $599 per database               | Custom                                        |
+\* For the Scaler plan:
 
-\* For the Scaler and Team plans, any extra storage over the included amount is billed at $2.50 per additional 1 GB, extra rows read over the included amount are billed at $1 per additional 1 billion, and extra rows written over the included amount are billed at $1.50 per additional 1 million.
-
-\*\* Business support is available on the Team plan for an additional fee.
-
-\*\*\* Enterprise support is available on the Enterprise plan for an additional fee.
+- Extra storage over the included amount is billed at $2.50 per additional 1 GB
+- Extra rows read over the included amount are billed at $1 per additional 1 billion
+- Extra rows written over the included amount are billed at $1.50 per additional 1 million.
 
 {% callout %}
 You are limited to **one free database per organization**. Free databases may be
 [slept](/docs/concepts/database-sleeping) after a 7-day period of inactivity.
 {% /callout %}
 
-Scaler and Team plans are billed on a **monthly basis**.
+The Scaler plan is billed on a **monthly basis**.
 
-For more information about [our `Enterprise` plan](/enterprise), please [reach out to us](/contact). [On our pricing page](/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
+### Plan add-ons
 
-{% callout %}
-Plans are priced **per database**. The total charge for a PlanetScale _database_ includes the charge for
-usage on **database branches**. In other words, the total `reads`, `writes`, and storage used by each branch of
-your database will determine the final monthly price.
-{% /callout %}
+#### Development branch packs
 
-## Plan add-ons
-
-To make sure our plans work for your unique use case, we also offer options to customize your Scaler and Team plans.
-
-### Development branch packs
-
-You can add additional development branches to Scaler and Team plans in **packs of 5** for an extra $25/mo per pack.
+You can add additional development branches to Scaler plans in **packs of 5** for an extra $25/mo per pack.
 
 **To add a branch pack to a database:**
 
@@ -81,80 +82,25 @@ You can add additional development branches to Scaler and Team plans in **packs 
 4. Select the number of branch packs you'd like to add
 5. Click "Save".
 
-![Billing page branch pack add-ons](/assets/docs/concepts/billing/addons-2.png?v2)
-
-### User scheduled backups
-
-We run automatic daily backups for every branch for free. On the Scaler and Team plans, we run automated backups every 12 hours. Disk space for backups is not counted against your plan's storage limit.
-
-You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, storage is billed at **$0.023 per GB** per month. Backups include system tables as well as your data and start at around 140MB.
-
 ### Single Sign-on (SSO)
 
-SSO is included on our Team and Enterprise plans. You can add SSO for your organization under the Scaler plan for an additional fee. Please [contact us](/contact) to enable SSO.
+You can add SSO for your organization under the Scaler plan for an additional fee. Please [contact us](/contact) to enable SSO.
 
-## Organization usage and billing page
+[On our pricing page](/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
 
-Each organization has its own billing page, from which you can:
-
-- View your current and previous usage per database
-- Upgrade a free database to the Scaler or Hobby plan
-- Upgrade a Scaler database to the Hobby plan
-- Enter/update your credit card information
-- Download current and previous invoices
-
-**To find your billing page:**
-
-1. Go to your [PlanetScale dashboard](https://app.planetscale.com)
-2. Select the organization whose billing page you want to view
-3. Click on "Settings" in the top nav
-4. Click on "Usage and billing" in the side nav
-5. Click on the "Billing" tab in the top nav
-
-### PlanetScale invoice details
-
-Invoices provide line items for both usage and discounts received. Each line item shows both **metric and database branch level** granularity.
-
-For example, you may have the following line items:
-
-- Rows _read_ for `main` branch
-- Rows _read_ for `your-test-branch`
-- Rows _read_ for `main` branch read-only region
-
-In addition, storage per branch may have the following line items:
-
-- Storage usage per GB
-- Prorated discounts, if the branch existed for a smaller time period than the billing period
-- Storage totals for each read-only region
-
-Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
-
-### Download an invoice
-
-To download an invoice, go to [your billing page](#find-your-database-billing-page) (`Organization > Settings > Usage and billing > Billing`).
-
-You'll see a table of current and previous monthly invoices. You can download an invoice by month by clicking the "**Download**" button. This will send you to a Stripe invoice page, where you'll have the option to download the complete invoice in PDF format, see invoice details, or download your receipt.
-
-To see more details about your billing from the PlanetScale dashboard, click the "**View details**" button on the Billing page next to the month you want to view. This will show you an overview of the charges for all of the databases in your organization.
-
-{% callout %}
-PlanetScale generates both current and past invoices. Even for the **free** plan! You can see the cost had you not
-been on the Hobby plan.
-{% /callout %}
-
-## Understanding rows read
+### Understanding rows read
 
 It can be difficult to decipher what counts as a row read. Nobody wants to run a seemingly simple query only to be hit with an unexpected bill. This section will attempt to break down what goes into the rows read calculation and how you can test your queries to _estimate_ the potential rows read before running them.
 
 Rows read is a **measure of the work that the database engine does**, not a measure of the number of rows returned. Every row read from a table during execution adds to the rows read count, regardless of how many rows are returned. For this reason, it's important to optimize and index your queries.
 
-### Caveats
+#### Caveats
 
 While, in most cases, the work done is a direct reflection of the number of rows read, there are some caveats.
 
 The `SELECT count(*)` query is a special case. The database engine optimizes this query and doesn't read row data itself to return a count, so this doesn't actually increment rows read. In other words, if you run the query `SELECT count(*)` on a table with 10m rows, your rows read will be 0.
 
-### Testing queries for rows read
+#### Testing queries for rows read
 
 With our in-dashboard [Insights tool](/docs/concepts/query-insights), you can explore active queries running against your database. The "**Queries during the last 24 hours**" list has a column that shows the total rows read for that particular query. The "rows read" surfaced here is the same number we use to calculate your total rows read for your billing calculation. In addition, you can click on a particular query to see more information about its performance.
 
@@ -197,7 +143,7 @@ In this case, the estimated count shown in the first set of parentheses does mat
 +-------------------------------------------------------------------------------------------+
 ```
 
-### Checking rows read
+#### Checking rows read
 
 Another useful way to check rows read is using `innodb_rows_read`. This server status variable will show you the number of rows read across all tables. You can run it before and after queries to calculate how many rows were read. Keep in mind, if you have an active running database, this number may not be an accurate reflection of single query impact, as you may have other queries running in the background that affect the rows read.
 
@@ -214,6 +160,138 @@ This returned output indicates that 4586 total rows have been read.
 | Innodb_rows_read | 4586  |
 +------------------+-------+
 ```
+
+## Resource-based plans
+
+The `Scaler Pro` plan is charged based on the selected cluster size, plus the cost of storage. There are currently 7 different cluster sizes available. The cost for these varies by the [database's selected region](/docs/concepts/regions).
+
+|            | **Processor** | **Memory** |
+| ---------- | ------------- | ---------- |
+| **PS-10**  | 1/8 vCPU      | 1 GB RAM   |
+| **PS-20**  | 1/4 vCPU      | 2 GB RAM   |
+| **PS-40**  | 1/2 vCPU      | 4 GB RAM   |
+| **PS-80**  | 1 vCPU        | 8 GB RAM   |
+| **PS-160** | 2 vCPU        | 16 GB RAM  |
+| **PS-320** | 4 vCPU        | 32 GB RAM  |
+| **PS-400** | 8 vCPU        | 32 GB RAM  |
+
+All Scaler Pro plans, regardless of cluster size, share the following features:
+
+|                                                             | **Scaler Pro**                    |
+| ----------------------------------------------------------- | --------------------------------- |
+| **Storage/month**                                           | 10 GB\*                           |
+| **Row reads/month**                                         | _Unlimited_                       |
+| **Row writes/month**                                        | _Unlimited_                       |
+| **Available cluster sizes**                                 | 7                                 |
+| **Availability zones**                                      | 3                                 |
+| **Production branches**                                     | 1 included\*\*                    |
+| **Development branches**                                    | 2 included\*\*                    |
+| **Concurrent Connections**                                  | 10,000                            |
+| **Query Insights retention**                                | 7 days                            |
+| **Horizontal sharding**                                     | Not included                      |
+| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant                      |
+| **Read only regions**                                       | Included                          |
+| **Web console**                                             | Included                          |
+| **PlanetScale CLI**                                         | Included                          |
+| **SSO**                                                     | Available as an add-on\*\*\*      |
+| **Audit log retention**                                     | 15 days                           |
+| **Automatic backups**                                       | Every 12 hours                    |
+| **Support**                                                 | Standard, upgrade available\*\*\* |
+| [**Data Branching®**](/docs/concepts/data-branching)        | Included                          |
+
+\* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
+\*\* Additional production branches are billed at the cost of your selected cluster size per month, additional development branches are billed at $10.00 per branch per month.
+\*\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
+
+### Single Sign-on (SSO)
+
+You can add SSO for your organization under the Scaler Pro plan for an additional fee. Please [contact us](/contact) to enable SSO.
+
+[On our pricing page](/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
+
+## Enterprise plan
+
+The Enterprise plan is fully customizable to suit your businesses needs. For more information about [our `Enterprise` plan](/enterprise), please [reach out to us](/contact).
+
+|                                                             | **Enterprise**                           |
+| ----------------------------------------------------------- | ---------------------------------------- |
+| **Storage/month**                                           | Configurable                             |
+| **Row reads/month**                                         | Configurable                             |
+| **Row writes/month**                                        | Configurable                             |
+| **Available cluster sizes**                                 | 42069                                    |
+| **Availability zones**                                      | 3+                                       |
+| **Production branches**                                     | Configurable                             |
+| **Development branches**                                    | Configurable                             |
+| **Concurrent Connections**                                  | _Unlimited_                              |
+| **Query Insights retention**                                | Configurable                             |
+| **Horizontal sharding**                                     | Configurable                             |
+| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant, Single-tenant, and Managed |
+| **Read only regions**                                       | Included                                 |
+| **Web console**                                             | Included                                 |
+| **PlanetScale CLI**                                         | Included                                 |
+| **SSO**                                                     | Included                                 |
+| **Audit log retention**                                     | Configurable                             |
+| **Automated Backups**                                       | Configurable                             |
+| **Support**                                                 | Business, upgrade available\*            |
+| [**Data Branching®**](/docs/concepts/data-branching)        | Included                                 |
+| **Monthly cost**                                            | Custom                                   |
+
+\* Enterprise support is available on the Enterprise plan for an additional fee.
+
+## User scheduled backups
+
+We run automatic daily backups for every branch for free. On the Scaler and Scaler Pro plans, we run automated backups every 12 hours. Disk space for default backups is not counted against your plan's storage limit.
+
+You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, storage is billed at **$0.023 per GB** per month. Backups include system tables as well as your data and start at around 140MB.
+
+## Organization usage and billing page
+
+Each organization has its own billing page, from which you can:
+
+- View your current and previous usage per database
+- Upgrade a free database to the Scaler or Hobby plan
+- Upgrade a Scaler database to the Scaler Pro plan
+- Enter/update your credit card information
+- Download current and previous invoices
+
+**To find your billing page:**
+
+1. Go to your [PlanetScale dashboard](https://app.planetscale.com)
+2. Select the organization whose billing page you want to view
+3. Click on "Settings" in the top nav
+4. Click on "Usage and billing" in the side nav
+5. Click on the "Billing" tab in the top nav
+
+### PlanetScale invoice details
+
+Invoices provide line items for both usage and discounts received. Each line item shows both **metric and database branch level** granularity.
+
+For example, you may have the following line items:
+
+- Rows _read_ for `main` branch
+- Rows _read_ for `your-test-branch`
+- Rows _read_ for `main` branch read-only region
+
+In addition, storage per branch may have the following line items:
+
+- Storage usage per GB
+- Prorated discounts, if the branch existed for a smaller time period than the billing period
+- Storage totals for each read-only region
+
+Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
+
+### Download an invoice
+
+To download an invoice, go to [your billing page](#find-your-database-billing-page) (`Organization > Settings > Usage and billing > Billing`).
+
+You'll see a table of current and previous monthly invoices. You can download an invoice by month by clicking the "**Download**" button. This will send you to a Stripe invoice page, where you'll have the option to download the complete invoice in PDF format, see invoice details, or download your receipt.
+
+To see more details about your billing from the PlanetScale dashboard, click the "**View details**" button on the Billing page next to the month you want to view. This will show you an overview of the charges for all of the databases in your organization.
+
+{% callout %}
+PlanetScale generates both current and past invoices. Even for the **free** plan! You can see the cost had you not
+been on the Hobby plan.
+{% /callout %}
 
 ## Using coupons
 

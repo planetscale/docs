@@ -36,7 +36,7 @@ We also reserve the right to put your database in sleep mode if you have failed 
 
 To prevent a database from entering sleep mode, make sure to connect to any branch of the database at least once every 7 days.
 
-Because database sleeping only applies to databases on the free Hobby plan, another option is to upgrade your database to a [paid Scaler or Hobby plan](/docs/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
+Because database sleeping only applies to databases on the free Hobby plan, another option is to upgrade your database to a [paid Scaler or Scaler Pro plan](/docs/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
 
 ## How to wake a sleeping database
 

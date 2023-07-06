@@ -23,9 +23,7 @@ Already have a Go application and just want to connect to PlanetScale? Check out
 
 ## Create the database
 
-Start in PlanetScale by creating a new database named `products_db`.
-
-![The New database modal](/assets/docs/tutorials/connect-go-app/new-db-modal.png)
+Start in PlanetScale by creating a new database. From the dashboard, click "**New Database**", then "**Create new database**". Name the database `products_db`, select the desired [Plan type](/docs/concepts/billing#planetscale-plans), and click "**Create database**".
 
 By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
 

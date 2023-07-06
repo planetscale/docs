@@ -58,7 +58,7 @@ You can find the [PlanetScale Airbyte Source Dockerhub release page here](https:
 
 You're now ready to connect your PlanetScale database to Airbyte.
 
-1. In the PlanetScale dashboard, head to the organization Settings page by clicking your organization > "**Settings**" > "**Beta features**" (`https://app.planetscale.com/~/settings/beta-features`).
+1. In the PlanetScale dashboard, head to the organization Settings page by clicking your organization > "**Settings**" > "[**Beta features**](https://app.planetscale.com/~/settings/beta-features)".
 2. Find and click the "**Enroll this organization in the Connect beta**" checkbox and save your changes.
 3. Click on the database and branch you want to connect to.
 4. Click "**Connect**", select "**General**" from the "**Connect with**" dropdown.
@@ -101,7 +101,7 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
    ![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
 
    {% callout %}
-   **Important:** The sync frequency will affect your PlanetScale billing. The rows read during sync are
+   **Important:** The sync frequency may affect your PlanetScale billing depending on the selected plan. The rows read during sync are
    counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of
    all tables selected every time the sync runs.
 

@@ -8,7 +8,7 @@ date: '2022-07-22'
 
 The PlanetScale Data Branching® feature (beta) allows you to create isolated copies of your database that include both the schema and data. This differs from our [regular branching feature](/docs/concepts/branching), which only includes the schema.
 
-This feature is only available for organizations on the [`Team`](/pricing) plan.
+This feature is only available for organizations on the [`Scaler Pro`](/pricing) plan.
 
 {% callout %}
 The Data Branching® feature is currently in beta.
