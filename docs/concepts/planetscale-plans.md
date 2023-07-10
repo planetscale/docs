@@ -22,7 +22,7 @@ Self-serve is comprised of three plans that you can sign up for from the PlanetS
 | **Row reads/month**                                         | 1 billion      | 100 billion\*          |
 | **Row writes/month**                                        | 10 million     | 50 million\*           |
 | **Available cluster sizes**                                 | 1              | 1                      |
-| **Availability zones**                                      | 1              | 1                      |
+| **Availability zones**                                      | 1              | 2                      |
 | **Production branches**                                     | 1 per database | 2 per database         |
 | **Development branches**                                    | 1 per database | 5 per database         |
 | **Concurrent connections**                                  | 1,000          | 10,000                 |
