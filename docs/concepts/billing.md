@@ -218,7 +218,7 @@ The Enterprise plan is fully customizable to suit your businesses needs. For mor
 | **Storage/month**                                           | Configurable                             |
 | **Row reads/month**                                         | Configurable                             |
 | **Row writes/month**                                        | Configurable                             |
-| **Available cluster sizes**                                 | 42069                                    |
+| **Available cluster sizes**                                 | 18+                                      |
 | **Availability zones**                                      | 3+                                       |
 | **Production branches**                                     | Configurable                             |
 | **Development branches**                                    | Configurable                             |
