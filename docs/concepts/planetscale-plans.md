@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale plans'
-subtitle: 'Learn about the different products and plans we offer: Hobby, Scaler, Team, and Enterprise'
+subtitle: 'Learn about the different products and plans we offer: Hobby, Scaler, Scaler Pro, and Enterprise'
 date: '2023-06-01'
 ---
 
