@@ -11,8 +11,8 @@ Single sign-on (SSO) provides additional account security by allowing company ad
 Furthermore, SSO allows an administrator to revoke someone’s access to all tools and applications from a single place when they leave a team or the company.
 
 {% callout %}
-SSO is available as an _add-on_ for our Scaler plan and included in our
-[Team and Enterprise plans](/docs/concepts/billing#planetscale-plans).
+SSO is available as an _add-on_ for our Scaler and Scaler Pro plans and included in our
+[Enterprise plans](/docs/concepts/billing#planetscale-plans).
 {% /callout %}
 
 ## Enable SSO for your organization

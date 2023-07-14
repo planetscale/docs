@@ -84,7 +84,7 @@ You can add additional development branches to Scaler plans in **packs of 5** fo
 
 ### Single Sign-on (SSO)
 
-You can add SSO for your organization under the Scaler plan for an additional fee. Please [contact us](/contact) to enable SSO.
+You can add SSO for your organization under the Scaler and Scaler Pro plans for an additional fee. Please [contact us](/contact) to enable SSO.
 
 [On our pricing page](/pricing), you can find additional information about each plan's offerings, as well as a calculator to help you decide what plan is right for you.
 
