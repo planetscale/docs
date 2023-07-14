@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands - deploy-request'
 subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
-date: '2023-04-05'
+date: '2023-07-13'
 meta:
   title: 'CLI reference - deploy-request'
 ---
@@ -27,18 +27,18 @@ Your database must have a production branch with [safe migrations](/docs/concept
 ### Available sub-commands
 
 | **Sub-command**                           | **Sub-command flags**                                                        | **Description**                                 |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------- |
+| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------ |
 | `apply <DATABASE_NAME> <DR_NUMBER>`       |                                                                              | Apply changes to a gated deploy request.        |
 | `cancel <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Cancel a deploy request.                        |
 | `close <DATABASE_NAME> <DR_NUMBER>`       |                                                                              | Close the specified deploy request.             |
-| `create <DATABASE_NAME> <BRANCH_NAME>`    | `--deploy-to <BRANCH_NAME>`                                                  | Create a new deploy request.                    |
-| `deploy <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Deploy the specified deploy request.            |
+| `create <DATABASE_NAME> <BRANCH_NAME>`    | `--into <BRANCH_NAME>`, `--notes <NOTE>`                                     | Create a new deploy request.                    |
+| `deploy <DATABASE_NAME> <DR_NUMBER        | BRANCH_NAME>`                                                                |                                                 | Deploy the specified deploy request. |
 | `diff <DATABASE_NAME> <DR_NUMBER>`        | `--web`                                                                      | Show the diff of the specified deploy request.  |
 | `edit <DATABASE_NAME> <DR_NUMBER>`        | `--auto-apply string` Possible values: [enable, disable] (default: "enable") | Edit a deploy request.                          |
 | `list <DATABASE_NAME>`                    | `--web`                                                                      | List all deploy requests for a database.        |
 | `revert <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Revert a deployed deploy request.               |
 | `review <DATABASE_NAME> <DR_NUMBER>`      | `--web`, `--approve`, `--comment <COMMENT>`                                  | Approve or comment on a deploy request.         |
-| `show <DATABASE_NAME> <DR_NUMBER>`        | `--web`                                                                      | Show the specified deploy request.              |
+| `show <DATABASE_NAME> <DR_NUMBER          | BRANCH_NAME>`                                                                | `--web`                                         | Show the specified deploy request.   |
 | `skip-revert <DATABASE_NAME> <DR_NUMBER>` |                                                                              | Skip and close a pending deploy request revert. |
 
 > \* _Flag is required_
@@ -51,12 +51,13 @@ You can also find the number in the PlanetScale dashboard in the URL of the spec
 
 Some of the sub-commands have additional flags unique to the sub-command. This section covers what each of those does. See the above table for which context.
 
-| **Sub-command flag**        | **Description**                                                                      | **Applicable sub-commands** |
-| --------------------------- | ------------------------------------------------------------------------------------ | --------------------------- |
-| `--deploy-to <BRANCH_NAME>` | Specify that the new deploy request deploy to a specified branch. Default is `main`. | `create`                    |
-| `--web`                     | Perform the action in your web browser                                               | `diff`, `list`, `show`      |
-| `--approve`                 | Approve a deploy request                                                             | `review`                    |
-| `--comment <COMMENT>`       | Leave a comment on a deploy request                                                  | `review`                    |
+| **Sub-command flag**   | **Description**                                                                      | **Applicable sub-commands** |
+| ---------------------- | ------------------------------------------------------------------------------------ | --------------------------- |
+| `--into <BRANCH_NAME>` | Specify that the new deploy request deploy to a specified branch. Default is `main`. | `create`                    |
+| `--notes <NOTE>`       | A note describing the deploy request. Acts as the first comment.                     | `create`                    |
+| `--web`                | Perform the action in your web browser                                               | `diff`, `list`, `show`      |
+| `--approve`            | Approve a deploy request                                                             | `review`                    |
+| `--comment <COMMENT>`  | Leave a comment on a deploy request                                                  | `review`                    |
 
 ### Available flags
 
