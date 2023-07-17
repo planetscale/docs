@@ -1,7 +1,7 @@
 ---
 title: 'Database Sleeping'
 subtitle: 'Learn when database sleeping takes effect and how to wake up a sleeping database.'
-date: '2022-08-01'
+date: '2023-07-17'
 ---
 
 ## Overview
@@ -18,13 +18,17 @@ When a database on the [free Hobby plan](/docs/concepts/billing#planetscale-plan
 
 Right before a database enters sleep mode, we make a backup of all data, even if it's outside of the [included backup schedule](/docs/concepts/back-up-and-restore). We will continue to store all data while the database is sleeping. Once you wake the database, all data will be restored.
 
+## What is branch sleeping
+
+Similar to sleeping an entire database, individual development branches in a Hobby database enter sleep mode after 7 days of inactivity. These are typically branches that were used to merge schema changes into a production branch. The process is the same as database sleep, with a backup taken before sleeping.
+
 ## When do we sleep databases
 
 Here is the criteria we use to determine when a database is eligible to sleep:
 
 - The database is on the [**free** Hobby plan](/docs/concepts/billing#planetscale-plans)
 - The database is at least **seven days old**
-- There have been **no rows written or connections** to any branches of the database in the past **7 days**
+- There have been **no queries** to any branches of the database in the past **7 days**
 
 If the database meets all of this criteria, it will enter sleep mode.
 
@@ -34,7 +38,7 @@ We also reserve the right to put your database in sleep mode if you have failed 
 
 ## How to prevent a database from sleeping
 
-To prevent a database from entering sleep mode, make sure to connect to any branch of the database at least once every 7 days.
+To prevent a database from entering sleep mode, make sure to query any branch of the database at least once every 7 days.
 
 Because database sleeping only applies to databases on the free Hobby plan, another option is to upgrade your database to a [paid Scaler or Scaler Pro plan](/docs/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
 
