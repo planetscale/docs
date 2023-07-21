@@ -117,13 +117,13 @@ The API is useful for building PlanetScale into other developer tooling for fast
 
 See the [PlanetScale API reference](https://api-docs.planetscale.com) for more information.
 
-### Portals: Read-only regions
+### Read-only regions
 
-[PlanetScale Portals](/docs/concepts/read-only-regions) allows you to spin up read-only regions with the click of a button. For globally distributed applications, it's important to serve your users as close as possible to their location to prevent high read latency.
+Spin up [read-only regions](/docs/concepts/read-only-regions) with the click of a button. For globally distributed applications, it's important to serve your users as close as possible to their location to prevent high read latency.
 
 ![Add read-only region on production branch](/assets/docs/concepts/read-only-regions/branch-2.png?v2)
 
-With Portals, you don't have to worry about complicated replication strategies or manually setting this up on your own. Just go to the dashboard, add a new read-only region, copy the connection string, and add it to your application.
+You don't have to worry about complicated replication strategies or manually setting this up on your own. Just go to the dashboard, add a new read-only region, copy the connection string, and add it to your application.
 
 ## Get in touch
 

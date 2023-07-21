@@ -26,11 +26,11 @@ The infrastructure diagram reflects these changes as they occur within our syste
 
 ![Prod branch architecture](/assets/docs/concepts/architecture/prod-infra.png)
 
-### PlanetScale Portals (read-only regions)
+### Read-only regions
 
-PlanetScale Portals are read-only replicas that are created in different regions to bring your data closer to the users who are accessing it, often resulting in increased application performance. When a read-only region is created for a branch, the infrastructure diagram for that branch is updated to reflect the additional replicas in that respective region and is labeled with "_RO_" to reflect the read-only status.
+Read-only replicas are created in different regions to bring your data closer to the users who are accessing it, often resulting in increased application performance. When a read-only region is created for a branch, the infrastructure diagram for that branch is updated to reflect the additional replicas in that respective region and is labeled with "_RO_" to reflect the read-only status.
 
-![Prod branch with Portals architecture](/assets/docs/concepts/architecture/prod-with-portals.png)
+![Prod branch with read-only regions architecture](/assets/docs/concepts/architecture/prod-with-portals.png)
 
 ## Infrastructure metrics
 

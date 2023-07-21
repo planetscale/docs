@@ -6,10 +6,10 @@ date: '2023-05-03'
 
 ## Overview
 
-With PlanetScale Portals, you can replicate your production database across the globe by creating read-only regions in any available [AWS PlanetScale region](/docs/concepts/regions).
+Replicate your production database across the globe by creating read-only regions in any available [AWS PlanetScale region](/docs/concepts/regions).
 
 {% callout %}
-Portals is not currently supported in [GCP regions](/docs/reference/gcp-regions).
+Read-only replicas are not currently supported in [GCP regions](/docs/reference/gcp-regions).
 {% /callout %}
 
 This feature supports globally distributed applications by enabling your database to perform low latency reads in the regions closest to your applications and users.
@@ -51,7 +51,7 @@ Connecting to a read-only region will allow you to query your data, but will not
 
 ## Availability and pricing
 
-PlanetScale Portals is only available on our [paid Scaler, Scaler Pro, and Enterprise plans](/pricing).
+Read-only regions are only available on our [paid Scaler, Scaler Pro, and Enterprise plans](/pricing).
 
 ### Storage costs
 

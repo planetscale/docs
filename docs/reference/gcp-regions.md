@@ -21,7 +21,7 @@ We are still adding more GCP regions throughout beta. If you don't see your pref
 
 As GCP region support is currently in beta, there are some limitations to its use.
 
-### Portals
+### Read-only regions
 
 You currently cannot create [read-only regions](/docs/concepts/read-only-regions) using GCP regions. In addition, if your production database branch is using a GCP region, you cannot spin up a read-only replica using an AWS region.
 
