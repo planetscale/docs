@@ -20,7 +20,7 @@ Right before a database enters sleep mode, we make a backup of all data, even if
 
 ## What is branch sleeping
 
-Similar to sleeping an entire database, individual development branches in a Hobby database enter sleep mode after 7 days of inactivity. These are typically branches that were used to merge schema changes into a production branch. The process is the same as database sleep, with a backup taken before sleeping.
+Similar to sleeping an entire database, individual development branches in a Hobby or Scaler database enter sleep mode after 7 days of inactivity. These are typically branches that were used to merge schema changes into a production branch. The process is the same as database sleep, with a backup taken before sleeping.
 
 ## When do we sleep databases
 
