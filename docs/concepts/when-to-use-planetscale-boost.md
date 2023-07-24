@@ -174,7 +174,7 @@ PlanetScale Boost does not support all valid SQL queries. While SQL support is q
 - Queries using negative criteria like `!=` or `NOT IN` to match against query parameters are not supported. These can be used with constant values, however.
 - Expressions need to return consistent results. This means that using `NOW()` or `RAND()` in results is not supported.
 - Expressions used in queries need to be supported by the Vitess evaluation engine. For instance, some functions aren't currently supported, which are listed in [this Vitess issue](https://github.com/vitessio/vitess/issues/9647).
-- Caches with no queries configured are subject to garbage collection after 7 days. If your cache has been garbage collected, you can recreate it within a few minutes.
+- Caches with no queries configured are subject to removal after 7 days. If your cache has been removed, you can recreate it within a few minutes.
 
 ## Known issues during beta
 
