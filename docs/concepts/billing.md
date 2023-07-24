@@ -32,28 +32,29 @@ Some limitations apply to the free tier. See below for more information.
 
 The usage-based plans are summarized below:
 
-|                                                             | **Hobby**      | **Scaler**             |
-| ----------------------------------------------------------- | -------------- | ---------------------- |
-| **Storage/month**                                           | 5 GB           | 10 GB\*                |
-| **Row reads/month**                                         | 1 billion      | 100 billion\*          |
-| **Row writes/month**                                        | 10 million     | 50 million\*           |
-| **Available cluster sizes**                                 | 1              | 1                      |
-| **Availability zones**                                      | 1              | 1                      |
-| **Production branches**                                     | 1 per database | 2 per database         |
-| **Development branches**                                    | 1 per database | 5 per database         |
-| **Concurrent connections**                                  | 1,000          | 10,000                 |
-| **Query Insights retention**                                | 24 hours       | 7 days                 |
-| **Horizontal sharding**                                     | Not included   | Not included           |
-| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant   | Multi-tenant           |
-| **Read only regions**                                       | Not included   | Included               |
-| **Web console**                                             | Included       | Included               |
-| **PlanetScale CLI**                                         | Included       | Included               |
-| **SSO**                                                     | Not included   | Available as an add-on |
-| **Audit log retention**                                     | 5 days         | 15 days                |
-| **Automatic backups**                                       | Daily          | Every 12 hours         |
-| **Support**                                                 | Community      | Standard               |
-| [**Data Branching®**](/docs/concepts/data-branching)        | Not included   | Not included           |
-| **Monthly cost**                                            | $0             | $29 per database       |
+|                                                                              | **Hobby**      | **Scaler**             |
+| ---------------------------------------------------------------------------- | -------------- | ---------------------- |
+| **Storage/month**                                                            | 5 GB           | 10 GB\*                |
+| **Row reads/month**                                                          | 1 billion      | 100 billion\*          |
+| **Row writes/month**                                                         | 10 million     | 50 million\*           |
+| **Available cluster sizes**                                                  | 1              | 1                      |
+| **Availability zones**                                                       | 1              | 1                      |
+| **Production branches**                                                      | 1 per database | 2 per database         |
+| **Development branches**                                                     | 1 per database | 5 per database         |
+| **Concurrent connections**                                                   | 1,000          | 10,000                 |
+| **Query Insights retention**                                                 | 24 hours       | 7 days                 |
+| **Horizontal sharding**                                                      | Not included   | Not included           |
+| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant   | Multi-tenant           |
+| **Read only regions**                                                        | Not included   | Included               |
+| **Web console**                                                              | Included       | Included               |
+| **PlanetScale CLI**                                                          | Included       | Included               |
+| **SSO**                                                                      | Not included   | Available as an add-on |
+| **Audit log retention**                                                      | 5 days         | 15 days                |
+| **Automatic backups**                                                        | Daily          | Every 12 hours         |
+| **Support**                                                                  | Community      | Standard               |
+| [**Data Branching®**](/docs/concepts/data-branching)                         | Not included   | Not included           |
+| **Monthly cost**                                                             | $0             | $29 per database       |
+| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included   | Available as an add-on |
 
 \* For the Scaler plan:
 
@@ -177,27 +178,28 @@ The `Scaler Pro` plan is charged based on the selected cluster size, plus the co
 
 All Scaler Pro plans, regardless of cluster size, share the following features:
 
-|                                                             | **Scaler Pro**                    |
-| ----------------------------------------------------------- | --------------------------------- |
-| **Storage/month**                                           | 10 GB\*                           |
-| **Row reads/month**                                         | _Unlimited_                       |
-| **Row writes/month**                                        | _Unlimited_                       |
-| **Available cluster sizes**                                 | 7                                 |
-| **Availability zones**                                      | 3                                 |
-| **Production branches**                                     | 1 included\*\*                    |
-| **Development branches**                                    | 2 included\*\*                    |
-| **Concurrent Connections**                                  | 10,000                            |
-| **Query Insights retention**                                | 7 days                            |
-| **Horizontal sharding**                                     | Not included                      |
-| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant                      |
-| **Read only regions**                                       | Included                          |
-| **Web console**                                             | Included                          |
-| **PlanetScale CLI**                                         | Included                          |
-| **SSO**                                                     | Available as an add-on\*\*\*      |
-| **Audit log retention**                                     | 15 days                           |
-| **Automatic backups**                                       | Every 12 hours                    |
-| **Support**                                                 | Standard, upgrade available\*\*\* |
-| [**Data Branching®**](/docs/concepts/data-branching)        | Included                          |
+|                                                                              | **Scaler Pro**                    |
+| ---------------------------------------------------------------------------- | --------------------------------- |
+| **Storage/month**                                                            | 10 GB\*                           |
+| **Row reads/month**                                                          | _Unlimited_                       |
+| **Row writes/month**                                                         | _Unlimited_                       |
+| **Available cluster sizes**                                                  | 7                                 |
+| **Availability zones**                                                       | 3                                 |
+| **Production branches**                                                      | 1 included\*\*                    |
+| **Development branches**                                                     | 2 included\*\*                    |
+| **Concurrent Connections**                                                   | 10,000                            |
+| **Query Insights retention**                                                 | 7 days                            |
+| **Horizontal sharding**                                                      | Not included                      |
+| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant                      |
+| **Read only regions**                                                        | Included                          |
+| **Web console**                                                              | Included                          |
+| **PlanetScale CLI**                                                          | Included                          |
+| **SSO**                                                                      | Available as an add-on\*\*\*      |
+| **Audit log retention**                                                      | 15 days                           |
+| **Automatic backups**                                                        | Every 12 hours                    |
+| **Support**                                                                  | Standard, upgrade available\*\*\* |
+| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                          |
+| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on            |
 
 \* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
 \*\* Additional production branches are billed at the cost of your selected cluster size per month, additional development branches are billed at $10.00 per branch per month.
@@ -213,28 +215,29 @@ You can add SSO for your organization under the Scaler Pro plan for an additiona
 
 The Enterprise plan is fully customizable to suit your businesses needs. For more information about [our `Enterprise` plan](/enterprise), please [reach out to us](/contact).
 
-|                                                             | **Enterprise**                           |
-| ----------------------------------------------------------- | ---------------------------------------- |
-| **Storage/month**                                           | Configurable                             |
-| **Row reads/month**                                         | Configurable                             |
-| **Row writes/month**                                        | Configurable                             |
-| **Available cluster sizes**                                 | 18+                                      |
-| **Availability zones**                                      | 3+                                       |
-| **Production branches**                                     | Configurable                             |
-| **Development branches**                                    | Configurable                             |
-| **Concurrent Connections**                                  | _Unlimited_                              |
-| **Query Insights retention**                                | Configurable                             |
-| **Horizontal sharding**                                     | Configurable                             |
-| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant, Single-tenant, and Managed |
-| **Read only regions**                                       | Included                                 |
-| **Web console**                                             | Included                                 |
-| **PlanetScale CLI**                                         | Included                                 |
-| **SSO**                                                     | Included                                 |
-| **Audit log retention**                                     | Configurable                             |
-| **Automated Backups**                                       | Configurable                             |
-| **Support**                                                 | Business, upgrade available\*            |
-| [**Data Branching®**](/docs/concepts/data-branching)        | Included                                 |
-| **Monthly cost**                                            | Custom                                   |
+|                                                                              | **Enterprise**                           |
+| ---------------------------------------------------------------------------- | ---------------------------------------- |
+| **Storage/month**                                                            | Configurable                             |
+| **Row reads/month**                                                          | Configurable                             |
+| **Row writes/month**                                                         | Configurable                             |
+| **Available cluster sizes**                                                  | 18+                                      |
+| **Availability zones**                                                       | 3+                                       |
+| **Production branches**                                                      | Configurable                             |
+| **Development branches**                                                     | Configurable                             |
+| **Concurrent Connections**                                                   | _Unlimited_                              |
+| **Query Insights retention**                                                 | Configurable                             |
+| **Horizontal sharding**                                                      | Configurable                             |
+| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant, Single-tenant, and Managed |
+| **Read only regions**                                                        | Included                                 |
+| **Web console**                                                              | Included                                 |
+| **PlanetScale CLI**                                                          | Included                                 |
+| **SSO**                                                                      | Included                                 |
+| **Audit log retention**                                                      | Configurable                             |
+| **Automated Backups**                                                        | Configurable                             |
+| **Support**                                                                  | Business, upgrade available\*            |
+| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                                 |
+| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                   |
+| **Monthly cost**                                                             | Custom                                   |
 
 \* Enterprise support is available on the Enterprise plan for an additional fee.
 

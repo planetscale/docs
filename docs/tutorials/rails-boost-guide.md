@@ -4,10 +4,6 @@ subtitle: 'Learn how to use PlanetScale Boost in a Rails application.'
 date: '2022-11-15'
 ---
 
-{% callout %}
-PlanetScale Boost is in limited beta. [Reserve your spot on the waitlist](/features/boost) today.
-{% /callout %}
-
 ## How to use PlanetScale Boost in a Rails application
 
 To enable caching for our connection, you need to set the session variable `boost_query_caching` to `true`. This can be done in your `database.yml`
