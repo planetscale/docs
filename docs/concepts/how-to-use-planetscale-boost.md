@@ -30,7 +30,7 @@ To select a cache size, navigate to the "**Boost**" tab in the PlanetScale conso
 ## Add a query to your cache
 
 1. Once your cache is set up, click the "**Add query**" button.
-2. This takes you to a list of slow queries run in the past 24 hours. Generally, you want to choose queries that have a higher time per query and/or total time. Just be aware that [not all queries are good candidates for PlanetScale Boost](#when-to-use-planetscale-boost).
+2. This takes you to a list of slow queries run in the past 24 hours. Generally, you want to choose queries that have a higher time per query and/or total time. Just be aware that [not all queries are good candidates for PlanetScale Boost](/docs/concepts/when-to-use-planetscale-boost).
 3. Click on the query you want to add.
 4. You have the option to fill in the placeholders with specific values. The cache can either match the entire query pattern or the specific values you provide.
 5. Give the query a name to allow it to be easily identified later on.
