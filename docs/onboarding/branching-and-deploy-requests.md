@@ -122,7 +122,10 @@ Notice how `summary` is missing. This is because we made the change on the `dev`
 
 ### Create a deploy request
 
-On the **"Overview"** tab, you can now create a deploy request. Enter an optional comment, then click "Create deploy request".
+On the **"Branches"** tab, you can now create a deploy request. Select the branch from which the changes will be migrated, enter an optional comment, , on the right side you will see the button **"Create deploy request"**, click on it.
+
+The creation process will take a couple of minutes, and a notification will appear at the button when the deploy request is finished. 
+
 
 ![The Overview tab of the dev branch.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-dev-branch.png)
 
