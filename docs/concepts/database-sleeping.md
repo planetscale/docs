@@ -1,7 +1,7 @@
 ---
 title: 'Database Sleeping'
 subtitle: 'Learn when database sleeping takes effect and how to wake up a sleeping database.'
-date: '2023-07-17'
+date: '2023-07-26'
 ---
 
 ## Overview
@@ -28,7 +28,7 @@ Here is the criteria we use to determine when a database is eligible to sleep:
 
 - The database is on the [**free** Hobby plan](/docs/concepts/billing#planetscale-plans)
 - The database is at least **seven days old**
-- There have been **no queries** to any branches of the database in the past **7 days**
+- There have been **no queries** to any branches of the database in the past **7 days**. Queries against built-in MySQL tables, like `dual`, are not counted towards activity.
 
 If the database meets all of this criteria, it will enter sleep mode.
 
