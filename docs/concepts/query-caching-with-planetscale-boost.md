@@ -49,7 +49,7 @@ As an example, the following table lists the cost of each available query cache 
 
 | **Query cache size** | **Cost per month** |
 | -------------------- | ------------------ |
-| 1 GB cache           | $149               |
+| 1 GB cache           | $99                |
 | 2 GB cache           | $299               |
 | 4 GB cache           | $599               |
 | 8 GB cache           | $899               |
