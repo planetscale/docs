@@ -6,7 +6,7 @@ meta:
   title: 'Connect with Stitch ETL'
 ---
 
-With the PlanetScale Connect (beta), you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
+With PlanetScale Connect, you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
 
 We implemented an [Stitch Singer Tap](https://stitchdata.com/) as the pipeline between your PlanetScale source and selected destination. This document will walk you through how to connect your PlanetScale database to Stitch.
 

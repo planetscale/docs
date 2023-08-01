@@ -1,18 +1,14 @@
 ---
 title: 'PlanetScale Connect - Airbyte'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
-date: '2022-08-26'
+date: '2023-07-27'
 meta:
   title: 'Connect with Airbyte ELT'
 ---
 
-With the PlanetScale Connect (beta), you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
+With PlanetScale Connect, you can extract data from your PlanetScale database and safely load it into other destinations for analysis, transformation, and more.
 
 We implemented an [Airbyte](https://airbyte.com/) connector as the pipeline between your PlanetScale source and selected destination. This document will walk you through how to connect your PlanetScale database to Airbyte.
-
-{% callout %}
-PlanetScale Connect is currently in beta. To generate a working connection string, you must opt into the beta.
-{% /callout %}
 
 ## Connect to Airbyte
 
@@ -58,14 +54,12 @@ You can find the [PlanetScale Airbyte Source Dockerhub release page here](https:
 
 You're now ready to connect your PlanetScale database to Airbyte.
 
-1. In the PlanetScale dashboard, head to the organization Settings page by clicking your organization > "**Settings**" > "[**Beta features**](https://app.planetscale.com/~/settings/beta-features)".
-2. Find and click the "**Enroll this organization in the Connect beta**" checkbox and save your changes.
-3. Click on the database and branch you want to connect to.
-4. Click "**Connect**", select "**General**" from the "**Connect with**" dropdown.
-5. Leave this tab open, as you'll need to copy these credentials shortly.
-6. Back in Airbyte, click "**Sources**" in the main left sidebar > "**New source**".
-7. Select the new PlanetScale source you created from the dropdown.
-8. Fill in the "**Set up the source**" values as follows:
+1. Click on the database and branch you want to connect to.
+2. Click "**Connect**", select "**General**" from the "**Connect with**" dropdown.
+3. Leave this tab open, as you'll need to copy these credentials shortly.
+4. Back in Airbyte, click "**Sources**" in the main left sidebar > "**New source**".
+5. Select the new PlanetScale source you created from the dropdown.
+6. Fill in the "**Set up the source**" values as follows:
 
    - **Name**: Any name of your choice
    - **Source type**: Select "PlanetScale"
@@ -77,7 +71,7 @@ You're now ready to connect your PlanetScale database to Airbyte.
 
    ![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/source.png)
 
-9. Click "**Set up source**" to connect.
+7. Click "**Set up source**" to connect.
 
 You should get a success message that the connection test passed.
 
@@ -135,7 +129,7 @@ Whenever you perform a schema change, you need to notify Airbyte of it:
 
 ## Billing
 
-PlanetScale Connect is available on all of our [free and paid plans](/docs/concepts/billing#planetscale-plans) during the beta period.
+PlanetScale Connect is available on all of our [free and paid plans](/docs/concepts/billing#planetscale-plans).
 
 Every Airbyte connection sync will count toward [your plan's `rows read`](/docs/concepts/billing#planetscale-plans). When setting up your connection, make sure you're aware of the impact on `rows read`, and choose [a synchronization schedule](#choose-your-sync-frequency) that you're comfortable with.
 
