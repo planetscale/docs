@@ -25,7 +25,7 @@ Finally, click "**Create database**".
 If you have an existing cloud-hosted database, you can also choose the "Import" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
 {% /callout %}
 
-A [production branch](/docs/concepts/branching), `main`, is automatically created when you create your database. Production branches are highly available, protected database that you can connect your production application to. Once you are satisfied with your initial development, you may enable [safe migrations](/dcos/concepts/safe-migrations) to enable zero-downtime migrations and protect the branch from accidental data deletion.
+A [production branch](/docs/concepts/branching), `main`, is automatically created when you create your database. Production branches are highly available, protected database that you can connect your production application to. Once you are satisfied with your initial development, you may enable [safe migrations](/docs/concepts/safe-migrations) to enable zero-downtime migrations and protect the branch from accidental data deletion.
 
 ## Set up the starter Next.js app
 

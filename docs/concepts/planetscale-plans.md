@@ -122,7 +122,7 @@ Selecting the correct plan for your database can have a dramatic impact on how i
 
 If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes. Databases in PlanetScale often come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
 
-If you are unsure as to which plan or cluster size is right for your application, [contact us](/contact-us) to get further assistance.
+If you are unsure as to which plan or cluster size is right for your application, [contact us](/contact) to get further assistance.
 
 Our self-serve plans are flexible enough to handle the majority of customers. However, there are several use cases where you may need a more custom plan. This is where our Enterprise offerings shine.
 
