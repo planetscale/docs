@@ -17,8 +17,8 @@ Before you can use PlanetScale Boost, you must select a cache size. Cache sizes 
 | Cache size | Max cached queries |
 | ---------- | ------------------ |
 | 1 GB       | 4 queries          |
-| 2 GB       | 4 queries          |
-| 4 GB       | 8 queries          |
+| 2 GB       | 8 queries          |
+| 4 GB       | 16 queries         |
 | 8 GB       | 32 queries         |
 
 {% callout %}
