@@ -170,7 +170,13 @@ This IP reference guide is meant to be used in combination with our
 
   35.174.79.154
 
+  35.173.174.19
+
   44.199.177.24
+
+  44.212.228.57
+
+  44.216.88.45
 
 ---
 
@@ -186,6 +192,12 @@ This IP reference guide is meant to be used in combination with our
   3.131.243.164
 
   3.132.168.252
+
+  3.131.252.213
+
+  3.132.182.173
+
+  3.15.49.114
 
 ---
 
