@@ -23,7 +23,7 @@ This doc is intended for users that are manually storing a connection string in 
 ### Get your connection string from PlanetScale
 
 1. In your [PlanetScale dashboard](https://app.planetscale.com), click on the database you want to connect to.
-2. Click "**Get connection strings**".
+2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
    ![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-netlify/prisma-2.png?v2)

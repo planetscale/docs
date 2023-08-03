@@ -16,7 +16,7 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 
 ## Create a connection string
 
-Open the `beam-demo` database and click the **"Get connection strings"** button.
+Open the `beam-demo` database and click the **"Connect"** button.
 
 ![The Overview tab of the database with the Connect button highlighted.](/assets/docs/onboarding/connect-to-your-database/connect-2.png?v2)
 
