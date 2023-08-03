@@ -100,7 +100,7 @@ Both options are covered below.
 
    Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
 
-   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Get connection strings**" > "**Connect with**" language dropdown > "**Go**".
+   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Go**".
 
 ### Option 2: Connect with the PlanetScale proxy
 
