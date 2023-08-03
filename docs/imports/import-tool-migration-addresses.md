@@ -1,7 +1,7 @@
 ---
 title: 'Import tool public IP addresses'
 subtitle: 'List of the IP addresses you must allow when importing a database using the Import tool'
-date: '2023-05-26'
+date: '2023-08-03'
 internal: 'IPs are pulled from https://github.com/planetscale/ps-turtle/blob/main/psturtle_data.go'
 ---
 
