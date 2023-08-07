@@ -33,7 +33,7 @@ PlanetScale provides two usage-based plans: `Hobby` and `Scaler`. These plans ar
 See the ["Understanding rows read" section](#understanding-rows-read) for a more in-depth look at the rows read calculation.
 
 {% callout %}
-In order to prevent fraud, PlanetScale requires a valid payment method in order to create databases on the Hobby (free) tier.
+In order to prevent fraud, PlanetScale requires a valid payment method to create databases on the Hobby (free) tier.
 You will not be charged unless you create a Scaler or Scaler Pro database.
 {% /callout %}
 

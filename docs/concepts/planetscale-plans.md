@@ -127,7 +127,7 @@ If you are unsure as to which plan or cluster size is right for your application
 Our self-serve plans are flexible enough to handle the majority of customers. However, there are several use cases where you may need a more custom plan. This is where our Enterprise offerings shine.
 
 {% callout %}
-In order to prevent fraud, PlanetScale requires a valid payment method in order to create databases on the Hobby (free) tier.
+In order to prevent fraud, PlanetScale requires a valid payment method to create databases on the Hobby (free) tier.
 You will not be charged unless you create a Scaler or Scaler Pro database.
 {% /callout %}
 
