@@ -1,9 +1,9 @@
 ---
-title: "PlanetScale CLI commands - deploy-request"
-subtitle: "Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal."
-date: "2023-07-13"
+title: 'PlanetScale CLI commands - deploy-request'
+subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
+date: '2023-07-13'
 meta:
-  title: "CLI reference - deploy-request"
+  title: 'CLI reference - deploy-request'
 ---
 
 ## Getting Started
@@ -26,20 +26,20 @@ Your database must have a production branch with [safe migrations](/docs/concept
 
 ### Available sub-commands
 
-| **Sub-command**                                                             | **Sub-command flags**                                                        | **Description**                                 |
-| --------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------- |
-| `apply <DATABASE_NAME> <DR_NUMBER>`                                         |                                                                              | Apply changes to a gated deploy request.        |
-| `cancel <DATABASE_NAME> <DR_NUMBER>`                                        |                                                                              | Cancel a deploy request.                        |
-| `close <DATABASE_NAME> <DR_NUMBER>`                                         |                                                                              | Close the specified deploy request.             |
-| `create <DATABASE_NAME> <BRANCH_NAME>`                                      | `--into <BRANCH_NAME>`, `--notes <NOTE>`                                     | Create a new deploy request.                    |
-| `deploy <DATABASE_NAME> <DR_NUMBER        \| BRANCH_NAME>`                  |                                                                              | Deploy the specified deploy request.            |
-| `diff <DATABASE_NAME> <DR_NUMBER>`                                          | `--web`                                                                      | Show the diff of the specified deploy request.  |
-| `edit <DATABASE_NAME> <DR_NUMBER>`                                          | `--auto-apply string` Possible values: [enable, disable] (default: "enable") | Edit a deploy request.                          |
-| `list <DATABASE_NAME>`                                                      | `--web`                                                                      | List all deploy requests for a database.        |
-| `revert <DATABASE_NAME> <DR_NUMBER>`                                        |                                                                              | Revert a deployed deploy request.               |
-| `review <DATABASE_NAME> <DR_NUMBER>`                                        | `--web`, `--approve`, `--comment <COMMENT>`                                  | Approve or comment on a deploy request.         |
-| `show <DATABASE_NAME> <DR_NUMBER                           \| BRANCH_NAME>` | `--web`                                                                      | Show the specified deploy request.              |
-| `skip-revert <DATABASE_NAME> <DR_NUMBER>`                                   |                                                                              | Skip and close a pending deploy request revert. |
+| **Sub-command**                           | **Sub-command flags**                                                        | **Description**                                 |
+| ----------------------------------------- | ---------------------------------------------------------------------------- | ----------------------------------------------- | ------------------------------------ |
+| `apply <DATABASE_NAME> <DR_NUMBER>`       |                                                                              | Apply changes to a gated deploy request.        |
+| `cancel <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Cancel a deploy request.                        |
+| `close <DATABASE_NAME> <DR_NUMBER>`       |                                                                              | Close the specified deploy request.             |
+| `create <DATABASE_NAME> <BRANCH_NAME>`    | `--into <BRANCH_NAME>`, `--notes <NOTE>`                                     | Create a new deploy request.                    |
+| `deploy <DATABASE_NAME> <DR_NUMBER        \| BRANCH_NAME>`                                                                |                                                 | Deploy the specified deploy request. |
+| `diff <DATABASE_NAME> <DR_NUMBER>`        | `--web`                                                                      | Show the diff of the specified deploy request.  |
+| `edit <DATABASE_NAME> <DR_NUMBER>`        | `--auto-apply string` Possible values: [enable, disable] (default: "enable") | Edit a deploy request.                          |
+| `list <DATABASE_NAME>`                    | `--web`                                                                      | List all deploy requests for a database.        |
+| `revert <DATABASE_NAME> <DR_NUMBER>`      |                                                                              | Revert a deployed deploy request.               |
+| `review <DATABASE_NAME> <DR_NUMBER>`      | `--web`, `--approve`, `--comment <COMMENT>`                                  | Approve or comment on a deploy request.         |
+| `show <DATABASE_NAME> <DR_NUMBER          \| BRANCH_NAME>`                                                                | `--web`                                         | Show the specified deploy request.   |
+| `skip-revert <DATABASE_NAME> <DR_NUMBER>` |                                                                              | Skip and close a pending deploy request revert. |
 
 > \* _Flag is required_
 
