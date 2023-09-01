@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2023-04-05'
+date: '2023-08-18'
 ---
 
 ## Overview
@@ -12,7 +12,9 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 
 ## Create a deploy request
 
-**Note**: Your database must have a **production branch with [safe migrations](/docs/concepts/safe-migrations) enabled** before you can create a deploy request.
+{% callout %}
+Your database must have a **production branch with [safe migrations](/docs/concepts/safe-migrations) enabled** before you can create a deploy request.
+{% /callout %}
 
 1. Click on "**Branches**".
 2. Select the development branch you want to deploy to the production branch.
@@ -22,7 +24,7 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 6. Optionally, add a comment about the deploy request.
 7. Click "**Create deploy request**".
 
-![Example of deploy request on branch page](/assets/docs/concepts/deploy-requests/deploy-request-page-2.png?v2)
+![Example of deploy request on branch page](/assets/docs/concepts/deploy-requests/deploy-request-page-2.png)
 
 ## Review and deploy a deploy request
 
@@ -37,7 +39,7 @@ PlanetScale will check if the request is deployable. This process includes check
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, other users in your Organization will see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 
-   ![PlanetScale deploy request - approve changes](/assets/docs/concepts/deploy-requests/approve-2.png?v2)
+   ![PlanetScale deploy request - approve changes](/assets/docs/concepts/deploy-requests/approve-2.png)
 
 7. Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
 8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
@@ -59,25 +61,17 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! You have the option to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
 
-{% callout %}
-The schema revert feature is currently in limited beta. You must enroll your database and opt-in to the terms to access this
-feature.
-{% /callout %}
-
 ### How to revert a schema change
 
 You can revert a deployment for **up to 30 minutes** after the deploying. After the 30 minute period is up, the deployment becomes permanent, and you will no longer have the option to revert.
 
-You must first agree to the beta terms before you can use the schema revert feature. Go to the database Settings page, click "**Beta features**", find the "**Revert schema changes**" section, and click "**Enroll**" to opt-in.
-
 {% vimeo src="https://player.vimeo.com/video/830571822" caption="Demonstration of how to revert a schema change" /%}
 
 1. Select the deploy request you want to revert.
-2. If you're not already enrolled, you'll see a Beta banner underneath the comment box on the deploy request page. Click "**Enroll database**" to opt-in to the limited beta terms.
-3. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
-4. We will immediately revert your production database back to its previous schema.
-5. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
-6. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
+2. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
+3. We will immediately revert your production database back to its previous schema.
+4. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
+5. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
 
 ### When is data not retained
 
@@ -121,12 +115,12 @@ This feature is helpful if you have long-running migrations. For very large or c
 
 1. When you open a deploy request, uncheck the "**Auto-apply changes**" box.
 
-   ![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments-2.png?v2)
+   ![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments-2.png)
 
 2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
 3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.
 
-![PlanetScale deploy request - Apply changes from deployment button](/assets/docs/concepts/deploy-requests/apply-changes-2.png?v2)
+![PlanetScale deploy request - Apply changes from deployment button](/assets/docs/concepts/deploy-requests/apply-changes-2.png)
 
 {% callout %}
 If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.

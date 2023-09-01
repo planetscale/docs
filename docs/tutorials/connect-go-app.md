@@ -1,7 +1,7 @@
 ---
 title: Connect a Go application to PlanetScale
 subtitle: Learn how to use Go with PlanetScale by exploring a demo Go API built with Gin.
-date: '2023-06-21'
+date: '2023-07-11'
 ---
 
 {% vimeo src="https://player.vimeo.com/video/759188218" caption="Connect to PlanetScale with Go" /%}
@@ -29,7 +29,7 @@ By default, web console access to production branches is disabled to prevent acc
 
 Then, click on the **"Console"** tab, then "**Connect**".
 
-![The Console tab](/assets/docs/tutorials/connect-go-app/console-2.png?v2)
+![The Console tab](/assets/docs/tutorials/connect-go-app/console-2.png)
 
 Run the following two commands to create a sample table and insert some data:
 
@@ -48,11 +48,11 @@ INSERT INTO `products` (name, price) VALUES
 
 Finally, head to the **"Overview"** tab and click **"Connect"**.
 
-![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect-2.png?v2)
+![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect-2.png)
 
 Change the **"Connect with"** dropdown to **Go** and copy the contents of the **.env** tab, as you’ll need it for the next section.
 
-![The Connect modal](/assets/docs/tutorials/connect-go-app/connect-modal-2.png?v2)
+![The Connect modal](/assets/docs/tutorials/connect-go-app/connect-modal-2.png)
 
 ## Run the demo project
 
@@ -65,7 +65,7 @@ git clone https://github.com/planetscale/golang-example-gin.git
 Open the project in VS Code and add a new file in the root of the project named `.env`, Populate the file with the contents taken from the Connect modal in the previous section.
 
 ```sql
-DSN=****************:************@tcp(us-east.connect.psdb.cloud)/products_db?tls=true
+DSN=****************:************@tcp(us-east.connect.psdb.cloud)/products_db?tls=true&interpolateParams=true
 ```
 
 Now open an integrated terminal in VS Code and run the project using the following commands:

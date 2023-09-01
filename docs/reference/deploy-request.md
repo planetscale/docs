@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - deploy-request'
-subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
+subtitle: 'Use the PlanetScale CLI “deploy-request” command to open, review, diff, and manage deploy requests from your terminal.'
 date: '2023-07-13'
 meta:
   title: 'CLI reference - deploy-request'

@@ -43,7 +43,7 @@ Next, you’ll be dropped into the dashboard for that specific database. Let's t
 8. **New branch** &mdash; Allows you to create a new branch of your schema.
 9. **Connect** &mdash; Provides connection details that applications can use to connect to your database.
 
-![The dashboard of a database on PlanetScale.](/assets/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale-2.png?v2)
+![The dashboard of a database on PlanetScale.](/assets/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale-2.png)
 
 Now let’s add a table and some columns to the database. PlanetScale databases leverage branches to let you create copies of your database so you can safely experiment with the schema without affecting your main production database. Branches will be covered more in detail in the next article, but since they are an integral part of the system, you’ll always be working within a database branch. The default branch created for all databases is `main`. Your `main` branch is a production branch, which are highly available database intended for production traffic. Production database branches are automatically provided with an additional replica to resist outages, enabling zero-downtime failovers.
 

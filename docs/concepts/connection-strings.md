@@ -1,14 +1,14 @@
 ---
 title: 'Connection strings'
 subtitle: 'Create reusable connection strings to connect to your PlanetScale database.'
-date: '2022-12-06'
+date: '2023-08-15'
 ---
 
 ## Creating a password
 
 1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
 
-   ![Database overview page](/assets/docs/concepts/connection-strings/connect-2.png?v2)
+   ![Database overview page](/assets/docs/concepts/connection-strings/connect-2.png)
 
 2. On this dialog, click the `New password` button and you'll have the opportunity to select the branch to create a password for, pick a [password role](/docs/concepts/password-roles), and provide a recognizable name for the new credentials. Clicking `Create password` will then generate a **unique username and password pair** that can only be used to access the designated branch of your database. Take note of this password, as you won't be able to see it again.
 
@@ -21,7 +21,7 @@ suggestions. We support pre-generating connection strings for Go, Java, .Net, PH
 Rails, and Rust.
 {% /callout %}
 
-![Browse connection string in formats](/assets/docs/concepts/connection-strings/formats-2.png?v2)
+![Browse connection string in formats](/assets/docs/concepts/connection-strings/formats-2.png)
 
 {% callout type="tip" %}
 Make sure you copy the connection string for your application and the "General" format. We don't save the password in
@@ -36,7 +36,7 @@ Once you've created the password, you can head over to the "**Passwords**" setti
 You can also create passwords for branches other than `main` on this page.
 {% /callout %}
 
-![Manage passwords page](/assets/docs/concepts/connection-strings/manage-2.png?v2)
+![Manage passwords page](/assets/docs/concepts/connection-strings/manage-2.png)
 
 Clicking on the `...` icon on the row for your password allows you to pull up the connection string (except the password), rename it, or delete it.
 
@@ -65,6 +65,30 @@ For a list of tested MySQL GUI clients, review our article on [how to connect My
 
 PlanetScale Passwords are created for use with a single database branch.
 This strong security model allows you to generate passwords that are tied to a branch, and cannot access data/schema from another branch.
+
+## IP restrictions
+
+You can restrict database connections to specific IP ranges for a single password by updating its IP restrictions. This feature is currently in beta. For example, if you have a database for a web application and you create a password for use in the deployed application, you can restrict usage of that specific password to the IP ranges of the deployed application. If somebody attempts to connect to the database from outside of the deployed application, the connection will be refused. IP restrictions work on a per-password basis, so if you want to use the same restriction across passwords, they must be applied to each password separately.
+
+Some passwords are incompatible with IP restrictions, and you will need to create a new password to use IP restrictions.
+
+Examples of when you may want to use IP restrictions:
+
+- You want to segment database access so that the production database can only be connected to from production environments or development branches.
+- You use a bastion in production and want to ensure that all database connections originate or pass through the bastion.
+- You want to allow a single client to be able to access your database (e.g., for debugging) and want to provide the least amount of access for them to do so.
+- You have compliance requirements that require implementing a more stringent access control list in your database.
+
+### Updating the IP restrictions for a password
+
+1. Go to your database's "**Settings**" tab.
+2. Click "**Passwords**."
+3. You can update the IP restrictions for a password in two different ways: The first way is by opening the dropdown menu to the right of any password on the Passwords page and clicking "**Manage IP restrictions**." The second way is by clicking on the password and scrolling to the bottom of its page to update IP restrictions.
+4. Add the IP ranges that you want to allow to connect using the selected password.
+
+{% callout %}
+If your password has no IP restrictions, it is set to **allow all traffic**. Similarly, when you add a new IP range to the restrictions, all IP addresses out of this range cannot connect to your database using that password.
+{% /callout %}
 
 ## Disconnect clients by deleting passwords
 

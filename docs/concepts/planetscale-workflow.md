@@ -4,7 +4,7 @@ subtitle: 'Use the PlanetScale workflow for branching databases, non-blocking sc
 date: '2023-04-05'
 ---
 
-![Diagram showing PlanetScale workflow](/img/planetscale-workflow.png)
+![Diagram showing PlanetScale workflow](/assets/docs/planetscale-workflow.png)
 
 ## Serverless databases
 

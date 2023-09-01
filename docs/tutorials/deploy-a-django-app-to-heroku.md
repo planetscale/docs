@@ -34,11 +34,11 @@ This article will make use of the [django-example GitHub repository](https://git
 
 It’s important to store the connection details for the PlanetScale database in **Config Vars** in Heroku so they are properly secured. These details can be obtained from the PlanetScale dashboard by clicking the "**Connect**" button.
 
-![The location of the “Connect” button in the PlanetScale dashboard.](/assets/docs/tutorials/deploy-a-django-app-to-heroku/database-2.png?v2)
+![The location of the “Connect” button in the PlanetScale dashboard.](/assets/docs/tutorials/deploy-a-django-app-to-heroku/database-2.png)
 
 In the following modal, choose Django from the “Connect with” dropdown. The .env tab will show all of the Config vars that need to be set up in Heroku. Take note of these and head to the Heroku dashboard.
 
-![The connection details for the project.](/assets/docs/tutorials/deploy-a-django-app-to-heroku/connect-2.png?v2)
+![The connection details for the project.](/assets/docs/tutorials/deploy-a-django-app-to-heroku/connect-2.png)
 
 Select the **Settings** tab of your Heroku project and then “**Reveal Config Vars”** from the Config **Vars** section. You should see your current Config Vars or an empty set of inputs if there are none configured yet.
 

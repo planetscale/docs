@@ -118,7 +118,7 @@ A production branch is a highly available database branch that includes an addit
 
 1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card to open a modal.
 
-   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png?v2)
+   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png)
 
 2. Toggle "**Enable safe migrations**", then click the "**Enable safe migrations**" button.
 

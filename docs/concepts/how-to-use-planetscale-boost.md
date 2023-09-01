@@ -22,7 +22,7 @@ Before you can use PlanetScale Boost, you must select a cache size. Cache sizes 
 | 8 GB       | 32 queries         |
 
 {% callout %}
-If you need a cache size greater than 8 GB, please [contact our support team](/support).
+If you need a cache size greater than 8 GB, please [contact our support team](https://support.planetscale.com).
 {% /callout %}
 
 To select a cache size, navigate to the "**Boost**" tab in the PlanetScale console and click "**Add a query cache**". A modal will appear asking you to select your desired cache size. Once you've selected the cache size needed for your application, click "**Add cache size**" to enable it.
