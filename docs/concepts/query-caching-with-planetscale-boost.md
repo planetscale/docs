@@ -37,9 +37,9 @@ With PlanetScale Boost, you keep application-level changes to a minimum and don'
 
 ## How it works
 
-When PlanetScale Boost is enabled for a database, a dedicated server is created and configured for the Vitess cluster running that database. This server hosts an in-memory data cache that stores partially materialized views of queries that are "boosted." When a boosted query is received by the [Vitess VTGate](https://vitess.io/docs/17.0/concepts/vtgate) (the lightweight proxy responsible for routing queries within a Vitess cluster) and routed to the PlanetScale Boost server, the query is rewritten from its current form into a single in-memory lookup, which in turn simulates the performance of a lookup within systems like `memcached` as opposed to querying a relational database.
+When PlanetScale Boost is enabled for a database, a dedicated server is created and configured for the Vitess cluster running that database. This server hosts an in-memory data cache that stores partially materialized views of queries that are "boosted." When a boosted query is received by the [Vitess VTGate](https://vitess.io/docs/concepts/vtgate) (the lightweight proxy responsible for routing queries within a Vitess cluster) and routed to the PlanetScale Boost server, the query is rewritten from its current form into a single in-memory lookup, which in turn simulates the performance of a lookup within systems like `memcached` as opposed to querying a relational database.
 
-PlanetScale Boost uses [Vitess VStream](https://vitess.io/docs/17.0/concepts/vstream/) under the hood to enable the constant streaming of query results to the cache. What about this instead? Because the result of the original query is already cached; we do not have to re-run the entire query when a change comes in, we just watch the change stream. As a result, we only have to recompute the small amount of data that changes.
+PlanetScale Boost uses [Vitess VStream](https://vitess.io/docs/concepts/vstream/) under the hood to enable the constant streaming of query results to the cache. What about this instead? Because the result of the original query is already cached; we do not have to re-run the entire query when a change comes in, we just watch the change stream. As a result, we only have to recompute the small amount of data that changes.
 
 ## PlanetScale Boost pricing
 

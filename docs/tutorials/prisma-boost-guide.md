@@ -1,7 +1,7 @@
 ---
 title: 'Prisma query caching with PlanetScale Boost'
 subtitle: 'Learn how to use PlanetScale Boost in a JavaScript application using Prisma.'
-date: '2022-11-15'
+date: '2023-08-11'
 ---
 
 This guide will walk you through two methods to connect to your database using the [PlanetScale Boost query caching feature](/docs/concepts/query-caching-with-planetscale-boost) using the Prisma ORM for JavaScript. It will follow along with the [Prisma quickstart guide](/docs/tutorials/prisma-quickstart), with a modified `PrismaClient` that sets the proper session variables to enable PlanetScale Boost.
@@ -23,7 +23,7 @@ export default prisma
 In order to instruct the `PrismaClient` to use PlanetScale Boost, the `@@boost_cached_queries` session variable needs to be set using the `$queryRaw` function:
 
 ```js
-prisma.$queryRaw`SET @@boost_cached_queries = true`
+await prisma.$queryRaw`SET @@boost_cached_queries = true`
 ```
 
 Here is an example of performing this operation on the `PrismaClient` once its initialized:
@@ -32,7 +32,7 @@ Here is an example of performing this operation on the `PrismaClient` once its i
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()
-prisma.$queryRaw`SET @@boost_cached_queries = true`
+await prisma.$queryRaw`SET @@boost_cached_queries = true`
 
 if (process.env.NODE_ENV === 'development') global.prisma = prisma
 
@@ -53,7 +53,7 @@ const prisma = global.prisma || new PrismaClient()
 if (process.env.NODE_ENV === 'development') global.prisma = prisma
 
 const boostedPrisma = new PrismaClient()
-boostedPrisma.$queryRaw`SET @@boost_cached_queries = true`
+await boostedPrisma.$queryRaw`SET @@boost_cached_queries = true`
 
 export { prisma, boostedPrisma }
 ```

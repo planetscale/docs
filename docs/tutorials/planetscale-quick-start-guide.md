@@ -32,7 +32,8 @@ Follow these steps to create a database:
 2. Name your database using lowercase, alphanumeric characters or underscores. You may also use dashes, but we don't recommend that, as sharded databases require them to be escaped.
 3. Select a [region](/docs/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Select the desired [plan type](/docs/concepts/billing#planetscale-plans) for your database.
-5. Finally, click the "**Create database**" button to deploy your database.
+5. Enter a valid credit or debit card. If you are creating a database on the **Hobby** plan, you will not be charged.
+6. Finally, click the "**Create database**" button to deploy your database.
 
 Your database is created with a [**default production branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. While this is just the first branch we create for you, you can always create new development branches (isolated copies of the production schema) off of production to use for development.
 
@@ -117,7 +118,7 @@ A production branch is a highly available database branch that includes an addit
 
 1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card to open a modal.
 
-   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png?v2)
+   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png)
 
 2. Toggle "**Enable safe migrations**", then click the "**Enable safe migrations**" button.
 

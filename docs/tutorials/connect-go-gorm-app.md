@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Go application using GORM to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Go application using GORM'
-date: '2023-06-21'
+date: '2023-07-11'
 ---
 
 ## Introduction
@@ -95,12 +95,12 @@ Both options are covered below.
 2. Open the `.env` file in your Go app and update `DSN` as follows:
 
    ```bash
-   DSN="<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true"
+   DSN="<USERNAME>:<PASSWORD>@tcp(<ACCESS HOST URL>)/<DATABASE_NAME>?tls=true&interpolateParams=true"
    ```
 
    Fill in `USERNAME`, `PASSWORD`, `ACCESS HOST URL`, and `DATABASE_NAME` with the appropriate values from the CLI output above. Do not remove the parentheses around the access host URL.
 
-   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Get connection strings**" > "**Connect with**" language dropdown > "**Go**".
+   You can also get these exact values to copy/paste from your PlanetScale dashboard. In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Go**".
 
 ### Option 2: Connect with the PlanetScale proxy
 
@@ -119,7 +119,7 @@ To connect with the PlanetScale proxy, you need the [PlanetScale CLI](https://gi
 3. Open the `.env` file in your Go app and update it as follows:
 
    ```bash
-   DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>"
+   DSN="mysql://root@tcp(127.0.0.1:<PORT>)/<DATABASE_NAME>?interpolateParams=true"
    ```
 
    The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal. Fill in the database name as well.
@@ -208,7 +208,7 @@ You may need to install the MySQL command line client if you haven't already.
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
-![PlanetScale console insert and select example](/assets/docs/tutorials/connect-go-gorm-app/console-2.png?v2)
+![PlanetScale console insert and select example](/assets/docs/tutorials/connect-go-gorm-app/console-2.png)
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Go database.
 2. Click on "**Console**".

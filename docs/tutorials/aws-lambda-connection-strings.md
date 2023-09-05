@@ -47,19 +47,19 @@ You may run `SELECT * FROM Tasks` to ensure the data was properly added from the
 
 Now we need to enable [**safe migrations**](/docs/concepts/safe-migrations) on the **main** branch. Click the **Overview** tab, then click the **cog** icon in the upper right of the infrastructure card.
 
-![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production-2.png?v2)
+![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production-2.png)
 
 Toggle on the "**Enable safe migrations**" option and click the "**Enable safe migrations**" button.
 
-![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations-2.png?v2)
+![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations-2.png)
 
-Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Get connection strings** button to open the Connect modal.
+Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button to open the Connect modal.
 
-![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted-2.png?v2)
+![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted-2.png)
 
 Select **NodeJS** from the **Connect with** dropdown, and note the details in the .env tab of the modal. These details will be required to connect to the database.
 
-![The connection string for this database](/assets/docs/tutorials/aws-lambda-connection-strings/connect-2.png?v2)
+![The connection string for this database](/assets/docs/tutorials/aws-lambda-connection-strings/connect-2.png)
 
 ## Configure the Lambda function
 

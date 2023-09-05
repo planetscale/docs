@@ -15,7 +15,7 @@ PlanetScale uses [database branches](/docs/concepts/branching) to create a devel
 You can connect to a _production_ or _development_ database branch. We recommend creating and connecting to a _development_ branch while in _development_, as it allows you to make schema changes without affecting production. Your production application, however, should be connected to your production database branch. Check out our [Branching guide](/docs/concepts/branching) for more information about the branching workflow.
 
 {% callout %}
-Note: By default, production branches have safe migrations turned off. This means that any schema changes you make will be applied immediately. Once you are ready to go to production, we recommend turning on safe migrations if you want to make non-blocking schema changes. Check out our [Safe migrations documentation](/docs/concepts/safe-migrations) for more information.
+By default, production branches have safe migrations turned off. This means that any schema changes you make will be applied immediately. Once you are ready to go to production, we recommend turning on safe migrations if you want to make non-blocking schema changes. Check out our [Safe migrations documentation](/docs/concepts/safe-migrations) for more information.
 {% /callout %}
 
 There are two ways to connect your app to PlanetScale. Both are covered below.
@@ -32,10 +32,10 @@ There are two ways to generate a new username and password for your branch:
 ### Generate credentials in the PlanetScale dashboard
 
 1. On the database overview page, select the branch you want to connect to from the **Branch** dropdown.
-2. Click "**Get connection strings**".
+2. Click "**Connect**".
 3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
-   ![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials-2.png?v2)
+   ![Credentials to connect to PlanetScale](/assets/docs/tutorials/connect-any-application/credentials-2.png)
 
 4. If the password isn't visible, click "New password".
 5. Copy the credentials.

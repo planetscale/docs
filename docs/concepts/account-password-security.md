@@ -1,6 +1,6 @@
 ---
 title: 'Account password security'
-subtitle: 'Securing your Planetscale.com account password'
+subtitle: 'Securing your PlanetScale.com account password'
 date: '2022-08-01'
 ---
 

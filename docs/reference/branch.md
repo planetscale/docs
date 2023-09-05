@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - branch'
-subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
+subtitle: 'Use the PlanetScale CLI “branch” command to create, delete, diff, and manage branches from your terminal.'
 date: '2023-04-05'
 meta:
   title: 'CLI reference - branch'
@@ -44,17 +44,17 @@ pscale branch <SUB-COMMAND> <FLAG>
 
 Some of the sub-commands have additional flags unique to the sub-command. This section covers what each of those does. See the above table for which context.
 
-| **Sub-command flag**            | **Description**                                                                                      | **Applicable sub-commands**                |
-| ------------------------------- | ---------------------------------------------------------------------------------------------------- | ------------------------------------------ |
-| `--from <SOURCE_BRANCH>`        | Parent branch that you want to create a new branch off of                                            | `create`                                   |
-| `--region <BRANCH_REGION>`      | Region where database should be created                                                              | `create`                                   |
-| `--restore <BACKUP_NAME>`       | Create a new branch from a specified backup                                                          | `create`                                   |
+| **Sub-command flag**            | **Description**                                                                                       | **Applicable sub-commands**                |
+| ------------------------------- | ----------------------------------------------------------------------------------------------------- | ------------------------------------------ |
+| `--from <SOURCE_BRANCH>`        | Parent branch that you want to create a new branch off of                                             | `create`                                   |
+| `--region <BRANCH_REGION>`      | Region where database should be created                                                               | `create`                                   |
+| `--restore <BACKUP_NAME>`       | Create a new branch from a specified backup                                                           | `create`                                   |
 | `--seed-data`                   | Create a new branch and seed data using the [Data Branching® feature](/docs/concepts/data-branching) | `create`                                   |
-| `--web`                         | Perform the action in your web browser                                                               | `create`, `diff`, `list`, `schema`, `show` |
-| `--wait`                        | Wait until the branch is ready                                                                       | `create`                                   |
-| `--database <DATABASE_NAME>`    | Specify the database name                                                                            | `switch`                                   |
-| `--create`                      | Create a new branch if it does not exist                                                             | `switch`                                   |
-| `--parent-branch <BRANCH_NAME>` | If a new branch is being created, use this to specify a parent branch. Default is `main`.            | `switch`                                   |
+| `--web`                         | Perform the action in your web browser                                                                | `create`, `diff`, `list`, `schema`, `show` |
+| `--wait`                        | Wait until the branch is ready                                                                        | `create`                                   |
+| `--database <DATABASE_NAME>`    | Specify the database name                                                                             | `switch`                                   |
+| `--create`                      | Create a new branch if it does not exist                                                              | `switch`                                   |
+| `--parent-branch <BRANCH_NAME>` | If a new branch is being created, use this to specify a parent branch. Default is `main`.             | `switch`                                   |
 
 ### Available flags
 

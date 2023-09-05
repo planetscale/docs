@@ -23,23 +23,19 @@ To follow along, you’ll need the following:
 
 Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**.
 
-![How to create a new database.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database-2.png?v2)
+![How to create a new database.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database-2.png)
 
 Name the database `travel_db`. Click **"Create database"**. Wait for the database to finish initializing before moving on.
 
-![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/initializing-2.png?v2)
+![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/initializing-2.png)
 
-Generate a set of credentials by clicking the **"Get connection strings"** button.
+Generate a set of credentials by clicking the **"Connect"** button.
 
-![The Connect button in the PlanetScale dashboard.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard-2.png?v2)
+![The Connect button in the PlanetScale dashboard.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard-2.png)
 
 Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
 
-![The Connect modal.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal-2.png?v2)
-
-{% callout %}
-When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You might notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`.
-{% /callout %}
+![The Connect modal.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal-2.png)
 
 On your workstation, open a terminal and clone the repository to your computer by running the following command:
 

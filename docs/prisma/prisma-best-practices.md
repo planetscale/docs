@@ -44,7 +44,7 @@ model Post {
 
 If you do not add the index, you might notice that some of your queries are slow or are performing full table scans and reading a lot of data. When you run `prisma format` or `prisma validate`, it will warn you about a missing index where you are using foreign key constraints.
 
-If you want to learn more about MySQL indexes, check out the [MySQL for Developers course section on indexes](https://planetscale.com/courses/mysql-for-developers/indexes/introduction-to-indexes).
+If you want to learn more about MySQL indexes, check out the [MySQL for Developers course section on indexes](https://planetscale.com/learn/courses/mysql-for-developers/indexes/introduction-to-indexes).
 
 ## Migration workflows using `prisma db push`
 
