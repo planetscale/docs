@@ -43,19 +43,22 @@ In order for PlanetScale to connect to your DigitalOcean database, you must allo
 ```
 3.209.149.66
 3.215.97.46
-34.193.111.15
 23.23.187.137
-52.6.141.108
-52.70.2.89
-50.17.188.76
-52.2.251.189
-52.72.234.74
-35.174.68.24
-52.5.253.172
-54.156.81.4
+34.193.111.15
 34.200.24.255
+35.173.174.19
+35.174.68.24
 35.174.79.154
 44.199.177.24
+44.212.228.57
+44.216.88.45
+50.17.188.76
+52.2.251.189
+52.5.253.172
+52.6.141.108
+52.70.2.89
+52.72.234.74
+54.156.81.4
 ```
 
 In the DigitalOcean dashboard, navigate to the “**Settings”** tab of your database and locate **Trusted sources** in the list of configuration items. Click “**Edit”** and the row should change to allow edits to the setting.
