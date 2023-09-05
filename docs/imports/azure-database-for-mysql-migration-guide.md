@@ -37,22 +37,19 @@ In order for PlanetScale to connect to your Azure database, you must allow traff
 ```
 3.209.149.66
 3.215.97.46
-23.23.187.137
 34.193.111.15
-34.200.24.255
-35.173.174.19
-35.174.68.24
-35.174.79.154
-44.199.177.24
-44.212.228.57
-44.216.88.45
-50.17.188.76
-52.2.251.189
-52.5.253.172
+23.23.187.137
 52.6.141.108
 52.70.2.89
+50.17.188.76
+52.2.251.189
 52.72.234.74
+35.174.68.24
+52.5.253.172
 54.156.81.4
+34.200.24.255
+35.174.79.154
+44.199.177.24
 ```
 
 To allow traffic into your Azure database, navigate to the “**Networking**” section from the sidebar and locate the **Firewall rules** section. There are already a series of inputs allowing you to add entries into the Firewall rules, each of which will permit network traffic from that IP address. Add a new entry for each address required, then click “Save” from the toolbar.

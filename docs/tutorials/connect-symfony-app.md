@@ -86,7 +86,7 @@ Both options are covered below.
 
 These instructions show you how to use the [PlanetScale CLI](/docs/concepts/planetscale-environment-setup) to generate a set of credentials.
 
-You can also get these exact values to to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Generate new password**" > "**General**" dropdown > "**Symfony**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
+You can also get these exact values to to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Get connection strings**" > "**Generate new password**" > "**General**" dropdown > "**Symfony**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
 
 1. Create a username and password with the PlanetScale CLI by running:
 

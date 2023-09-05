@@ -8,8 +8,10 @@ Schema versioning tools have existed long before their declarative counterparts.
 
 Migration files are typically stored along with the code and, using third-party tooling, are applied to the database incrementally as needed. Those files are usually numbered in the order they need to be applied. The system will use a dedicated table within your database to track which scripts have been applied, and which ones still need to be applied.
 
-{% callout type="note" %}
+{% callout %}
+
 If you're already well versed in versioned schema migrations and just want to see how they work using PlanetScale, skip to the [How to use versioned schema migrations with PlanetScale section](#how-to-use-versioned-schema-migrations-with-planetscale).
+
 {% /callout %}
 
 ## Example with Laravel and Artisan

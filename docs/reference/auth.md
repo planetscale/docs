@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - auth'
-subtitle: 'Use the PlanetScale CLI “auth” command to login, logout, and refresh your authentication from your terminal.'
+subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
 date: '2022-08-01'
 meta:
   title: 'CLI reference - auth'

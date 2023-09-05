@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - connect'
-subtitle: 'Use the PlanetScale CLI “connect” command to secure connection to a database branch for a local client from your terminal.'
+subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
 date: '2022-08-01'
 meta:
   title: 'CLI reference - connect'

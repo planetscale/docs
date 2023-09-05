@@ -81,7 +81,7 @@ Now you'll need to create credentials for your Rails application to use.
    ```
 
 {% callout %}
-You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
+**Note**: You can also create passwords in the PlanetScale dashboard, as documented [in our Creating a password documentation](/docs/concepts/connection-strings#creating-a-password).
 {% /callout %}
 
 ## Configure Rails and PlanetScale

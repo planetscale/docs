@@ -100,7 +100,7 @@ Both options are covered below.
 
 These instructions show you how to generate a set of credentials with [the PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
 
-You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Connect**" > "**Connect with**" language dropdown > "**Node.js**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
+You can also get these exact values to copy/paste from your [PlanetScale dashboard](https://app.planetscale.com). In the dashboard, click on the database > "**Get connection strings**" > "**Connect with**" language dropdown > "**Node.js**". If the password is blurred, click "**New password**". Skip to step 3 once you have these credentials.
 
 1. Authenticate the CLI with the following command:
 

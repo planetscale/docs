@@ -36,10 +36,12 @@ Currently, the following regions are supported, with their respective PlanetScal
 
 ### GCP regions
 
-- GCP us-central1 (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
-- GCP us-east4 (Ashburn, Virginia) &mdash; `gcp-us-east4`
-- GCP northamerica-northeast1 (Montréal, Québec, Canada) &mdash; `gcp-northamerica-northeast1`
-- GCP asia-northeast3 (Seoul, South Korea) &mdash; `gcp-asia-northeast3`
+GCP regions are in beta and currently have some limitations, which you can read about in our [GCP documentation](/docs/reference/gcp-regions).
+
+- (Beta) GCP us-central1 (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
+- (Beta) GCP us-east4 (Ashburn, Virginia) &mdash; `gcp-us-east4`
+- (Beta) GCP northamerica-northeast1 (Montréal, Québec, Canada) &mdash; `gcp-northamerica-northeast1`
+- (Beta) GCP asia-northeast3 (Seoul, South Korea) &mdash; `gcp-asia-northeast3`
 
 ## Selecting the database region
 
@@ -82,7 +84,7 @@ pscale branch create my-production-database add-tables --region eu-west
 
 [Organization Administrators](/docs/concepts/access-control#organization-administrator) can restrict branches to only being created in the same region as the one selected during database creation. To enable this setting, check the _Restrict region_ setting in the settings page for the database: `app.planetscale.com/<org>/<database>/settings`.
 
-![Restrict your branches to one region.](/assets/docs/concepts/regions/restrict-2.png)
+![Restrict your branches to one region.](/assets/docs/concepts/regions/restrict-2.png?v2)
 
 ## Changing branch and database regions
 

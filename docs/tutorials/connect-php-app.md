@@ -114,7 +114,7 @@ if ($mysqli->connect_error) {
 
 ### Option 1: Connect with username and password (Recommended)
 
-If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, select the branch you want to connect to from the infrastructure card (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Copy these credentials, and then skip to step 2 to fill them in.
+If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, select the branch you want to connect to from the infrastructure card (we're using `main`), click "**Get connection strings**", and select "**PHP**" from the language dropdown. Copy these credentials, and then skip to step 2 to fill them in.
 
 1. Create a username and password with the PlanetScale CLI by running:
 

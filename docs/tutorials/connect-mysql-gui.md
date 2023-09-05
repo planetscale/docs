@@ -17,7 +17,7 @@ To connect to a PlanetScale database, you'll need four pieces of information:
 - Username
 - Password
 
-The easiest way to gather this information is by accessing the branch of the database you wish to connect to and selecting the **"Connect"** button from the **"Overview"** tab.
+The easiest way to gather this information is by accessing the branch of the database you wish to connect to and selecting the **"Get connection strings"** button from the **"Overview"** tab.
 
 ![Open the Connect modal.](/assets/docs/tutorials/connect-mysql-gui/connect.png)
 

@@ -155,7 +155,7 @@ Some of the tools achieve this like so:
 
 Consider a counter example to our previous scenario. Imagine we're now intercepting a change to row `1024`, but row copy has not reached that row yet. We apply the change. When we finally reach and copy the range that includes row `1024`, that specific row does _not_ get overwritten. Now, what if by that time of row copy the row has been updated again? Isn't the row copy now even more up-to-date than the existing `1024` row on the ghost table? It is, in fact. But if that is the case, then there must have been a change, an `UPDATE` to row `1024`, that we just haven't applied yet, and are yet to discover and apply via `REPLACE INTO`.
 
-Different tools tackle this issue differently. A synchronous solution like `pt-online-schema-change` is _always_ up-to-date with ongoing changes, while [Vitess's VReplication](https://vitess.io/docs/reference/vreplication/vreplication/) takes a completely different approach by marking GTID positions that have been or not have been already covered. The above should serve as a good illustration to the flow, regardless of the actual implementation.
+Different tools tackle this issue differently. A synchronous solution like `pt-online-schema-change` is _always_ up-to-date with ongoing changes, while [Vitess's VReplication](https://vitess.io/docs/12.0/reference/vreplication/vreplication/) takes a completely different approach by marking GTID positions that have been or not have been already covered. The above should serve as a good illustration to the flow, regardless of the actual implementation.
 
 ## Monitor and throttle
 
@@ -192,4 +192,4 @@ Most tools stop their operation and their interest at cut-over. Vitess, in parti
 - allow the migration to be _reverted_
 - clean up the left over tables
 
-For more information about how Vitess handles schema changes, check out the [Vitess Schema Changes documentation](https://vitess.io/docs/user-guides/schema-changes/).
+For more information about how Vitess handles schema changes, check out the [Vitess Schema Changes documentation](https://vitess.io/docs/13.0/user-guides/schema-changes/).

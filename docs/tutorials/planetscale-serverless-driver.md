@@ -26,9 +26,13 @@ npm install @planetscale/database
 
 The first step to using the PlanetScale serverless driver for JavaScript is to connect to your database.
 
-You can get your connection string in the PlanetScale dashboard by clicking on your database, clicking "**Connect**", and selecting `@planetscale/database` from the dropdown.
+You can get your connection string in the PlanetScale dashboard by clicking on your database, clicking "**Get connection strings**", and selecting `@planetscale/database` from the dropdown.
 
-![Serverless driver connection string](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials-2.png)
+![Serverless driver connection string](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials-2.png?v2)
+
+{% callout %}
+When using the serverless JS driver, your host name will always be `aws.connect.psdb.cloud`. You will notice this is slightly different from the regular PlanetScale connection strings, which are formatted as `<REGION>.connect.psdb.cloud`.
+{% /callout %}
 
 Use the `connect` function to create the connection and return it to an object.
 

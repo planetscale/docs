@@ -33,7 +33,7 @@ Before you can use the feature, you have to enable it in your database settings 
    - **None** &mdash; Creates a database branch with only the **schema** copied to the new branch.
    - **From most recent backup** &mdash; Creates a database branch with both the **schema and data** from the latest backup of the Base branch.
 
-   ![PlanetScale dashboard new branch dialog with seed option](/assets/docs/concepts/data-branching/branch.jpg)
+   ![PlanetScale dashboard new branch dialog with seed option](/assets/docs/concepts/data-branching/branch.png)
 
 3. Once you've selected an option, click "**Create branch**" to create a new branch.
 

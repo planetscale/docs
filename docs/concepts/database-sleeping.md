@@ -46,7 +46,7 @@ Because database sleeping only applies to databases on the free Hobby plan, anot
 
 Once your database is sleeping, you can wake it in your PlanetScale dashboard.
 
-![PlanetScale dashboard database page - Sleeping database](/assets/docs/concepts/database-sleeping/database-2.png)
+![PlanetScale dashboard database page - Sleeping database](/assets/docs/concepts/database-sleeping/database-2.png?v2)
 
 ### Steps to wake a sleeping database:
 

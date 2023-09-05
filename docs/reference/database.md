@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - database'
-subtitle: 'Use the PlanetScale CLI “database” command to create, read, delete, dump, and restore databases from your terminal.'
+subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
 date: '2023-07-13'
 meta:
   title: 'CLI reference - database'
@@ -47,8 +47,6 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 | `--local-addr <ADDRESS>`    | Local address to bind and listen for connections. By default the proxy binds to 127.0.0.1 with a random port. | `dump`, `restore-dump`      |
 | `--output <DIRECTORY_NAME>` | Output directory of the dump. By default the dump is saved to a folder in the current directory.              | `dump`                      |
 | `--tables <TABLES_LIST>`    | Comma separated string of tables to dump. By default, all tables are dumped.                                  | `dump`                      |
-| `--wheres string`           | Comma separated string of WHERE clauses to filter the tables to dump.                                         | `dump`                      |
-| `--replica`                 | Dump from a replica (if available; will fail if not).                                                         | `dump`                      |
 | `--dir <DIRECTORY_NAME>`    | Directory containing the files to be used for the restore.                                                    | `restore-dump`              |
 | `--overwrite-tables`        | If true, will attempt to DROP TABLE before restoring.                                                         | `restore-dump`              |
 | `--web`                     | Perform the action in your web browser                                                                        | `show`                      |

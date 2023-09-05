@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - backup'
-subtitle: 'Use the PlanetScale CLI “backup” command to create, list, show, and delete branch backups from your terminal.'
+subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
 date: '2022-08-01'
 meta:
   title: 'CLI reference - backup'
