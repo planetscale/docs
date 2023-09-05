@@ -16,7 +16,7 @@ jobs:
         run: bash script/sync-upstream.sh
         env:
           DESTINATION_BRANCH: main
-          DESTINATION_DIRECTORY: "content/docs"
+          DESTINATION_DIRECTORY: 'src/content/docs'
           DESTINATION_REPOSITORY: planetscale/www
           PAT: ${{ secrets.PAT }}
           SOURCE_DIRECTORY: docs
