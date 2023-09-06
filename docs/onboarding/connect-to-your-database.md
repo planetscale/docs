@@ -1,7 +1,7 @@
 ---
 title: Connect to your database
 subtitle: Understand how to connect your application to your PlanetScale database.
-date: '2022-09-13'
+date: '2023-09-05'
 ---
 
 ## Overview
@@ -17,8 +17,6 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 ## Create a connection string
 
 Open the `beam-demo` database and click the **"Connect"** button.
-
-![The Overview tab of the database with the Connect button highlighted.](/assets/docs/onboarding/connect-to-your-database/connect-2.png)
 
 The following modal will provide the information required to connect to your database. If this is your first time accessing the **Connect** modal, the password will be displayed in plain text, otherwise, the password will be masked.
 

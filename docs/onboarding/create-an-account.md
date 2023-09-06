@@ -1,7 +1,7 @@
 ---
 title: Set up your PlanetScale account
 subtitle: The first step in using PlanetScale is to create an account.
-date: '2022-09-13'
+date: '2023-09-05'
 ---
 
 ## Overview
@@ -24,9 +24,7 @@ The email will contain a link you can click to verify that you own the address. 
 
 ![An example of the confirmation email sent by PlanetScale.](/assets/docs/onboarding/create-an-account/an-example-of-the-confirmation-email-sent-by-planetscale.png)
 
-Once you confirm, you’ll be prompted to log in. You will then be presented with a step-by-step guide explaining the core concepts of PlanetScale. Feel free to step through the on-screen guide, or move down to the **Next steps** section for a comprehensive guide on either creating a new database.
-
-![The 'Welcome to PlanetScale' landing page.](/assets/docs/onboarding/create-an-account/the-welcome-to-planetscale-landing-page.png)
+Once you confirm, you’ll be prompted to log in. You will then be presented with the option to create or import a database.
 
 {% callout title="Next steps" %}
 Now that you have an account set up, the next step to setting up PlanetScale is by creating a database.
