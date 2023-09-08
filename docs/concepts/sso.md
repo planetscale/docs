@@ -25,6 +25,7 @@ It's important to understand how enabling SSO will affect your Organization. Onc
 
 - All non-admin members will be removed from the organization.
 - [Organization Administrators](/docs/concepts/access-control#organization-administrator) will remain in the Organization so they can configure SSO without losing access.
+  - All administrators will retain access with their old credentials, until they logout and login through their Identity Provider. Once they've authenticated through their Identity Provider the account will only be usable with SSO authentication.
 - Each [Organization Member](https://app.planetscale.com/planetscale/settings/members) must re-authenticate using SSO. Once they've authenticated, they will be automatically added back to the organization.
 - Organization Member invites will be disabled when SSO is enabled; all Organization Membership will be managed through SSO.
 - Organization Members that were [Database Administrators](/docs/concepts/access-control#database-administrator) before will no longer have that role upon rejoining. You must assign them the role after they re-authenticate with SSO.
