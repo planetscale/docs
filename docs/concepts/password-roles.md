@@ -28,10 +28,10 @@ The access level available to these roles is shown in the table below.
 
 | Role name  | Can create/edit schema | Can insert/update/delete rows | Can query rows |
 | :--------- | :--------------------- | :---------------------------- | :------------- |
-| Read-only  | ❌                     | ❌                            | ✔              |
-| Write-only | ❌                     | ✔                             | ❌             |
-| Read/write | ❌                     | ✔                             | ✔              |
-| Admin      | ✔                      | ✔                             | ✔              |
+| Read-only  | ❌                     | ❌                            | ✔             |
+| Write-only | ❌                     | ✔                            | ❌             |
+| Read/write | ❌                     | ✔                            | ✔             |
+| Admin      | ✔                     | ✔                            | ✔             |
 
 {% callout %}
 The default role for all passwords created by the **Connect** button is `Administrator`. Passwords with custom roles

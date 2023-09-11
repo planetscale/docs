@@ -61,7 +61,7 @@ The usage-based plans are summarized below:
 | **Audit log retention**                                                      | 5 days         | 15 days                |
 | **Automatic backups**                                                        | Daily          | Every 12 hours         |
 | **Support**                                                                  | Community      | Standard               |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Not included   | Not included           |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Not included   | Not included           |
 | **Monthly cost**                                                             | $0             | $29 per database       |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included   | Available as an add-on |
 
@@ -207,7 +207,7 @@ All Scaler Pro plans, regardless of cluster size, share the following features:
 | **Audit log retention**                                                      | 15 days                           |
 | **Automatic backups**                                                        | Every 12 hours                    |
 | **Support**                                                                  | Standard, upgrade available\*\*\* |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                          |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                          |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on            |
 
 \* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
@@ -244,7 +244,7 @@ The Enterprise plan is fully customizable to suit your businesses needs. For mor
 | **Audit log retention**                                                      | Configurable                             |
 | **Automated Backups**                                                        | Configurable                             |
 | **Support**                                                                  | Business, upgrade available\*            |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                                 |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                 |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                   |
 | **Monthly cost**                                                             | Custom                                   |
 

@@ -19,21 +19,23 @@ A schema refers to the structure of the database. The most common parts of a sch
 
 ## Create a database
 
-If you’ve come here directly from creating your account, you should on your organization's overview page where you can choose to either: Create a new database or import a database. 
+If you’ve come here directly from creating your account, you should on your organization's overview page where you can choose to either: Create a new database or import a database.
 
-Click the button to **"Create a new database"**. 
+Click the button to **"Create a new database"**.
 
-On the next page, you will need to: 
+On the next page, you will need to:
+
 - Name the database `beam-demo`.
 - Select a region. There are several geographical regions you can host your database in. You will want to select the region closest to your application servers connecting to the database.
 - Select the desired [Plan type](/docs/concepts/billing#planetscale-plans) for your database.
-- Add a valid credit or debit card to your account. In order to prevent fraud, PlanetScale requires a valid payment method to create databases. You will not be charged unless you create a Scaler or Scaler Pro database. 
+- Add a valid credit or debit card to your account. In order to prevent fraud, PlanetScale requires a valid payment method to create databases. You will not be charged unless you create a Scaler or Scaler Pro database.
 
 Then, click **"Create database"**. For the next step to create a table, you can select the option to connect to the database later with "**I’ll do this later**" button.
 
 Next, you’ll be dropped into the dashboard for that specific database. Let's take a look at the layout and what each element does before moving on.
 
 The tabs from left to right are:
+
 - **Overview** &mdash; The current tab showing an overview of your database.
 - **Deploy requests** &mdash; How you apply changes to your database schema. More on that in the next article.
 - **Branches** &mdash; View the different branches of your database. Again, more on that in the next article.
@@ -43,7 +45,8 @@ The tabs from left to right are:
 - **Backups** &mdash; Shows you backup schedule and all backups for this database across production and development branches.
 - **Settings** &mdash; Lets you tweak various aspects of your database like who has access to it, beta feature opt-ins, and plan management.
 
-Two other important buttons are: 
+Two other important buttons are:
+
 - **New branch** &mdash; Allows you to create a new branch of your schema.
 - **Connect** &mdash; Provides connection details that applications can use to connect to your database.
 

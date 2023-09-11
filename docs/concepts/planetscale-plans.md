@@ -36,7 +36,7 @@ Self-serve is comprised of three plans that you can sign up for from the PlanetS
 | **Audit log retention**                                                      | 5 days         | 15 days                |
 | **Automatic backups**                                                        | Daily          | Every 12 hours         |
 | **Support**                                                                  | Community      | Standard               |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Not included   | Not included           |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Not included   | Not included           |
 | **Monthly cost**                                                             | $0             | $29 per database       |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included   | Available as an add-on |
 
@@ -76,7 +76,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | **Audit log retention**                                                      | 15 days                           |
 | **Automatic backups**                                                        | Every 12 hours                    |
 | **Support**                                                                  | Standard, upgrade available\*\*\* |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                          |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                          |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on            |
 
 \* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
@@ -137,13 +137,13 @@ PlanetScale's Enterprise Plan is great for users that want to scale farther, sha
 
 |                             | **Multi-Tenant** | **Single-Tenant** | **Managed** |
 | --------------------------- | ---------------- | ----------------- | ----------- |
-| Resource-based pricing      | ✔                | ✔                 | ✔           |
-| Horizontal sharding         | ✔                | ✔                 | ✔           |
-| Unlimited connections       | ✔                | ✔                 | ✔           |
-| Customizable feature limits | ✔                | ✔                 | ✔           |
-| BAAs available              | ❌               | ✔                 | ✔           |
-| Dedicated AWS/GCP account   | ❌               | ✔                 | ✔           |
-| Your own AWS/GCP account    | ❌               | ❌                | ✔           |
+| Resource-based pricing      | ✔               | ✔                | ✔          |
+| Horizontal sharding         | ✔               | ✔                | ✔          |
+| Unlimited connections       | ✔               | ✔                | ✔          |
+| Customizable feature limits | ✔               | ✔                | ✔          |
+| BAAs available              | ❌               | ✔                | ✔          |
+| Dedicated AWS/GCP account   | ❌               | ✔                | ✔          |
+| Your own AWS/GCP account    | ❌               | ❌                | ✔          |
 
 ## How do I know if I need an Enterprise plan?
 

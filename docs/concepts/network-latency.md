@@ -64,6 +64,7 @@ This does not apply to PlanetScale Managed and single-tenant customers who have 
 PlanetScale's optimized hostname uses Route 53's [latency-based](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy-latency.html) routing to connect to the closest edge in PlanetScale's network. Using this hostname optimizes latency and improves reliability as it can route around regional network outages.
 
 Examples of optimized hostnames:
+
 - `aws.connect.psdb.cloud`
 - `gcp.connect.psdb.cloud`
 

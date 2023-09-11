@@ -42,31 +42,31 @@ The following table describes permissions assigned at the organization level for
 
 | Action                                 | Description                                                                    | Member | Administrator |
 | -------------------------------------- | ------------------------------------------------------------------------------ | ------ | ------------- |
-| View branches                          | View a database branch                                                         | ✔      | ✔             |
-| Create branches                        | Create a database branch                                                       | ✔      | ✔             |
-| Delete non-production branches         | Delete a non-production database branch                                        | ✔      | ✔             |
-| View databases                         | View one or all databases                                                      | ✔      | ✔             |
-| Create databases                       | Create a new database                                                          | ✔      | ✔             |
-| Create deploy requests                 | Create a deploy request for a branch                                           | ✔      | ✔             |
-| Manage service tokens                  | Create, view, or delete service tokens                                         | ✔      | ✔             |
-| Manage service token grants            | Create, view, update, or delete service token grants                           | ✔      | ✔             |
-| View organization members              | View one or all organization members                                           | ✔      | ✔             |
-| View database members                  | View one or all database members                                               | ✔      | ✔             |
-| View organization                      | View an organization                                                           | ✔      | ✔             |
-| View query statistics                  | View query statistics for an organization's databases                          | ✔      | ✔             |
-| Delete production branches             | Delete a production database branch                                            |        | ✔             |
-| Promote branches                       | Promote a branch to production                                                 |        | ✔             |
-| Manage databases                       | Delete, update settings, or import a database                                  |        | ✔             |
-| Manage beta features                   | Opt-in or opt-out of a beta feature                                            |        | ✔             |
-| Create production service token grants | Create a service token grant to connect or delete a production database branch |        | ✔             |
-| Update an integration                  | Update a third-party integration                                               |        | ✔             |
-| Manage invitations                     | View, create, or cancel organization invitations                               |        | ✔             |
-| Manage invoices                        | View or download organization invoices                                         |        | ✔             |
-| Manage billing                         | View or update billing plans and payment methods                               |        | ✔             |
-| View audit logs                        | View all audit logs                                                            |        | ✔             |
-| Manage organization members            | Update member roles or delete organization members                             |        | ✔             |
-| Manage database members                | Update member roles, add, or remove database members                           |        | ✔             |
-| Manage organization                    | Update organization settings, SSO, or delete organization                      |        | ✔             |
+| View branches                          | View a database branch                                                         | ✔     | ✔            |
+| Create branches                        | Create a database branch                                                       | ✔     | ✔            |
+| Delete non-production branches         | Delete a non-production database branch                                        | ✔     | ✔            |
+| View databases                         | View one or all databases                                                      | ✔     | ✔            |
+| Create databases                       | Create a new database                                                          | ✔     | ✔            |
+| Create deploy requests                 | Create a deploy request for a branch                                           | ✔     | ✔            |
+| Manage service tokens                  | Create, view, or delete service tokens                                         | ✔     | ✔            |
+| Manage service token grants            | Create, view, update, or delete service token grants                           | ✔     | ✔            |
+| View organization members              | View one or all organization members                                           | ✔     | ✔            |
+| View database members                  | View one or all database members                                               | ✔     | ✔            |
+| View organization                      | View an organization                                                           | ✔     | ✔            |
+| View query statistics                  | View query statistics for an organization's databases                          | ✔     | ✔            |
+| Delete production branches             | Delete a production database branch                                            |        | ✔            |
+| Promote branches                       | Promote a branch to production                                                 |        | ✔            |
+| Manage databases                       | Delete, update settings, or import a database                                  |        | ✔            |
+| Manage beta features                   | Opt-in or opt-out of a beta feature                                            |        | ✔            |
+| Create production service token grants | Create a service token grant to connect or delete a production database branch |        | ✔            |
+| Update an integration                  | Update a third-party integration                                               |        | ✔            |
+| Manage invitations                     | View, create, or cancel organization invitations                               |        | ✔            |
+| Manage invoices                        | View or download organization invoices                                         |        | ✔            |
+| Manage billing                         | View or update billing plans and payment methods                               |        | ✔            |
+| View audit logs                        | View all audit logs                                                            |        | ✔            |
+| Manage organization members            | Update member roles or delete organization members                             |        | ✔            |
+| Manage database members                | Update member roles, add, or remove database members                           |        | ✔            |
+| Manage organization                    | Update organization settings, SSO, or delete organization                      |        | ✔            |
 
 ## Database-level permissions
 
@@ -76,20 +76,20 @@ For `Organization Administrators` and `Organization Members`, these permissions 
 
 | Action                         | Description                                                   | Member | Administrator |
 | ------------------------------ | ------------------------------------------------------------- | ------ | ------------- |
-| Create and view branches       | Create or view a database branch                              | ✔      | ✔             |
-| Delete non-production branches | Delete a non-production branch of a specific database         | ✔      | ✔             |
-| View database                  | View a database in an organization                            | ✔      | ✔             |
-| Create deploy requests         | Create a deploy request for a branch on a specific database   | ✔      | ✔             |
-| View database members          | View one or all database members                              | ✔      | ✔             |
-| View query statistics          | View query statistics for an organization's databases         | ✔      | ✔             |
-| Restore non-production backups | Restore the backup of a development branch                    | ✔      | ✔             |
-| Manage billing                 | Update the billing plan of a specific database                |        | ✔             |
-| Delete production branches     | Delete a production database branch of a specific database    |        | ✔             |
-| Promote branches               | Promote a branch of a specific database to production         |        | ✔             |
-| Manage database                | Delete, update settings, or import a database                 |        | ✔             |
-| Manage beta features           | Opt-in or opt-out of a beta feature for a database            |        | ✔             |
-| Manage database members        | Update database member roles, add, or remove database members |        | ✔             |
-| Restore production backups     | Restore the backup of a production branch                     |        | ✔             |
+| Create and view branches       | Create or view a database branch                              | ✔     | ✔            |
+| Delete non-production branches | Delete a non-production branch of a specific database         | ✔     | ✔            |
+| View database                  | View a database in an organization                            | ✔     | ✔            |
+| Create deploy requests         | Create a deploy request for a branch on a specific database   | ✔     | ✔            |
+| View database members          | View one or all database members                              | ✔     | ✔            |
+| View query statistics          | View query statistics for an organization's databases         | ✔     | ✔            |
+| Restore non-production backups | Restore the backup of a development branch                    | ✔     | ✔            |
+| Manage billing                 | Update the billing plan of a specific database                |        | ✔            |
+| Delete production branches     | Delete a production database branch of a specific database    |        | ✔            |
+| Promote branches               | Promote a branch of a specific database to production         |        | ✔            |
+| Manage database                | Delete, update settings, or import a database                 |        | ✔            |
+| Manage beta features           | Opt-in or opt-out of a beta feature for a database            |        | ✔            |
+| Manage database members        | Update database member roles, add, or remove database members |        | ✔            |
+| Restore production backups     | Restore the backup of a production branch                     |        | ✔            |
 
 An organization may have several databases, and an `Organization Member` may have different access to each database depending on whether or not they also have the `Database Administrator` role.
 
