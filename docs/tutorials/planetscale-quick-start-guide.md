@@ -29,7 +29,7 @@ You'll need [a PlanetScale account](https://auth.planetscale.com/sign-up) to com
 Follow these steps to create a database:
 
 1. Click "**New database**" > "**Create a database**" on your organization's overview page.
-2. Name your database. 
+2. Name your database.
 3. Select a [region](/docs/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Select the desired [plan type](/docs/concepts/billing#planetscale-plans) for your database.
 5. Enter a valid credit or debit card. If you are creating a database on the **Hobby** plan, you will not be charged.
