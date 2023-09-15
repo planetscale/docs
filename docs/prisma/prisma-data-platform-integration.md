@@ -22,7 +22,7 @@ If you're importing, click "**Import a Prisma repository**", and then select the
 
 Make sure your imported project has a `schema.prisma` file. You can specify the path of the file in the "**Prisma Schema path**" input box. This file must be relative to the repository root.
 
-![Prisma Data Platform project configuration](/assets/docs/prisma/prisma-data-platform-integration/project.png)
+![Prisma Data Platform project configuration](/assets/docs/tutorials/prisma-data-platform-integration/project.png)
 
 ## Select a template
 
@@ -32,7 +32,7 @@ In order for Prisma Data Platform to work seamlessly with PlanetScale, you need 
 Currently, you cannot use one of the existing templates with PlanetScale. If you do, you will likely see a "foreign key constraints are not allowed error." You will need to edit your Prisma schema file in your GitHub repo and push to the repo and PlanetScale as described below.
 {% /callout %}
 
-![Prisma Data Platform project template options](/assets/docs/prisma/prisma-data-platform-integration/templates.png)
+![Prisma Data Platform project template options](/assets/docs/tutorials/prisma-data-platform-integration/templates.png)
 
 ## Configure the environment
 
