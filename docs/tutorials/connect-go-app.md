@@ -4,7 +4,7 @@ subtitle: Learn how to use Go with PlanetScale by exploring a demo Go API built 
 date: '2023-07-11'
 ---
 
-{% vimeo src="https://player.vimeo.com/video/759188218" caption="Connect to PlanetScale with Go" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/759188218" caption="Connect to PlanetScale with Go" /%}
 
 ## Introduction
 

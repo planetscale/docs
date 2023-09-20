@@ -50,7 +50,7 @@ Once you're ready to deploy schema changes from your development branch to produ
 
 The final piece of the non-blocking schema change workflow is the ability to [revert a recently deployed schema change](/docs/concepts/deploy-requests#revert-a-schema-change) without losing any data that was written since deploying.
 
-{% vimeo src="https://player.vimeo.com/video/830571822" caption="Demonstration of how to revert a schema change" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571822" caption="Demonstration of how to revert a schema change" /%}
 
 Despite all the safeguards we put in place, accidents can happen. If someone on your team deploys a schema change, only to realize afterward that it adversely affected the application, you can simply revert it in the PlanetScale dashboard with the click of a button. Perhaps the most impressive part is that when you revert, you won't lose any data that was written to your database during the time the updated schema was live. We keep track of it and apply it back to the original schema once you revert.
 
@@ -70,7 +70,7 @@ We generally recommend sharding when your database exceeds 250 GB of data. Shard
 
 [PlanetScale Insights](/docs/concepts/query-insights) is our in-dashboard query performance analytics tool. What's unique about Insights is you can track performance down to the individual query level.
 
-{% vimeo src="https://player.vimeo.com/video/830571854" caption="This video shows an example Insights page." /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571854" caption="This video shows an example Insights page." /%}
 
 At a glance, the interactive graph shows you query latency, queries per second, rows read, and rows written charted against time. You'll also see any deploy requests on the graph, so you can quickly see the impact of those changes.
 

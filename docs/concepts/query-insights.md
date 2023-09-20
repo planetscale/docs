@@ -14,7 +14,7 @@ To view Insights for your database, head to the [PlanetScale dashboard](https://
 
 Below is an overview of what you'll find on this page. If you'd like to see a practical example of how to use Insights to debug a performance issue, check out our [Announcing Insights blog post](/blog/introducing-planetscale-insights-advanced-query-monitoring).
 
-{% vimeo src="https://player.vimeo.com/video/830571854" caption="This video shows an example Insights page. All explanations are covered in this doc." /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571854" caption="This video shows an example Insights page. All explanations are covered in this doc." /%}
 
 {% callout %}
 On the free Hobby plan, query insights are limited to the previous 24 hours. To unlock the full seven days of

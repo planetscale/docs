@@ -18,7 +18,7 @@ If you already have your PlanetScale database set up, you may find the [Connecti
 
 This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started--planetscale-dashboard) or using the [PlanetScale CLI](#getting-started--planetscale-cli).
 
-{% vimeo src="https://player.vimeo.com/video/830571983" caption="A video demo of everything covered in this guide" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571983" caption="A video demo of everything covered in this guide" /%}
 
 ## Getting started &mdash; PlanetScale dashboard
 

@@ -23,7 +23,7 @@ Before you can use the feature, you have to enable it in your database settings 
 3. Scroll to the option with the text "**Enable Data Branching®**"
 4. Enable this option and click "**Save database settings**".
 
-{% vimeo src="https://player.vimeo.com/video/830595378" caption="Demonstration of how to enable the Data Branching® feature" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830595378" caption="Demonstration of how to enable the Data Branching® feature" /%}
 
 ## Create a development branch with data & schema from the Base branch
 
@@ -37,7 +37,7 @@ Before you can use the feature, you have to enable it in your database settings 
 
 3. Once you've selected an option, click "**Create branch**" to create a new branch.
 
-{% vimeo src="https://player.vimeo.com/video/830572488" caption="Demonstration of how to create a PlanetScale branch with data" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830572488" caption="Demonstration of how to create a PlanetScale branch with data" /%}
 
 ### FAQ
 
