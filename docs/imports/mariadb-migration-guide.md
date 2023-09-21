@@ -1,7 +1,7 @@
 ---
 title: 'MariaDB migration guide'
 subtitle: 'Learn how to import your database from a MariaDB server into a PlanetScale MySQL database.'
-date: '2023-04-19'
+date: '2023-09-21'
 ---
 
 ## Overview
@@ -73,10 +73,10 @@ Now you can configure the necessary permissions on the database you wish to migr
 GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW, LOCK TABLES ON `<DATABASE_NAME>`.* TO 'migration_user'@'%';
 ```
 
-Finally, you’ll need to configure permissions on a table called `_vt` that will be used to track replication between MariaDB and PlanetScale.
+Finally, you’ll need to configure permissions on a database called `ps_imports_*` (the last portion of the name will vary) that will be used to track replication between MariaDB and PlanetScale.
 
 ```sql
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `_vt`.* TO 'migration_user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `ps_import\_%`.* TO 'migration_user'@'%';
 ```
 
 For a full explanation on what each of these grants do, [our article on configuring a migration account for MySQL databases](/docs/imports/import-tool-user-requirements) details each requirement.
