@@ -95,8 +95,8 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
    ![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
 
    {% callout %}
-   **Important:** The sync frequency may affect your PlanetScale billing depending on the selected plan. The rows read during sync are
-   counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of
+   **Important:** The sync frequency may affect your PlanetScale billing depending on your selected plan. The rows read during sync are
+   counted toward your database rows read, so if you choose "Full refresh", and you are on a [usage-based plan](/docs/concepts/planetscale-plans#usage-based-plans) (Hobby or Scaler), you will be billed for full table reads of
    all tables selected every time the sync runs.
 
    You can find more information about your plan's read limits in our
