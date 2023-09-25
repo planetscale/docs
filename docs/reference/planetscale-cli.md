@@ -8,7 +8,7 @@ date: '2022-08-01'
 
 Make sure to first [set up your PlanetScale developer environment](/docs/concepts/planetscale-environment-setup). Once you've installed the `pscale` CLI, you can interact with PlanetScale and manage your databases straight from the command line.
 
-![PlanetScale CLI](/assets/docs/reference/planetscale-cli/cli.png)
+![PlanetScale CLI {priority}](/assets/docs/reference/planetscale-cli/cli.png)
 
 Ready to take these commands for a run on the terminal?
 

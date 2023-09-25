@@ -21,7 +21,7 @@ PlanetScale can push metrics to Datadog to assist your team with understanding y
 
 Once complete, a "PlanetScale" dashboard will be available with incoming metrics from PlanetScale.
 
-![Image of the PlanetScale Default Dashboard in Datadog showing overview metrics, table and row breakdowns, info about connections, and query rates](/assets/docs/integrations/datadog/dashboard.png)
+![Image of the PlanetScale Default Dashboard in Datadog showing overview metrics, table and row breakdowns, info about connections, and query rates {priority}](/assets/docs/integrations/datadog/dashboard.png)
 
 ## Metrics We Collect
 

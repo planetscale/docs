@@ -25,7 +25,7 @@ You’ll also need to gather the following pieces of information from the GCP Co
 
 The public IP address can be found in the **Overview tab** of your CloudSQL cluster under the **Connect to this instance** section.
 
-![The GCP CloudSQL console with the IP address highlighted.](/assets/docs/imports/gcp-cloudsql-migration-guide/the-gcp-cloudsql-console-with-the-ip-address-highlighted.png)
+![The GCP CloudSQL console with the IP address highlighted. {priority}](/assets/docs/imports/gcp-cloudsql-migration-guide/the-gcp-cloudsql-console-with-the-ip-address-highlighted.png)
 
 A list of your databases can be found in the **Databases** tab. In this guide, we’ll be using the `tasksdb` database.
 

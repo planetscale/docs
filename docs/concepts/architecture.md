@@ -16,7 +16,7 @@ On the dashboard of every PlanetScale database is a diagram outlining the infras
 
 When a new development branch is created, a single MySQL node is created along with a load balancer that handles connections to that node. This is reflected in the diagram of a development branch.
 
-![Dev branch architecture](/assets/docs/concepts/architecture/dev-infra.png)
+![Dev branch architecture {priority}](/assets/docs/concepts/architecture/dev-infra.png)
 
 ### Production branches
 

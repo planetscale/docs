@@ -15,7 +15,7 @@ This IP reference guide is meant to be used in combination with our
 "Migration guides" in the left nav.
 {% /callout %}
 
-![The New database section of the Import database tool.](/assets/docs/imports/import-tool-migration-addresses/region.png)
+![The New database section of the Import database tool. {priority}](/assets/docs/imports/import-tool-migration-addresses/region.png)
 
 {% table %}
 

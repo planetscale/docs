@@ -27,7 +27,7 @@ To import an existing database into PlanetScale:
    Importing a database will **not** count towards your `read` or `write` usage.
    {% /callout %}
 
-   ![Select name and region for new database import](/assets/docs/imports/database-imports/form.png)
+   ![Select name and region for new database import {priority}](/assets/docs/imports/database-imports/form.png)
 
 5. Fill in the following connection values with information from your existing hosted database:
 

@@ -16,7 +16,7 @@ If you're already well versed in versioned schema migrations and just want to se
 
 The following example uses the default Laravel example application with the `artisan` command to perform versioned migrations. When the application is scaffolded, a `database/migrations` folder will be created within the project that contains a base set of migration scripts.
 
-![The default migrations of the Laravel example app](/assets/docs/devops/versioned-migrations/laravel-migrations.png)
+![The default migrations of the Laravel example app {priority}](/assets/docs/devops/versioned-migrations/laravel-migrations.png)
 
 Here are the contents of that first file. It is using PHP to define the structure of a table. When read by `artisan`, it will be converted to the DDL that is required to create the same structure in MySQL.
 

@@ -25,7 +25,7 @@ Once your database has finished initializing, you'll need to enable the web cons
 
 Now, access the console of the main branch by clicking "**Console**", then "**Connect**".
 
-![The console](/assets/docs/tutorials/aws-lambda-connection-strings/console-3.png)
+![The console {priority}](/assets/docs/tutorials/aws-lambda-connection-strings/console-3.png)
 
 Create a simple table & insert some data using the following script:
 

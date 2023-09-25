@@ -15,7 +15,7 @@ This guide will show you how to get up and running with the [Netlify, Next.js, a
 - One-click [deploy to Netlify](https://netlify.com)
 - [Tailwind CSS](https://tailwindcss.com/) styling
 
-You can see a [live demo of the starter application here](https://nextjs-planetscale-starter.netlify.app/).
+You can see a [live demo of the starter application here {priority}](https://nextjs-planetscale-starter.netlify.app/).
 
 ![Example of the dashboard application](/assets/docs/tutorials/nextjs-planetscale-netlify-template/example.png)
 

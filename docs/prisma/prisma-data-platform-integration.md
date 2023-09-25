@@ -22,7 +22,7 @@ If you're importing, click "**Import a Prisma repository**", and then select the
 
 Make sure your imported project has a `schema.prisma` file. You can specify the path of the file in the "**Prisma Schema path**" input box. This file must be relative to the repository root.
 
-![Prisma Data Platform project configuration](/assets/docs/tutorials/prisma-data-platform-integration/project.png)
+![Prisma Data Platform project configuration {priority}](/assets/docs/tutorials/prisma-data-platform-integration/project.png)
 
 ## Select a template
 

@@ -22,13 +22,13 @@ Before you can perform the migration, you’ll need to gather the following info
 
 The server name and admin login name can be located on the **Overview** tab of the MySQL instance in Azure.
 
-![The server name and server admin login name located in the Azure dashboard.](/assets/docs/imports/azure-database-for-mysql-migration-guide/the-server-name-and-server-admin-login-name-located-in-the-azure-dashboard.png)
+![The server name and server admin login name located in the Azure dashboard. {priority}](/assets/docs/imports/azure-database-for-mysql-migration-guide/the-server-name-and-server-admin-login-name-located-in-the-azure-dashboard.png)
 
 The server admin password is the same password you set when initially creating the database instance.
 
 To view your available databases, select the **Databases** tab from the sidebar.
 
-![The databases tab of the Azure dashboard.](/assets/docs/imports/azure-database-for-mysql-migration-guide/the-databases-tab-of-the-azure-dashboard.png)
+![The databases tab of the Azure dashboard. {priority}](/assets/docs/imports/azure-database-for-mysql-migration-guide/the-databases-tab-of-the-azure-dashboard.png)
 
 ## Configure firewall rules
 

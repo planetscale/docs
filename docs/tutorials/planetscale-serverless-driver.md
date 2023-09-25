@@ -28,7 +28,7 @@ The first step to using the PlanetScale serverless driver for JavaScript is to c
 
 You can get your connection string in the PlanetScale dashboard by clicking on your database, clicking "**Connect**", and selecting `@planetscale/database` from the dropdown.
 
-![Serverless driver connection string](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials-2.png)
+![Serverless driver connection string {priority}](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials-2.png)
 
 Use the `connect` function to create the connection and return it to an object.
 

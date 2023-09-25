@@ -6,7 +6,7 @@ date: '2023-03-13'
 
 DevOps is typically broken down into eight distinguished phases as an operational model. The phases operate in a continuous loop, with each phase providing value to the phase ahead of it as shown in the following diagram in the gray text:
 
-![The eight phases of DevOps](/assets/docs/devops/intro-to-the-eight-phases-of-devops/devops-cycle.png)
+![The eight phases of DevOps {priority}](/assets/docs/devops/intro-to-the-eight-phases-of-devops/devops-cycle.png)
 
 This document will act as a brief introduction to these phases, with a summary of how various PlanetScale features apply to each phase. Links to the relevant PlanetScale feature documentation will be provided, and additional resources such as practical tutorials with specific products and frameworks will be included as they are built.
 

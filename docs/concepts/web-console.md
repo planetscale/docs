@@ -14,7 +14,7 @@ The PlanetScale web console can be used to query to any database branch; however
 
 To access the web console, navigate to a database, and click on the "Console" tab in the page navigation. From here, you can select which branch you'd like to connect to by selecting it in the dropdown and clicking "Connect".
 
-![Web console branch selection](/assets/docs/concepts/web-console/web-console-branch-selection.png)
+![Web console branch selection {priority}](/assets/docs/concepts/web-console/web-console-branch-selection.png)
 
 You can also access the web console directly by adding `/console` to the URL from any database branch page,
 `app.planetscale.com/<org>/<database>/<branch>/console`.

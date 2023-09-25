@@ -26,7 +26,7 @@ This doc is intended for users that are manually storing a connection string in 
 2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
-   ![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-netlify/prisma-2.png)
+   ![PlanetScale dashboard connect modal {priority}](/assets/docs/tutorials/deploy-to-netlify/prisma-2.png)
 
 4. If the password is blurred, click "New password" to generate new credentials.
 5. Keep this page open, as you'll need to copy these to Netlify momentarily.

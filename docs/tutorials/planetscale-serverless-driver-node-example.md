@@ -23,7 +23,7 @@ To follow along, you’ll need the following:
 
 Start by creating a database in PlanetScale by clicking **"New database"** > **"Create new database"**.
 
-![How to create a new database.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database-2.png)
+![How to create a new database. {priority}](/assets/docs/tutorials/planetscale-serverless-driver-node-example/how-to-create-a-new-database-2.png)
 
 Name the database `travel_db`. Click **"Create database"**. Wait for the database to finish initializing before moving on.
 

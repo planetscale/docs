@@ -30,7 +30,7 @@ You’ll also need to gather the following pieces of information from the AWS Co
 
 The endpoint address and port number are located in the database view under “**Connectivity & security”**.
 
-![The Connectivity & security tab of the database in RDS.](/assets/docs/imports/aws-rds-migration-guide/the-connectivity-and-security-tab-of-the-database-in-rds.png)
+![The Connectivity & security tab of the database in RDS. {priority}](/assets/docs/imports/aws-rds-migration-guide/the-connectivity-and-security-tab-of-the-database-in-rds.png)
 
 The master username can be located under the “**Configuration”** tab. The master password will be the password used when the database was first created.
 

@@ -24,7 +24,7 @@ Already have a PHP application and just want to connect to PlanetScale? Check ou
 
 This guide uses [a simple PHP app](https://github.com/planetscale/php-example) that displays a list of products stored in a PlanetScale database. If you have an existing application, you can also use that.
 
-![PHP sample application homepage](/assets/docs/tutorials/connect-php-app/example.png)
+![PHP sample application homepage {priority}](/assets/docs/tutorials/connect-php-app/example.png)
 
 1. Clone the starter PHP application:
 
