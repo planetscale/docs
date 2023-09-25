@@ -107,13 +107,13 @@ npx wrangler publish
 
 10. You’ll be given the option to rename the secrets that will be configured on your behalf. These can be left as is. Click **"Add Integration"** to complete the process.
 
-![Untitled](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.33.05.png)
+![](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.33.05.png)
 
 ## Test the integration
 
 Back in the overview of the Worker, there is a preview URL that you can use to open a new tab in your browser that runs the Worker and displays the results. Once you’ve located the preview URL, click it to test the Worker.
 
-![CleanShot 2023-05-16 at 13.03.41.png](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.03.41.png)
+![](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.03.41.png)
 
 Once the integration is configured, you can also run the project on your computer using:
 
