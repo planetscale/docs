@@ -1,12 +1,12 @@
 ---
-title: 'Cloudflare Workers Database Integration'
-subtitle: 'Use the Cloudflare Database Integration feature to automatically connect Workers to your PlanetScale database'
+title: 'Cloudflare Workers database integration'
+subtitle: 'Use the Cloudflare database integration feature to automatically connect Workers to your PlanetScale database.'
 date: '2023-06-21'
 ---
 
 ## Introduction
 
-[Cloudflare Workers Database Integrations](https://developers.cloudflare.com/workers/learning/integrations/databases/#planetscale) is designed to connect your Cloudflare Workers to data sources automatically by generating connection strings and storing them in the worker's secrets.
+[Cloudflare Workers database integration](https://developers.cloudflare.com/workers/learning/integrations/databases/#planetscale) is designed to connect your Cloudflare Workers to data sources automatically by generating connection strings and storing them in the worker's secrets.
 
 This article will utilize a sample repository that is a preconfigured Cloudflare Worker you can use to deploy to your Cloudflare account.
 
@@ -67,7 +67,7 @@ npm install
 npx wrangler publish
 ```
 
-## Configure the Cloudflare PlanetScale Integration
+## Configure the Cloudflare PlanetScale integration
 
 1. Log into the Cloudflare dashboard and navigate to **"Workers"** > **"Overview"**. You should see a service in the list named **"planetscale-worker"**. Select it from the list.
 
