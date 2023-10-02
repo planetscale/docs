@@ -142,6 +142,7 @@ PlanetScale's Enterprise Plan is great for users that want to scale farther, sha
 | Unlimited connections       | ✔               | ✔                | ✔          |
 | Customizable feature limits | ✔               | ✔                | ✔          |
 | BAAs available              | ❌               | ✔                | ✔          |
+| PCI compliant               | ❌               | ❌                | ✔ (on AWS) |
 | Dedicated AWS/GCP account   | ❌               | ✔                | ✔          |
 | Your own AWS/GCP account    | ❌               | ❌                | ✔          |
 
@@ -158,4 +159,5 @@ In general, if you need any of the following, Enterprise may be the best solutio
 - You need your database deployed in a single-tenant environment
 - You need to keep your data in **your own** AWS or GCP account
 - You need a signed BAA for HIPAA
+- You need a PCI DSS certified service provider
 - Any other customizations &mdash; Our Enterprise plans offer a lot of flexibility, so if you have a requirement that’s not listed here, it’s best to [reach out](/contact) and we can see how we can help
