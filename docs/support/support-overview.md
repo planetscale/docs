@@ -8,19 +8,19 @@ PlanetScale believes all our users, from those running small, free Hobby databas
 
 We are committed to providing the following support options.
 
-### Hobby
+## Hobby
 
 - Included with all plans
 - Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
 - Ability to [submit support tickets](https://support.planetscale.com)
 
-### Standard
+## Standard
 
 - Included only for Scaler and Scaler Pro plans
 - Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com)
 - Target response time of 2 business days
 
-### Business
+## Business
 
 - Available as an upgrade for Scaler Pro plans and included on Enterprise plans
 - Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
@@ -29,7 +29,7 @@ We are committed to providing the following support options.
 - [Business Response Times](#initial-response-time-slas)
 - Business Support [upgrades](/contact) start at $1,000/month
 
-### Enterprise
+## Enterprise
 
 - Available upgrade for Enterprise Plan customers
 - Enhanced email and [web ticketing](https://support.planetscale.com) support
@@ -38,7 +38,7 @@ We are committed to providing the following support options.
 - [Enterprise Response Times](#initial-response-time-slas)
 - [Contact Sales](/contact) for pricing information
 
-## Initial Response Times
+## Initial response times
 
 {% callout %}
 Tickets must be submitted through web ticketing to be eligible for response times.
@@ -48,14 +48,14 @@ Tickets must be submitted through web ticketing to be eligible for response time
 Standard support includes a target first response time of 2 business days.
 {% /callout %}
 
-| Support Plan                  | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
+| Support plan                  | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
 | ----------------------------- | ----------------- | -------------- | --------------------- | ---------------------- |
 | Hobby                         | N/A               | N/A            | N/A                   | N/A                    |
 | Standard (Scaler/Scaler Pro)  | 12x5              | 12x5           | 12x5                  | 12x5                   |
 | Business (Optional Upgrade)   | 1 hour (24x7)     | 4 hours (24x7) | 1 business day (12x5) | 2 business days (12x5) |
 | Enterprise (Optional Upgrade) | 15 minutes (24x7) | 1 hour (24x7)  | 4 hours (12x5)        | 12 hours (12x5)        |
 
-## Ticket Priorities
+## Ticket priorities
 
 {% table %}
 

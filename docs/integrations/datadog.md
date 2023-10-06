@@ -9,7 +9,7 @@ meta:
 
 PlanetScale can push metrics to Datadog to assist your team with understanding your database usage and performance.
 
-### Prerequisites
+## Prerequisites
 
 - A [Datadog](https://www.datadoghq.com/) account
 

@@ -10,11 +10,15 @@ DevOps is typically broken down into eight distinguished phases as an operationa
 
 This document will act as a brief introduction to these phases, with a summary of how various PlanetScale features apply to each phase. Links to the relevant PlanetScale feature documentation will be provided, and additional resources such as practical tutorials with specific products and frameworks will be included as they are built.
 
-### Note: these articles are to act as guides
+{% callout type="note" %}
+
+**These articles are to act as guides.**
 
 While DevOps presents the eight phases as an operational model, it's important to understand that these phases are to act as guidelines as opposed to a rigid workflow. As such, building a workflow that fits your business's needs is the important part and your workflow may differ drastically from what others have built.
 
 In each article, you'll find specific recommendations on what features of PlanetScale can be used within that phase, but DevOps is not a "one size fits all" process. You are encouraged to modify the flow and use any features as you see fit, to make the product work for you.
+
+{% /callout %}
 
 ## Plan
 
