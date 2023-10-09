@@ -1,5 +1,5 @@
 ---
-title: 'PlanetScale Connect - Stitch'
+title: 'Stitch integration'
 subtitle: 'Extract, load, and transform your PlanetScale data with Stitch.'
 date: '2022-08-01'
 meta:

@@ -1,5 +1,5 @@
 ---
-title: 'PlanetScale Connect - Airbyte'
+title: 'Airbyte integration'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
 date: '2023-07-27'
 meta:
