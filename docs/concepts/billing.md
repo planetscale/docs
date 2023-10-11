@@ -61,7 +61,7 @@ The usage-based plans are summarized below:
 | **Audit log retention**                                                      | 5 days         | 15 days                |
 | **Automatic backups**                                                        | Daily          | Every 12 hours         |
 | **Support**                                                                  | Community      | Standard               |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Not included   | Not included           |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Not included   | Not included           |
 | **Monthly cost**                                                             | $0             | $29 per database       |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included   | Available as an add-on |
 
@@ -114,7 +114,7 @@ The `SELECT count(*)` query is a special case. The database engine optimizes thi
 
 With our in-dashboard [Insights tool](/docs/concepts/query-insights), you can explore active queries running against your database. The "**Queries during the last 24 hours**" list has a column that shows the total rows read for that particular query. The "rows read" surfaced here is the same number we use to calculate your total rows read for your billing calculation. In addition, you can click on a particular query to see more information about its performance.
 
-![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries-2.png?v2)
+![PlanetScale Insights recent queries list](/assets/docs/concepts/query-insights/queries-2.jpg)
 
 If you'd prefer to test a query on your own, you can calculate the **approximate** rows read using the `EXPLAIN` statement. Running `EXPLAIN` with your query will return information about the query execution plan.
 
@@ -207,7 +207,7 @@ All Scaler Pro plans, regardless of cluster size, share the following features:
 | **Audit log retention**                                                      | 15 days                           |
 | **Automatic backups**                                                        | Every 12 hours                    |
 | **Support**                                                                  | Standard, upgrade available\*\*\* |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                          |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                          |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on            |
 
 \* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
@@ -244,7 +244,7 @@ The Enterprise plan is fully customizable to suit your businesses needs. For mor
 | **Audit log retention**                                                      | Configurable                             |
 | **Automated Backups**                                                        | Configurable                             |
 | **Support**                                                                  | Business, upgrade available\*            |
-| [**Data Branching®**](/docs/concepts/data-branching)                         | Included                                 |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                 |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                   |
 | **Monthly cost**                                                             | Custom                                   |
 

@@ -12,7 +12,7 @@ With PlanetScale, you get the power of horizontal sharding, non-blocking schema 
 
 ### A brief history
 
-PlanetScale is powered by [Vitess, the open-source database technology](https://vitess.io/) that was [invented at YouTube in 2010](https://vitess.io/docs/15.0/overview/history/#:~:text=Vitess%20was%20created%20in%202010,exceed%20the%20database's%20serving%20capacity.) to solve the scaling issues they faced with their massive MySQL database. Vitess went on to become open source as a [CNCF project](https://www.cncf.io/) and continues to scale massive companies like [Slack](https://slack.engineering/scaling-datastores-at-slack-with-vitess/), [GitHub](https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/), and more.
+PlanetScale is powered by [Vitess, the open-source database technology](https://vitess.io/) that was [invented at YouTube in 2010](https://vitess.io/docs/overview/history/#:~:text=Vitess%20was%20created%20in%202010,exceed%20the%20database's%20serving%20capacity.) to solve the scaling issues they faced with their massive MySQL database. Vitess went on to become open source as a [CNCF project](https://www.cncf.io/) and continues to scale massive companies like [Slack](https://slack.engineering/scaling-datastores-at-slack-with-vitess/), [GitHub](https://github.blog/2021-09-27-partitioning-githubs-relational-databases-scale/), and more.
 
 Vitess is an extraordinary piece of technology but can be challenging to implement and maintain without a large team. The [co-creator of Vitess](https://about.sourcegraph.com/podcast/sugu-sougoumarane) wanted to make Vitess accessible to everyone, so he later went on to cofound PlanetScale. With PlanetScale, every database you spin up, free or paid, gets Vitess under the hood.
 
@@ -50,7 +50,7 @@ Once you're ready to deploy schema changes from your development branch to produ
 
 The final piece of the non-blocking schema change workflow is the ability to [revert a recently deployed schema change](/docs/concepts/deploy-requests#revert-a-schema-change) without losing any data that was written since deploying.
 
-{% vimeo src="https://player.vimeo.com/video/830571822" caption="Demonstration of how to revert a schema change" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571822" caption="Demonstration of how to revert a schema change" /%}
 
 Despite all the safeguards we put in place, accidents can happen. If someone on your team deploys a schema change, only to realize afterward that it adversely affected the application, you can simply revert it in the PlanetScale dashboard with the click of a button. Perhaps the most impressive part is that when you revert, you won't lose any data that was written to your database during the time the updated schema was live. We keep track of it and apply it back to the original schema once you revert.
 
@@ -70,7 +70,7 @@ We generally recommend sharding when your database exceeds 250 GB of data. Shard
 
 [PlanetScale Insights](/docs/concepts/query-insights) is our in-dashboard query performance analytics tool. What's unique about Insights is you can track performance down to the individual query level.
 
-{% vimeo src="https://player.vimeo.com/video/830571854" caption="This video shows an example Insights page." /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571854" caption="This video shows an example Insights page." /%}
 
 At a glance, the interactive graph shows you query latency, queries per second, rows read, and rows written charted against time. You'll also see any deploy requests on the graph, so you can quickly see the impact of those changes.
 
@@ -121,7 +121,7 @@ See the [PlanetScale API reference](https://api-docs.planetscale.com) for more i
 
 Spin up [read-only regions](/docs/concepts/read-only-regions) with the click of a button. For globally distributed applications, it's important to serve your users as close as possible to their location to prevent high read latency.
 
-![Add read-only region on production branch](/assets/docs/concepts/read-only-regions/branch-2.png?v2)
+![Add read-only region on production branch](/assets/docs/concepts/read-only-regions/branch-2.jpg)
 
 You don't have to worry about complicated replication strategies or manually setting this up on your own. Just go to the dashboard, add a new read-only region, copy the connection string, and add it to your application.
 

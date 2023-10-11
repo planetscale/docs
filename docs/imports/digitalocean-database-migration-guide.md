@@ -24,7 +24,7 @@ Before you can start migrating your database, you’ll also need to collect the 
 
 Most of this information is located on the landing page of your cluster.
 
-![The Overview of the database cluster.](/assets/docs/imports/digitalocean-database-migration-guide/the-overview-of-the-database-cluster.png)
+![The Overview of the database cluster. {priority}](/assets/docs/imports/digitalocean-database-migration-guide/the-overview-of-the-database-cluster.png)
 
 You can view the list of databases in the "**Users & Databases**" tab. This article will use the default database created when the cluster was initialized, named `defaultdb`.
 

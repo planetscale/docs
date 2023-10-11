@@ -1,12 +1,12 @@
 ---
-title: 'Cloudflare Workers Database Integration'
-subtitle: 'Use the Cloudflare Database Integration feature to automatically connect Workers to your PlanetScale database'
+title: 'Cloudflare Workers database integration'
+subtitle: 'Use the Cloudflare database integration feature to automatically connect Workers to your PlanetScale database.'
 date: '2023-06-21'
 ---
 
 ## Introduction
 
-[Cloudflare Workers Database Integrations](https://developers.cloudflare.com/workers/learning/integrations/databases/#planetscale) is designed to connect your Cloudflare Workers to data sources automatically by generating connection strings and storing them in the worker's secrets.
+[Cloudflare Workers database integration](https://developers.cloudflare.com/workers/learning/integrations/databases/#planetscale) is designed to connect your Cloudflare Workers to data sources automatically by generating connection strings and storing them in the worker's secrets.
 
 This article will utilize a sample repository that is a preconfigured Cloudflare Worker you can use to deploy to your Cloudflare account.
 
@@ -67,7 +67,7 @@ npm install
 npx wrangler publish
 ```
 
-## Configure the Cloudflare PlanetScale Integration
+## Configure the Cloudflare PlanetScale integration
 
 1. Log into the Cloudflare dashboard and navigate to **"Workers"** > **"Overview"**. You should see a service in the list named **"planetscale-worker"**. Select it from the list.
 
@@ -107,13 +107,13 @@ npx wrangler publish
 
 10. You’ll be given the option to rename the secrets that will be configured on your behalf. These can be left as is. Click **"Add Integration"** to complete the process.
 
-![Untitled](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.33.05.png)
+![](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.33.05.png)
 
 ## Test the integration
 
 Back in the overview of the Worker, there is a preview URL that you can use to open a new tab in your browser that runs the Worker and displays the results. Once you’ve located the preview URL, click it to test the Worker.
 
-![CleanShot 2023-05-16 at 13.03.41.png](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.03.41.png)
+![](/assets/docs/integrations/cloudflare-workers/CleanShot_2023-05-16_at_13.03.41.png)
 
 Once the integration is configured, you can also run the project on your computer using:
 

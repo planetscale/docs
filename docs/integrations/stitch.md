@@ -1,5 +1,5 @@
 ---
-title: 'PlanetScale Connect - Stitch'
+title: 'Stitch integration'
 subtitle: 'Extract, load, and transform your PlanetScale data with Stitch.'
 date: '2022-08-01'
 meta:
@@ -20,9 +20,9 @@ into Stitch via [Stitch Import API](https://www.stitchdata.com/docs/developers/i
 1. Sign up for a [StitchData](https://app.stitchdata.com/signup) account
 2. Once you've signed up, create an Integration by clicking on **Add Integration**.
 3. On the marketplace screen, type in **import** to narrow the list down to the **Import API**
-   ![Add Stitch Integration](/assets/docs/integrations/stitch/integration.png)
+   ![Add Stitch Integration {priority}](/assets/docs/integrations/stitch/integration.png)
 4. On the next screen, configure your integration name and destination.
-   ![Configure Stitch Integration](/assets/docs/integrations/stitch/configure.png)
+   ![Configure Stitch Integration {priority}](/assets/docs/integrations/stitch/configure.png)
 5. Once the integration is created, save the access token for use with the PlanetScale tap.
    ![Save Stitch API Token](/assets/docs/integrations/stitch/api-token.png)
 

@@ -1,7 +1,7 @@
 ---
 title: 'Import tool public IP addresses'
 subtitle: 'List of the IP addresses you must allow when importing a database using the Import tool'
-date: '2023-08-03'
+date: '2023-05-26'
 internal: 'IPs are pulled from https://github.com/planetscale/ps-turtle/blob/main/psturtle_data.go'
 ---
 
@@ -15,7 +15,7 @@ This IP reference guide is meant to be used in combination with our
 "Migration guides" in the left nav.
 {% /callout %}
 
-![The New database section of the Import database tool.](/assets/docs/imports/import-tool-migration-addresses/region.png)
+![The New database section of the Import database tool. {priority}](/assets/docs/imports/import-tool-migration-addresses/region.png)
 
 {% table %}
 
@@ -170,13 +170,7 @@ This IP reference guide is meant to be used in combination with our
 
   35.174.79.154
 
-  35.173.174.19
-
   44.199.177.24
-
-  44.212.228.57
-
-  44.216.88.45
 
 ---
 
@@ -192,12 +186,6 @@ This IP reference guide is meant to be used in combination with our
   3.131.243.164
 
   3.132.168.252
-
-  3.131.252.213
-
-  3.132.182.173
-
-  3.15.49.114
 
 ---
 

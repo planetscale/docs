@@ -19,7 +19,7 @@ To connect to a PlanetScale database, you'll need four pieces of information:
 
 The easiest way to gather this information is by accessing the branch of the database you wish to connect to and selecting the **"Connect"** button from the **"Overview"** tab.
 
-![Open the Connect modal.](/assets/docs/tutorials/connect-mysql-gui/connect.png)
+![Open the Connect modal. {priority}](/assets/docs/tutorials/connect-mysql-gui/connect.png)
 
 In the **Connect** modal, select **"General"** under the **Connect with** options. This will display the connection details as a list instead of a language or framework-specific connection string.
 

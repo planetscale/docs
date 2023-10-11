@@ -8,11 +8,6 @@ date: '2023-01-31'
 
 PlanetScale provides the ability to create service tokens for your PlanetScale organization via the CLI or directly in the UI. Service tokens provide an alternate authentication method to be used with the PlanetScale CLI and API. They are typically used in automated scenarios where `pscale auth login` cannot be used. Service tokens are also required for any calls to the API, as well as minting OAuth tokens for API use.
 
-{% callout type="warning" %}
-Service tokens are not recommended for connecting to production databases. Instead, connect securely to your database
-using PlanetScale [connection strings](/docs/concepts/connection-strings).
-{% /callout %}
-
 ## Create service tokens using the PlanetScale dashboard
 
 To create a service token using the dashboard, log into your organization and click **"Settings"** > **"Service tokens"** > **"New service token"**.

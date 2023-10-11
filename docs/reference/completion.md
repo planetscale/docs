@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - completion'
-subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
+subtitle: 'Use the PlanetScale CLI “completion” command to generate a completion script for the specified shell from your terminal.'
 date: '2022-08-01'
 meta:
   title: 'CLI reference - completion'

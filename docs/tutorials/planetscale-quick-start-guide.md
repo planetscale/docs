@@ -18,7 +18,7 @@ If you already have your PlanetScale database set up, you may find the [Connecti
 
 This guide is split up so that you can either follow it in the [PlanetScale dashboard](#getting-started--planetscale-dashboard) or using the [PlanetScale CLI](#getting-started--planetscale-cli).
 
-{% vimeo src="https://player.vimeo.com/video/830571983" caption="A video demo of everything covered in this guide" /%}
+{% vimeo aspect="other" src="https://player.vimeo.com/video/830571983" caption="A video demo of everything covered in this guide" /%}
 
 ## Getting started &mdash; PlanetScale dashboard
 
@@ -29,7 +29,7 @@ You'll need [a PlanetScale account](https://auth.planetscale.com/sign-up) to com
 Follow these steps to create a database:
 
 1. Click "**New database**" > "**Create a database**" on your organization's overview page.
-2. Name your database using lowercase, alphanumeric characters or underscores. You may also use dashes, but we don't recommend that, as sharded databases require them to be escaped.
+2. Name your database.
 3. Select a [region](/docs/concepts/regions). For the lowest latency, select a region near you or your application's hosting location.
 4. Select the desired [plan type](/docs/concepts/billing#planetscale-plans) for your database.
 5. Enter a valid credit or debit card. If you are creating a database on the **Hobby** plan, you will not be charged.
@@ -118,7 +118,7 @@ A production branch is a highly available database branch that includes an addit
 
 1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card to open a modal.
 
-   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png?v2)
+   ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png)
 
 2. Toggle "**Enable safe migrations**", then click the "**Enable safe migrations**" button.
 

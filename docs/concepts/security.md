@@ -1,7 +1,7 @@
 ---
 title: 'Security and compliance'
 subtitle: 'Learn about security and compliance with PlanetScale'
-date: '2022-11-18'
+date: '2023-10-09'
 ---
 
 PlanetScale is committed to delivering a powerful and easy-to-use database
@@ -14,6 +14,10 @@ building security into every layer of our products.
 PlanetScale continuously monitors and reports primarily using System and Organization
 Controls (SOC) 2 Type 2. To receive a copy of the report please
 [contact Support](https://support.planetscale.com).
+
+## PCI compliance
+
+[PlanetScale Managed (deployed on AWS)](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) has been issued an Attestation of Compliance (AoC) and Report on Compliance (RoC), certifying our compliance with the PCI DSS 4.0 as a Level 1 Service Provider. This enables PlanetScale Managed on AWS to be used via a shared responsibility model across merchants, acquirers, issuers, and other roles in storing and processing cardholder data.
 
 ## HIPAA
 
@@ -40,8 +44,8 @@ Data is encrypted at rest on the underlying storage media that serves database b
 Encrypted data is transmitted to PlanetScale databases through three major paths:
 
 - The [PlanetScale CLI](/docs/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
-- PlanetScale [Connection Strings](/docs/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
-- When using [PlanetScale Connect](/docs/integrations/airbyte), [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) is used to secure all data transmitted between PlanetScale and Airbyte.
+- PlanetScale [connection strings](/docs/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
+- [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) is used to secure all data transmitted between PlanetScale and [clients using PlanetScale Connect](/docs/integrations/planetscale-connect).
 
 ### Additional data protection controls
 

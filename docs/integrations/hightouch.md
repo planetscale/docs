@@ -26,7 +26,7 @@ If you wish to sync data from your PlanetScale database to another system, youâ€
 
 In Hightouch, start by selecting **"Sources"** from the sidebar.
 
-![Sources](/assets/docs/integrations/hightouch/sources.png)
+![Sources {priority}](/assets/docs/integrations/hightouch/sources.png)
 
 Click **"Add Source"**.
 

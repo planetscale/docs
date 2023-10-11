@@ -26,11 +26,11 @@ You can enable MFA for your user account under your PlanetScale account settings
 
 2. Find the **Security** row and click the **"Setup multi-factor authentication"** button.
 
-   ![Click the "Setup MFA" button](/assets/docs/concepts/mfa/setup.png)
+   ![Click the "Setup MFA" button {priority}](/assets/docs/concepts/mfa/setup.png)
 
    This will bring up a pop-up modal with a _QR code_ and some `recovery codes` that you will need to copy.
 
-   ![Pop-up modal with QR code and recovery codes](/assets/docs/concepts/mfa/recovery-codes.png)
+   ![Pop-up modal with QR code and recovery codes {priority}](/assets/docs/concepts/mfa/recovery-codes.png)
 
    {% callout type="warning" %}
    Recovery codes are the only account recovery method accepted when MFA is enabled. If you lose both your TOTP app and

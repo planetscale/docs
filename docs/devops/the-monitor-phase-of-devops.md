@@ -1,7 +1,7 @@
 ---
 title: 'The Monitor phase of the DevOps cycle'
 subtitle: 'Monitor the environment and gather feedback for the next cycle.'
-date: '2023-03-13'
+date: '2023-09-29'
 ---
 
 The last phase of the DevOps cycle is to monitor the entire application. This can be by gathering feedback from customers that use the application, but also to monitor performance metrics that the application tracks. This feedback should be used in decision-making when the team inevitably comes together again to plan the next cycle.
@@ -14,7 +14,7 @@ One important metric of your application's performance is how quickly your queri
 
 PlanetScale offers [Insights](/docs/concepts/query-insights) with every database that is hosted on our platform, which is a visual way to see how well your queries are performing. Performance data is automatically tracked in real-time and displayed on a graph so you can see periods of high usage. You can also see which queries are executed most frequently or are taking the longest to return data.
 
-If your database is enrolled in the schema-revert feature, the metrics gathered by Inisghts could help in making a data-driven decision on if the schema you just deployed to production is experiencing issues and needs to be rolled back. While having your own logging and monitoring platform to analyze errors in your code is definitely a best-practice, this would act as an additional layer of analytics and may help in reducing downtime overall.
+If your database is enrolled in the schema-revert feature, the metrics gathered by Insights could help in making a data-driven decision on if the schema you just deployed to production is experiencing issues and needs to be rolled back. While having your own logging and monitoring platform to analyze errors in your code is definitely a best-practice, this would act as an additional layer of analytics and may help in reducing downtime overall.
 
 **Insights + PlanetScale Boost**
 

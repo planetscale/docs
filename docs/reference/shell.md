@@ -1,6 +1,6 @@
 ---
 title: 'PlanetScale CLI commands - shell'
-subtitle: 'Use the PlanetScale CLI to create development branches, open deploy requests, and make non-blocking schema changes directly from your terminal.'
+subtitle: 'Use the PlanetScale CLI “shell” command to open a secure MySQL shell instance to your database from your terminal.'
 date: '2022-08-01'
 meta:
   title: 'CLI reference - shell'

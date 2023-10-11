@@ -21,12 +21,12 @@ PlanetScale has enforced some system limits to prevent long-running queries or t
 
 The following table details these limits:
 
-| Type                       | Limit |
-| -------------------------- | ----- |
-| Per-query row              | 100k  |
-| Per-query DML timeout      | 30s   |
-| Per-query `SELECT` timeout | 900s  |
-| Per-transaction timeout    | 20s   |
+| Type                                         | Limit |
+| -------------------------------------------- | ----- |
+| Per-query rows returned, updated, or deleted | 100k  |
+| Per-query DML timeout                        | 30s   |
+| Per-query `SELECT` timeout                   | 900s  |
+| Per-transaction timeout                      | 20s   |
 
 ### Recommendations for handling query limits
 
@@ -51,7 +51,7 @@ We recommend using [PlanetScale Connect](/blog/extract-load-and-transform-your-d
 
 ### OLAP mode
 
-While it is possible to bypass these safety limits using `OLAP` mode (`SET workload = OLAP`), we do not recommend this for the reasons listed at the beginning of this doc.
+While it is possible to bypass these safety limits using `OLAP` mode (`SET workload = OLAP`), we do not recommend this for the reasons listed at the beginning of this doc. In OLAP mode, you may return more than 100k rows from a single query, but the 100k row limit will still apply to updates and deletes.
 
 When the use of OLAP queries is strictly unavoidable, we recommend:
 

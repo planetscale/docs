@@ -1,7 +1,7 @@
 ---
 title: Connect to your database
 subtitle: Understand how to connect your application to your PlanetScale database.
-date: '2022-09-13'
+date: '2023-09-05'
 ---
 
 ## Overview
@@ -18,11 +18,9 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 
 Open the `beam-demo` database and click the **"Connect"** button.
 
-![The Overview tab of the database with the Connect button highlighted.](/assets/docs/onboarding/connect-to-your-database/connect-2.png?v2)
-
 The following modal will provide the information required to connect to your database. If this is your first time accessing the **Connect** modal, the password will be displayed in plain text, otherwise, the password will be masked.
 
-![The Connect to modal.](/assets/docs/onboarding/connect-to-your-database/connect-modal-2.png?v2)
+![The Connect to modal.](/assets/docs/onboarding/connect-to-your-database/connect-modal-2.png)
 
 If you need to generate a new password, simply click the **"New password"** button to generate a new set of credentials.
 
@@ -47,14 +45,14 @@ Use the resources below to determine next steps for your application.
 Use one of the following quick-starts to get up and running using your preferred language/framework.
 
 {% grid columns=4 %}
-{% cell href="/docs/tutorials/connect-django-app" title="Django" imgPath="/img/logos/django.png" /%}
-{% cell href="/docs/tutorials/connect-go-app" title="Go CloudSQL" imgPath="/img/logos/go.png" /%}
-{% cell href="/docs/tutorials/connect-nodejs-app" title="Node.js" imgPath="/img/logos/node.png" /%}
-{% cell href="/docs/tutorials/connect-nextjs-app" title="Next.js" imgPath="/img/logos/next.png" /%}
-{% cell href="/docs/tutorials/connect-laravel-app" title="Laravel" imgPath="/img/logos/laravel.png" /%}
-{% cell href="/docs/tutorials/connect-symfony-app" title="Symfony" imgPath="/img/logos/symfony.png" /%}
-{% cell href="/docs/tutorials/connect-php-app" title="PHP" imgPath="/img/logos/php.png" /%}
-{% cell href="/docs/tutorials/connect-rails-app" title="Rails" imgPath="/img/logos/rails.png" /%}
+{% cell href="/docs/tutorials/connect-django-app" title="Django" imgPath="/assets/logos/django.png" /%}
+{% cell href="/docs/tutorials/connect-go-app" title="Go CloudSQL" imgPath="/assets/logos/go.png" /%}
+{% cell href="/docs/tutorials/connect-nodejs-app" title="Node.js" imgPath="/assets/logos/node.png" /%}
+{% cell href="/docs/tutorials/connect-nextjs-app" title="Next.js" imgPath="/assets/logos/next.png" /%}
+{% cell href="/docs/tutorials/connect-laravel-app" title="Laravel" imgPath="/assets/logos/laravel.png" /%}
+{% cell href="/docs/tutorials/connect-symfony-app" title="Symfony" imgPath="/assets/logos/symfony.png" /%}
+{% cell href="/docs/tutorials/connect-php-app" title="PHP" imgPath="/assets/logos/php.png" /%}
+{% cell href="/docs/tutorials/connect-rails-app" title="Rails" imgPath="/assets/logos/rails.png" /%}
 {% /grid %}
 
 ## Import your database
@@ -62,8 +60,8 @@ Use one of the following quick-starts to get up and running using your preferred
 Learn how to import an existing MySQL database from supported cloud providers.
 
 {% grid columns=4 %}
-{% cell href="/docs/imports/aws-rds-migration-guide" title="AWS RDS" imgPath="/img/logos/aws.png" /%}
-{% cell href="/docs/imports/gcp-cloudsql-migration-guide" title="GCP CloudSQL" imgPath="/img/logos/gcp.png" /%}
-{% cell href="/docs/imports/azure-database-for-mysql-migration-guide" title="Azure MySQL" imgPath="/img/logos/azure.png" /%}
-{% cell href="/docs/imports/digitalocean-database-migration-guide" title="Digital Ocean" imgPath="/img/logos/digitalocean.jpeg" /%}
+{% cell href="/docs/imports/aws-rds-migration-guide" title="AWS RDS" imgPath="/assets/logos/aws.png" /%}
+{% cell href="/docs/imports/gcp-cloudsql-migration-guide" title="GCP CloudSQL" imgPath="/assets/logos/gcp.png" /%}
+{% cell href="/docs/imports/azure-database-for-mysql-migration-guide" title="Azure MySQL" imgPath="/assets/logos/azure.png" /%}
+{% cell href="/docs/imports/digitalocean-database-migration-guide" title="Digital Ocean" imgPath="/assets/logos/digitalocean.jpeg" /%}
 {% /grid %}

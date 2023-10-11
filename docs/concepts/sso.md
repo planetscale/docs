@@ -1,7 +1,7 @@
 ---
 title: 'Single sign-on'
 subtitle: 'Enable single sign-on (SSO) for increased account security.'
-date: '2022-08-09'
+date: '2022-08-21'
 ---
 
 ## Overview
@@ -25,6 +25,7 @@ It's important to understand how enabling SSO will affect your Organization. Onc
 
 - All non-admin members will be removed from the organization.
 - [Organization Administrators](/docs/concepts/access-control#organization-administrator) will remain in the Organization so they can configure SSO without losing access.
+  - All administrators will retain access with their old credentials, until they logout and login through their Identity Provider. Once they've authenticated through their Identity Provider the account will only be usable with SSO authentication.
 - Each [Organization Member](https://app.planetscale.com/planetscale/settings/members) must re-authenticate using SSO. Once they've authenticated, they will be automatically added back to the organization.
 - Organization Member invites will be disabled when SSO is enabled; all Organization Membership will be managed through SSO.
 - Organization Members that were [Database Administrators](/docs/concepts/access-control#database-administrator) before will no longer have that role upon rejoining. You must assign them the role after they re-authenticate with SSO.
@@ -59,13 +60,41 @@ We also support the use of Directory Sync with SSO. You can use Directory Sync t
 
 To enable Directory Sync, you first must have SSO enabled.
 
-Once enabled, go to your Organization settings page, click "**Authentication**", and click "**Enable directory sync**".
+Once enabled, go to your Organization settings page, click "**Authentication**", and click the "**Enable directory sync**" button.
 
 You can now configure Directory Sync using your identity provider.
+
+#### Creating Profile Attributes in Okta
+
+If you are using Okta for Single Sign-On or Directory Sync, you will need to create a new attribute for the PlanetScale application in Okta's Profile Editor.
+
+![PlanetScale Role](/assets/docs/concepts/sso/planetscale_role.png)
+
+- Data type: `string`
+- The Display name, Variable name, and External name should be defined as `planetscale_role`.
+- The External namespace should be defined as `urn:ietf:params:scim:schemas:core:2.0:User`.
+- Check the box to define an enumerated list of values, add the following:
+  - Display name: `member`, Value: `member`
+  - Display name: `administrator`, Value: `admin`
+- Select `READ_WRITE` under Mutability.
+
+This attribute then needs to be mapped to the PlanetScale application in Okta.
+
+- Open the PlanetScale application in Okta Admin Console, then select Provisioning
+- Scroll down to the bottom of the `Okta to App` provisioning page, and click `Show unmapped attributes`.
+- Find `planetscale_role` and click the 🖋️ to map the attribute.
+- Select `Map from Okta Profile` as the type and `planetscale_role` as the string.
+- Save with Create & Update permission.
+
+![Attribute Mapping](/assets/docs/concepts/sso/attribute.png)
 
 ### Directory Sync access control
 
 Directory Sync automatically adds and removes members from your PlanetScale organization to match your SSO directory. If you have groups defined within your SSO provider, it can also automatically create [Teams](/docs/concepts/teams) within your PlanetScale organization mapped to those groups.
+
+If you wish to have your identity provider determine user roles in PlanetScale, please make sure to select the option for `Manage PlanetScale roles through identity provider` in Settings > Authentication.
+
+![Manage roles](/assets/docs/concepts/sso/sync.png)
 
 {% callout %}
 Once you enable Directory Sync, existing Teams will be cleared, as all Teams must map to a Directory group.

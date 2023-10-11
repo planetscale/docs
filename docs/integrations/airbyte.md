@@ -1,5 +1,5 @@
 ---
-title: 'PlanetScale Connect - Airbyte'
+title: 'Airbyte integration'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
 date: '2023-07-27'
 meta:
@@ -48,7 +48,7 @@ Now that Airbyte is running locally, let's set up the custom PlanetScale source.
 
 You can find the [PlanetScale Airbyte Source Dockerhub release page here](https://hub.docker.com/r/planetscale/airbyte-source).
 
-![Airbyte new PlanetScale connector](/assets/docs/integrations/airbyte/connector.png)
+![Airbyte new PlanetScale connector](/assets/docs/integrations/airbyte/connector.jpg)
 
 ### Fill in PlanetScale connection information
 
@@ -69,7 +69,7 @@ You're now ready to connect your PlanetScale database to Airbyte.
    - **Password**: Paste in the copied value for `password`
    - **Shards**: Sharding is only supported on our Enterprise plan. Please [reach out to us](/contact) for more information.
 
-   ![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/source.png)
+   ![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/source.jpg)
 
 7. Click "**Set up source**" to connect.
 
@@ -95,8 +95,8 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
    ![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
 
    {% callout %}
-   **Important:** The sync frequency may affect your PlanetScale billing depending on the selected plan. The rows read during sync are
-   counted toward your database rows read, so if you choose "Full refresh", you will be billed for full table reads of
+   **Important:** The sync frequency may affect your PlanetScale billing depending on your selected plan. The rows read during sync are
+   counted toward your database rows read, so if you choose "Full refresh", and you are on a [usage-based plan](/docs/concepts/planetscale-plans#usage-based-plans) (Hobby or Scaler), you will be billed for full table reads of
    all tables selected every time the sync runs.
 
    You can find more information about your plan's read limits in our
@@ -108,10 +108,10 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
 6. Select the data you want to sync. You should see a list of table names. You can select all or choose which ones to sync individually.
 7. Choose what type of sync mode you'd like to use for each source table.
 
-   - **Incremental** &mdash; Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/13.0/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
+   - **Incremental** &mdash; Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
    - **Full refresh** &mdash; Full refresh pulls _all_ data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
 
-   ![Airbyte - PlanetScale stream sync](/assets/docs/integrations/airbyte/streams.png)
+   ![Airbyte - PlanetScale stream sync](/assets/docs/integrations/airbyte/streams.jpg)
 
 8. Click "**Set up connection**".
 

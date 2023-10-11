@@ -12,7 +12,7 @@ After a period of inactivity, free databases will enter 'sleep' mode. All data w
 
 When a database on the [free Hobby plan](/docs/concepts/billing#planetscale-plans) is inactive for 7 days, the database will be enter sleep mode. When a database is sleeping, all data is backed up, but you **will not be able to connect to any branches on the database** until it has been woken up.
 
-![PlanetScale dashboard overview page - Sleeping databases](/assets/docs/concepts/database-sleeping/databases.png)
+![PlanetScale dashboard overview page - Sleeping databases {priority}](/assets/docs/concepts/database-sleeping/databases.png)
 
 ### What happens to my data?
 
@@ -46,7 +46,7 @@ Because database sleeping only applies to databases on the free Hobby plan, anot
 
 Once your database is sleeping, you can wake it in your PlanetScale dashboard.
 
-![PlanetScale dashboard database page - Sleeping database](/assets/docs/concepts/database-sleeping/database-2.png?v2)
+![PlanetScale dashboard database page - Sleeping database](/assets/docs/concepts/database-sleeping/database-2.png)
 
 ### Steps to wake a sleeping database:
 

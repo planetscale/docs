@@ -15,7 +15,7 @@ Your deployment options depend on the [PlanetScale plan](/docs/concepts/planetsc
 
 ## Multi-tenancy deployment on PlanetScale
 
-Multi-tenancy is the default deployment option. When you sign up for a PlanetScale account, whether on a Hobby, Scaler, or Team plan, your databases will be created in our multi-tenancy deployment offering. Our Enterprise plan also offers a multi-tenancy deployment option.
+Multi-tenancy is the default deployment option. When you sign up for a PlanetScale account, whether on a Hobby, Scaler, or Scaler Pro plan, your databases will be created in our multi-tenancy deployment offering. Our Enterprise plan also offers a multi-tenancy deployment option.
 
 ### Multi-tenancy highlights
 

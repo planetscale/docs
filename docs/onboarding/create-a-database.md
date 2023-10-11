@@ -1,7 +1,7 @@
 ---
 title: Create a database
 subtitle: Learn the basics of the PlanetScale dashboard by creating your first database.
-date: '2022-06-21'
+date: '2023-08-05'
 ---
 
 ## Overview
@@ -19,31 +19,38 @@ A schema refers to the structure of the database. The most common parts of a sch
 
 ## Create a database
 
-If you’ve come here directly from creating your account, you should be at one of the following two screens.
+If you’ve come here directly from creating your account, you should on your organization's overview page where you can choose to either: Create a new database or import a database.
 
-The first one is presented right after you verify your email address. Click **"create"** if you are here.
+Click the button to **"Create a new database"**.
 
-![The first screen you’ll see after signing up for PlanetScale.](/assets/docs/onboarding/create-a-database/the-first-screen-youll-see-after-signing-up-for-planetscale.png)
+On the next page, you will need to:
 
-The second possible screen will be shown if you’ve stepped through the in-app guide. Click **"Create your first database"** if you are here.
+- Name the database `beam-demo`.
+- Select a region. There are several geographical regions you can host your database in. You will want to select the region closest to your application servers connecting to the database.
+- Select the desired [Plan type](/docs/concepts/billing#planetscale-plans) for your database.
+- Add a valid credit or debit card to your account. In order to prevent fraud, PlanetScale requires a valid payment method to create databases. You will not be charged unless you create a Scaler or Scaler Pro database.
 
-![The screen you’ll see after stepping through the wizard after creating an account.](/assets/docs/onboarding/create-a-database/the-screen-youll-see-after-stepping-through-the-wizard-after-creating-an-account.png)
-
-Next, you will name the database and select a region. There are several geographical regions you can host your database in. You will want to select the region closest to your application servers connecting to the database. For this example, leave the region set to "AWS us-east-1" and name the database `beam-demo`. Next, select the desired [Plan type](/docs/concepts/billing#planetscale-plans) for your database. Click **"Create database"**.
+Then, click **"Create database"**. For the next step to create a table, you can select the option to connect to the database later with "**I’ll do this later**" button.
 
 Next, you’ll be dropped into the dashboard for that specific database. Let's take a look at the layout and what each element does before moving on.
 
-1. **Overview** &mdash; The current tab showing an overview of your database.
-2. **Deploy requests** &mdash; How you apply changes to your database schema. More on that in the next article.
-3. **Branches** &mdash; View the different branches of your database. Again, more on that in the next article.
-4. **Insights** &mdash; Provides statistics on database operations that may be affecting performance.
-5. **Console** &mdash; Lets you run MySQL commands against branches.
-6. **Backups** &mdash; Shows you backup schedule and all backups for this database across production and development branches.
-7. **Settings** &mdash; Lets you tweak various aspects of your database like who has access to it, beta feature opt-ins, and plan management.
-8. **New branch** &mdash; Allows you to create a new branch of your schema.
-9. **Connect** &mdash; Provides connection details that applications can use to connect to your database.
+The tabs from left to right are:
 
-![The dashboard of a database on PlanetScale.](/assets/docs/onboarding/create-a-database/the-dashboard-of-a-database-on-planetscale-2.png?v2)
+- **Overview** &mdash; The current tab showing an overview of your database.
+- **Deploy requests** &mdash; How you apply changes to your database schema. More on that in the next article.
+- **Branches** &mdash; View the different branches of your database. Again, more on that in the next article.
+- **Insights** &mdash; Provides statistics on database operations that may be affecting performance.
+- **Boost** &mdash; PlanetScale Boost is a real-time query cache that automatically handles cache invalidation for you with one line of code.
+- **Console** &mdash; Lets you run MySQL commands against branches.
+- **Backups** &mdash; Shows you backup schedule and all backups for this database across production and development branches.
+- **Settings** &mdash; Lets you tweak various aspects of your database like who has access to it, beta feature opt-ins, and plan management.
+
+Two other important buttons are:
+
+- **New branch** &mdash; Allows you to create a new branch of your schema.
+- **Connect** &mdash; Provides connection details that applications can use to connect to your database.
+
+## Create a table
 
 Now let’s add a table and some columns to the database. PlanetScale databases leverage branches to let you create copies of your database so you can safely experiment with the schema without affecting your main production database. Branches will be covered more in detail in the next article, but since they are an integral part of the system, you’ll always be working within a database branch. The default branch created for all databases is `main`. Your `main` branch is a production branch, which are highly available database intended for production traffic. Production database branches are automatically provided with an additional replica to resist outages, enabling zero-downtime failovers.
 

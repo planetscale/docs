@@ -27,7 +27,7 @@ It will cover two options:
 2. Click "**Connect**".
 3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
 
-   ![PlanetScale dashboard connect modal](/assets/docs/tutorials/deploy-to-vercel/prisma-2.png?v2)
+   ![PlanetScale dashboard connect modal {priority}](/assets/docs/tutorials/deploy-to-vercel/prisma-2.png)
 
 4. If the password is blurred, click "New password" to generate new credentials.
 5. Keep this page open, as you'll need to copy these to Vercel momentarily.
@@ -51,7 +51,9 @@ In Vercel, you'll set it as follows:
 - **NAME** = `DATABASE_URL`
 - **VALUE** = `mysql://xxxxxxxxx:************@xxxxxxxxxx.us-east-3.psdb.cloud/my_database?sslaccept=strict`
 
-_Note: The credentials are blurred for the example, but when you paste them in, use the actual values._
+{% callout %}
+The credentials are blurred for the example, but when you paste them in, use the actual values.
+{% /callout %}
 
 ![Vercel dashboard - Environment variables](/assets/docs/tutorials/deploy-to-vercel/environment-variables.png)
 

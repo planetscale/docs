@@ -20,7 +20,7 @@ To view backups for all of your branches, go to your database backups page: `app
 
 Once there, you'll find additional details about your backup history.
 
-![View backups for your database](/assets/docs/concepts/back-up-and-restore/view-backups.png)
+![View backups for your database {priority}](/assets/docs/concepts/back-up-and-restore/view-backups.png)
 
 ## Create manual backups
 

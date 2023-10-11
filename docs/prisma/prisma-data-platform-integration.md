@@ -22,7 +22,7 @@ If you're importing, click "**Import a Prisma repository**", and then select the
 
 Make sure your imported project has a `schema.prisma` file. You can specify the path of the file in the "**Prisma Schema path**" input box. This file must be relative to the repository root.
 
-![Prisma Data Platform project configuration](/assets/docs/tutorials/prisma-data-platform-integration/project.png)
+![Prisma Data Platform project configuration {priority}](/assets/docs/tutorials/prisma-data-platform-integration/project.png)
 
 ## Select a template
 
@@ -93,7 +93,7 @@ Here, you'll find [connection strings](/docs/concepts/connection-strings) you ca
 - [Automatic backups](/docs/concepts/back-up-and-restore) &mdash; On the free plan, your database branches are backed up daily.
 - [Query Insights](/docs/concepts/query-insights) &mdash; Insight into the exact active queries running on your databases with helpful statistics such as how many times it's run, time to run, rows affected, rows returned, and time per query.
 
-You can do all of this and more from your [PlanetScale dashboard](https://app.planetscale.com) or the [PlanetScale CLI](/cli).
+You can do all of this and more from your [PlanetScale dashboard](https://app.planetscale.com) or the [PlanetScale CLI](/features/cli).
 
 ## Prisma Data Platform
 
