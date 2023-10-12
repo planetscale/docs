@@ -12,19 +12,19 @@ We are committed to providing the following support options.
 
 - Included with all plans
 - Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
-- Ability to [submit support tickets](https://support.planetscale.com)
+- Ability to [submit support tickets](https://support.planetscale.com/hc/en-us)
 
 ## Standard
 
 - Included only for Scaler and Scaler Pro plans
-- Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com)
+- Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com/hc/en-us)
 - Target response time of 2 business days
 
 ## Business
 
 - Available as an upgrade for Scaler Pro plans and included on Enterprise plans
 - Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
-- Access to support engineers via email and [web ticketing](https://support.planetscale.com)
+- Access to support engineers via email and [web ticketing](https://support.planetscale.com/hc/en-us)
 - Enhanced response times including Urgent and High Priority coverage
 - [Business Response Times](#initial-response-time-slas)
 - Business Support [upgrades](/contact) start at $1,000/month
@@ -32,7 +32,7 @@ We are committed to providing the following support options.
 ## Enterprise
 
 - Available upgrade for Enterprise Plan customers
-- Enhanced email and [web ticketing](https://support.planetscale.com) support
+- Enhanced email and [web ticketing](https://support.planetscale.com/hc/en-us) support
 - Additional options for technical account management, Slack-based support, and phone escalation
 - Mission-critical response times including continuous support coverage
 - [Enterprise Response Times](#initial-response-time-slas)

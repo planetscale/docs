@@ -13,7 +13,7 @@ building security into every layer of our products.
 
 PlanetScale continuously monitors and reports primarily using System and Organization
 Controls (SOC) 2 Type 2. To receive a copy of the report please
-[contact Support](https://support.planetscale.com).
+[contact Support](https://support.planetscale.com/hc/en-us).
 
 ## PCI compliance
 

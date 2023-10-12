@@ -57,4 +57,4 @@ Once your database is sleeping, you can wake it in your PlanetScale dashboard.
 
 ## Additional assistance
 
-If you need additional assistance or have any questions, contact our [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions).
+If you need additional assistance or have any questions, contact our [the PlanetScale support team](https://support.planetscale.com/hc/en-us), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions).

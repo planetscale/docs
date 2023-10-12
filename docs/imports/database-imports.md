@@ -238,8 +238,8 @@ If you see an error when querying your PlanetScale database after the initial im
 ERROR 1105 (HY000): keyspace importkeyspace fetch error: node doesn't exist: [...]
 ```
 
-This means the import process is underway, and this error should clear in a matter of 10-15 minutes after some additional processing by PlanetScale. If it does not, contact our [the PlanetScale support team](https://support.planetscale.com) and we will help troubleshoot the issue.
+This means the import process is underway, and this error should clear in a matter of 10-15 minutes after some additional processing by PlanetScale. If it does not, contact our [the PlanetScale support team](https://support.planetscale.com/hc/en-us) and we will help troubleshoot the issue.
 
 ## Additional assistance
 
-If you need additional assistance, contact our [the PlanetScale support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions).
+If you need additional assistance, contact our [the PlanetScale support team](https://support.planetscale.com/hc/en-us), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions).

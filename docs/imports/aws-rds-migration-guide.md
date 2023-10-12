@@ -227,7 +227,7 @@ By default, this value is `NULL`, which means that binary logs are purged immedi
 You need to specify a period with enough time for replication to occur. For most cases, 48 hours should be sufficient, but you may need to set it higher for large imports.
 
 {% callout type="warning" %}
-Keep in mind, you can go to longer binlog retention periods at the cost of extra disk space on your source database. You should evaluate how large your binlogs are for daily use to determine if you would like to increase the value beyond 48 hours, as there's a chance you may run out of disk space, depending on your configuration. If you need assistance, please reach out to the [PlanetScale Support team](https://support.planetscale.com).
+Keep in mind, you can go to longer binlog retention periods at the cost of extra disk space on your source database. You should evaluate how large your binlogs are for daily use to determine if you would like to increase the value beyond 48 hours, as there's a chance you may run out of disk space, depending on your configuration. If you need assistance, please reach out to the [PlanetScale Support team](https://support.planetscale.com/hc/en-us).
 {% /callout %}
 
 To specify the number of hours for Amazon RDS to retain binary logs on a DB instance, use the `mysql.rds_set_configuration()` stored procedure as shown in the following example:

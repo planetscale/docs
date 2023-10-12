@@ -65,4 +65,4 @@ PlanetScale does not support PostgreSQL. We have worked with customers to migrat
 
 ## Additional assistance
 
-If you need additional assistance or have any questions, contact the [PlanetScale Support team](https://support.planetscale.com), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
+If you need additional assistance or have any questions, contact the [PlanetScale Support team](https://support.planetscale.com/hc/en-us), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
