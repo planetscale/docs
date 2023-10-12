@@ -32,7 +32,7 @@ Selecting any of these options not only provides the connection string specific 
 
 Connection strings allow your application to securely connect to PlanetScale, but since branches are effectively separate copies of your database, it’s important to know how to generate a connection string for the branch you want to connect to. In the above section, we generated a connection string from the Overview tab of the database. This will create a connection string to the default `main` branch, which is our production database.
 
-When you're working in development, you'll want to connect your dev (local or staging) application to a PlanetScale development branch. To create a connection string for another branch, simply navigate to the branch, and click the Connect button from the overview tab of that branch.
+When you're working in development, you'll want to connect your dev (local or staging) application to a PlanetScale development branch. To create a connection string for another branch, simply navigate to the branch, and click the Connect button from the overview tab of that branch. If you already have existing credentials that you've created in the past, those will be listed below (excluding the password). If you need to generate new credentials, click "New password".
 
 ## What's next?
 

@@ -16,29 +16,29 @@ Self-serve is comprised of three plans that you can sign up for from the PlanetS
 
 ### Usage-based plans
 
-|                                                                              | **Hobby**      | **Scaler**             |
-| ---------------------------------------------------------------------------- | -------------- | ---------------------- |
-| **Storage/month**                                                            | 5 GB           | 10 GB\*                |
-| **Row reads/month**                                                          | 1 billion      | 100 billion\*          |
-| **Row writes/month**                                                         | 10 million     | 50 million\*           |
-| **Available cluster sizes**                                                  | 1              | 1                      |
-| **Availability zones**                                                       | 1              | 2                      |
-| **Production branches**                                                      | 1 per database | 2 per database         |
-| **Development branches**                                                     | 1 per database | 5 per database         |
-| **Concurrent connections**                                                   | 1,000          | 10,000                 |
-| **Query Insights retention**                                                 | 24 hours       | 7 days                 |
-| **Horizontal sharding**                                                      | Not included   | Not included           |
-| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant   | Multi-tenant           |
-| **Read only regions**                                                        | Not included   | Included               |
-| **Web console**                                                              | Included       | Included               |
-| **PlanetScale CLI**                                                          | Included       | Included               |
-| **SSO**                                                                      | Not included   | Available as an add-on |
-| **Audit log retention**                                                      | 5 days         | 15 days                |
-| **Automatic backups**                                                        | Daily          | Every 12 hours         |
-| **Support**                                                                  | Community      | Standard               |
-| [**Data Branching®**](/docs/concepts/data-branching)                        | Not included   | Not included           |
-| **Monthly cost**                                                             | $0             | $29 per database       |
-| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included   | Available as an add-on |
+|                                                                              | **Hobby**                | **Scaler**             |
+| ---------------------------------------------------------------------------- | ------------------------ | ---------------------- |
+| **Storage/month**                                                            | 5 GB                     | 10 GB\*                |
+| **Row reads/month**                                                          | 1 billion                | 100 billion\*          |
+| **Row writes/month**                                                         | 10 million               | 50 million\*           |
+| **Available cluster sizes**                                                  | 1                        | 1                      |
+| **Availability zones**                                                       | 1                        | 2                      |
+| **Production branches**                                                      | 1 per database           | 2 per database         |
+| **Development branches**                                                     | 1 per database           | 5 per database         |
+| **Concurrent connections**                                                   | 1,000                    | 10,000                 |
+| **Query Insights retention**                                                 | 24 hours                 | 7 days                 |
+| **Horizontal sharding**                                                      | Not included             | Not included           |
+| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant             | Multi-tenant           |
+| **Read only regions**                                                        | Not included             | Included               |
+| **Web console**                                                              | Included                 | Included               |
+| **PlanetScale CLI**                                                          | Included                 | Included               |
+| **SSO**                                                                      | Not included             | Available as an add-on |
+| **Audit log retention**                                                      | 5 days                   | 15 days                |
+| **Automatic backups**                                                        | Daily                    | Every 12 hours         |
+| **Support**                                                                  | Community                | Standard               |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Not included             | Not included           |
+| **Monthly cost**                                                             | $0 (limit of 1 database) | $29 per database       |
+| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included             | Available as an add-on |
 
 ### Resource-based plan
 
