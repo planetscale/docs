@@ -6,7 +6,7 @@ date: '2023-03-28'
 
 ## Overview
 
-PlanetScale offers three different plan types:
+PlanetScale offers four different plan types:
 
 - [Usage-based](#usage-based-plans) &mdash; based on the rows read and written by the database.
 - [Resource-based](#resource-based-plans) &mdash; billed at a fixed rate depending on your cluster size.
