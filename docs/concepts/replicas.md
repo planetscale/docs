@@ -41,7 +41,9 @@ We use replicas for every production database branch. The number of replicas for
 
 ## How to use replicas in your PlanetScale database
 
-In PlanetScale, each database has one read-write node that acts as the primary MySQL instance for a given database cluster. When you perform mutations in your database, these are served by the primary node. All other replicas in a database cluster are read-only and can only serve queries that do not mutate data.
+PlanetScale replicas can be used to read data and reduce load on the primary. There are two ways to do this.
+
+### 1. `USE @replica`
 
 By default, all queries are served by the primary, however you may route any `SELECT` queries to replicas by issuing the following command on a connection:
 
@@ -49,4 +51,16 @@ By default, all queries are served by the primary, however you may route any `SE
 USE @replica
 ```
 
-Once this command is issued, all subsequent `SELECT` queries on that connection will be served by your read-only replicas instead of the primary node in your cluster. This can be an effective method of reducing load on your primary.
+Once this command is run, all subsequent `SELECT` queries on that connection will be served by your read-only replicas instead of the primary node in your cluster.
+
+### 2. Append `@replica` to the database name
+
+To direct all queries to a replica, you can add `@replica` to the database name in your connection string.
+
+**MySQL CLI example:**
+
+```
+mysql -h aws.connect.psdb.cloud -D my-db-name@replica -u username -p password
+```
+
+This will direct all queries on the connection to one of your read-only replicas.
