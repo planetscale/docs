@@ -45,7 +45,7 @@ Encrypted data is transmitted to PlanetScale databases through three major paths
 
 - The [PlanetScale CLI](/docs/reference/planetscale-cli), leverages [Mutual TLS](https://en.wikipedia.org/wiki/Mutual_authentication#mTLS) when initiating a connection to PlanetScale via `shell` or `connect` commands.
 - PlanetScale [connection strings](/docs/concepts/connection-strings) require the successful establishment of a TLS session before any SQL commands can be issued.
-- [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) is used to secure all data transmitted between PlanetScale and [clients using PlanetScale Connect](/docs/integrations/planetscale-connect).
+- [TLS](https://en.wikipedia.org/wiki/Transport_Layer_Security) is used to secure all data transmitted between PlanetScale and [clients using PlanetScale Connect](/docs/concepts/planetscale-connect).
 
 ### Additional data protection controls
 
