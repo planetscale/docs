@@ -46,13 +46,13 @@ You must be a [database administrator](/docs/concepts/access-control#database-ad
 2. Click **"Add webhook"**.
 3. Add an unique URL for the webhook to send events to. The URL must:
 
-- Use HTTPS. You can use sites like [`https://webhook.site`](https://webhook.site/) or tools like [ngrok](https://ngrok.com/docs/getting-started/) to create a HTTPS URL to test webhooks locally.
+- Use HTTPS. You can use sites like [https://webhook.site](https://webhook.site/) or tools like [ngrok](https://ngrok.com/docs/getting-started/) to create a HTTPS URL to test webhooks locally.
 - Be reachable from the internet, no local hosts.
 - Be able to handle incoming HTTP callbacks.
 
 4. Select the events you want to trigger the webhook. See the [webhook events reference](/docs/reference/webhook-events) for more information on the events and example response bodies.
 5. Click **"Save webhook"**.
-6. Select the _..._ ellipsis and click **"Test webhook"** to send a test event to the webhook. You should receive a POST request with the event type `webhook.test`.
+6. Select the **...** ellipsis and click **"Test webhook"** to send a test event to the webhook. You should receive a POST request with the event type `webhook.test`.
 7. On the **"Webhooks"** page, you can see the status of the last sent webhook under each webhook you set up.
 
 ## Handling deliveries
