@@ -32,7 +32,7 @@ Once you delete a region, you will no longer be charged for the storage or row r
 Connecting to a read-only region requires using a separate connection string from your primary region.
 
 1. Go to your database's production branch.
-2. Click on the "**...**" at the top right of the region that you want to delete.
+2. Click on the "**...**" at the top right of the region that you want to connect to.
 3. Click "**Connect**".
 
 Alternatively, you can create a connection string by going to your database settings page > "**Passwords**" > "**New password**".
