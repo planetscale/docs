@@ -17,11 +17,11 @@ Controls (SOC) 2 Type 2. To receive a copy of the report please
 
 ## PCI compliance
 
-[PlanetScale Managed (deployed on AWS)](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) has been issued an Attestation of Compliance (AoC) and Report on Compliance (RoC), certifying our compliance with the PCI DSS 4.0 as a Level 1 Service Provider. This enables PlanetScale Managed on AWS to be used via a shared responsibility model across merchants, acquirers, issuers, and other roles in storing and processing cardholder data.
+[PlanetScale Managed (deployed on AWS)](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) has been issued an Attestation of Compliance (AoC) and Report on Compliance (RoC), certifying our compliance with the PCI DSS 4.0 as a Level 1 Service Provider. This enables [PlanetScale Managed](/blog/introducing-planetscale-managed) on AWS to be used via a shared responsibility model across merchants, acquirers, issuers, and other roles in storing and processing cardholder data.
 
 ## HIPAA
 
-PlanetScale can enter into Business Associate Agreements (BAAs) with customers deployed on [Enterprise single-tenant environments](/docs/concepts/deployment-options) (Managed Cloud or Single-tenant Cloud). Please [reach out for more information](/contact), and we'll be in touch shortly.
+PlanetScale can enter into Business Associate Agreements (BAAs) with customers deployed on [Enterprise single-tenant environments](/docs/concepts/deployment-options). Please [reach out for more information](/contact), and we'll be in touch shortly.
 
 The customer must determine whether they are a Covered Entity &mdash; or a Business Associate of a Covered Entity &mdash; as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
 
