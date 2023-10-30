@@ -39,7 +39,7 @@ If you're interested in learning more, please [reach out](/contact) and we can f
 - Your databases can be deployed to any cloud provider region you choose that offers three Availability Zones, even [regions](/docs/concepts/regions) that PlanetScale does not offer on our self-serve plans
 - You can continue to use the PlanetScale UI and CLI in the same way that you would our general self-serve offerings, but the infrastructure runs in an isolated environment
 - BAAs available for HIPAA compliance
-- In the [Managed offering](/blog/introducing-planetscale-managed) where you own the account, it is possible to establish private database connectivity via:
+- In the [Managed offering](/blog/introducing-planetscale-managed) where you own the account, you have private database connectivity via:
   - **AWS** &mdash; [AWS PrivateLink](https://aws.amazon.com/privatelink/) (recommended) or [VPC Peering](https://docs.aws.amazon.com/vpc/latest/peering/what-is-vpc-peering.html)
   - **GCP** &mdash; [Private Service Connect](https://cloud.google.com/vpc/docs/private-access-options)
 

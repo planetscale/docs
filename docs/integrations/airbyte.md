@@ -1,7 +1,7 @@
 ---
 title: 'Airbyte integration'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
-date: '2023-07-27'
+date: '2023-10-27'
 meta:
   title: 'Connect with Airbyte ELT'
 ---
@@ -22,12 +22,12 @@ Only [Airbyte Open Source](https://docs.airbyte.com/quickstart/deploy-airbyte) s
 ### Set up Airbyte locally
 
 1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/).
-2. Clone the Airbyte repo and run Docker:
+2. Clone the Airbyte repo and run the startup script:
 
    ```bash
    git clone https://github.com/airbytehq/airbyte.git
    cd airbyte
-   docker-compose up
+   ./run-ab-platform.sh
    ```
 
 3. Open Airbyte in the browser at [http://localhost:8000](http://localhost:8000).
@@ -39,7 +39,8 @@ Now that Airbyte is running locally, let's set up the custom PlanetScale source.
 1. In the Airbyte dashboard, click "**Settings**" on the bottom left.
 2. Click "**Sources**" on the left sidebar.
 3. Click the "**New connector**" button.
-4. Fill in the connector values as follows:
+4. Click the "**Add a new Docker connector**" option.
+5. Fill in the connector values as follows:
 
 - **Connector display name**: PlanetScale
 - **Docker repository name**: planetscale/airbyte-source
