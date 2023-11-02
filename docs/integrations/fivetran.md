@@ -64,7 +64,7 @@ Once Fivetran is connected to your PlanetScale primary or read replica, we pull 
 
 ### Syncing empty tables and columns
 
-Fivetran can sync empty tables and columns for your PlanetScale connector. For more information, see our [Features documentation](https://fivetran.com/docs/getting-started/features#syncingemptytablesandcolumns).
+Fivetran can sync empty tables and columns for your PlanetScale connector. For more information, see the [Fivetran features documentation](https://fivetran.com/docs/getting-started/features#syncingemptytablesandcolumns).
 
 ## Schema information
 
@@ -136,7 +136,7 @@ In some cases, when loading data into your destination, the connector may need t
 
 ### Unparsable values
 
-When the connector encounters [an unparsable value](/docs/databases/mysql#unparsablevalues) of one of the following data types, the connector substitutes it with a default value. The default value the connector uses depends on whether the unparsable value is in a primary key column or non-primary key column:
+When the connector encounters [an unparsable value](https://fivetran.com/docs/databases/mysql#unparsablevalues) of one of the following data types, the connector substitutes it with a default value. The default value the connector uses depends on whether the unparsable value is in a primary key column or non-primary key column:
 
 | MySQL Type | Primary Key Value    | Non-Primary Key Value |
 | ---------- | -------------------- | --------------------- |
