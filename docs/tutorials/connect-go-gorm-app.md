@@ -230,7 +230,7 @@ You can now refresh the [Go products page](http://localhost:8080/products) to se
 
 ## What's next?
 
-Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) on your `main` production branch to protect it against direct schema changes and enable zero-downtime schema migraions.
+Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) on your `main` production branch to protect it against direct schema changes and enable zero-downtime schema migrations.
 
 When you're reading to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll open a [deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
 
