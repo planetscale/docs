@@ -135,16 +135,16 @@ You will not be charged unless you create a Scaler or Scaler Pro database.
 
 PlanetScale's Enterprise Plan is great for users that want to scale farther, shard horizontally, and run PlanetScale in a dedicated AWS/GCP account. We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
 
-|                             | **Multi-Tenant** | **Single-Tenant** | **Managed** |
-| --------------------------- | ---------------- | ----------------- | ----------- |
-| Resource-based pricing      | ✔               | ✔                | ✔          |
-| Horizontal sharding         | ✔               | ✔                | ✔          |
-| Unlimited connections       | ✔               | ✔                | ✔          |
-| Customizable feature limits | ✔               | ✔                | ✔          |
-| BAAs available              | ❌               | ✔                | ✔          |
-| PCI compliant               | ❌               | ❌                | ✔ (on AWS) |
-| Dedicated AWS/GCP account   | ❌               | ✔                | ✔          |
-| Your own AWS/GCP account    | ❌               | ❌                | ✔          |
+|                             | **Multi-Tenant** | **Single-Tenant** | **[Managed](/docs/enterprise/managed/overview)** |
+| --------------------------- | ---------------- | ----------------- | ------------------------------------------------ |
+| Resource-based pricing      | ✔               | ✔                | ✔                                               |
+| Horizontal sharding         | ✔               | ✔                | ✔                                               |
+| Unlimited connections       | ✔               | ✔                | ✔                                               |
+| Customizable feature limits | ✔               | ✔                | ✔                                               |
+| BAAs available              | ❌               | ✔                | ✔                                               |
+| PCI compliant               | ❌               | ❌                | ✔ (on AWS)                                      |
+| Dedicated AWS/GCP account   | ❌               | ✔                | ✔                                               |
+| Your own AWS/GCP account    | ❌               | ❌                | ✔                                               |
 
 ## How do I know if I need an Enterprise plan?
 

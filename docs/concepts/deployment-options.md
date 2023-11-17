@@ -1,6 +1,6 @@
 ---
 title: 'Deployment options'
-subtitle: 'Learn about the different deployment options PlanetScale offers'
+subtitle: 'Learn about the different deployment options PlanetScale offers.'
 date: '2023-10-16'
 ---
 
@@ -28,7 +28,7 @@ Multi-tenancy is the default deployment option. When you sign up for a PlanetSca
 Single-tenant deployment options are available with [PlanetScale Enterprise](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). Companies that require their PlanetScale databases to be hosted in a single-tenant environment have two options: Enterprise &mdash; Single-tenant and Managed.
 
 {% callout %}
-In both options, your database is deployed in a single-tenant environment. The main difference between Enterprise &mdash; Single-tenant and Managed is who owns the underlying account. With [Managed](/blog/introducing-planetscale-managed), your database is deployed in your own AWS/GCP account. With Enterprise &mdash; Single-tenant, PlanetScale owns and manages the account.
+In both options, your database is deployed in a single-tenant environment. The main difference between Enterprise &mdash; Single-tenant and Managed is who owns the underlying account. With [Managed](/docs/enterprise/managed/overview), your database is deployed in your own AWS/GCP account. With Enterprise &mdash; Single-tenant, PlanetScale owns and manages the account.
 
 If you're interested in learning more, please [reach out](/contact) and we can figure out the best solution for your use case.
 {% /callout %}

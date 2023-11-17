@@ -17,7 +17,7 @@ Controls (SOC) 2 Type 2. To receive a copy of the report please
 
 ## PCI compliance
 
-[PlanetScale Managed (deployed on AWS)](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) has been issued an Attestation of Compliance (AoC) and Report on Compliance (RoC), certifying our compliance with the PCI DSS 4.0 as a Level 1 Service Provider. This enables [PlanetScale Managed](/blog/introducing-planetscale-managed) on AWS to be used via a shared responsibility model across merchants, acquirers, issuers, and other roles in storing and processing cardholder data.
+[PlanetScale Managed (deployed on AWS)](/docs/enterprise/managed/overview) has been issued an Attestation of Compliance (AoC) and Report on Compliance (RoC), certifying our compliance with the PCI DSS 4.0 as a Level 1 Service Provider. This enables [PlanetScale Managed](/blog/introducing-planetscale-managed) on AWS to be used via a shared responsibility model across merchants, acquirers, issuers, and other roles in storing and processing cardholder data.
 
 ## HIPAA
 
