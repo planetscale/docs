@@ -141,7 +141,7 @@ PlanetScale's Enterprise Plan is great for users that want to scale farther, sha
 | Horizontal sharding         | ✔               | ✔                | ✔                                               |
 | Unlimited connections       | ✔               | ✔                | ✔                                               |
 | Customizable feature limits | ✔               | ✔                | ✔                                               |
-| BAAs available              | ❌               | ✔                | ✔                                               |
+| BAAs available              | ✔               | ✔                | ✔                                               |
 | PCI compliant               | ❌               | ❌                | ✔ (on AWS)                                      |
 | Dedicated AWS/GCP account   | ❌               | ✔                | ✔                                               |
 | Your own AWS/GCP account    | ❌               | ❌                | ✔                                               |

@@ -22,6 +22,7 @@ Multi-tenancy is the default deployment option. When you sign up for a PlanetSca
 - Your database runs on PlanetScale's [secure cloud infrastructure](/docs/concepts/security)
 - Lowest cost plans
 - No configuration requirements on your end
+- BAAs available for HIPAA compliance
 
 ## Single-tenancy deployment on PlanetScale
 

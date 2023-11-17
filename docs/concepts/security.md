@@ -21,11 +21,11 @@ Controls (SOC) 2 Type 2. To receive a copy of the report please
 
 ## HIPAA
 
-PlanetScale can enter into Business Associate Agreements (BAAs) with customers deployed on [Enterprise single-tenant environments](/docs/concepts/deployment-options). Please [reach out for more information](/contact), and we'll be in touch shortly.
+PlanetScale can enter into Business Associate Agreements (BAAs) with customers on [Enterprise plans](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). Please [reach out for more information](/contact), and we'll be in touch shortly.
 
 The customer must determine whether they are a Covered Entity &mdash; or a Business Associate of a Covered Entity &mdash; as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
 
-Responsibility around HIPAA compliance between PlanetScale and the customer is implemented using a shared responsibility model. While PlanetScale Single-tenant provides a secure and compliant infrastructure for the storage and processing of Protected Health Information (PHI), the customer is ultimately responsible for ensuring that the environment and applications that they build on top of PlanetScale are properly configured and secured according to HIPAA requirements.
+Responsibility around HIPAA compliance between PlanetScale and the customer is implemented using a shared responsibility model. While PlanetScale Enterprise plans provide a secure and compliant infrastructure for the storage and processing of Protected Health Information (PHI), the customer is ultimately responsible for ensuring that the environment and applications that they build on top of PlanetScale are properly configured and secured according to HIPAA requirements.
 
 The Department of Health and Human Services does not recognize any formal certification for HIPAA. PlanetScale systems, software, networks, and procedures are consistent with the controls outlined in the relevant rules.
 
