@@ -56,7 +56,7 @@ In this example, you can see establishing a connection took 44ms.
 When connecting to PlanetScale, you have the option of two different hostnames: optimized or direct. For almost every case, we recommend using the optimized hostname. But there are some circumstances where using the direct hostname may work better for your application.
 
 {% callout type="note" %}
-This does not apply to [PlanetScale Managed](/blog/introducing-planetscale-managed) and single-tenant customers who have a single hostname for their account.
+This does not apply to [PlanetScale Managed](/docs/enterprise/managed/overview) and single-tenant customers who have a single hostname for their account.
 {% /callout %}
 
 ## Optimized hostname

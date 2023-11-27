@@ -24,7 +24,7 @@ pscale password <SUB-COMMAND> <FLAG>
 
 | **Sub-command**                                        | **Sub-command flags** | **Description**                                  |
 | ------------------------------------------------------ | --------------------- | ------------------------------------------------ |
-| `create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>` |                       | Create new credentials to access a branch's data |
+| `create <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_NAME>` | `--ttl`, `--role`     | Create new credentials to access a branch's data |
 | `delete <DATABASE_NAME> <BRANCH_NAME> <PASSWORD_ID>`   | `--force`             | Delete the specified branch credentials          |
 | `list <DATABASE_NAME> <BRANCH_NAME>`                   | `--web`               | List all credentials of a database               |
 
@@ -34,11 +34,12 @@ The value `<PASSWORD_ID>` represents the ID number of the set of credentials. To
 
 Some of the sub-commands have additional flags unique to the sub-command. This section covers what each of those does. See the above table for which context.
 
-| **Sub-command flag** | **Description**                                           | **Applicable sub-commands** |
-| -------------------- | --------------------------------------------------------- | --------------------------- |
-| `--role <ROLE>`      | Add a [role to a password](/docs/concepts/password-roles) | `create`                    |
-| `--force`            | Delete a password without confirmation.                   | `delete`                    |
-| `--web`              | Perform the action in your web browser                    | `list`                      |
+| **Sub-command flag** | **Description**                                                                                                  | **Applicable sub-commands** |
+| -------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `--ttl`              | TTL defines the time to live for the password in seconds. By default, it is 0, which means it will never expire. | `create`                    |
+| `--role <ROLE>`      | Add a [role to a password](/docs/concepts/password-roles)                                                        | `create`                    |
+| `--force`            | Delete a password without confirmation.                                                                          | `delete`                    |
+| `--web`              | Perform the action in your web browser                                                                           | `list`                      |
 
 Available roles for the `--role` flag are:
 
