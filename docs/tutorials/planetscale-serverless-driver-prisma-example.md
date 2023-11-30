@@ -55,7 +55,7 @@ npx prisma generate
 4. Update your Prisma Client instance to use the PlanetScale serverless driver:
 
 ```javascript
-import { connect } from '@planetscale/database'
+import { Client } from '@planetscale/database'
 import { PrismaPlanetScale } from '@prisma/adapter-planetscale'
 import { PrismaClient } from '@prisma/client'
 import dotenv from 'dotenv'
@@ -64,8 +64,8 @@ import { fetch as undiciFetch } from 'undici'
 dotenv.config()
 const connectionString = `${process.env.DATABASE_URL}`
 
-const connection = connect({ url: connectionString, fetch: undiciFetch })
-const adapter = new PrismaPlanetScale(connection)
+const client = new Client({ url: connectionString, fetch: undiciFetch })
+const adapter = new PrismaPlanetScale(client)
 const prisma = new PrismaClient({ adapter })
 
 async function main() {
