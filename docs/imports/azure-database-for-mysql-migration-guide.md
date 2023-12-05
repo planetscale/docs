@@ -1,7 +1,7 @@
 ---
 title: Azure Database for MySQL migration guide
 subtitle: Learn how to import your database from Azure Database for MySQL into PlanetScale.
-date: '2022-08-01'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -13,11 +13,8 @@ This document will demonstrate how to migrate a database from Azure Database for
 Before you can perform the migration, you’ll need to gather the following information from you MySQL instance in Azure:
 
 - Server name
-
 - Server admin login name
-
 - Server admin password
-
 - Database name
 
 The server name and admin login name can be located on the **Overview** tab of the MySQL instance in Azure.
@@ -58,13 +55,13 @@ To allow traffic into your Azure database, navigate to the “**Networking**” 
 
 ## Configure MySQL server settings
 
-There are two settings that need to be configured before you can import your database:
+There are three settings that need to be configured before you can import your database:
 
 - gtid_mode
-
 - enforce_gtid_consistency
+- binlog_row_image
 
-To access these settings in Azure, select “**Server parameters**” from the sidebar and enter “**gtid**” in the search bar. Set both “**enforce_gtid_consistency**” and “**gtid_mode**” to “**ON**”. Click “Save”
+To access these settings in Azure, select “**Server parameters**” from the sidebar and enter “**gtid**” in the search bar. Set both “**enforce_gtid_consistency**” and “**gtid_mode**” to “**ON**”. Next, search for “**binlog_row_image**” and set to “**full**”. Click “**Save**”.
 
 {% callout %}
 For “**gtid_mode**”, you’ll need to update the value in sequence displayed in the dropdown until it is set to “**ON**”. For example, if the current setting is “**OFF_PERMISSIVE**”, you’ll need to first change it to “**ON_PERMISSIVE**”, save the changes, then set it to “**ON**” in that order.
@@ -86,9 +83,13 @@ Complete the form using the information gathered in the previous section. Also m
 
 ![The Import external database form.](/assets/docs/imports/azure-database-for-mysql-migration-guide/the-import-external-database-form.png)
 
-If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
+The “**Connect to database**” button will update with the connection status.
 
-![The message that shows at the bottom of the form indicating that the connection was successful.](/assets/docs/imports/azure-database-for-mysql-migration-guide/the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png)
+{% callout %}
+If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+{% /callout %}
+
+If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 The following view will show you the progress of your data being imported.
 

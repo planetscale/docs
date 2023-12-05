@@ -1,7 +1,7 @@
 ---
 title: 'MySQL compatibility'
 subtitle: 'Learn what MySQL syntax, functions, and more are supported by PlanetScale'
-date: '2023-10-12'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -28,7 +28,6 @@ If you're attempting to import a database using our Import tool, there are some 
 
 | Statement                     | Support | Description                                                                                                                                                                                                                                                |
 | ----------------------------- | ------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `CONSTRAINT...FOREIGN KEY`    | ❌      | The usage of foreign key constraints or `FOREIGN KEY` syntax is [not supported on PlanetScale](/docs/learn/operating-without-foreign-key-constraints).                                                                                                     |
 | `ALTER TABLE...RENAME COLUMN` | ❌      | Renaming columns and tables may be destructive. See our [guide for column rename recommendations](/docs/learn/handling-table-and-column-renames).                                                                                                          |
 | `CREATE DATABASE`             | ❌      | You cannot `CREATE` a PlanetScale database from the MySQL command line, however, this is supported in the [PlanetScale CLI](/docs/reference/database).                                                                                                     |
 | `DROP DATABASE`               | ❌      | You cannot `DROP` a PlanetScale database from the MYSQL command line, however, this is supported in the [PlanetScale CLI](/docs/reference/database).                                                                                                       |

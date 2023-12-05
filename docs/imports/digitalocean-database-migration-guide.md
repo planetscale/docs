@@ -1,7 +1,7 @@
 ---
 title: DigitalOcean database migration guide
 subtitle: Learn how to migrate a database from a DigitalOcean MySQL cluster into PlanetScale using the database Import tool.
-date: '2022-08-01'
+date: '2023-12-05'
 ---
 
 ## Introduction
@@ -9,8 +9,7 @@ date: '2022-08-01'
 In this article, we’ll walk through migrating a MySQL database from DigitalOcean to PlanetScale using the [Import tool](/docs/imports/database-imports).
 
 {% callout %}
-This guide assumes you are using MySQL on DigitalOcean. Other database systems available through DigitalOcean will not
-work with the PlanetScale import tool.
+This guide assumes you are using MySQL on DigitalOcean. Other database systems available through DigitalOcean will not work with the PlanetScale import tool.
 {% /callout %}
 
 ## Prerequisites
@@ -90,9 +89,13 @@ Complete the form using the information gathered in the previous section. Click 
 
 ![The Import external database form.](/assets/docs/imports/digitalocean-database-migration-guide/the-import-external-database-form.png)
 
-The “**Connect to database**” button will update with the status of the connection. If the connection is successful, click “**Begin database import**” to migrate your data to PlanetScale.
+The “**Connect to database**” button will update with the connection status.
 
-![The notice shown when PlanetScale has successfully connected to the external database.](/assets/docs/imports/digitalocean-database-migration-guide/the-notice-shown-when-planetscale-has-successfully-connected-to-the-external-database.png)
+{% callout %}
+If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+{% /callout %}
+
+If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 You’ll then be moved to a page where you can monitor the import status of the database from DigitalOcean.
 

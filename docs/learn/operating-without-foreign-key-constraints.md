@@ -1,7 +1,7 @@
 ---
 title: 'Operating without foreign key constraints'
-subtitle: 'How to manage your relational data without formal foreign key constraints in your schema'
-date: '2022-07-22'
+subtitle: 'How to manage your relational data without formal foreign key constraints in your schema.'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -10,22 +10,20 @@ A **foreign key** is a logical association of rows between two tables, in a pare
 
 A **`FOREIGN KEY` _constraint_ is a database construct**, an implementation that _forces_ the foreign key relationship's integrity (referential integrity). Namely, it ensures that a child table can only reference a parent table when the appropriate row _exists_ in the parent table. A constraint also prevents the existence of "orphaned rows" in different methods, as you'll see described soon.
 
-**PlanetScale doesn't support `FOREIGN KEY` _constraints_**.
+At PlanetScale, we don't _recommend_ using foreign key constraints. However, if you still want to use them, we currently have [beta support for foreign key constraints](/docs/concepts/foreign-key-constraints) with minor limitations.
 
-You are encouraged to use the relational model and associate tables by "pointing" rows from one table to another. It is just the enforcement at the database level, the `CONSTRAINT ... FOREIGN KEY` definition, that is not allowed in your schemas.
+We still encourage you to use the relational model and associate tables by "pointing" rows from one table to another with foreign keys, just not with the `CONSTRAINT ... FOREIGN KEY` definition.
 
-We'll soon cover an example of what a schema looks like [with and without foreign key constraints](#how-does-your-schema-look-without-foreign-key-constraints) so that this small difference is clear.
+We'll soon cover an example of a schema with and without foreign key constraints to clarify this slight difference.
 
-## Why not support foreign key constraints?
+## Why does PlanetScale not recommend constraints?
 
-There are two major technical reasons why foreign key constraints are not supported:
+There are a few significant technical reasons why we do not recommend foreign key constraints for some applications:
 
-1. The way `FOREIGN KEY` constraints are implemented in MySQL (or, rather, in the InnoDB storage engine) interferes with Online DDL operations. Learn more in [this Vitess blog post](https://vitess.io/blog/2021-06-15-online-ddl-why-no-fk/).
-2. Limited to single MySQL server scope, `FOREIGN KEY` constraints are impossible to maintain once your data grows and is split over multiple database servers. This typically happens when you introduce functional partitioning/sharding and/or horizontal sharding.
-
-We believe the advantages of Online DDL such as [branching](/docs/concepts/branching), developer-owned schema changes and deployments, [non-blocking schema changes](/docs/concepts/nonblocking-schema-changes), etc., and the advantages of sharding as means of unlimited scaling, outweigh the `FOREIGN KEY` constraints benefits.
-
-In other words, if you **enforce referential integrity at the application level instead of at the database level**, you open the door to all of those benefits.
+- MySQL foreign keys introduce increased locking for data and metadata changes. Expect degraded performance, especially in high concurrency workloads.
+- Once two tables engage in a foreign key constraint relationship, it is not possible to change the data types for the columns used by the foreign key. For example, it is impossible to change a column from `INT` to `BIGINT`, neither on a parent nor child table.
+- As applications evolve, there is a need for schema refactoring. It is a more complex process involving more steps to refactor a schema containing foreign key constraints.
+- `FOREIGN KEY` constraints are difficult to maintain once your data grows and is split over multiple database servers. This typically happens when you introduce functional partitioning/sharding and/or horizontal sharding.
 
 {% callout %}
 You can still think in terms of foreign key relationships; of parent tables and child tables; of rows referencing each

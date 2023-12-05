@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2023-08-18'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -30,7 +30,14 @@ Your database must have a **production branch with [safe migrations](/docs/conce
 
 Once you create a deploy request, you or your team can review it and, optionally, approve it before deploying it to production.
 
-PlanetScale will check if the request is deployable. This process includes checking for issues like [foreign key constraints](/docs/learn/operating-without-foreign-key-constraints), [missing unique keys](/docs/learn/change-single-unique-key), and more. We also check if there are any known conflicts with the production schema that could prevent a clean merge. While we attempt to find all possible conflicts, it is ultimately up to you to confirm merge details.
+PlanetScale will check if the request is deployable. This process includes checking for issues like:
+
+- [Missing unique keys](/docs/learn/change-single-unique-key)
+- Invalid charsets (PlanetScale supports `utf8`, `utf8mb4`, `utf8mb3`, `latin1`, and `ascii`)
+- Invalid foreign key constraint names or lengths
+- And other various checks to ensure successful schema changes
+
+We will also warn you about potential data loss or inconsistencies and check if there are any known conflicts with the production schema that could prevent a clean merge. While we attempt to find all possible conflicts, it is ultimately up to you to confirm merge details.
 
 1. Click the "**Deploy requests**" tab on the database overview page.
 2. Select the open deploy request you want to review.
@@ -57,6 +64,22 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 2. Select the request you want to close.
 3. Click on the "**Close deploy request**" button on the right-hand side.
 
+## Deploy requests and foreign key constraints
+
+In most cases, deploy requests should work as expected when your schema changes have [foreign key constraints](/docs/concepts/foreign-key-constraints).
+
+There are some cases where a deploy request will not be deployable: A mismatched column type or if it references a deleted column.
+
+For example, if we open a deploy request to add a foreign key constraint `t1_id` with type `BIGINT` on a table `t2` that references a column `id` on table `t1`, where `t1.id`'s type is `BIGINT`, the following cases would produce a linting error in the deploy request because it is not deployable:
+
+- if, while the previously mentioned deploy request is open, someone else updates `t1.id` to a different column type, i.e., `int`.
+- if, while the previously mentioned deploy request is open, someone else deletes `t1.id`.
+- if, while the previously mentioned deploy request is open, someone else deletes all indexes that cover `t1.id` as their prefix. (Because in a foreign key relationship, the referenced columns on the parent table must be indexed, usually by a dedicated index, but they can be the first columns in an otherwise wider index.)
+
+These are all cases where another user changes schema, causing the initial user's definition to be invalid MySQL.
+
+There are also two cases where a revert would cause orphaned rows that you can read about in this document's [revert section](#when-a-revert-can-result-in-orphaned-rows).
+
 ## Revert a schema change
 
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! You have the option to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
@@ -78,6 +101,17 @@ You can revert a deployment for **up to 30 minutes** after the deploying. After 
 There are some scenarios where some data is not retained when you revert your changes.
 
 1. You add a table or column to your schema and then revert it. If any data was written to those newly introduced fields between deployment and reverting, that data will not be retained upon revert, as the fields will no longer exist.
+
+### When a revert can result in orphaned rows
+
+In some cases, when you are using foreign key constraints, a revert of a deploy request can result in orphaned rows. These can happen when your schema change is:
+
+- Dropping a foreign key constraint: Once a foreign key constraint is dropped, new data written to the table is less constrained. Reverting this change may result in data that is inconsistent with the dropped foreign key constraint.
+- Dropping a table with foreign key constraints: When a table with foreign key constraints is dropped, the parent table(s) will continue to be written to. If this change is reverted, data in the table that was dropped may no longer be consistent with its foreign key constraints.
+
+{% callout type="note" %}
+[Foreign key constraints](/docs/concepts/foreign-key-constraints) are currently supported by PlanetScale in beta. Please [contact us](/contact) if you notice any problems in deploy requests that contain foreign key constraints.  
+{% /callout %}
 
 ### When are you unable to revert a schema change
 

@@ -220,8 +220,8 @@ The first two options are covered below.
 If you don't care to install the MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your PHP database.
-2. Click on the "**Branches** and select the `main` branch (or whatever development branch you used).
-3. Click on "**Console**"
+2. On the "**Overview**" page, you will need to select the gear icon and demote your `main` branch by toggling the "Promote to production" option. This is so you can create tables directly on your `main` branch.
+3. Click on the "**Console**" and select the `main` branch (or whatever development branch you used).
 4. Create the `categories` table:
 
    ```sql
@@ -244,7 +244,9 @@ If you don't care to install the MySQL client or the PlanetScale CLI, another qu
    PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB;
    ```
 
-   PlanetScale does not support foreign key constraints, but we do support the concept of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
+   {% callout %}
+   PlanetScale has foreign key constraints support in beta. If you want to enforce referential integrity with foreign key constraints, you will need to opt your database into the [foreign key constraints beta](/docs/concepts/foreign-key-constraints).
+   {% /callout %}
 
 6. Add data to the `products` table with:
 
@@ -351,7 +353,7 @@ You can now refresh the [PHP homepage](http://localhost:8000) to see the new rec
 
 ## What's next?
 
-Once you're done with initial development, you can enable [safe migrations](/docs/concepts/safe-migrations) on your `main` production branch to protect it against direct schema changes and enable zero-downtime schema migraions.
+Once you're done with initial development, you can promote your branch to production and enable [safe migrations](/docs/concepts/safe-migrations) on your `main` production branch to protect it against direct schema changes and enable zero-downtime schema migraions.
 
 When you're reading to make more schema changes, you'll [create a new branch](/docs/concepts/branching) off of your production branch. Branching your database creates an isolated copy of your production schema so that you can easily test schema changes in development. Once you're happy with the changes, you'll [open a deploy request](/docs/concepts/deploy-requests). This will generate a diff showing the changes that will be deployed, making it easy for your team to review.
 

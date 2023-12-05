@@ -155,7 +155,9 @@ DisableForeignKeyConstraintWhenMigrating: true,
 // ...
 ```
 
-PlanetScale does not support foreign key _constraints_, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints) documentation.
+{% callout %}
+PlanetScale has foreign key constraints support in beta. If you want to enforce referential integrity and enable foreign key constraints in your Go application, you will need to opt your database into the [foreign key constraints beta](/docs/concepts/foreign-key-constraints). Then, you will be able to exclude this setting in your Go application.
+{% /callout %}
 
 ## Add data manually
 

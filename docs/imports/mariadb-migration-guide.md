@@ -1,7 +1,7 @@
 ---
 title: 'MariaDB migration guide'
 subtitle: 'Learn how to import your database from a MariaDB server into a PlanetScale MySQL database.'
-date: '2023-09-21'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -97,9 +97,17 @@ The next section will ask for your the details required to connect to your exist
 
 ![](/assets/docs/imports/mariadb-migration-guide/CleanShot_2023-04-18_at_16.11.11.png)
 
-Click "**Connect to database”** and the import tool will attempt to connect to your database in MariaDB. If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
+Click "**Connect to database”** and the import tool will attempt to connect to your database in MariaDB.
 
-![](/assets/docs/imports/mariadb-migration-guide/CleanShot_2023-04-18_at_16.15.43.png)
+The “**Connect to database**” button will update with the connection status.
+
+{% callout %}
+If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+{% /callout %}
+
+If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
+
+If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
 
 The following view will show you the progress of your data being imported.
 
