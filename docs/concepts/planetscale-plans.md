@@ -29,7 +29,7 @@ Self-serve is comprised of three plans that you can sign up for from the PlanetS
 | **Query Insights retention**                                                 | 24 hours                 | 7 days                 |
 | **Horizontal sharding**                                                      | Not included             | Not included           |
 | [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant             | Multi-tenant           |
-| **Read only regions**                                                        | Not included             | Included               |
+| **Read only regions**                                                        | Not included             | Available as an add-on |
 | **Web console**                                                              | Included                 | Included               |
 | **PlanetScale CLI**                                                          | Included                 | Included               |
 | **SSO**                                                                      | Not included             | Available as an add-on |
@@ -69,7 +69,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | **Query Insights retention**                                                 | 7 days                            |
 | **Horizontal sharding**                                                      | Not included                      |
 | [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant                      |
-| **Read only regions**                                                        | Included                          |
+| **Read only regions**                                                        | Available as an add-on            |
 | **Web console**                                                              | Included                          |
 | **PlanetScale CLI**                                                          | Included                          |
 | **SSO**                                                                      | Available as an add-on\*\*\*      |
