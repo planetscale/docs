@@ -1,7 +1,7 @@
 ---
 title: 'Network latency'
 subtitle: 'Learn how network latency can impact query speed.'
-date: '2023-08-31'
+date: '2023-12-07'
 ---
 
 ## Overview
@@ -13,6 +13,31 @@ When connecting to PlanetScale, it's important to understand how network latency
 Network latency is the time it takes for data to travel across a network between your application and your database. Minimizing network latency for databases is critical because it adds additional time to your application's queries.
 
 One of the primary causes of network latency is the distance between two endpoints. For example, if an application is hosted in Virginia and is communicating to a database in Paris, each query will spend around 80ms traveling between the two servers. For an application that does many queries, this network time adds up quickly and can greatly impact the application's performance.
+
+### Choosing a region for your database
+
+The most optimal location for your database is in the same region and cloud provider as your application. PlanetScale has [regions available in both AWS and GCP](/docs/concepts/regions). If your application is hosted outside of AWS or GCP, then we recommend
+choosing the PlanetScale region that is geographically closest to your application servers.
+
+#### Using `pscale ping`
+
+You can use the [`pscale ping`](/docs/reference/ping) command to determine the best PlanetScale region for your application. It will measure the latency to each PlanetScale region
+and display the results in an ordered list from fastest to slowest.
+
+It's best to run this command directly from your application's server to get a realistic measure.
+
+```shell
+ENDPOINT                                         LATENCY   TYPE
+------------------------------------------------ --------- -----------
+gcp-us-east4.connect.psdb.cloud                  15.6ms    direct
+us-east.connect.psdb.cloud                       19.8ms    direct
+gcp-northamerica-northeast1.connect.psdb.cloud   22.4ms    direct
+aws.connect.psdb.cloud                           22.6ms    optimized
+gcp.connect.psdb.cloud                           23.4ms    optimized
+aws-us-east-2.connect.psdb.cloud                 31ms      direct
+gcp-us-central1.connect.psdb.cloud               43.6ms    direct
+aws-eu-west-2.connect.psdb.cloud                 82.1ms    direct
+```
 
 ### Network latency and serverless applications
 
