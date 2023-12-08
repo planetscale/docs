@@ -27,16 +27,16 @@ and display the results in an ordered list from fastest to slowest.
 It's best to run this command directly from your application's server to get a realistic measure.
 
 ```shell
-ENDPOINT                                         LATENCY   TYPE
------------------------------------------------- --------- -----------
-gcp-us-east4.connect.psdb.cloud                  15.6ms    direct
-us-east.connect.psdb.cloud                       19.8ms    direct
-gcp-northamerica-northeast1.connect.psdb.cloud   22.4ms    direct
-aws.connect.psdb.cloud                           22.6ms    optimized
-gcp.connect.psdb.cloud                           23.4ms    optimized
-aws-us-east-2.connect.psdb.cloud                 31ms      direct
-gcp-us-central1.connect.psdb.cloud               43.6ms    direct
-aws-eu-west-2.connect.psdb.cloud                 82.1ms    direct
+  NAME                          LATENCY   ENDPOINT                                         TYPE
+ ----------------------------- --------- ------------------------------------------------ -----------
+  AWS us-west-2                 34.6ms    aws.connect.psdb.cloud                           optimized
+  AWS us-west-2                 34.8ms    us-west.connect.psdb.cloud                       direct
+  GCP us-central1               57.5ms    gcp.connect.psdb.cloud                           optimized
+  GCP us-central1               57.9ms    gcp-us-central1.connect.psdb.cloud               direct
+  AWS us-east-2                 60.5ms    aws-us-east-2.connect.psdb.cloud                 direct
+  GCP us-east4                  69.2ms    gcp-us-east4.connect.psdb.cloud                  direct
+  AWS us-east-1                 70.2ms    us-east.connect.psdb.cloud                       direct
+  GCP northamerica-northeast1   80.9ms    gcp-northamerica-northeast1.connect.psdb.cloud   direct
 ```
 
 ### Network latency and serverless applications

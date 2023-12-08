@@ -25,6 +25,7 @@ pscale ping
 | **Flag**        | **Description**                             |
 | --------------- | ------------------------------------------- |
 | `-h`, `--help`  | View help for `ping` command                |
+| `-n`, `--count` | Number of pings (default 10)                |
 | `--concurrency` | Number of concurrent pings. (default 8)     |
 | `--timeout`     | Timeout for a ping to succeed. (default 5s) |
 
@@ -52,23 +53,23 @@ pscale ping
 **Output:**
 
 ```shell
-ENDPOINT (17)                                    LATENCY   TYPE
------------------------------------------------- --------- -----------
-us-east.connect.psdb.cloud                       18.6ms    direct
-gcp-us-east4.connect.psdb.cloud                  21.8ms    direct
-gcp.connect.psdb.cloud                           24.3ms    optimized
-aws.connect.psdb.cloud                           25.1ms    optimized
-gcp-northamerica-northeast1.connect.psdb.cloud   27.9ms    direct
-aws-us-east-2.connect.psdb.cloud                 29.2ms    direct
-gcp-us-central1.connect.psdb.cloud               39.9ms    direct
-us-west.connect.psdb.cloud                       88.7ms    direct
-aws-eu-west-2.connect.psdb.cloud                 89.2ms    direct
-eu-west.connect.psdb.cloud                       97ms      direct
-eu-central.connect.psdb.cloud                    98.8ms    direct
-aws-sa-east-1.connect.psdb.cloud                 144.8ms   direct
-ap-northeast.connect.psdb.cloud                  173.4ms   direct
-gcp-asia-northeast3.connect.psdb.cloud           206.9ms   direct
-ap-south.connect.psdb.cloud                      213.2ms   direct
-aws-ap-southeast-2.connect.psdb.cloud            221.1ms   direct
-ap-southeast.connect.psdb.cloud                  248.7ms   direct
+  NAME (17)                     LATENCY   ENDPOINT                                         TYPE
+ ----------------------------- --------- ------------------------------------------------ -----------
+  AWS us-west-2                 34.6ms    aws.connect.psdb.cloud                           optimized
+  AWS us-west-2                 34.8ms    us-west.connect.psdb.cloud                       direct
+  GCP us-central1               57.5ms    gcp.connect.psdb.cloud                           optimized
+  GCP us-central1               57.9ms    gcp-us-central1.connect.psdb.cloud               direct
+  AWS us-east-2                 60.5ms    aws-us-east-2.connect.psdb.cloud                 direct
+  GCP us-east4                  69.2ms    gcp-us-east4.connect.psdb.cloud                  direct
+  AWS us-east-1                 70.2ms    us-east.connect.psdb.cloud                       direct
+  GCP northamerica-northeast1   80.9ms    gcp-northamerica-northeast1.connect.psdb.cloud   direct
+  AWS ap-northeast-1            116.6ms   ap-northeast.connect.psdb.cloud                  direct
+  GCP asia-northeast3           149.5ms   gcp-asia-northeast3.connect.psdb.cloud           direct
+  AWS ap-southeast-2            150.9ms   aws-ap-southeast-2.connect.psdb.cloud            direct
+  AWS eu-central-1              154.4ms   eu-central.connect.psdb.cloud                    direct
+  AWS eu-west-1                 157.2ms   eu-west.connect.psdb.cloud                       direct
+  AWS sa-east-1                 179.5ms   aws-sa-east-1.connect.psdb.cloud                 direct
+  AWS ap-southeast-1            189.4ms   ap-southeast.connect.psdb.cloud                  direct
+  AWS ap-south-1                243.1ms   ap-south.connect.psdb.cloud                      direct
+  AWS eu-west-2                 670.5ms   aws-eu-west-2.connect.psdb.cloud                 direct
 ```
