@@ -14,6 +14,10 @@ With this built-in tool, you can easily diagnose issues with your queries, allow
 
 To view Insights for your database, head to the [PlanetScale dashboard](https://app.planetscale.com), select your database, and click the "**Insights**" tab.
 
+{% callout %}
+If you are a single-tenant or PlanetScale Managed customer, you will need to request access to Insights through your PlanetScale account manager.
+{% /callout %}
+
 The dropdown on the top right lets you select which branch you want to analyze. You can also choose which servers you want to view insights for: primary or replicas.
 
 ![PlanetScale Insights overview page](/assets/docs/concepts/query-insights/query-insights-overview.png)

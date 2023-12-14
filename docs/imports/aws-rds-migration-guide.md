@@ -1,7 +1,7 @@
 ---
 title: AWS RDS migration guide
 subtitle: Learn how to import your database from AWS RDS into PlanetScale.
-date: '2022-08-01'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -92,9 +92,13 @@ Complete the form using the information gathered in the previous section. Click 
 
 ![The Import external database form.](/assets/docs/imports/aws-rds-migration-guide/the-import-external-database-form.png)
 
-If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
+The “**Connect to database**” button will update with the connection status.
 
-![The message that shows at the bottom of the form indicating that the connection was successful.](/assets/docs/imports/aws-rds-migration-guide/the-message-that-shows-at-the-bottom-of-the-form-indicating-that-the-connection-was-successful.png)
+{% callout %}
+If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+{% /callout %}
+
+If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 {% callout type="warning" %}
 If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.

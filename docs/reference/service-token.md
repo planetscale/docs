@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands - service-token'
 subtitle: 'Use the PlanetScale CLI “service-token” command to create, list, and manage access for service tokens from your terminal.'
-date: '2022-08-02'
+date: '2023-12-08'
 meta:
   title: 'CLI reference - service-token'
 ---
@@ -61,12 +61,12 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 ## Examples
 
-### The `service-token` command with `add-access` sub-command and `--database` flag
+### Adding service token access for a database
 
 **Command:**
 
 ```bash
-pscale service-token add-access <TOKEN_ID> read_branch delete_branch create_branch --database <DATABASE_NAME_2>
+pscale service-token add-access <TOKEN_ID> read_branch delete_branch create_branch --database <DATABASE_NAME>
 ```
 
 This will add the following permissions to the specified access token: `read_branch`, `delete_branch`, `create_branch`. The output will show the updated permissions on all databases.
@@ -75,7 +75,24 @@ You can find a list of all permissions in the [PlanetScale API documentation](ht
 
 **Output:**
 
-| DATABASE        | ACCESSES                                                                                                                                                                               |
-| --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| DATABASE_NAME   | approve_deploy_request, connect_branch, connect_production_branch, create_branch, create_comment, create_deploy_request, delete_branch, read_branch, read_comment, read_deploy_request |
-| DATABASE_NAME_2 | read_branch, delete_branch, create_branch                                                                                                                                              |
+| RESOURCE NAME | RESOURCE TYPE | ACCESSES                                  |
+| ------------- | ------------- | ----------------------------------------- |
+| dbname        | Database      | read_branch, delete_branch, create_branch |
+| dbname2       | Database      | create_branch                             |
+| my-org        | Organization  | create_databases, delete_databases        |
+
+### Adding service token access for an organization
+
+**Command:**
+
+```bash
+pscale service-token add-access <TOKEN_ID> read_organization
+```
+
+This will grant the service token the `read_organization` access on the organization.
+
+**Output:**
+
+| RESOURCE NAME | RESOURCE TYPE | ACCESSES          |
+| ------------- | ------------- | ----------------- |
+| my-org        | Organization  | read_organization |

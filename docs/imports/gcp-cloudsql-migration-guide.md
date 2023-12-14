@@ -1,7 +1,7 @@
 ---
 title: GCP CloudSQL Migration Guide
 subtitle: Learn how to migrate your database from Google Cloud Platform (GCP) CloudSQL MySQL Cluster into PlanetScale using our Import tool.
-date: '2022-08-01'
+date: '2023-12-05'
 ---
 
 ## Overview
@@ -18,9 +18,7 @@ PlanetScale import tool.
 You’ll also need to gather the following pieces of information from the GCP Console:
 
 - Public IP address
-
 - Database name
-
 - Root username and password
 
 The public IP address can be found in the **Overview tab** of your CloudSQL cluster under the **Connect to this instance** section.
@@ -45,9 +43,21 @@ For PlanetScale to connect to your database, you’ll need to update the Authori
 
 ![The New database section of the Import database tool.](/assets/docs/imports/gcp-cloudsql-migration-guide/the-database-import-tool-region.png)
 
-You will need to allow traffic for each IP address listed under that region on the [Import tool public IP addresses](/docs/imports/import-tool-migration-addresses) page. To permit traffic from these IP addresses to your database in GCP, select **Connections** from the navigation on the left. Under **Authorized networks**, click “**Add network**”. This will display an inline form for you to add a network. The name of the field is arbitrary, but the **Network** field should contain the IP address that needs access to your database. Click “**Done**” to add the new entry. Perform this step for each IP address for the selected region, then click “**Save**” to apply the settings.
+You will need to allow traffic for each IP address listed under that region on the [Import tool public IP addresses](/docs/imports/import-tool-migration-addresses) page. You can also find these listed in the “**Import external database**” page. To permit traffic from these IP addresses to your database in GCP, select **Connections** from the navigation on the left. Under **Authorized networks**, click “**Add network**”. This will display an inline form for you to add a network. The name of the field is arbitrary, but the **Network** field should contain the IP address that needs access to your database. Click “**Done**” to add the new entry. Perform this step for each IP address for the selected region, then click “**Save**” to apply the settings.
 
 ![The form to add a new authorized network in the GCP console.](/assets/docs/imports/gcp-cloudsql-migration-guide/the-form-to-add-a-new-authorized-network-in-the-gcp-console.png)
+
+## Configure MySQL server settings
+
+There is one flag that needs to be configured before you can import your database:
+
+- binlog_expire_logs_seconds
+
+To set a flag in your GCP console, go to your database's “**Overview**” page, select the “**Edit**” button, and then scroll down to the “**Flags**” section.
+
+You want to select the “**binlog_expire_logs_seconds**” flag and set it to `172800` seconds.
+
+Make sure to select the “**Done**” button.
 
 ## Importing your database
 
@@ -63,9 +73,13 @@ Complete the form using the information gathered in the previous section. Click 
 
 ![The Import database form.](/assets/docs/imports/gcp-cloudsql-migration-guide/the-import-database-form.png)
 
-If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
+The “**Connect to database**” button will update with the connection status.
 
-![The note that is displayed when the PlanetScale import tool can connect to the external database.](/assets/docs/imports/gcp-cloudsql-migration-guide/the-note-displayed-when-the-planetscale-import-tool-can-connect-to-the-external-database.png)
+{% callout %}
+If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+{% /callout %}
+
+If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 The following view will show you the progress of your data being imported.
 

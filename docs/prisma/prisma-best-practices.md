@@ -24,7 +24,7 @@ datasource db {
 In Prisma `4.5.0`, `referentialIntegrity` changed to `relationMode` and generally became available in `4.7.0`.
 {% /callout %}
 
-Because PlanetScale [operates without foreign key constraints](/docs/learn/operating-without-foreign-key-constraints), the `prisma` relation mode emulates some foreign key constraints and referential actions for each Prisma Client query to maintain referential integrity, using some additional database queries and logic.
+The `prisma` relation mode emulates some foreign key constraints and referential actions for each Prisma Client query to maintain referential integrity, using some additional database queries and logic.
 
 Read more about [Relation mode in Prisma's documentation](https://www.prisma.io/docs/concepts/components/prisma-schema/relations/relation-mode).
 
