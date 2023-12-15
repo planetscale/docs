@@ -258,7 +258,7 @@ You can also [schedule additional backups yourself](/docs/concepts/back-up-and-r
 
 ## Organization usage and billing page
 
-Each organization has its own billing page, from which you can:
+Each organization has its own billing page available for administrators, from which you can:
 
 - View your current and previous usage per database
 - Upgrade a free database to the Scaler or Hobby plan
@@ -271,8 +271,7 @@ Each organization has its own billing page, from which you can:
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com)
 2. Select the organization whose billing page you want to view
 3. Click on "Settings" in the top nav
-4. Click on "Usage and billing" in the side nav
-5. Click on the "Billing" tab in the top nav
+4. Click on "Billing" in the side nav
 
 ### PlanetScale invoice details
 
@@ -294,7 +293,7 @@ Storage is prorated by a percentage equal to the existence of a branch's hours/b
 
 ### Download an invoice
 
-To download an invoice, go to [your billing page](#find-your-database-billing-page) (`Organization > Settings > Usage and billing > Billing`).
+To download an invoice, go to [your billing page](#find-your-database-billing-page) (`Organization > Settings > Billing`).
 
 You'll see a table of current and previous monthly invoices. You can download an invoice by month by clicking the "**Download**" button. This will send you to a Stripe invoice page, where you'll have the option to download the complete invoice in PDF format, see invoice details, or download your receipt.
 
@@ -307,13 +306,13 @@ been on the Hobby plan.
 
 ## Using coupons
 
-You can redeem a coupon in the PlanetScale dashboard. To redeem a coupon, you must first enter your credit card information. Once you have a credit card on file, go to your Organization Settings page, click "Usage and billing", click "Redeem a coupon" on the right, enter your coupon, and click "Redeem coupon".
+You can redeem a coupon in the PlanetScale dashboard. To redeem a coupon, you must first enter your credit card information. Once you have a credit card on file, go to your Organization Settings page, click "Billing", click "Redeem a coupon" on the right, enter your coupon, and click "Redeem coupon".
 
 {% callout %} You may incur additional costs if your usage continues beyond the period, dollar amount, or any other metrics specified in the coupon terms. Additional costs will be charged to your card on file. If you have any questions about the terms of the coupon, please reach out to [our Support team](#need-help). {% /callout %}
 
 ### How do coupons affect invoices
 
-You will see your coupon reflected in your monthly invoice. Go to "Settings" > "Usage and billing" > "Billing" > and select the invoice for the month(s) where your coupon was active. You will see a note at the top of the invoice similar to this:
+You will see your coupon reflected in your monthly invoice. Go to "Settings" > "Billing" > and select the invoice for the month(s) where your coupon was active. You will see a note at the top of the invoice similar to this:
 
 `Amount reflects your $xx.xx discount with code YOURCOUPONCODE`
 
