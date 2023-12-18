@@ -13,6 +13,7 @@ Below is the minimum set of permissions needed and what each allows the user to 
 | Global | n/a                              | `PROCESS`            | Enable the user to see all processes with SHOW PROCESSLIST.                  |
 | Global | n/a                              | `REPLICATION SLAVE`  | Enable replicas to read binary log events from the source.                   |
 | Global | n/a                              | `REPLICATION CLIENT` | Enable the user to ask where source or replica servers are.                  |
+| Global | n/a                              | `RELOAD`             | Enable use of FLUSH operations.                                              |
 | Table  | `<DATABASE_NAME>`, `ps_import_*` | `SELECT`             | Enable use of SELECT.                                                        |
 | Table  | `<DATABASE_NAME>`, `ps_import_*` | `INSERT`             | Enable use of INSERT.                                                        |
 | Table  | `<DATABASE_NAME>`                | `LOCK TABLES`        | Enable use of LOCK TABLES on tables for which you have the SELECT privilege. |
@@ -38,7 +39,7 @@ This script can be used to create a user with the necessary permissions. The use
 
 ```sql
 CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
-GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'migration_user'@'%';
+GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT, RELOAD ON *.* TO 'migration_user'@'%';
 GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW, LOCK TABLES ON `<DATABASE_NAME>`.* TO 'migration_user'@'%';
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `ps_import\_%`.* TO 'migration_user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `ps\_import\_%`.* TO 'migration_user'@'%';
 ```

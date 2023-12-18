@@ -64,7 +64,7 @@ CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASS>';
 Next, configure the proper grants to allow `migration_user` to set up replication:
 
 ```sql
-GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT ON *.* TO 'migration_user'@'%';
+GRANT PROCESS, REPLICATION SLAVE, REPLICATION CLIENT, RELOAD ON *.* TO 'migration_user'@'%';
 ```
 
 Now you can configure the necessary permissions on the database you wish to migrate. Replace `<DATABASE_NAME>` with the name of your database in MariaDB:
@@ -76,7 +76,7 @@ GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW, LOCK TABLES ON `<DATABASE_NAME>
 Finally, you’ll need to configure permissions on a database called `ps_imports_*` (the last portion of the name will vary) that will be used to track replication between MariaDB and PlanetScale.
 
 ```sql
-GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `ps_import\_%`.* TO 'migration_user'@'%';
+GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `ps\_import\_%`.* TO 'migration_user'@'%';
 ```
 
 For a full explanation on what each of these grants do, [our article on configuring a migration account for MySQL databases](/docs/imports/import-tool-user-requirements) details each requirement.
