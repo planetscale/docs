@@ -54,7 +54,7 @@ The following table describes permissions assigned at the organization level for
 | View database members                  | View one or all database members                                               | ✔     | ✔            |
 | View organization                      | View an organization                                                           | ✔     | ✔            |
 | View query statistics                  | View query statistics for an organization's databases                          | ✔     | ✔            |
-| Connect to development branches        | Create passwords or use pscale shell for development branches                  |        | ✔            |
+| Connect to development branches        | Create passwords or use pscale shell for development branches                  | ✔     | ✔            |
 | Connect to production branches         | Create passwords or use pscale shell for production branches                   |        | ✔            |
 | Delete production branches             | Delete a production database branch                                            |        | ✔            |
 | Promote branches                       | Promote a branch to production                                                 |        | ✔            |
