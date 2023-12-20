@@ -54,6 +54,8 @@ The following table describes permissions assigned at the organization level for
 | View database members                  | View one or all database members                                               | ✔     | ✔            |
 | View organization                      | View an organization                                                           | ✔     | ✔            |
 | View query statistics                  | View query statistics for an organization's databases                          | ✔     | ✔            |
+| Connect to development branches        | Create passwords or use pscale shell for development branches                  |        | ✔            |
+| Connect to production branches         | Create passwords or use pscale shell for production branches                   |        | ✔            |
 | Delete production branches             | Delete a production database branch                                            |        | ✔            |
 | Promote branches                       | Promote a branch to production                                                 |        | ✔            |
 | Manage databases                       | Delete, update settings, or import a database                                  |        | ✔            |
@@ -74,22 +76,24 @@ The following table describes the permissions assigned at the **database level**
 
 For `Organization Administrators` and `Organization Members`, these permissions apply to every database in the organization. Because the `Database Administrator` role is assigned at the database level, the permissions are for the specific database(s) for which they have the `Database Administrator` role.
 
-| Action                         | Description                                                   | Member | Administrator |
-| ------------------------------ | ------------------------------------------------------------- | ------ | ------------- |
-| Create and view branches       | Create or view a database branch                              | ✔     | ✔            |
-| Delete non-production branches | Delete a non-production branch of a specific database         | ✔     | ✔            |
-| View database                  | View a database in an organization                            | ✔     | ✔            |
-| Create deploy requests         | Create a deploy request for a branch on a specific database   | ✔     | ✔            |
-| View database members          | View one or all database members                              | ✔     | ✔            |
-| View query statistics          | View query statistics for an organization's databases         | ✔     | ✔            |
-| Restore non-production backups | Restore the backup of a development branch                    | ✔     | ✔            |
-| Manage billing                 | Update the billing plan of a specific database                |        | ✔            |
-| Delete production branches     | Delete a production database branch of a specific database    |        | ✔            |
-| Promote branches               | Promote a branch of a specific database to production         |        | ✔            |
-| Manage database                | Delete, update settings, or import a database                 |        | ✔            |
-| Manage beta features           | Opt-in or opt-out of a beta feature for a database            |        | ✔            |
-| Manage database members        | Update database member roles, add, or remove database members |        | ✔            |
-| Restore production backups     | Restore the backup of a production branch                     |        | ✔            |
+| Action                          | Description                                                   | Member | Administrator |
+| ------------------------------- | ------------------------------------------------------------- | ------ | ------------- |
+| Create and view branches        | Create or view a database branch                              | ✔     | ✔            |
+| Delete non-production branches  | Delete a non-production branch of a specific database         | ✔     | ✔            |
+| View database                   | View a database in an organization                            | ✔     | ✔            |
+| Create deploy requests          | Create a deploy request for a branch on a specific database   | ✔     | ✔            |
+| View database members           | View one or all database members                              | ✔     | ✔            |
+| View query statistics           | View query statistics for an organization's databases         | ✔     | ✔            |
+| Restore non-production backups  | Restore the backup of a development branch                    | ✔     | ✔            |
+| Connect to development branches | Create passwords or use pscale shell for development branches | ✔     | ✔            |
+| Connect to production branches  | Create passwords or use pscale shell for production branches  |        | ✔            |
+| Manage billing                  | Update the billing plan of a specific database                |        | ✔            |
+| Delete production branches      | Delete a production database branch of a specific database    |        | ✔            |
+| Promote branches                | Promote a branch of a specific database to production         |        | ✔            |
+| Manage database                 | Delete, update settings, or import a database                 |        | ✔            |
+| Manage beta features            | Opt-in or opt-out of a beta feature for a database            |        | ✔            |
+| Manage database members         | Update database member roles, add, or remove database members |        | ✔            |
+| Restore production backups      | Restore the backup of a production branch                     |        | ✔            |
 
 An organization may have several databases, and an `Organization Member` may have different access to each database depending on whether or not they also have the `Database Administrator` role.
 
