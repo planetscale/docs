@@ -22,12 +22,13 @@ pscale ping
 
 ### Available flags
 
-| **Flag**        | **Description**                             |
-| --------------- | ------------------------------------------- |
-| `-h`, `--help`  | View help for `ping` command                |
-| `-n`, `--count` | Number of pings (default 10)                |
-| `--concurrency` | Number of concurrent pings. (default 8)     |
-| `--timeout`     | Timeout for a ping to succeed. (default 5s) |
+| **Flag**           | **Description**                                                                       |
+| ------------------ | ------------------------------------------------------------------------------------- |
+| `-h`, `--help`     | View help for `ping` command                                                          |
+| `-n`, `--count`    | Number of pings (default 10)                                                          |
+| `-p`, `--provider` | Only ping endpoints for the specified infrastructure provider (options: "aws", "gcp") |
+| `--concurrency`    | Number of concurrent pings. (default 8)                                               |
+| `--timeout`        | Timeout for a ping to succeed. (default 5s)                                           |
 
 ### Global flags
 
