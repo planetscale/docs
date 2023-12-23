@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands - ping'
 subtitle: "Use the PlanetScale CLI “ping” command to measure the latency to PlanetScale's public regions from your terminal."
-date: '2023-12-07'
+date: '2023-12-22'
 meta:
   title: 'CLI reference - ping'
 ---
@@ -22,13 +22,13 @@ pscale ping
 
 ### Available flags
 
-| **Flag**           | **Description**                                                                       |
-| ------------------ | ------------------------------------------------------------------------------------- |
-| `-h`, `--help`     | View help for `ping` command                                                          |
-| `-n`, `--count`    | Number of pings (default 10)                                                          |
-| `-p`, `--provider` | Only ping endpoints for the specified infrastructure provider (options: "aws", "gcp") |
-| `--concurrency`    | Number of concurrent pings. (default 8)                                               |
-| `--timeout`        | Timeout for a ping to succeed. (default 5s)                                           |
+| **Flag**           | **Description**                                                                               |
+| ------------------ | --------------------------------------------------------------------------------------------- |
+| `-h`, `--help`     | View help for `ping` command                                                                  |
+| `-n`, `--count`    | Number of total pings. (default 10)                                                           |
+| `-p`, `--provider` | Only ping endpoints for the specified infrastructure provider. Possible values: `aws`, `gcp`. |
+| `--concurrency`    | Number of concurrent pings. (default 8)                                                       |
+| `--timeout`        | Timeout for a ping to succeed. (default 5s)                                                   |
 
 ### Global flags
 
