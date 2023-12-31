@@ -105,7 +105,7 @@ CREATE TABLE child_table (
 
 {% callout type="tip" %}
 Each FOREIGN KEY constraint requires an index covering the referenced column(s) on both sides of the connection. The
-index parent*id_idx is \_required* by the constraint. We can drop that key in our constraint-free table, depending
+index *parent\_id\_idx is required* by the constraint. We can drop that key in our constraint-free table, depending
 on the type of queries we might use to retrieve data from the tables.
 {% /callout %}
 
