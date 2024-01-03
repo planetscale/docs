@@ -1,6 +1,6 @@
 ---
 title: 'Connect a Go application using GORM to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Go application using GORM'
+subtitle: 'Spin up a PlanetScale MySQL database in seconds and connect to a Go application using GORM'
 date: '2023-07-11'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 'Connect a Rails application to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Rails application'
+subtitle: 'Spin up a PlanetScale MySQL database in seconds and connect to a Rails application'
 date: '2023-06-21'
 ---
 

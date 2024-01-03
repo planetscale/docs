@@ -9,7 +9,7 @@ date: '2022-08-12'
 This guide will show you how to get up and running with the [Netlify, Next.js, and PlanetScale starter template](https://templates.netlify.com/template/nextjs-planetscale-starter/). The template includes the following features:
 
 - Simple user admin dashboard
-- [PlanetScale](/) serverless database
+- [PlanetScale](/) database
 - [Prisma ORM](https://www.prisma.io/) integration
 - [Next.js authentication](https://nextjs.org/docs/authentication)
 - One-click [deploy to Netlify](https://netlify.com)

@@ -6,7 +6,7 @@ date: '2023-04-05'
 
 ## What is PlanetScale
 
-PlanetScale is a MySQL-compatible serverless database that brings you scale, performance, and reliability &mdash; without sacrificing developer experience.
+PlanetScale is a MySQL-compatible database that brings you scale, performance, and reliability &mdash; without sacrificing developer experience.
 
 With PlanetScale, you get the power of horizontal sharding, non-blocking schema changes, and many more powerful database features without the pain of implementing them.
 

@@ -1,6 +1,6 @@
 ---
 title: 'Connect a Django application to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Django application'
+subtitle: 'Spin up a PlanetScale MySQL database in seconds and connect to a Django application'
 date: '2023-06-21'
 ---
 

@@ -1,6 +1,6 @@
 ---
 title: 'Connect a Node.js application to PlanetScale'
-subtitle: 'Spin up a PlanetScale MySQL serverless database in seconds and connect to a Node.js application'
+subtitle: 'Spin up a PlanetScale MySQL database in seconds and connect to a Node.js application'
 date: '2022-08-01'
 ---
 
