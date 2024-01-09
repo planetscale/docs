@@ -2,7 +2,7 @@
 title: 'PlanetScale quickstart guide'
 subtitle: 'Get started with PlanetScale in just a few minutes'
 className: 'ignore-img-borders'
-date: '2023-12-05'
+date: '2024-01-08'
 ---
 
 ## Overview
@@ -101,7 +101,7 @@ SELECT * FROM products;
 SELECT * FROM categories;
 ```
 
-If you click on the "**Schema**" tab in the database navigation and click the "**Refresh schema**" button, you'll see the new database schema.
+You can view the schema of your database by navigating to the "**Branches**" tab and selecting the database you want to view. For now, select the `main` database, and it will display the names of the two tables you just created. Click on the name of each table to see further schema details.
 
 ### Enable safe migrations on your `main` branch
 
