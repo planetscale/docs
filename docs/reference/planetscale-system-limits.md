@@ -10,6 +10,10 @@ Database schemas are limited to a total of `2048` tables, including views.
 
 Individual tables are limited to a maximum of `1017` columns each.
 
+## Connection lifetime limits
+
+Database client connections that are held open longer than `24 hours` may be terminated unexpectedly. We recommend that long running database connections are closed and reconnected at least once per day.
+
 ## Query limits
 
 PlanetScale has enforced some system limits to prevent long-running queries or transactions from:
