@@ -100,6 +100,7 @@ $dbName = $_ENV['DATABASE'];
 $username = $_ENV['USERNAME'];
 $password = $_ENV['PASSWORD'];
 $ssl = $_ENV['MYSQL_ATTR_SSL_CA'];
+$port = 3306;
 
 $mysqli = mysqli_init();
 $mysqli->ssl_set(NULL, NULL, $ssl, NULL, NULL);
