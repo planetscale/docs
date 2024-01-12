@@ -1,6 +1,6 @@
 ---
-title: 'Deploy Deploy Request Action'
-subtitle: 'A GitHub Action to deploy a deploy request.'
+title: 'Deploy deploy request'
+subtitle: 'A GitHub Actions workflow to deploy a deploy request.'
 date: '2023-03-31'
 ---
 

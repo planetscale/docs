@@ -1,6 +1,6 @@
 ---
-title: 'Create Database Password Action'
-subtitle: 'A GitHub Action to create a new branch password.'
+title: 'Create database password'
+subtitle: 'A GitHub Actions workflow to create a new branch password.'
 date: '2023-03-31'
 ---
 

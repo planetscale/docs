@@ -1,6 +1,6 @@
 ---
-title: 'Create Database Branch Action'
-subtitle: 'A GitHub Action to create a new branch.'
+title: 'Create a new database branch'
+subtitle: 'A GitHub Actions workflow to create a new database branch.'
 date: '2023-03-31'
 ---
 
