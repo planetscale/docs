@@ -9,8 +9,7 @@ date: '2023-12-05'
 This document will demonstrate how to migrate a database from AWS Relational Database Services (RDS) to PlanetScale. We’ll also address some common issues associated with migrating from RDS and how to resolve them.
 
 {% callout %}
-This guide assumes you are using MySQL on RDS. Other database systems available through RDS will not work with the
-PlanetScale import tool.
+This guide assumes you are using MySQL on Amazon RDS. If you are using Amazon Aurora (MySQL compatible) on RDS, follow the [Amazon Aurora migration guide](/docs/imports/amazon-aurora-migration-guide). Other database systems (non-MySQL or MariaDB databases) available through RDS will not work with the PlanetScale import tool.
 {% /callout %}
 
 ## Prerequisites
@@ -23,10 +22,8 @@ Before you can perform a migration, you’ll need to make sure the following is 
 You’ll also need to gather the following pieces of information from the AWS Console:
 
 - Endpoint address
-
-- Port number
-
-- Master username & password
+- Port number (E.g., 3306)
+- Master username and password or the ability to create a new user in the database
 
 The endpoint address and port number are located in the database view under “**Connectivity & security”**.
 
@@ -37,9 +34,7 @@ The master username can be located under the “**Configuration”** tab. The ma
 ![The Configuration tab of the database in RDS.](/assets/docs/imports/aws-rds-migration-guide/the-configuration-tab-of-the-database-in-rds.png)
 
 {% callout %}
-If you don’t know the admin password, you can create a new set of credentials using the information on the [Import
-tool user permissions page](/docs/imports/import-tool-user-requirements) to create an account that can be used to
-import your database.
+If you don’t know the admin password, you can create a new set of credentials using the information on the [Import tool user permissions page](/docs/imports/import-tool-user-requirements) to create an account that can be used to import your database.
 {% /callout %}
 
 ## Configuring the RDS security group
@@ -50,18 +45,12 @@ In order for PlanetScale to connect to your RDS database, you must allow traffic
 3.209.149.66
 3.215.97.46
 34.193.111.15
-23.23.187.137
-52.6.141.108
-52.70.2.89
-50.17.188.76
-52.2.251.189
-52.72.234.74
-35.174.68.24
-52.5.253.172
-54.156.81.4
-34.200.24.255
-35.174.79.154
-44.199.177.24
+18.117.23.127
+3.131.243.164
+3.132.168.252
+3.131.252.213
+3.132.182.173
+3.15.49.114
 ```
 
 To allow traffic to your database in AWS, navigate to the “**Connectivity & security**" tab of the database, and click the link under **VPC security groups**.

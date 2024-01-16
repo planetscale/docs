@@ -8,7 +8,7 @@ date: '2023-12-05'
 
 PlanetScale provides an import tool in the dashboard that allows you to painlessly import an **existing internet-accessible MySQL or MariaDB database** into a PlanetScale database with _no downtime_.
 
-**This feature is currently in Limited Beta.**
+**This feature is currently in Beta.**
 
 {% callout %}
 You must be an [Organization Administrator](/docs/concepts/access-control#organization-administrator) to use this feature.
