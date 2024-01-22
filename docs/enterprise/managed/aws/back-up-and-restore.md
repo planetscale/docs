@@ -9,6 +9,8 @@ PlanetScale Managed backup and restore functions like the hosted PlanetScale pro
 
 To learn more about the backup and restore access levels, see the [database level permissions documentation](/docs/concepts/access-control#database-level-permissions).
 
-By default, databases are automatically backed up once per day to an S3 bucket in the customer's AWS sub-account. This default can be adjusted when working with PlanetScale Support. However, configuring and validating additional backup frequencies is the customer's responsibility.
+By default, databases are automatically backed up once per day to an S3 bucket in the customer's AWS sub-account. This default can be adjusted when working with PlanetScale Support. Configuring and validating additional backup frequencies is the customer's responsibility.
+
+Snapshots of database schemas within PlanetScale Managed accounts are stored within PlanetScale's control plane to facilitate features requiring visibility into schemas.
 
 During the initial provisioning process, PlanetScale applies an S3 configuration to ensure that backups are encrypted at rest on Amazon S3.

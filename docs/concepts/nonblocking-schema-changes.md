@@ -26,7 +26,7 @@ PlanetScale enables developers to make schema changes without the fear of droppi
 
 ## How do I make non-blocking schema changes with PlanetScale?
 
-In order to make non-blocking schema changes, you **must** enable [safe migrations](/docs/concepts/safe-migrations) on your production branch. Without safe migrations enabled, your schema changes will run directly on your production branch, which can lead to table locking. When safe migrations is enabled on a branch, all schema changes must occur on a database branch. _(A database branch is a separate database with a copy of the production branch's schema.)_
+In order to make non-blocking schema changes, you **must** turn enable [safe migrations](/docs/concepts/safe-migrations) on your production branch. Without safe migrations enabled, your schema changes will run directly on your production branch, which can lead to table locking. When safe migrations is enabled on a branch, all schema changes must occur on a database branch. _(A database branch is a separate database with a copy of the production branch's schema.)_
 
 At a high level, this is what happens during the _non-blocking schema change_ process in PlanetScale:
 
