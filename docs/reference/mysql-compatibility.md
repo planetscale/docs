@@ -8,7 +8,7 @@ date: '2023-12-05'
 
 PlanetScale is built on top of open-source Vitess, a database clustering system for horizontal scaling of MySQL. Consequently, PlanetScale is only compatible with MySQL databases.
 
-PlanetScale databases run on MySQL `8.0.23`. If you're [importing an existing database](/docs/imports/database-imports), PlanetScale supports MySQL database versions `5.7` through `8.0`.
+PlanetScale databases run on MySQL 8. If you're [importing an existing database](/docs/imports/database-imports), PlanetScale supports MySQL database versions `5.7` through `8.0`.
 
 New PlanetScale databases are created on MySQL 8 with character set `utf8mb4_0900_ai_ci`. PlanetScale supports `utf8`, `utf8mb4`, and `utf8mb3`, character sets. We also support `latin1` and `ascii` character sets, but do not recommend them.
 

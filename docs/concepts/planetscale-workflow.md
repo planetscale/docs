@@ -6,7 +6,7 @@ date: '2023-10-12'
 
 ![Diagram showing PlanetScale workflow {priority}](/assets/docs/planetscale-workflow.png)
 
-PlanetScale databases are designed for developers and developer workflows. Deploy a fully managed database cluster with the reliability of MySQL (our databases run on MySQL `8.0.23`) and the scale of open source Vitess in just minutes.
+PlanetScale databases are designed for developers and developer workflows. Deploy a fully managed database cluster with the reliability of MySQL (our databases run on MySQL 8) and the scale of open source Vitess in just minutes.
 
 Deploy, branch, and query your database directly from the UI, download our [CLI](https://github.com/planetscale/cli#installation) and run commands there, or automate your deployments using our [GitHub Actions](/docs/devops/github-actions) and [API](https://api-docs.planetscale.com/reference/getting-started-with-planetscale-api).
 
