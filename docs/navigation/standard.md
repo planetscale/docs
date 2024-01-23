@@ -406,4 +406,8 @@
       items:
         - label: 'Billing'
           slug: '/docs/concepts/billing'
+    - label: 'Integrations'
+      items:
+        - label: 'Vantage'
+          slug: '/docs/integrations/vantage'
 ---
