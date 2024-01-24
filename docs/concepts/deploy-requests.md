@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2023-12-05'
+date: '2024-01-23'
 ---
 
 ## Overview
@@ -110,7 +110,7 @@ In some cases, when you are using foreign key constraints, a revert of a deploy 
 - Dropping a table with foreign key constraints: When a table with foreign key constraints is dropped, the parent table(s) will continue to be written to. If this change is reverted, data in the table that was dropped may no longer be consistent with its foreign key constraints.
 
 {% callout type="note" %}
-[Foreign key constraints](/docs/concepts/foreign-key-constraints) are currently supported by PlanetScale in beta. Please [contact us](/contact) if you notice any problems in deploy requests that contain foreign key constraints.  
+[Foreign key constraints](/docs/concepts/foreign-key-constraints) are currently supported by PlanetScale in beta. Please [contact us](/contact) if you notice any problems in deploy requests that contain foreign key constraints.
 {% /callout %}
 
 ### When are you unable to revert a schema change
@@ -128,6 +128,10 @@ There are also some edge cases where reverting a schema change is not possible. 
 4. Another uncommon but possible scenario: you deploy a schema change that has a `NOT NULL` column without a `DEFAULT` value, combined with an `ALTER TABLE DROP COLUMN` statement for that column. If you insert some rows between the deployment and the revert attempt, the revert will fail. We will not be able to re-add that column for the newly inserted rows and will not know how to populate it.
 
 For an in-depth look at how this process works, check out our [Behind the scenes: how schema reverts work](/blog/behind-the-scenes-how-schema-reverts-work) blog post.
+
+### Schema revert and migration data
+
+If you've selected a migration framework or specified a table with migration data in the settings tab of your database, the data within the table that tracks migrations will be moved to the production branch only after the revert window has been closed. This is to ensure that if the deploy request is reverted, the production branch has the correct log of applied migrations.
 
 ### Billing considerations
 
