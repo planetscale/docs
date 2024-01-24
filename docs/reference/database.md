@@ -22,14 +22,14 @@ pscale database <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command**                              | **Sub-command flags**                                                                                 | **Description**                                            |
-| -------------------------------------------- | ----------------------------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| `create <DATABASE_NAME>`                     | `--notes <NOTES>`, `--region <REGION_NAME>`, `--plan <PLAN>`, `--cluster_size <CLUSTER_SIZE>` `--web` | Create a database with the specified name                  |
-| `delete <DATABASE_NAME>`                     | `--force`                                                                                             | Delete the specified database                              |
-| `dump <DATABASE_NAME> <BRANCH_NAME>`         | `--local-addr <ADDRESS>`, `--output <DIRECTORY_NAME>`, `--tables <TABLES_LIST>`                       | Backup and dump the specified database                     |
-| `list <DATABASE_NAME>`                       |                                                                                                       | List all databases in the current org                      |
-| `restore-dump <DATABASE_NAME> <BRANCH_NAME>` | `--dir <DIRECTORY_NAME>`\*, `--local-addr <ADDRESS>`, `--overwrite-tables`                            | Restore the specified database from a local dump directory |
-| `show <DATABASE_NAME>`                       | `--web`                                                                                               | Retrieve information about a database                      |
+| **Sub-command**                              | **Sub-command flags**                                                              | **Description**                                            |
+| -------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| `create <DATABASE_NAME>`                     | `--region <REGION_NAME>`, `--plan <PLAN>`, `--cluster_size <CLUSTER_SIZE>` `--web` | Create a database with the specified name                  |
+| `delete <DATABASE_NAME>`                     | `--force`                                                                          | Delete the specified database                              |
+| `dump <DATABASE_NAME> <BRANCH_NAME>`         | `--local-addr <ADDRESS>`, `--output <DIRECTORY_NAME>`, `--tables <TABLES_LIST>`    | Backup and dump the specified database                     |
+| `list <DATABASE_NAME>`                       |                                                                                    | List all databases in the current org                      |
+| `restore-dump <DATABASE_NAME> <BRANCH_NAME>` | `--dir <DIRECTORY_NAME>`\*, `--local-addr <ADDRESS>`, `--overwrite-tables`         | Restore the specified database from a local dump directory |
+| `show <DATABASE_NAME>`                       | `--web`                                                                            | Retrieve information about a database                      |
 
 > \* _Flag is required_
 
@@ -39,7 +39,6 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 | **Sub-command flag**        | **Description**                                                                                               | **Applicable sub-commands** |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------- |
-| `--notes`                   | Add a description for the new database                                                                        | `create`                    |
 | `--region`                  | Specify the [region](/docs/concepts/regions) of the new database. Default is `us-east`.                       | `create`                    |
 | `--plan`                    | Specify the plan for the database. Either `hobby`, `scaler` or `scaler_pro`. Default is `hobby`.              | `create`                    |
 | `--cluster_size`            | For Scaler Pro databases, you may specify the cluster size. Default is `PS_10`                                | `create`                    |
@@ -75,12 +74,12 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 ## Examples
 
-### The `database` command with `create` subcommand and `--notes` flag
+### Create a new `scaler_pro` database
 
 **Command:**
 
 ```bash
-pscale database create new-database --notes "This is my new database" --region <REGION_NAME> --plan scaler_pro --cluster_size PS_80
+pscale database create new-database --region <REGION_NAME> --plan scaler_pro --cluster_size PS_80
 ```
 
 **Output:**
