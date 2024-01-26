@@ -16,6 +16,10 @@ Beyond reporting, set up budget alerts, forecast usage, and view active database
 - The [Organization Admin role](/docs/concepts/access-control) in PlanetScale
 - A [Vantage account](https://console.vantage.sh/signup)
 
+{% callout type="note" %}
+Database cost reporting in Vantage is not available for [PlanetScale Managed](docs/enterprise/managed/overview) customers via the integration.
+{% /callout %}
+
 ## Configure the Vantage integration
 
 1. From the Vantage console, navigate to the [Integrations page](https://console.vantage.sh/settings/integrations).
