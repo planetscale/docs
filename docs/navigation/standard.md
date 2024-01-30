@@ -69,7 +69,7 @@
         - label: 'Golang'
           items:
             - label: 'Go quickstart'
-              slug: '/docs/tutorials/connect-golang-app'
+              slug: '/docs/tutorials/connect-go-app'
             - label: 'Gorm'
               slug: '/docs/tutorials/connect-go-gorm-app'
         - label: 'Next.js'
@@ -105,7 +105,7 @@
         - label: 'Ruby on Rails'
           items:
             - label: 'Ruby on Rails quickstart'
-              slug: '/docs/concepts/connect-rails-app'
+              slug: '/docs/tutorials/connect-rails-app'
             - label: 'Automatic Rails migrations'
               slug: '/docs/tutorials/automatic-rails-migrations'
         - label: 'Deploy your app'
