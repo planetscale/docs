@@ -14,6 +14,10 @@ Our plans are split into two general offerings: [Self-serve](#self-serve-plans) 
 
 Self-serve is comprised of three plans that you can sign up for from the PlanetScale dashboard. The **Hobby** and **Scaler** are usage-based plans and are billed based on rows read/written to your database. **Scaler Pro** is resource-based and priced on the infrastructure provisioned to support your specific workload.
 
+{% callout %}
+Our Hobby plan is not available for users in all locations.
+{% /callout %}
+
 ### Usage-based plans
 
 |                                                                              | **Hobby**                | **Scaler**             |
