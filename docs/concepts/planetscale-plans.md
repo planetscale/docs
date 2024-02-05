@@ -44,6 +44,10 @@ Our Hobby plan is not available for users in all locations.
 | **Monthly cost**                                                             | $0 (limit of 1 database) | $29 per database       |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Not included             | Available as an add-on |
 
+{% callout %}
+We are [deprecating the Scaler plan](/blog/deprecating-the-scaler-plan). Starting February 12th, you will no longer be able to create new Scaler database clusters. We recommend starting on Scaler Pro for paid plans.
+{% /callout %}
+
 ### Resource-based plan
 
 The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power depending on the needs of your database.
