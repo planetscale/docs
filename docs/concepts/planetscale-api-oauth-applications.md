@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale API and OAuth applications'
 subtitle: 'Manage your PlanetScale databases programmatically.'
-date: '2023-01-31'
+date: '2023-02-06'
 ---
 
 ## PlanetScale API overview
@@ -29,10 +29,14 @@ Anywhere that can programmatically use an HTTP API can be integrated with Planet
 
 The PlanetScale platform also allows you to create OAuth applications. Creating an OAuth application within PlanetScale allows your application to access your users’ PlanetScale accounts.
 
-With PlanetScale OAuth applications, you can choose what access your application needs, and a user will allow (or deny) your application those accesses on their PlanetScale account.
+With PlanetScale OAuth applications, you can choose what access your application needs, and a user will allow (or deny) your application those accesses on their PlanetScale account. The organization that you create the OAuth application in is the "owner" of the application.
+
+By using PlanetScale OAuth as a PlanetScale partner or developer, your organization is agreeing to prominently display a privacy policy and obtain consent to your terms of use from all users of your products and services.
 
 {% callout %}
-PlanetScale OAuth applications are in limited beta. Sign up for the limited beta in your PlanetScale organization's [**Settings > Beta features**](https://app.planetscale.com/~/settings/beta-features) page. Our team will reach out with more information.
+PlanetScale OAuth applications are in beta. Opt-in to the beta's terms of service when creating an OAuth application in your PlanetScale organization's [**Settings > OAuth applications**](https://app.planetscale.com/~/settings/oauth-applications) page.
 {% /callout %}
 
 You can read more about creating an OAuth application in PlanetScale in the [PlanetScale OAuth documentation](https://api-docs.planetscale.com/reference/oauth).
+
+If you build something you would like to share with us, please email us at `education (at) planetscale.com`. We would love to hear about your experience building the application, and we may even feature your application in future blog posts, videos, or social media.
