@@ -87,7 +87,7 @@ Both options are covered below.
    {% callout %}
    The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
    credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-   your database overview page, click "Settings", and then click "Passwords".
+   your database dashboard page, click "Settings", and then click "Passwords".
    {% /callout %}
 
    Take note of the values returned to you, as you won't be able to see this password again.

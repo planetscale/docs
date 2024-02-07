@@ -39,7 +39,7 @@ PlanetScale will check if the request is deployable. This process includes check
 
 We will also warn you about potential data loss or inconsistencies and check if there are any known conflicts with the production schema that could prevent a clean merge. While we attempt to find all possible conflicts, it is ultimately up to you to confirm merge details.
 
-1. Click the "**Deploy requests**" tab on the database overview page.
+1. Click the "**Deploy requests**" tab on the database dashboard page.
 2. Select the open deploy request you want to review.
 3. Under "**Summary**", you'll see if the request is deployable.
 4. To review the schema changes, click the "**Schema changes**" tab.
@@ -60,7 +60,7 @@ If you would like to require an administrator's approval before a request can be
 
 If you decide you don't want to proceed with a deploy request, you can easily close it.
 
-1. Click the "**Deploy requests**" tab on the database overview page.
+1. Click the "**Deploy requests**" tab on the database dashboard page.
 2. Select the request you want to close.
 3. Click on the "**Close deploy request**" button on the right-hand side.
 

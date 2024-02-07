@@ -62,7 +62,7 @@ Development branches **will not** copy over production data, just the schema. To
 
 **How to create a development branch**:
 
-1. On the database overview page in your PlanetScale dashboard, click the "**New branch**" button.
+1. On the database dashboard page, click the "**New branch**" button.
 2. Give your development branch a name and select the region closest to your or your application.
 3. Select the production branch you want to branch off of. You can also select another development branch.
 4. Click "**Create branch**".
@@ -76,7 +76,7 @@ pscale branch create <DATABASE_NAME> <BRANCH_NAME>
 
 [Safe migrations](/docs/concepts/safe-migrations) is an optional, but recommended, feature that can be enabled on production branches. Branches with safe migrations enabled are restricted from accepting DDL directly. This prevents accidental changes to the database schema, and also enables non-blocking schema migrations. In order to make changes to branches with safe migrations enabled, you must create a new branch, then merge changes using a [deploy request](/docs/concepts/deploy-requests). Using this method, you get to see a schema diff before merging changes, have the option to have your team review changes, and receive [additional checks and warnings](/blog/deploy-requests-now-alert-on-potential-unwanted-changes) prior to making a production schema change.
 
-To enable safe migrations on an existing production branch, select that branch from the "Branches" dropdown in the infrastructure diagram of the Overview tab and click the gear icon in the upper right of that card . You'll then be presented with a modal where safe migrations can be enabled.
+To enable safe migrations on an existing production branch, select that branch from the "Branches" dropdown in the infrastructure diagram of the Dashboard tab and click the gear icon in the upper right of that card . You'll then be presented with a modal where safe migrations can be enabled.
 
 ## How to make schema changes on a branch with safe migrations enabled
 
@@ -145,7 +145,7 @@ The `main` branch is automatically set as the default branch when the database i
 
 **How to change the default branch**:
 
-1. Go to your database overview page and click the "**Settings**" tab.
+1. Go to your database dashboard page and click the "**Settings**" tab.
 2. Under "**General**" in the sidebar, you'll find the "**Default branch**" dropdown.
 3. Select the branch you want to be the default branch. It does not have to be a production branch.
 4. Scroll down and click "**Save database settings**".
@@ -179,7 +179,7 @@ Many frameworks and migration tools keep track of data schema changes in a migra
 
 **Turn on automatic copying of migration data**:
 
-1. On your database overview page, click the "**Settings**" tab.
+1. On your database dashboard page, click the "**Settings**" tab.
 2. Check the "**Automatically copy migration data**" box.
 3. Select one of the listed frameworks: Rails, Phoenix, Laravel, Django, .NET, Sequelize, or Other, which allows you to specify a custom table name.
 

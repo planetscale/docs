@@ -41,7 +41,7 @@ Your database is created with a [**default production branch**](/docs/concepts/b
 
 This quickstart demonstrates how to create and use two relational tables: `categories` and `products`.
 
-1. By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+1. By default, web console access to production branches is disabled to prevent accidental deletion. From your database's dashboard page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
 
 2. Click on the "**Console**" tab in the database navigation. This will open up a [web console](/docs/concepts/web-console) connected to your database branch.
 
@@ -113,7 +113,7 @@ A production branch is a highly available database branch that includes an addit
 
 ### To enable safe migrations:
 
-1. Click "Overview" in the navigation, and click the "**cog**" in the upper right of the infrastructure card to open a modal.
+1. Click "Dashboard" in the navigation, and click the "**cog**" in the upper right of the infrastructure card to open a modal.
 
    ![Production UI card](/assets/docs/tutorials/planetscale-quick-start-guide/production-branch-card-with-sm-disabled-2.png)
 

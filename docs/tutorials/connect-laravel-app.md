@@ -177,7 +177,7 @@ The first two options are covered below.
 
 PlanetScale has a [built-in console](/docs/concepts/web-console) where you can run MySQL commands against your branches.
 
-By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's dashboard page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
 
 To access it, click "**Console**" > select your branch > "**Connect**".
 

@@ -40,9 +40,9 @@ The beta is opt-in on a **per database** level. You cannot opt-in the whole orga
 
 1. Navigate to the database you want to opt-in to the foreign key constraints beta and select the **“Settings”** tab.
 2. In the **“Beta features”** page, select the **“Enroll”** button for foreign key constraints.
-3. After you accept and enroll in the beta, PlanetScale will upgrade your database in the background. This will take a few minutes. On the database's **“Overview”** page, you will see a loading spinner that says it is “Enabling foreign key constraints.” Once it no longer shows, you can use foreign key constraints in your PlanetScale database!
+3. After you accept and enroll in the beta, PlanetScale will upgrade your database in the background. This will take a few minutes. On the database's **“Dashboard”** page, you will see a loading spinner that says it is “Enabling foreign key constraints.” Once it no longer shows, you can use foreign key constraints in your PlanetScale database!
 
-![Showing the spinner on the database overview page](/assets/docs/concepts/foreign-key-constraints/enabling-foreign-key-constraints-docs.jpg)
+![Showing the spinner on the database dashboard page](/assets/docs/concepts/foreign-key-constraints/enabling-foreign-key-constraints-docs.jpg)
 
 {% callout type="warning" %}
 If you want to unenroll your database from the beta, make sure to first drop your foreign key constraints. We do not downgrade your database at this time.

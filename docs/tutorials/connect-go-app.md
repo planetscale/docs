@@ -25,7 +25,7 @@ Already have a Go application and just want to connect to PlanetScale? Check out
 
 Start in PlanetScale by creating a new database. From the dashboard, click "**New Database**", then "**Create new database**". Name the database `products_db`, select the desired [Plan type](/docs/concepts/billing#planetscale-plans), and click "**Create database**".
 
-By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's dashboard page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
 
 Then, click on the **"Console"** tab, then "**Connect**".
 
@@ -46,7 +46,7 @@ INSERT INTO `products` (name, price) VALUES
   ('Edge Properties 3', 15);
 ```
 
-Finally, head to the **"Overview"** tab and click **"Connect"**.
+Finally, head to the **"Dashboard"** tab and click **"Connect"**.
 
 ![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect-2.png)
 

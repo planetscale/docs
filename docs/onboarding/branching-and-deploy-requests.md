@@ -73,7 +73,7 @@ We're going to enable safe migrations on the default `main` production branch, c
 
 Start by navigating to the `beam-demo` database, click the **"cog"** within the infrastructure card.
 
-![The Overview tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog-3.png)
+![The Dashboard tab of the database.](/assets/docs/onboarding/branching-and-deploy-requests/cog-3.png)
 
 In the modal that appears, toggle the option labeled **"Enable safe migrations"** and click **"Save"**.
 
@@ -85,7 +85,7 @@ The card will reflect the safe migrations status on that branch as well add an o
 
 ### Create a dev branch
 
-Back in the database **"Overview"** tab, click the **"Create new branch"** button to create a new branch.
+Back in the database **"Dashboard"** tab, click the **"Create new branch"** button to create a new branch.
 
 ![The production branch UI card with the Create new branch button highlighted.](/assets/docs/onboarding/branching-and-deploy-requests/new-branch-2.png)
 
@@ -93,7 +93,7 @@ In the **New branch** modal, you’ll see options to name the branch, select the
 
 ![The New branch modal.](/assets/docs/onboarding/branching-and-deploy-requests/the-new-branch-modal.png)
 
-The branch takes a few minutes to initialize. Wait for this process to complete before proceeding. Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Overview"** tab.
+The branch takes a few minutes to initialize. Wait for this process to complete before proceeding. Once the branch is ready to go, the page will automatically update to allow you to create deploy requests directly from the **"Dashboard"** tab.
 
 ### Make a schema change
 
@@ -122,9 +122,9 @@ Notice how `summary` is missing. This is because we made the change on the `dev`
 
 ### Create a deploy request
 
-On the **"Overview"** tab, you can now create a deploy request. Enter an optional comment, then click "Create deploy request".
+On the **"Dashboard"** tab, you can now create a deploy request. Enter an optional comment, then click "Create deploy request".
 
-![The Overview tab of the dev branch.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-dev-branch.png)
+![The Dashboard tab of the dev branch.](/assets/docs/onboarding/branching-and-deploy-requests/the-overview-tab-of-the-dev-branch.png)
 
 PlanetScale will automatically check to see if your changes can be deployed by comparing the schemas between the `dev` and `main` branches. Once that process is completed, you’ll get the option to deploy the changes or close the deploy request. Unlike pull requests, you can only have one active deploy request on a branch at any given time. If you needed to create another deploy request, you’d have to close the previous one out.
 

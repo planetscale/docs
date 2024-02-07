@@ -31,7 +31,7 @@ There are two ways to generate a new username and password for your branch:
 
 ### Generate credentials in the PlanetScale dashboard
 
-1. On the database overview page, select the branch you want to connect to from the **Branch** dropdown.
+1. On the database dashboard page, select the branch you want to connect to from the **Branch** dropdown.
 2. Click "**Connect**".
 3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
 
@@ -74,7 +74,7 @@ If you prefer working from the CLI, you can quickly spin up new credentials ther
    ```
 
    {% callout %}
-   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database overview page, click "Settings", and then click "Passwords".
+   The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to your database dashboard page, click "Settings", and then click "Passwords".
    {% /callout %}
 
 2. Take note of the values returned. You won't be able to see this password again.

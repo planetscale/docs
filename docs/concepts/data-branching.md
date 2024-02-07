@@ -27,7 +27,7 @@ Before you can use the feature, you have to enable it in your database settings 
 
 ## Create a development branch with data & schema from the Base branch
 
-1. After enabling the Data Branching feature, navigate to the overview page of the database.
+1. After enabling the Data Branching feature, navigate to the dashboard page of the database.
 2. Clicking on "**New Branch**" should now offer an option to select "**Seed Data**".
 
    - **None** &mdash; Creates a database branch with only the **schema** copied to the new branch.

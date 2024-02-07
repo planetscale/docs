@@ -99,7 +99,7 @@ You can also get these exact values to to copy/paste from your [PlanetScale dash
    {% callout %}
    The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
    credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-   your database overview page, click "Settings", and then click "Passwords".
+   your database dashboard page, click "Settings", and then click "Passwords".
    {% /callout %}
 
    Take note of the values returned to you, as you won't be able to see this password again.
@@ -230,7 +230,7 @@ You can now refresh the [Symfony homepage](http://localhost:8000) to see the new
 
 If you don't care to install MySQL client or the PlanetScale CLI, another quick option using the MySQL console built into the PlanetScale dashboard.
 
-By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's dashboard page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your Symfony database.
 2. Click on the "**Branches** and select the `main` branch.

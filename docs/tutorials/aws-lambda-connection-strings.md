@@ -45,7 +45,7 @@ You may run `SELECT * FROM Tasks` to ensure the data was properly added from the
 
 ![Records from the console](/assets/docs/tutorials/aws-lambda-connection-strings/select.png)
 
-Now we need to enable [**safe migrations**](/docs/concepts/safe-migrations) on the **main** branch. Click the **Overview** tab, then click the **cog** icon in the upper right of the infrastructure card.
+Now we need to enable [**safe migrations**](/docs/concepts/safe-migrations) on the **main** branch. Click the **Dashboard** tab, then click the **cog** icon in the upper right of the infrastructure card.
 
 ![The option to promote a branch](/assets/docs/tutorials/aws-lambda-connection-strings/production-2.png)
 

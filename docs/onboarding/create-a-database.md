@@ -36,7 +36,7 @@ Next, you’ll be dropped into the dashboard for that specific database. Let's t
 
 The tabs from left to right are:
 
-- **Overview** &mdash; The current tab showing an overview of your database.
+- **Dashboard** &mdash; The current tab showing an overview of your database.
 - **Deploy requests** &mdash; How you apply changes to your database schema. More on that in the next article.
 - **Branches** &mdash; View the different branches of your database. Again, more on that in the next article.
 - **Insights** &mdash; Provides statistics on database operations that may be affecting performance.

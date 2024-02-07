@@ -145,7 +145,7 @@ When you finalize the import, we will detach your external database. The connect
 
 Your database has been fully imported into PlanetScale and is ready to use!
 
-Next, you'll be taken to your database overview page. If you click on "Branches," you'll see that you now have one [production branch](/docs/concepts/branching#promote-a-development-branch-to-production), `main`, that contains all of the data from your external database. Production branches are highly available and have optional additional protections, such as [safe migrations](/docs/concepts/safe-migrations), to prevent downtime.
+Next, you'll be taken to your database dashboard page. If you click on "Branches," you'll see that you now have one [production branch](/docs/concepts/branching#promote-a-development-branch-to-production), `main`, that contains all of the data from your external database. Production branches are highly available and have optional additional protections, such as [safe migrations](/docs/concepts/safe-migrations), to prevent downtime.
 
 ## Next steps
 

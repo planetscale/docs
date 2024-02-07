@@ -202,7 +202,7 @@ Next, you need to add some data. You have several different options here. This t
 
 ### Option 1: Add data in PlanetScale dashboard console
 
-By default, web console access to production branches is disabled to prevent accidental deletion. From your database's overview page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
+By default, web console access to production branches is disabled to prevent accidental deletion. From your database's dashboard page, click on the "**Settings**" tab, check the box labelled "**Allow web console access to production branches**", and click "**Save database settings**".
 
 Then, within your `star-app` database, click on the "**Console**" tab, select the `initial-setup` branch from the dropdown, and click "**Connect**". This will let you run queries on your database branch.
 

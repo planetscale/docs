@@ -128,7 +128,7 @@ If you're not using the CLI, you can get the exact values to copy/paste from you
    {% callout %}
    The `PASSWORD_NAME` value represents the name of the username and password being generated. You can have multiple
    credentials for a branch, so this gives you a way to categorize them. To manage your passwords in the dashboard, go to
-   your database overview page, click "Settings", and then click "Passwords".
+   your database dashboard page, click "Settings", and then click "Passwords".
    {% /callout %}
 
    Take note of the values returned to you, as you won't be able to see this password again.
@@ -221,7 +221,7 @@ The first two options are covered below.
 If you don't care to install the MySQL client or the PlanetScale CLI, another quick option is using the MySQL console built into the PlanetScale dashboard.
 
 1. Go to your [PlanetScale dashboard](https://app.planetscale.com) and select your PHP database.
-2. On the "**Overview**" page, you will need to select the gear icon and demote your `main` branch by toggling the "Promote to production" option. This is so you can create tables directly on your `main` branch.
+2. On the "**Dashboard**" page, you will need to select the gear icon and demote your `main` branch by toggling the "Promote to production" option. This is so you can create tables directly on your `main` branch.
 3. Click on the "**Console**" and select the `main` branch (or whatever development branch you used).
 4. Create the `categories` table:
 

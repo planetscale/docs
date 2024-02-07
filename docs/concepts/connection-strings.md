@@ -6,9 +6,9 @@ date: '2023-08-15'
 
 ## Creating a password
 
-1. To create a password, head to your database overview page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
+1. To create a password, head to your database dashboard page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
 
-   ![Database overview page {priority}](/assets/docs/concepts/connection-strings/connect-2.png)
+   ![Database dashboard page {priority}](/assets/docs/concepts/connection-strings/connect-2.png)
 
 2. On this dialog, click the `New password` button and you'll have the opportunity to select the branch to create a password for, pick a [password role](/docs/concepts/password-roles), and provide a recognizable name for the new credentials. Clicking `Create password` will then generate a **unique username and password pair** that can only be used to access the designated branch of your database. Take note of this password, as you won't be able to see it again.
 
