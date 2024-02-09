@@ -19,7 +19,7 @@ Backups, part of the data plane, are stored in S3 inside the same sub-account. P
 
 ![Architecture diagram](/assets/docs/managed/aws/aws-arch-diagram.jpg)
 
-PlanetScale will not have access to any other sub-accounts or your organization level settings. Outside of your AWS organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
+Your database lives entirely inside a dedicated sub-account within your AWS organization. PlanetScale will not have access to other sub-accounts nor your organization-level settings within AWS. Outside of your AWS organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
 
 ## Security and compliance
 
@@ -38,6 +38,14 @@ If you have any questions or concerns related to the security and compliance of 
 ### AWS PrivateLink
 
 By default, all connections are encrypted, but public. Optionally, you also have the option to use private database connectivity through [AWS PrivateLink](/docs/enterprise/managed/aws/privatelink), which is only available on single-tenancy deployment options, including PlanetScale Managed.
+
+### Fully private network isolation
+
+You can also turn off public database access with a dual AWS PrivateLink setup. PlanetScale’s control plane will talk to your sub-account over AWS PrivateLink, and your VPCs will also communicate with your database over AWS PrivateLink. Please get in touch with your PlanetScale Account Manager for more information on how to set up fully private network isolation.
+
+### Third-account customer-controlled public key infrastructure
+
+PlanetScale Managed on AWS supports public key infrastructure (PKI) services. PlanetScale Managed customers can provide PlanetScale the use of a set of customer-managed keys in a third AWS account inside your organization. This third account is controlled by you, the customer. PlanetScale has no administrative access. Your organization is the custodian for this key material. PlanetScale uses the customer-managed keys to encrypt EBS volumes, S3 buckets, and for envelope encryption of backups.
 
 ## Billing
 

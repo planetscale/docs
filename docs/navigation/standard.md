@@ -226,6 +226,8 @@
   items:
     - label: 'PlanetScale security and compliance overview'
       slug: '/docs/concepts/security'
+    - label: 'Vulnerability disclosure'
+      slug: '/docs/security/vulnerability-disclosure'
     - label: 'Database security'
       items:
         - label: 'Connection strings'

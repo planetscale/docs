@@ -19,7 +19,7 @@ Backups, part of the data plane, are stored in Cloud Storage inside the same pro
 
 ![Architecture diagram](/assets/docs/managed/gcp/gcp-arch-diagram.jpg)
 
-PlanetScale will not have access to any other projects or your organization level settings. Outside of your GCP organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
+Your database lives entirely inside a dedicated project within GCP. PlanetScale will not have access to other projects nor your organization-level settings within GCP. Outside of your GCP organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
 
 ## Security and compliance
 
