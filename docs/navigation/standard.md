@@ -390,6 +390,8 @@
               slug: '/docs/enterprise/managed/cloud-accounts-and-contents'
             - label: 'Data requests'
               slug: '/docs/enterprise/managed/data-requests'
+            - label: 'Schema snapshots'
+              slug: '/docs/enterprise/managed/schema-snapshots'
 
 - label: 'Plans and billing'
   icon: 'plans'
