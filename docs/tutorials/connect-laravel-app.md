@@ -65,7 +65,7 @@ Finally, click "**Create database**".
 If you have an existing cloud-hosted database, you can also choose the "**Import**" option to import your database to PlanetScale using our Import tool. If you go this route, we recommend using our [Database Imports documentation](/docs/imports/database-imports).
 {% /callout %}
 
-A [production branch](/docs/concepts/branching), `main`, is automatically created when you create your database. Though safe migrations are off by default, so you can make schema changes directly to this branch. Once you're happy with any schema changes, you can turn on safe migrations to protect from accidental schema changes and enable zero-downtime deployments.
+A [production branch](/docs/concepts/branching), `main`, is automatically created when you create your database. Though safe migrations is off by default, so you can make schema changes directly to this branch. Once you're happy with any schema changes, you can turn on safe migrations to protect from accidental schema changes and enable zero-downtime deployments.
 
 That's it! Your database is ready to use. Next, let's connect it to the Laravel application and then add some data.
 

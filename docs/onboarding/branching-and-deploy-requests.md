@@ -1,7 +1,7 @@
 ---
 title: Branching and deploy requests
 subtitle: Explore how to utilize branching in PlanetScale, a key feature of the platform.
-date: '2023-06-21'
+date: '2024-02-14'
 ---
 
 ## Overview
@@ -19,7 +19,7 @@ Branches are copies of your database schema that live in a completely separate e
 There are currently two types of branches in PlanetScale:
 
 - Production branches
-- Non-production branches
+- Development branches
 
 ### Production branches
 
@@ -31,7 +31,7 @@ Production branches should be used for the production version of your applicatio
 
 #### Safe migrations
 
-Production branches also support [safe migrations](/docs/concepts/safe-migrations). When safe migrations is enabled, the branch is affected in the following ways:
+Branches also support [safe migrations](/docs/concepts/safe-migrations). When safe migrations is enabled, the branch is affected in the following ways:
 
 - The branch will support the PlanetScale non-blocking schema change workflow.
 - Direct DDL is disabled to prevent accidental schema changes. You would instead apply schema changes using Deploy requests (covered later in this guide).
@@ -42,13 +42,13 @@ As a best practice, it is recommended that you enable safe migrations on your pr
 Data definition language (DDL) is the syntax for modifying the structure of a database. This includes commands that add, remove, or alter tables, columns, views, etc.
 {% /callout %}
 
-### Non-production branches
+### Development branches
 
-Your database can have one or more non-production branches, depending on your plan. Non-production branches are used for making changes or experimenting with your database structure. These branches do not have the same protective restrictions or resiliency as production branches.
+Your database can have one or more development branches, depending on your plan. Development branches are used for making changes or experimenting with your database structure. These branches do not have the same resources or resiliency as production branches.
 
 ### Deploy requests
 
-Deploy requests are how changes from development branches are merged into production branches with safe migrations enabled. They are similar to pull requests in your code repositories, but for databases. When a new Deploy request is created, you can view the changes, comment on them, and collaborate with your team just like you would a PR.
+Deploy requests are how changes from development branches are merged into production branches with safe migrations enabled. They are similar to pull requests in your code repositories, but for databases. When a new deploy request is created, you can view the changes, comment on them, and collaborate with your team just like you would a PR.
 
 ## Typical branching strategy
 
@@ -58,16 +58,16 @@ Most applications have at least two environments, a production environment where
 
 A typical strategy with branching would go something like this:
 
-- The PlanetScale database has two branches: `main` and `dev`.
+- The PlanetScale database has one branch: `main` production branch.
 - A developer decides to extend a form in the application and needs to add a new field. They create a branch in the code to manage their changes.
-- Because this is a new data field, a new column must be added to the corresponding table in PlanetScale. The developer adds this column to the `dev` branch of the PlanetScale database.
-- After the new field has been added to the code, the developer creates a pull request to merge the code branches, and a **Deploy request** in PlanetScale to merge the database changes.
+- Because this is a new data field, a new column must be added to the corresponding table in PlanetScale. The developer creates a `dev` development branch and adds this column to this branch.
+- After the new field has been added to the code, the developer creates a pull request to merge the code branches, and a **deploy request** in PlanetScale to merge the database changes.
 - The PlanetScale deploy request is merged first to ensure that the column exists in the database before the application code starts writing to it. Once live, the application code pull request is merged in. With this branching workflow, the schema changes are safely applied to the `main` branch of the database without any table locking occurring and zero downtime to the users of the application.
+- Once it is in production and no issues are found, the developer deletes the `dev` development branch.
 
 ## Branching in action
 
-Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them.
-We're going to enable safe migrations on the default `main` production branch, create a new development branch, add a new column, create a deploy request, and deploy it to production.
+Now that you understand why branches are such an important feature in PlanetScale, let’s see how to use them. We're going to enable safe migrations on the default `main` production branch, create a new development branch, add a new column, create a deploy request, and deploy it to production.
 
 ### Enable safe migrations on `main`
 
@@ -77,13 +77,11 @@ Start by navigating to the `beam-demo` database, click the **"cog"** within the 
 
 In the modal that appears, toggle the option labeled **"Enable safe migrations"** and click **"Save"**.
 
-![The safe migrations modal.](/assets/docs/onboarding/branching-and-deploy-requests/prod-branch-options-modal.png)
-
 The card will reflect the safe migrations status on that branch as well add an option to create a new branch.
 
 ![The production branch UI card with safe migrations enabled.](/assets/docs/onboarding/branching-and-deploy-requests/promoted-2.png)
 
-### Create a dev branch
+### Create a development branch
 
 Back in the database **"Dashboard"** tab, click the **"Create new branch"** button to create a new branch.
 
@@ -145,6 +143,8 @@ DESCRIBE Post;
 ```
 
 ![The console of the main branch after changes have been deployed.](/assets/docs/onboarding/branching-and-deploy-requests/the-console-of-the-main-branch-after-changes-have-been-deployed.png)
+
+Once you are done using it, you can delete the `dev` branch.
 
 {% callout title="Next steps" %}
 You should have a good understanding of the core concepts of PlanetScale at this point. In the next guide, we’ll cover how you can connect to your PlanetScale database using the language or client of your choice.

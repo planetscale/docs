@@ -1,7 +1,7 @@
 ---
 title: 'The PlanetScale workflow'
 subtitle: 'Use the PlanetScale workflow for branching databases, non-blocking schema changes and more.'
-date: '2023-10-12'
+date: '2024-02-14'
 ---
 
 ![Diagram showing PlanetScale workflow {priority}](/assets/docs/planetscale-workflow.png)
@@ -22,7 +22,7 @@ Development branches provide isolated copies of your database schema where you c
 
 Production branches are highly available databases intended for production traffic. They include an additional replica for high availability and are automatically backed up daily.
 
-Production branches can also have [safe migrations](/docs/concepts/safe-migrations) turned on which enables zero-downtime schema migrations, protects against accidental schema changes, and enables better team collaboration through [deploy requests](/docs/concepts/deploy-requests).
+Branches can also have [safe migrations](/docs/concepts/safe-migrations) enabled for zero-downtime schema migrations, protection against accidental schema changes, and enables better team collaboration through [deploy requests](/docs/concepts/deploy-requests).
 
 We also offer a [Data Branching®](/docs/concepts/data-branching) feature, which allows you to create an isolated replica of your database for development that includes both the schema **and** data.
 
@@ -39,7 +39,7 @@ Learn more about [non-blocking schema changes](/docs/concepts/nonblocking-schema
 ## Deploy requests
 
 {% callout %}
-Your database must have a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled before you can create a deploy request.
+Your database must have a branch with [safe migrations](/docs/concepts/safe-migrations) enabled before you can create a deploy request.
 {% /callout %}
 
 [Deploy requests](/docs/concepts/deploy-requests) allow you to propose schema changes and get feedback from your team. The deploy requests display DDL statements (`CREATE`, `ALTER`, and `DROP`) for each table changed, with a line-by-line schema diff, making it easy to review the changes.

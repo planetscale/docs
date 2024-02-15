@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2024-01-23'
+date: '2024-02-14'
 ---
 
 ## Overview
@@ -13,12 +13,12 @@ Deploy requests are an integral part of the [PlanetScale workflow](/docs/concept
 ## Create a deploy request
 
 {% callout %}
-Your database must have a **production branch with [safe migrations](/docs/concepts/safe-migrations) enabled** before you can create a deploy request.
+Your database must have a **branch with [safe migrations](/docs/concepts/safe-migrations) enabled** before you can create a deploy request.
 {% /callout %}
 
 1. Click on "**Branches**".
-2. Select the development branch you want to deploy to the production branch.
-3. This page shows you a diff of the schema against its parent branch.
+2. Select the development branch you want to deploy to the base branch.
+3. This page shows you a diff of the schema against its base branch.
 4. To the right of the page, you'll see a dropdown that says "**Deploy to**".
 5. Select the branch you want to.
 6. Optionally, add a comment about the deploy request.
@@ -28,7 +28,7 @@ Your database must have a **production branch with [safe migrations](/docs/conce
 
 ## Review and deploy a deploy request
 
-Once you create a deploy request, you or your team can review it and, optionally, approve it before deploying it to production.
+Once you create a deploy request, you or your team can review it and, optionally, approve it before deploying it.
 
 PlanetScale will check if the request is deployable. This process includes checking for issues like:
 
@@ -92,7 +92,7 @@ You can revert a deployment for **up to 30 minutes** after the deploying. After 
 
 1. Select the deploy request you want to revert.
 2. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
-3. We will immediately revert your production database back to its previous schema.
+3. We will immediately revert the base branch back to its previous schema.
 4. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
 5. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
 

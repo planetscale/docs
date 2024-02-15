@@ -1,7 +1,7 @@
 ---
 title: 'Connect a Rails application to PlanetScale'
 subtitle: 'Spin up a PlanetScale MySQL database in seconds and connect to a Rails application'
-date: '2023-06-21'
+date: '2024-02-14'
 ---
 
 ## Introduction
@@ -172,7 +172,7 @@ Here comes the fun stuff! Now that your application is configured to talk to Pla
 
 ## Enable safe migrations
 
-[Safe migrations](/docs/concepts/safe-migrations) is an optional but highly recommended feature for production branches on PlanetScale. With safe migrations enabled, direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/docs/concepts/planetscale-workflow).
+[Safe migrations](/docs/concepts/safe-migrations) is an optional but highly recommended feature for branches on PlanetScale. With safe migrations enabled, direct schema changes (`CREATE`, `ALTER`, and `DELETE`) are not allowed on production branches to prevent accidental data loss and must be applied via [deploy requests](/docs/concepts/planetscale-workflow).
 
 ```bash
 pscale branch safe-migrations enable blog main
