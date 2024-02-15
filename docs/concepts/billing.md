@@ -261,7 +261,7 @@ The Enterprise plan is fully customizable to suit your businesses needs. For mor
 
 \* Enterprise support is available on the Enterprise plan for an additional fee.
 
-## User scheduled backups
+## User-scheduled backups
 
 We run automatic daily backups for every branch for free. On the Scaler and Scaler Pro plans, we run automated backups every 12 hours. Disk space for default backups is not counted against your plan's storage limit.
 
