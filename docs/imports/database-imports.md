@@ -210,6 +210,7 @@ To ensure that we can migrate your data to PlanetScale with zero downtime, we ch
 | :----------------------------- | :------------- | :----------------------------------------------------------------------------------------------------------------------------- |
 | `gtid_mode`                    | `ON`           | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-gtids.html#sysvar_gtid_mode)                       |
 | `binlog_format`                | `ROW`          | [Documentation](https://dev.mysql.com/doc/refman/5.7/en/replication-options-binary-log.html#sysvar_binlog_format)              |
+| `binlog_row_image`             | `FULL`         | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_row_image)           |
 | `expire_logs_days`\*           | `> 2`          | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_expire_logs_days)           |
 | `binlog_expire_logs_seconds`\* | `> 172800`     | [Documentation](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_binlog_expire_logs_seconds) |
 
@@ -235,6 +236,7 @@ To check what your database server currently has these values set to, run the fo
 SHOW VARIABLES
    WHERE Variable_Name LIKE '%gtid_mode'
       OR Variable_Name LIKE '%binlog_format'
+      OR Variable_Name LIKE '%binlog_row_image'
       OR Variable_Name LIKE '%expire_logs_days'
       OR Variable_Name LIKE '%binlog_expire_logs_seconds';
 ```
