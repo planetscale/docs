@@ -1,7 +1,7 @@
 ---
 title: AWS RDS migration guide
 subtitle: Learn how to import your database from AWS RDS into PlanetScale.
-date: '2023-12-05'
+date: '2024-02-16'
 ---
 
 ## Overview
@@ -11,6 +11,8 @@ This document will demonstrate how to migrate a database from AWS Relational Dat
 {% callout %}
 This guide assumes you are using MySQL on Amazon RDS. If you are using Amazon Aurora (MySQL compatible) on RDS, follow the [Amazon Aurora migration guide](/docs/imports/amazon-aurora-migration-guide). Other database systems (non-MySQL or MariaDB databases) available through RDS will not work with the PlanetScale import tool.
 {% /callout %}
+
+We recommend reading through the [Database import documentation](/docs/imports/database-imports) to learn how our import tool works before proceeding.
 
 ## Prerequisites
 
@@ -84,10 +86,10 @@ Complete the form using the information gathered in the previous section. Click 
 The “**Connect to database**” button will update with the connection status.
 
 {% callout %}
-If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support for your database.
 {% /callout %}
 
-If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
+If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 {% callout type="warning" %}
 If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.

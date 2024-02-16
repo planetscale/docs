@@ -80,6 +80,10 @@ These are all cases where another user changes schema, causing the initial user'
 
 There are also two cases where a revert would cause orphaned rows that you can read about in this document's [revert section](#when-a-revert-can-result-in-orphaned-rows).
 
+### Validating referential integrity of existing columns
+
+Deploy Requests do not validate the referential integrity of _existing_ columns. `ALTER TABLE… ADD FOREIGN KEY…` does not validate existing row relations within the context of a Deploy Request. Unlike standard MySQL, it is possible to add the foreign key constraint to a table with orphaned rows, and they will remain orphaned. In standard MySQL, adding a foreign key is a blocking operation, and it fails if any orphaned rows are found.
+
 ## Revert a schema change
 
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! You have the option to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
@@ -110,7 +114,7 @@ In some cases, when you are using foreign key constraints, a revert of a deploy 
 - Dropping a table with foreign key constraints: When a table with foreign key constraints is dropped, the parent table(s) will continue to be written to. If this change is reverted, data in the table that was dropped may no longer be consistent with its foreign key constraints.
 
 {% callout type="note" %}
-[Foreign key constraints](/docs/concepts/foreign-key-constraints) are currently supported by PlanetScale in beta. Please [contact us](/contact) if you notice any problems in deploy requests that contain foreign key constraints.
+You must enable [foreign key constraint](/docs/concepts/foreign-key-constraints) support in the database settings page before using them.
 {% /callout %}
 
 ### When are you unable to revert a schema change

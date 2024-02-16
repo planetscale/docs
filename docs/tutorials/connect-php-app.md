@@ -246,7 +246,7 @@ If you don't care to install the MySQL client or the PlanetScale CLI, another qu
    ```
 
    {% callout %}
-   PlanetScale has foreign key constraints support in beta. If you want to enforce referential integrity with foreign key constraints, you will need to opt your database into the [foreign key constraints beta](/docs/concepts/foreign-key-constraints).
+   If you are using foreign key constraints, you must first enable [foreign key constraints](/docs/concepts/foreign-key-constraints) support in your database settings page.
    {% /callout %}
 
 6. Add data to the `products` table with:
@@ -317,8 +317,6 @@ You may need to [install the MySQL command line client](/docs/concepts/planetsca
      KEY category_id_idx (category_id)
    );
    ```
-
-   PlanetScale does not support foreign key constraints, but we do support the use of relationships with foreign keys, as shown in this example. For more information, check out our [Operating without foreign key constraints documentation](/docs/learn/operating-without-foreign-key-constraints).
 
 4. Add some records to the `products` table:
 

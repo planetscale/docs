@@ -143,7 +143,7 @@ Now that you're connected, let's add some data to see it in action. The sample a
 - `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
 
 {% callout %}
-PlanetScale has foreign key constraints support in beta. If you want to enforce referential integrity with the `constrained()` method, you will need to opt your database into the [foreign key constraints beta](/docs/concepts/foreign-key-constraints).
+If you want to enforce referential integrity with the `constrained()` method, you will need to enable [foreign key constraints](/docs/concepts/foreign-key-constraints) support in your database settings page.
 {% /callout %}
 
 There are also two seeders, `database/seeders/ConstellationSeeder.php` and `database/seeders/StarSeeder.php`, that will add two rows to the each table. Let's run those now.

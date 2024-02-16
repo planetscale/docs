@@ -1,7 +1,7 @@
 ---
 title: DigitalOcean database migration guide
 subtitle: Learn how to migrate a database from a DigitalOcean MySQL cluster into PlanetScale using the database Import tool.
-date: '2023-12-05'
+date: '2024-02-16'
 ---
 
 ## Introduction
@@ -11,6 +11,8 @@ In this article, we’ll walk through migrating a MySQL database from DigitalOce
 {% callout %}
 This guide assumes you are using MySQL on DigitalOcean. Other database systems available through DigitalOcean will not work with the PlanetScale import tool.
 {% /callout %}
+
+We recommend reading through the [Database import documentation](/docs/imports/database-imports) to learn how our import tool works before proceeding.
 
 ## Prerequisites
 
@@ -92,10 +94,10 @@ Complete the form using the information gathered in the previous section. Click 
 The “**Connect to database**” button will update with the connection status.
 
 {% callout %}
-If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support for your database.
 {% /callout %}
 
-If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
+If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 You’ll then be moved to a page where you can monitor the import status of the database from DigitalOcean.
 

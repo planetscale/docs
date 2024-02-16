@@ -148,9 +148,11 @@ To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https:/
 
 ## Optional &mdash; Bring in PlanetScale custom database wrapper
 
-This next step is only necessary if you're using your own application to go through this guide. If you cloned the sample app, this already exists in the repo.
+This next step is only necessary if you're using your own application to go through this guide **and** [do not want to use foreign key constraints](/docs/learn/operating-without-foreign-key-constraints). If you cloned the sample app, this already exists in the repo.
 
-Because PlanetScale doesn't support foreign key constraints, you need to pull in the PlanetScale database wrapper for Django to disable foreign key syntax in the Django migrations.
+Foreign key constraint support is not enabled by default in PlanetScale. If you'd like to use foreign key constraints in your Django application with PlanetScale, you must first enable foreign key constraint support in your database settings page.
+
+Django uses foreign key constraint syntax by default. So, if you want to proceed without foreign key constraints, you need to pull in the PlanetScale database wrapper for Django to disable foreign key syntax in the Django migrations.
 
 1. Run the following to pull it in:
 
@@ -261,9 +263,11 @@ If you don't care to install MySQL client or the PlanetScale CLI, another quick 
 
 You can also head to the [`/products`](http://localhost:8000/products) endpoint in your Django application to see the new data.
 
-## Disabling foreign key constraints in Django
+## Foreign key constraints with PlanetScale
 
-PlanetScale [does not support foreign key constraints](/docs/learn/operating-without-foreign-key-constraints). You can disable foreign key constraint checks at the model level in Django, but if you're running the default migrations, you'll need to turn them off globally.
+If you'd like to use foreign key constraints in your Django application with PlanetScale, you must first enable foreign key constraint support in your database settings page.
+
+If you prefer to enforce referential integrity at the application level, you will have to do some extra configuration with Django. You can disable foreign key constraint checks at the model level in Django, but if you're running the default migrations, you'll need to turn them off globally.
 
 The [PlanetScale custom database backend](https://github.com/planetscale/django_psdb_engine) manages this, but if you want to do it manually in each model. For example, in the `models.py` file for the example in this document, we define the foreign key on the `category` table with the following:
 

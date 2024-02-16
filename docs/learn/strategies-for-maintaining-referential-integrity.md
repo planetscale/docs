@@ -1,13 +1,13 @@
 ---
 title: 'Strategies for maintaining referential integrity'
 subtitle: 'How to design systems that maintain referential integrity without foreign key constraints'
-date: '2023-12-05'
+date: '2024-02-16'
 ---
 
 If you choose to not use foreign key constraints, cascading actions need to be addressed via code instead of letting the database engine handle them for you. This document outlines some recommended strategies for building a system that handles those actions for you.
 
 {% callout type="note" %}
-If you want to use foreign key constraints instead for referential integrity, opt-in to the [foreign key constraints beta](/docs/concepts/foreign-key-constraints#foreign-key-constraints-beta). If you are unsure if you should use them, the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints) covers some of the advantages and disadvantages.
+If you want to use foreign key constraints instead for referential integrity, enable [foreign key constraint](/docs/concepts/foreign-key-constraints) support in your database settings page. If you are unsure if you should use them, the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints) covers some of the advantages and disadvantages.
 {% /callout %}
 
 The following examples will use the concept of a recipe manager with the following schema. Samples will be provided in SQL, so they are relatively universal regardless of the language or framework used.

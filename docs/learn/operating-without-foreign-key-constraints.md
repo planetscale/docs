@@ -10,7 +10,7 @@ A **foreign key** is a logical association of rows between two tables, in a pare
 
 A **`FOREIGN KEY` _constraint_ is a database construct**, an implementation that _forces_ the foreign key relationship's integrity (referential integrity). Namely, it ensures that a child table can only reference a parent table when the appropriate row _exists_ in the parent table. A constraint also prevents the existence of "orphaned rows" in different methods, as you'll see described soon.
 
-At PlanetScale, we don't _recommend_ using foreign key constraints. However, if you still want to use them, we currently have [beta support for foreign key constraints](/docs/concepts/foreign-key-constraints) with minor limitations.
+At PlanetScale, we don't _recommend_ using foreign key constraints. However, if you still want to use them, you can enable [support for foreign key constraints](/docs/concepts/foreign-key-constraints) in your database settings page.
 
 We still encourage you to use the relational model and associate tables by "pointing" rows from one table to another with foreign keys, just not with the `CONSTRAINT ... FOREIGN KEY` definition.
 

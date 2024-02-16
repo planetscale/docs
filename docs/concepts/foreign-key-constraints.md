@@ -1,7 +1,7 @@
 ---
 title: 'Foreign key constraints'
 subtitle: 'Learn more about using foreign key constraints in PlanetScale.'
-date: '2023-12-05'
+date: '2024-02-16'
 ---
 
 ## What is a foreign key constraint?
@@ -10,47 +10,37 @@ A **foreign key** is a logical association of rows between two tables in a paren
 
 A **`FOREIGN KEY` _constraint_** is a database construct, an implementation that _forces_ the foreign key relationship's integrity (referential integrity). Namely, it ensures that a child table can only reference a parent table when the appropriate row _exists_ in the parent table. A constraint also prevents the existence of “orphaned rows” in different methods.
 
-{% callout type="note" %}
-Foreign key constraints are currently supported by PlanetScale in beta.
-{% /callout %}
-
 ### Advantages and disadvantages of foreign key constraints
 
 Foreign key constraints have advantages and disadvantages. While foreign key constraints can help ensure referential integrity, they will cause degraded performance in high concurrency workloads and introduce more complexity in the database. Often, foreign key constraints become problematic when operating on a large scale. You can read more [why we do not recommend foreign key constraints](/docs/learn/operating-without-foreign-key-constraints#why-does-planetscale-not-recommend-constraints-) for some applications.
 
 We recommend weighing the advantages and disadvantages for your specific application when using foreign key constraints. If you decide to enforce referential integrity at the application level instead of at the database level, see our documentation on [how to design systems that maintain referential integrity without foreign key constraints](/docs/learn/strategies-for-maintaining-referential-integrity).
 
-## Foreign key constraints beta
+## Foreign key constraints on PlanetScale
 
 ### Prerequisites
 
 {% callout type="note" %}
-You must be an organization administrator to enroll into beta features.
+You must enable foreign key constraint support on your database in the PlanetScale database settings.
 {% /callout %}
 
-Before you opt-in to the foreign key constraints beta, there are a few important things to know:
+Before you enable foreign key constraint support, there are a few important things to know:
 
-- **No open deploy requests:** You cannot have any open deploy requests before opting into the beta.
+- **No open deploy requests:** You cannot have any open deploy requests before enable foreign key constraint support.
 - **Possible orphaned rows on reverts:** Some deploy requests may result in orphaned rows if you revert them. You will be warned before you deploy changes.
-- **Database upgrades:** When you opt-in to the beta, we upgrade your Vitess cluster, and in some cases, we upgrade the MySQL version too. You should experience no downtime during this upgrade, but it can take a few minutes to complete. Older databases may take longer.
+- **Database upgrades:** When you enable foreign key constraint support, we upgrade the MySQL version in some cases. You should experience no downtime during this upgrade, but it can take a few minutes to complete. Older databases may take longer.
 
-### How to opt-in
+### How to enable foreign key constraints
 
-The beta is opt-in on a **per database** level. You cannot opt-in the whole organization to foreign key constraints.
+Foreign key constraints can be enabled on a **per database** level, not the organization level.
 
-1. Navigate to the database you want to opt-in to the foreign key constraints beta and select the **“Settings”** tab.
-2. In the **“Beta features”** page, select the **“Enroll”** button for foreign key constraints.
-3. After you accept and enroll in the beta, PlanetScale will upgrade your database in the background. This will take a few minutes. On the database's **“Dashboard”** page, you will see a loading spinner that says it is “Enabling foreign key constraints.” Once it no longer shows, you can use foreign key constraints in your PlanetScale database!
-
-![Showing the spinner on the database dashboard page](/assets/docs/concepts/foreign-key-constraints/enabling-foreign-key-constraints-docs.jpg)
-
-{% callout type="warning" %}
-If you want to unenroll your database from the beta, make sure to first drop your foreign key constraints. We do not downgrade your database at this time.
-{% /callout %}
+1. Navigate to the database you want to enable foreign key constraint support for, and select the **“Settings”** tab.
+2. Under **"General"**, click the check box next to "Allow foreign key constraints", and click **"Save database settings"**.
+3. After enable foreign key constraint support, PlanetScale may upgrade your database in the background, which could take several seconds. As always, database upgrades do not involve any downtime or locking and require no action on your part.
 
 ## Database imports with foreign key constraints
 
-You can import a database with foreign key constraints to PlanetScale. We will automatically detect them after successfully connecting to your external database. If we find any foreign key constraints, we will ask you to accept the Terms of Service for the beta feature to continue the import process.
+You can import a database with foreign key constraints to PlanetScale. We will automatically detect them after successfully connecting to your external database. If we find any foreign key constraints, we automatically enable foreign key constraint support and continue the import process.
 
 We recommend using a replica as your source when doing database imports with foreign key constraints. Read more in the [database import documentation](/docs/imports/database-imports#foreign-key-constraints).
 
@@ -60,9 +50,13 @@ For most cases, foreign key constraints should work as expected in PlanetScale. 
 
 ### Sharded versus unsharded environments
 
-Currently, the foreign key constraints beta only supports unsharded environments. If you use PlanetScale in a sharded environment, contact your PlanetScale account manager for more information. Support for sharded environments will come in 2024.
+Currently, the foreign key constraints are only supported in unsharded environments. If you use PlanetScale in a sharded environment, contact your PlanetScale account manager for more information.
 
-### Revert limitations
+### Deploy request limitations
+
+Deploy requests do not validate the referential integrity of _existing_ columns. `ALTER TABLE… ADD FOREIGN KEY…` does not validate existing row relations within the context of a deploy request. Unlike standard MySQL, it is possible to add the foreign key constraint to a table with orphaned rows, and they will remain orphaned. In standard MySQL, adding a foreign key is a blocking operation, and it fails if any orphaned rows are found.
+
+#### Revert limitations
 
 In some cases, a revert of a deploy request can result in orphaned rows. When you revert:
 

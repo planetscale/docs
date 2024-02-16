@@ -1,7 +1,7 @@
 ---
 title: 'MariaDB migration guide'
 subtitle: 'Learn how to import your database from a MariaDB server into a PlanetScale MySQL database.'
-date: '2023-12-05'
+date: '2024-02-16'
 ---
 
 ## Overview
@@ -11,6 +11,8 @@ In this article, you’ll learn how to migrate a database from MariaDB, a fork o
 {% callout type="warning" %}
 The steps outlined in this guide used MariaDB version 10.6.12 on an Ubuntu host. Depending on the version of MariaDB you are using, your results may vary. Don't hesitate to [reach out to us](/contact) for further assistance.
 {% /callout %}
+
+We recommend reading through the [Database import documentation](/docs/imports/database-imports) to learn how our import tool works before proceeding.
 
 ### Prerequisites
 
@@ -102,10 +104,10 @@ Click "**Connect to database”** and the import tool will attempt to connect to
 The “**Connect to database**” button will update with the connection status.
 
 {% callout %}
-If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more about beta in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
+If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support for your database.
 {% /callout %}
 
-If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
+If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
 
 If the connection was successful, you’ll see the following message. Click “**Begin database import”** to start importing data.
 

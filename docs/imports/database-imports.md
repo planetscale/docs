@@ -1,7 +1,7 @@
 ---
 title: 'Database Imports'
 subtitle: 'Import your data from an external MySQL database into your PlanetScale database.'
-date: '2023-12-05'
+date: '2024-02-16'
 ---
 
 ## Overview
@@ -62,11 +62,11 @@ To import an existing database into PlanetScale:
 
 1. Once your connection information is plugged in, click the "**Connect to database**" button. PlanetScale will attempt to connect to your database. If successful, you'll see a green checkmark with a success message.
 
-   {% callout %}
-   If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process. Learn more details about importing with [foreign key constraints below](#foreign-key-constraints).
-   {% /callout %}
+{% callout %}
+If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support for your database.
+{% /callout %}
 
-2. If the connection is successful, beta features are accepted (if you have foreign key constraints), or plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to start migrating your data to PlanetScale.
+2. If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to start migrating your data to PlanetScale.
 
 Or, if the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting-connectivity-issues) for more information.
 
@@ -78,14 +78,14 @@ Once you've successfully upgraded your plan, you should be able to continue impo
 
 ## Foreign key constraints
 
-Foreign key constraints are currently supported by PlanetScale in beta. You can read more in the [foreign key constraints documentation](/docs/concepts/foreign-key-constraints).
-
-If your database uses foreign key constraints, we will automatically detect them after successfully connecting to your external database. We will ask you to accept the Terms of Service for the beta feature to continue the import process.
+If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support.
 
 There are a couple of important things to know about doing database imports with foreign key constraints:
 
 - **We recommend importing using a replica:** The foreign key constraint-specific import process holds a long-run transaction on the source database. This might cause an increased load on the source database. As a result, we recommend that users connect to a replica when importing their database.
 - **Import retries:** If your import fails, the import must start from the beginning again. This is unlike other imports, where we retry from where we left off.
+
+For most cases, foreign key constraints should work as expected in PlanetScale. There are a few cases to be aware of as they are currently unsupported or result in less ideal behavior. See the [foreign key constraints limitation documentation](/docs/concepts/foreign-key-constraints#limitations) for more info.
 
 ## Import process
 

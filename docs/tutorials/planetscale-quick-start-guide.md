@@ -68,7 +68,7 @@ This quickstart demonstrates how to create and use two relational tables: `categ
    ```
 
    {% callout %}
-   If you want to make schema changes containing foreign key constraints, opt-in to the [foreign key constraints](/docs/concepts/foreign-key-constraints) beta.
+   If you want to make schema changes containing foreign key constraints, enable [foreign key constraints](/docs/concepts/foreign-key-constraints) support in your database settings page.
    {% /callout %}
 
 5. You can confirm that the tables have been added by running:
@@ -206,7 +206,7 @@ To add a schema to your database, you will need to connect to MySQL, so [make su
    ```
 
    {% callout %}
-   If you want to make schema changes containing foreign key constraints, opt-in to the [foreign key constraints](/docs/concepts/foreign-key-constraints) beta.
+   If you want to make schema changes containing foreign key constraints, enable [foreign key constraints](/docs/concepts/foreign-key-constraints) support in your database settings page.
    {% /callout %}
 
 3. You can confirm that the table has been added by running:

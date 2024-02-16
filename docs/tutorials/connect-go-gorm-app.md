@@ -147,7 +147,7 @@ Let's run those now.
 
 ### Foreign key constraints
 
-If you're using GORM in your Go application, take note of this line in the `main.go` file of the Go starter application:
+If you're using GORM in your Go application and [do not want to use foreign key constraints](/docs/learn/operating-without-foreign-key-constraints), you can turn them off with this line in the `main.go` file of the Go starter application:
 
 ```go
 // ...
@@ -155,9 +155,7 @@ DisableForeignKeyConstraintWhenMigrating: true,
 // ...
 ```
 
-{% callout %}
-PlanetScale has foreign key constraints support in beta. If you want to enforce referential integrity and enable foreign key constraints in your Go application, you will need to opt your database into the [foreign key constraints beta](/docs/concepts/foreign-key-constraints). Then, you will be able to exclude this setting in your Go application.
-{% /callout %}
+If you prefer to use foreign key constraints in your Go application, you can skip the previous step. However, you need to first enable [foreign key constraint](/docs/concepts/foreign-key-constraints) support in your database settings page.
 
 ## Add data manually
 

@@ -1,7 +1,7 @@
 ---
 title: 'Non-blocking schema changes'
 subtitle: 'Non-blocking schema changes in PlanetScale provide a schema change workflow that allows users to update database tables without locking or causing downtime for production databases.'
-date: '2024-02-14'
+date: '2024-02-16'
 ---
 
 ## Overview
@@ -119,7 +119,7 @@ A basic non-blocking schema change workflow in PlanetScale might look like this:
 
 ## Limitations
 
-If you want to make schema changes containing foreign key constraints, opt-in to the [foreign key constraints](/docs/concepts/foreign-key-constraints) beta.
+If you want to make schema changes containing foreign key constraints, enable foreign key constraint support for your database in the database settings page.
 
 PlanetScale doesn't support direct `RENAME` for columns and tables. Learn why and how to rename tables or columns in [this tutorial](/docs/learn/handling-table-and-column-renames).
 
