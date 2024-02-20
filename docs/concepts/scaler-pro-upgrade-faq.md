@@ -23,7 +23,9 @@ Once you select the size and submit the change, the adjustment will be made imme
 
 ## How is storage billed for Scaler Pro?
 
-For Scaler, storage was billed at $2.50/GiB. On Scaler Pro, storage is $1.50/GiB.
+Both plans have 10GB of storage included for free.
+
+For Scaler, storage was billed at $2.50/GB. On Scaler Pro, storage is $1.50/GB.
 
 This rate includes all storage used by replicas in your primary region.
 
@@ -31,9 +33,10 @@ This rate includes all storage used by replicas in your primary region.
 
 No, Scaler Pro is more powerful than Scaler. By default Scaler databases are on a cluster size similar to PS-10.
 
-Scaler production branches have a single replica. Scaler Pro PS-10 has two replicas distributed in different availability zones.
+Scaler production branches have a single replica. Scaler Pro has two replicas distributed in different availability zones.
 
-In rare cases, there are Scaler databases using more resources than a PS-10. In those cases you will see when upgrading in that UI that we will recommend a different cluster size for your database. The recommended cluster size will be highlighted in blue and say "recommended".
+In rare cases, there are Scaler databases using more resources than a PS-10. When upgrading your database, in the UI you will see a cluster size highlighted in blue and say "recommended". This size will always be similar to the existing
+resources used by your database.
 
 ## What are replicas used for?
 
@@ -70,3 +73,7 @@ On the Scaler plan, each database had a limit of 5 development branches at a tim
 With Scaler Pro, each database has 1,440 hours of development branch time included. Anything over that time is billed at $0.013 per hour. All branches are only billed for the time that they are used, prorated to the second.
 
 [Learn more about development branch billing](/docs/concepts/billing#development-branches).
+
+## What changes with PlanetScale Boost?
+
+There are no billing changes for PlanetScale Boost when upgrading to Scaler Pro.
