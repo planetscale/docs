@@ -67,8 +67,8 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 |                                                                              | **Scaler Pro**                    |
 | ---------------------------------------------------------------------------- | --------------------------------- |
 | **Storage/month**                                                            | 10 GB\*                           |
-| **Row reads/month**                                                          | _Unlimited_                       |
-| **Row writes/month**                                                         | _Unlimited_                       |
+| **Row reads/month**                                                          | _Unmetered_                       |
+| **Row writes/month**                                                         | _Unmetered_                       |
 | **Available cluster sizes**                                                  | 7                                 |
 | **Availability zones**                                                       | 3                                 |
 | **Production branches**                                                      | 1 included\*\*                    |
