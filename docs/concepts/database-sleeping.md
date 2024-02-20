@@ -54,7 +54,3 @@ Once your database is sleeping, you can wake it in your PlanetScale dashboard.
 2. Click on the sleeping database on the overview page
 3. Click the "**Wake database**" button
 4. Your database will wake up in the same state it was prior to sleeping and will be available to connect to shortly.
-
-## Additional assistance
-
-If you need additional assistance or have any questions, contact our [the PlanetScale support team](https://support.planetscale.com/hc/en-us), or join our [GitHub Discussion board](https://github.com/planetscale/discussion/discussions).

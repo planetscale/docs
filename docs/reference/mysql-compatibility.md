@@ -61,7 +61,3 @@ If you're attempting to import a database using our Import tool, there are some 
 ### Postgres support
 
 PlanetScale does not support PostgreSQL. We have worked with customers to migrate their Postgres databases to MySQL/PlanetScale. If you have questions about migrating, [get in touch](/contact).
-
-## Additional assistance
-
-If you need additional assistance or have any questions, contact the [PlanetScale Support team](https://support.planetscale.com/hc/en-us), or join our [GitHub Discussion board](https://github.com/planetscale/beta/discussions).
