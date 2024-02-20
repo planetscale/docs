@@ -20,7 +20,7 @@ We used **[gibibytes, otherwise known as binary gigabytes](https://simple.wikipe
 
 ### Payment methods
 
-You can add a debit or credit card to your PlanetScale organization to pay your invoices, but we do not accept pre-paid cards.
+You can add a debit or credit card to your PlanetScale organization to pay your invoices, but we do not accept pre-paid cards. It's possible to use a card for multiple organizations but only after the card has been used to successfully pay for a database in the first organization. This is one way that we enforce the limit of one free hobby tier database per individual or company.
 
 ## Usage-based plans
 
