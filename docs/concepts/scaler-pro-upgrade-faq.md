@@ -12,6 +12,7 @@ All existing Scaler plan customers will need to upgrade their database to Scaler
 migrate any remaining databases to Scaler Pro.
 
 - [How do I select a Scaler Pro cluster size?](#how-do-i-select-a-scaler-pro-cluster-size-)
+- [Does Scaler Pro include autoscaling?](#does-scaler-pro-include-autoscaling-)
 - [How is storage billed for Scaler Pro?](#how-is-storage-billed-for-scaler-pro-)
 - [Is Scaler Pro PS-10 less powerful than Scaler?](#is-scaler-pro-ps-10-less-powerful-than-scaler-)
 - [What are replicas used for?](#what-are-replicas-used-for-)
@@ -30,6 +31,28 @@ For most users, this will be a [PS-10 cluster size](/docs/concepts/planetscale-p
 Scaler databases, by default, used a cluster size similar to a PS-10. In rare cases, databases may be on a PS-20 or higher.
 
 Once you select the size and submit the change, the adjustment will be made immediately and without downtime. You will be able to see your databases infrastructure update on the dashboard page.
+
+## Does Scaler Pro include autoscaling?
+
+The short answer is no, we do not currently offer full autoscaling for our Scaler or Scaler Pro plans.
+
+Both the Scaler and Scaler Pro plans autoscale storage as the database grows. We do not automatically adjust the CPU or memory resources for you.
+
+Autoscaling cluster sizes for Scaler Pro may be a feature we add in the future.
+
+This is a complex topic, and our team has [deep experience scaling databases for the world's largest applications](https://planetscale.com/media/databases-at-scale). We built Scaler Pro to provide the critical data
+and tooling to enable you to make these decisions without having to fully rely on our support team.
+
+Scaler Pro comes with the ability to scale up and down on demand without downtime, all with cutting-edge resiliency and availability features.
+
+Our aim is to be transparent with you about what resources are running, how your queries are impacting your database and giving you full control over adjusting the resources available.
+
+With the Scaler plan, the size of the cluster was abstracted away from you. One important reason that we are deprecating the Scaler plan is due to the challenges around this. We've found that it is better to be fully transparent with the resources
+that are running for a database and how queries are impacting it. Not all database performance problems can be solved by increasing resources.
+
+Even though we are not autoscaling your database, we are always monitoring and have systems in place that help our support team notify customers
+when we notice an issue. For customers who want a higher level of support, we also provide elevated support plans with
+faster response times and access to our team of experts.
 
 ## How is storage billed for Scaler Pro?
 
