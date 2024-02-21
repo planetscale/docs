@@ -11,6 +11,16 @@ PlanetScale is deprecating the Scaler plan. [Please read our blog post here to l
 All existing Scaler plan customers will need to upgrade their database to Scaler Pro by April 8, 2024. If they are not upgraded by April 8th, we will automatically
 migrate any remaining databases to Scaler Pro.
 
+- [How do I select a Scaler Pro cluster size?](#how-do-i-select-a-scaler-pro-cluster-size-)
+- [How is storage billed for Scaler Pro?](#how-is-storage-billed-for-scaler-pro-)
+- [Is Scaler Pro PS-10 less powerful than Scaler?](#is-scaler-pro-ps-10-less-powerful-than-scaler-)
+- [What are replicas used for?](#what-are-replicas-used-for-)
+- [What if I used multiple production branches in my Scaler database?](#what-if-i-used-multiple-production-branches-in-my-scaler-database-)
+- [What changes with read-only regions?](#what-changes-with-read-only-regions-)
+- [How do I know when to scale up my cluster size?](#how-do-i-know-when-to-scale-up-my-cluster-size-)
+- [How do development branches work on Scaler Pro?](#how-do-development-branches-work-on-scaler-pro-)
+- [What changes with PlanetScale Boost?](#what-changes-with-planetscale-boost-)
+
 ## How do I select a Scaler Pro cluster size?
 
 When upgrading to Scaler Pro, the UI will show a _recommended_ cluster size for your database. This is based on the current resources your database has been using on the Scaler plan.
