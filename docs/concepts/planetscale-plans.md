@@ -62,6 +62,10 @@ The **Scaler Pro** plan is broken down by cluster size, which have varying level
 | **PS-320** | 4 vCPU        | 32 GB RAM  |
 | **PS-400** | 8 vCPU        | 32 GB RAM  |
 
+{% callout %}
+We have Scaler Pro cluster sizes available up to 64 vCPU and 128 GB RAM. Please [contact us](/contact) to unlock sizes larger than PS-400 in your account.
+{% /callout %}
+
 On top of processing and memory, all **Scaler Pro** cluster sizes share the following capacities.
 
 |                                                                              | **Scaler Pro**                    |
@@ -72,7 +76,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | **Available cluster sizes**                                                  | 7                                 |
 | **Availability zones**                                                       | 3                                 |
 | **Production branches**                                                      | 1 included\*\*                    |
-| **Development branches**                                                     | 2 included\*\*                    |
+| **Development branches**                                                     | 1,440 hours included              |
 | **Concurrent Connections**                                                   | 10,000                            |
 | **Query Insights retention**                                                 | 7 days                            |
 | **Horizontal sharding**                                                      | Not included                      |
@@ -88,7 +92,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on            |
 
 \* For the Scaler Pro plan, any storage over the included amount is billed at $1.50 per additional 1 GB.
-\*\* Additional production branches are billed at the cost of your selected cluster size per month, additional development branches are billed at $10.00 per branch per month.
+\*\* Additional production branches are billed at the cost of your selected cluster size per month.
 \*\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
 
 #### Additional production branches
@@ -112,6 +116,17 @@ If you had a `main` production branch using the **PS-40** cluster size and two a
 | PS-40                         | $99.00            | 1            | $99.00              |
 | PS-20                         | $59.00            | 2            | $118.00             |
 | **Grand total**               |                   |              | **$217.00**         |
+
+### Development branches
+
+Scaler Pro development branches are billed only for the time that they are used to the nearest second. Each month, Scaler Pro databases include
+`hours_in_current_month * 2` of development branch time for free (1,440 hours for a 30 day month).
+
+If a Scaler Pro database is created in the middle of a billing cycle, the included development branch hours are prorated. For example, if you create your database with 15 days remaining in the current month, the database will have `15 days * 2` (720 hours) included for that billing period.
+
+Any time used over the included is billed at a rate of $0.013 per hour (`$10 / hours_in_current_month`).
+
+You may see how many development branch hours have been used at any time by visiting your [organization billing page](https://app.planetscale.com/~/settings/billing/). Data is updated hourly.
 
 #### Fractional vCPU allocation
 

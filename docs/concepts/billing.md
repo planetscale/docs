@@ -185,6 +185,10 @@ The `Scaler Pro` plan is charged based on the selected cluster size, plus the co
 | **PS-320** | 4 vCPU        | 32 GB RAM  |
 | **PS-400** | 8 vCPU        | 32 GB RAM  |
 
+{% callout %}
+We have Scaler Pro cluster sizes available up to 64 vCPU and 128 GB RAM. Please [contact us](/contact) to unlock sizes larger than PS-400 in your account.
+{% /callout %}
+
 All Scaler Pro plans, regardless of cluster size, share the following features:
 
 |                                                                              | **Scaler Pro**                    |
