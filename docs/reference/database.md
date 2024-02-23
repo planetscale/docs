@@ -40,7 +40,7 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 | **Sub-command flag**        | **Description**                                                                                               | **Applicable sub-commands** |
 | --------------------------- | ------------------------------------------------------------------------------------------------------------- | --------------------------- |
 | `--region`                  | Specify the [region](/docs/concepts/regions) of the new database. Default is `us-east`.                       | `create`                    |
-| `--plan`                    | Specify the plan for the database. Either `hobby`, `scaler` or `scaler_pro`. Default is `hobby`.              | `create`                    |
+| `--plan`                    | Specify the plan for the database. Either `hobby` or `scaler_pro`. Default is `hobby`.                        | `create`                    |
 | `--cluster_size`            | For Scaler Pro databases, you may specify the cluster size. Default is `PS_10`                                | `create`                    |
 | `--force`                   | Delete a database without confirmation.                                                                       | `delete`                    |
 | `--local-addr <ADDRESS>`    | Local address to bind and listen for connections. By default the proxy binds to 127.0.0.1 with a random port. | `dump`, `restore-dump`      |

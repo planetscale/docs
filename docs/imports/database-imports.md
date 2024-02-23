@@ -22,7 +22,7 @@ To import an existing database into PlanetScale:
 
 1. Head to your PlanetScale dashboard and click on "**New database**" > "**Import database**," which will bring you to the **Import Setup page**.
 2. Give your imported database a name and [select a region](/docs/concepts/regions) from the dropdown.
-3. Add a credit card to your organization. You will only be charged if your import requires a Scaler plan (for imports that use over 5 GB of storage), and we will ask you to confirm before proceeding.
+3. Add a credit card to your organization. You will only be charged if your import requires a Scaler Pro plan (for imports that use over 5 GB of storage), and we will ask you to confirm before proceeding.
 4. We recommend using the same name as the database you're importing from to avoid updating any database name references throughout your application code. If you'd prefer to use a different database name, make sure to update your app where applicable once you fully switch over to PlanetScale.
 
    {% callout %}

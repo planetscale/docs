@@ -8,6 +8,10 @@ date: '2023-07-26'
 
 After a period of inactivity, free databases will enter 'sleep' mode. All data will be backed up and stored, but you will not be able to connect to the database.
 
+{% callout %}
+If you have a Hobby database that has been slept and cannot be woken up due to not having a valid payment method or the plan being no longer offered in your location, please [reach out to our Support team](https://support.planetscale.com/). They will wake your database for a short period of time so you can dump your data, if needed.
+{% /callout %}
+
 ## What is database sleeping
 
 When a database on the [free Hobby plan](/docs/concepts/billing#planetscale-plans) is inactive for 7 days, the database will be enter sleep mode. When a database is sleeping, all data is backed up, but you **will not be able to connect to any branches on the database** until it has been woken up.
@@ -20,7 +24,7 @@ Right before a database enters sleep mode, we make a backup of all data, even if
 
 ## What is branch sleeping
 
-Similar to sleeping an entire database, individual development branches in a Hobby or Scaler database enter sleep mode after 7 days of inactivity. These are typically branches that were used to merge schema changes into a production branch. The process is the same as database sleep, with a backup taken before sleeping.
+Similar to sleeping an entire database, individual development branches in a Hobby database enter sleep mode after 7 days of inactivity. These are typically branches that were used to merge schema changes into a production branch. The process is the same as database sleep, with a backup taken before sleeping.
 
 ## When do we sleep databases
 
@@ -40,7 +44,7 @@ We also reserve the right to put your database in sleep mode if you have failed 
 
 To prevent a database from entering sleep mode, make sure to query any branch of the database at least once every 7 days.
 
-Because database sleeping only applies to databases on the free Hobby plan, another option is to upgrade your database to a [paid Scaler or Scaler Pro plan](/docs/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
+Because database sleeping only applies to databases on the free Hobby plan, another option is to upgrade your database to a [paid Scaler Pro plan](/docs/concepts/billing#planetscale-plans), in which case your database will not be slept for any amount of inactivity.
 
 ## How to wake a sleeping database
 

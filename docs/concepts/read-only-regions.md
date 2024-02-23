@@ -57,7 +57,7 @@ Connecting to a read-only region will allow you to query your data, but will not
 
 ## Availability and pricing
 
-Read-only regions are only available on our [paid Scaler, Scaler Pro, and Enterprise plans](/pricing).
+Read-only regions are only available on our [Scaler Pro and Enterprise plans](/pricing).
 
 ### Storage costs
 
@@ -65,7 +65,7 @@ Your storage costs will increase linearly with the amount of read-only regions a
 
 Adding new read-only regions will always be billed as standalone storage and will not count toward your included storage.
 
-As an example, let's say you're on our Scaler plan with 10 GB of included storage and your primary contains 5 GB of data. If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 10 GB.
+As an example, let's say you're on our Scaler Pro plan with 10 GB of included storage and your primary contains 5 GB of data. If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 10 GB.
 
 For more information on storage billing costs, see our [Billing documentation](/docs/concepts/billing#planetscale-plans).
 

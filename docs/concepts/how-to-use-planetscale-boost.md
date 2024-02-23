@@ -7,7 +7,7 @@ date: '2023-07-24'
 PlanetScale Boost (beta) works by selecting an available cache size, then selecting from a list of slow queries that have been processed by your database.
 
 {% callout %}
-PlanetScale Boost is available on databases with a Scaler or better plan, and only on production database branches with [safe migrations](/docs/concepts/safe-migrations) enabled.
+PlanetScale Boost is available on databases with a paid plan that have a production branch with [safe migrations](/docs/concepts/safe-migrations) enabled.
 {% /callout %}
 
 ## Select a cache size

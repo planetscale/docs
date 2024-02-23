@@ -390,6 +390,8 @@
       items:
         - label: 'PlanetScale plans'
           slug: '/docs/concepts/planetscale-plans'
+        - label: 'Hobby plan'
+          slug: '/docs/concepts/hobby-plan'
         - label: 'Deployment options'
           slug: '/docs/concepts/deployment-options'
         - label: 'PlanetScale support plans'

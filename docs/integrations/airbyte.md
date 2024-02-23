@@ -95,15 +95,6 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
 
    ![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
 
-   {% callout %}
-   **Important:** The sync frequency may affect your PlanetScale billing depending on your selected plan. The rows read during sync are
-   counted toward your database rows read, so if you choose "Full refresh", and you are on a [usage-based plan](/docs/concepts/planetscale-plans#usage-based-plans) (Hobby or Scaler), you will be billed for full table reads of
-   all tables selected every time the sync runs.
-
-   You can find more information about your plan's read limits in our
-   [Billing documentation](/docs/concepts/billing#planetscale-plans).
-   {% /callout %}
-
 4. Choose the Destination Namespace configuration from the dropdown. This is where the data will be stored in the destination.
 5. _(Optional)_ Choose your destination stream prefix.
 6. Select the data you want to sync. You should see a list of table names. You can select all or choose which ones to sync individually.

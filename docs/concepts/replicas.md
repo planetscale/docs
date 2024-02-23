@@ -64,7 +64,7 @@ It is important to be aware of replication lag whenever querying data from your 
 
 We use replicas for every production database branch. The number of replicas for a given database depends on the selected plan for that database:
 
-- **Scaler/Hobby** &mdash; Production branches of Scaler and Hobby databases have one additional replica in a separate AZ from the primary MySQL node.
+- **Hobby** &mdash; Production branches of Hobby databases have one additional replica in a separate AZ from the primary MySQL node.
 - **Scaler Pro** &mdash; Scaler Pro databases include 2 replicas per production branch distributed across multiple AZs in a given region.
 - **Enterprise** &mdash; The Enterprise plan is customizable to fit the needs of your organization, and as such can have as many replicas as needed.
 

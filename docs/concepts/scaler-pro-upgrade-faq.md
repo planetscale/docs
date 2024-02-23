@@ -103,7 +103,7 @@ Cluster size changes happen quickly and without downtime. You will see a status 
 
 On the Scaler plan, each database had a limit of 5 development branches at a time.
 
-With Scaler Pro, each database has 1,440 hours of development branch time included. Anything over that time is billed at $0.013 per hour. All branches are only billed for the time that they are used, prorated to the second.
+With Scaler Pro, each database has 1,440 hours of development branch time included. Anything over that time is billed at ~$0.014 per hour. All branches are only billed for the time that they are used, prorated to the second.
 
 [Learn more about development branch billing](/docs/concepts/billing#development-branches).
 

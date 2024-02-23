@@ -16,7 +16,7 @@ We are committed to providing the following support options.
 
 ## Standard
 
-- Included only for Scaler and Scaler Pro plans
+- Included only for Scaler Pro plans
 - Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com/hc/en-us)
 - Target response time of 2 business days
 
@@ -51,7 +51,7 @@ Standard support includes a target first response time of 2 business days.
 | Support plan                  | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
 | ----------------------------- | ----------------- | -------------- | --------------------- | ---------------------- |
 | Hobby                         | N/A               | N/A            | N/A                   | N/A                    |
-| Standard (Scaler/Scaler Pro)  | 12x5              | 12x5           | 12x5                  | 12x5                   |
+| Standard (Scaler Pro)         | 12x5              | 12x5           | 12x5                  | 12x5                   |
 | Business (Optional Upgrade)   | 1 hour (24x7)     | 4 hours (24x7) | 1 business day (12x5) | 2 business days (12x5) |
 | Enterprise (Optional Upgrade) | 15 minutes (24x7) | 1 hour (24x7)  | 4 hours (12x5)        | 12 hours (12x5)        |
 

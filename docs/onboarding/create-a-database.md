@@ -28,7 +28,7 @@ On the next page, you will need to:
 - Name the database `beam-demo`.
 - Select a region. There are several geographical regions you can host your database in. You will want to select the region closest to your application servers connecting to the database.
 - Select the desired [Plan type](/docs/concepts/billing#planetscale-plans) for your database.
-- Add a valid credit or debit card to your account. In order to prevent fraud, PlanetScale requires a valid payment method to create databases. You will not be charged unless you create a Scaler or Scaler Pro database.
+- Add a valid credit or debit card to your account. In order to prevent fraud, PlanetScale requires a valid payment method to create databases. You will not be charged unless you create a Scaler Pro database.
 
 Then, click **"Create database"**. For the next step to create a table, you can select the option to connect to the database later with "**I’ll do this later**" button.
 
