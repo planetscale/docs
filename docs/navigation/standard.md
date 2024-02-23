@@ -325,19 +325,9 @@
   icon: 'ciCd'
   items:
     - label: 'GitHub Actions'
-      items:
-        - label: 'Overview'
-          slug: '/docs/devops/github-actions'
-        - label: 'Create branch'
-          slug: '/docs/devops/create-branch-action'
-        - label: 'Create branch password'
-          slug: '/docs/devops/create-branch-password-action'
-        - label: 'Create deploy request'
-          slug: '/docs/devops/create-deploy-request-action'
-        - label: 'Deploy deploy request'
-          slug: '/docs/devops/deploy-deploy-request-action'
-        - label: 'Service tokens'
-          slug: '/docs/concepts/service-tokens'
+      slug: '/docs/devops/github-actions'
+    - label: 'Service tokens'
+      slug: '/docs/concepts/service-tokens'
 
 - label: 'Extracting data from your database'
   icon: 'extract'
