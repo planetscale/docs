@@ -11,8 +11,8 @@ With GitHub Actions, you can automate the creation of branches and deploy reques
 
 - [Getting Started](#getting-started)
 - [Authentication](#authentication)
-- [Convert GitHub branch name to PlanetScale branch name](##convert-github-branch-name-to-planetscale-branch-name)
-- [Create a PlanetScale branch](##create-a-planetscale-branch)
+- [Convert GitHub branch name to PlanetScale branch name](#convert-github-branch-name-to-planetscale-branch-name)
+- [Create a PlanetScale branch](#create-a-planetscale-branch)
 - [Create a password for a branch](#create-a-password-for-a-branch)
 - [Open a deploy request](#open-a-deploy-request)
 - [Get deploy request by branch name](#get-deploy-request-by-branch-name)
