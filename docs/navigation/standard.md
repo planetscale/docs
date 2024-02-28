@@ -170,14 +170,22 @@
 - label: 'Monitoring your database'
   icon: 'monitor'
   items:
-    - label: 'Query Insights'
-      slug: '/docs/concepts/query-insights'
-    - label: 'Audit log'
-      slug: '/docs/concepts/audit-log'
+    - label: 'PlanetScale Insights'
+      items:
+        - label: 'Query Insights'
+          slug: '/docs/concepts/query-insights'
+        - label: 'Anomalies'
+          slug: '/docs/concepts/anomalies'
+        - label: 'Schema recommendations'
+          slug: '/docs/concepts/schema-recommendations'
     - label: 'Integrations'
       items:
         - label: 'Datadog'
           slug: '/docs/integrations/datadog'
+    - label: 'Database auditing'
+      items:
+        - label: 'Audit log'
+          slug: '/docs/concepts/audit-log'
 
 - label: 'Backing up your database'
   icon: 'backup'

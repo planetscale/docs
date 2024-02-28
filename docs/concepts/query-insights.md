@@ -1,14 +1,18 @@
 ---
 title: 'Query Insights'
 subtitle: 'Find and optimize long-running queries in your application, anomalies in your database, and more.'
-date: '2022-11-28'
+date: '2024-02-28'
 ---
+
+## Overview
 
 PlanetScale Insights gives you a detailed look into **all active queries** running against your database. This in-dashboard tool allows you to identify queries that are running too often, too long, returning too much data, producing errors, and more. You can scroll through the performance graph to detect the time that a query was impacted and, if applicable, the [Deploy Request](/docs/concepts/deploy-requests) that affected it.
 
 You can also see a [list of all queries](#queries-overview) performed on your database in the last 24 hours. For further analysis, you can sort these by metrics like amount of rows read, time per query, and more.
 
-With this built-in tool, you can easily diagnose issues with your queries, allowing you to optimize individual queries without much digging. We will also alert you of any active issues your database may be having in the [Anomalies](#anomalies) tab. This feature flags queries that are running significantly slower than expected.
+With this built-in tool, you can easily diagnose issues with your queries, allowing you to optimize individual queries without much digging. We will also alert you of any active issues your database may be having in the [Anomalies](/docs/concepts/anomalies) tab. This feature flags queries that are running significantly slower than expected.
+
+Insights will also automatically recommend schema changes to improve database performance, reduce memory and storage, and improve your schema based on production database traffic. Read more about the supported recommendations and how to use them in the [schema recommendations documentation](/docs/concepts/schema-recommendations).
 
 ## Insights page overview
 
@@ -44,7 +48,7 @@ For more information about how to read and interpret this data, see the [Queries
 Once you have selected the branch and server you want to analyze, you can begin exploring the insights for them in the following tabs:
 
 - [Query latency](#query-latency)
-- [Anomalies](#anomalies)
+- [Anomalies](/docs/concepts/anomalies)
 - [Queries](#queries)
 - [Rows read](#rows-read)
 - [Rows written](#rows-written)
@@ -57,51 +61,6 @@ The remaining sections of this doc walk through how to interpret and act on the 
 The default tab depicts your database's query latency in milliseconds over the last 24 hours.
 
 By default, the graph contains two line charts showing `p50` and `p95` latency. This means 50% and 95% of requests, respectively, completed faster than the time listed. You can also click on the `p99` and `p99.9` pills to toggle those on, or click `p50` or `p95` to toggle those off.
-
-## Anomalies
-
-The Anomalies tab surfaces periods where your database performance was slower than expected.
-
-Anomalies are defined as periods with a substantially elevated percentage of slow-running queries. PlanetScale Insights continuously analyzes your query performance to establish a baseline for expected performance. When a high enough percentage of queries are running more slowly than the baseline expecation, we call this an anomaly.
-
-### Using the Anomalies graph
-
-The graph shown under the Anomalies tab shows the percentage of queries executing slower than the 97.7th (2-sigma) percentile baseline on the y-axis and the period of time on the x-axis. The "expected" line shows the percent of queries that are statistically expected in a database with uniform query performance over time. Slight deviations from the expected value are normal. Only subtantial and sustained deviations from the expected value are considered an anomaly.
-
-Each anomaly on the graph is clickable. Clicking on it will pull up more details about it in the table below the graph, such as: duration, percentage of increase, and when the anomaly occured. We also overlay any deploy requests that happened during that period over the anomaly graph.
-
-On top of this, we also surface any impact to the following:
-
-- The query that triggered the anomaly
-- CPU utilization
-- Memory
-- IOPS
-- Queries per second
-- Rows written per second
-- Rows read per second
-- Errors per second
-
-### Anomalies vs query latency
-
-You may notice a correlation between some areas in the query latency graph and the anomalies graph. Conversely, in some cases, you may see a spike in query latency, but no corresponding anomaly.
-
-Increased query latency _can_ be indicative of an anomaly, but not always. Query latency may increase and decrease in ways that don't always indicate an actual problem with your database.
-
-For example, you may run a weekly report that consists of a few slow-running queries. These queries are always slow. Every week, you'll see a spike on your query latency graph during the time that your weekly report is generated, but not on your anomaly violations graph. The queries are running at their _expected_ latency, so this is not considered an anomaly.
-
-### What should I do if my database has an anomaly?
-
-The purpose of the Anomalies tab is to show you relevant information so you can determine what caused an anomaly and correct the issue.
-
-Let's look at an example scenario. You deploy a feature in your application that contains a new query. This query is slow, running frequently, and is hogging database resources. This new slow query is running so often that it's slowing down the rest of your database. Because your other queries are now running slower than expected, an anomaly is triggered.
-
-In this case, we will surface the new slow-running query so that you can find ways to optimize it to free up some of the resources it's using. Adding an index often solves the problem. You can test this by adding the index, creating a deploy request, and deploying it. If it's successful, you'll quickly see the anomaly end.
-
-On the other hand, an anomaly does not necessarily mean you need to take any action. One common example where you may see an anomaly is in the case of large active-running backups. In this case, we will tell you that a backup was running during the time of the anomaly.
-
-{% callout type="note" %}
-Even if it causes an anomaly, we do not recommend you turn off backups to prevent possible data loss.
-{% /callout %}
 
 ## Queries
 
@@ -135,7 +94,7 @@ You have the option to [opt in to complete query collection](#complete-query-col
 
 You may also see a red shards icon next to some queries. This signifies that the query requires execution across multiple shards.
 
-This query overviews table shows the same data for all graph tabs except for [Anomalies](#anomalies) and [Errors](#errors). For more information about the content for each of those, refer to each Anomalies and Errors sections above.
+This query overviews table shows the same data for all graph tabs except for [Anomalies](/docs/concepts/anomalies) and [Errors](#errors). For more information about the content for each of those, refer to each Anomalies and Errors sections above.
 
 ### Available query statistics
 
