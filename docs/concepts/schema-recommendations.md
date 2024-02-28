@@ -31,7 +31,7 @@ Each recommendation will have the following:
 Schema recommendations that depend on your database traffic run **once per day**. Recommendations that depend only on database schema are run whenever the the schema of your default branch is modified. Schema recommendations are generated only for the database's default branch.
 {% /callout %}
 
-![Example of a recommendation to add an index](/assets/docs/concepts/schema-recommendations/add-index-recommendation.jpeg)
+![Example of a recommendation to add an index](/assets/docs/concepts/schema-recommendations/add-index-recommendation.jpg)
 
 ### Applying a recommendation
 
