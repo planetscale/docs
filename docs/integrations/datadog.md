@@ -30,6 +30,8 @@ Once configured, PlanetScale collects the following metrics from every branch in
 | **Metric name**                          | **Metric type** | **Description**                                                                                   |
 | ---------------------------------------- | --------------- | ------------------------------------------------------------------------------------------------- |
 | planetscale.connections                  | gauge           | Number of active connections to a database branch. _Shown as connection._                         |
+| planetscale.primary.cpu_usage            | gauge           | Percentage of CPU utilized on a database branch's primary. _Shown as percent._                    |
+| planetscale.primary.memory_usage         | gauge           | Percentage of memory utilized on a database branch's primary. _Shown as percent._                 |
 | planetscale.rows_read                    | count           | Number of rows read from a database branch. _Shown as row._                                       |
 | planetscale.rows_written                 | count           | Number of rows written to a database branch. _Shown as row._                                      |
 | planetscale.tables.cumulative_query_time | count           | Cumulative active query time in a database branch, by table and statement. _Shown as nanosecond._ |
