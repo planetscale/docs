@@ -92,5 +92,5 @@ We do not want to hold your data hostage. If your database has been slept and yo
 
 ## I can't migrate in time, help!
 
-If this causes you or your business problems, please don't hesitate to reach out to `support@planetscale` or submit a ticket at [`https://support.planetscale.com`](https://support.planetscale.com). We are happy
+If this causes you or your business problems, please don't hesitate to reach out to `support@planetscale.com` or submit a ticket at [`https://support.planetscale.com`](https://support.planetscale.com). We are happy
 to work with you to minimize the disruption that this change causes.
