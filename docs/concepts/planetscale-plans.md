@@ -8,7 +8,7 @@ date: '2024-03-06'
 
 PlanetScale is built to accomodate all companies at all stages. Whether you need a hassle-free managed database for your side project or you’re running millions of queries per second at the scale of YouTube, we have a solution for you.
 
-Our plans are split into two general offerings: [Scaler Pro (self-serve)](#self-serve-plans) and [Enterprise](#planetscale-enterprise-plan).
+Our plans are split into two general offerings: [Scaler Pro (self-serve)](#scaler-pro) and [Enterprise](#planetscale-enterprise-plan).
 
 {% callout %}
 We previously offered a free tier plan &mdash; [Hobby](/docs/concepts/hobby-plan). The Hobby plan will be deprecated on April 8th, 2024, and you are no longer able to create new Hobby databases as of March 6th, 2024.

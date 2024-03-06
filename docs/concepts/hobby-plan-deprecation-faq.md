@@ -15,7 +15,7 @@ All existing Hobby tier databases will need to upgrade their database to a paid 
 - [Will PlanetScale delete my data?](#will-planetscale-delete-my-data-)
 - [How do I migrate off of PlanetScale?](#how-do-i-migrate-off-of-planetscale-)
 - [How do I get my data after April 8th?](#how-do-i-get-my-data-after-april-8th-)
-- [I can't migrate in time, help!](#i-can-t-migrate-in-time-help)
+- [I can't migrate in time, help!](#i-can-t-migrate-in-time-help-)
 
 ## What is happening to the Hobby tier?
 
