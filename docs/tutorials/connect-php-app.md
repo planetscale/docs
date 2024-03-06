@@ -17,7 +17,7 @@ Already have a PHP application and just want to connect to PlanetScale? Check ou
 
 - [PHP](https://www.php.net/manual/en/install.php) &mdash; This tutorial uses `v8.1`
 - [Composer](https://getcomposer.org/)
-- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- A [PlanetScale account](https://auth.planetscale.com/sign-up)
 - [PlanetScale CLI](https://github.com/planetscale/cli) (Optional) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
 ## Set up the PHP app

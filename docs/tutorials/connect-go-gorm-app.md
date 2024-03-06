@@ -16,7 +16,7 @@ repo](https://github.com/planetscale/connection-examples/tree/main/go).
 ## Prerequisites
 
 - [Go](https://go.dev/doc/install)
-- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- A [PlanetScale account](https://auth.planetscale.com/sign-up)
 - [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial in the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
 ## Set up the Go app

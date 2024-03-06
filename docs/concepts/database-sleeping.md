@@ -1,15 +1,21 @@
 ---
 title: 'Database Sleeping'
 subtitle: 'Learn when database sleeping takes effect and how to wake up a sleeping database.'
-date: '2023-07-26'
+date: '2023-03-06'
 ---
 
 ## Overview
 
+{% callout %}
+The Hobby plan will be deprecated on April 8th, 2024. You will no longer be able to create new Hobby databases as of March 6th, 2024. Any Hobby databases that have not been migrated by April 8th, 2024 will be slept. Read the [Hobby plan deprecation FAQ documentation](/docs/concepts/hobby-plan-deprecation-faq) more information about next steps.
+
+If you are currently on the Hobby plan and you need to migrate your data, but your database has been slept, you can wake your database one time to export your data. Follow the instructions in the [Hobby plan deprecation FAQ](/docs/concepts/hobby-plan-deprecation-faq) to dump your data.
+{% /callout %}
+
 After a period of inactivity, free databases will enter 'sleep' mode. All data will be backed up and stored, but you will not be able to connect to the database.
 
 {% callout %}
-If you have a Hobby database that has been slept and cannot be woken up due to not having a valid payment method or the plan being no longer offered in your location, please [reach out to our Support team](https://support.planetscale.com/). They will wake your database for a short period of time so you can dump your data, if needed.
+If you have a Hobby database that has been slept and cannot be woken up due to not having a valid payment method, please [reach out to our Support team](https://support.planetscale.com/). They will wake your database for a short period of time so you can dump your data, if needed.
 {% /callout %}
 
 ## What is database sleeping

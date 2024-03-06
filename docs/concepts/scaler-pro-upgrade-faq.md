@@ -26,7 +26,7 @@ migrate any remaining databases to Scaler Pro.
 
 When upgrading to Scaler Pro, the UI will show a _recommended_ cluster size for your database. This is based on the current resources your database has been using on the Scaler plan.
 
-For most users, this will be a [PS-10 cluster size](/docs/concepts/planetscale-plans#resource-based-plan).
+For most users, this will be a [PS-10 cluster size](/docs/concepts/planetscale-plans#scaler-pro).
 
 Scaler databases, by default, used a cluster size similar to a PS-10. In rare cases, databases may be on a PS-20 or higher.
 
@@ -56,7 +56,7 @@ faster response times and access to our team of experts.
 
 ## How is storage billed for Scaler Pro?
 
-Both plans have 10GB of storage included for free.
+Both plans have 10GB of storage included.
 
 For Scaler, storage was billed at $2.50/GB. On Scaler Pro, storage is $1.50/GB.
 

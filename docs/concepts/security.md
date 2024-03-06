@@ -8,19 +8,19 @@ PlanetScale is committed to delivering a powerful and easy-to-use database platf
 
 Below is a breakdown of common security and compliance requirements by PlanetScale plan:
 
-|                                                                                                            | Self-serve (Hobby, Scaler Pro) | **Enterprise multi-tenant** | **Enterprise single-tenant** | **PlanetScale Managed** |
-| ---------------------------------------------------------------------------------------------------------- | ------------------------------ | --------------------------- | ---------------------------- | ----------------------- |
-| [Encryption of data (at rest and in transit)](/docs/concepts/security#encryption-of-data)                  | ✔                             | ✔                          | ✔                           | ✔                      |
-| [SOC 2 Type 2+ HIPAA available](/docs/concepts/security#soc-2-type-2-hipaa)                                | ✔                             | ✔                          | ✔                           | ✔                      |
-| [IP restrictions](/docs/concepts/connection-strings#ip-restrictions)                                       | ✔                             | ✔                          | ✔                           | ✔                      |
-| [Audit logs](/docs/concepts/audit-log)                                                                     | ✔                             | ✔                          | ✔                           | ✔                      |
-| [Security logs](/docs/concepts/security-log)                                                               | ✔                             | ✔                          | ✔                           | ✔                      |
-| [Data Processing Addendum available](/docs/concepts/security#data-processing-addendum)                     | ✔                             | ✔                          | ✔                           | ✔                      |
-| [Business Associate Agreements available](/docs/concepts/security#hipaa-and-business-associate-agreements) | ❌                             | ✔                          | ✔                           | ✔                      |
-| [Private database connectivity](/docs/concepts/security#private-database-connectivity)                     | ❌                             | ❌                          | ✔                           | ✔                      |
-| Dedicated AWS/GCP account                                                                                  | ❌                             | ❌                          | ✔                           | ✔                      |
-| [PCI compliant](/docs/concepts/security#pci-compliance)                                                    | ❌                             | ❌                          | ❌                           | ✔ (on AWS)             |
-| [Your own AWS/GCP account](/security#deploy-in-your-own-aws-or-gcp-account)                                | ❌                             | ❌                          | ❌                           | ✔                      |
+|                                                                                                            | Self-serve (Scaler Pro) | **Enterprise multi-tenant** | **Enterprise single-tenant** | **PlanetScale Managed** |
+| ---------------------------------------------------------------------------------------------------------- | ----------------------- | --------------------------- | ---------------------------- | ----------------------- |
+| [Encryption of data (at rest and in transit)](/docs/concepts/security#encryption-of-data)                  | ✔                      | ✔                          | ✔                           | ✔                      |
+| [SOC 2 Type 2+ HIPAA available](/docs/concepts/security#soc-2-type-2-hipaa)                                | ✔                      | ✔                          | ✔                           | ✔                      |
+| [IP restrictions](/docs/concepts/connection-strings#ip-restrictions)                                       | ✔                      | ✔                          | ✔                           | ✔                      |
+| [Audit logs](/docs/concepts/audit-log)                                                                     | ✔                      | ✔                          | ✔                           | ✔                      |
+| [Security logs](/docs/concepts/security-log)                                                               | ✔                      | ✔                          | ✔                           | ✔                      |
+| [Data Processing Addendum available](/docs/concepts/security#data-processing-addendum)                     | ✔                      | ✔                          | ✔                           | ✔                      |
+| [Business Associate Agreements available](/docs/concepts/security#hipaa-and-business-associate-agreements) | ❌                      | ✔                          | ✔                           | ✔                      |
+| [Private database connectivity](/docs/concepts/security#private-database-connectivity)                     | ❌                      | ❌                          | ✔                           | ✔                      |
+| Dedicated AWS/GCP account                                                                                  | ❌                      | ❌                          | ✔                           | ✔                      |
+| [PCI compliant](/docs/concepts/security#pci-compliance)                                                    | ❌                      | ❌                          | ❌                           | ✔ (on AWS)             |
+| [Your own AWS/GCP account](/security#deploy-in-your-own-aws-or-gcp-account)                                | ❌                      | ❌                          | ❌                           | ✔                      |
 
 ## Available on all PlanetScale plans
 

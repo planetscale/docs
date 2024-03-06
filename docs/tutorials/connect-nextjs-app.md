@@ -9,7 +9,7 @@ In this tutorial, you'll create a [Next.js](https://nextjs.org/) application tha
 ## Prerequisites
 
 - [Node.js](https://nodejs.org/en/download/)
-- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- A [PlanetScale account](https://auth.planetscale.com/sign-up)
 
 ## Set up the database
 

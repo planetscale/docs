@@ -1,28 +1,24 @@
 ---
 title: 'PlanetScale plans'
-subtitle: 'Learn about the different products and plans we offer: Hobby, Scaler Pro, and Enterprise'
-date: '2024-02-21'
+subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
+date: '2024-03-06'
 ---
 
 ## Overview
 
 PlanetScale is built to accomodate all companies at all stages. Whether you need a hassle-free managed database for your side project or you’re running millions of queries per second at the scale of YouTube, we have a solution for you.
 
-Our plans are split into two general offerings: [Self-serve](#self-serve-plans) and [Enterprise](#planetscale-enterprise-plan).
-
-## Self-serve plans
-
-Self-serve is comprised of two plans that you can sign up for from the PlanetScale dashboard. The free tier, **Hobby**, is usage-based. **Scaler Pro**, our paid tier starting at $39/mo, is resource-based and priced on the infrastructure provisioned to support your specific workload.
-
-To learn about the free Hobby plan, see our [Hobby plan documentation](/docs/concepts/hobby-plan).
+Our plans are split into two general offerings: [Scaler Pro (self-serve)](#self-serve-plans) and [Enterprise](#planetscale-enterprise-plan).
 
 {% callout %}
-We previously offered a usage-based plan, Scaler, which has now been deprecated. You can no longer create new databases on the Scaler plan, and existing Scaler database have until April 8th to upgrade. This document includes information about the Scaler plan as reference for those still on Scaler during this migration period.
+We previously offered a free tier plan &mdash; [Hobby](/docs/concepts/hobby-plan). The Hobby plan will be deprecated on April 8th, 2024, and you are no longer able to create new Hobby databases as of March 6th, 2024.
+
+Any Hobby databases that have not been migrated by April 8th, 2024 will be slept. Read the [Hobby plan deprecation FAQ documentation](/docs/concepts/hobby-plan-deprecation-faq) more information about next steps.
 {% /callout %}
 
-### Resource-based plan &mdash; Scaler Pro
+## Scaler Pro
 
-The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power depending on the needs of your database.
+The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power depending on the needs of your database. As your application scales, upgrading or downgrading your **Scaler Pro** cluster is a seamless operation that does not involve any downtime.
 
 |            | **Processor** | **Memory** |
 | ---------- | ------------- | ---------- |
@@ -108,7 +104,7 @@ If you find the performance of a given query to be substantially inconsistent ov
 
 We previously offered a usage-based paid plan, Scaler, which [is now deprecated](/blog/deprecating-the-scaler-plan). You can no longer create new Scaler database clusters. We recommend starting on Scaler Pro for paid plans. Please see our [Scaler Pro upgrade documentation](/docs/concepts/scaler-pro-upgrade-faq) for upgrading an existing Scaler database to Scaler Pro.
 
-The following table is for reference only and covers what was included on our Scaler plan:
+The following table is for reference only and covers what was included on our Scaler plan for those still in the migration process:
 
 |                                                                              | **Scaler**             |
 | ---------------------------------------------------------------------------- | ---------------------- |
@@ -138,13 +134,9 @@ The following table is for reference only and covers what was included on our Sc
 - Extra rows read over the included amount are billed at $1 per additional 1 billion
 - Extra rows written over the included amount are billed at $1.50 per additional 1 million.
 
-## Selecting a self-serve plan
+### Selecting a cluster size
 
-Selecting the correct plan for your database can have a dramatic impact on how it performs, and how much it costs. The plans are designed to grow with you. For example:
-
-- If you are starting a new project or simply experimenting with PlanetScale, the [free **Hobby** plan](/docs/concepts/hobby-plan) is perfectly suited for you.
-- Once your application's usage starts to grow, migrating to **Scaler Pro** will provide consistent performance and pricing.
-- As your application scales, upgrading your **Scaler Pro** cluster to boost the performance of your database is a seamless operation that does not involve any downtime.
+Selecting the correct cluster size for your database can have a dramatic impact on how it performs, and how much it costs.
 
 If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes. Databases in PlanetScale often come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
 

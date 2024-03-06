@@ -1,25 +1,32 @@
 ---
 title: 'PlanetScale Hobby plan'
 subtitle: 'Learn about the free usage-based Hobby plan'
-date: '2024-02-21'
+date: '2024-03-06'
 ---
 
 ## Overview
 
-The Hobby plan is our free tier database that can be used to test PlanetScale. It comes with 5GB of storage and includes 1 billion row reads/mo, 10 million row writes/mo, one production branch, and one development branch.
+{% callout %}
+The Hobby plan will be deprecated on April 8th, 2024, and you are no longer able to create new Hobby databases as of March 6th, 2024.
+
+Any Hobby databases that have not been migrated by April 8th, 2024 will be slept. Data will not be deleted, but a paid plan will be required to access data after April 8th. Read the [Hobby plan deprecation FAQ documentation](/docs/concepts/hobby-plan-deprecation-faq) more information about next steps.
+{% /callout %}
+
+Although the Hobby plan has now been deprecated, this documentation will remain live as reference for existing Hobby databases until the final sunset date &mdash; April 8th, 2024.
+
+The Hobby plan was our free tier database that could be used to test PlanetScale. It came with 5GB of storage and includes 1 billion row reads/mo, 10 million row writes/mo, one production branch, and one development branch.
 
 Hobby database clusters live in 1 availability zone, and production branches include one primary and one replica by default.
 
 Some important limitations of the Hobby plan to be aware of:
 
-- The Hobby plan plan is not available in all locations.
 - In order to prevent fraud, PlanetScale requires a [valid payment method](/docs/billing/payment-method) to create databases on the Hobby tier. You will not be billed unless you create a Scaler Pro database, but you may see a [**temporary** $1 authorization charge](https://support.stripe.com/questions/unexpected-1-charge-on-customers-bank-statement) on your card for verification.
 - If you do not add a valid payment method to existing organizations with a Hobby database, your database may be [slept](/docs/concepts/database-sleeping) at any time.
 - You are limited to **one free database per organization**.
 - Free databases may be [slept](/docs/concepts/database-sleeping) after a 7-day period of inactivity.
 
 {% callout %}
-If you have a Hobby database that has been slept and cannot be woken up due to not having a valid payment method or the plan being no longer offered in your location, please [reach out to our Support team](https://support.planetscale.com/). They will wake your database for a short period of time so you can dump your data, if needed.
+If you have a Hobby database that has been slept and cannot be woken up due to not having a valid payment method, please [reach out to our Support team](https://support.planetscale.com/). They will wake your database for a short period of time so you can dump your data, if needed.
 {% /callout %}
 
 The following table shows everything that is included on the Hobby plan:

@@ -72,7 +72,7 @@ Or, if the connection fails, you'll get an error message in the dashboard. Doubl
 
 ### Importing large databases
 
-If you're importing a large database (that uses over 5 GB of storage) and are on the [Hobby plan](/pricing), you will receive a prompt to upgrade your plan. You can use the **Add new card** button to add a credit card and upgrade your account.
+If you're importing a large database (that uses over 5 GB of storage) and have not added billing information to your Organization, you will receive a prompt to upgrade your plan. You can use the **Add new card** button to add a credit card and upgrade your account.
 
 Once you've successfully upgraded your plan, you should be able to continue importing your external database into PlanetScale.
 

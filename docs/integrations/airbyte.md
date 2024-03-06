@@ -121,7 +121,7 @@ Whenever you perform a schema change, you need to notify Airbyte of it:
 
 ## Billing
 
-PlanetScale Connect is available on all of our [free and paid plans](/docs/concepts/billing#planetscale-plans).
+PlanetScale Connect is available on all of our [plans](/docs/concepts/billing#planetscale-plans).
 
 Every Airbyte connection sync will count toward [your plan's `rows read`](/docs/concepts/billing#planetscale-plans). When setting up your connection, make sure you're aware of the impact on `rows read`, and choose [a synchronization schedule](#choose-your-sync-frequency) that you're comfortable with.
 

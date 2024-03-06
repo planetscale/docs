@@ -9,9 +9,7 @@ date: '2022-08-01'
 PlanetScale provides the ability to create, schedule, and restore backups for production and development database branches.
 
 {% callout %}
-Daily backups of database branches are included free of charge for all databases. Our
-[Scaler Pro plan](/docs/concepts/billing#planetscale-plans) includes automated backups every 12
-hours.
+Our [Scaler Pro plan](/docs/concepts/billing#planetscale-plans) includes automated backups every 12 hours.
 {% /callout %}
 
 ## View backups
@@ -65,8 +63,7 @@ You can add additional **scheduled backups** for your branches, billed at $0.023
 4. Click the **Save schedule** button to save your new scheduling configurations and to close the pop-up modal.
 
 {% callout %}
-For additional scheduled backups beyond the included default (daily for the
-[free Hobby plan](/docs/concepts/billing#planetscale-plans) and every 12 hours for the
+For additional scheduled backups beyond the included default (every 12 hours for the
 [Scaler Pro plan](/docs/concepts/billing#planetscale-plans), you will be billed
 **$0.023 per GB per month**.
 {% /callout %}

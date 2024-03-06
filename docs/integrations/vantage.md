@@ -44,4 +44,4 @@ In the graphic above, PlanetScale costs are grouped by database for the month. F
 
 ## Billing
 
-The Vantage integration is available on all our [free and paid plans](/docs/concepts/billing#planetscale-plans).
+The Vantage integration is available on all our [plans](/docs/concepts/billing#planetscale-plans).

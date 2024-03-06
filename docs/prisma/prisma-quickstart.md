@@ -13,17 +13,17 @@ This guide will show you how to:
 
 ### Prerequisites
 
-- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- A [PlanetScale account](https://auth.planetscale.com/sign-up)
 - [Node.js](https://nodejs.org/en/download/)
 - [PlanetScale CLI](https://github.com/planetscale/cli#installation)
 
 ## Set up your PlanetScale database
 
-First, [sign up for a free PlanetScale account](https://auth.planetscale.com/sign-up). You can either do this on the PlanetScale website or [using the PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
+First, [sign up for a PlanetScale account](https://auth.planetscale.com/sign-up). You can either do this on the PlanetScale website or [using the PlanetScale CLI](/docs/concepts/planetscale-environment-setup).
 
 ### Create a PlanetScale database
 
-Once you're signed in, click on the "Create a database" button. Name your database `star-app`, select the region closest to you, and click "Create database".
+Once you're signed in, click on the "Create a database" button. Name your database `star-app`, select the region closest to you, select the cluster and storage size, and click "Create database".
 
 You can also use the PlanetScale CLI to create a database by running the following command:
 

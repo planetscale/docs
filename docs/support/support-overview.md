@@ -4,20 +4,16 @@ subtitle: 'Overview of PlanetScale Support'
 date: '2022-08-01'
 ---
 
-PlanetScale believes all our users, from those running small, free Hobby databases to those running large, mission-critical workloads, deserve to get the help they need.
+PlanetScale believes all our users, from those running small databases to those running large, mission-critical workloads, deserve to get the help they need.
 
 We are committed to providing the following support options.
 
-## Hobby
-
-- Included with all plans
-- Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
-- Ability to [submit support tickets](https://support.planetscale.com/hc/en-us)
-
 ## Standard
 
-- Included only for Scaler Pro plans
+- Included for Scaler Pro plans
 - Access to support engineers via [email](mailto:support@planetscale.com) and [web ticketing](https://support.planetscale.com/hc/en-us)
+- Access to the [PlanetScale GitHub Discussion](https://github.com/planetscale/discussion/discussions) board
+- Ability to [submit support tickets](https://support.planetscale.com/hc/en-us)
 - Target response time of 2 business days
 
 ## Business
@@ -50,7 +46,6 @@ Standard support includes a target first response time of 2 business days.
 
 | Support plan                  | P1 (Urgent)       | P2 (High)      | P3 (Normal)           | P4 (Low)               |
 | ----------------------------- | ----------------- | -------------- | --------------------- | ---------------------- |
-| Hobby                         | N/A               | N/A            | N/A                   | N/A                    |
 | Standard (Scaler Pro)         | 12x5              | 12x5           | 12x5                  | 12x5                   |
 | Business (Optional Upgrade)   | 1 hour (24x7)     | 4 hours (24x7) | 1 business day (12x5) | 2 business days (12x5) |
 | Enterprise (Optional Upgrade) | 15 minutes (24x7) | 1 hour (24x7)  | 4 hours (12x5)        | 12 hours (12x5)        |

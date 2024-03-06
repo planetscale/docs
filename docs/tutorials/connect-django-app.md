@@ -15,7 +15,7 @@ Already have a Django application and just want to connect to PlanetScale? Check
 ## Prerequisites
 
 - Python &mdash; This tutorial uses `v3.6`
-- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- A [PlanetScale account](https://auth.planetscale.com/sign-up)
 - (Optional) [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; This isn't required, but it can make setup much faster
 
 ## Set up the Django application

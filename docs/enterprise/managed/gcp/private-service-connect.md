@@ -10,7 +10,7 @@ date: '2023-11-08'
 PlanetScale Managed can connect you to your databases via [GCP Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect). The following guide describes how PlanetScale Managed with GCP Private Service Connect works and how to set it up.
 
 {% callout type="note" %}
-GCP Private Service Connect is only available on single-tenancy PlanetScale deployment options, including PlanetScale Managed. It is **not available on Hobby, Scaler Pro plans, or other [multi-tenancy deployments](/docs/concepts/deployment-options)**. If you are interested in [PlanetScale Managed](/docs/enterprise/managed/overview), please [contact us](/contact).
+GCP Private Service Connect is only available on single-tenancy PlanetScale deployment options, including PlanetScale Managed. It is **not available on Scaler Pro plans, or other [multi-tenancy deployments](/docs/concepts/deployment-options)**. If you are interested in [PlanetScale Managed](/docs/enterprise/managed/overview), please [contact us](/contact).
 {% /callout %}
 
 ## How PlanetScale Managed and GCP Private Service Connect work

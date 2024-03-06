@@ -55,15 +55,11 @@ You'll see a table of current and previous monthly invoices. You can download an
 
 To see more details about your billing from the PlanetScale dashboard, click the "**View details**" button on the Billing page next to the month you want to view. This will show you an overview of the charges for all of the databases in your organization.
 
-{% callout %}
-PlanetScale generates both current and past invoices. Even for the **free** plan! You can see the cost had you not been on the Hobby plan.
-{% /callout %}
-
 ## Payment methods
 
-All plans, including the [free Hobby tier](/docs/concepts/hobby-plan), require your organization has a valid payment method on file. You can use a debit or credit card, but we do not accept pre-paid cards.
+All plans require your organization has a valid payment method on file. You can use a debit or credit card, but we do not accept pre-paid cards.
 
-It's possible to use the same card for multiple organizations, but only after the card has been used to successfully pay for a database in the first organization. This is one way that we enforce the limit of one free hobby tier database per individual or company.
+It's possible to use the same card for multiple organizations, but only after the card has been used to successfully pay for a database in the first organization.
 
 ## Using coupons
 

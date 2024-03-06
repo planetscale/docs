@@ -28,11 +28,6 @@ The dropdown on the top right lets you select which branch you want to analyze. 
 
 You can click the dates listed above the graph to scroll through the past seven days. To further narrow down query analysis, you can select a time range by clicking on the graph and dragging the cursor across. This will zoom in on the selected timeframe.
 
-{% callout %}
-On the free Hobby plan, query insights are limited to the previous 24 hours. To unlock the full seven days of
-analytics, [upgrade to a paid plan](/docs/concepts/billing).
-{% /callout %}
-
 You also have the option to save a screenshot of the graph by clicking "Save".
 
 If any deploy requests were deployed during the selected period, you will also see an overlay with a link to the deploy request. This can help you quickly assess any impact a deploy request had on your database.
@@ -107,7 +102,7 @@ You can customize the metrics that show up on the Queries list by clicking the "
 - **`p50` latency** &mdash; The `p50` latency for the query in milliseconds. This means that 50% of requests completed faster than the time listed.
 - **`p99` latency** &mdash; The `p99` latency for the query in milliseconds. This means that 99% of requests completed faster than the time listed.
 - **Rows returned** &mdash; The total number of rows fetched by a `SELECT` statement. This includes all times the query has run in the displayed time frame.
-- **Rows read** &mdash; The total number of rows read. This includes all times the query has run in the displayed time frame. This is the number that directly affects your [rows read billing calculation](/docs/concepts/hobby-plan#understanding-rows-read).
+- **Rows read** &mdash; The total number of rows read. This includes all times the query has run in the displayed time frame.
 - **Rows read/rows returned** &mdash; The result of dividing total rows read by rows returned in a query. A high number can indicate that your database is reading unnecessary rows, and they query may be improved by adding an index.
 - **Rows affected** &mdash; The total number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement. This includes all times the query has run in the displayed time frame.
 - **Last run** &mdash; The last time a query was run.

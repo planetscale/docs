@@ -10,7 +10,7 @@ date: '2023-11-08'
 PlanetScale Managed can connect you to your databases via [AWS PrivateLink](https://aws.amazon.com/privatelink/). The following guide describes how PlanetScale Managed with AWS PrivateLink works and how to set it up.
 
 {% callout type="note" %}
-AWS PrivateLink is only available on single-tenancy PlanetScale deployment options, including PlanetScale Managed. It is **not available on Hobby, Scaler Pro plans, or other [multi-tenancy deployments](/docs/concepts/deployment-options)**. If you are interested in [PlanetScale Managed](/docs/enterprise/managed/overview), please [contact us](/contact).
+AWS PrivateLink is only available on single-tenancy PlanetScale deployment options, including PlanetScale Managed. It is **not available on Scaler Pro plans or other [multi-tenancy deployments](/docs/concepts/deployment-options)**. If you are interested in [PlanetScale Managed](/docs/enterprise/managed/overview), please [contact us](/contact).
 {% /callout %}
 
 ## How PlanetScale Managed and AWS PrivateLink work

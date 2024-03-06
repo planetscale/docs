@@ -11,7 +11,7 @@ In this guide, you'll learn how to properly store and use PlanetScale MySQL conn
 ## Prerequisites
 
 - An AWS account
-- A [free PlanetScale account](https://auth.planetscale.com/sign-up)
+- A [PlanetScale account](https://auth.planetscale.com/sign-up)
 
 ## Set up the database
 

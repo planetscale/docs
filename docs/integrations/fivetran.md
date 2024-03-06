@@ -180,6 +180,6 @@ In the following scenarios, Fivetran will re-sync your table instead of automati
 
 ## PlanetScale billing
 
-PlanetScale Connect is available on all our [free and paid plans](/docs/concepts/billing#planetscale-plans).
+PlanetScale Connect is available on all our [plans](/docs/concepts/billing#planetscale-plans).
 
 Every Fivetran connection sync will count toward [your plan's `rows read`](/docs/concepts/billing#planetscale-plans). When setting up your connection, ensure you know the impact on `rows read`.

@@ -398,13 +398,11 @@
       items:
         - label: 'PlanetScale plans'
           slug: '/docs/concepts/planetscale-plans'
-        - label: 'Hobby plan'
-          slug: '/docs/concepts/hobby-plan'
         - label: 'Deployment options'
           slug: '/docs/concepts/deployment-options'
         - label: 'PlanetScale support plans'
           slug: '/docs/support/support-overview'
-        - label: 'Database sleeping for Hobby plans'
+        - label: 'Database sleeping'
           slug: '/docs/concepts/database-sleeping'
     - label: 'Billing'
       items:
