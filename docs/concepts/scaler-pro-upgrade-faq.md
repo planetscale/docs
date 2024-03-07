@@ -8,7 +8,7 @@ date: '2024-02-20'
 
 PlanetScale is deprecating the Scaler plan. [Please read our blog post here to learn more](/blog/deprecating-the-scaler-plan).
 
-All existing Scaler plan customers will need to upgrade their database to Scaler Pro by April 8, 2024. If they are not upgraded by April 8th, we will automatically
+All existing Scaler plan customers will need to upgrade their database to Scaler Pro by April 12, 2024. If they are not upgraded by April 12th, we will automatically
 migrate any remaining databases to Scaler Pro.
 
 - [How do I select a Scaler Pro cluster size?](#how-do-i-select-a-scaler-pro-cluster-size-)

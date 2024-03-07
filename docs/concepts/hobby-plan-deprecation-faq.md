@@ -16,6 +16,7 @@ All existing Hobby tier databases will need to upgrade their database to a paid 
 - [How do I migrate off of PlanetScale?](#how-do-i-migrate-off-of-planetscale-)
 - [How do I get my data after April 8th?](#how-do-i-get-my-data-after-april-8th-)
 - [I can't migrate in time, help!](#i-can-t-migrate-in-time-help-)
+- [Where do I learn about the Scaler Pro plan?](#where-do-i-learn-about-the-scaler-pro-plan-)
 
 ## What is happening to the Hobby tier?
 
@@ -94,3 +95,7 @@ We do not want to hold your data hostage. If your database has been slept and yo
 
 If this causes you or your business problems, please don't hesitate to reach out to `support@planetscale` or submit a ticket at [`https://support.planetscale.com`](https://support.planetscale.com). We are happy
 to work with you to minimize the disruption that this change causes.
+
+## Where do I learn about the Scaler Pro plan?
+
+You can find information about our paid plan, Scaler Pro, in the [Scaler Pro documentation](/docs/concepts/planetscale-plans#scaler-pro). The [Scaler Pro upgrade FAQ](/docs/concepts/scaler-pro-upgrade-faq) also contains additional helpful information about migrating from a usage-based plan (in this case, Hobby) to our resource-based plan (Scaler Pro).
