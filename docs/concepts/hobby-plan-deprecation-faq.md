@@ -8,7 +8,7 @@ date: '2024-03-06'
 
 PlanetScale is removing our Hobby tier. [Please read our blog post here to learn more](/blog/planetscale-forever).
 
-All existing Hobby tier databases will need to upgrade their database to a paid plan by April 8, 2024. Databases which are not upgraded by April 8th will be shutdown and no longer accessible. Data will not be deleted, but a paid plan will be required to access data after April 8th.
+All existing Hobby tier databases will need to upgrade their database to a paid plan by April 8, 2024. Databases which are not upgraded by April 8th will be put into sleep mode. If you need to retrieve your data after April 8th, you will be able to temporarily wake your database for 24 hours.
 
 - [What is happening to the Hobby Tier?](#what-is-happening-to-the-hobby-tier-)
 - [How do I stop my database from being slept?](#how-do-i-stop-my-database-from-going-offline-)
@@ -22,7 +22,7 @@ All existing Hobby tier databases will need to upgrade their database to a paid 
 
 PlanetScale has made the decision to stop offering our Hobby tier.
 
-On March 6th, it will no longer be possible to create new Hobby tier databases. Databases which are not upgraded by April 8th will be shutdown and no longer accessible. Data will not be deleted, but a paid plan will be required to access data after April 8th.
+On March 6th, it will no longer be possible to create new Hobby tier databases. Databases which are not upgraded by April 8th will be put into sleep mode. If you need to retrieve your data after April 8th, you will be able to temporarily wake your database for 24 hours.
 
 ## How do I stop my database from going offline?
 
@@ -30,7 +30,7 @@ To prevent your database from going offline on April 8th, you need to upgrade to
 
 ## Will PlanetScale delete my data?
 
-No! PlanetScale's [database sleeping](/docs/concepts/database-sleeping) makes a backup copy of your data before shutting a database down and safely archives it. If you would like to access this data in the future, you will need to upgrade your database to a paid plan.
+No! PlanetScale's [database sleeping](/docs/concepts/database-sleeping) makes a backup copy of your data before shutting a database down and safely archives it.
 
 ## How do I migrate off of PlanetScale?
 
@@ -87,9 +87,7 @@ If you run into any issues, please don't hesitate to reach out to `support@plane
 
 ## How do I get my data after April 8th?
 
-To connect to your data and access it after April 8th, you will need to upgrade to a paid plan, such as Scaler Pro. You will not be billed until it is fully awake.
-
-We do not want to hold your data hostage. If your database has been slept and you don't want to upgrade to a paid plan or cannot afford it, please write into `support@planetscale.com`. We will happily bring your database back online for 24 hours so that you can export your data using the [migration path](#how-do-i-migrate-off-of-planetscale) we have outlined in this document.
+If you do not wish to upgrade, you will be able to temporarily wake your database for 24 hours to retrieve your data.
 
 ## I can't migrate in time, help!
 
