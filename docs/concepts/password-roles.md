@@ -8,10 +8,10 @@ date: '2023-04-05'
 
 PlanetScale allows you to [create and manage passwords](/docs/concepts/connection-strings) for each branch of your database. PlanetScale passwords can be created with one of four roles:
 
-- **Read-only** &mdash; Can query rows
-- **Write-only** &mdash; Can modify rows
-- **Read/Write** &mdash; Can query and modify rows
-- **Admin** &mdash; All read/write permissions and can modify schema\*
+- **Read-only** — Can query rows
+- **Write-only** — Can modify rows
+- **Read/Write** — Can query and modify rows
+- **Admin** — All read/write permissions and can modify schema\*
 
 \* _This does not apply to production branches with [safe migrations](/docs/concepts/safe-migrations) enabled, as we [do not allow direct DDL](/docs/learn/how-online-schema-change-tools-work) on those branches, even if your password has the `Admin` role._
 

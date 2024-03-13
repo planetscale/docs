@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - branch'
+title: 'PlanetScale CLI commands: branch'
 subtitle: 'Use the PlanetScale CLI “branch” command to create, delete, diff, and manage branches from your terminal.'
 date: '2023-04-05'
 meta:
-  title: 'CLI reference - branch'
+  title: 'CLI reference: branch'
 ---
 
 ## Getting Started

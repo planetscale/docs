@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - api'
+title: 'PlanetScale CLI commands: api'
 subtitle: 'Use the PlanetScale CLI to make authenticated calls against the PlanetScale API.'
 date: '2023-07-17'
 meta:
-  title: 'CLI reference - api'
+  title: 'CLI reference: api'
 ---
 
 ## Getting Started

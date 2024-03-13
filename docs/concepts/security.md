@@ -73,7 +73,7 @@ The following are two examples of data locality in PlanetScale:
 
 PlanetScale can enter into Business Associate Agreements (BAAs) with customers on [Enterprise plans](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). Please [reach out for more information](/contact), and we'll be in touch shortly.
 
-The customer must determine whether they are a Covered Entity &mdash; or a Business Associate of a Covered Entity &mdash; as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
+The customer must determine whether they are a Covered Entity — or a Business Associate of a Covered Entity — as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
 
 Responsibility around HIPAA compliance between PlanetScale and the customer is implemented using a shared responsibility model. While PlanetScale Enterprise plans provide a secure and compliant infrastructure for the storage and processing of Protected Health Information (PHI), the customer is ultimately responsible for ensuring that the environment and applications that they build on top of PlanetScale are properly configured and secured according to HIPAA requirements.
 

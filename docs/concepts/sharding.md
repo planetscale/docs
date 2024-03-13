@@ -4,7 +4,7 @@ subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL data
 date: '2023-06-12'
 ---
 
-With Vitess under the hood, we're able to offer an elegant horizontal scaling solution via sharding &mdash; with minimal application changes.
+With Vitess under the hood, we're able to offer an elegant horizontal scaling solution via sharding — with minimal application changes.
 
 {% callout %}
 Sharding is available on our [Enterprise plan](/docs/concepts/planetscale-plans). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
@@ -36,7 +36,7 @@ To determine a Primary Vindex, our team will analyze your schema and query patte
 
 1. A copy of your schema.
 2. Some indication of the size of each table in your database. We can typically gather this information by looking at `AUTO_INCREMENT` values, but may require additional context in some cases.
-3. Information about your common query patterns &mdash; typically your most frequently used 50-100 queries.
+3. Information about your common query patterns — typically your most frequently used 50-100 queries.
 
 Using this holistic view of your database, we can work to determine a good candidate for the Primary Vindex. During this analysis, we also begin to determine which tables should be sharded, whether you'll require secondary vindexes ([Lookup Vindexes](https://vitess.io/docs/reference/features/vindexes/#functional-and-lookup-vindex)), the strategy for tables that don't contain our chosen Primary Vindex, and more.
 

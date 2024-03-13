@@ -31,11 +31,11 @@ To import an existing database into PlanetScale:
 
 5. Fill in the following connection values with information from your existing hosted database:
 
-   - **Host name** &mdash; The address where the database is hosted.
-   - **Port** &mdash; The port where your database is hosted. The default MySQL port is `3306`.
-   - **Database name** &mdash; The exact database name you want to import.
-   - **SSL verification mode** &mdash; If your database server provides a valid SSL certificate, please set this to `Required,` otherwise select `Disabled`.
-   - **Username** &mdash; The user's username used to connect to the database. This user **must** have `read` and `write` access.
+   - **Host name** — The address where the database is hosted.
+   - **Port** — The port where your database is hosted. The default MySQL port is `3306`.
+   - **Database name** — The exact database name you want to import.
+   - **SSL verification mode** — If your database server provides a valid SSL certificate, please set this to `Required,` otherwise select `Disabled`.
+   - **Username** — The user's username used to connect to the database. This user **must** have `read` and `write` access.
 
    {% callout %}
    You must have [binary logs](https://dev.mysql.com/doc/refman/8.0/en/binary-log.html) enabled on the
@@ -46,15 +46,15 @@ To import an existing database into PlanetScale:
 
    For the "Authenticate with mTLS option," you'll need to provide the following:
 
-   - **SSL client certificate** &mdash; Certificate to authenticate PlanetScale with your database server.
-   - **SSL client key** &mdash; This is the private key for the client certificate
+   - **SSL client certificate** — Certificate to authenticate PlanetScale with your database server.
+   - **SSL client key** — This is the private key for the client certificate
 
 7. From here, you can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
 
 8. (Optional) Under Advanced settings, you have the option to enter the following:
 
    - **SSL server name override**
-   - **SSL CA certificate chain** &mdash; If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
+   - **SSL CA certificate chain** — If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
 
    For more information about certificates from a Certificate Authority, check out our [Secure connections documentation](/docs/concepts/secure-connections#certificate-authorities).
 
@@ -151,10 +151,10 @@ Next, you'll be taken to your database dashboard page. If you click on "Branches
 
 You just fully migrated your database to PlanetScale with no downtime and no fear of data loss. So what's next? Here are some next steps you can take with your database:
 
-- [Connect to your application](/docs/tutorials/connect-any-application) &mdash; If you haven't already, you can also connect to your application locally.
-- [Enable safe migrations](/docs/concepts/safe-migrations) &mdash; To protect your database from accidental schema changes an enable zero-downtime migrations, it is highly recommended to enable safe migrations on your new production branch.
-- [Create a development branch](/docs/concepts/branching) &mdash; Add PlanetScale to your development workflow with our powerful branching feature. You can branch off of your `main` branch to test schema changes in development and then merge them into production with our [non-blocking schema change workflow](/docs/concepts/nonblocking-schema-changes). Again, no downtime!
-- [Create a deploy request](/docs/concepts/branching#1-create-a-deploy-request) &mdash; Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
+- [Connect to your application](/docs/tutorials/connect-any-application) — If you haven't already, you can also connect to your application locally.
+- [Enable safe migrations](/docs/concepts/safe-migrations) — To protect your database from accidental schema changes an enable zero-downtime migrations, it is highly recommended to enable safe migrations on your new production branch.
+- [Create a development branch](/docs/concepts/branching) — Add PlanetScale to your development workflow with our powerful branching feature. You can branch off of your `main` branch to test schema changes in development and then merge them into production with our [non-blocking schema change workflow](/docs/concepts/nonblocking-schema-changes). Again, no downtime!
+- [Create a deploy request](/docs/concepts/branching#1-create-a-deploy-request) — Once your branch is in production, you can safeguard against unwanted or accidental changes by creating a development branch off of your production branch. This is where you can test out schema changes or any modifications you need to make. Once it's ready, you can create a deploy request that your team can review before deploying to production.
 
 ## Import limitations
 

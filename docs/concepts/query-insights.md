@@ -95,17 +95,17 @@ This query overviews table shows the same data for all graph tabs except for [An
 
 You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
 
-- **Keyspace** &mdash; The keyspace(s) being queried or modified.
-- **Table** &mdash; The table(s) being queried or modified.
-- **Count** &mdash; The number of times this query has run.
-- **Total time (ms)** &mdash; The total time the query has run in milliseconds.
-- **`p50` latency** &mdash; The `p50` latency for the query in milliseconds. This means that 50% of requests completed faster than the time listed.
-- **`p99` latency** &mdash; The `p99` latency for the query in milliseconds. This means that 99% of requests completed faster than the time listed.
-- **Rows returned** &mdash; The total number of rows fetched by a `SELECT` statement. This includes all times the query has run in the displayed time frame.
-- **Rows read** &mdash; The total number of rows read. This includes all times the query has run in the displayed time frame.
-- **Rows read/rows returned** &mdash; The result of dividing total rows read by rows returned in a query. A high number can indicate that your database is reading unnecessary rows, and they query may be improved by adding an index.
-- **Rows affected** &mdash; The total number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement. This includes all times the query has run in the displayed time frame.
-- **Last run** &mdash; The last time a query was run.
+- **Keyspace** — The keyspace(s) being queried or modified.
+- **Table** — The table(s) being queried or modified.
+- **Count** — The number of times this query has run.
+- **Total time (ms)** — The total time the query has run in milliseconds.
+- **`p50` latency** — The `p50` latency for the query in milliseconds. This means that 50% of requests completed faster than the time listed.
+- **`p99` latency** — The `p99` latency for the query in milliseconds. This means that 99% of requests completed faster than the time listed.
+- **Rows returned** — The total number of rows fetched by a `SELECT` statement. This includes all times the query has run in the displayed time frame.
+- **Rows read** — The total number of rows read. This includes all times the query has run in the displayed time frame.
+- **Rows read/rows returned** — The result of dividing total rows read by rows returned in a query. A high number can indicate that your database is reading unnecessary rows, and they query may be improved by adding an index.
+- **Rows affected** — The total number of rows modified by an `INSERT`, `UPDATE`, or `DELETE` statement. This includes all times the query has run in the displayed time frame.
+- **Last run** — The last time a query was run.
 
 You can also sort the columns for quick analysis by clicking on the title at the top of each column.
 

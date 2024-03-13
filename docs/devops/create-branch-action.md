@@ -52,17 +52,17 @@ jobs:
 
 **Required**
 
-- `org_name` - The name of the PlanetScale organization.
-- `database_name` - The name of the database to create the branch on.
-- `branch_name` - The name of the new branch.
+- `org_name`: The name of the PlanetScale organization.
+- `database_name`: The name of the database to create the branch on.
+- `branch_name`: The name of the new branch.
 
 **Optional**
 
-- `from` - The name of the branch that the new branch will be created from. Defaults to the branch defined in your database settings.
-- `restore` - The ID of the backup that will be restored to the new branch. If not set, no backup will be restored.
-- `region` - The region to create the new branch in. Defaults to the region where the `from` branch currently is.
-- `wait` - If this value is set to "true", the action will ensure that the branch is created before exiting. If not, the action will exit immediately once the PlanetScale service has received the command to create the branch.
-- `check_exists` - If set to "true", the action won't create the branch if it already exists.
+- `from`: The name of the branch that the new branch will be created from. Defaults to the branch defined in your database settings.
+- `restore`: The ID of the backup that will be restored to the new branch. If not set, no backup will be restored.
+- `region`: The region to create the new branch in. Defaults to the region where the `from` branch currently is.
+- `wait`: If this value is set to "true", the action will ensure that the branch is created before exiting. If not, the action will exit immediately once the PlanetScale service has received the command to create the branch.
+- `check_exists`: If set to "true", the action won't create the branch if it already exists.
 
 ## Outputs
 

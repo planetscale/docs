@@ -52,16 +52,16 @@ jobs:
 
 ## Input variables
 
-**Required**
+### Required
 
-- `org_name` - The name of the PlanetScale organization.
-- `database_name` - The name of the database to create the branch on.
-- `branch_name` - The name of the new branch.
+- `org_name`: The name of the PlanetScale organization.
+- `database_name`: The name of the database to create the branch on.
+- `branch_name`: The name of the new branch.
 
-**Optional**
+### Optional
 
-- `deploy_to` - The name of the target branch where the changes will be merged into. Defaults to `main`.
+- `deploy_to`: The name of the target branch where the changes will be merged into. Defaults to `main`.
 
 ## Outputs
 
-- `number` - The number of the deploy request that was created.
+- `number`: The number of the deploy request that was created.

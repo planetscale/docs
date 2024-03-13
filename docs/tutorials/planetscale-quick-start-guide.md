@@ -20,7 +20,7 @@ This guide is split up so that you can either follow it in the [PlanetScale dash
 
 {% vimeo aspect="other" src="https://player.vimeo.com/video/830571983" caption="A video demo of everything covered in this guide" /%}
 
-## Getting started &mdash; PlanetScale dashboard
+## Getting started — PlanetScale dashboard
 
 You'll need [a PlanetScale account](https://auth.planetscale.com/sign-up) to complete this guide.
 
@@ -139,7 +139,7 @@ When you branch off of a production branch, your development branch will have th
 data.
 {% /callout %}
 
-## Getting started &mdash; PlanetScale CLI
+## Getting started — PlanetScale CLI
 
 Make sure you first have [downloaded and installed the PlanetScale CLI](https://github.com/planetscale/cli#installation).
 
@@ -165,11 +165,11 @@ Run the following command to create a database:
 pscale database create <DATABASE_NAME> --region <REGION_SLUG>
 ```
 
-- **DATABASE_NAME** &mdash; Your database name can contain lowercase, alphanumeric characters, or underscores. We allow dashes, but don't recommend them, as they may need to be escaped in some instances.
-- **REGION_SLUG** &mdash; For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions).
+- **DATABASE_NAME** — Your database name can contain lowercase, alphanumeric characters, or underscores. We allow dashes, but don't recommend them, as they may need to be escaped in some instances.
+- **REGION_SLUG** — For the lowest latency, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions).
 
 {% callout %}
-If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
+If you do not specify a region, your database will automatically be deployed to **US East — Northern Virginia**.
 {% /callout %}
 
 Your database is created with an [**initial branch**](/docs/concepts/branching), `main`, which you will use to apply a schema change and insert data. While this is just the first branch we create for you, you can always create new branches (isolated copies of the production schema) off of production to use for development.

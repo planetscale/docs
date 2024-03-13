@@ -16,9 +16,9 @@ Database branches on PlanetScale are isolated database instances that give you f
 
 PlanetScale provides two types of database branches:
 
-- **Development branches** &mdash; Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Please note that only the schema is copied. A new development branch will not have any data stored in it unless you [restore from a backup](/docs/concepts/back-up-and-restore#restore-from-a-backup). To automatically create a development branch with data from another branch, see the [Data Branching® feature](/docs/concepts/data-branching).
+- **Development branches** — Development branches provide isolated copies of your production database schema where you can make changes, experiment, or run CI. Please note that only the schema is copied. A new development branch will not have any data stored in it unless you [restore from a backup](/docs/concepts/back-up-and-restore#restore-from-a-backup). To automatically create a development branch with data from another branch, see the [Data Branching® feature](/docs/concepts/data-branching).
 
-- **Production branches** &mdash; Production branches are highly available databases intended for production traffic. They are automatically provided with an additional [replica](/docs/concepts/replicas) to resist outages, enabling zero-downtime failovers. Scaler Pro plans include two additional replicas, and Enterprise plans are customizable.
+- **Production branches** — Production branches are highly available databases intended for production traffic. They are automatically provided with an additional [replica](/docs/concepts/replicas) to resist outages, enabling zero-downtime failovers. Scaler Pro plans include two additional replicas, and Enterprise plans are customizable.
 
 Both types of branches also offer [safe migrations](#safe-migrations) as an optional feature, which helps protect the branch from accidental schema changes and enables non-blocking schema migrations. We highly recommend that all production database branches have the safe migrations setting turned on.
 

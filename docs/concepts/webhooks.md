@@ -14,15 +14,15 @@ Webhooks are currently in beta.
 
 Webhooks in PlanetScale are not like MySQL triggers and cannot be triggered on database table events like `INSERT`, `UPDATE`, or `DELETE`. Instead, think of events like:
 
-- `branch.ready` - The branch is created and ready to connect.
-- `branch.sleeping` - The branch is now sleeping.
-- `deploy_request.opened` - The deploy request has been opened.
-- `deploy_request.queued` - The deploy request has been added to the deploy queue.
-- `deploy_request.in_progress` - The deploy request has started running.
-- `deploy_request.schema_applied` - The deploy request has finished applying the schema.
-- `deploy_request.errored` - The deploy request has stopped due to an error.
-- `deploy_request.reverted` - The deploy request has been reverted.
-- `deploy_request.closed` - The deploy request has been closed.
+- `branch.ready`: The branch is created and ready to connect.
+- `branch.sleeping`: The branch is now sleeping.
+- `deploy_request.opened`: The deploy request has been opened.
+- `deploy_request.queued`: The deploy request has been added to the deploy queue.
+- `deploy_request.in_progress`: The deploy request has started running.
+- `deploy_request.schema_applied`: The deploy request has finished applying the schema.
+- `deploy_request.errored`: The deploy request has stopped due to an error.
+- `deploy_request.reverted`: The deploy request has been reverted.
+- `deploy_request.closed`: The deploy request has been closed.
 
 {% callout type="note" %}
 If there is an event you want to use that is not included in this list, please [contact us](/contact) and let us know what event you want to trigger a webhook on.

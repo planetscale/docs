@@ -6,7 +6,7 @@ date: '2023-04-05'
 
 ## What is PlanetScale
 
-PlanetScale is a MySQL-compatible database that brings you scale, performance, and reliability &mdash; without sacrificing developer experience.
+PlanetScale is a MySQL-compatible database that brings you scale, performance, and reliability — without sacrificing developer experience.
 
 With PlanetScale, you get the power of horizontal sharding, non-blocking schema changes, and many more powerful database features without the pain of implementing them.
 
@@ -16,7 +16,7 @@ PlanetScale is powered by [Vitess, the open-source database technology](https://
 
 Vitess is an extraordinary piece of technology but can be challenging to implement and maintain without a large team. The [co-creator of Vitess](https://about.sourcegraph.com/podcast/sugu-sougoumarane) wanted to make Vitess accessible to everyone, so he later went on to cofound PlanetScale. With PlanetScale, every database you spin up gets Vitess under the hood.
 
-The team building PlanetScale is made up of passionate industry experts that have spent decades working on databases for some of the web's largest companies. Our team has directly felt the pain of overly-complicated, unintuitive database tools and came to PlanetScale to build the future of databases &mdash; the database they wished they had at their previous companies.
+The team building PlanetScale is made up of passionate industry experts that have spent decades working on databases for some of the web's largest companies. Our team has directly felt the pain of overly-complicated, unintuitive database tools and came to PlanetScale to build the future of databases — the database they wished they had at their previous companies.
 
 Since our GA launch in November 2021, PlanetScale has grown rapidly, both in [features](#planetscale-features) and [customers](/customers).
 

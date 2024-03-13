@@ -31,7 +31,7 @@ You can also use the PlanetScale CLI to create a database by running the followi
 pscale db create star-app --region <REGION>
 ```
 
-For the `REGION` value, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions). If you do not specify a region, your database will automatically be deployed to **US East - Northern Virginia**.
+For the `REGION` value, choose the region closest to you or your application's hosting location. You can find our regions and their slugs on the [Regions page](/docs/concepts/regions#available-regions). If you do not specify a region, your database will automatically be deployed to **US East — Northern Virginia**.
 
 Your database will deploy with an initial production branch, `main`.
 
@@ -260,8 +260,8 @@ This will open Prisma Studio locally in your browser. Click on the "**Add record
 
 You can leave `id`, `createdAt`, and `updatedAt` blank as they will auto-fill with default values. Fill in `name` and `constellation` as follows:
 
-- `name` &mdash; **Sargas**
-- `constellation` &mdash; **Scorpius**
+- `name` — **Sargas**
+- `constellation` — **Scorpius**
 
 To add the record, click the green "**Save 1 change**" button.
 

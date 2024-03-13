@@ -17,7 +17,7 @@ repo](https://github.com/planetscale/connection-examples/tree/main/go).
 
 - [Go](https://go.dev/doc/install)
 - A [PlanetScale account](https://auth.planetscale.com/sign-up)
-- [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial in the PlanetScale admin dashboard, but the CLI will make setup quicker.
+- [PlanetScale CLI](https://github.com/planetscale/cli) — You can also follow this tutorial in the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
 ## Set up the Go app
 
@@ -140,10 +140,10 @@ Let's run those now.
 
 3. You can now see the products and categories:
 
-   - Get all products &mdash; [`localhost:8080/products`](http://localhost:8080/products)
-   - Get all categories &mdash; [`localhost:8080/categories`](http://localhost:8080/categories)
-   - Get a single product &mdash; [`localhost:8080/product/{id}`](http://localhost:8080/products/1)
-   - Get a single category &mdash; [`localhost:8080/category/{id}`](http://localhost:8080/categories/1)
+   - Get all products — [`localhost:8080/products`](http://localhost:8080/products)
+   - Get all categories — [`localhost:8080/categories`](http://localhost:8080/categories)
+   - Get a single product — [`localhost:8080/product/{id}`](http://localhost:8080/products/1)
+   - Get a single category — [`localhost:8080/category/{id}`](http://localhost:8080/categories/1)
 
 ### Foreign key constraints
 

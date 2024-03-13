@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - ping'
+title: 'PlanetScale CLI commands: ping'
 subtitle: "Use the PlanetScale CLI “ping” command to measure the latency to PlanetScale's public regions from your terminal."
 date: '2023-12-22'
 meta:
-  title: 'CLI reference - ping'
+  title: 'CLI reference: ping'
 ---
 
 ## Getting Started

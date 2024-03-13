@@ -14,9 +14,9 @@ Already have a Django application and just want to connect to PlanetScale? Check
 
 ## Prerequisites
 
-- Python &mdash; This tutorial uses `v3.6`
+- Python — This tutorial uses `v3.6`
 - A [PlanetScale account](https://auth.planetscale.com/sign-up)
-- (Optional) [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; This isn't required, but it can make setup much faster
+- (Optional) [PlanetScale CLI](https://github.com/planetscale/cli) — This isn't required, but it can make setup much faster
 
 ## Set up the Django application
 
@@ -146,7 +146,7 @@ To connect with the PlanetScale proxy, you'll need the [PlanetScale CLI](https:/
 
    The connection uses port `3306` by default, but if that's being used, it will pick a random port. Make sure you paste in whatever port is returned in the terminal.
 
-## Optional &mdash; Bring in PlanetScale custom database wrapper
+## Optional — Bring in PlanetScale custom database wrapper
 
 This next step is only necessary if you're using your own application to go through this guide **and** [do not want to use foreign key constraints](/docs/learn/operating-without-foreign-key-constraints). If you cloned the sample app, this already exists in the repo.
 

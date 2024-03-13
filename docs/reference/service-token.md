@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - service-token'
+title: 'PlanetScale CLI commands: service-token'
 subtitle: 'Use the PlanetScale CLI “service-token” command to create, list, and manage access for service tokens from your terminal.'
 date: '2023-12-08'
 meta:
-  title: 'CLI reference - service-token'
+  title: 'CLI reference: service-token'
 ---
 
 ## Getting Started

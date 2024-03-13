@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - shell'
+title: 'PlanetScale CLI commands: shell'
 subtitle: 'Use the PlanetScale CLI “shell” command to open a secure MySQL shell instance to your database from your terminal.'
 date: '2022-08-01'
 meta:
-  title: 'CLI reference - shell'
+  title: 'CLI reference: shell'
 ---
 
 ## Getting Started

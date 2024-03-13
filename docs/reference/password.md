@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - password'
+title: 'PlanetScale CLI commands: password'
 subtitle: 'Use the PlanetScale CLI “password” command to create development branches, open deploy requests, and make non-blocking schema changes from your terminal.'
 date: '2022-08-01'
 meta:
-  title: 'CLI reference - password'
+  title: 'CLI reference: password'
 ---
 
 ## Getting Started

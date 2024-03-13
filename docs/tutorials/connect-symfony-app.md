@@ -11,10 +11,10 @@ In this tutorial, you'll learn how to connect a Symfony application to a PlanetS
 
 ## Prerequisites
 
-- [PHP](https://www.php.net/manual/en/install.php) &mdash; This tutorial uses `v8.1`
+- [PHP](https://www.php.net/manual/en/install.php) — This tutorial uses `v8.1`
 - [Composer](https://getcomposer.org/)
 - A [PlanetScale account](https://auth.planetscale.com/sign-up)
-- [PlanetScale CLI](https://github.com/planetscale/cli) &mdash; You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
+- [PlanetScale CLI](https://github.com/planetscale/cli) — You can also follow this tutorial using just the PlanetScale admin dashboard, but the CLI will make setup quicker.
 
 ## Set up the Symfony app
 

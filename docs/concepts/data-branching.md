@@ -30,8 +30,8 @@ Before you can use the feature, you have to enable it in your database settings 
 1. After enabling the Data Branching feature, navigate to the dashboard page of the database.
 2. Clicking on "**New Branch**" should now offer an option to select "**Seed Data**".
 
-   - **None** &mdash; Creates a database branch with only the **schema** copied to the new branch.
-   - **From most recent backup** &mdash; Creates a database branch with both the **schema and data** from the latest backup of the Base branch.
+   - **None** — Creates a database branch with only the **schema** copied to the new branch.
+   - **From most recent backup** — Creates a database branch with both the **schema and data** from the latest backup of the Base branch.
 
    ![PlanetScale dashboard new branch dialog with seed option](/assets/docs/concepts/data-branching/branch.jpg)
 

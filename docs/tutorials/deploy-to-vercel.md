@@ -15,9 +15,9 @@ It will cover two options:
 
 ## Prerequisites
 
-- A PlanetScale database &mdash; If you haven't created a database, refer to our [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide) to get started
+- A PlanetScale database — If you haven't created a database, refer to our [PlanetScale quickstart guide](/docs/tutorials/planetscale-quick-start-guide) to get started
 - A [Vercel account](https://vercel.com/)
-- A project deployed to Vercel &mdash; If you're just poking around and don't already have an application to deploy, you can use our [Next.js + PlanetScale sample](/docs/tutorials/connect-nextjs-app)
+- A project deployed to Vercel — If you're just poking around and don't already have an application to deploy, you can use our [Next.js + PlanetScale sample](/docs/tutorials/connect-nextjs-app)
 
 ## Manually connect to Vercel
 

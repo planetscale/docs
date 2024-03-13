@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - signup'
+title: 'PlanetScale CLI commands: signup'
 subtitle: 'Use the PlanetScale CLI “signup” command to sign up for a PlanetScale account directly from your terminal.'
 date: '2022-08-01'
 meta:
-  title: 'CLI reference - signup'
+  title: 'CLI reference: signup'
 ---
 
 ## Getting Started

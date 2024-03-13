@@ -57,17 +57,17 @@ jobs:
 
 **Required**
 
-- `org_name` - The name of the PlanetScale organization.
-- `database_name` - The name of the database to create the branch on.
-- `branch_name` - The name of the new branch.
-- `name` - The name of the password.
+- `org_name`: The name of the PlanetScale organization.
+- `database_name`: The name of the database to create the branch on.
+- `branch_name`: The name of the new branch.
+- `name`: The name of the password.
 
 **Optional**
 
-- `role` - The role of the password. Allowed values are `reader`, `writer`, `readerwriter`, or `admin`. Defaults to `admin`.
+- `role`: The role of the password. Allowed values are `reader`, `writer`, `readerwriter`, or `admin`. Defaults to `admin`.
 
 ## Outputs
 
-- `username` - The username to use for connecting to the branch.
-- `password` - The password to use for connecting to the branch.
-- `hostname` - The hostname for the branch.
+- `username`: The username to use for connecting to the branch.
+- `password`: The password to use for connecting to the branch.
+- `hostname`: The hostname for the branch.

@@ -100,8 +100,8 @@ Next, you need to choose how often you want to sync your PlanetScale data to thi
 6. Select the data you want to sync. You should see a list of table names. You can select all or choose which ones to sync individually.
 7. Choose what type of sync mode you'd like to use for each source table.
 
-   - **Incremental** &mdash; Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
-   - **Full refresh** &mdash; Full refresh pulls _all_ data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
+   - **Incremental** — Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
+   - **Full refresh** — Full refresh pulls _all_ data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
 
    ![Airbyte - PlanetScale stream sync](/assets/docs/integrations/airbyte/streams.jpg)
 

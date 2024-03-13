@@ -12,7 +12,7 @@ PlanetScale Boost is available on databases with a paid plan that have a product
 
 ## Select a cache size
 
-Before you can use PlanetScale Boost, you must select a cache size. Cache sizes are available in 1 GB, 2 GB, 4 GB, and 8 GB sizes. Each cached query allocates a minimum of 256MB of space within the cache but can consume more if needed. This means that, at most, each cache can store 4x of the size of the caches in GB:
+Before you can use PlanetScale Boost, you must select a cache size. Cache sizes are available in 1 GB, 2 GB, 4 GB, and 8 GB sizes. Each cached query allocates a minimum of 256MB of space within the cache but can consume more if needed. This means that, at most, each cache can store 4× of the size of the caches in GB:
 
 | Cache size | Max cached queries |
 | ---------- | ------------------ |

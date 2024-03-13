@@ -22,24 +22,24 @@ Currently, the following regions are supported, with their respective PlanetScal
 
 ### AWS regions
 
-- AWS ap-northeast-1 (Tokyo) &mdash; `ap-northeast`
-- AWS ap-south-1 (Mumbai) &mdash; `ap-south`
-- AWS ap-southeast-1 (Singapore) &mdash; `ap-southeast`
-- AWS ap-southeast-2 (Sydney) &mdash; `aws-ap-southeast-2`
-- AWS eu-central-1 (Frankfurt) &mdash; `eu-central`
-- AWS eu-west-1 (Dublin) &mdash; `eu-west`
-- AWS eu-west-2 (London) &mdash; `aws-eu-west-2`
-- AWS sa-east-1 (Sao Paulo) &mdash; `aws-sa-east-1`
-- AWS us-east-1 (Northern Virginia) &mdash; `us-east`
-- AWS us-east-2 (Ohio) &mdash; `aws-us-east-2`
-- AWS us-west-2 (Oregon) &mdash; `us-west`
+- AWS ap-northeast-1 (Tokyo) — `ap-northeast`
+- AWS ap-south-1 (Mumbai) — `ap-south`
+- AWS ap-southeast-1 (Singapore) — `ap-southeast`
+- AWS ap-southeast-2 (Sydney) — `aws-ap-southeast-2`
+- AWS eu-central-1 (Frankfurt) — `eu-central`
+- AWS eu-west-1 (Dublin) — `eu-west`
+- AWS eu-west-2 (London) — `aws-eu-west-2`
+- AWS sa-east-1 (Sao Paulo) — `aws-sa-east-1`
+- AWS us-east-1 (Northern Virginia) — `us-east`
+- AWS us-east-2 (Ohio) — `aws-us-east-2`
+- AWS us-west-2 (Oregon) — `us-west`
 
 ### GCP regions
 
-- GCP us-central1 (Council Bluffs, Iowa) &mdash; `gcp-us-central1`
-- GCP us-east4 (Ashburn, Virginia) &mdash; `gcp-us-east4`
-- GCP northamerica-northeast1 (Montréal, Québec, Canada) &mdash; `gcp-northamerica-northeast1`
-- GCP asia-northeast3 (Seoul, South Korea) &mdash; `gcp-asia-northeast3`
+- GCP us-central1 (Council Bluffs, Iowa) — `gcp-us-central1`
+- GCP us-east4 (Ashburn, Virginia) — `gcp-us-east4`
+- GCP northamerica-northeast1 (Montréal, Québec, Canada) — `gcp-northamerica-northeast1`
+- GCP asia-northeast3 (Seoul, South Korea) — `gcp-asia-northeast3`
 
 ## Selecting the database region
 

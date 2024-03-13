@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - connect'
+title: 'PlanetScale CLI commands: connect'
 subtitle: 'Use the PlanetScale CLI “connect” command to secure connection to a database branch for a local client from your terminal.'
 date: '2022-08-01'
 meta:
-  title: 'CLI reference - connect'
+  title: 'CLI reference: connect'
 ---
 
 ## Getting Started

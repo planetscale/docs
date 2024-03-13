@@ -101,8 +101,8 @@ Once your database has finished importing, the view will update to show the data
 
 After primary mode is enabled, the third card in the flow will update to give you two options:
 
-- **Enable replica mode** &mdash; Reverts the change performed in the previous step, making Azure your primary once again.
-- **Finish import** &mdash; Detaches the databases from replication. Future changes to either the PlanetScale database or the Azure database will not be replicated to each other.
+- **Enable replica mode** — Reverts the change performed in the previous step, making Azure your primary once again.
+- **Finish import** — Detaches the databases from replication. Future changes to either the PlanetScale database or the Azure database will not be replicated to each other.
 
 Click “**Finish import”** to complete the import process. Confirm in the modal that will be displayed.
 

@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - audit log'
+title: 'PlanetScale CLI commands: audit log'
 subtitle: 'Use the PlanetScale CLI “audit log” command to list all audit logs in an organization from your terminal.'
 date: '2022-08-01'
 meta:
-  title: 'CLI reference - audit-log'
+  title: 'CLI reference: audit-log'
 ---
 
 ## Getting Started

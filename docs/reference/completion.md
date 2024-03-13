@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - completion'
+title: 'PlanetScale CLI commands: completion'
 subtitle: 'Use the PlanetScale CLI “completion” command to generate a completion script for the specified shell from your terminal.'
 date: '2022-08-01'
 meta:
-  title: 'CLI reference - completion'
+  title: 'CLI reference: completion'
 ---
 
 ## Getting Started

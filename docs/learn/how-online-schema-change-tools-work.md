@@ -46,12 +46,12 @@ This is also a place to check whether we want to enforce a change to `AUTO_INCRE
 
 On top of validating the raw MySQL change, all Online Schema Change tools come with their own restrictions. A couple notable restrictions are:
 
-- **Existence of relevant keys** &mdash; All tools copy data from the original table onto the ghost table by slow iteration. The iteration utilizes a `UNIQUE KEY`, ideally the `PRIMARY KEY`. The different tools have somewhat different constraints, but they all require some form of `UNIQUE KEY` or `PRIMARY KEY` to exist on the ghost table, maybe even require a _shared key_ between the two tables. The existence of a key on the target table is required to satisfy the following:
+- **Existence of relevant keys** — All tools copy data from the original table onto the ghost table by slow iteration. The iteration utilizes a `UNIQUE KEY`, ideally the `PRIMARY KEY`. The different tools have somewhat different constraints, but they all require some form of `UNIQUE KEY` or `PRIMARY KEY` to exist on the ghost table, maybe even require a _shared key_ between the two tables. The existence of a key on the target table is required to satisfy the following:
 
   - When applying an ongoing change on the original table, for example an `UPDATE`, how do we efficiently find the row on the target table?
   - When copying a chunk of data from the original table onto the ghost table, how do we resolve conflicts? By way of example, by the time we copy the last chunk of data, we may have already captured and applied the `INSERT` change, so that the rows already exists on the ghost table. More on that logic later on, but it is the `UNIQUE KEY` that helps us resolve the conflict.
 
-- **Existence/addition of `FOREIGN KEY` constraints** &mdash; Foreign keys do not play well with the Online Schema Change flow, and there are either severe limitations on, or rejection of, tables that have foreign key constraints.
+- **Existence/addition of `FOREIGN KEY` constraints** — Foreign keys do not play well with the Online Schema Change flow, and there are either severe limitations on, or rejection of, tables that have foreign key constraints.
 
 ## Analyzing the diff
 

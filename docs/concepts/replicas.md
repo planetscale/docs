@@ -64,8 +64,8 @@ It is important to be aware of replication lag whenever querying data from your 
 
 We use replicas for every production database branch. The number of replicas for a given database depends on the selected plan for that database:
 
-- **Scaler Pro** &mdash; Scaler Pro databases include 2 replicas per production branch distributed across multiple AZs in a given region.
-- **Enterprise** &mdash; The Enterprise plan is customizable to fit the needs of your organization, and as such can have as many replicas as needed.
+- **Scaler Pro** — Scaler Pro databases include 2 replicas per production branch distributed across multiple AZs in a given region.
+- **Enterprise** — The Enterprise plan is customizable to fit the needs of your organization, and as such can have as many replicas as needed.
 
 [Read-only regions](/docs/concepts/read-only-regions) use the same replica configuration as their respective database, they are just hosted in a different geographical region. It is important to note that the MySQL nodes in read-only regions are replicas intended only for reading data and are not eligible for failover if the primary node experiences an outage.
 

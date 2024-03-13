@@ -38,8 +38,8 @@ The endpoint address and port number are located in the database view under “*
 
 You will need to create a new set of credentials inside of your database for the migration tool to have the correct permissions. This MySQL script can be used to create a user with the necessary permissions inside of your database. You will need appropriate database permissions to run the script. The username will be `migration_user`. Make sure to update the following variables:
 
-- `<SUPER_STRONG_PASSWORD>` &mdash; The password for the `migration_user` account.
-- `<DATABASE_NAME>` &mdash; The name of the database you will import into PlanetScale.
+- `<SUPER_STRONG_PASSWORD>` — The password for the `migration_user` account.
+- `<DATABASE_NAME>` — The name of the database you will import into PlanetScale.
 
 ```sql
 CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';
@@ -119,8 +119,8 @@ In step two, clicking “**Enable primary mode”** will display a modal where y
 
 After primary mode is enabled, the last step in the flow will update to give you two options:
 
-- **Enable replica mode** &mdash; Reverts the change performed in the previous step, making Aurora your primary once again.
-- **Finish import** &mdash; Detaches the databases from replication. Future changes to either the PlanetScale database or the Aurora database will not be replicated to each other.
+- **Enable replica mode** — Reverts the change performed in the previous step, making Aurora your primary once again.
+- **Finish import** — Detaches the databases from replication. Future changes to either the PlanetScale database or the Aurora database will not be replicated to each other.
 
 Click “**Finish import”** to complete the import process.
 

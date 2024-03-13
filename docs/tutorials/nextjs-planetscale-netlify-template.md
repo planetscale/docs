@@ -113,10 +113,10 @@ The `DATABASE_URL` value comes from your PlanetScale database and will be in the
 
 `mysql://<user>@<address>:<port>/<database>`
 
-- `user` &mdash; the database user
-- `address` &mdash; the local address returned in the previous step
-- `port` &mdash; the port you specified in the previous step
-- `database` &mdash; the name of your database
+- `user` — the database user
+- `address` — the local address returned in the previous step
+- `port` — the port you specified in the previous step
+- `database` — the name of your database
 
 Below is an example of the `.env` file based on this tutorial:
 
@@ -190,9 +190,9 @@ The final step in the site deployment is configuring your production environment
 
 Click on the "**Edit variables**" button and enter in the following key/value pairs:
 
-- `DATABASE_URL` &mdash; To find this value, go back to your PlanetScale dashboard, click on the `netlify-starter` database, click "**Connect**". If the password is masked and you don't have one, you may click the "**Generate new password**" button to create a new one. Next, click on the "**General**" dropdown in that modal and select "**Prisma**". Copy the value for `url` and paste that back in the Netlify dashboard as the value for `DATABASE_URL`. Be sure to save your PlanetScale password somewhere as you won't be able to access it again after closing the modal.
-- `NEXTAUTH_SECRET` &mdash; You may have already filled this out, but if not generate a new secret at [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
-- `NEXTAUTH_URL` &mdash; Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
+- `DATABASE_URL` — To find this value, go back to your PlanetScale dashboard, click on the `netlify-starter` database, click "**Connect**". If the password is masked and you don't have one, you may click the "**Generate new password**" button to create a new one. Next, click on the "**General**" dropdown in that modal and select "**Prisma**". Copy the value for `url` and paste that back in the Netlify dashboard as the value for `DATABASE_URL`. Be sure to save your PlanetScale password somewhere as you won't be able to access it again after closing the modal.
+- `NEXTAUTH_SECRET` — You may have already filled this out, but if not generate a new secret at [https://generate-secret.now.sh/32](https://generate-secret.now.sh/32) and paste in the value that's returned.
+- `NEXTAUTH_URL` — Paste in the Netlify site name that was generated for you. For example, `https://stoic-lumiere-6df10.netlify.app`
 
 Click "**Save**". Now, redeploy the site with these new variables by going to "Deploys" in the top nav and clicking the "**Trigger deploy**" > "**Deploy site**" button.
 

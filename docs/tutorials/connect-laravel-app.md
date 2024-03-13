@@ -11,7 +11,7 @@ In this tutorial, you'll learn how to connect a Laravel application to a PlanetS
 
 ## Prerequisites
 
-- [PHP](https://www.php.net/manual/en/install.php) &mdash; This tutorial uses `v8.1`
+- [PHP](https://www.php.net/manual/en/install.php) — This tutorial uses `v8.1`
 - [Composer](https://getcomposer.org/)
 - A [PlanetScale account](https://auth.planetscale.com/sign-up)
 
@@ -55,9 +55,9 @@ Next, you need to set up your PlanetScale database and connect to it in the Lara
 
 If this is your first time in the dashboard, you'll be prompted to go through a database creation walkthrough where you'll create a new database. Otherwise, click "**New database**" > "**Create new database**".
 
-- **Name** &mdash; You can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
-- **Plan type** &mdash; Select the [desired plan](/docs/concepts/billing#planetscale-plans) for your database.
-- **Region** &mdash; Choose the [region](/docs/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
+- **Name** — You can use any name with lowercase, alphanumeric characters, or underscores. We also permit dashes, but don't recommend them, as they may need to be escaped in some instances.
+- **Plan type** — Select the [desired plan](/docs/concepts/billing#planetscale-plans) for your database.
+- **Region** — Choose the [region](/docs/concepts/regions#available-regions) closest to you or your application. It's important to note if you intend to make this branch a production branch, you will not be able to change the region later, so choose the region with this in mind.
 
 Finally, click "**Create database**".
 
@@ -139,8 +139,8 @@ Refresh your Laravel homepage and you should see the message that you're connect
 
 Now that you're connected, let's add some data to see it in action. The sample application comes with two migration files:
 
-- `database/migrations/2021_12_20_194637_create_stars_table.php` &mdash; Creates a `stars` table
-- `database/migrations/2022_07_26_190656_create_constellations_table.php` &mdash; Creates a `constellations` table
+- `database/migrations/2021_12_20_194637_create_stars_table.php` — Creates a `stars` table
+- `database/migrations/2022_07_26_190656_create_constellations_table.php` — Creates a `constellations` table
 
 {% callout %}
 If you want to enforce referential integrity with the `constrained()` method, you will need to enable [foreign key constraints](/docs/concepts/foreign-key-constraints) support in your database settings page.
@@ -241,6 +241,6 @@ Once you're done with initial development, you can enable [safe migrations](/doc
 
 To learn more about PlanetScale, take a look at the following resources:
 
-- [PlanetScale workflow](/docs/concepts/planetscale-workflow) &mdash; Quick overview of the PlanetScale workflow: branching, non-blocking schema changes, deploy requests, and reverting a schema change.
-- [PlanetScale branching](/docs/concepts/branching) &mdash; Learn how to utilize branching to ship schema changes with no locking or downtime.
-- [PlanetScale CLI](/docs/reference/planetscale-cli) &mdash; Power up your workflow with the PlanetScale CLI. Every single action you just performed in this quickstart (and much more) can also be done with the CLI.
+- [PlanetScale workflow](/docs/concepts/planetscale-workflow) — Quick overview of the PlanetScale workflow: branching, non-blocking schema changes, deploy requests, and reverting a schema change.
+- [PlanetScale branching](/docs/concepts/branching) — Learn how to utilize branching to ship schema changes with no locking or downtime.
+- [PlanetScale CLI](/docs/reference/planetscale-cli) — Power up your workflow with the PlanetScale CLI. Every single action you just performed in this quickstart (and much more) can also be done with the CLI.

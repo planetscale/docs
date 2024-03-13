@@ -34,8 +34,8 @@ docs, and locate the section titled **Privileges Supported by MySQL**.
 
 This MySQL script can be used to create a user with the necessary permissions inside of your database. You will need appropriate database permissions to run the script. The username will be `migration_user`. Make sure to update the following variables:
 
-- `<SUPER_STRONG_PASSWORD>` &mdash; The password for the `migration_user` account.
-- `<DATABASE_NAME>` &mdash; The name of the database you will import into PlanetScale.
+- `<SUPER_STRONG_PASSWORD>` — The password for the `migration_user` account.
+- `<DATABASE_NAME>` — The name of the database you will import into PlanetScale.
 
 ```sql
 CREATE USER 'migration_user'@'%' IDENTIFIED BY '<SUPER_STRONG_PASSWORD>';

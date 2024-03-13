@@ -23,7 +23,7 @@ Let's dig into some of these to illustrate better what PlanetScale Boost is and 
 
 ## PlanetScale Boost automatically handles cache invalidation
 
-With PlanetScale Boost, you don't have to worry about cache invalidation &mdash; we do it for you. The in-memory server holds the results of the executed query. Queries in the cache maintain an open stream where they are constantly and automatically updated.
+With PlanetScale Boost, you don't have to worry about cache invalidation — we do it for you. The in-memory server holds the results of the executed query. Queries in the cache maintain an open stream where they are constantly and automatically updated.
 
 One important thing to note is that while you don't have to worry about invalidating the cache on your own when results become stale, there may be a small (\<2 seconds) delay before the new results populate. This is a small tradeoff that you make to get the performance increases that come with PlanetScale Boost. In a traditional caching system, you would experience a much larger delay in getting the new data results, as the query would have to run fresh again after being invalidated.
 

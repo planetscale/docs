@@ -1,9 +1,9 @@
 ---
-title: 'PlanetScale CLI commands - database'
+title: 'PlanetScale CLI commands: database'
 subtitle: 'Use the PlanetScale CLI “database” command to create, read, delete, dump, and restore databases from your terminal.'
 date: '2023-07-13'
 meta:
-  title: 'CLI reference - database'
+  title: 'CLI reference: database'
 ---
 
 ## Getting Started

@@ -63,8 +63,8 @@ The asynchronous approach implies we need to capture the changelog. We need some
 
 The two approaches to achieving asynchronous schema changes are:
 
-- Capture data change via triggers and use a helper table for capturing the changelog &mdash; used by `fb-osc`.
-- Tail the MySQL binary logs, which _are_ the changelog &mdash; used by `gh-ost` and `Vitess`.
+- Capture data change via triggers and use a helper table for capturing the changelog — used by `fb-osc`.
+- Tail the MySQL binary logs, which _are_ the changelog — used by `gh-ost` and `Vitess`.
 
 However the changelog is captured, a background process needs to iterate the incoming changes, to then apply them onto the ghost table.
 
@@ -124,17 +124,17 @@ Noteably `gh-ost` only ever runs table copy or applies changelog at a time, and 
 
 `Vitess` takes a fine approach where it keeps track of:
 
-- **Executed `GTID`** &mdash; `Vitess` uses `GTID` while writing to the ghost table. It keeps a very small progress table to which it audits the `GTID` for the latest write to the ghost table. This is done atomically within the same transaction.
-- **Last copied range** &mdash; `Vitess` evaluates, programmatically, which key range has already been copied. The key range is again persisted in a helper table, atomically with the write to the ghost table.
+- **Executed `GTID`** — `Vitess` uses `GTID` while writing to the ghost table. It keeps a very small progress table to which it audits the `GTID` for the latest write to the ghost table. This is done atomically within the same transaction.
+- **Last copied range** — `Vitess` evaluates, programmatically, which key range has already been copied. The key range is again persisted in a helper table, atomically with the write to the ghost table.
 
 Vitess operates in a three step loop:
 
-- **Copy** &mdash; opens a transaction with `CONSISTENT SNAPSHOT` while atomically grabbing the `GTID` at time of the transaction. Begins streaming rows from the table.
-- **Catchup** &mdash; scans the changelog.
+- **Copy** — opens a transaction with `CONSISTENT SNAPSHOT` while atomically grabbing the `GTID` at time of the transaction. Begins streaming rows from the table.
+- **Catchup** — scans the changelog.
   - Ignore anything not related to the original table
   - Ignores anything that is already covered by the `GTID` captured above.
   - Ignores operations on rows which have not been iterated yet.
-- **Fast forward** &mdash; prepare the next Copy phase, providing it the next unhandled row range, and, since takes non-zero time to achieve, backfill the remaining changelog events as with the Catchup change.
+- **Fast forward** — prepare the next Copy phase, providing it the next unhandled row range, and, since takes non-zero time to achieve, backfill the remaining changelog events as with the Catchup change.
 
 With this fine grained approach, Vitess is able to avoid superfluous writes to the ghost table, and only keep to the minimum necessary data copy.
 
@@ -203,12 +203,12 @@ The tools `pt-osc`, `fb-osc` and `gh-ost` are concerned with making an `ALTER TA
 
 `Vitess`, as a framework, manages many aspects of the migration:
 
-- **Scheduling** &mdash; Vitess schedules migrations to run, identifies migrations that conflict with each other, moves migration to the next state, etc.
-- **Discovery** &mdash; Vitess automatically knows where the migration should execute.
-- **Credentials** &mdash; Vitess can create and destroy credentials per migration (and does so for managed `gh-ost` and `pt-osc`), or use its own internal credentials for the task.
-- **Throttling** &mdash; built in Vitess, and again based on internal discovery.
-- **Cleanup** &mdash; safely and timely removing the migration's artifacts.
-- **History** &mdash; tracking all present and past migrations.
+- **Scheduling** — Vitess schedules migrations to run, identifies migrations that conflict with each other, moves migration to the next state, etc.
+- **Discovery** — Vitess automatically knows where the migration should execute.
+- **Credentials** — Vitess can create and destroy credentials per migration (and does so for managed `gh-ost` and `pt-osc`), or use its own internal credentials for the task.
+- **Throttling** — built in Vitess, and again based on internal discovery.
+- **Cleanup** — safely and timely removing the migration's artifacts.
+- **History** — tracking all present and past migrations.
 
 ## Resumable after failure vs. not
 
