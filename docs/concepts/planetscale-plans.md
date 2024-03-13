@@ -138,6 +138,10 @@ The following table is for reference only and covers what was included on our Sc
 
 Selecting the correct cluster size for your database can have a dramatic impact on how it performs, and how much it costs.
 
+{% callout %}
+You can set spend email alerts from your billing page. See the [Spend management documentation](/docs/concepts/billing#spend-management) for more information.
+{% /callout %}
+
 If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes. Databases in PlanetScale often come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
 
 If you are unsure which plan or cluster size is right for your application, [contact us](/contact) to get further assistance.

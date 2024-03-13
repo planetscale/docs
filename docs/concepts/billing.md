@@ -61,9 +61,9 @@ All plans require your organization has a valid payment method on file. You can 
 
 It's possible to use the same card for multiple organizations, but only after the card has been used to successfully pay for a database in the first organization.
 
-## Budget alerts
+## Spend management
 
-You have the option to set budget alerts from your organization's billing page. Once on the billing page, click the checkbox on the right next to "Set an expected monthly budget", type in the max budget, and click "Save". Organization administrators will receive an email when you hit 75% and 100% of your maximum monthly budget.
+You have the option to set spend alerts from your organization's billing page. Once on the billing page, click the checkbox on the right next to "Enable spend alerts", type in the max budget, and click "Save". Organization administrators will receive an email when you hit 75% and 100% of your maximum monthly spend.
 
 ## Using coupons
 
