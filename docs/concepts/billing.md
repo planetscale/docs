@@ -1,7 +1,7 @@
 ---
 title: 'Billing'
 subtitle: 'PlanetScale pricing was designed for transparency and scalability.'
-date: '2024-02-21'
+date: '2024-03-12'
 ---
 
 ## Overview
@@ -60,6 +60,10 @@ To see more details about your billing from the PlanetScale dashboard, click the
 All plans require your organization has a valid payment method on file. You can use a debit or credit card, but we do not accept pre-paid cards.
 
 It's possible to use the same card for multiple organizations, but only after the card has been used to successfully pay for a database in the first organization.
+
+## Budget alerts
+
+You have the option to set budget alerts from your organization's billing page. Once on the billing page, click the checkbox on the right next to "Set an expected monthly budget", type in the max budget, and click "Save". Organization administrators will receive an email when you hit 75% and 100% of your maximum monthly budget.
 
 ## Using coupons
 
