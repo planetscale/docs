@@ -31,16 +31,16 @@ on:
 
 jobs:
   deploy_deploy_request:
+    if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
     steps:
       - name: checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Deploy a deploy request
-        uses: planetscale/deploy-deploy-request-action@v1
+        uses: planetscale/deploy-deploy-request-action@v4
         with:
           org_name: bmorrison-ps
           database_name: recipes_db
-          branch_name: dev
         env:
           PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
           PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
@@ -52,8 +52,8 @@ jobs:
 
 - `org_name` - The name of the PlanetScale organization.
 - `database_name` - The name of the database to create the branch on.
-- `number` - The number of the deploy request.
 
 **Optional**
 
+- `number` - The number of the deploy request to deploy. Defaults to the latest deploy request.
 - `wait` - If set to `true`, this action will wait for the deploy request to merge before exiting.
