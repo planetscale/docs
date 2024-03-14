@@ -91,7 +91,7 @@ If you do not wish to upgrade, you will be able to temporarily wake your databas
 
 ## I can't migrate in time, help!
 
-If this causes you or your business problems, please don't hesitate to reach out to `support@planetscale` or submit a ticket at [`https://support.planetscale.com`](https://support.planetscale.com). We are happy
+If this causes you or your business problems, please don't hesitate to reach out to `support@planetscale.com` or submit a ticket at [`https://support.planetscale.com`](https://support.planetscale.com). We are happy
 to work with you to minimize the disruption that this change causes.
 
 ## Where do I learn about the Scaler Pro plan?
