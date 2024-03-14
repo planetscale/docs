@@ -64,30 +64,6 @@ Once enabled, go to your Organization settings page, click "**Authentication**",
 
 You can now configure Directory Sync using your identity provider.
 
-#### Creating Profile Attributes in Okta
-
-If you are using Okta for Single Sign-On or Directory Sync, you will need to create a new attribute for the PlanetScale application in Okta's Profile Editor.
-
-![PlanetScale Role](/assets/docs/concepts/sso/planetscale_role.png)
-
-- Data type: `string`
-- The Display name, Variable name, and External name should be defined as `planetscale_role`.
-- The External namespace should be defined as `urn:ietf:params:scim:schemas:core:2.0:User`.
-- Check the box to define an enumerated list of values, add the following:
-  - Display name: `member`, Value: `member`
-  - Display name: `administrator`, Value: `admin`
-- Select `READ_WRITE` under Mutability.
-
-This attribute then needs to be mapped to the PlanetScale application in Okta.
-
-- Open the PlanetScale application in Okta Admin Console, then select Provisioning
-- Scroll down to the bottom of the `Okta to App` provisioning page, and click `Show unmapped attributes`.
-- Find `planetscale_role` and click the 🖋️ to map the attribute.
-- Select `Map from Okta Profile` as the type and `planetscale_role` as the string.
-- Save with Create & Update permission.
-
-![Attribute Mapping](/assets/docs/concepts/sso/attribute.png)
-
 ### Directory Sync access control
 
 Directory Sync automatically adds and removes members from your PlanetScale organization to match your SSO directory. If you have groups defined within your SSO provider, it can also automatically create [Teams](/docs/concepts/teams) within your PlanetScale organization mapped to those groups.
@@ -103,6 +79,102 @@ Once you enable Directory Sync, existing Teams will be cleared, as all Teams mus
 You can find the directory-managed members under "**Settings**" > "**Members**", and directory-managed Teams under "**Settings**" > "**Teams**".
 
 ![Dashboard UI - Directory-managed Teams page](/assets/docs/concepts/sso/managed.png)
+
+## Using Okta to manage organization admins
+
+There are two different ways to configure Okta to manage the user's role in a PlanetScale organization. The first approach uses SAML assertions during Single Sign On to update the role just-in-time. The second approach uses an attribute defined on the directory user to update the role in real time as it changes. It is up to user to decide which approach works best for their organization.
+
+### Managing roles during single sign-on (SAML)
+
+In order to update roles using SAML, you will first need to configure the SAML application and user profile in Okta before enabling the setting within PlanetScale.
+
+#### Configuring the SAML Okta application
+
+- Click the **Applications** > **Applications** in the Okta dashbaord's sidebar.
+- Find your PlanetScale SAML application that you configured earlier for WorkOS and find the **SAML Settings** section. Click on the **Edit** link in this section.
+- In the **Configure SAML** step, find the **Attribute Statements (optional)** section, which defines the attributes of email, first and last name, and id.
+- Add a new Attribute Statement with the following values.
+  - Name &mdash; `planetscale_role`
+  - Name Format &mdash; `Unspecified`
+  - Value &mdash; `user.planetscale_role`
+
+#### Creating user profile attributes
+
+In order to define the custom attribute in Okta, you must update the default User profile to have the `planetscale_role`
+attribute.
+
+- Click **Directory** > **Profile Editor** in the Okta dashboard's sidebar.
+- Click the **User (default)** profile within Okta
+- Click **Add attribute** and fill in the following values
+  - Data type: `string`
+  - Display name: `PlanetScale Role`
+  - Variable name: `planetscale_role`
+  - Enum: Enable the **Define enumerated list of values** checkbox and add these attributes:
+    - Display name: `Member`, Value: `member`
+    - Display name: `Administrator`, Value: `administrator`
+- Click **Save attribute**
+
+#### Enable in PlanetScale
+
+Lastly, we will have to enable role management via SSO within the PlanetScale application.
+
+- Go to your SSO organization's settings page
+- Click on **Authentication** in the side navigation
+- Check the **Manage PlanetScale roles through identity provider's SSO profile** checkbox
+
+After following all of these steps, after you change the PlanetScale role for a user in Okta, their role will be updated accordingly the next time they log in via Single Sign On. If the role is changed during an active session, they will need to log out and log back in for it to be updated once again.
+
+### Managing roles using Directory Sync (SCIM)
+
+In order to manage roles using Directory Sync, you must properly configure the SCIM user's profile within Okta and update the Directory Sync custom attributes before enabling the setting within the PlanteScale dashboard.
+
+#### Configuring the SCIM user profile
+
+- Click **Directory** > **Profile Editor** in the Okta dashboard's sidebar.
+- Click the user profile that maps to your SCIM application, it should be in the format of **<SCIM application name>
+  User**
+- Click **Add attribute** and fill in the following values
+  - Data type: `string`
+  - Display name: `PlanetScale Role`
+  - Variable name: `planetscale_role`
+  - External name: `planetscale_role`
+  - The External namespace should be defined as `urn:ietf:params:scim:schemas:core:2.0:User`.
+  - Check the box to define an enumerated list of values, add the following:
+    - Display name: `member`, Value: `member`
+    - Display name: `administrator`, Value: `admin`
+- Click **Save attribute**
+
+![PlanetScale Role](/assets/docs/concepts/sso/planetscale_role.png)
+
+This attribute then needs to be mapped to the PlanetScale application in Okta.
+
+- Open the PlanetScale SCIM application in Okta Admin Console, then select Provisioning
+- Scroll down to the bottom of the `Okta to App` provisioning page, and click `Show unmapped attributes`.
+- Find `planetscale_role` and click the 🖋️ to map the attribute.
+- Select `Map from Okta Profile` as the type and `planetscale_role` as the string.
+- Save with Create & Update permission.
+
+#### Configuring custom attributes within WorkOS
+
+Next, you will need to update your WorkOS configuration to detect the custom attribute mappings.
+
+- Go to the **Authentication** within your organization settings page.
+- In the **Directory sync** section, click the `identity provider` link to open up the directory configuration page
+- Click the **Edit Attribute Map** button and in the form, enter the folllowing:
+  - Directory Provider Value: `planetscale_role`
+  - PlanetScale Attribute: `planetscale_role`
+- Click **Save mappings**
+
+#### Enable in PlanetScale
+
+Lastly, we will have to enable role management via SSO within the PlanetScale application.
+
+- Go to your SSO organization's settings page
+- Click on **Authentication** in the side navigation
+- Check the **Manage PlanetScale roles through identity provider's directory** checkbox
+
+After following all of these steps, after you change the PlanetScale role for a user in Okta, their role will be updated
+in PlanetScale without needing to re-authenticate.
 
 {% callout title="Next steps" %}
 
