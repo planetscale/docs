@@ -1,7 +1,7 @@
 ---
 title: 'Foreign key constraints'
 subtitle: 'Learn more about using foreign key constraints in PlanetScale.'
-date: '2024-02-16'
+date: '2024-03-18'
 ---
 
 ## What is a foreign key constraint?
@@ -109,14 +109,39 @@ UPDATE tbl SET col = 5, fk_col = col + 1;
 
 The workaround is to separate the updates for conflicting columns into separate schema changes.
 
-#### Cyclic foreign keys are not allowed
+#### Cyclic foreign keys
 
-While self-referencing tables are supported, cyclic foreign key references between different tables are not allowed. An example of this would be:
+It is possible to create self-referencing tables as well as a groups of tables which compose a cyclic foreign key (where tables reference each other in a loop). There is no restriction to the schema design, but in some scenarios queries will be rejected:
 
+- A cycle where the participating foreign keys all have `ON DELETE CASCADE` rule. Example:
+
+```sql
+CREATE TABLE `employee` (
+	`id` bigint unsigned NOT NULL AUTO_INCREMENT,
+	`manager_id` bigint unsigned NOT NULL,
+	PRIMARY KEY (`id`),
+	KEY `idx_manager_id` (`manager_id`),
+	CONSTRAINT `self_referencing_key_with_cascade` FOREIGN KEY (`manager_id`) REFERENCES `employee` (`id`) ON DELETE CASCADE
+);
 ```
-set foreign_key_checks=0;
-create table t1 (id int primary key, t2id int, foreign key (t2id) references t2 (id));
-create table t2 (id int primary key, t1id int, foreign key (t1id) references t1 (id));
+
+- A cycle where all rules are either `SET NULL` or `CASCADE`, and the loop ends up having columns reference themselves. Example:
+
+```sql
+CREATE TABLE `t1` (
+	`id` int NOT NULL,
+	`i` int,
+	PRIMARY KEY (`id`),
+	KEY `i_fk` (`i`),
+	CONSTRAINT `i_fk` FOREIGN KEY (`i`) REFERENCES `t2` (`j`) ON UPDATE CASCADE ON DELETE SET NULL
+);
+CREATE TABLE `t2` (
+	`id` int NOT NULL,
+	`j` int,
+	PRIMARY KEY (`id`),
+	KEY `j_fk` (`j`),
+	CONSTRAINT `j_fk` FOREIGN KEY (`j`) REFERENCES `t1` (`i`) ON UPDATE SET NULL ON DELETE CASCADE
+);
 ```
 
 #### Foreign key constraint names change on every deployment
