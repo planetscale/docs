@@ -17,6 +17,7 @@ All existing Hobby tier databases will need to upgrade their database to a paid 
 - [How do I get my data after April 8th?](#how-do-i-get-my-data-after-april-8th-)
 - [I can't migrate in time, help!](#i-can-t-migrate-in-time-help-)
 - [Where do I learn about the Scaler Pro plan?](#where-do-i-learn-about-the-scaler-pro-plan-)
+- [Can I pay for a hobby database?](#can-i-pay-for-a-hobby-database-)
 
 ## What is happening to the Hobby tier?
 
@@ -53,9 +54,14 @@ Starting to dump all tables from database test to folder /Users/nick/pscale_dump
 Dumping is finished! (elapsed time: 3.886106333s)
 ```
 
-Inside of the `pscale_dump_test_main_20240305_144231` folder, there is a `test.test-schema.sql` file which contains the schema for the database, as well as one or more files with names like `test.test.00001.sql` which contain the data.
+Inside of the `pscale_dump_test_main_20240305_144231` folder, there are files with names ending in `-schema.sql` which contains the schema for the database, as well as files with names like `test.test.00001.sql` which contain the data. When [restoring the backup files](https://dev.mysql.com/doc/refman/8.0/en/reloading-sql-format-dumps.html) to a new MySQL server be sure to create the database first, and to load the schema files before the table data files.
 
-PlanetScale's CLI uses a format compatible with [`https://github.com/mydumper/mydumper`](https://github.com/mydumper/mydumper), which can be used to load the data into another instance of MySQL. Using a MySQL instance hosted on DigitalOcean as an example:
+```
+mysql -e "create database test"
+mysql test < pscale_dump_test_main_20240305_144231/*.sql
+```
+
+Database dumps created with pscale are also compatible with [`myloader`](https://github.com/mydumper/mydumper), which is useful for loading larger backups into another instance of MySQL. Using a MySQL instance hosted on DigitalOcean as an example:
 
 ```bash
 cat db.ini
@@ -67,7 +73,7 @@ database = defaultdb
 port = 25060
 ```
 
-Then, we can run `go-mydumper` to load data into the other MySQL instance:
+Then, we can run `myloader` to load data into the other MySQL instance:
 
 ```bash
 myloader --defaults-file db.ini --directory pscale_dump_test_main_20240305_144231/
@@ -97,3 +103,7 @@ to work with you to minimize the disruption that this change causes.
 ## Where do I learn about the Scaler Pro plan?
 
 You can find information about our paid plan, Scaler Pro, in the [Scaler Pro documentation](/docs/concepts/planetscale-plans#scaler-pro). The [Scaler Pro upgrade FAQ](/docs/concepts/scaler-pro-upgrade-faq) also contains additional helpful information about migrating from a usage-based plan (in this case, Hobby) to our resource-based plan (Scaler Pro).
+
+## Can I pay for a hobby database?
+
+At this time, PlanetScale does not offer database plans that are smaller than [Scaler Pro at the PS-10 cluster size](/docs/concepts/planetscale-plans).
