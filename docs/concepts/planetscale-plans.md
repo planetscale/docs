@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-03-06'
+date: '2024-03-22'
 ---
 
 ## Overview
@@ -20,18 +20,28 @@ Any Hobby databases that have not been migrated by April 8th, 2024 will be slept
 
 The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power depending on the needs of your database. As your application scales, upgrading or downgrading your **Scaler Pro** cluster is a seamless operation that does not involve any downtime.
 
-|            | **Processor** | **Memory** |
-| ---------- | ------------- | ---------- |
-| **PS-10**  | 1/8 vCPU      | 1 GB RAM   |
-| **PS-20**  | 1/4 vCPU      | 2 GB RAM   |
-| **PS-40**  | 1/2 vCPU      | 4 GB RAM   |
-| **PS-80**  | 1 vCPU        | 8 GB RAM   |
-| **PS-160** | 2 vCPU        | 16 GB RAM  |
-| **PS-320** | 4 vCPU        | 32 GB RAM  |
-| **PS-400** | 8 vCPU        | 32 GB RAM  |
+|             | **Processor** | **Memory** |
+| ----------- | ------------- | ---------- |
+| **PS-10**   | 1/8 vCPU      | 1 GB RAM   |
+| **PS-20**   | 1/4 vCPU      | 2 GB RAM   |
+| **PS-40**   | 1/2 vCPU      | 4 GB RAM   |
+| **PS-80**   | 1 vCPU        | 8 GB RAM   |
+| **PS-160**  | 2 vCPU        | 16 GB RAM  |
+| **PS-320**  | 4 vCPU        | 32 GB RAM  |
+| **PS-400**  | 8 vCPU        | 32 GB RAM  |
+| **PS-640**  | 8 vCPU        | 64 GB RAM  |
+| **PS-700**  | 16 vCPU       | 32 GB RAM  |
+| **PS-900**  | 16 vCPU       | 64 GB RAM  |
+| **PS-1280** | 16 vCPU       | 128 GB RAM |
+| **PS-1400** | 32 vCPU       | 64 GB RAM  |
+| **PS-1800** | 32 vCPU       | 128 GB RAM |
+| **PS-2100** | 48 vCPU       | 96 GB RAM  |
+| **PS-2560** | 32 vCPU       | 256 GB RAM |
+| **PS-2700** | 48 vCPU       | 128 GB RAM |
+| **PS-2800** | 64 vCPU       | 128 GB RAM |
 
 {% callout %}
-We have Scaler Pro cluster sizes available up to 64 vCPU and 128 GB RAM. Please [contact us](/contact) to unlock sizes larger than PS-400 in your account.
+Please [contact us](/contact) to unlock sizes larger than PS-400 in your account.
 {% /callout %}
 
 On top of processing and memory, all **Scaler Pro** cluster sizes share the following capacities.
@@ -63,7 +73,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 \*\* Additional production branches are billed at the cost of your selected cluster size per month.
 \*\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
 
-#### Additional production branches
+### Additional production branches
 
 Each production branch in the Scaler Pro plan provisions a separate, production database cluster in our infrastructure. Upon adding an additional production branch, you will be prompted to select the cluster size for the new branch. As an example, the following table lists the cost of each available cluster in the AWS us-east-1 region at the time of this writing:
 
@@ -85,7 +95,7 @@ If you had a `main` production branch using the **PS-40** cluster size and two a
 | PS-20                         | $59.00            | 2            | $118.00             |
 | **Grand total**               |                   |              | **$217.00**         |
 
-#### Development branches
+### Development branches
 
 Scaler Pro development branches are billed only for the time that they are used to the nearest second. Each month, Scaler Pro databases include
 `hours_in_current_month * 2` of development branch time for free (1,440 hours for a 30 day month). Any time used over the included is billed at a rate of ~$0.014 per hour (`$10 / hours_in_current_month`). All branches are only billed for the time that they are used, prorated to the second.
@@ -94,13 +104,27 @@ If a Scaler Pro database is created in the middle of a billing cycle, the includ
 
 You may see how many development branch hours have been used at any time by visiting your [organization billing page](https://app.planetscale.com/~/settings/billing/). Data is updated hourly.
 
-#### Fractional vCPU allocation
+### Fractional vCPU allocation
 
 Some tiers of the Scaler Pro plan indicate a fractional vCPU allocation. These branches run on our multi-tenant platform and this indicates the minimum number of cycles dedicated to your workload. The vast majority of the time, there are spare compute cycles available on the underlying machine instances hosting your branch, and those are available to be used by your workload as needed for no additional charge.
 
 If you find the performance of a given query to be substantially inconsistent over the course of a given day, you may want to upgrade to a higher tier for more consistent performance.
 
-### Usage-based plans
+### Selecting a cluster size
+
+Selecting the correct cluster size for your database can have a dramatic impact on how it performs, and how much it costs.
+
+{% callout %}
+You can set spend email alerts from your billing page. See the [Spend management documentation](/docs/concepts/billing#spend-management) for more information.
+{% /callout %}
+
+If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes. Databases in PlanetScale often come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
+
+If you are unsure which plan or cluster size is right for your application, [contact us](/contact) to get further assistance.
+
+Our self-serve plans are flexible enough to handle the majority of customers. However, there are several use cases where you may need a more custom plan. This is where our Enterprise offerings shine.
+
+## Usage-based plans
 
 We previously offered a usage-based paid plan, Scaler, which [is now deprecated](/blog/deprecating-the-scaler-plan). You can no longer create new Scaler database clusters. We recommend starting on Scaler Pro for paid plans. Please see our [Scaler Pro upgrade documentation](/docs/concepts/scaler-pro-upgrade-faq) for upgrading an existing Scaler database to Scaler Pro.
 
@@ -133,20 +157,6 @@ The following table is for reference only and covers what was included on our Sc
 - Extra storage over the included amount is billed at $2.50 per additional 1 GB
 - Extra rows read over the included amount are billed at $1 per additional 1 billion
 - Extra rows written over the included amount are billed at $1.50 per additional 1 million.
-
-### Selecting a cluster size
-
-Selecting the correct cluster size for your database can have a dramatic impact on how it performs, and how much it costs.
-
-{% callout %}
-You can set spend email alerts from your billing page. See the [Spend management documentation](/docs/concepts/billing#spend-management) for more information.
-{% /callout %}
-
-If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes. Databases in PlanetScale often come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
-
-If you are unsure which plan or cluster size is right for your application, [contact us](/contact) to get further assistance.
-
-Our self-serve plans are flexible enough to handle the majority of customers. However, there are several use cases where you may need a more custom plan. This is where our Enterprise offerings shine.
 
 ## PlanetScale Enterprise plan
 
@@ -190,3 +200,21 @@ You can add SSO for your organization on the Scaler Pro plan for an additional f
 We run automatic daily backups for every branch for free. On the Scaler Pro plan, we run automated backups every 12 hours. Disk space for default backups is not counted against your plan's storage limit.
 
 You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, storage is billed at **$0.023 per GB** per month. Backups include system tables as well as your data and start at around 140MB.
+
+## Discounts
+
+For all plans, we offer two types of discounts:
+
+- Consumption commitment &mdash; Save 2.5% on your bill if you agree to an annual consumption commitment
+- Upfront payment &mdash; Save 10% if you pay you annual bill upfront.
+
+You have the option to combine these two discounts for a total of 12.5% off your bill if you commit to an annual consumption commitment dollar amount **and** pay for the year upfront.
+
+If you're interested in either of these discounts, please fill out our [contact form](/contact) and let us know which discount you're interested in, along with the following information:
+
+- Annual spend commitment amount (in dollars)
+- PlanetScale organization name (if it exists)
+- Company name
+- Company address
+- Business point of contact name, email, phone
+- Billing name, phone, email, address

@@ -356,6 +356,10 @@
 - label: 'PlanetScale for Enterprises'
   icon: 'enterprise'
   items:
+    - label: 'Sales process'
+      items:
+        - label: 'Overview'
+          slug: '/docs/enterprise/sales-process'
     - label: 'PlanetScale Managed'
       items:
         - label: 'PlanetScale Managed overview'
