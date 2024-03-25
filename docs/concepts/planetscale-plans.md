@@ -206,7 +206,7 @@ You can also [schedule additional backups yourself](/docs/concepts/back-up-and-r
 For all plans, we offer two types of discounts:
 
 - **Consumption commitment** &mdash; Save 2.5% if you agree to an annual consumption commitment
-- **Upfront payment** &mdash; Save 10% if you pay your annual bill upfront.
+- **Upfront payment** &mdash; Save an extra 10% if you pay your annual bill upfront.
 
 You have the option to combine these two discounts for a total of 12.5% off your bill if you commit to an annual consumption commitment dollar amount **and** pay for the year upfront.
 
