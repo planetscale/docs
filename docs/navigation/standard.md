@@ -394,6 +394,10 @@
               slug: '/docs/enterprise/managed/data-requests'
             - label: 'Schema snapshots'
               slug: '/docs/enterprise/managed/schema-snapshots'
+    - label: 'Sharded Schemas'
+      items:
+        - label: 'View VSchema'
+          slug: '/docs/enterprise/vschema'
 
 - label: 'Plans and billing'
   icon: 'plans'
