@@ -69,7 +69,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                   |
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                     |
 
-\* Additional production branches are billed at the cost of your selected cluster size per month.
+\* Additional production branches are billed at the cost of your selected cluster size per month.  
 \*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
 
 ### Additional production branches
