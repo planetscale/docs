@@ -171,7 +171,7 @@ You can delete a branch from the Branches overview page or by running the follow
 pscale branch delete <DATABASE_NAME> <BRANCH_NAME>
 ```
 
-We recommend deleting branches after a deploy request is complete or if you are no longer using the branch for testing. Scaler Pro development branches are billed only for the time that they are used to the nearest second, so it beneficial to delete them when they are no longer in use. See the [billing documentation](/docs/concepts/billing#development-branches) for more info.
+We recommend deleting branches after a deploy request is complete or if you are no longer using the branch for testing. Scaler Pro development branches are billed only for the time that they are used to the nearest second, so it beneficial to delete them when they are no longer in use. See the [billing documentation](/docs/concepts/planetscale-plans#development-branches) for more info.
 
 {% callout %}
 Only [Organization Administrators](/docs/concepts/access-control#organization-administrator) have permission to delete production branches.
