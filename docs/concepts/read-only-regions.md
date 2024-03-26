@@ -57,7 +57,7 @@ Connecting to a read-only region will allow you to query your data, but will not
 
 ## Availability and pricing
 
-Read-only regions are only available on our [Scaler Pro and Enterprise plans](/pricing).
+Read-only regions are available on [Scaler Pro and multi-tenant Enterprise plans](/docs/concepts/planetscale-plans). Read-only regions are priced differently depending on the selected region. You can find a full list of pricing in the [Scaler Pro cluster pricing documentation](/docs/concepts/scaler-pro-cluster-pricing).
 
 ### Storage costs
 
