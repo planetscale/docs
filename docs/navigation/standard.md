@@ -416,6 +416,8 @@
       items:
         - label: 'Billing'
           slug: '/docs/concepts/billing'
+        - label: 'Scaler Pro cluster pricing'
+          slug: '/docs/concepts/scaler-pro-cluster-pricing'
     - label: 'Integrations'
       items:
         - label: 'Vantage'

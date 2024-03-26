@@ -16,7 +16,8 @@ Below is a breakdown of common security and compliance requirements by PlanetSca
 | [Audit logs](/docs/concepts/audit-log)                                                                     | ✔                      | ✔                          | ✔                           | ✔                      |
 | [Security logs](/docs/concepts/security-log)                                                               | ✔                      | ✔                          | ✔                           | ✔                      |
 | [Data Processing Addendum available](/docs/concepts/security#data-processing-addendum)                     | ✔                      | ✔                          | ✔                           | ✔                      |
-| [Business Associate Agreements available](/docs/concepts/security#hipaa-and-business-associate-agreements) | ❌                      | ✔                          | ✔                           | ✔                      |
+| [Single sign-on (SSO)](/docs/concepts/sso)                                                                 | Available as add-on     | ✔                          | ✔                           | ✔                      |
+| [Business Associate Agreements available](/docs/concepts/security#hipaa-and-business-associate-agreements) | Available as add-on     | ✔                          | ✔                           | ✔                      |
 | [Private database connectivity](/docs/concepts/security#private-database-connectivity)                     | ❌                      | ❌                          | ✔                           | ✔                      |
 | Dedicated AWS/GCP account                                                                                  | ❌                      | ❌                          | ✔                           | ✔                      |
 | [PCI compliant](/docs/concepts/security#pci-compliance)                                                    | ❌                      | ❌                          | ❌                           | ✔ (on AWS)             |
@@ -71,7 +72,7 @@ The following are two examples of data locality in PlanetScale:
 
 ### HIPAA and Business Associate Agreements
 
-PlanetScale can enter into Business Associate Agreements (BAAs) with customers on [Enterprise plans](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). Please [reach out for more information](/contact), and we'll be in touch shortly.
+PlanetScale can enter into Business Associate Agreements (BAAs) with customers who purchase [Business support](/docs/support/support-overview) or an [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). Please [reach out for more information](/contact), and we'll be in touch shortly.
 
 The customer must determine whether they are a Covered Entity — or a Business Associate of a Covered Entity — as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
 
