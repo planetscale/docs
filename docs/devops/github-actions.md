@@ -205,7 +205,7 @@ PlanetScale sets a `can_drop_data` boolean for any schema change that drop a col
 In this example, we first wait for the deployment check to be `ready`. During this time, PlanetScale is examining the schema change, verifying that it is safe and
 generating the DDL statements to make the change. Once it's done, we then use this information to put a comment on the deploy request with tips on how to deploy it safely.
 
-```
+```yaml
 - name: Check deployment state
     id: check-state
     env:
