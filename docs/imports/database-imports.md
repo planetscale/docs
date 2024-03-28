@@ -174,6 +174,10 @@ mysql -u <USERNAME> -p <PASSWORD> -h <HOST> -P <PORT> -D <DATABASE>
 
 If the connection works there but not on PlanetScale, please [reach out for additional assistance](#additional-assistance).
 
+#### Host can't target a PlanetScale database
+
+The importer can not be used to duplicate a database already hosted on PlanetScale. If you need to copy or move a database between PlanetScale organizations, we recommend dumping the origin database and restoring that dump to a new database with the same name in the new organization. You can use the `pscale database dump` and `restore-dump` commands of our [CLI application pscale](https://github.com/planetscale/cli) to create and restore those dumps.
+
 ### Compatibility issues
 
 PlanetScale is built on [Vitess](https://vitess.io/), which gives us the power to perform data migrations at scale. This does, however, come with some trade-offs that could cause you to run into errors while importing an existing database. We believe these small trade-offs are worth the massive benefits, such as unlimited scaling through horizontal sharding, non-blocking schema changes, branching, and more. So, if you encounter compatibility issues while importing your external database to PlanetScale, we'd like to help you troubleshoot.
