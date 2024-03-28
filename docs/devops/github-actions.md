@@ -17,6 +17,7 @@ With GitHub Actions, you can automate the creation of branches and deploy reques
 - [Open a deploy request](#open-a-deploy-request)
 - [Get deploy request by branch name](#get-deploy-request-by-branch-name)
 - [Get deploy request diff and comment on pull request](#get-deploy-request-diff-and-comment-on-pull-request)
+- [Check for dropped columns](#check-for-dropped-columns)
 - [Submit a deploy request by branch name](#submit-a-deploy-request-by-branch-name)
 
 ## Getting started
@@ -196,6 +197,71 @@ This example is useful when combined with opening a deploy request for a git bra
 ```
 
 This writes the diff to the `migration-message.txt` file. And then creates a comment on the pull request that triggered the workflow.
+
+### Check for dropped columns
+
+PlanetScale sets a `can_drop_data` boolean for any schema change that drop a column or table. We can make use of this to emit a warning into our pull requests.
+
+In this example, we first wait for the deployment check to be `ready`. During this time, PlanetScale is examining the schema change, verifying that it is safe and
+generating the DDL statements to make the change. Once it's done, we then use this information to put a comment on the deploy request with tips on how to deploy it safely.
+
+```
+- name: Check deployment state
+    id: check-state
+    env:
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+    run: |
+      for i in {1..10}; do
+        deployment_state=$(pscale deploy-request show ${{ secrets.PLANETSCALE_ORG_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --format json | jq -r '.deployment_state')
+        echo "Deployment State: $deployment_state"
+
+        if [ "$deployment_state" = "ready" ]; then
+          echo "Deployment state is ready. Continuing."
+          break
+        fi
+
+        echo "Deployment state is not ready. Waiting 2 seconds before checking again."
+        sleep 2
+      done
+  - name: Comment PR - db migrated
+    if: ${{ env.DR_OPENED }}
+    env:
+      PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
+      PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
+    run: |
+      deploy_data=$(pscale api organizations/${{ secrets.PLANETSCALE_ORG_NAME }}/databases/${{ secrets.PLANETSCALE_DATABASE_NAME }}/deploy-requests/${{ env.DEPLOY_REQUEST_NUMBER }}/deployment --org planetscale)
+      can_drop_data=$(echo "$deploy_data" | jq -r '.deploy_operations[] | select(.can_drop_data == true) | .can_drop_data')
+
+      echo "Deploy request opened: https://app.planetscale.com/${{ secrets.PLANETSCALE_ORG_NAME }}/${{ secrets.PLANETSCALE_DATABASE_NAME }}/deploy-requests/${{ env.DEPLOY_REQUEST_NUMBER }}" >> migration-message.txt
+      echo "" >> migration-message.txt
+
+      if [ "$can_drop_data" = "true" ]; then
+        echo ":rotating_light: You are dropping a column. Before running the migration make sure to do the following:" >> migration-message.txt
+        echo "" >> migration-message.txt
+
+        echo "1. [ ] Deploy app changes to ensure the column is no longer being used." >> migration-message.txt
+        echo "2. [ ] Once you've verified it's no used, run the deploy request." >> migration-message.txt
+        echo "" >> migration-message.txt
+      else
+        echo "When adding to the schema, the Deploy Request must be run **before** the code is deployed." >> migration-message.txt
+        echo "Please ensure your schema changes are compatible with the application code currently running in production." >> migration-message.txt
+        echo "" >> migration-message.txt
+
+        echo "1. [ ] Successfully run the Deploy Request" >> migration-message.txt
+        echo "2. [ ] Deploy this PR" >> migration-message.txt
+        echo "" >> migration-message.txt
+      fi
+
+      echo "\`\`\`diff" >> migration-message.txt
+      pscale deploy-request diff ${{ secrets.PLANETSCALE_ORG_NAME }} ${{ env.DEPLOY_REQUEST_NUMBER }} -f json | jq -r '.[].raw' >> migration-message.txt
+      echo "\`\`\`" >> migration-message.txt
+  - name: Comment PR - db migrated
+    uses: thollander/actions-comment-pull-request@v2
+    if: ${{ env.DR_OPENED }}
+    with:
+      filePath: migration-message.txt
+```
 
 ### Submit a deploy request by branch name
 
