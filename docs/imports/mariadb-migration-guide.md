@@ -75,7 +75,7 @@ Now you can configure the necessary permissions on the database you wish to migr
 GRANT SELECT, INSERT, UPDATE, DELETE, SHOW VIEW, LOCK TABLES ON `<DATABASE_NAME>`.* TO 'migration_user'@'%';
 ```
 
-Finally, you’ll need to configure permissions on a database called `ps_imports_*` (the last portion of the name will vary) that will be used to track replication between MariaDB and PlanetScale.
+Finally, you’ll need to configure permissions for a database named `ps_import_<id>` (the last portion of the name will vary) that will be created by the import tool to track replication between MariaDB and PlanetScale.
 
 ```sql
 GRANT SELECT, INSERT, UPDATE, DELETE, CREATE, DROP, ALTER ON `ps\_import\_%`.* TO 'migration_user'@'%';
