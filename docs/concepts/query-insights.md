@@ -150,3 +150,7 @@ With this enabled, Insights will gather the complete raw SQL statements and disp
 Enabling complete query collection is beneficial when performance varies significantly within the same query pattern, and you need to see the full SQL statement, without placeholders, to identify the correct source of the performance issue.
 
 However, full queries may contain personally identifiable information, so it's important to consider this before opting in to the feature. Because of this, only [Organization Administrators](/docs/concepts/access-control#organization-administrator) can choose to opt a database into complete query collection. Please read our [Privacy Policy](/legal/privacy) for more information on how we collect, process, and disclose your personally identifiable information.
+
+#### Complete query collection and prepared statements
+
+With prepared statements, complete query collection will not display the query values. That is because the MySQL query that is collected is parameterized at the database level, and we cannot extract the bind variables. PlanetScale does not recommend using prepared statements, we recommend disabling them in order to use complete query collection.
