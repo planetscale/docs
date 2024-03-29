@@ -28,6 +28,7 @@ All webhooks from PlanetScale will have an `X-PlanetScale-Signature` header. Thi
 
 | Webhook event                                                   | `event` parameter               | Trigger                                                |
 | --------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
+| [Branch anomaly](#branch-anomaly)                               | `branch.anomaly`                | The branch has a new anomaly in insights.              |
 | [Branch ready](#branch-ready)                                   | `branch.ready`                  | The branch is created and ready to connect.            |
 | [Branch sleeping](#branch-sleeping)                             | `branch.sleeping`               | The branch is now sleeping.                            |
 | [Deploy request opened](#deploy-request-opened)                 | `deploy_request.opened`         | The deploy request has been opened.                    |
@@ -42,6 +43,83 @@ All webhooks from PlanetScale will have an `X-PlanetScale-Signature` header. Thi
 {% callout type="note" %}
 If there is an event you want to use that is not included in this list, please [contact us](/contact) and let us know what event you want to trigger a webhook on.
 {% /callout %}
+
+### Branch anomaly
+
+The branch has a new anomaly event in PlanetScale Insights.
+
+The `branch.anomaly` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get-a-branch) API endpoint. The link includes a detailed description of each field in the API reference.
+
+**Example:**
+
+```json
+{
+  "timestamp": 1698252879,
+  "event": "branch.anomaly",
+  "resource": {
+    "id": "ecrmjy2f4a5o",
+    "type": "Branch",
+    "name": "dev",
+    "created_at": "2023-10-25T16:54:12.879Z",
+    "updated_at": "2023-10-25T16:54:39.820Z",
+    "restore_checklist_completed_at": null,
+    "access_host_url": "ecrmjy2f4a5o.us-east-4.psdb.cloud",
+    "schema_last_updated_at": "2023-10-25T16:54:12.879Z",
+    "mysql_address": "us-east.connect.psdb.cloud",
+    "mysql_provider_address": "aws.connect.psdb.cloud",
+    "initial_restore_id": null,
+    "schema_ready": true,
+    "state": "ready",
+    "cluster_rate_name": "PS_DEV",
+    "mysql_edge_address": "aws.connect.psdb.cloud",
+    "ready": true,
+    "production": false,
+    "safe_migrations": false,
+    "sharded": false,
+    "shard_count": 0,
+    "stale_schema": false,
+    "actor": {
+      "id": "g2dr4sbhz6ag",
+      "type": "User",
+      "display_name": "Taylor Barnett-Torabi",
+      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+    },
+    "restored_from_branch": null,
+    "private_connectivity": false,
+    "private_edge_connectivity": false,
+    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/dev",
+    "url": "https://api.planetscale.com/v1/organizations/taylorhackyplace/databases/example_database/branches/dev",
+    "region": {
+      "id": "kc0e1ij8juzp",
+      "type": "Region",
+      "provider": "AWS",
+      "enabled": true,
+      "public_ip_addresses": [
+        "23.23.187.137",
+        "52.6.141.108",
+        "52.70.2.89",
+        "50.17.188.76",
+        "52.2.251.189",
+        "52.72.234.74",
+        "35.174.68.24",
+        "52.5.253.172",
+        "54.156.81.4",
+        "34.200.24.255",
+        "35.174.79.154",
+        "44.199.177.24",
+        "35.173.174.19",
+        "44.212.228.57",
+        "44.216.88.45"
+      ],
+      "display_name": "AWS us-east-1",
+      "location": "N. Virginia",
+      "slug": "us-east",
+      "current_default": true
+    },
+    "parent_branch": "main"
+  }
+}
+```
 
 ### Branch ready
 
