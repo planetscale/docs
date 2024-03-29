@@ -146,7 +146,7 @@ Consider the following query:
 SELECT * FROM t WHERE a = ? and b = ?
 ```
 
-This query can use either `idx_a_b` or `id_a_b_c` to quickly find results because both indexes have `a’ and `b` as the leftmost columns. In general, removing left prefix duplicates,`idx_a_b` in our case, will result in lower memory and storage usage and improve the performance of inserts, updates, and deletes to this table because there is one less index to be maintained. However, there are a few important caveats.
+This query can use either `idx_a_b` or `id_a_b_c` to quickly find results because both indexes have `a` and `b` as the leftmost columns. In general, removing left prefix duplicates, `idx_a_b` in our case, will result in lower memory and storage usage and improve the performance of inserts, updates, and deletes to this table because there is one less index to be maintained. However, there are a few important caveats.
 
 ##### Queries that use the primary key
 
