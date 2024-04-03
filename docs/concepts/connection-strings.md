@@ -68,7 +68,7 @@ This strong security model allows you to generate passwords that are tied to a b
 
 ## IP restrictions
 
-You can restrict database connections to specific IP ranges for a single password by updating its IP restrictions. This feature is currently in beta. For example, if you have a database for a web application and you create a password for use in the deployed application, you can restrict usage of that specific password to the IP ranges of the deployed application. If somebody attempts to connect to the database from outside of the deployed application, the connection will be refused. IP restrictions work on a per-password basis, so if you want to use the same restriction across passwords, they must be applied to each password separately.
+You can restrict database connections to specific IP ranges for a single password by updating its IP restrictions. For example, if you have a database for a web application and you create a password for use in the deployed application, you can restrict usage of that specific password to the IP ranges of the deployed application. If somebody attempts to connect to the database from outside of the deployed application, the connection will be refused. IP restrictions work on a per-password basis, so if you want to use the same restriction across passwords, they must be applied to each password separately.
 
 Some passwords are incompatible with IP restrictions, and you will need to create a new password to use IP restrictions.
 
