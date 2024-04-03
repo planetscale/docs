@@ -1,7 +1,7 @@
 ---
 title: 'Audit log'
 subtitle: "Search your organization's audit log to review member actions and events."
-date: '2022-08-04'
+date: '2024-04-03'
 ---
 
 ## Overview
@@ -10,7 +10,7 @@ The organization audit log grants [Organization Administrators](/docs/concepts/a
 
 Audit log retainment period is [based on your plan](/docs/concepts/billing#planetscale-plans):
 
-- **Scaler Pro** — 15 days
+- **Scaler Pro** — 6 months
 - **Enterprise** — Unlimited
 
 {% callout %}

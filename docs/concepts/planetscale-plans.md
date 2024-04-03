@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-03-22'
+date: '2024-04-03'
 ---
 
 ## Overview
@@ -63,7 +63,7 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | **Web console**                                                              | Included                                   |
 | **PlanetScale CLI**                                                          | Included                                   |
 | **SSO**                                                                      | Available as an add-on\*\*                 |
-| **Audit log retention**                                                      | 15 days                                    |
+| **Audit log retention**                                                      | 6 months                                   |
 | **Automatic backups**                                                        | Every 12 hours                             |
 | **Support**                                                                  | Standard, upgrade available\*\*            |
 | [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                   |
@@ -105,7 +105,7 @@ Scaler Pro development branches are billed only for the time that they are used 
 You can set spend email alerts from your billing page. See the [Spend management documentation](/docs/concepts/billing#spend-management) for more information.
 {% /callout %}
 
-If a Scaler Pro database is created in the middle of a billing cycle, the included development branch hours are prorated. For example, if you create your database with 15 days remaining in the current month, the database will have `15 days * 2` (720 hours) included for that billing period.
+If a Scaler Pro database is created in the middle of a billing cycle, the included development branch hours are prorated. For example, if you create your database with 6 months remaining in the current month, the database will have `15 days * 2` (720 hours) included for that billing period.
 
 You may see how many development branch hours have been used at any time by visiting your [organization billing page](https://app.planetscale.com/~/settings/billing/). Data is updated hourly.
 
@@ -166,7 +166,7 @@ The following table is for reference only and covers what was included on our Sc
 | **Web console**                                                              | Included               |
 | **PlanetScale CLI**                                                          | Included               |
 | **SSO**                                                                      | Available as an add-on |
-| **Audit log retention**                                                      | 15 days                |
+| **Audit log retention**                                                      | 6 months               |
 | **Automatic backups**                                                        | Every 12 hours         |
 | **Support**                                                                  | Standard               |
 | [**Data Branching®**](/docs/concepts/data-branching)                        | Not included           |

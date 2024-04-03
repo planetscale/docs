@@ -1,14 +1,14 @@
 ---
 title: 'Security log'
 subtitle: 'The security log tracks authentication and security-related actions conducted in your PlanetScale account.'
-date: '2022-08-01'
+date: '2024-04-03'
 ---
 
 ## Overview
 
 The Security log gives you insight into recent authentication and other security-related `actions` for your account. Your security log also details when you performed each `action`.
 
-Security log events are retained for 15 days in your PlanetScale account.
+Security log events are retained for 6 months in your PlanetScale account.
 
 ## Review your security log
 
