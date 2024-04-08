@@ -10,12 +10,6 @@ PlanetScale is built to accomodate all companies at all stages. Whether you need
 
 Our plans are split into two general offerings: [Scaler Pro (self-serve)](#scaler-pro) and [Enterprise](#planetscale-enterprise-plan).
 
-{% callout %}
-We previously offered a free tier plan &mdash; [Hobby](/docs/concepts/hobby-plan). The Hobby plan will be deprecated on April 8th, 2024, and you are no longer able to create new Hobby databases as of March 6th, 2024.
-
-Any Hobby databases that have not been migrated by April 8th, 2024 will be slept. Read the [Hobby plan deprecation FAQ documentation](/docs/concepts/hobby-plan-deprecation-faq) more information about next steps.
-{% /callout %}
-
 ## Scaler Pro
 
 The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power.
@@ -143,47 +137,12 @@ The time it takes to change sizes depends on the size and region of your databas
 
 When you choose to change cluster size, we upgrade each of your replicas one by one: delete the tablet container, create a new tablet container of the new size, attach the persistent volume, start it up, and connect it to the primary. Once that's complete, we fail the primary over to one of those new replicas, and do the same thing to the old primary.
 
-## Usage-based plans
-
-We previously offered a usage-based paid plan, Scaler, which [is now deprecated](/blog/deprecating-the-scaler-plan). You can no longer create new Scaler database clusters. We recommend starting on Scaler Pro for paid plans. Please see our [Scaler Pro upgrade documentation](/docs/concepts/scaler-pro-upgrade-faq) for upgrading an existing Scaler database to Scaler Pro.
-
-The following table is for reference only and covers what was included on our Scaler plan for those still in the migration process:
-
-|                                                                              | **Scaler**             |
-| ---------------------------------------------------------------------------- | ---------------------- |
-| **Storage/month**                                                            | 10 GB included         |
-| **Row reads/month**                                                          | 100 billion included   |
-| **Row writes/month**                                                         | 50 million included    |
-| **Available cluster sizes**                                                  | 1                      |
-| **Availability zones**                                                       | 2                      |
-| **Production branches**                                                      | 2 per database         |
-| **Development branches**                                                     | 5 per database         |
-| **Concurrent connections**                                                   | 10,000                 |
-| **Query Insights retention**                                                 | 7 days                 |
-| **Horizontal sharding**                                                      | Not included           |
-| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant           |
-| **Read only regions**                                                        | Available as an add-on |
-| **Web console**                                                              | Included               |
-| **PlanetScale CLI**                                                          | Included               |
-| **SSO**                                                                      | Available as an add-on |
-| **Audit log retention**                                                      | 6 months               |
-| **Automatic backups**                                                        | Every 12 hours         |
-| **Support**                                                                  | Standard               |
-| [**Data Branching®**](/docs/concepts/data-branching)                        | Not included           |
-| **Monthly cost**                                                             | $29 per database       |
-| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on |
-
-- Extra storage over the included amount is billed at $2.50 per additional 1 GB
-- Extra rows read over the included amount are billed at $1 per additional 1 billion
-- Extra rows written over the included amount are billed at $1.50 per additional 1 million.
-
 ## PlanetScale Enterprise plan
 
 PlanetScale's Enterprise Plan is great for users that want to scale farther, shard horizontally, and run PlanetScale in a dedicated AWS/GCP account. We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
 
 |                             | **Multi-Tenant** | **Single-Tenant** | **[Managed](/docs/enterprise/managed/overview)** |
 | --------------------------- | ---------------- | ----------------- | ------------------------------------------------ |
-| Resource-based pricing      | ✔               | ✔                | ✔                                               |
 | Horizontal sharding         | ✔               | ✔                | ✔                                               |
 | Unlimited connections       | ✔               | ✔                | ✔                                               |
 | Customizable feature limits | ✔               | ✔                | ✔                                               |
@@ -201,7 +160,7 @@ In general, if you need any of the following, Enterprise may be the best solutio
 - Resource-based pricing
 - Unlimited connections
 - Elegant sharding solution
-- Enhanced support — our expert team becomes an extension of your own
+- Enhanced support &mdash; our expert team becomes an extension of your own
 - You need your database deployed in a single-tenant environment
 - You need to keep your data in **your own** AWS or GCP account
 - You need a PCI DSS certified service provider
