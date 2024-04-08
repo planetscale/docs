@@ -174,7 +174,7 @@ You can add SSO for your organization on the Scaler Pro plan for an additional f
 
 ### User-scheduled backups
 
-We run automatic daily backups for every branch for free. On the Scaler Pro plan, we run automated backups every 12 hours. Disk space for default backups is not counted against your plan's storage limit.
+On the Scaler Pro plan, we run automated backups every 12 hours. Disk space for default backups is not counted against your plan's storage limit.
 
 You can also [schedule additional backups yourself](/docs/concepts/back-up-and-restore#create-manual-backups) as needed. For these additional user-scheduled backups, storage is billed at **$0.023 per GB** per month. Backups include system tables as well as your data and start at around 140MB.
 
