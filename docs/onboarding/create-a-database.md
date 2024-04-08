@@ -6,7 +6,9 @@ date: '2023-08-05'
 
 ## Overview
 
-This article is a continuation of the Onboarding series and is the next step after [creating an account in PlanetScale](/docs/onboarding/create-an-account). We’ll cover:
+This article is a continuation of the Onboarding series and is the next step after [creating an account in PlanetScale](/docs/onboarding/create-an-account). A default organization has been created for you. You can continue with database creation using the default organization or, optionally, create a new one. Follow the optional [organization creation onboarding step](/docs/onboarding/create-an-organization) if you'd like to create a new one. Please note, databases cannot be transferred between organizations.
+
+This doc covers:
 
 - Creating your first database on PlanetScale.
 - Using the Console to create a schema and add some data.
@@ -19,7 +21,7 @@ A schema refers to the structure of the database. The most common parts of a sch
 
 ## Create a database
 
-If you’ve come here directly from creating your account, you should on your organization's overview page where you can choose to either: Create a new database or import a database.
+If you’ve come here directly from creating your account, you should be on your organization's overview page where you can choose to either: Create a new database or import a database.
 
 Click the button to **"Create a new database"**.
 
