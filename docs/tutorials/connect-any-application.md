@@ -31,13 +31,10 @@ There are two ways to generate a new username and password for your branch:
 
 ### Generate credentials in the PlanetScale dashboard
 
-1. On the database dashboard page, select the branch you want to connect to from the **Branch** dropdown.
-2. Click "**Connect**".
-3. Select the applicable language from the "**Connect with**" dropdown or choose "General".
-
-   ![Credentials to connect to PlanetScale {priority}](/assets/docs/tutorials/connect-any-application/credentials-2.png)
-
-4. If the password isn't visible, click "New password".
+1. On the database dashboard page, click the **Connect** button.
+2. Select the database branch that you want to create a password for.
+3. Click the **Create password** button.
+4. Select the applicable language or framework for your application or click "Other".
 5. Copy the credentials.
 6. Paste them in your application's MySQL configuration file (often just a `.env` file). The layout and name of this file will vary depending on the application language, but it may look something like this:
 
@@ -61,7 +58,7 @@ There are two ways to generate a new username and password for your branch:
 
    Again, the variable name here, `MYSQL_ATTR_SSL_CA`, is just an example. The actual name and location for it will depend on the application.
 
-   If you're **unsure what to put here**, we recommend selecting your application's language from the dropdown in the PlanetScale dashboard (see step 3 above) and copy the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
+   If you're **unsure what to put here**, we recommend selecting your application's language or framework from the 2nd section of the Connect page (see step 4 above) and copy the credentials from there. This includes the necessary SSL configuration variables and shows what files they belong in. Additionally, we show you the correct certificate path by default based on your system.
 
 ### Generate credentials in the PlanetScale CLI
 
