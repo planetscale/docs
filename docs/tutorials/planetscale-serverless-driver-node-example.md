@@ -27,15 +27,17 @@ Start by creating a database in PlanetScale by clicking **"New database"** > **"
 
 Name the database `travel_db`. Click **"Create database"**. Wait for the database to finish initializing before moving on.
 
-![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/initializing-2.png)
+![The travel_db initializing.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/initializing.png)
 
 Generate a set of credentials by clicking the **"Connect"** button.
 
-![The Connect button in the PlanetScale dashboard.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard-2.png)
+![The Connect button in the PlanetScale dashboard.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-connect-button-in-the-planetscale-dashboard.png)
 
-Select **"@planetscale/database"** from the options in the **"Connect with"** dropdown. Copy the text from the **".env"** tab as we'll be putting this in the project after it's pulled down from GitHub.
+Copy your password credentials first:
+![The password details.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal.png)
 
-![The Connect modal.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal-2.png)
+Scroll down and select **"database-js"** from the "Select your language or framework" options. Copy the text from the **".env"** section, as we'll be putting this in the project after it's pulled down from GitHub.
+![The password env details.](/assets/docs/tutorials/planetscale-serverless-driver-node-example/the-serverlessjs-connect-modal-env.png)
 
 On your workstation, open a terminal and clone the repository to your computer by running the following command:
 
