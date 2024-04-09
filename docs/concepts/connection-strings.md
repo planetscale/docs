@@ -8,24 +8,16 @@ date: '2023-08-15'
 
 1. To create a password, head to your database dashboard page at `https://app.planetscale.com/<ORGANIZATION>/<DATABASE_NAME>` and click on the "**Connect**" button.
 
-   ![Database dashboard page {priority}](/assets/docs/concepts/connection-strings/connect-2.png)
+2. On the **Connect page**, select the branch you wanted to create a password for, , pick a [password role](/docs/concepts/password-roles), and provide a recognizable name for the new credentials. Clicking `Create password` will then generate a **unique username and password pair** that can only be used to access the designated branch of your database. Take note of this password, as you won't be able to see it again.
 
-2. On this dialog, click the `New password` button and you'll have the opportunity to select the branch to create a password for, pick a [password role](/docs/concepts/password-roles), and provide a recognizable name for the new credentials. Clicking `Create password` will then generate a **unique username and password pair** that can only be used to access the designated branch of your database. Take note of this password, as you won't be able to see it again.
-
-3. Once created, you can browse the connection string in different framework formats by selecting the framework in the "Connect with" dropdown. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
+3. Once created, you can browse the connection string in different framework formats by selecting framework in the "Select your language or framework" section. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
 
 {% callout %}
-You can connect to PlanetScale from any platform that supports MySQL. These connection strings are in place to let you
-hit the ground running. Please let us know if we're missing your favorite framework in this list or if you have any
-suggestions. We support pre-generating connection strings for Go, Java, .Net, PHP, Laravel, Symfony, Prisma, Python,
-Rails, and Rust.
+You can connect to PlanetScale from any platform that supports MySQL. These connection strings are in place to let you hit the ground running. We support generating connection strings for Go, Java, .NET, PHP, Laravel, Symfony, Prisma, Python, Rails, Rust, and more. Please let us know if we're missing your favorite framework in this list or if you have any suggestions.
 {% /callout %}
 
-![Browse connection string in formats](/assets/docs/concepts/connection-strings/formats-2.png)
-
 {% callout type="tip" %}
-Make sure you copy the connection string for your application and the "General" format. We don't save the password in
-clear text, so there's no way to retrieve the password after you leave this page.
+Make sure you copy the credentials for your application and the "Other" format. We do not save the password in plaintext, so there will be no way to retrieve the password after you leave this page.
 {% /callout %}
 
 ## Managing passwords
@@ -38,7 +30,7 @@ You can also create passwords for branches other than `main` on this page.
 
 ![Manage passwords page](/assets/docs/concepts/connection-strings/manage-2.png)
 
-Clicking on the `...` icon on the row for your password allows you to pull up the connection string (except the password), rename it, or delete it.
+Clicking on the `...` icon on the row for your password allows you rename or delete the password.
 
 ## Renaming a password
 
@@ -99,7 +91,7 @@ It may take up to five minutes for all active clients to be disconnected.
 ## No plain text password storage
 
 PlanetScale only stores hashes and metadata about your database passwords.
-To add an extra layer of security to your database, we do not store any passwords in plain text.
+To add an extra layer of security to your database, we do not store any passwords in plaintext.
 
 {% callout %}
 In the event that you lose a password, we cannot recover it for you. We recommend creating a new password with the
@@ -108,4 +100,4 @@ same access level.
 
 ## GitHub Secret Scanning integration
 
-All passwords and service tokens generated for use with PlanetScale databases are part of [GitHub's Secret Scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) program. If any database passwords or service tokens are committed in plain text to any public GitHub repository, we will be notified and take corrective action to delete the access tokens and cut off their access.
+All passwords and service tokens generated for use with PlanetScale databases are part of [GitHub's Secret Scanning](https://docs.github.com/en/code-security/secret-security/about-secret-scanning) program. If any database passwords or service tokens are committed in plaintext to any public GitHub repository, we will be notified and take corrective action to delete the access tokens and cut off their access.
