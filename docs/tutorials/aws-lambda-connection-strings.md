@@ -53,13 +53,11 @@ Toggle on the "**Enable safe migrations**" option and click the "**Enable safe m
 
 ![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations-2.png)
 
-Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button to open the Connect modal.
+Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button to go to the connect page. Enter a name for your password and click the `Create password` button to generate a new password.
 
 ![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted-2.png)
 
-Select **NodeJS** from the **Connect with** dropdown, and note the details in the .env tab of the modal. These details will be required to connect to the database.
-
-![The connection string for this database](/assets/docs/tutorials/aws-lambda-connection-strings/connect-2.png)
+In the **Select your language or framework** section, select **Node.js** and note the details in the `.env` section of the guide. These details will be required to connect to the database.
 
 ## Configure the Lambda function
 
