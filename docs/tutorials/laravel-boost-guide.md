@@ -6,7 +6,7 @@ date: '2022-11-15'
 
 ## How to use PlanetScale Boost in a Laravel application
 
-To enable caching for your connection, you need to set the session variable `boost_query_caching` to `true`. We can do this by adding the following database connection resolver to your `AppServiceProvider`.
+To enable caching for your connection, you need to set the session variable `boost_cached_queries` to `true`. We can do this by adding the following database connection resolver to your `AppServiceProvider`.
 
 ```php
 <?php
@@ -26,7 +26,7 @@ class AppServiceProvider extends ServiceProvider
 
             try {
                 if (Arr::get($config, 'boost_cached_queries') === true) {
-                    $connection->statement('SET GLOBAL boost_cached_queries = 1');
+                    $connection->statement('SET @@boost_cached_queries = true');
                 }
             } catch (\Exception $e) {
                 // Nothing to do here.
