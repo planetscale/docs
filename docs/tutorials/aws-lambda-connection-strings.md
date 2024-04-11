@@ -53,7 +53,7 @@ Toggle on the "**Enable safe migrations**" option and click the "**Enable safe m
 
 ![Enable safe migrations](/assets/docs/tutorials/aws-lambda-connection-strings/safe-migrations-2.png)
 
-Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button to go to the connect page. Enter a name for your password and click the `Create password` button to generate a new password.
+Before moving on from the PlanetScale dashboard, grab the connection details to be used in the next step. Click on the **Connect** button to go to the Connect page. Enter a name for your password, and click the **Create password** button to generate a new password.
 
 ![The dashboard after the database has been promoted](/assets/docs/tutorials/aws-lambda-connection-strings/promoted-2.png)
 

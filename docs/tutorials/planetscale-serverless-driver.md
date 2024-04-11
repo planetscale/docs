@@ -30,7 +30,6 @@ You can get your connection string in the PlanetScale dashboard by clicking on y
 ![Database-js selection {priority}](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials-database-js.png)
 
 Scroll down to the env variables. You'll need this to connect to your database.
-![Serverless driver connection string {priority}](/assets/docs/tutorials/planetscale-serverless-driver/connect-serverless-credentials.png)
 
 Use the `connect` function to create the connection and return it to an object.
 

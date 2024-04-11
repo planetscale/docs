@@ -16,12 +16,12 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 
 ## Create a connection string
 
-Open the `beam-demo` database and click the **"Connect"** button. This will take you to the **Connect** page, where you can generate credentials to connect to your database.
+Open the `beam-demo` database and click the **"Connect"** button. This will take you to the **Connect** page where you can generate credentials to connect to your database.
 
 Enter a name for your password and click the **"Create password"** button to generate a set of credentials. In the
 following section, you can select the language or framework you are using to connect to your database. If you don't see your language or framework listed, you can select **"Other"** to get a generic connection string.
 
-If you want a language-specific guide for your newly created credential, you will be able to select one in the next section. Selecting any of these options not only provides the connection string specific to your environment, but also a sample file that can be used in your code. For example, if you select **"Go"** from the list of options, you’ll be provided a sample **.env** file that contains the connection string as well as a **main.go** file that has the necessary code to connect to PlanetScale using that connection string.
+If you want a language-specific guide for your newly created credential, you will be able to select one in the next section. Selecting any of these options not only provides the connection string specific to your environment, but also a sample file that can be used in your code. For example, if you select **"Go"** from the list of options, you’ll be provided a sample `.env` file that contains the connection string as well as a `main.go` file that has the necessary code to connect to PlanetScale using that connection string.
 
 ## Branches and connection strings
 

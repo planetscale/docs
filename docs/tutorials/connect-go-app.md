@@ -50,7 +50,7 @@ Finally, head to the **"Dashboard"** tab and click **"Connect"**.
 
 ![The location of the Connect button](/assets/docs/tutorials/connect-go-app/connect-2.png)
 
-On the following page, click **"Create password"** to generate a new password for your database. Then click **Go** in the **Select your language or framework** section and copy the contents of the `.env` file, you'll need it for the next section.
+On the following page, click **"Create password"** to generate a new password for your database. Then click **Go** in the **Select your language or framework** section, and copy the contents of the `.env` file. You'll need it for the next section.
 
 ## Run the demo project
 
