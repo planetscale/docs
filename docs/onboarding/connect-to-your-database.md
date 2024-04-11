@@ -16,17 +16,12 @@ This guide continues from the [previous entry](/docs/onboarding/branching-and-de
 
 ## Create a connection string
 
-Open the `beam-demo` database and click the **"Connect"** button.
+Open the `beam-demo` database and click the **"Connect"** button. This will take you to the **Connect** page, where you can generate credentials to connect to your database.
 
-The following modal will provide the information required to connect to your database. If this is your first time accessing the **Connect** modal, the password will be displayed in plain text, otherwise, the password will be masked.
+Enter a name for your password and click the **"Create password"** button to generate a set of credentials. In the
+following section, you can select the language or framework you are using to connect to your database. If you don't see your language or framework listed, you can select **"Other"** to get a generic connection string.
 
-![The Connect to modal.](/assets/docs/onboarding/connect-to-your-database/connect-modal-2.png)
-
-If you need to generate a new password, simply click the **"New password"** button to generate a new set of credentials.
-
-If you want a language/framework-specific connection string, you can use the **"Connect with"** dropdown and pick the option that best suits what you are building with.
-
-Selecting any of these options not only provides the connection string specific to your environment, but also a sample file that can be used in your code. For example, if you select **"Go"** from the list of options, you’ll be provided a sample **.env** file that contains the connection string as well as a **main.go** file that has the necessary code to connect to PlanetScale using that connection string.
+If you want a language-specific guide for your newly created credential, you will be able to select one in the next section. Selecting any of these options not only provides the connection string specific to your environment, but also a sample file that can be used in your code. For example, if you select **"Go"** from the list of options, you’ll be provided a sample **.env** file that contains the connection string as well as a **main.go** file that has the necessary code to connect to PlanetScale using that connection string.
 
 ## Branches and connection strings
 
