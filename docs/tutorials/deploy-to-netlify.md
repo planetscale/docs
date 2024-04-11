@@ -24,12 +24,13 @@ This doc is intended for users that are manually storing a connection string in 
 
 1. In your [PlanetScale dashboard](https://app.planetscale.com), click on the database you want to connect to.
 2. Click "**Connect**".
-3. Select the framework you're using from the "**Connect with**" dropdown. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "General".
+3. Create a new password. Make sure to copy the password, as you'll only be shown it once.
+4. Select the framework you're using from the "**Select your language or framework**" section. This will give you the exact environment variable names you need for your selected framework. If your framework is not listed, choose "Other".
 
-   ![PlanetScale dashboard connect modal {priority}](/assets/docs/tutorials/deploy-to-netlify/prisma-2.png)
+   ![PlanetScale dashboard connect modal {priority}](/assets/docs/tutorials/deploy-to-netlify/prisma.png)
 
-4. If the password is blurred, click "New password" to generate new credentials.
 5. Keep this page open, as you'll need to copy these to Netlify momentarily.
+6. If you navigate away from the page, and can no longer access the password, create a new password by repeating steps 1-5.
 
 ### Copy environment variables to Netlify
 
