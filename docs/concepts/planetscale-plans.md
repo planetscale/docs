@@ -92,8 +92,7 @@ If you have a `main` production branch using the **PS-40** cluster size and two 
 
 ### Development branches
 
-Scaler Pro development branches are billed only for the time that they are used to the nearest second. Scaler Pro databases include
-`hours_in_current_month * 2` of development branch time per month (1,440 hours for a 30 day month) at no additional cost. Any time used over the included is billed at a rate of ~$0.014 per hour (`$10 / hours_in_current_month`). All branches are only billed for the time that they are used, prorated to the second.
+Scaler Pro development branches are billed for the time that they are running, prorated to the nearest second. Scaler Pro databases include `hours_in_current_month * 2` of development branch time per month (1,440 hours for a 30 day month) at no additional cost. Any time used over the included is billed at a rate of ~$0.014 per hour (`$10 / hours_in_current_month`).
 
 {% callout %}
 You can set spend email alerts from your billing page. See the [Spend management documentation](/docs/concepts/billing#spend-management) for more information.
