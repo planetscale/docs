@@ -1,7 +1,7 @@
 ---
 title: Node.js example using the PlanetScale serverless driver
 subtitle: Learn the PlanetScale serverless driver by running a local Node.js project.
-date: '2023-01-30'
+date: '2024-04-11'
 ---
 
 ## Overview

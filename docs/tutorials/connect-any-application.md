@@ -1,7 +1,7 @@
 ---
 title: 'Connect any application to PlanetScale'
 subtitle: 'Connect your PlanetScale database to any application using connection strings or the PlanetScale proxy.'
-date: '2023-06-21'
+date: '2024-04-11'
 ---
 
 ## Introduction

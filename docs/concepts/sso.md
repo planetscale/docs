@@ -1,7 +1,7 @@
 ---
 title: 'Single sign-on'
 subtitle: 'Enable single sign-on (SSO) for increased account security.'
-date: '2022-08-21'
+date: '2024-03-24'
 ---
 
 ## Overview

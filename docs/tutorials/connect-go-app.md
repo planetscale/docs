@@ -1,7 +1,7 @@
 ---
 title: Connect a Go application to PlanetScale
 subtitle: Learn how to use Go with PlanetScale by exploring a demo Go API built with Gin.
-date: '2023-07-11'
+date: '2024-04-11'
 ---
 
 {% vimeo aspect="other" src="https://player.vimeo.com/video/759188218" caption="Connect to PlanetScale with Go" /%}

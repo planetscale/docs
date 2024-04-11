@@ -1,7 +1,7 @@
 ---
 title: 'AWS Lambda connection strings'
 subtitle: 'Learn how to securely use your PlanetScale MySQL connection strings with AWS Lambda Functions'
-date: '2023-06-21'
+date: '2024-04-11'
 ---
 
 ## Introduction

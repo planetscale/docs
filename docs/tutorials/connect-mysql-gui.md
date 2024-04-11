@@ -1,7 +1,7 @@
 ---
 title: 'Connect a MySQL GUI to PlanetScale'
 subtitle: 'Connect to your PlanetScale database using any MySQL GUI application'
-date: '2023-04-05'
+date: '2024-04-11'
 ---
 
 ## Introduction

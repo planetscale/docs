@@ -1,7 +1,7 @@
 ---
 title: Connect to your database
 subtitle: Understand how to connect your application to your PlanetScale database.
-date: '2023-09-05'
+date: '2024-04-11'
 ---
 
 ## Overview

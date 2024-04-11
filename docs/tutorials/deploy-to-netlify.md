@@ -1,7 +1,7 @@
 ---
 title: 'Deploy to Netlify'
 subtitle: 'Learn how to connect your PlanetScale database to deploy on Netlify'
-date: '2022-08-01'
+date: '2024-04-11'
 ---
 
 ## Introduction
