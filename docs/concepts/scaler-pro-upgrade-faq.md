@@ -1,17 +1,15 @@
 ---
 title: 'Upgrading to Scaler Pro - FAQ'
 subtitle: 'Frequently asked questions about upgrading to Scaler Pro.'
-date: '2024-02-20'
+date: '2024-04-12'
 ---
 
 ## Overview
 
-PlanetScale is deprecating the Scaler plan. [Please read our blog post here to learn more](/blog/deprecating-the-scaler-plan).
+PlanetScale has now fully deprecated the Scaler plan. [Please read our blog post here to learn more](/blog/deprecating-the-scaler-plan).
 
-All existing Scaler plan customers will need to upgrade their database to Scaler Pro by April 12, 2024. If they are not upgraded by April 12th, we will automatically
-migrate any remaining databases to Scaler Pro.
+All existing Scaler plan customers who did not upgrade their database or migrate their database by April 12, 2024 have been automatically upgraded to Scaler Pro.
 
-- [How do I upgrade a database to the Scaler Pro plan?](#how-do-i-upgrade-a-database-to-the-scaler-pro-plan-)
 - [How do I select a Scaler Pro cluster size?](#how-do-i-select-a-scaler-pro-cluster-size-)
 - [Does Scaler Pro include autoscaling?](#does-scaler-pro-include-autoscaling-)
 - [How is storage billed for Scaler Pro?](#how-is-storage-billed-for-scaler-pro-)
@@ -22,10 +20,6 @@ migrate any remaining databases to Scaler Pro.
 - [How do I know when to scale up my cluster size?](#how-do-i-know-when-to-scale-up-my-cluster-size-)
 - [How do development branches work on Scaler Pro?](#how-do-development-branches-work-on-scaler-pro-)
 - [What changes with PlanetScale Boost?](#what-changes-with-planetscale-boost-)
-
-## How do I upgrade a database to the Scaler Pro plan?
-
-You can find an `Upgrade` button on the **Plans** tab of the database's settings page. Clicking that button, or the `Upgrade` link on the database dashboard, will display the prices of the various cluster sizes in your database's region and allow you to select a size. Upgrading to the Scaler Pro plan will not require downtime for your database.
 
 ## How do I select a Scaler Pro cluster size?
 
