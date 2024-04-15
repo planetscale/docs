@@ -1,16 +1,12 @@
 ---
 title: 'Webhook events reference'
 subtitle: 'Learn about the webhook events and HTTP responses sent by PlanetScale webhooks.'
-date: '2023-10-26'
+date: '2024-04-15'
 ---
 
 ## Overview
 
 Webhooks in PlanetScale allow you to trigger an HTTP POST callback to a configured URL when specific events happen within your PlanetScale organization. Webhooks can be used to build integrations, such as notifications, and automate workflows. See the [webhooks documentation](/docs/concepts/webhooks) for more information.
-
-{% callout type="note" %}
-Webhooks are currently in beta.
-{% /callout %}
 
 ## Webhook headers
 

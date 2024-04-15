@@ -1,16 +1,12 @@
 ---
 title: 'Webhooks'
 subtitle: 'Automatically trigger HTTP callbacks on events in PlanetScale to build custom integrations, notifications, and workflows.'
-date: '2023-10-26'
+date: '2024-04-15'
 ---
 
 ## Webhooks in PlanetScale
 
 With a webhook in PlanetScale, you can trigger an HTTP POST callback to a configured URL when a specific event occurs within your PlanetScale organization. The callback payload will contain useful data related to the event. With this data, webhooks can be used to build custom integrations, notifications, and automate other workflows.
-
-{% callout type="note" %}
-Webhooks are currently in beta.
-{% /callout %}
 
 Webhooks in PlanetScale are not like MySQL triggers and cannot be triggered on database table events like `INSERT`, `UPDATE`, or `DELETE`. Instead, think of events like:
 
