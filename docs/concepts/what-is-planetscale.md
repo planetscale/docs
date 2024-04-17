@@ -115,11 +115,15 @@ The API is useful for building PlanetScale into other developer tooling for fast
 
 See the [PlanetScale API reference](https://api-docs.planetscale.com) for more information.
 
+### Replicas
+
+Every production PlanetScale branch comes with two [replicas](/docs/concepts/replicas). Replicas are read-only copies of your database that can be used to offload read traffic from your primary. With global replica credentials, you can have one credential that will automatically route queries to your branch's replicas and read-only regions.
+
 ### Read-only regions
 
-Spin up [read-only regions](/docs/concepts/read-only-regions) with the click of a button. For globally distributed applications, it's important to serve your users as close as possible to their location to prevent high read latency.
+Spin up [read-only regions](/docs/concepts/read-only-regions) with the click of a button. For globally distributed applications, read-only regions allow you to place a copy of your data close to your users.
 
-You don't have to worry about complicated replication strategies or manually setting this up on your own. Just go to the dashboard, add a new read-only region, copy the connection string, and add it to your application.
+To query your read-only region, create [a replica credential](/docs/concepts/replicas) for your database. Replica queries will be automatically routed to the nearest read-only region or one of the branch's replicas, whichever has the lowest latency available.
 
 ## Get in touch
 

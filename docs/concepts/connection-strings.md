@@ -13,7 +13,7 @@ date: '2023-08-15'
 3. Once created, you can browse the connection string in different framework formats by selecting framework in the "Select your language or framework" section. This will also show you all of the files you need to modify to get connected with PlanetScale in your framework or language of choice.
 
 {% callout %}
-You can connect to PlanetScale from any platform that supports MySQL. These connection strings are in place to let you hit the ground running. We support generating connection strings for Go, Java, .NET, PHP, Laravel, Symfony, Prisma, Python, Rails, Rust, and more. Please let us know if we're missing your favorite framework in this list or if you have any suggestions.
+There are two connection types for a password: `Primary` and `Replica`. The `Primary` connection type is used to connect to the primary region of your database, while the `Replica` connection type is used to route queries to your branch's replicas and read-only regions. You can create multiple passwords for a branch, each with a different connection type. [Read more about replicas](/docs/concepts/replicas).
 {% /callout %}
 
 {% callout type="tip" %}

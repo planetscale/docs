@@ -1,7 +1,7 @@
 ---
 title: 'Read-only regions'
 subtitle: 'Add additional read-only regions to your production database.'
-date: '2023-10-25'
+date: '2024-04-17'
 ---
 
 ## Overview
@@ -17,7 +17,6 @@ This feature supports globally distributed applications by enabling your databas
 3. Click the "**Add region**" button.
 4. Select the desired AWS region from the dropdown of [available regions](/docs/concepts/regions).
 5. Click "**Add region**" and wait for your data to finish initially replicating across regions.
-6. Optionally, create credentials for your new read-only region by clicking the ellipsis and selecting "**Connect**". The credentials can only be used to connect to this read-only region. Any additional read-only regions will require their own credentials.
 
 ## How to remove a read-only region
 
@@ -25,19 +24,20 @@ This feature supports globally distributed applications by enabling your databas
 2. Click on the "**...**" at the top right of the region that you want to delete.
 3. Click "**Delete region**".
 
-Once you delete a region, you will no longer be charged for the storage or row reads associated with that region.
+Once you delete a region, you will no longer be charged for the storage or row reads associated with that region. If you were using global replica credentials, you do not need to take any additional action. Read queries will still be sent to the closest replica for any queries that are using global replica credentials.
 
 ## How to query a read-only region
 
-Connecting to a read-only region requires using a separate connection string from your primary region.
+Connecting to a read-only region requires using a [replica credential](/docs/concepts/replicas). You can create a global replica credential by following these steps:
 
 1. Go to your database's production branch.
-2. Click on the "**...**" at the top right of the region that you want to connect to.
-3. Click "**Connect**".
+2. Click on the "Connect" button in the top right
+3. On the "Connect" page, select "Replica" as the connection type.
+4. Click "Create password" to generate a new username and password pair.
 
 Alternatively, you can create a connection string by going to your database settings page > "**Passwords**" > "**New password**".
 
-All queries made over this connection will be routed to the read-only region.
+All queries made using this password will be routed to your branch's replicas or the nearest read-only region. If you want to route queries to a specific read-only region, you can go to the "**Passwords**" page within your database's settings page and select the created password. Under "**Database endpoint**", you can then select "**Direct**" and choose your desired host from the "**Host**" dropdown.
 
 ## Concepts
 
