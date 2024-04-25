@@ -78,3 +78,7 @@ You will see your coupon reflected in your monthly invoice. Go to "Settings" > "
 `Amount reflects your $xx.xx discount with code YOURCOUPONCODE`
 
 ![PlanetScale dashboard - Example coupon factored into invoice](/assets/docs/concepts/billing/coupons-in-invoices.png)
+
+## New user credit
+
+New users receive a $10 credit that is automatically applied to your invoice. Once you exceed the $10 credit, you will be billed for any additional usage, storage, and any other paid features you have used. To avoid any additional charges beyond the $10 credit, be sure to delete your database before incurring $10 worth of usage.
