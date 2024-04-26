@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2024-02-14'
+date: '2024-04-26'
 ---
 
 ## Overview
@@ -169,3 +169,9 @@ If you have an open Gated Deployment, you cannot deploy another deploy request u
 {% /callout %}
 
 For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale) blog post.
+
+## Temporary tables
+
+When using deploy requests, you may notice some additional tables in your database ending with a `_vrepl` suffix. These are temporary tables that [VReplication](https://vitess.io/docs/reference/vreplication/vreplication/) creates while running your online schema changes.
+
+We clean them up automatically and they do not count against the storage limits of your selected plan. If you want to learn more about how we perform online schema changes, please refer to our [Online schema change tools article](/docs/learn/how-online-schema-change-tools-work#initializing-the-ghost-table-schema).

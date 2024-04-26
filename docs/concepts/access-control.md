@@ -1,7 +1,7 @@
 ---
 title: 'Access control'
 subtitle: 'Explore roles, permissions, and access control options at an organization and database level.'
-date: '2022-08-01'
+date: '2024-04-26'
 ---
 
 ## Organization access control
@@ -26,13 +26,13 @@ An `Organization Administrator` can perform all actions in an organization, as w
 
 ### Organization Member
 
-An `Organization Member` can only perform limited actions within an organization and on all databases in that organization.
+An `Organization Member` can only perform limited actions within an organization and on all databases in that organization. By default, all users added to an organization have this role.
 
 ### Database Administrator
 
 A `Database Administrator` can perform all actions on the database for which they were assigned the `Databases Administrator` role.
 
-This role is assigned at the **database level** and therefore **does not** have any organization-level permissions. If you want to [grant a member _full_ access to manage one or several databases](#assign-roles-at-a-database-level) but not the organization, then this is the role you want.
+This role is assigned at the **database level** and gives elevated permissions for the particular database that an organization member is the `Database Administrator` of. If you want to [grant a member _full_ access to manage one or several databases](#assign-roles-at-a-database-level) but not full `Organization Administrator` access, then this is the role you want. Please note, a user that is granted this role must be a member of the organization of which the database exists in, so they will have the permissions associated with `Organization Member` as well.
 
 ## Organization-level permissions
 

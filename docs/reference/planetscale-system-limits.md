@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale system limits'
 subtitle: 'Learn about system limits that PlanetScale puts in place to protect your database.'
-date: '2023-03-17'
+date: '2024-04-26'
 ---
 
 ## Table limits
@@ -59,5 +59,9 @@ While it is possible to bypass these safety limits using `OLAP` mode (`SET workl
 
 When the use of OLAP queries is strictly unavoidable, we recommend:
 
-- Where possible, sending those queries to a replica.
+- Where possible, sending those queries to a replica. Every PlanetScale database comes with at least two replicas. Learn how to send queries to replicas using [global replica credentials](/docs/concepts/replicas#how-to-query-replicas).
 - Carefully and regularly reviewing the performance of those queries with [PlanetScale Insights](/docs/concepts/query-insights).
+
+{% callout %}
+Please note that if you choose to use OLAP mode, you need to be prepared to handle errors if the connection to PlanetScale gets interrupted for any reason.
+{% /callout %}
