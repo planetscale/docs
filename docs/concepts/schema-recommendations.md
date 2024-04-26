@@ -80,6 +80,7 @@ The following are the currently supported schema recommendations:
 - [Removing redundant indexes](#removing-redundant-indexes)
 - [Preventing primary key ID exhaustion](#preventing-primary-key-id-exhaustion)
 - [Dropping unused tables](#dropping-unused-tables)
+- [Upgrading legacy character sets and collations](#upgrading-legacy-character-sets-and-collations)
 
 The impact of schema recommendations can vary by recommendation. In the following sections, we will inform you of each recommendation’s potential impacts and explain the recommendation further.
 
@@ -196,3 +197,60 @@ Insights scans your query performance data daily to identify if any tables are m
 
 - Only you can know if the table’s data is no longer needed. Ensure that the table is never used (even infrequently) and does not contain important data before removing it.
 - Once a drop unused table recommendation is opened, it will remain open even if it is subsequently queried. Check your Insights data to verify that the table is still unused before permanently dropping it.
+
+### Upgrading legacy character sets and collations
+
+All non-binary string columns, such as `CHAR`, `VARCHAR` and `TEXT`, have an associated character set and collation. The character set represents the range of valid characters and how they are stored. The collation controls how values are compared, such as in `ORDER BY` clauses and `UNIQUE KEY`s. Over time MySQL has added support for new character sets and collations. The most recent character sets and collations have numerous advantages over their legacy counterparts.
+
+- Full Unicode support including emoji
+- Improved performance
+- Improved sort order for multi-byte characters
+- Awareness of trailing spaces in comparisons
+
+For these reasons we suggest using the `uftmb4` character set and the `utf8mb4_0900_*` collations. Unless you need byte-level comparisons (`utf8mb4_0900_bin`) or language-specific comparisons (e.g. `utf8mb4_0900_es_*` for spanish), we recommend using MySQL's default collation `utf8mb4_0900_ai_ci`.
+
+{% callout %}
+`0900` in the name of MySQL's modern collations [refers to](https://dev.mysql.com/blog-archive/mysql-character-sets-unicode-and-uca-compliant-collations/) version 9.0.0 of the Unicode Collation Algorithm. `ai` and `ci` stand for accent insensitive and case insensitive, respectively. Accent and case sensitive collations are also available. To see a list of all available character sets and collations, connect to your database and run `show collation;`. When in doubt, use `utf8mb4_0900_ai_ci`.
+{% /callout %}
+
+{% callout %}
+The `utf8` character set is, for compatibility reasons, an alias for `utf8mb3`. We suggest the `utf8mb4` character set instead.
+{% /callout %}
+
+#### Caveats
+
+##### Joins
+
+Before upgrading from a legacy character set/collation, it is important to ensure there are no joins on string columns that will become incompatible after the upgrade. For example, if you issue the query
+
+```sql
+select * from t1 inner join t2 on t1.name = t2.name
+```
+
+both `t1.name` and `t2.name` need to have have identical character sets and collations. If the character sets are the same but the collations are different, the query will fail. If the character sets are different, the query will succeed but will be unable to make use of indexes, which can cause unexpected table scans and dramatically degrade performance for large tables.
+
+Character set/collation upgrade recommendations are not created for tables with a recent history of joins on string columns. However, we cannot automatically detect all join types so it is important to verify that your application does not join on a table's string columns prior to deploying a recommendation that would alter its character set or encoding.
+
+To upgrade the character sets or collations for tables that have string column joins, we recommend upgrading both tables to the same character set and collation in a single deploy request to minimize disruption.
+
+##### Length limits
+
+{% callout %}
+Length limit issues only apply when upgrading from `utf8mb3` to `utf8mb4` character sets. Collation-only changes are unaffected.
+{% /callout %}
+
+When upgrading from `utf8mb3` to `utf8mb4`, it is possible that some adjustments will have to be made to column types. Because `utf8mb3` is a subset of `utf8mb4`, existing data will not increase in size. However, `utf8mb4` requires _up to_ four bytes per character instead of _up to_ three. Because of the this, some column type changes may be required.
+
+Some data type changes occur automatically when applying the recommendation. `TEXT`-type columns increase to the next largest size (`TEXT` becomes `MEDIUMTEXT`, `MEDIUMTEXT` becomes `LONGTEXT` etc). Because `utf8mb4` possibly requires an extra byte per character, and `TEXT`-type columns are defined by the maximum number of _bytes_, not characters, these columns are upgraded to ensure the ability to store at least the same number of _characters_ in the column before and after the `CONVERT TABLE` command in the recommendation. If storing fewer maximum-length characters is acceptable, you can alter the deploy request produced by the recommendation to restore the original `TEXT`-type column definitions.
+
+Other data type changes may need to be made manually. For example, the column definition `VARCHAR(20000) CHARACTER SET utf8mb3` is legal, because 20,000 characters \* 3 bytes per character = 60,000 bytes and `VARCHAR` columns can accommodate up to 65,535 bytes. However, when attempting to convert this column's character set to `utf8mb4`, the number of bytes required to store 20,000 4-byte characters (80,000 bytes) is over the `VARCHAR` byte limit. In this case, the `VARCHAR` length can be decreased, or the column can be changed to `MEDIUMTEXT`.
+
+Migrating from `utf8mb3` to `utf8mb4` may cause indexes on string columns to exceed the maximum number of bytes per entry (the maximum is dependent on the row format). If this happens, an index prefix length can be added or the existing prefix length can be reduced to bring the number of bytes under the limit.
+
+For more details, see the [MySQL docs for utf8mb3 to utf8mb4 conversion](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-conversion.html).
+
+##### Padding
+
+Legacy MySQL collations ignore trailing whitespace. For example `SELECT * FROM t WHERE a = 'a'` and `SELECT * FROM t where a = 'a      '` (note trailing whitespace) are functionally identical if column `a` has a legacy MySQL character set. Usually trailing space-aware comparisons are more in line with developer expectations, but it is important to verify that this change in behavior won't adversely affect your application.
+
+For more details, wee the [MySQL docs for collation padding](https://dev.mysql.com/doc/refman/8.0/en/charset-unicode-sets.html#charset-unicode-sets-pad-attributes)
