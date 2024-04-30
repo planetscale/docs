@@ -111,7 +111,7 @@ You can also sort the columns for quick analysis by clicking on the title at the
 
 ### Query filtering
 
-The search bar above the table allows you to filter queries as needed. You can filter for table name, tag name, tag value, user name, exact string match, query count, multisharded queries, and [Boosted](/docs/concepts/query-caching-with-planetscale-boost) queries. Click on the `?` next to the search bar for the full list of search syntax.
+The search bar above the table allows you to filter queries as needed. You can filter for query SQL, table name, tag name, tag value, user name, query count, query latency, multisharded queries, and [Boosted](/docs/concepts/query-caching-with-planetscale-boost) queries. Click on the `?` next to the search bar for the full list of search syntax.
 
 ### Query deep dive
 
