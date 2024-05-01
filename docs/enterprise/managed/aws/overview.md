@@ -7,7 +7,7 @@ date: '2023-11-15'
 
 ## Overview
 
-With PlanetScale Managed on Amazon Web Services (AWS) is a single-tenant deployment of PlanetScale in your AWS organization within an isolated sub-account. In this configuration, you can use the same API, CLI, and web interface that PlanetScale offers, with the benefit of running entirely in an AWS sub-account that you own and PlanetScale manages for you.
+PlanetScale Managed on Amazon Web Services (AWS) is a single-tenant deployment of PlanetScale in your AWS organization within an isolated sub-account. In this configuration, you can use the same API, CLI, and web interface that PlanetScale offers, with the benefit of running entirely in an AWS sub-account that you own and PlanetScale manages for you.
 
 ## Architecture
 
