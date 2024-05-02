@@ -88,7 +88,7 @@ You can use `pscale branch create` to create a branch that matches your GitHub b
     PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
   run: |
     set +e
-    pscale branch show ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }}
+    pscale branch show ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --org ${{ secrets.PLANETSCALE_ORG_NAME }}
     exit_code=$?
     set -e
 
@@ -96,7 +96,7 @@ You can use `pscale branch create` to create a branch that matches your GitHub b
       echo "Branch exists. Skipping branch creation."
     else
       echo "Branch does not exist. Creating."
-      pscale branch create ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --wait
+      pscale branch create ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --wait --org ${{ secrets.PLANETSCALE_ORG_NAME }}
     fi
 ```
 
@@ -114,7 +114,7 @@ You can use `pscale password create` to generate credentials for your database b
     PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
     PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
   run: |
-    response=$(pscale password create ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} -f json)
+    response=$(pscale password create ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} -f json --org ${{ secrets.PLANETSCALE_ORG_NAME }})
 
     id=$(echo "$response" | jq -r '.id')
     host=$(echo "$response" | jq -r '.access_host_url')
@@ -167,7 +167,7 @@ trigger the deploy request to run before you deploy your application.
     PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
     PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
   run: |
-    deploy_request_number=$(pscale deploy-request show ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} -f json | jq -r '.number')
+    deploy_request_number=$(pscale deploy-request show ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --org ${{ secrets.PLANETSCALE_ORG_NAME }} -f json | jq -r '.number')
     echo "DEPLOY_REQUEST_NUMBER=$deploy_request_number" >> $GITHUB_ENV
 ```
 
@@ -188,7 +188,7 @@ This example is useful when combined with opening a deploy request for a git bra
     echo "Deploy request opened: https://app.planetscale.com/${{ secrets.PLANETSCALE_ORG_NAME }}/${{ secrets.PLANETSCALE_DATABASE_NAME }}/deploy-requests/${{ env.DEPLOY_REQUEST_NUMBER }}" >> migration-message.txt
     echo "" >> migration-message.txt
     echo "\`\`\`diff" >> migration-message.txt
-    pscale deploy-request diff ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.DEPLOY_REQUEST_NUMBER }}  -f json | jq -r '.[].raw' >> migration-message.txt
+    pscale deploy-request diff ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.DEPLOY_REQUEST_NUMBER }} --org ${{ secrets.PLANETSCALE_ORG_NAME }} -f json | jq -r '.[].raw' >> migration-message.txt
     echo "\`\`\`" >> migration-message.txt
 - name: Comment PR - db migrated
   uses: thollander/actions-comment-pull-request@v2
@@ -213,7 +213,7 @@ generating the DDL statements to make the change. Once it's done, we then use th
       PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
     run: |
       for i in {1..10}; do
-        deployment_state=$(pscale deploy-request show ${{ secrets.PLANETSCALE_ORG_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --format json | jq -r '.deployment_state')
+        deployment_state=$(pscale deploy-request show ${{ secrets.PLANETSCALE_ORG_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --org ${{ secrets.PLANETSCALE_ORG_NAME }} --format json | jq -r '.deployment_state')
         echo "Deployment State: $deployment_state"
 
         if [ "$deployment_state" = "ready" ]; then
@@ -277,5 +277,5 @@ The `--wait` flag will let the command run until the deployment is complete. Thi
     PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
     PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
   run: |
-    pscale deploy-request deploy ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --wait
+    pscale deploy-request deploy ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} --org ${{ secrets.PLANETSCALE_ORG_NAME }} --wait
 ```
