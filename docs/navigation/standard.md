@@ -244,6 +244,8 @@
           slug: '/docs/concepts/secure-connections'
         - label: 'Password roles'
           slug: '/docs/concepts/password-roles'
+        - label: 'AWS PrivateLink'
+          slug: '/docs/concepts/private-connections'
     - label: 'Account access'
       items:
         - label: 'Authentication methods'
