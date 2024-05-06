@@ -31,7 +31,7 @@ connection.
 If you have `pscale` installed locally, you can create a replica credential with the following command:
 
 ```shell
-pscale password create <database> <branch> --replica
+pscale password create <database> <branch> <password_name> --replica
 ```
 
 All queries made using this credential will be routed to the nearest replica, even as you add and remove read-only regions.
