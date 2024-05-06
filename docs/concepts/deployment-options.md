@@ -1,7 +1,7 @@
 ---
 title: 'Deployment options'
 subtitle: 'Learn about the different deployment options PlanetScale offers.'
-date: '2023-10-16'
+date: '2024-05-03'
 ---
 
 ## Overview
@@ -23,6 +23,7 @@ Multi-tenancy is the default deployment option. When you sign up for a PlanetSca
 - Lowest cost plans
 - No configuration requirements on your end
 - BAAs available for HIPAA compliance
+- [Private connection support](/docs/concepts/private-connections) via AWS PrivateLink
 
 ## Single-tenancy deployment on PlanetScale
 

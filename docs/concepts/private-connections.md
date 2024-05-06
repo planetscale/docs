@@ -1,12 +1,13 @@
 ---
 title: 'Connecting to PlanetScale privately on AWS'
 subtitle: 'How to connect to PlanetScale privately on AWS via PrivateLink.'
-date: '2024-05-02'
+date: '2024-05-06'
 ---
 
 ## Connecting to PlanetScale privately via AWS PrivateLink
 
-When your compliance mandates that your connections do not route through the public Internet, PlanetScale provides private connection endpoints to AWS regions via [AWS PrivateLink](https://aws.amazon.com/privatelink/).
+When your compliance mandates that your connections do not route through the public Internet, PlanetScale provides private connection endpoints to AWS regions via [AWS PrivateLink](https://aws.amazon.com/privatelink/). Private connections are included on Scaler Pro plans. There is no additional charge on PlanetScale's end, but this may impact your AWS bill.
+
 Below is a list of instructions to set up your Virtual Private Cloud (VPC) to utilize a VPC endpoint when communicating with PlanetScale databases.
 
 ## Establishing a VPC endpoint

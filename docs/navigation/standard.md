@@ -54,6 +54,8 @@
           slug: '/docs/concepts/connection-strings'
         - label: 'Network latency'
           slug: '/docs/concepts/network-latency'
+        - label: 'Private connections'
+          slug: '/docs/concepts/private-connections'
     - label: 'Querying PlanetScale'
       items:
         - label: 'Web console'
@@ -240,12 +242,12 @@
       items:
         - label: 'Connection strings'
           slug: '/docs/concepts/connection-strings'
+        - label: 'Private connections'
+          slug: '/docs/concepts/private-connections'
         - label: 'Secure connections'
           slug: '/docs/concepts/secure-connections'
         - label: 'Password roles'
           slug: '/docs/concepts/password-roles'
-        - label: 'AWS PrivateLink'
-          slug: '/docs/concepts/private-connections'
     - label: 'Account access'
       items:
         - label: 'Authentication methods'

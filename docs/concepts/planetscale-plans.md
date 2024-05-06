@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-04-03'
+date: '2024-05-03'
 ---
 
 ## Overview
@@ -146,6 +146,7 @@ PlanetScale's Enterprise Plan is great for users that want to scale farther, sha
 | Unlimited connections       | ✔               | ✔                | ✔                                               |
 | Customizable feature limits | ✔               | ✔                | ✔                                               |
 | BAAs available              | ✔               | ✔                | ✔                                               |
+| Private connections         | ✔               | ✔                | ✔                                               |
 | PCI compliant               | ❌               | ❌                | ✔ (on AWS)                                      |
 | Dedicated AWS/GCP account   | ❌               | ✔                | ✔                                               |
 | Your own AWS/GCP account    | ❌               | ❌                | ✔                                               |

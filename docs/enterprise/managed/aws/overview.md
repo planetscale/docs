@@ -2,7 +2,7 @@
 title: 'PlanetScale Managed on AWS overview'
 subtitle: 'Learn more about deploying PlanetScale in your Amazon Web Services account with our PlanetScale Managed plan.'
 label: 'Managed'
-date: '2023-11-15'
+date: '2024-05-03'
 ---
 
 ## Overview
@@ -37,7 +37,7 @@ If you have any questions or concerns related to the security and compliance of 
 
 ### AWS PrivateLink
 
-By default, all connections are encrypted, but public. Optionally, you also have the option to use private database connectivity through [AWS PrivateLink](/docs/enterprise/managed/aws/privatelink), which is only available on single-tenancy deployment options, including PlanetScale Managed.
+By default, all connections are encrypted, but public. Optionally, you also have the option to use private database connectivity through [AWS PrivateLink](/docs/enterprise/managed/aws/privatelink).
 
 ### Fully private network isolation
 
