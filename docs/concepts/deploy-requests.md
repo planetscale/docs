@@ -32,7 +32,7 @@ Once you create a deploy request, you or your team can review it and, optionally
 
 PlanetScale will check if the request is deployable. This process includes checking for issues like:
 
-- [Missing unique keys](/docs/learn/change-single-unique-key)
+- [Incompatible unique keys](/docs/learn/onlineddl-change-unique-keys)
 - Invalid charsets (PlanetScale supports `utf8`, `utf8mb4`, `utf8mb3`, `latin1`, and `ascii`)
 - Invalid foreign key constraint names or lengths
 - And other various checks to ensure successful schema changes

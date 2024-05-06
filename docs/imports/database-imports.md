@@ -186,7 +186,7 @@ Below are a few common errors you may encounter while importing or connecting to
 
 #### No unique key
 
-PlanetScale requires that all tables have a unique, not-null key that remains unchanged during the migration. If you run into this error, read through our [Change single unique key documentation](/docs/learn/change-single-unique-key#how-to-change-a-tables-single-unique-key) for more information.
+PlanetScale requires that all tables have a unique, not-null key. When you modify a table, both the old and the new schema must have a unique key as described, and the columns covered by those keys must exist in both the old and the new schema. If you run into this error, read through our [Changing unique keys documentation](/docs/learn/onlineddl-change-unique-keys) for more information.
 
 It may also help to check out the official [MySQL documentation about Primary Keys](https://dev.mysql.com/doc/refman/8.0/en/partitioning-limitations-partitioning-keys-unique-keys.html).
 

@@ -158,8 +158,8 @@
           slug: '/docs/learn/how-to-make-different-types-of-schema-changes'
         - label: 'Handling table and column renames'
           slug: '/docs/learn/handling-table-and-column-renames'
-        - label: 'Change single unique key'
-          slug: '/docs/learn/change-single-unique-key'
+        - label: 'Changing primary and unique keys'
+          slug: '/docs/learn/onlineddl-change-unique-keys'
     - label: 'Foreign key constraints'
       items:
         - label: 'Foreign key constraints support'
