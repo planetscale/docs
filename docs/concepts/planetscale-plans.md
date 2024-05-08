@@ -118,7 +118,7 @@ There are also special cases where you may want to temporarily upsize out of cau
 
 If you are migrating from an existing cloud provider with resource-based pricing, be sure to compare your currently selected instance with our available **Scaler Pro** cluster sizes.
 
-Keep in mind, each database comes with a production branch with two replicas, as well as 1,440 hours worth of development branches. The development branchesessentially equate to two extra "always on" databases. In many cases, you can deprecate your dev/staging databases that you pay extra for with other providers in favor of the development branches. In the end, this usually results in significant cost savings.
+Keep in mind, each database comes with a production branch with two replicas, as well as 1,440 hours worth of development branches. The development branches essentially equate to two extra "always on" databases. In many cases, you can deprecate your dev/staging databases that you pay extra for with other providers in favor of the development branches. In the end, this usually results in significant cost savings.
 
 Databases in PlanetScale also come with additional beneficial infrastructure that is not easily configured or available in other hosted database solutions. For more information on what is provisioned with each database, read our [Architecture](/docs/concepts/architecture) doc.
 

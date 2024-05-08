@@ -198,8 +198,12 @@
 - label: 'Scaling your database'
   icon: 'scale'
   items:
+    - label: 'Cluster sizing'
+      slug: '/docs/concepts/cluster-sizing'
     - label: 'Sharding with PlanetScale'
       slug: '/docs/concepts/sharding'
+    - label: 'Replicas'
+      slug: '/docs/concepts/replicas'
     - label: 'Read-only regions'
       slug: '/docs/concepts/read-only-regions'
     - label: 'PlanetScale system limits'
