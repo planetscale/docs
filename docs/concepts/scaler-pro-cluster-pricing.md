@@ -13,7 +13,7 @@ The additional development branches can replace your existing development or sta
 
 You can upsize and downsize your cluster at any time. Pricing is pro-rated to the millisecond, so if you temporarily upsize, you will only be charged for the larger cluster size for the time that it was running.
 
-The read-only region prices below are an additional cost if you choose to utilize [read replicas](/docs/concepts/read-only-region) across multiple regions.
+The read-only region prices below are an additional cost if you choose to utilize [read replicas](/docs/concepts/read-only-regions) across multiple regions.
 
 For production branches, the pricing below includes 10 GB of storage, and is billed at $1.50 per additional 1 GB thereafter.
 
