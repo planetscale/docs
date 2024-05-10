@@ -21,14 +21,10 @@ The service producer is the Google Cloud project controlled by PlanetScale, and 
 
 GCP PSC requires multiple components:
 
-- A Private Service Connect [Service Attachment](https://cloud.google.com/vpc/docs/private-service-connect#service-attachments) deployed in the project that PlanetScale controls.
+- A Private Service Connect [Service Attachment](https://cloud.google.com/vpc/docs/private-service-connect#service-attachments) (also known as a Published Service) deployed in the project that PlanetScale controls on your behalf.
 - A Private Service Connect [Endpoint](https://cloud.google.com/vpc/docs/private-service-connect#endpoints) deployed in the project(s) that your applications operate in.
 
 Once all components are operating correctly, the applications in the project with the endpoint configured will connect to the service attachment using private IP addresses instead of the publicly accessible endpoint.
-
-### Limitations
-
-Cross-region connectivity is not supported by Google Cloud for Private Service Connect. For example, if your PlanetScale databases are located in `us-central1` and your applications are located in `us-east4`, then you cannot connect to them using Private Service Connect.
 
 ## Step 1: Initiating the setup process
 
@@ -38,7 +34,7 @@ If you would like to initiate the process, please contact your Solutions Enginee
 Google Cloud project IDs cannot be changed after initial setup. Please be sure to choose an ID that you will continue to use.
 {% /callout %}
 
-Once they receive your project IDs and forward them to the team responsible for provisioning your deployment, the team will provide them (and ultimately you) with the Private Service Connect Service Attachment URI, which will be in the form `projects/SERVICE_PROJECT/regions/REGION/serviceAttachments/SERVICE_NAME`.
+Once they receive your project IDs and forward them to the team responsible for provisioning your deployment, the team will provide them (and ultimately you) with the Private Service Connect Service Attachment URI, which will be in the form `projects/PROJECT/regions/REGION/serviceAttachments/SERVICE_NAME`.
 
 {% callout type="warning" %}
 If you use VPC Service Controls in your VPC, you must ensure that the policy allows access to the PlanetScale-controlled project.
@@ -46,70 +42,86 @@ If you use VPC Service Controls in your VPC, you must ensure that the policy all
 
 Your Solutions Engineer will provide you the following information when the setup is complete:
 
-- `PS_Region`
-- `PSC_Link_URI`
+- `Endpoint Name` (example: `rmqmwz7pgrjo-uscentral1`)
+- `Target Service` (example: `projects/PROJECT/regions/REGION/serviceAttachments/SERVICE_NAME`)
+
+You will use these values when configuring the Private Service Connect in your application projects.
 
 ## Step 2: Establishing Private Service Connect
 
 {% callout type="warning" %}
-Only proceed to the next steps once a PlanetScale Solutions Engineer has provided the `PS_Region` and `PSC_Link_URI`.
+Only proceed to the next steps once a PlanetScale Solutions Engineer has provided the `Endpoint Name` and `Target Service`.
 {% /callout %}
 
-Refer to Google Cloud's [Access managed services using Private Service Connect](https://cloud.google.com/vpc/docs/configure-private-service-connect-services) for more information on consuming services via Private Service Connect. This document covers additional details not covered here, including the IAM roles required to perform the configuration process.
+Refer to Google Cloud's [Access published services through endpoints](https://cloud.google.com/vpc/docs/configure-private-service-connect-services) document for more information on connecting to services via Private Service Connect. This document covers additional details not covered here, including the IAM roles required to perform the configuration process.
 
 ### Using the GCP console
 
 The following steps are an example of establishing a Private Service Connect endpoint in the [GCP Console](https://console.cloud.google.com/).
 
-1. Obtain the Private Service Connect Attachment URI from your Solutions Engineer. It will be in the format: `projects/SERVICE_PROJECT/regions/REGION/serviceAttachments/SERVICE_NAME`.
+1. Obtain the Private Service Connect Attachment URI (`Target Service`) from your Solutions Engineer. It will be in the format: `projects/PROJECT/regions/REGION/serviceAttachments/SERVICE_NAME`.
 
-2. Create a Private Service Connect Endpoint using the Attachment URI. In the GCP console, go to ["Private Service Connect"](<(https://console.cloud.google.com/net-services/psc)>) page, select the "**Connected endpoints**" tab, and select the "**Connect endpoint**" button.
+2. Create a Private Service Connect Endpoint. In the GCP console, go to ["Network Service > Private Service Connect"](<(https://console.cloud.google.com/net-services/psc)>) page, select the "**Connected endpoints**" tab, and select the "**+ Connect endpoint**" button.
 
 3. Add a Private Service Connect Endpoint with the following details:
 
-- **Target**: Published Service. This is the `PSC_Link_URI` provided by your Solutions Engineer.
-- **Target Service**: Paste the Private Service Connect Attachment URI from step 1.
-- **Name**: Enter a name for this endpoint. Use the `PS_Region` value provided by your Solutions Engineer.
-- **Network and subnet**: Select the network to create the endpoint in.
-- **Create and IP Address**: Create a reserved IP address. This is the address your applications will connect to to access your PlanetScale databases. PlanetScale recommends using the `PS_Region` name for the name of the reserved IP address.
+- **Target**: Published Service.
+- **Target Service**: Paste the `Target Service` attachment URI provided by your Solutions Engineer in step 1.
+- **Name**: This is the `Endpoint Name` provided by your Solutions Engineer.
+- **Network and subnet**: Select the network (VPC) to create the endpoint in. The endpoint will reserve a static IP address in the subnet. The VPC and subnet must be reachable by the applications you intend to connect to your PlanetScale databases from.
+- **Create an IP Address**: Create a reserved IP address. This is the address your applications will use to access your PlanetScale databases. PlanetScale recommends using the `Endpoint Name` for the name of the reserved IP address for consistency, but you may use any name.
+- **Enable Global Access**: PlanetScale recommends enabling this option. When enabled this allows applications in other regions to reach the PSC endpoint.
 
-Then, add the endpoint.
+Finally, click **Add Endpoint** to start the process. Setup will take approximately 1-2 minutes.
 
 ![connect_endpoint_details](/assets/docs/managed/gcp/private-service-connect/connect_endpoint_details.png)
 
-{% callout type="note" %}
-You must provide the list of projects to your Solutions Engineer. Your endpoint will only function once they have PlanetScale added to the allowlist.
-{% /callout %}
-
-4. The endpoint creation process will take a minute or two. When finished, select the endpoint and verify the status is **Accepted**.
-
-Repeat steps 2-4 for **each project** you wish to connect to the Private Service Connect Attachment.
+4. The endpoint creation process will take a minute or two. When finished, select the endpoint and verify the status is **Accepted**:
 
 ![Showing endpoint status as "Accepted"](/assets/docs/managed/gcp/private-service-connect/endpoint_status.png)
 
-## Step 3: Private Cloud DNS
+{% callout type="note" %}
+You must provide the list of projects you wish to connect from to your Solutions Engineer. Your endpoint will only function once they have been added to the allowlist in the published service.
+{% /callout %}
 
-Next, you will set up a private Cloud DNS zone. This step may be optional. This step aims to make it possible to use the same PlanetScale connection strings and host names inside and outside of the project. When these host names are resolved inside the project, they will resolve to the IP address of the Private Service Connect Endpoint. When resolved anywhere else, they will resolve to the public IP address.
+Repeat steps 2-4 to create an endpoint in **each project** you wish to connect to the Private Service Connect Attachment.
 
-When connecting to the PlanetScale Private Service Connect Endpoint directly via IP address or an alternate host name, you may need to disable TLS verification due to host name mismatch.
+## Step 3: Verifying Connectivity
 
-1. Create a private Cloud DNS zone. In the GCP console, go to the ["Create a DNS zone"](https://console.cloud.google.com/net-services/dns/zones/new/create) page.
+## DNS
 
-- **Zone type**: `Private`
-- **Zone name**: `connect-psdb-cloud`
-- **DNS Name**: `connect.psdb.cloud`
-- **Options**: `Default (private)`
-- **Network**: Select all VPCs where this DNS zone should be available.
+{% callout type="note" %}
+Published Private Service Connect services created after **May 8, 2024** will automatically create a private Cloud DNS zone in the project where the PSC consumer endpoints are created.
 
-![cloud_dns_zone_details](/assets/docs/managed/gcp/private-service-connect/cloud_dns_zone_details.png)
+PSC services published before **May 8, 2024** will need to create a private Cloud DNS zone and configure records pointing to the PSC endpoint IP's manually if you wish to us DNS names to connect to your PlanetScale databases. The IP is static and so risk of it changing is low. If you delete and recreate a PSC endpoint and change the IP it is is assigned you should update your DNS records.
 
-2. Create DNS records. For each PlanetScale Private Service connect endpoint, create a DNS record with the following details by opening the zone's details page in the GCP Console.
+Google maintains additional documentation covering DNS and Private Service Connect here:
 
-![add_record_set](/assets/docs/managed/gcp/private-service-connect/add_record_set.png)
+- [Automatic DNS configuration for Service Consumers](https://cloud.google.com/vpc/docs/dns-vpc-hosted-services#auto-dns-consumer)
+- [Other ways to configure DNS for Service Consumers](https://cloud.google.com/vpc/docs/configure-private-service-connect-services#other-dns)
+  {% /callout %}
 
-- **DNS name**: Use the **PS_Region** value provided by your Solutions Engineer.
-- **IP Address**: The reserved IP address assigned to the Private Service Connect Endpoint created in the first section of this document. You can also find this on the Private Service Connect page in the GCP Console.
+Private Service Connect services created by PlanetsCale after May 8, 2024 are configured to automatically create a private Cloud DNS zone in the project where the PSC consumer endpoints are created.
 
-![record_set_details](/assets/docs/managed/gcp/private-service-connect/record_set_details.png)
+The domain name used is `private-connect.psdb.cloud`. Your consumer endpoints will be available via DNS records visible only within your VPC using the format:
 
-Repeat steps 1-2 for **each project** you wish to connect to set up Private Cloud DNS for.
+- `<Endpoint-Name>.private-connect.psdb.cloud`
+
+If your endpoint was creatd with automatic DNS or your created your own DNS records manually you can verify resolution with `dig`, eg:
+
+```shell
+$ dig +short rmqmwz7pgrjo-uscentral1.private-connect.psdb.cloud
+10.0.1.2
+```
+
+## Test Connectivity
+
+A simple way to test connectivity is to create a new VM or use an existing VM (or Kubernetes pod) within the same VPC and subnet as your created the endpoint in:
+
+And to test reachability you can use netcat (`nc`):
+
+```shell
+$ nc -v rmqmwz7pgrjo-uscentral1.private-connect.psdb.cloud 3306
+Connection to rmqmwz7pgrjo-uscentral1.private-connect.psdb.cloud (10.0.1.2) 3306 port [tcp/mysql] succeeded!
+8.0.34-PlanetScale/l+&?;
+```
