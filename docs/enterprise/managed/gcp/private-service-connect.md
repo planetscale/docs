@@ -42,7 +42,7 @@ If you use VPC Service Controls in your VPC, you must ensure that the policy all
 
 Your Solutions Engineer will provide you the following information when the setup is complete:
 
-- `Endpoint Name` (example: `rmqmwz7pgrjo-uscentral1`)
+- `Endpoint Name` (example: `izkpm55j334u-uscentral1`)
 - `Target Service` (example: `projects/PROJECT/regions/REGION/serviceAttachments/SERVICE_NAME`)
 
 You will use these values when configuring the Private Service Connect in your application projects.
@@ -91,17 +91,18 @@ Repeat steps 2-4 to create an endpoint in **each project** you wish to connect t
 ## DNS
 
 {% callout type="note" %}
-Published Private Service Connect services created after **May 8, 2024** will automatically create a private Cloud DNS zone in the project where the PSC consumer endpoints are created.
+Private Service Connect services created after **May 8, 2024** will automatically create private Cloud DNS records in the project where the PSC consumer endpoints are created.
 
-PSC services published before **May 8, 2024** will need to create a private Cloud DNS zone and configure records pointing to the PSC endpoint IP's manually if you wish to us DNS names to connect to your PlanetScale databases. The IP is static and so risk of it changing is low. If you delete and recreate a PSC endpoint and change the IP it is is assigned you should update your DNS records.
+PSC services published before **May 8, 2024** may need to create a private Cloud DNS zone and configure records pointing to the PSC endpoint IP's manually if you wish to use DNS names to connect to your PlanetScale databases.
 
 Google maintains additional documentation covering DNS and Private Service Connect here:
 
 - [Automatic DNS configuration for Service Consumers](https://cloud.google.com/vpc/docs/dns-vpc-hosted-services#auto-dns-consumer)
 - [Other ways to configure DNS for Service Consumers](https://cloud.google.com/vpc/docs/configure-private-service-connect-services#other-dns)
-  {% /callout %}
 
-Private Service Connect services created by PlanetsCale after May 8, 2024 are configured to automatically create a private Cloud DNS zone in the project where the PSC consumer endpoints are created.
+{% /callout %}
+
+Private Service Connect endpoints automatically create a private DNS records in the project where the PSC consumer endpoints are created that resolve to the endpoint's reserved IP.
 
 The domain name used is `private-connect.psdb.cloud`. Your consumer endpoints will be available via DNS records visible only within your VPC using the format:
 
@@ -110,18 +111,15 @@ The domain name used is `private-connect.psdb.cloud`. Your consumer endpoints wi
 If your endpoint was creatd with automatic DNS or your created your own DNS records manually you can verify resolution with `dig`, eg:
 
 ```shell
-$ dig +short rmqmwz7pgrjo-uscentral1.private-connect.psdb.cloud
-10.0.1.2
+$ dig +short izkpm55j334u-uscentral1.private-connect.psdb.cloud
+10.128.0.14
 ```
 
 ## Test Connectivity
 
-A simple way to test connectivity is to create a new VM or use an existing VM (or Kubernetes pod) within the same VPC and subnet as your created the endpoint in:
-
-And to test reachability you can use netcat (`nc`):
+Run `curl https://<Endpoint-Name>.private-connect.psdb.cloud` to verify your connectivity. A successful response will yield `Welcome to PlanetScale`.
 
 ```shell
-$ nc -v rmqmwz7pgrjo-uscentral1.private-connect.psdb.cloud 3306
-Connection to rmqmwz7pgrjo-uscentral1.private-connect.psdb.cloud (10.0.1.2) 3306 port [tcp/mysql] succeeded!
-8.0.34-PlanetScale/l+&?;
+curl https://izkpm55j334u-uscentral1.private-connect.psdb.cloud
+Welcome to PlanetScale.
 ```
