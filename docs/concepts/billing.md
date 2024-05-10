@@ -31,19 +31,14 @@ Each organization has its own billing page available for administrators, from wh
 
 ### PlanetScale invoice details
 
-Invoices provide line items for both usage and discounts received. Each line item shows both **metric and database branch level** granularity.
+Invoices provide line items for both usage and discounts received.
+Depending on the configuration of your database and the features you use, you may see line items for:
 
-For example, you may have the following line items:
-
-- Rows _read_ for `main` branch
-- Rows _read_ for `your-test-branch`
-- Rows _read_ for `main` branch read-only region
-
-In addition, storage per branch may have the following line items:
-
+- Your primary database branch
+- Development branch usage
 - Storage usage per GB
+- Read-only region nodes and storage
 - Prorated discounts, if the branch existed for a smaller time period than the billing period
-- Storage totals for each read-only region
 
 Storage is prorated by a percentage equal to the existence of a branch's hours/billing period in hours.
 

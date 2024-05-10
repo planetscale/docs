@@ -90,6 +90,11 @@ If you have a `main` production branch using the **PS-40** cluster size and two 
 | PS-20                         | $59.00            | 2            | $118.00             |
 | **Grand total**               |                   |              | **$217.00**         |
 
+Also note that Scaler Pro pricing is prorated.
+If you create a new database in the middle of a billing cycle, you will only be charged for the appropriate fraction of the month.
+This also applies to changes to an existing database, such as upsizing.
+For example, if you have a database that started the month as a `PS-10` and at the halfway point in the month you upgrade to a `PS-20`, you would be charged $39/2 + $59/2 = $49 (assuming no additional other charges for storage, etc).
+
 ### Development branches
 
 Scaler Pro development branches are billed for the time that they are running, prorated to the nearest second. Scaler Pro databases include `hours_in_current_month * 2` of development branch time per month (1,440 hours for a 30 day month) at no additional cost. Any time used over the included is billed at a rate of ~$0.014 per hour (`$10 / hours_in_current_month`).
@@ -98,7 +103,7 @@ Scaler Pro development branches are billed for the time that they are running, p
 You can set spend email alerts from your billing page. See the [Spend management documentation](/docs/concepts/billing#spend-management) for more information.
 {% /callout %}
 
-If a Scaler Pro database is created in the middle of a billing cycle, the included development branch hours are prorated. For example, if you create your database with 6 months remaining in the current month, the database will have `15 days * 2` (720 hours) included for that billing period.
+If a Scaler Pro database is created in the middle of a billing cycle, the included development branch hours are prorated. For example, if you create your database with 15 days remaining in the current month, the database will have `15 days * 2` (720 hours) included for that billing period.
 
 You may see how many development branch hours have been used at any time by visiting your [organization billing page](https://app.planetscale.com/~/settings/billing/). Data is updated hourly.
 

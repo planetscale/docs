@@ -61,11 +61,12 @@ Read-only regions are available on [Scaler Pro and multi-tenant Enterprise plans
 
 ### Storage costs
 
-Your storage costs will increase linearly with the amount of read-only regions added. For example, if your production branch is 10GB, each region added will increase your total storage cost by 10GB.
-
+Your storage costs will increase linearly with the amount of read-only regions added.
 Adding new read-only regions will always be billed as standalone storage and will not count toward your included storage.
 
-As an example, let's say you're on our Scaler Pro plan with 10 GB of included storage and your primary contains 5 GB of data. If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 10 GB.
+As an example, let's say you're on our Scaler Pro plan with 10 GB of included storage and your primary contains 7 GB of data.
+If you have two read-only regions, each one will be charged at our additional storage rate, for a total of 14 GB.
+The read-only region storage rate is $0.75 per GB, and in this case would lead to an additional storage charge of $10.50.
 
 For more information on storage billing costs, see our [Billing documentation](/docs/concepts/billing#planetscale-plans).
 
