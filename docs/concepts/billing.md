@@ -77,3 +77,7 @@ You will see your coupon reflected in your monthly invoice. Go to "Settings" > "
 ## New user credit
 
 New users receive a $10 credit that is automatically applied to your invoice. Once you exceed the $10 credit, you will be billed for any additional usage, storage, and any other paid features you have used. To avoid any additional charges beyond the $10 credit, be sure to delete your database before incurring $10 worth of usage.
+
+## Why do I see a pre-authorized charge on my card after creating a database?
+
+If you are a new user or added a new billing method, you may see a temporary hold on your credit card after creating a new database. This is a pre-authorization that we use to verify that your card is valid, but you will not be charged the amount. This pre-authorization is automatically cancelled after verification, but it may take a few days for your bank to update your account statement to show this cancellation.
