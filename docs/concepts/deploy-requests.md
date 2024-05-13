@@ -20,13 +20,13 @@ Your database must have a **branch with [safe migrations](/docs/concepts/safe-mi
 2. Select the development branch you want to deploy to the base branch.
 3. This page shows you a diff of the schema against its base branch.
 4. To the right of the page, you'll see a dropdown that says "**Deploy to**".
-5. Select the branch you want to.
+5. Select the branch you want to deploy to.
 6. Optionally, add a comment about the deploy request.
 7. Click "**Create deploy request**".
 
 ![Example of deploy request on branch page](/assets/docs/concepts/deploy-requests/deploy-request-page-2.png)
 
-## Review and deploy a deploy request
+## Review a deploy request
 
 Once you create a deploy request, you or your team can review it and, optionally, approve it before deploying it.
 
@@ -48,13 +48,34 @@ We will also warn you about potential data loss or inconsistencies and check if 
 
    ![PlanetScale deploy request - approve changes](/assets/docs/concepts/deploy-requests/approve-2.png)
 
-7. Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
-8. Here, you also have the option to enable [**Gated Deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
-9. When you're ready to deploy, click "**Add changes to deploy queue**". The deployment will begin or be queued if there are other pending deployments. You also have a chance to enable [Gated Deployments](#gated-deployments) in this step.
-10. If you enabled Gated Deployments (step 8), you can click "**Apply changes**" to merge the deployment to production once it completes.
-11. After you deploy, you have **30 minutes to "undo"** it using our [schema revert feature](#revert-a-schema-change).
+## Deploy a deploy request
+
+1. Once the request is approved, if required, it's ready to be added to the deploy queue. Click on the "Summary" tab, and you'll see the option to deploy.
+2. Here you'll have the option to choose to "Deploy changes" or to "Deploy changes instantly":
+
+   ![PlanetScale deploy request - deploy options](/assets/docs/concepts/deploy-requests/deploy.png)
+
+### Deploy changes
+
+1. You also have the option to enable [**gated deployments**](#gated-deployments), which gives you the power to control exactly when the migration cuts over. You'll see an "**Auto-apply changes**" checkbox, which is checked by default. If you uncheck this, you will get the option to apply the changes once the schema changes are complete. If you leave it checked, it will auto-deploy as soon as it's ready.
+2. When you're ready to deploy, click "**Deploy changes**". The deployment will begin or be queued if there are other pending deployments.
+3. You also have a chance to enable [gated deployments](#gated-deployments) in this step.
+4. If you enabled gated deployments (step 3), you can click "**Apply changes**" to merge the deployment to production once it completes.
+5. After you deploy, you have **30 minutes to "undo"** it using our [schema revert feature](#revert-a-schema-change).
+
+### Deploy changes instantly
+
+Learn more about [**Instant Deployments**](#instant-deployments) below.
+
+1. When you're ready to deploy, click "**Deploy changes instantly**". The deployment will begin or be queued if there are other pending deployments.
+   - Though the deployment many be queued, once it's at the front of the queue, it will be deployed instantly.
+   - Instant deployments **cannot be reverted**.
 
 If you would like to require an administrator's approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Require administrator approval for deploy requests**" box. You must be an Organization Administrator to enable this restriction. Please note you will not be able to approve your own deploy requests.
+
+{% callout type="note" %}
+We’re currently rolling this feature out, so instant deployments are not yet available for all databases.
+{% /callout %}
 
 ## Close a deploy request
 
@@ -68,7 +89,8 @@ If you decide you don't want to proceed with a deploy request, you can easily cl
 
 In most cases, deploy requests should work as expected when your schema changes have [foreign key constraints](/docs/concepts/foreign-key-constraints).
 
-There are some cases where a deploy request will not be deployable: A mismatched column type or if it references a deleted column.
+There are some cases where a deploy request will not be deployable.
+This includes cases where there is a mismatched column type or when a foreign key constraint references a deleted column.
 
 For example, if we open a deploy request to add a foreign key constraint `t1_id` with type `BIGINT` on a table `t2` that references a column `id` on table `t1`, where `t1.id`'s type is `BIGINT`, the following cases would produce a linting error in the deploy request because it is not deployable:
 
@@ -82,11 +104,87 @@ There are also two cases where a revert would cause orphaned rows that you can r
 
 ### Validating referential integrity of existing columns
 
-Deploy Requests do not validate the referential integrity of _existing_ columns. `ALTER TABLE… ADD FOREIGN KEY…` does not validate existing row relations within the context of a Deploy Request. Unlike standard MySQL, it is possible to add the foreign key constraint to a table with orphaned rows, and they will remain orphaned. In standard MySQL, adding a foreign key is a blocking operation, and it fails if any orphaned rows are found.
+Deploy requests do not validate the referential integrity of _existing_ columns. `ALTER TABLE… ADD FOREIGN KEY…` does not validate existing row relations within the context of a deploy request. Unlike standard MySQL, it is possible to add the foreign key constraint to a table with orphaned rows, and they will remain orphaned. In standard MySQL, adding a foreign key is a blocking operation, and it fails if any orphaned rows are found.
+
+## Instant deployments
+
+Instant deployments give you the option to run schema changes using MySQL's **ALGORITHM=INSTANT**. This is different than how our [**online schema migrations**](https://planetscale.com/docs/learn/how-online-schema-change-tools-work) work.
+
+Instant deployments will apply schema changes faster, however, these schema changes must be **auto-applied** and **cannot be reverted**.
+
+### Who should use instant deployments?
+
+We recommend instant deployments to experienced users that are making schema changes to large tables, or users that would like their schema changes to be deployed instantly.
+
+### Supported operations
+
+In order for a deploy request to be instantly deployed, _all_ schema changes in the deploy request must be instantly deployable. Some of those changes include:
+
+- Adding or dropping a column (with some exceptions)
+- Changing or dropping a column's default value
+- Changing an `ENUM` or `SET` definition
+
+The following changes are examples of changes that are **not** instantly deployable:
+
+- Changing a column's data type
+- Adding or dropping an index
+- Adding or dropping a foreign key constraint
+- Extending a `VARCHAR` column size
+- Updating a column to `NULL` or `NOT NULL`
+
+To know whether or not a deploy request is instantly deployable, look for the "Instantly deployable" badge on your deploy request. This badge will only be visible on deploy requests that can be deployed instantly.
+![PlanetScale deploy request - deploy instantly badge](/assets/docs/concepts/deploy-requests/deploy-instantly.png)
+
+We recommend reading [MySQL's Online DDL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html) for the full list of operations that can be deployed instantly.
+
+{% callout type="note" %}
+We’re currently rolling this feature out, so instant deployments are not yet available for all databases.
+{% /callout %}
+
+## Gated deployments
+
+Gated deployments give you more control over when a migration goes live after the deployment process completes.
+
+As part of our non-blocking schema change process, instead of directly modifying table(s) when you deploy a deploy request, we make a copy of the affected table(s) and apply changes to the copy. We get the data from the original table and the copy table in sync, and once complete, initiate a quick cutover where we swap the tables.
+
+With gated deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment. Gated deployments can be enabled on each deploy request by unchecking the "Auto-apply changes box" before you deploy.
+
+This feature is helpful if you have long-running migrations. For very large or complex databases, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With gated deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment while you're there to monitor it.
+
+### Enable gated deployments
+
+1. When you open a deploy request, uncheck the "**Auto-apply changes**" box.
+
+   ![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments-2.png)
+
+2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
+3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.
+
+![PlanetScale deploy request - Apply changes from deployment button](/assets/docs/concepts/deploy-requests/apply-changes-2.png)
+
+{% callout %}
+If you have an open gated deployment, you cannot deploy another deploy request until the current one has been merged in.
+{% /callout %}
+
+For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale) blog post.
+
+{% callout type="note" %}
+Deploy requests that are instantly deployed _cannot_ be gated.
+{% /callout %}
+
+## Temporary tables
+
+When using deploy requests, you may notice some additional tables in your database ending with a `_vrepl` suffix. These are temporary tables that [VReplication](https://vitess.io/docs/reference/vreplication/vreplication/) creates while running your online schema changes.
+
+We clean them up automatically and they do not count against the storage limits of your selected plan. If you want to learn more about how we perform online schema changes, please refer to our [Online schema change tools article](/docs/learn/how-online-schema-change-tools-work#initializing-the-ghost-table-schema).
 
 ## Revert a schema change
 
 If you ever merge a deploy request, only to realize you need to undo it, PlanetScale can handle that! You have the option to revert a recently deployed schema change while maintaining data that was written to the original schema during that time.
+
+{% callout type="note" %}
+Deploy requests that are instantly deployed _cannot_ be reverted.
+{% /callout %}
 
 ### How to revert a schema change
 
@@ -98,7 +196,7 @@ You can revert a deployment for **up to 30 minutes** after the deploying. After 
 2. To revert the schema changes made with the deploy request, click "**Revert changes**" and confirm.
 3. We will immediately revert the base branch back to its previous schema.
 4. Any data that was written to the original schema in the time between deploying and reverting will remain in your database after the revert.
-5. The Deploy Request will be closed, but the branch will remain for you to continue development on if you choose.
+5. The deploy request will be closed, but the branch will remain for you to continue development on if you choose.
 
 ### When is data not retained
 
@@ -139,39 +237,4 @@ If you've selected a migration framework or specified a table with migration dat
 
 ### Billing considerations
 
-The process of reverting a schema change will not count toward your `read`, `write`, or storage limits. You will not be charged for the background processes we run, like creating a copy of the affected schema and data.
-
 You may see some temporary `_vt` tables in your database. These are used to facilitate the deployment and revert process and do not count toward your storage.
-
-## Gated Deployments
-
-Gated Deployments give you more control over when a migration goes live after the deployment process completes.
-
-As part of our non-blocking schema change process, instead of directly modifying table(s) when you deploy a deploy request, we make a copy of the affected table(s) and apply changes to the copy. We get the data from the original table and the copy table in sync, and once complete, initiate a quick cutover where we swap the tables.
-
-With Gated Deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment. Gated Deployments can be enabled on each deploy request by unchecking the "Auto-apply changes box" before you deploy.
-
-This feature is helpful if you have long-running migrations. For very large or complex databases, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With Gated Deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment while you're there to monitor it.
-
-### Enable Gated Deployments
-
-1. When you open a deploy request, uncheck the "**Auto-apply changes**" box.
-
-   ![PlanetScale deploy request - Auto-apply changes checkbox unchecked](/assets/docs/concepts/deploy-requests/gated-deployments-2.png)
-
-2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
-3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.
-
-![PlanetScale deploy request - Apply changes from deployment button](/assets/docs/concepts/deploy-requests/apply-changes-2.png)
-
-{% callout %}
-If you have an open Gated Deployment, you cannot deploy another deploy request until the current one has been merged in.
-{% /callout %}
-
-For more information about this process and why we built it, check out the [Gated Deployments: Addressing the complexity of schema deployments at scale](/blog/gated-deployments-addressing-the-complexity-of-schema-deployments-at-scale) blog post.
-
-## Temporary tables
-
-When using deploy requests, you may notice some additional tables in your database ending with a `_vrepl` suffix. These are temporary tables that [VReplication](https://vitess.io/docs/reference/vreplication/vreplication/) creates while running your online schema changes.
-
-We clean them up automatically and they do not count against the storage limits of your selected plan. If you want to learn more about how we perform online schema changes, please refer to our [Online schema change tools article](/docs/learn/how-online-schema-change-tools-work#initializing-the-ghost-table-schema).
