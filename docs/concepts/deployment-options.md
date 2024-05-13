@@ -24,6 +24,7 @@ Multi-tenancy is the default deployment option. When you sign up for a PlanetSca
 - No configuration requirements on your end
 - BAAs available for HIPAA compliance
 - [Private connection support](/docs/concepts/private-connections) via AWS PrivateLink
+- [Private connection support](/docs/concepts/private-connections-gcp) via GCP Private Service Connect
 
 ## Single-tenancy deployment on PlanetScale
 
