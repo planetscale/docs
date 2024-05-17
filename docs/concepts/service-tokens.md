@@ -95,8 +95,6 @@ You can delete a service token at any time from the service token detail page. S
 
 ![Delete service token.](/assets/docs/concepts/service-tokens/delete-service-token-2.png)
 
-Deleting a service token will sever any database connections that use the given service token.
-
 ## Manage service tokens using the PlanetScale CLI
 
 Service tokens can also be created and managed directly from the [PlanetScale CLI](/docs/reference/service-token).
@@ -146,5 +144,3 @@ To delete a service token, run the following command:
 ```bash
 pscale service-token delete <SERVICE_TOKEN_ID>
 ```
-
-Deleting a service token will sever any database connections that use the given service token.
