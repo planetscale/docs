@@ -23,7 +23,7 @@ PlanetScale replicas can be used to read data and reduce load on the primary. Pl
 
 ### 1. Create a global replica credential (recommended)
 
-With global replica credentials, you can have one credential that will automatically route queries to your branch's replicas and read-only regions. If you do not have any read-only regions, it will route to the included replicas on [your plan](/docs/concepts/planetscale-plans) (minimum of 2). If you do have any read-only regions, the queries will route to the closest replica out of your read-only region replicas and included failover replicas.
+With global replica credentials, you can have one credential that will automatically route queries to your branch's replicas and read-only regions. If you do not have any read-only regions, it will route to the included replicas on [your plan](/docs/concepts/planetscale-plans). If you do have any read-only regions, the queries will route to the closest replica out of your read-only region replicas and included failover replicas.
 
 To use this, create a new credential in the PlanetScale dashboard and select "**Replica**" as the connection type. You can then use the new credential's connection string to setup a replica-only database
 connection.
@@ -39,7 +39,7 @@ All queries made using this credential will be routed to the nearest replica, ev
 ### 2. `USE @replica` (not recommended)
 
 {% callout type="warning" %}
-We do not recommend using this method to query replicas. We will soon be deprecating this method, but we will maintain the documentation until a deprecation date has been set. If you are currently using this method, we recommend switching to method 1.
+We do not recommend using this method to query replicas. If you are currently using this method, we recommend switching to method 1.
 {% /callout %}
 
 If you are not using a global replica credential, then, by default, all queries are served by the primary. However you may route any `SELECT` queries to replicas by issuing the following command on a connection:
