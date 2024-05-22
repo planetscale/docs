@@ -20,10 +20,10 @@ Below is a list of instructions to set up your VPC network to utilize a Private 
 
 - **Target**: Published Service.
 - **Target Service**: Select the target service from the table below for the region you want to establish an endpoint in.
-- **Name**: Select the endpoint name from the table below for the region you want to establish an endpoint in.
+- **Name**: Pick any endpoint name. The examples in this document use `"edge"`.
 - **Network and subnet**: Select the network (VPC) to create the endpoint in. The endpoint will reserve a static IP address in the subnet. The VPC and subnet must be reachable by the applications you intend to connect to your PlanetScale databases from.
-- **Create an IP Address**: Create a reserved IP address. This is the address your applications will use to access your PlanetScale databases. PlanetScale recommends using the `Endpoint Name` for the name of the reserved IP address for consistency, but you may use any name.
-- **Enable Global Access**: PlanetScale recommends enabling this option. When enabled this allows applications in other regions to reach the PSC endpoint.
+- **Create an IP Address**: Create a reserved IP address for the endpoint. This is the address your applications will use to access your PlanetScale databases.
+- **Enable Global Access**: PlanetScale recommends enabling this option. When enabled, this allows applications in other regions of your VPC to reach the PSC endpoint.
 - Finally, click **Add Endpoint** to start the process. Setup will take approximately 1-2 minutes.
 
 ![setup_endpoint_details](/assets/docs/multi/gcp/private-service-connect/connect_endpoint_details.png)
@@ -31,32 +31,32 @@ Below is a list of instructions to set up your VPC network to utilize a Private 
 {% table %}
 
 - GCP Region
-- Endpoint Name
 - Target Service
+- Domain Name
 
 ---
 
 - asia-northeast3
-- gcp-asia-northeast3
 - `projects/planetscale-production/regions/asia-northeast3/serviceAttachments/edge-gateway-gcp-asia-northeast3`
+- gcp-asia-northeast3.private-connect.psdb.cloud
 
 ---
 
 - northamerica-northeast1
-- gcp-northamerica-northeast1
 - `projects/planetscale-production/regions/northamerica-northeast1/serviceAttachments/edge-gateway-gcp-northamerica-northeast1`
+- gcp-northamerica-northeast1.private-connect.psdb.cloud
 
 ---
 
 - us-central1
-- gcp-us-central1
 - `projects/planetscale-production/regions/us-central1/serviceAttachments/edge-gateway-gcp-us-central1`
+- gcp-us-central1.private-connect.psdb.cloud
 
 ---
 
 - us-east4
-- gcp-us-east4
 - `projects/planetscale-production/regions/us-east4/serviceAttachments/edge-gateway-gcp-us-east4`
+- gcp-us-east4.private-connect.psdb.cloud
 
 {% /table %}
 
@@ -68,26 +68,30 @@ Below is a list of instructions to set up your VPC network to utilize a Private 
 
 GCP will automatically create a private Cloud DNS zone in the project where the PSC consumer endpoints are created.
 
-The domain name used is `private-connect.psdb.cloud`. Your endpoints will be available via DNS records visible only within your VPC using the format:
+The domain name depends on the region the consumer endpoint was created in. Refer to the table above. The format of the domain name will be:
 
-- `<Endpoint-Name>.private-connect.psdb.cloud`
+- `<Endpoint-Name>.<Domain-Name>`
 
-1. Log into any VM instance in the configured VPC and run `dig +short <Endpoint-Name>.private-connect.psdb.cloud` to confirm that DNS resolution resolves to the static IP address reserved during endpoint creation.
+For example, if you chose `edge` as the endpoint name in the `us-central1` region, the domain name for the endpoint would be:
+
+- `edge.gcp-us-central1.private-connect.psdb.cloud`
+
+1. Log into any VM instance in the configured VPC and run `dig +short <Endpoint-Name>.<Domain-Name>` to confirm that DNS resolution resolves to the static IP address reserved during endpoint creation.
 
 ```shell
-$ dig +short gcp-us-central1.private-connect.psdb.cloud
+$ dig +short edge.gcp-us-central1.private-connect.psdb.cloud
 10.128.0.17
 ```
 
-2. Run `curl https://<Endpoint-Name>.private-connect.psdb.cloud` to verify your connectivity. A successful response will yield `Welcome to PlanetScale`.
+2. Run `curl https://<Endpoint-Name>.<Domain-Name>` to verify your connectivity. A successful response will yield `Welcome to PlanetScale`.
 
 ```shell
-curl https://gcp-us-central1.private-connect.psdb.cloud
+curl https://edge.gcp-us-central1.private-connect.psdb.cloud
 Welcome to PlanetScale.
 ```
 
 ## Modifying your Connection Strings to utilize your Private Service Connect endpoint.
 
-By default, PlanetScale provides users with a connection string that reads `<planetscale-region>.connect.psdb.cloud`.
+By default, PlanetScale provides connection strings based on the `connect.psdb.cloud` domain name. To access your databases over the private endpoint change your connection string to match the `<Endpoint-Name>.<Domain-Name>` pattern.
 
-To utilize your newly configured VPC endpoint, prepend `private-` to the `connect` subdomain as shown above, yielding a connection string that reads `<planetscale-region>.private-connect.psdb.cloud`.
+For example, a connection string such as `gcp-us-central1.connect.psdb.cloud` would be changed to `edge.gcp-us-central1.private-connect.psdb.cloud` assuming `edge` was the Endpoint Name chosen during creation of the endpoint.
