@@ -42,6 +42,7 @@ Once configured, PlanetScale collects the following metrics from every branch in
 | planetscale.tables.rows_selected         | count           | Number of rows selected in a database branch, by table. _Shown as row._                             |
 | planetscale.tables.rows_updated          | count           | Number of rows updated in a database branch, by table. _Shown as row._                              |
 | planetscale.tables.storage               | gauge           | Total bytes stored in a database branch, by table. _Shown as byte._                                 |
+| planetscale.vtgate.errors                | count           | Number of errors encountered by a database branch's vtgate. _Shown as error._                       |
 
 ## Billing
 
