@@ -127,6 +127,7 @@ In order for a deploy request to be instantly deployed, _all_ schema changes in 
 The following changes are examples of changes that are **not** instantly deployable:
 
 - Changing a column's data type
+- Adding a column with a non-literal default value
 - Adding or dropping an index
 - Adding or dropping a foreign key constraint
 - Extending a `VARCHAR` column size
