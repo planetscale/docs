@@ -50,6 +50,7 @@ Sometimes, you might need to demote a production branch to a development branch.
 
 Be aware when demoting a production branch to a development branch:
 
+- Databases must have at least one production branch at all times
 - Development branches are not meant to be used with production workloads
 - The branch will no longer have high-availability features
 - Existing scheduled production branch backup policies will no longer run
