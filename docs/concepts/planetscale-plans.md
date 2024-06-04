@@ -83,7 +83,7 @@ Each cluster size is priced based on the selected region. You can find the full 
 | PS-320           | $699.00  |
 | PS-400           | $999.00  |
 
-If you have a `main` production branch using the **PS-40** cluster size and two addition production branches using the **PS-20** cluster size, the total cost for the database would be **$217.00** per month.
+If you have a `main` production branch using the **PS-40** cluster size and two additional production branches using the **PS-20** cluster size, the total cost for the database would be **$217.00** per month.
 
 | **Production branch cluster** | **Cost per unit** | **Quantity** | **Total per month** |
 | ----------------------------- | ----------------- | ------------ | ------------------- |
