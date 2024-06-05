@@ -40,31 +40,32 @@ Cluster size options are capped at `PS-400` until you have a successfully paid $
 
 On top of processing and memory, all **Scaler Pro** cluster sizes share the following:
 
-|                                                                              | **Scaler Pro**                                    |
-| ---------------------------------------------------------------------------- | ------------------------------------------------- |
-| **Storage/month**                                                            | 10 GB included; $1.50 per additional 1 GB.        |
-| **Row reads/month**                                                          | _Unmetered_                                       |
-| **Row writes/month**                                                         | _Unmetered_                                       |
-| **Available cluster sizes**                                                  | 17                                                |
-| **Availability zones**                                                       | 3                                                 |
-| **Production branches**                                                      | 1 included\*                                      |
-| **Development branches**                                                     | ~1,440 hours included (2× hours of current month) |
-| **Concurrent Connections**                                                   | _Unmetered_                                       |
-| **Query Insights retention**                                                 | 7 days                                            |
-| **Horizontal sharding**                                                      | Not included                                      |
-| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant                                      |
-| **Read-only regions**                                                        | Available as an add-on                            |
-| **Web console**                                                              | Included                                          |
-| **PlanetScale CLI**                                                          | Included                                          |
-| **SSO**                                                                      | Available as an add-on\*\*                        |
-| **Audit log retention**                                                      | 6 months                                          |
-| **Automatic backups**                                                        | Every 12 hours                                    |
-| **Support**                                                                  | Standard, upgrade available\*\*                   |
-| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                          |
-| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                            |
+|                                                                              | **Scaler Pro**                                           |
+| ---------------------------------------------------------------------------- | -------------------------------------------------------- |
+| **Storage/month**                                                            | 10 GB included; $0.50 per instance per additional 1 GB\* |
+| **Row reads/month**                                                          | _Unmetered_                                              |
+| **Row writes/month**                                                         | _Unmetered_                                              |
+| **Available cluster sizes**                                                  | 17                                                       |
+| **Availability zones**                                                       | 3                                                        |
+| **Production branches**                                                      | 1 included\*\*                                           |
+| **Development branches**                                                     | ~1,440 hours included (2× hours of current month)        |
+| **Concurrent Connections**                                                   | _Unmetered_                                              |
+| **Query Insights retention**                                                 | 7 days                                                   |
+| **Horizontal sharding**                                                      | Not included                                             |
+| [**Deployment options**](/docs/concepts/deployment-options)                  | Multi-tenant                                             |
+| **Read-only regions**                                                        | Available as an add-on                                   |
+| **Web console**                                                              | Included                                                 |
+| **PlanetScale CLI**                                                          | Included                                                 |
+| **SSO**                                                                      | Available as an add-on\*\*\*                             |
+| **Audit log retention**                                                      | 6 months                                                 |
+| **Automatic backups**                                                        | Every 12 hours                                           |
+| **Support**                                                                  | Standard, upgrade available\*\*\*                        |
+| [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                                 |
+| [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                                   |
 
-\* Additional production branches are billed at the cost of your selected cluster size per month.  
-\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
+\* Production branch storage is billed at $1.50 (1 primary + 2 replicas) and development branch storage is billed at $0.50 (1 primary).
+\*\* Additional production branches are billed at the cost of your selected cluster size per month.
+\*\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
 
 ### Additional production branches
 
@@ -82,7 +83,7 @@ Each cluster size is priced based on the selected region. You can find the full 
 | PS-320           | $699.00  |
 | PS-400           | $999.00  |
 
-If you have a `main` production branch using the **PS-40** cluster size and two addition production branches using the **PS-20** cluster size, the total cost for the database would be **$217.00** per month.
+If you have a `main` production branch using the **PS-40** cluster size and two additional production branches using the **PS-20** cluster size, the total cost for the database would be **$217.00** per month.
 
 | **Production branch cluster** | **Cost per unit** | **Quantity** | **Total per month** |
 | ----------------------------- | ----------------- | ------------ | ------------------- |
