@@ -76,7 +76,11 @@ You will see your coupon reflected in your monthly invoice. Go to "Settings" > "
 
 ## New user credit
 
-New users receive a $10 credit that is automatically applied to your invoice. Once you exceed the $10 credit, you will be billed for any additional usage, storage, and any other paid features you have used. To avoid any additional charges beyond the $10 credit, be sure to delete your database before incurring $10 worth of usage.
+New users receive one month of a PS-10 database for free. The free month credit is automatically applied to your invoice.
+
+The one month credit will cover your PS-10 database in any region. Please note, if you use additional storage, development branch time, read-only regions, custom backups, or anything not included in the base [PS-10 plan](/pricing), you will incur charges for those additional features.
+
+If you do not wish to continue with PlanetScale once your free one month trial is over, be sure to delete your database before incurring more charges.
 
 ## Why do I see a pre-authorized charge on my card after creating a database?
 
