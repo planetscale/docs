@@ -8,7 +8,7 @@ Safe migrations is an optional but highly recommended feature for branches in Pl
 
 ## Zero-downtime schema migrations
 
-Safe migrations enable the [PlanetScale workflow](/docs/concepts/planet-scale-workflow) on a given branch and allow your team to create deploy requests to merge schema changes into that branch. When changes are merged using deploy requests, a ghost table will be created with the desired schema changes. Your data will be continuously synchronized with that table until you decide to apply the changes.
+Safe migrations enable the [PlanetScale workflow](/docs/concepts/planetscale-workflow) on a given branch and allow your team to create deploy requests to merge schema changes into that branch. When changes are merged using deploy requests, a ghost table will be created with the desired schema changes. Your data will be continuously synchronized with that table until you decide to apply the changes.
 
 ## Schema revert
 
