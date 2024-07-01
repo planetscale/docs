@@ -364,10 +364,12 @@
 - label: 'PlanetScale for Enterprises'
   icon: 'enterprise'
   items:
-    - label: 'Sales process'
+    - label: 'Onboarding process'
       items:
         - label: 'Overview'
           slug: '/docs/enterprise/sales-process'
+        - label: 'Proof of concept'
+          slug: '/docs/enterprise/proof-of-concept'
     - label: 'PlanetScale Managed'
       items:
         - label: 'PlanetScale Managed overview'
