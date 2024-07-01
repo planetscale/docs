@@ -380,6 +380,8 @@
               slug: '/docs/enterprise/managed/aws/getting-started'
             - label: 'Set up AWS PrivateLink'
               slug: '/docs/enterprise/managed/aws/privatelink'
+            - label: 'Set up AWS Reverse PrivateLink'
+              slug: '/docs/enterprise/managed/aws/reverse-privatelink'
             - label: 'Back up and restore'
               slug: '/docs/enterprise/managed/aws/back-up-and-restore'
         - label: 'GCP'
