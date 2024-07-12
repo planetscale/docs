@@ -1,7 +1,7 @@
 ---
 title: 'Read-only regions'
 subtitle: 'Add additional read-only regions to your production database.'
-date: '2024-04-17'
+date: '2024-07-12'
 ---
 
 ## Overview
@@ -13,10 +13,15 @@ This feature supports globally distributed applications by enabling your databas
 ## How to create a read-only region
 
 1. In the [PlanetScale dashboard](https://app.planetscale.com), select the database you want to add a read-only region to.
-2. Click on the production branch.
-3. Click the "**Add region**" button.
-4. Select the desired AWS region from the dropdown of [available regions](/docs/concepts/regions).
-5. Click "**Add region**" and wait for your data to finish initially replicating across regions.
+2. Navigate to the "**Branches**" page.
+   ![landing-to-branches](/assets/docs/concepts/read-only-regions/landing-to-branches.png)
+3. Select the current production branch.
+   ![branches-to-production](/assets/docs/concepts/read-only-regions/branches-to-production.png)
+4. On the right-side menu, click the "**Add region**" button.
+   ![add-region](/assets/docs/concepts/read-only-regions/add-region.png)
+5. Select the desired AWS region from the dropdown of [available regions](/docs/concepts/regions) in the modal.
+   ![modal](/assets/docs/concepts/read-only-regions/modal.png)
+6. Click "**Add region**" and wait for your data to finish initially replicating across regions.
 
 ## How to remove a read-only region
 
