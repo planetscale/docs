@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale system limits'
 subtitle: 'Learn about system limits that PlanetScale puts in place to protect your database.'
-date: '2024-04-26'
+date: '2024-07-12'
 ---
 
 ## Table limits
@@ -13,6 +13,24 @@ Individual tables are limited to a maximum of `1017` columns each.
 ## Connection lifetime limits
 
 Database client connections that are held open longer than `24 hours` may be terminated unexpectedly. We recommend that long running database connections are closed and reconnected at least once per day.
+
+## Simultaneous transaction limits
+
+Each database has a limit on the number of simultaneous _transactions_ it can process, also known as the _transaction pool_.
+If you exceed the _transaction pool_ setting for your database, you may encounter this error:
+
+```
+vttablet: rpc error: code = ResourceExhausted desc = transaction pool connection limit exceeded
+```
+
+This often can be mitigated by trying the one of the following solutions:
+
+A) Reduce the amount of parallelism in the requests being sent to the database.
+B) Shorten lengthy transactions by reducing batch sizes or making some other application-level adjustment.
+
+If you cannot make such changes to your application, consider choosing a larger instance type with a larger transaction pool.
+The exact limit varies depending on the instance type of your database.
+For details, see the [plans page](/docs/concepts/planetscale-plans).
 
 ## Query limits
 

@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-05-03'
+date: '2024-07-12'
 ---
 
 ## Overview
@@ -14,25 +14,28 @@ Our plans are split into two general offerings: [Scaler Pro (self-serve)](#scale
 
 The **Scaler Pro** plan is broken down by cluster size, which have varying levels of compute power.
 
-|             | **Processor** | **Memory** |
-| ----------- | ------------- | ---------- |
-| **PS-10**   | 1/8 vCPU      | 1 GB RAM   |
-| **PS-20**   | 1/4 vCPU      | 2 GB RAM   |
-| **PS-40**   | 1/2 vCPU      | 4 GB RAM   |
-| **PS-80**   | 1 vCPU        | 8 GB RAM   |
-| **PS-160**  | 2 vCPU        | 16 GB RAM  |
-| **PS-320**  | 4 vCPU        | 32 GB RAM  |
-| **PS-400**  | 8 vCPU        | 32 GB RAM  |
-| **PS-640**  | 8 vCPU        | 64 GB RAM  |
-| **PS-700**  | 16 vCPU       | 32 GB RAM  |
-| **PS-900**  | 16 vCPU       | 64 GB RAM  |
-| **PS-1280** | 16 vCPU       | 128 GB RAM |
-| **PS-1400** | 32 vCPU       | 64 GB RAM  |
-| **PS-1800** | 32 vCPU       | 128 GB RAM |
-| **PS-2100** | 48 vCPU       | 96 GB RAM  |
-| **PS-2560** | 32 vCPU       | 256 GB RAM |
-| **PS-2700** | 48 vCPU       | 128 GB RAM |
-| **PS-2800** | 64 vCPU       | 128 GB RAM |
+|             | **Processor** | **Memory** | **Transactions\*** |
+| ----------- | ------------- | ---------- | ------------------ |
+| **PS-10**   | 1/8 vCPU      | 1 GB RAM   | 70                 |
+| **PS-20**   | 1/4 vCPU      | 2 GB RAM   | 75                 |
+| **PS-40**   | 1/2 vCPU      | 4 GB RAM   | 75                 |
+| **PS-80**   | 1 vCPU        | 8 GB RAM   | 110                |
+| **PS-160**  | 2 vCPU        | 16 GB RAM  | 158                |
+| **PS-320**  | 4 vCPU        | 32 GB RAM  | 211                |
+| **PS-400**  | 8 vCPU        | 32 GB RAM  | 211                |
+| **PS-640**  | 8 vCPU        | 64 GB RAM  | 281                |
+| **PS-700**  | 16 vCPU       | 32 GB RAM  | 211                |
+| **PS-900**  | 16 vCPU       | 64 GB RAM  | 281                |
+| **PS-1280** | 16 vCPU       | 128 GB RAM | 375                |
+| **PS-1400** | 32 vCPU       | 64 GB RAM  | 281                |
+| **PS-1800** | 32 vCPU       | 128 GB RAM | 375                |
+| **PS-2100** | 48 vCPU       | 96 GB RAM  | 328                |
+| **PS-2560** | 32 vCPU       | 256 GB RAM | 500                |
+| **PS-2700** | 48 vCPU       | 128 GB RAM | 438                |
+| **PS-2800** | 64 vCPU       | 128 GB RAM | 375                |
+
+\* **Transactions** refers to the number of simultaneous _transactions_ your database can process, which is different than simultaneous _connections_.
+This is also known as the _transaction pool_.
 
 {% callout %}
 Cluster size options are capped at `PS-400` until you have a successfully paid $100 invoice. If you need larger sizes immediately, please [contact us](/contact) to unlock all sizes.
