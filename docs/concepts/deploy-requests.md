@@ -1,7 +1,7 @@
 ---
 title: 'Deploy requests'
 subtitle: 'Learn how to create and revert non-blocking schema changes with PlanetScale deploy requests.'
-date: '2024-04-26'
+date: '2024-07-12'
 ---
 
 ## Overview
@@ -46,7 +46,7 @@ We will also warn you about potential data loss or inconsistencies and check if 
 5. You'll see the proposed changes here. New additions are highlighted in green, and deletions are highlighted in red.
 6. If you have required deploy requests to be approved before deployment, other users in your Organization will see the option to "**Approve changes**" or "**Leave a comment**" on the "**Schema changes**" tab.
 
-   ![PlanetScale deploy request - approve changes](/assets/docs/concepts/deploy-requests/approve-2.png)
+Note: If you are the only administrator in your Organization and you enable the "Require administrator approval for deploy requests" setting, you can self-approve your own deploy requests. If there is more than one administrator, self-approval is not allowed.
 
 ## Deploy a deploy request
 
@@ -139,7 +139,7 @@ To know whether or not a deploy request is instantly deployable, look for the "I
 We recommend reading [MySQL's Online DDL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-online-ddl-operations.html) for the full list of operations that can be deployed instantly.
 
 {% callout type="note" %}
-We’re currently rolling this feature out, so instant deployments are not yet available for all databases.
+Instant deployments are not yet available for all databases.
 {% /callout %}
 
 ## Gated deployments
@@ -148,7 +148,11 @@ Gated deployments give you more control over when a migration goes live after th
 
 As part of our non-blocking schema change process, instead of directly modifying table(s) when you deploy a deploy request, we make a copy of the affected table(s) and apply changes to the copy. We get the data from the original table and the copy table in sync, and once complete, initiate a quick cutover where we swap the tables.
 
-With gated deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment. Gated deployments can be enabled on each deploy request by unchecking the "Auto-apply changes box" before you deploy.
+{% callout %}
+Note: If a deploy request includes changes to multiple tables, all tables cut over at the same time &mdash; unless there is a sequential dependency.
+{% /callout %}
+
+With gated deployments, you can initiate the deployment, but once the table syncing is complete, we'll hold off on the cutover and let you click a button to swap the tables and complete the deployment. Gated deployments can be enabled on each deploy request by unchecking the "Auto-apply changes" box before you deploy.
 
 This feature is helpful if you have long-running migrations. For very large or complex databases, deploying a schema change can take several hours to complete. In those scenarios, you don't want the cutover to happen while you're offline. With gated deployments, you can start the deployment process by adding your deploy request to the queue, and once it's done, you'll be able to click a button to merge it in and complete the deployment while you're there to monitor it.
 
@@ -160,8 +164,6 @@ This feature is helpful if you have long-running migrations. For very large or c
 
 2. Once your deploy requests begins running, you'll also have the option to uncheck the box here.
 3. When your deploy request has completed and is ready for cutover, the "**Apply changes**" button will appear. You can now complete the deployment at any time by clicking this button.
-
-![PlanetScale deploy request - Apply changes from deployment button](/assets/docs/concepts/deploy-requests/apply-changes-2.png)
 
 {% callout %}
 If you have an open gated deployment, you cannot deploy another deploy request until the current one has been merged in.
