@@ -31,6 +31,7 @@ Only [Airbyte Open Source](https://docs.airbyte.com/quickstart/deploy-airbyte) s
    ```
 
 3. Open Airbyte in the browser at [http://localhost:8000](http://localhost:8000).
+   The default username and password are `airbyte` and `password` respectively.
 
 ### Set up PlanetScale source
 
@@ -41,15 +42,14 @@ Now that Airbyte is running locally, let's set up the custom PlanetScale source.
 3. Click the "**New connector**" button.
 4. Click the "**Add a new Docker connector**" option.
 5. Fill in the connector values as follows:
-
-- **Connector display name**: PlanetScale
-- **Docker repository name**: planetscale/airbyte-source
-- **Docker image tag**: `latest`
-- **Connector Documentation URL**: https://planetscale.com/docs/integrations/airbyte
+   - **Connector display name**: PlanetScale
+   - **Docker repository name**: planetscale/airbyte-source
+   - **Docker image tag**: `latest`
+   - **Connector Documentation URL**: https://planetscale.com/docs/integrations/airbyte
 
 You can find the [PlanetScale Airbyte Source Dockerhub release page here](https://hub.docker.com/r/planetscale/airbyte-source).
 
-![Airbyte new PlanetScale connector](/assets/docs/integrations/airbyte/connector.jpg)
+![Airbyte new PlanetScale connector](/assets/docs/integrations/airbyte/modal.png)
 
 ### Fill in PlanetScale connection information
 
@@ -61,18 +61,20 @@ You're now ready to connect your PlanetScale database to Airbyte.
 4. Back in Airbyte, click "**Sources**" in the main left sidebar > "**New source**".
 5. Select the new PlanetScale source you created from the dropdown.
 6. Fill in the "**Set up the source**" values as follows:
-
    - **Name**: Any name of your choice
    - **Source type**: Select "PlanetScale"
    - **Host**: Paste in the copied value for `host`
    - **Database**: Paste in the copied value for `database`
    - **Username**: Paste in the copied value for `username`
    - **Password**: Paste in the copied value for `password`
+     ![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/db-info.png)
+7. You can also provide some optional values:
+   - **Replicas**: Select whether or not you want to collect data from replica nodes.
    - **Shards**: Sharding is only supported on our Enterprise plan. Please [reach out to us](/contact) for more information.
-
-   ![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/source.jpg)
-
-7. Click "**Set up source**" to connect.
+   - **Starting GTIDs**: Start replication from a specific GTID per keyspace shard.
+     ![Airbyte - PlanetScale optional setup](/assets/docs/integrations/airbyte/optional.png)
+     You can see the [PlanetScale airbyte-source README](https://github.com/planetscale/airbyte-source/blob/main/README.md) for more details on these options.
+8. Click "**Set up source**" to connect.
 
 You should get a success message that the connection test passed.
 
@@ -85,27 +87,32 @@ With the connection complete, you can now choose your destination.
 
 Each destination should have a Setup Guide linked on its destination setup page.
 
-### Choose your sync frequency
+### Configure a connection
 
-Next, you need to choose how often you want to sync your PlanetScale data to this destination.
+Now to get the connection fully set up.
+Click on "Connections" on the left side bar.
+If you have not yet set up any connectors, you should see this:
 
-1. Choose your PlanetScale source as the "**Source connector**".
-2. Select the destination you want to sync your PlanetScale data to.
-3. Choose a sync frequency, which is how often we will connect to your PlanetScale database to download data.
+![Airbyte - New connection](/assets/docs/integrations/airbyte/create.png)
 
-   ![Airbyte - PlanetScale replication frequency](/assets/docs/integrations/airbyte/replication-frequency.png)
+Click the button to set up a connection.
+Otherwise, click "**New Connection**" in the top right corner.
+From here, follow these steps:
 
-4. Choose the Destination Namespace configuration from the dropdown. This is where the data will be stored in the destination.
-5. _(Optional)_ Choose your destination stream prefix.
-6. Select the data you want to sync. You should see a list of table names. You can select all or choose which ones to sync individually.
-7. Choose what type of sync mode you'd like to use for each source table.
-
+1. On the "**Define source**" page, choose your PlanetScale source as the **source**.
+   ![Airbyte - Source](/assets/docs/integrations/airbyte/source.png)
+2. On the "**Define destination**" page, select the **destination** you want to sync your PlanetScale data to.
+   For this demo, we are using a CSV destination.
+   ![Airbyte - Source](/assets/docs/integrations/airbyte/destination.png)
+3. On the "**Select streams**" page, select a sync mode.
+   ![Airbyte - Source](/assets/docs/integrations/airbyte/streams.png)
+4. Also on this page, you will need to select the specific tables and columns you want to sync. For each, choose what type of sync mode you'd like to use for each source table.
+   ![Airbyte - Sync](/assets/docs/integrations/airbyte/sync.png)
    - **Incremental** — Incremental sync pulls _only_ the data that has been modified/added since the last sync. We use [Vitess VStream](https://vitess.io/docs/concepts/vstream/) to track the stopping point of the previous sync and only pull any changes since then.
    - **Full refresh** — Full refresh pulls _all_ data at every scheduled sync frequency. This will lead to a higher rows read count than Incremental sync. For more information, see the [billing section of this doc](#billing).
-
-   ![Airbyte - PlanetScale stream sync](/assets/docs/integrations/airbyte/streams.jpg)
-
-8. Click "**Set up connection**".
+5. On the "**Configure connection**" page, choose a sync frequency, which is how often we will connect to your PlanetScale database to download data.
+   ![Airbyte - Connection ](/assets/docs/integrations/airbyte/connection.png)
+6. Click "**Finish and sync**".
 
 Everything is now configured to pull your PlanetScale data into Airbyte and sync it to the selected destination on the schedule you chose. To run the connection, click "**Connections**" > "**Launch**".
 
@@ -115,9 +122,9 @@ Airbyte will not automatically detect when you make schema changes to your Plane
 
 Whenever you perform a schema change, you need to notify Airbyte of it:
 
-1. In the Airbyte dashboard, click "**Destinations**" > "**Settings**".
+1. In the Airbyte dashboard, click "**Connections**", select the connection, then navigate to the "**Schema**" tab.
 2. Click "**Refresh source schema**".
-3. Click "**Save changes and reset data**". Keep in mind, this will delete all data for the connection and start a new sync from scratch.
+3. Click "**Save changes**". Keep in mind, this might delete all data for the connection and start a new sync from scratch.
 
 ## Billing
 
@@ -129,4 +136,4 @@ Every Airbyte connection sync will count toward [your plan's `rows read`](/docs/
 
 At any point, you can disable any incremental or full syncs by going to the 'Connection' settings page and clicking 'Delete this connection'. This will not touch any of the source or destination data, but will prevent Airbyte from doing any further operations.
 
-![Airbyte - PlanetScale disconnection](/assets/docs/integrations/airbyte/disconnect.png)
+![Airbyte - PlanetScale disconnection](/assets/docs/integrations/airbyte/delete.png)
