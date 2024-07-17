@@ -21,7 +21,7 @@ Below is a breakdown of common security and compliance requirements by PlanetSca
 | [Private database connectivity](/docs/concepts/security#private-database-connectivity)                     | ❌                      | ❌                          | ✔                           | ✔                      |
 | Dedicated AWS/GCP account                                                                                  | ❌                      | ❌                          | ✔                           | ✔                      |
 | [PCI compliant](/docs/concepts/security#pci-compliance)                                                    | ❌                      | ❌                          | ❌                           | ✔ (on AWS)             |
-| [Your own AWS/GCP account](/security#deploy-in-your-own-aws-or-gcp-account)                                | ❌                      | ❌                          | ❌                           | ✔                      |
+| [Your own AWS/GCP account](/docs/concepts/security#deploy-in-your-own-aws-or-gcp-account)                  | ❌                      | ❌                          | ❌                           | ✔                      |
 
 ## Available on all PlanetScale plans
 

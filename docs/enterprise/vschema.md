@@ -32,4 +32,4 @@ From here, you can inspect your VSchema configuration JSON file.
 ![VSchema JSON view](/assets/docs/enterprise/vschema.png)
 
 Vschema cannot be modified from this menu.
-If you need this modified, please reach out to your account manager or [PlanetScale Support](https://planetscale.com/contact).
+If you need this modified, please reach out to your account manager or [PlanetScale Support](/contact).

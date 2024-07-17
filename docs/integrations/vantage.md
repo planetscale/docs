@@ -17,7 +17,7 @@ Beyond reporting, set up budget alerts, forecast usage, and view active database
 - A [Vantage account](https://console.vantage.sh/signup)
 
 {% callout type="note" %}
-Database cost reporting in Vantage is not available for [PlanetScale Managed](docs/enterprise/managed/overview) customers via the integration.
+Database cost reporting in Vantage is not available for [PlanetScale Managed](/docs/enterprise/managed/overview) customers via the integration.
 {% /callout %}
 
 ## Configure the Vantage integration
