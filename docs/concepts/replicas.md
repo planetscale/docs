@@ -1,7 +1,7 @@
 ---
 title: 'Database replicas'
 subtitle: 'Understand how replicas optimize and protect your PlanetScale database.'
-date: '2024-04-17'
+date: '2024-07-17'
 ---
 
 ## Overview
@@ -58,7 +58,19 @@ We highly recommend using a global replica credential to ensure that your querie
 
 ## High availability
 
-Replicas within PlanetScale are used to enable high availability of your database. This is the primary reason all production branches in PlanetScale are provided at least one replica. In situations where the underlying hardware or service hosting the primary MySQL node fails, our system will automatically elect a new primary node from the available replicas and reroute traffic to that new primary.
+Replicas within PlanetScale are used to enable high availability of your database. This is a part of the reason all production branches in PlanetScale are provided at least one replica. In situations where the underlying hardware or service hosting the primary MySQL node fails, our system will automatically elect a new primary node from the available replicas and reroute traffic to that new primary. This process is know as **reparenting** and typically is all handled within milliseconds or seconds.
+
+Querying the primary during a reparent typically goes unnoticed, other than a bit of additional query latency.
+This is because PlanetScale uses Vitess under the hood, which [buffers queries](https://vitess.io/docs/20.0/reference/features/vtgate-buffering) during this time.
+You can incorporate retry logic into your application to handle the rare instances where an issue arises during reparenting.
+
+When querying a replica during a reparent, you may encounter this error:
+
+```
+no healthy tablet available for 'keyspace:"${keyspace}" shard:"${shard}" tablet_type:REPLICA'
+```
+
+Incorporating retry logic into your application can help with this scenario as well.
 
 ## Multiple availability zones
 
@@ -66,7 +78,7 @@ In cloud architecture, regions are further broken down into data centers known a
 
 ## Data consistency and replication lag
 
-Whenever data is updated (`INSERT`, `UPDATE`, `DELETE`) on the primary node, those changes are synchronized to the replicas shortly after. The delay between when a primary is updated and the changes are applied to the replica is known as `replication lag`. Your databases replication lag is viewable on your [database dashboard](/docs/concepts/architecture#replication-lag-at-a-glance).
+Whenever data is updated (`INSERT`, `UPDATE`, `DELETE`) on the primary node, those changes are synchronized to the replicas shortly after. The delay between when a primary is updated and the changes are applied to the replica is known as `replication lag`. Your databases replication lag is viewable on your [database dashboard](/docs/concepts/architecture#replication-lag-at-a-glance). Replication lag can also be viewed on Datadog if you set up the [PlanetScale - Datadog integration](/docs/integrations/datadog).
 
 It is important to be aware of replication lag whenever querying data from your replicas. For example, if you make an update and then immediately try to query for that updated data via a replica, it may not be available yet due to replication lag.
 
