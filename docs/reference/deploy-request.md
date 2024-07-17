@@ -63,7 +63,7 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 | Flag                        | Description                                                        |
 | --------------------------- | ------------------------------------------------------------------ |
-| `--h`                       | Get help with the `deploy-request` command                         |
+| `-h`, `--help`              | Get help with the `deploy-request` command                         |
 | `--org <ORGANIZATION_NAME>` | Specify the organization for the deploy request you're acting upon |
 
 ### Global flags

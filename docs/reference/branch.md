@@ -56,6 +56,10 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 | `--create`                      | Create a new branch if it does not exist                                                              | `switch`                                   |
 | `--parent-branch <BRANCH_NAME>` | If a new branch is being created, use this to specify a parent branch. Default is `main`.             | `switch`                                   |
 
+{% callout type="note" %}
+The `--region` flag can not be used with `--restore` when creating a branch. Branch backups will be restored to their original region.
+{% /callout %}
+
 ### Available flags
 
 | **Flag**                    | **Description**                       |

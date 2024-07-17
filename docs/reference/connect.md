@@ -29,7 +29,7 @@ If there is only one branch available on the database, you can leave off `<BRANC
 | `--execute <COMMAND>`              | Run the specified command after successfully connecting to the database.                                                         |
 | `--execute-env-url <ENV_VAR_NAME>` | Environment variable name that contains the exposed Database URL. Default is `DATABASE_URL`.                                     |
 | `--execute-protocol <PROTOCOL>`    | Protocol for the exposed URL (by default `DATABASE_URL`) value in execute. Default is `mysql2`.                                  |
-| `--h`                              | Help with the `connect` command.                                                                                                 |
+| `-h`, `--help`                     | Help with the `connect` command.                                                                                                 |
 | `--host <HOST>`                    | Local host to bind and listen for connections. Default is `127.0.0.1`.                                                           |
 | `--org <ORG_NAME>`                 | The organization of the database you want to connect to.                                                                         |
 | `--port <PORT>`                    | Local port to bind and listen for connections. Default is `3306`.                                                                |

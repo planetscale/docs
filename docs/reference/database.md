@@ -56,7 +56,7 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 
 | **Flag**                    | **Description**                                              |
 | --------------------------- | ------------------------------------------------------------ |
-| `--h`                       | Get help with the `database` command                         |
+| `-h`, `--help`              | Get help with the `database` command                         |
 | `--org <ORGANIZATION_NAME>` | Specify the organization for the database you're acting upon |
 
 ### Global flags
@@ -71,6 +71,10 @@ Some of the sub-commands have additional flags unique to the sub-command. This s
 | `--no-color`                    | Disable color output.                                                                |
 | `--service-token <TOKEN>`       | The service token for authenticating.                                                |
 | `--service-token-id <TOKEN_ID>` | The service token ID for authenticating.                                             |
+
+{% callout type="note" %}
+The `--format` flag does not apply to the database dump files created by the `dump` subcommand. All dumps are created in a SQL statement format compatible with [mydumper](https://github.com/mydumper/mydumper).
+{% /callout %}
 
 ## Examples
 
