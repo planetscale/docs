@@ -27,7 +27,7 @@ Below is a breakdown of common security and compliance requirements by PlanetSca
 
 ### SOC 2 Type 2+ HIPAA
 
-PlanetScale continuously monitors and reports primarily using System and Organization Controls (SOC) 2 Type 2 paired with the HIPAA Security Rule. To receive a copy of the report please [contact Support](https://support.planetscale.com/hc/en-us).
+PlanetScale continuously monitors and reports primarily using System and Organization Controls (SOC) 2 Type 2 paired with the HIPAA Security Rule. To receive a copy of our latest report, please [contact Support](https://support.planetscale.com/hc/en-us) or visit our [Trust Center](https://app.conveyor.com/profile/planetscale).
 
 ### Data security
 
