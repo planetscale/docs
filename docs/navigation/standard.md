@@ -320,6 +320,8 @@
               slug: '/docs/reference/connect'
             - label: 'database'
               slug: '/docs/reference/database'
+            - label: 'data-imports'
+              slug: '/docs/reference/data-imports'
             - label: 'deploy-request'
               slug: '/docs/reference/deploy-request'
             - label: 'org'
