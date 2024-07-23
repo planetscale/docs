@@ -109,6 +109,19 @@ const verify_signature = (req) => {
 
 You can then call `verifySignature` in any JavaScript environment when you receive a webhook.
 
+{% callout type="warning" %}
+You must create the digest using the _exact_ body string sent in the POST request.
+If you are using [Express](https://expressjs.com/), you need to ensure that you grab the raw body string.
+You'll want to use `bodyParser.raw` instead of `express.json` for getting the POST request body:
+
+```javascript
+const app = express()
+app.use(bodyParser.raw({ inflate: true, type: 'application/json' }))
+```
+
+Then you can access the body with `req.body` as shown above.
+{% /callout %}
+
 #### TypeScript
 
 ```typescript
