@@ -15,6 +15,7 @@ Webhooks in PlanetScale are not like MySQL triggers and cannot be triggered on d
 - `deploy_request.opened`: The deploy request has been opened.
 - `deploy_request.queued`: The deploy request has been added to the deploy queue.
 - `deploy_request.in_progress`: The deploy request has started running.
+- `deploy_request.pending_cutover`: The deploy request is ready to cutover and waiting on the user.
 - `deploy_request.schema_applied`: The deploy request has finished applying the schema.
 - `deploy_request.errored`: The deploy request has stopped due to an error.
 - `deploy_request.reverted`: The deploy request has been reverted.

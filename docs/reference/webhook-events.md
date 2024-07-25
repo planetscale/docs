@@ -1,7 +1,7 @@
 ---
 title: 'Webhook events reference'
 subtitle: 'Learn about the webhook events and HTTP responses sent by PlanetScale webhooks.'
-date: '2024-04-15'
+date: '2024-07-25'
 ---
 
 ## Overview
@@ -22,19 +22,20 @@ All webhooks from PlanetScale will have an `X-PlanetScale-Signature` header. Thi
 
 ## Webhook events
 
-| Webhook event                                                   | `event` parameter               | Trigger                                                |
-| --------------------------------------------------------------- | ------------------------------- | ------------------------------------------------------ |
-| [Branch anomaly](#branch-anomaly)                               | `branch.anomaly`                | The branch has a new anomaly in insights.              |
-| [Branch ready](#branch-ready)                                   | `branch.ready`                  | The branch is created and ready to connect.            |
-| [Branch sleeping](#branch-sleeping)                             | `branch.sleeping`               | The branch is now sleeping.                            |
-| [Deploy request opened](#deploy-request-opened)                 | `deploy_request.opened`         | The deploy request has been opened.                    |
-| [Deploy request queued](#deploy-request-queued)                 | `deploy_request.queued`         | The deploy request has been added to the deploy queue. |
-| [Deploy request in progress](#deploy-request-in-progress)       | `deploy_request.in_progress`    | The deploy request has started running.                |
-| [Deploy request schema applied](#deploy-request-schema-applied) | `deploy_request.schema_applied` | The deploy request has finished applying the schema.   |
-| [Deploy request errored](#deploy-request-errored)               | `deploy_request.errored`        | The deploy request has stopped due to an error.        |
-| [Deploy request reverted](#deploy-request-reverted)             | `deploy_request.reverted`       | The deploy request has been reverted.                  |
-| [Deploy request closed](#deploy-request-closed)                 | `deploy_request.closed`         | The deploy request has been closed.                    |
-| [Webhook test](#webhook-test)                                   | `webhook.test`                  | A webhook test is triggered.                           |
+| Webhook event                                                     | `event` parameter                | Trigger                                                         |
+| ----------------------------------------------------------------- | -------------------------------- | --------------------------------------------------------------- |
+| [Branch anomaly](#branch-anomaly)                                 | `branch.anomaly`                 | The branch has a new anomaly in insights.                       |
+| [Branch ready](#branch-ready)                                     | `branch.ready`                   | The branch is created and ready to connect.                     |
+| [Branch sleeping](#branch-sleeping)                               | `branch.sleeping`                | The branch is now sleeping.                                     |
+| [Deploy request opened](#deploy-request-opened)                   | `deploy_request.opened`          | The deploy request has been opened.                             |
+| [Deploy request queued](#deploy-request-queued)                   | `deploy_request.queued`          | The deploy request has been added to the deploy queue.          |
+| [Deploy request in progress](#deploy-request-in-progress)         | `deploy_request.in_progress`     | The deploy request has started running.                         |
+| [Deploy request pending cutover](#deploy-request-pending-cutover) | `deploy_request.pending_cutover` | The deploy request is ready to cutover and waiting on the user. |
+| [Deploy request schema applied](#deploy-request-schema-applied)   | `deploy_request.schema_applied`  | The deploy request has finished applying the schema.            |
+| [Deploy request errored](#deploy-request-errored)                 | `deploy_request.errored`         | The deploy request has stopped due to an error.                 |
+| [Deploy request reverted](#deploy-request-reverted)               | `deploy_request.reverted`        | The deploy request has been reverted.                           |
+| [Deploy request closed](#deploy-request-closed)                   | `deploy_request.closed`          | The deploy request has been closed.                             |
+| [Webhook test](#webhook-test)                                     | `webhook.test`                   | A webhook test is triggered.                                    |
 
 {% callout type="note" %}
 If there is an event you want to use that is not included in this list, please [contact us](/contact) and let us know what event you want to trigger a webhook on.
@@ -79,14 +80,14 @@ The `branch.anomaly` event uses the same response body as a `200` response from 
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "restored_from_branch": null,
     "private_connectivity": false,
     "private_edge_connectivity": false,
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/dev",
-    "url": "https://api.planetscale.com/v1/organizations/taylorhackyplace/databases/example_database/branches/dev",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/dev",
+    "url": "https://api.planetscale.com/v1/organizations/demo-db/databases/example_database/branches/dev",
     "region": {
       "id": "kc0e1ij8juzp",
       "type": "Region",
@@ -158,14 +159,14 @@ The `branch.ready` event uses the same response body as a `200` response from th
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "restored_from_branch": null,
     "private_connectivity": false,
     "private_edge_connectivity": false,
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/dev",
-    "url": "https://api.planetscale.com/v1/organizations/taylorhackyplace/databases/example_database/branches/dev",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/dev",
+    "url": "https://api.planetscale.com/v1/organizations/demo-db/databases/example_database/branches/dev",
     "region": {
       "id": "kc0e1ij8juzp",
       "type": "Region",
@@ -237,14 +238,14 @@ The `branch.sleeping` event uses the same response body as a `200` response from
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "restored_from_branch": null,
     "private_connectivity": false,
     "private_edge_connectivity": false,
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/dev",
-    "url": "https://api.planetscale.com/v1/organizations/taylorhackyplace/databases/example_database/branches/dev",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/dev",
+    "url": "https://api.planetscale.com/v1/organizations/demo-db/databases/example_database/branches/dev",
     "region": {
       "id": "kc0e1ij8juzp",
       "type": "Region",
@@ -297,8 +298,8 @@ The `deploy_request.opened` event uses the same response body as a `200` respons
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": null,
     "branch": "dev",
@@ -345,7 +346,7 @@ The `deploy_request.opened` event uses the same response body as a `200` respons
       "submitted_at": null,
       "updated_at": "2023-10-25T16:54:59.863Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/5",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
     "number": 5,
     "notes": "",
     "html_body": "",
@@ -377,8 +378,8 @@ The `deploy_request.queued` event uses the same response body as a `200` respons
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": null,
     "branch": "dev",
@@ -400,8 +401,8 @@ The `deploy_request.queued` event uses the same response body as a `200` respons
       "actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cutover_actor": null,
       "cancelled_actor": null,
@@ -445,7 +446,7 @@ The `deploy_request.queued` event uses the same response body as a `200` respons
       "submitted_at": null,
       "updated_at": "2023-10-25T16:55:53.552Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/5",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
     "number": 5,
     "notes": "",
     "html_body": "",
@@ -477,8 +478,8 @@ The `deploy_request_in_progress` event uses the same response body as a `200` re
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": null,
     "branch": "dev",
@@ -500,8 +501,8 @@ The `deploy_request_in_progress` event uses the same response body as a `200` re
       "actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cutover_actor": null,
       "cancelled_actor": null,
@@ -545,7 +546,7 @@ The `deploy_request_in_progress` event uses the same response body as a `200` re
       "submitted_at": "2023-10-25T16:55:53.702Z",
       "updated_at": "2023-10-25T16:56:01.057Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/5",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
     "number": 5,
     "notes": "",
     "html_body": "",
@@ -577,8 +578,8 @@ The `deploy_request.errored` event uses the same response body as a `200` respon
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": null,
     "branch": "dev",
@@ -655,12 +656,125 @@ The `deploy_request.errored` event uses the same response body as a `200` respon
       "submitted_at": null,
       "updated_at": "2023-10-19T17:29:54.166Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/1",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/1",
     "number": 1,
     "notes": "",
     "html_body": "",
     "created_at": "2023-10-19T17:29:48.993Z",
     "updated_at": "2023-10-19T17:29:54.197Z",
+    "closed_at": null,
+    "deployed_at": null
+  }
+}
+```
+
+### Deploy request pending cutover
+
+The deploy request is ready to apply the schema and is waiting on the user to confirm.
+
+The `deploy_request.pending_cutover` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+
+**Example:**
+
+```json
+{
+  "timestamp": 1698252961,
+  "event": "deploy_request.pending_cutover",
+  "organization": "myorg",
+  "database": "example_database",
+  "resource": {
+    "id": "4xsz0ql82y4n",
+    "type": "DeployRequest",
+    "actor": {
+      "id": "g2dr4sbhz6ag",
+      "type": "User",
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
+    },
+    "closed_by": null,
+    "branch": "dev",
+    "branch_deleted": false,
+    "branch_deleted_by": null,
+    "branch_deleted_at": null,
+    "into_branch": "main",
+    "into_branch_sharded": false,
+    "into_branch_shard_count": 0,
+    "approved": false,
+    "state": "open",
+    "deployment_state": "pending_cutover",
+    "num_comments": 0,
+    "deployment": {
+      "id": "uvkd7injje2f",
+      "type": "Deployment",
+      "into_branch": "main",
+      "deploy_request_number": 5,
+      "actor": {
+        "id": "g2dr4sbhz6ag",
+        "type": "User",
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
+      },
+      "cutover_actor": null,
+      "cancelled_actor": null,
+      "schema_last_updated_at": "2023-10-25T16:55:00.288Z",
+      "preceding_deployments": [],
+      "deploy_operations": [
+        {
+          "id": "wo1m619ufrpc",
+          "type": "DeployOperation",
+          "state": "in_progress",
+          "keyspace_name": "example_database",
+          "table_name": "Persons",
+          "operation_name": "ALTER",
+          "eta_seconds": null,
+          "progress_percentage": 100,
+          "deploy_error_docs_url": null,
+          "ddl_statement": "ALTER TABLE `Persons` DROP COLUMN `Address`",
+          "syntax_highlighted_ddl": "<div class=\"line line-1\"><span class=\"k\">ALTER</span> <span class=\"k\">TABLE</span> <span class=\"nv\">`Persons`</span> </div><div class=\"line line-2\">  <span class=\"k\">DROP</span> <span class=\"k\">COLUMN</span> <span class=\"nv\">`Address`</span></div>",
+          "created_at": "2023-10-25T16:55:26.562Z",
+          "updated_at": "2023-10-25T16:55:26.562Z",
+          "can_drop_data": true,
+          "table_recently_used": false,
+          "table_recently_used_at": null,
+          "deploy_errors": null
+        }
+      ],
+      "deploy_operation_summaries": [],
+      "deployable": true,
+      "cutover_expiring": false,
+      "lint_errors": [],
+      "deployment_revert_request": {
+        "id": "11ljwej314iy",
+        "type": "DeploymentRevert",
+        "actor": {
+          "id": "boo",
+          "type": "User",
+          "display_name": "Ghost",
+          "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
+        },
+        "cancelled_at": null,
+        "finished_at": null,
+        "waiting_period_end_at": null,
+        "deploy_revert_operations": []
+      },
+      "auto_cutover": false,
+      "created_at": "2023-10-25T16:54:59.863Z",
+      "cutover_at": null,
+      "deploy_check_errors": null,
+      "finished_at": null,
+      "queued_at": "2023-10-25T16:55:53.543Z",
+      "ready_to_cutover_at": null,
+      "started_at": "2023-10-25T16:56:01.035Z",
+      "state": "in_progress",
+      "submitted_at": "2023-10-25T16:55:53.702Z",
+      "updated_at": "2023-10-25T16:56:01.057Z"
+    },
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
+    "number": 5,
+    "notes": "",
+    "html_body": "",
+    "created_at": "2023-10-25T16:54:59.797Z",
+    "updated_at": "2023-10-25T16:56:01.063Z",
     "closed_at": null,
     "deployed_at": null
   }
@@ -685,8 +799,8 @@ The `deploy_request.schema_applied` event uses the same response body as a `200`
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": null,
     "branch": "dev",
@@ -708,14 +822,14 @@ The `deploy_request.schema_applied` event uses the same response body as a `200`
       "actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cutover_actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cancelled_actor": {
         "id": "boo",
@@ -788,7 +902,7 @@ The `deploy_request.schema_applied` event uses the same response body as a `200`
       "submitted_at": "2023-10-25T16:55:53.702Z",
       "updated_at": "2023-10-25T16:56:29.121Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/5",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
     "number": 5,
     "notes": "",
     "html_body": "",
@@ -818,8 +932,8 @@ The `deploy_request.reverted` event uses the same response body as a `200` respo
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": null,
     "branch": "dev",
@@ -841,14 +955,14 @@ The `deploy_request.reverted` event uses the same response body as a `200` respo
       "actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cutover_actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cancelled_actor": {
         "id": "boo",
@@ -889,8 +1003,8 @@ The `deploy_request.reverted` event uses the same response body as a `200` respo
         "actor": {
           "id": "g2dr4sbhz6ag",
           "type": "User",
-          "display_name": "Taylor Barnett-Torabi",
-          "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+          "display_name": "PlanetScale Bot",
+          "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
         },
         "cancelled_at": null,
         "finished_at": "2023-10-25T16:57:09.472Z",
@@ -921,7 +1035,7 @@ The `deploy_request.reverted` event uses the same response body as a `200` respo
       "submitted_at": "2023-10-25T16:55:53.702Z",
       "updated_at": "2023-10-25T16:57:02.319Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/5",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
     "number": 5,
     "notes": "",
     "html_body": "",
@@ -951,14 +1065,14 @@ The `deploy_request.closed` event uses the same response body as a `200` respons
     "actor": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "closed_by": {
       "id": "g2dr4sbhz6ag",
       "type": "User",
-      "display_name": "Taylor Barnett-Torabi",
-      "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+      "display_name": "PlanetScale Bot",
+      "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
     },
     "branch": "dev",
     "branch_deleted": false,
@@ -979,14 +1093,14 @@ The `deploy_request.closed` event uses the same response body as a `200` respons
       "actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cutover_actor": {
         "id": "g2dr4sbhz6ag",
         "type": "User",
-        "display_name": "Taylor Barnett-Torabi",
-        "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+        "display_name": "PlanetScale Bot",
+        "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
       },
       "cancelled_actor": {
         "id": "boo",
@@ -1027,8 +1141,8 @@ The `deploy_request.closed` event uses the same response body as a `200` respons
         "actor": {
           "id": "g2dr4sbhz6ag",
           "type": "User",
-          "display_name": "Taylor Barnett-Torabi",
-          "avatar_url": "https://www.gravatar.com/avatar/2a44999e8816311f19eea3d7516d9204?d=https%3A%2F%2Fapp.planetscale.com%2Fgravatar-fallback.png&s=64"
+          "display_name": "PlanetScale Bot",
+          "avatar_url": "https://app.planetscale.com/gravatar-fallback.png"
         },
         "cancelled_at": null,
         "finished_at": "2023-10-25T16:57:09.472Z",
@@ -1059,7 +1173,7 @@ The `deploy_request.closed` event uses the same response body as a `200` respons
       "submitted_at": "2023-10-25T16:55:53.702Z",
       "updated_at": "2023-10-25T16:57:09.836Z"
     },
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database/deploy-requests/5",
+    "html_url": "https://app.planetscale.com/demo-db/example_database/deploy-requests/5",
     "number": 5,
     "notes": "",
     "html_body": "",
@@ -1122,10 +1236,10 @@ You can only send one webhook test every 20 seconds.
     "updated_at": "2023-10-19T17:25:40.577Z",
     "ready": true,
     "sharded": false,
-    "html_url": "https://app.planetscale.com/taylorhackyplace/example_database",
-    "url": "https://api.planetscale.com/v1/organizations/taylorhackyplace/databases/example_database",
-    "branches_url": "https://api.planetscale.com/v1/organizations/taylorhackyplace/databases/example_database/branches",
-    "plan": "developer"
+    "html_url": "https://app.planetscale.com/demo-db/example_database",
+    "url": "https://api.planetscale.com/v1/organizations/demo-db/databases/example_database",
+    "branches_url": "https://api.planetscale.com/v1/organizations/demo-db/databases/example_database/branches",
+    "plan": "scaler_pro"
   }
 }
 ```
