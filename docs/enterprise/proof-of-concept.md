@@ -47,7 +47,7 @@ Though the details change from customer to customer, the flow of work during the
    Testing can be done in a number of ways.
    Some customers have testing scripts they have already developed, which can be run against the PlanetScale database.
    You may also want to do more specific testing with queries or workloads that you know to be problematic to see how PlanetScale handles them.
-   You can use our powerful [Insights panel](/features/insights) as well as your own custom tooling to assess how well these workloads are handled.
+   You can use our powerful [Insights panel](/docs/concepts/query-insights) as well as your own custom tooling to assess how well these workloads are handled.
 6. If any issues arise during the testing phase, you can work with our team to come up with solutions before going into production.
 
 Ideally, customers have had sufficient time to test their database and build confidence in our platform before the opt-out date.

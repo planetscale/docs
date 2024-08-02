@@ -103,7 +103,7 @@ A common task companies need to handle is extracting data out of their database 
 
 ### CLI
 
-Nearly every action you can take in the PlanetScale dashboard can also be done with our [`pscale` CLI](/features/cli).
+Nearly every action you can take in the PlanetScale dashboard can also be done with our [`pscale` CLI](/docs/reference/planetscale-cli).
 
 With commands for branching, deploy requests, backups, service tokens, and more, the CLI allows teams to work quickly and efficiently. You can use the CLI to extend PlanetScale into your own devops workflow with [GitHub Actions](/blog/using-the-planetscale-cli-with-github-actions-workflows), [AWS CodeBuild](/blog/build-a-multi-stage-pipeline-with-planetscale-and-aws), and more.
 
