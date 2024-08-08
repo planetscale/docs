@@ -49,7 +49,7 @@ You can also select the region while creating a database via the CLI by using
 the `--region` flag with the region's slug.
 
 {% callout %}
-If you do not select a region during database creation using the CLI, it will be set to AWS `us-east-1`.
+The default region for all new databases is AWS us-east-2.
 {% /callout %}
 
 Here's an example command for creating a database with a different region:
