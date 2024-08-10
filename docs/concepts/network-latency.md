@@ -65,7 +65,7 @@ When experiencing slow query times, it's important to rule out any potential net
 
 Once you have a measurement of the query in your application, you can then compare the query to the data in [Query Insights](/docs/concepts/query-insights). The difference between the numbers can give you an idea of how much time was spent transferring the data across the network. If you see a large difference, it is likely due to network latency between the application and database.
 
-If you can access your application's host machine, you can also use netcat` to understand the latency between the host and PlanetScale.
+If you can access your application's host machine, you can also use `netcat` to understand the latency between the host and PlanetScale.
 
 ```shell
 time nc -z aws.connect.psdb.cloud 3306
