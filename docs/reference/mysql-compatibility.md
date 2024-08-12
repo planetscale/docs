@@ -1,7 +1,7 @@
 ---
 title: 'MySQL compatibility'
 subtitle: 'Learn what MySQL syntax, functions, and more are supported by PlanetScale'
-date: '2023-12-05'
+date: '2024-08-12'
 ---
 
 ## Overview
@@ -48,14 +48,14 @@ If you're attempting to import a database using our Import tool, there are some 
 
 ## Miscellaneous
 
-| Action                        | Support | Description                                                                                                                                                                                                                                     |
-| ----------------------------- | ------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Empty schemas**             | ❌      | Databases with empty schemas are invalid. You cannot deploy a schema change to production if no tables exist.                                                                                                                                   |
-| **Non-InnoDB Storage engine** | ❌      | We only support [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) storage engine.                                                                                                                                    |
-| **No applicable unique key**  | ❌      | We require all tables have a [unique, non-null key](/docs/learn/onlineddl-change-unique-keys) and that respective covered columns are shared between old and new schema.                                                                        |
-| **Direct DDL**                | ❌      | We do [not allow Direct DDL](/docs/learn/how-online-schema-change-tools-work) on production branches when [safe migrations](/docs/concepts/safe-migrations) is enabled. This includes `TRUNCATE` statements.                                    |
-| **Disabled binary logs**      | ❗      | You must have binary logs enabled if importing a database using our [database importer tool](/docs/imports/database-imports). See our [Import doc](/docs/imports/database-imports#server-configuration-issues) for more required configuration. |
-| **Large JSON documents**      | ❗      | MySQL supports JSON documents up to 1 GB in size. However, we do not recommend to store more than a few MB in a JSON document for performance reasons.                                                                                          |
+| Action                        | Support | Description                                                                                                                                                                                                  |
+| ----------------------------- | ------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| **Empty schemas**             | ❌      | Databases with empty schemas are invalid. You cannot deploy a schema change to production if no tables exist.                                                                                                |
+| **Non-InnoDB Storage engine** | ❌      | We only support [InnoDB](https://dev.mysql.com/doc/refman/8.0/en/innodb-storage-engine.html) storage engine.                                                                                                 |
+| **No applicable unique key**  | ❌      | We require all tables have a [unique, non-null key](/docs/learn/onlineddl-change-unique-keys) and that respective covered columns are shared between old and new schema.                                     |
+| **Direct DDL**                | ❌      | We do [not allow Direct DDL](/docs/learn/how-online-schema-change-tools-work) on production branches when [safe migrations](/docs/concepts/safe-migrations) is enabled. This includes `TRUNCATE` statements. |
+| **Binary log access**         | ❌      | PlanetScale does not currently support binlog replication to external databases.                                                                                                                             |
+| **Large JSON documents**      | ❗      | MySQL supports JSON documents up to 1 GB in size. However, we do not recommend to store more than a few MB in a JSON document for performance reasons.                                                       |
 
 ## FAQ
 
