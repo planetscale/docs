@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-07-12'
+date: '2024-08-14'
 ---
 
 ## Overview
@@ -67,8 +67,10 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | [**PlanetScale Boost**](/docs/concepts/query-caching-with-planetscale-boost) | Available as an add-on                                   |
 
 \* Production branch storage is billed at $1.50 (1 primary + 2 replicas) and development branch storage is billed at $0.50 (1 primary).
+
 \*\* Additional production branches are billed at the cost of your selected cluster size per month.
-\*\*\* SSO and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
+
+\*\*\* [SSO](/docs/concepts/sso) and [Business support](/docs/support/support-overview#business) options are available on the Scaler Pro plan for an additional fee.
 
 ### Additional production branches
 
@@ -179,7 +181,7 @@ In general, if you need any of the following, Enterprise may be the best solutio
 
 ### Single Sign-on (SSO)
 
-You can add SSO for your organization on the Scaler Pro plan for an additional fee.
+You can [add SSO](/docs/concepts/sso) for your organization on the Scaler Pro plan for an additional fee of $199/month.
 
 ### User-scheduled backups
 

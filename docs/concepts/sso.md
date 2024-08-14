@@ -1,25 +1,21 @@
 ---
 title: 'Single sign-on'
-subtitle: 'Enable single sign-on (SSO) for increased account security.'
-date: '2024-03-24'
+subtitle: 'Enable single sign-on (SSO) for your organization.'
+date: '2024-08-14'
 ---
 
 ## Overview
 
 Single sign-on (SSO) provides additional account security by allowing company administrators to require the use of an identity provider when logging into PlanetScale. Users only need to sign in once with a single set of credentials _(i.e. password and email)_ to access all of their tools and applications upon joining the company.
 
-Furthermore, SSO allows an administrator to revoke someone’s access to all tools and applications from a single place when they leave a team or the company.
+Furthermore, SSO allows an administrator to revoke someone’s access to all tools and applications from a single place when they leave a team or the company. PlanetScale uses SAML SSO.
 
 {% callout %}
-SSO is available as an _add-on_ for Scaler Pro plan and included in our
-[Enterprise plans](/docs/concepts/billing#planetscale-plans).
+SSO is available as an _add-on_ for Scaler Pro plan at $199/month. and included in our
+[Enterprise plans](/docs/concepts/billing#planetscale-plans). Security is important to us, so we do not profit off of SSO. We only charge enough to cover the WorkOS cost for enrolling a new account.
 {% /callout %}
 
-## Enable SSO for your organization
-
-PlanetScale uses SAML SSO.
-
-### Setup and implications
+## Implications
 
 It's important to understand how enabling SSO will affect your Organization. Once enabled, the following will happen:
 
@@ -40,15 +36,21 @@ If you enable SSO and Directory Sync, the Directory will remain the source of tr
 Please see the [Directory Sync](#directory-sync) section for more information.
 {% /callout %}
 
-After SSO has been enabled for your account, you can configure it under [your PlanetScale organization settings](https://app.planetscale.com/~/settings/sso).
+## Enable SSO for your organization
 
-**Organization administrators** can _enable_, _configure_, and _disable_ SSO for all members of your organization.
+To enable SSO for your organization, you must be an [Organization Administrator](/docs/concepts/access-control). Organization administrators can _enable_, _configure_, and _disable_ SSO for all members of your organization.
+
+First, head to your [PlanetScale organization's authentication page](https://app.planetscale.com/~/settings/authentication) under Settings -> Authentication. Type in the email domains that you would like to allow to sign in through SSO, and click "Enable single sign-on".
+
+You can configure your SSO settings by clicking the "identity provider" link on that SSO settings page. This will take you to WorkOS where you can choose your identity provider. You can find documentation for your specific identity provider in the [WorkOS integrations documentation](https://workos.com/docs/integrations).
+
+You also have the option to manage PlanetScale roles through your identity provider's SSO profile. Just check the box next to that message on the settings page to enable.
 
 Users can create multiple PlanetScale organizations _(i.e. work, personal, etc.)_, using the same email address, but that email address can only be associated with one SSO-enabled organization.
 
-## Disabling SSO
+## Disable SSO
 
-When SSO is disabled for an organization, users can login with the password they initially set for their PlanetScale account. If they don't know their password, users can go through the password reset flow to regain access to their account.
+When SSO is disabled for an organization, users can log in with the password they initially set for their PlanetScale account. If they don't know their password, users can go through the password reset flow to regain access to their account.
 
 Should a user lose access to the email address associated with that organization, they'll also lose access to their account after SSO is disabled.
 
