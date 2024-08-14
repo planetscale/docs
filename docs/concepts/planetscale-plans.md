@@ -179,7 +179,7 @@ In general, if you need any of the following, Enterprise may be the best solutio
 
 ### Single Sign-on (SSO)
 
-You can add SSO for your organization on the Scaler Pro plan for an additional fee. Please [contact us](/contact) to enable SSO.
+You can add SSO for your organization on the Scaler Pro plan for an additional fee.
 
 ### User-scheduled backups
 

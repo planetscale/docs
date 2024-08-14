@@ -17,7 +17,7 @@ SSO is available as an _add-on_ for Scaler Pro plan and included in our
 
 ## Enable SSO for your organization
 
-PlanetScale uses SAML SSO. [Contact us](/contact) to enable SSO for your organization.
+PlanetScale uses SAML SSO.
 
 ### Setup and implications
 
