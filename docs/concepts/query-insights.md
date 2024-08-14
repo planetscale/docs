@@ -1,7 +1,7 @@
 ---
 title: 'Query Insights'
 subtitle: 'Find and optimize long-running queries in your application, anomalies in your database, and more.'
-date: '2024-02-28'
+date: '2024-08-14'
 ---
 
 ## Overview
@@ -87,7 +87,12 @@ You may see some placeholder values in the queries, such as `:v1`. This is becau
 You have the option to [opt in to complete query collection](#complete-query-collection) to see the full SQL statements.
 {% /callout %}
 
-You may also see a red shards icon next to some queries. This signifies that the query requires execution across multiple shards.
+You may also see one or more orange icons next to some queries.
+
+- A shard icon indicates that the query requires execution across multiple shards.
+- An exclamation point icon indicates that the query is not currently using an index and requires a full table scan.
+
+Hovering over the icon will show a tooltip with information about the meaning of the icon.
 
 This query overviews table shows the same data for all graph tabs except for [Anomalies](/docs/concepts/anomalies) and [Errors](#errors). For more information about the content for each of those, refer to each Anomalies and Errors sections above.
 
@@ -111,7 +116,7 @@ You can also sort the columns for quick analysis by clicking on the title at the
 
 ### Query filtering
 
-The search bar above the table allows you to filter queries as needed. You can filter for query SQL, table name, tag name, tag value, user name, query count, query latency, multisharded queries, and [Boosted](/docs/concepts/query-caching-with-planetscale-boost) queries. Click on the `?` next to the search bar for the full list of search syntax.
+The search bar above the table allows you to filter queries as needed. You can filter for query SQL, table name, tag name, tag value, user name, query count, query latency, multisharded queries, index name, if the query was indexed, and [Boosted](/docs/concepts/query-caching-with-planetscale-boost) queries. Click on the `?` next to the search bar for the full list of search syntax.
 
 ### Query deep dive
 
@@ -127,7 +132,13 @@ If you'd like to further interact with the query, click "Open query in web conso
 
 #### Additional query information
 
-Beneath the query pattern is a graph with more information about the query. The set of available metrics/tabs is the same as the main database-level metrics graphs: Query latency, Queries, Rows read, Rows written, and Errors.
+Beneath the query pattern is a graph with more information about the query. The set of available metrics/tabs include: Query latency, Queries, Rows read, Rows written, Errors and Indexes. The Indexes graph (which is not show on the database-level page) shows the percentage of queries that used each of the listed indexes in each time bucket. Currently only `SELECT` queries show index usage information
+
+Beneath the time series graphs you will see summary statistics for the query pattern. These data are scoped to the same time period shown in the main query pattern graphs. The available metrics have the same definitions as the query statistics listed in the main insights tab.
+
+`SELECT` queries include a horizontal bar graph that shows the cumulative usage of each index over the complete time period shown in the main query pattern graphs.
+
+To change the time period reflected in the graphs and summary statistics, click and drag to restrict the time window, or click on one of the day icons above the graph to select a different day.
 
 #### Notable queries
 
