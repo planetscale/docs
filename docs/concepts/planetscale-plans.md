@@ -61,6 +61,8 @@ On top of processing and memory, all **Scaler Pro** cluster sizes share the foll
 | **PlanetScale CLI**                                                          | Included                                                 |
 | **SSO**                                                                      | Available as an add-on\*\*\*                             |
 | **Audit log retention**                                                      | 6 months                                                 |
+| **Private connections**                                                      | [Configurable](/docs/concepts/private-connections)       |
+| **BAAs**                                                                     | Available for an additional fee                          |
 | **Automatic backups**                                                        | Every 12 hours                                           |
 | **Support**                                                                  | Standard, upgrade available\*\*\*                        |
 | [**Data Branching®**](/docs/concepts/data-branching)                        | Included                                                 |
@@ -151,16 +153,15 @@ When you choose to change cluster size, we upgrade each of your replicas one by 
 
 PlanetScale's Enterprise Plan is great for users that want to scale farther, shard horizontally, and run PlanetScale in a dedicated AWS/GCP account. We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
 
-|                             | **Multi-Tenant** | **Single-Tenant** | **[Managed](/docs/enterprise/managed/overview)** |
-| --------------------------- | ---------------- | ----------------- | ------------------------------------------------ |
-| Horizontal sharding         | ✔               | ✔                | ✔                                               |
-| Unlimited connections       | ✔               | ✔                | ✔                                               |
-| Customizable feature limits | ✔               | ✔                | ✔                                               |
-| BAAs available              | ✔               | ✔                | ✔                                               |
-| Private connections         | ✔               | ✔                | ✔                                               |
-| PCI compliant               | ❌               | ❌                | ✔ (on AWS)                                      |
-| Dedicated AWS/GCP account   | ❌               | ✔                | ✔                                               |
-| Your own AWS/GCP account    | ❌               | ❌                | ✔                                               |
+|                                                        | PlanetScale Enterprise                        | **[PlanetScale Managed](/docs/enterprise/managed/overview)**                                                                                                                                                                      |
+| ------------------------------------------------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Horizontal sharding                                    | ✔                                            | ✔                                                                                                                                                                                                                                |
+| Customizable feature limits                            | ✔                                            | ✔                                                                                                                                                                                                                                |
+| [Support](/docs/support/support-overview)              | Business &mdash; Enterprise upgrade available | Enterprise                                                                                                                                                                                                                        |
+| PCI compliant                                          | ❌                                            | ✔ (on AWS)                                                                                                                                                                                                                       |
+| Dedicated AWS/GCP account                              | Optional                                      | ✔                                                                                                                                                                                                                                |
+| Bring your own cloud (an AWS or GCP account _you_ own) | ❌                                            | ✔                                                                                                                                                                                                                                |
+| Billing                                                | Directly from PlanetScale                     | Partial payment through PlanetScale and infrastructure costs through AWS/GCP. Take advantage of your own discounts. Optionally, purchase through [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-luy3krhkpjne4). |
 
 ## How do I know if I need an Enterprise plan?
 

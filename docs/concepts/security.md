@@ -72,7 +72,7 @@ The following are two examples of data locality in PlanetScale:
 
 ### HIPAA and Business Associate Agreements
 
-PlanetScale can enter into Business Associate Agreements (BAAs) with customers who purchase [Business support](/docs/support/support-overview) or an [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). Please [reach out for more information](/contact), and we'll be in touch shortly.
+PlanetScale can enter into Business Associate Agreements (BAAs) with customers who purchase [Business support](/docs/support/support-overview), an [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan), or qualify for our startup pricing. Please [reach out for more information](/contact), and we'll be in touch shortly.
 
 The customer must determine whether they are a Covered Entity — or a Business Associate of a Covered Entity — as defined under HIPAA. If so, the customer may require a BAA with PlanetScale for the purposes of our relationship.
 
