@@ -41,7 +41,14 @@ Customers of PlanetScale Managed should ensure the following additional configur
 
 #### Local Authentication Parameters
 
-As PlanetScale does not have access to IAM logs for the customer application environment, to maintain compliance with PCI requirement 8.3.4, it is the customer’s responsibility to ensure that all invalid login attempts to the cardholder data environment hosted in AWS are logged.
+PlanetScale does not set specific authentication parameters for accessing the customer database during initial provisioning. To maintain compliance with PCI requirements 8.2 and 8.3, it is the customer's responsibility to set the following authentication parameters in line with the respective requirements set by the PCI Data Security Standards:
+
+- Account lockout
+- Account lockout duration
+- Password minimum length
+- Password complexity
+- Password expiration
+- Password history
 
 #### Log Level Configuration
 
