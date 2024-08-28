@@ -106,6 +106,7 @@ You can customize the metrics that show up on the Queries list by clicking the "
 - **Total time (ms)** — The total time the query has run in milliseconds.
 - **`p50` latency** — The `p50` latency for the query in milliseconds. This means that 50% of requests completed faster than the time listed.
 - **`p99` latency** — The `p99` latency for the query in milliseconds. This means that 99% of requests completed faster than the time listed.
+- **Max latency** — The maximum observed latency for the query in milliseconds.
 - **Rows returned** — The total number of rows fetched by a `SELECT` statement. This includes all times the query has run in the displayed time frame.
 - **Rows read** — The total number of rows read. This includes all times the query has run in the displayed time frame.
 - **Rows read/rows returned** — The result of dividing total rows read by rows returned in a query. A high number can indicate that your database is reading unnecessary rows, and they query may be improved by adding an index.
