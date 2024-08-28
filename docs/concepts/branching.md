@@ -1,7 +1,7 @@
 ---
 title: 'Branching'
 subtitle: 'Create a development or staging environment for your database through branches.'
-date: '2024-02-15'
+date: '2024-08-28'
 ---
 
 ## Overview
@@ -159,10 +159,30 @@ The `main` branch is automatically set as the default branch when the database i
 
 **How to change the default branch**:
 
+There are two ways to change the default branch.
+
+1. Go to the "Branches" page in your dashboard.
+2. Click on the three dots "..." next to the branch whose name you'd like to change.
+3. Click "Set as default branch".
+
+If the current default branch has child branches, you also have the option to move those under the new default branch from here by checking the "Replace the current default branch" checkbox.
+
+Alternatively, you can do this from your Settings page.
+
 1. Go to your database dashboard page and click the "**Settings**" tab.
 2. Under "**General**" in the sidebar, you'll find the "**Default branch**" dropdown.
 3. Select the branch you want to be the default branch. It does not have to be a production branch.
 4. Scroll down and click "**Save database settings**".
+
+{% callout %}
+Note: If you change the default branch, you will also need to update your credentials in your application, or wherever else you use credentials, to reference the new default branch (if desired).
+{% /callout %}
+
+## Renaming a branch
+
+You can change the name of a branch from the Branches tab in your PlanetScale dashboard. Click on the three dots ("...") next to the branch name that you would like to change, type in the new name, and click "Save changes".
+
+Renaming a branch does not affect that branch's credentials. You do not need to regenerate credentials if you rename a branch.
 
 ## Delete a branch
 
