@@ -1,7 +1,7 @@
 ---
 title: 'Datadog integration'
 subtitle: 'Push usage and performance metrics about your PlanetScale databases to Datadog.'
-date: '2022-08-03'
+date: '2024-08-28'
 meta:
   title: 'Monitor with Datadog'
   description: 'Push metrics to Datadog to better understand your database usage and performance'
@@ -47,3 +47,15 @@ Once configured, PlanetScale collects the following metrics from every branch in
 ## Billing
 
 The Datadog integration is available on all of our [paid plans](/pricing).
+
+## Frequently asked questions
+
+### How do I track replication lag in Datadog?
+
+You can use the following formula to set alerts for replication lag:
+
+```
+(max:planetscale.replication_lag{ps_database:<DATABASE_NAME> ps_tablet_type:replica, ps_branch:<MAIN>})
+```
+
+Make sure you replace `<DATABASE_NAME>` with your PlanetScale database name and `<MAIN>` with the name of the branch for which you'd like to track replication lag.

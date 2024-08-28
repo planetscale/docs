@@ -1,7 +1,7 @@
 ---
 title: 'Database replicas'
 subtitle: 'Understand how replicas optimize and protect your PlanetScale database.'
-date: '2024-07-17'
+date: '2024-08-28'
 ---
 
 ## Overview
@@ -79,6 +79,14 @@ In cloud architecture, regions are further broken down into data centers known a
 ## Data consistency and replication lag
 
 Whenever data is updated (`INSERT`, `UPDATE`, `DELETE`) on the primary node, those changes are synchronized to the replicas shortly after. The delay between when a primary is updated and the changes are applied to the replica is known as `replication lag`. Your databases replication lag is viewable on your [database dashboard](/docs/concepts/architecture#replication-lag-at-a-glance). Replication lag can also be viewed on Datadog if you set up the [PlanetScale - Datadog integration](/docs/integrations/datadog).
+
+In Datadog, you can use the following formula to set alerts for replication lag:
+
+```
+(max:planetscale.replication_lag{ps_database:<DATABASE_NAME> ps_tablet_type:replica, ps_branch:<MAIN>})
+```
+
+Make sure you replace `<DATABASE_NAME>` with your PlanetScale database name and `<MAIN>` with the name of the branch for which you'd like to track replication lag.
 
 It is important to be aware of replication lag whenever querying data from your replicas. For example, if you make an update and then immediately try to query for that updated data via a replica, it may not be available yet due to replication lag.
 
