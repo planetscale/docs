@@ -11,15 +11,36 @@ With PlanetScale Managed on Google Cloud Platform (GCP) is a single-tenant deplo
 
 ## Architecture
 
-As you can see in the architecture diagram below, the PlanetScale data plane is deployed inside of a PlanetScale-controlled project in your GCP organization. Within the Vitess cluster orchestrated by Kubernetes, we use three GCP zones within a region to ensure high availability.
+As you can see in the architecture diagram below, the PlanetScale data plane is deployed inside of a PlanetScale-controlled project in your GCP organization.
+The Vitess cluster will run within this project, orchestrated by Kubernetes.
 
-You can deploy PlanetScale Managed to any GCP region with at least three zones, including zones not supported by the PlanetScale self-serve product, and support for the required GCP services (including but not limited to Google Compute Engine (GCE), Google Kubernetes Engine (GKE), Cloud Storage, Persistent Disk, Cloud Key Management Service (Cloud KMS), Cloud Logging).
+We distribute components of the cluster across three GCP zones within a region to ensure high availability.
+You can deploy PlanetScale Managed to any GCP region with at least three zones, including zones not supported by the PlanetScale self-serve product, so long as the region supports the required GCP services (including but not limited to Google Compute Engine (GCE), Google Kubernetes Engine (GKE), Cloud Storage, Persistent Disk, Cloud Key Management Service (Cloud KMS), Cloud Logging).
 
-Backups, part of the data plane, are stored in Cloud Storage inside the same project. PlanetScale Managed uses isolated GCE instances as part of the deployment.
+Backups, part of the data plane, are stored in Cloud Storage inside the same project.
+PlanetScale Managed uses isolated GCE instances as part of the deployment.
 
-![Architecture diagram](/assets/docs/managed/gcp/gcp-arch-diagram.jpg)
+![Architecture diagram for PlanetScale Managed in GCP](/assets/docs/managed/gcp/gcp-arch-diagram.png)
 
 Your database lives entirely inside a dedicated project within GCP. PlanetScale will not have access to other projects nor your organization-level settings within GCP. Outside of your GCP organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
+
+The Vitess cluster running inside Kubernetes is composed of a number of Vitess Components.
+All incoming queries are received by one of the **VTGates**, which then routes them to the appropriate **VTTablet**.
+The VTGates, VTTablets, and MySQL instances are distributed across 3 availability zones.
+
+![Diagram of Vitess cluster on GCP](/assets/docs/managed/gcp/gcp-vitess.png)
+
+Several additional required Vitess components are run in the Kubernetes cluster as well.
+The topology server keeps track of cluster configuration.
+**VTOrc** monitors cluster health and handles repairs, including managing automatic failover in case of an issue with a primary.
+**vtctld** along with the client **vtctl** can be used to make changes to the cluster configuration and run workflows.
+**VTAdmin** is a UI for viewing your cluster that can be used in addition to the PlanetScale UI.
+
+## Security and compliance
+
+PlanetScale Managed is an excellent option for organizations with specific security and compliance requirements.
+
+You own the AWS organization and sub-account that PlanetScale is deployed within in an isolated architecture. This differs from when your PlanetScale database is deployed within our AWS organizations.
 
 ## Security and compliance
 

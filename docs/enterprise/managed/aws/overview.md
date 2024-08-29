@@ -2,24 +2,42 @@
 title: 'PlanetScale Managed on AWS overview'
 subtitle: 'Learn more about deploying PlanetScale in your Amazon Web Services account with our PlanetScale Managed plan.'
 label: 'Managed'
-date: '2024-05-03'
+date: '2024-08-28'
 ---
 
 ## Overview
 
-PlanetScale Managed on Amazon Web Services (AWS) is a single-tenant deployment of PlanetScale in your AWS organization within an isolated sub-account. In this configuration, you can use the same API, CLI, and web interface that PlanetScale offers, with the benefit of running entirely in an AWS sub-account that you own and PlanetScale manages for you.
+PlanetScale Managed on Amazon Web Services (AWS) is a single-tenant deployment of PlanetScale in your AWS organization within an isolated sub-account.
+In this configuration, you can use the same API, CLI, and web interface that PlanetScale offers, with the benefit of running entirely in an AWS sub-account that you own and PlanetScale manages for you.
 
 ## Architecture
 
-As you can see in the architecture diagram below, the PlanetScale data plane is deployed inside of a PlanetScale-controlled sub-account in your AWS organization. Within the Vitess cluster orchestrated by Kubernetes, we use three AWS availability zones within a region to ensure high availability.
+The PlanetScale data plane is deployed inside of a PlanetScale-controlled sub-account in your AWS organization.
+The Vitess cluster will run within this sub-account, orchestrated via Kubernetes.
 
+We distribute components of the cluster across three AWS availability zones within your selected region to ensure high availability.
 You can deploy PlanetScale Managed to any AWS region with at least three availability zones, including those not supported by the PlanetScale self-serve product.
 
-Backups, part of the data plane, are stored in S3 inside the same sub-account. PlanetScale Managed uses isolated Amazon Elastic Compute Cloud (Amazon EC2) instances as part of the deployment.
+Backups, part of the data plane, are stored in S3 inside the same sub-account.
+PlanetScale Managed uses isolated Amazon Elastic Compute Cloud (Amazon EC2) instances as part of the deployment.
 
-![Architecture diagram](/assets/docs/managed/aws/aws-arch-diagram.jpg)
+![Architecture diagram for PlanetScale Managed in AWS](/assets/docs/managed/aws/aws-arch-diagram.png)
 
-Your database lives entirely inside a dedicated sub-account within your AWS organization. PlanetScale will not have access to other sub-accounts nor your organization-level settings within AWS. Outside of your AWS organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
+Your database lives entirely inside a dedicated sub-account within your AWS organization.
+PlanetScale will not have access to other sub-accounts nor your organization-level settings within AWS.
+Outside of your AWS organization, we run the PlanetScale control plane, which includes the PlanetScale API and web application, including the dashboard you see at `app.planetscale.com`.
+
+The Vitess cluster running inside Kubernetes is composed of a number of Vitess Components.
+All incoming queries are received by one of the **VTGates**, which then routes them to the appropriate **VTTablet**.
+The VTGates, VTTablets, and MySQL instances are distributed across 3 availability zones.
+
+![Diagram of Vitess cluster on AWS](/assets/docs/managed/aws/aws-vitess.png)
+
+Several additional required Vitess components are run in the Kubernetes cluster as well.
+The topology server keeps track of cluster configuration.
+**VTOrc** monitors cluster health and handles repairs, including managing automatic failover in case of an issue with a primary.
+**vtctld** along with the client **vtctl** can be used to make changes to the cluster configuration and run workflows.
+**VTAdmin** is a UI for viewing your cluster that can be used in addition to the PlanetScale UI.
 
 ## Security and compliance
 
