@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale Managed on GCP overview'
 subtitle: 'Learn more about deploying PlanetScale in your Google Cloud Platform account with our PlanetScale Managed plan.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2024-08-29'
 ---
 

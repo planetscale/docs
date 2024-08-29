@@ -1,7 +1,7 @@
 ---
 title: 'Set up AWS PrivateLink with PlanetScale Managed'
 subtitle: 'Learn how to set up AWS PrivateLink to establish private database connectivity with PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2024-05-03'
 ---
 

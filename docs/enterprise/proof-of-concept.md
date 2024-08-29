@@ -40,7 +40,7 @@ Though the details change from customer to customer, the flow of work during the
 1. First, it's good to determine which database you want to start with.
    Long term, you may intend to move multiple databases and workloads into PlanetScale, but during the proof-of-concept phase it is often useful to focus on one specific database and workload to begin testing with.
 2. Based on this choice, your Solutions Architect will help you get the infrastructure set up for your database, and configured appropriately.
-3. If you are going to be using a sharded database, you will also work with us to determine your [sharding strategy](/docs/concepts/sharding), and we will help you decide the best [VSchema](https://vitess.io/docs/reference/features/vschema/) for your tables.
+3. If you are going to be using a sharded database, you will also work with us to determine your [sharding strategy](/docs/sharding/overview), and we will help you decide the best [VSchema](https://vitess.io/docs/reference/features/vschema/) for your tables.
 4. The next step is to get your data imported.
    We have a [self-serve tool for importing databases](/docs/imports/database-imports) into PlanetScale, but we often provide direct assistance with this, and for larger, more complex workloads our team can handle running the appropriate Vitess commands to migrate you over.
 5. After this, customers typically want to start testing the capabilities of their imported database.

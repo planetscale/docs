@@ -1,7 +1,7 @@
 ---
 title: 'Back up and restore'
 subtitle: 'Learn about how backups work in GCP and PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2023-11-06'
 ---
 

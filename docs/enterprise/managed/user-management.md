@@ -1,7 +1,7 @@
 ---
 title: 'User management'
 subtitle: 'Learn how to set up users and access levels in PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2023-11-06'
 ---
 

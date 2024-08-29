@@ -1,7 +1,7 @@
 ---
 title: 'Set up PlanetScale Managed in GCP'
 subtitle: 'Learn how to set up PlanetScale Managed within a GCP project.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2023-11-07'
 ---
 

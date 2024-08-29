@@ -1,7 +1,7 @@
 ---
 title: 'Cluster sizing'
 subtitle: 'Learn about how to select the right cluster size, how to upsize, and how to downsize.'
-date: '2024-05-08'
+date: '2024-08-29'
 ---
 
 You can easily upsize and downsize your database cluster from within the PlanetScale dashboard. This doc covers some information about selecting a cluster size upon database creation as well as how to upsize and downsize.
@@ -39,3 +39,8 @@ To change cluster sizes, go to your PlanetScale dashboard, click on your databas
 The time it takes to change sizes depends on the size and region of your database. Larger databases may take 20 minutes to upsize/downsize. However, this is all done online, so you will not experience any downtime. Keep in mind, once you update your cluster size, you cannot change sizes again until the first size change completes.
 
 When you choose to change cluster size, we upgrade each of your replicas one by one: delete the tablet container, create a new tablet container of the new size, attach the persistent volume, start it up, and connect it to the primary. Once that's complete, we fail the primary over to one of those new replicas, and do the same thing to the old primary.
+
+## Sharding
+
+If you are an Enterprise customer, another way you can scale your database is with **sharding**.
+Check out our [sharding documentation](/docs/sharding/overview) for more information.

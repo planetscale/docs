@@ -1,7 +1,7 @@
 ---
 title: 'Set up GCP Private Service Connect with PlanetScale Managed'
 subtitle: 'Learn how to set up GCP Private Service Connect to establish private database connectivity with PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2024-05-13'
 ---
 

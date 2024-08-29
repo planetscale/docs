@@ -1,13 +1,14 @@
 ---
 title: 'Sharding with PlanetScale'
 subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL database with our sharding solution.'
-date: '2023-06-12'
+label: 'Enterprise'
+date: '2023-08-29'
 ---
 
 With Vitess under the hood, we're able to offer an elegant horizontal scaling solution via sharding — with minimal application changes.
 
 {% callout %}
-Sharding is available on our [Enterprise plan](/docs/concepts/planetscale-plans). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
+Sharding is available on our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
 {% /callout %}
 
 ## Sharding with PlanetScale

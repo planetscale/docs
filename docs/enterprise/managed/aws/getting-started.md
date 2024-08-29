@@ -1,7 +1,7 @@
 ---
 title: 'Set up PlanetScale Managed in AWS'
 subtitle: 'Learn how to set up PlanetScale Managed within a AWS sub-account.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2023-12-06'
 ---
 

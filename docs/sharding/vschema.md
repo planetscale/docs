@@ -1,9 +1,13 @@
 ---
 title: 'VSchema'
 subtitle: 'Learn how to view and modify the VSchema of your keyspaces using the PlanetScale app.'
-label: 'VSchema'
-date: '2024-08-16'
+label: 'Enterprise'
+date: '2024-08-29'
 ---
+
+{% callout %}
+This feature is only available on our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
+{% /callout %}
 
 ## VSchema overview
 

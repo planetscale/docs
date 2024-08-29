@@ -1,7 +1,7 @@
 ---
 title: 'Cloud accounts and contents'
 subtitle: 'Learn more about cloud account access and content restrictions for PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2023-11-06'
 ---
 

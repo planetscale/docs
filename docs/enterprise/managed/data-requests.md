@@ -1,7 +1,7 @@
 ---
 title: 'Data requests'
 subtitle: 'Learn more about data requests for PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2023-11-06'
 ---
 

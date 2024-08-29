@@ -1,7 +1,7 @@
 ---
 title: 'Schema snapshots'
 subtitle: 'Learn more about transfers of schema snapshots for PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2024-02-13'
 ---
 

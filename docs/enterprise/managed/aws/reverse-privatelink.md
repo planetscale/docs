@@ -1,7 +1,7 @@
 ---
 title: 'Set up AWS Reverse PrivateLink with PlanetScale Managed'
 subtitle: 'Learn how to set up AWS PrivateLink to allow for data imports from an existing database environment into PlanetScale Managed.'
-label: 'Managed'
+label: 'Enterprise'
 date: '2024-05-03'
 ---
 
