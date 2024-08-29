@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale system limits'
 subtitle: 'Learn about system limits that PlanetScale puts in place to protect your database.'
-date: '2024-08-27'
+date: '2024-08-28'
 ---
 
 ## Table limits
@@ -94,3 +94,24 @@ When the use of OLAP queries is strictly unavoidable, we recommend:
 {% callout %}
 Please note that if you choose to use OLAP mode, you need to be prepared to handle errors if the connection to PlanetScale gets interrupted for any reason.
 {% /callout %}
+
+## Reducing table size without `OPTIMIZE TABLE`
+
+If you delete several rows in a table, you may wish to reclaim that storage space. The MySQL [`OPTIMIZE TABLE` statement](https://dev.mysql.com/doc/refman/en/optimize-table.html) allows you to reorganize the physical storage of table data to reduce its storage requirements.
+
+However, `OPTIMIZE TABLE` is a locking operation, so you cannot use it unless you disable [safe migrations](/docs/concepts/safe-migrations) in PlanetScale, which is not recommended.
+
+Any time you create and deploy a deploy request with safe migrations on, our schema change process uses [online DDL](/docs/learn/how-online-schema-change-tools-work), and in doing so, recreates the table that you are modifying &mdash; thus reclaiming the storage space.
+
+But there are often cases where you do not need to make a schema change for a while, but you'd like to free up the space. In those cases, we suggest you do the following:
+
+1. Create a new branch.
+2. Run the following command:
+
+```sql
+ALTER TABLE <TABLE_NAME> COMMENT 'Optimize table size via DR - <YYYY-MM-DD>';
+```
+
+Where `<TABLE_NAME>` is the name of your table and `<YYYY-MM-DD>` is the current date.
+
+3. Create a deploy request, and merge it into production.
