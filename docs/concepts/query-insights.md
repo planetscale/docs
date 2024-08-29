@@ -1,7 +1,7 @@
 ---
 title: 'Query Insights'
 subtitle: 'Find and optimize long-running queries in your application, anomalies in your database, and more.'
-date: '2024-08-14'
+date: '2024-08-28'
 ---
 
 ## Overview
@@ -79,7 +79,11 @@ You can click on any of the error messages on the Errors tab to open a more deta
 
 ## Queries overview
 
-The table underneath the graph shows all queries performed on your database in the selected timeframe (last 24 hours by default).
+The table underneath the graph shows queries performed on your database in the selected timeframe (last 24 hours by default).
+
+{% callout %}
+The queries table does not show following statements types: `BEGIN`, `COMMIT`, `RELEASE`, `ROLLBACK`, `SAVEPOINT`, `SAVEPOINT_ROLLBACK`, `SET`.
+{% /callout %}
 
 You may see some placeholder values in the queries, such as `:v1`. This is because we consider the actual data private and normalize it away.
 
