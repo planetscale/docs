@@ -2,7 +2,7 @@
 title: 'PlanetScale Managed on GCP overview'
 subtitle: 'Learn more about deploying PlanetScale in your Google Cloud Platform account with our PlanetScale Managed plan.'
 label: 'Managed'
-date: '2023-11-15'
+date: '2024-08-29'
 ---
 
 ## Overview
@@ -34,7 +34,6 @@ Several additional required Vitess components are run in the Kubernetes cluster 
 The topology server keeps track of cluster configuration.
 **VTOrc** monitors cluster health and handles repairs, including managing automatic failover in case of an issue with a primary.
 **vtctld** along with the client **vtctl** can be used to make changes to the cluster configuration and run workflows.
-**VTAdmin** is a UI for viewing your cluster that can be used in addition to the PlanetScale UI.
 
 ## Security and compliance
 
