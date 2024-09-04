@@ -73,10 +73,6 @@ Learn more about [**Instant Deployments**](#instant-deployments) below.
 
 If you would like to require an administrator's approval before a request can be deployed, go to the "**Settings**" page for your database and check the "**Require administrator approval for deploy requests**" box. You must be an Organization Administrator to enable this restriction. Please note you will not be able to approve your own deploy requests.
 
-{% callout type="note" %}
-We’re currently rolling this feature out, so instant deployments are not yet available for all databases.
-{% /callout %}
-
 ## Close a deploy request
 
 If you decide you don't want to proceed with a deploy request, you can easily close it.
