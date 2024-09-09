@@ -1,7 +1,7 @@
 ---
 title: 'Read-only regions'
 subtitle: 'Add additional read-only regions to your production database.'
-date: '2024-07-12'
+date: '2024-09-09'
 ---
 
 ## Overview
@@ -74,7 +74,3 @@ If you have two read-only regions, each one will be charged at our additional st
 The read-only region storage rate is $0.75 per GB, and in this case would lead to an additional storage charge of $10.50.
 
 For more information on storage billing costs, see our [Billing documentation](/docs/concepts/billing#planetscale-plans).
-
-### Rows read
-
-Queries issued to each read-only region will contribute to your total billable row reads per month. Your invoice details will show a new line for rows read from each region.
