@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands: database'
 subtitle: 'Use the PlanetScale CLI “database” command to create, read, delete, dump, and restore databases from your terminal.'
-date: '2023-07-13'
+date: '2024-09-10'
 meta:
   title: 'CLI reference: database'
 ---
@@ -89,3 +89,45 @@ pscale database create new-database --region <REGION_NAME> --plan scaler_pro --c
 **Output:**
 
 Database `new-database` was successfully created.
+
+### Create a backup of an existing branch:
+
+**Command:**
+
+```bash
+pscale database dump <CURRENT_DATABASE_NAME> <BRANCH_NAME> --output="<DIRECTORY_FOR_BACKUP>" --org="<ORIGINAL_ORGANIZATION>"
+```
+
+**Output:**
+
+A local export of your database will be generated within the current directory by default but since we are providing an `--output` location above that will be used instead.
+
+### Restore a backup to an existing branch:
+
+**Command:**
+
+```bash
+pscale database restore-dump <DESTINATION_DATABASE_NAME> <BRANCH_NAME> --dir="<DIRECTORY_FOR_BACKUP>" --org="<DESTINATION_ORGANIZATION>"
+```
+
+**Output:**
+
+You should receive output indicating the restore is progressing until it completes successfully.
+
+The command above will allow you to restore an existing backup to another branch located either within the same organization/database as the original, or within a completely different organization/database.
+
+If you opt to import into a database with a different name you will have to make sure you rename the files from your backup beforehand.
+
+For example, the files will be named something like this:
+
+```bash
+<CURRENT_DATABASE_NAME>.<TABLE_NAME>-schema.sql
+```
+
+And you will want to rename all of the files in the dump folder to have the new database name if it is not the same as the existing one:
+
+```bash
+<DESTINATION_DATABASE_NAME>.<TABLE_NAME>-schema.sql
+```
+
+If importing into a branch that already contains table definitions that you want to overwrite, you may also be required to pass in the optional `--overwrite-tables` flag.
