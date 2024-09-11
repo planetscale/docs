@@ -16,10 +16,6 @@ PlanetScale offers [Insights](/docs/concepts/query-insights) with every database
 
 If your database is enrolled in the schema-revert feature, the metrics gathered by Insights could help in making a data-driven decision on if the schema you just deployed to production is experiencing issues and needs to be rolled back. While having your own logging and monitoring platform to analyze errors in your code is definitely a best-practice, this would act as an additional layer of analytics and may help in reducing downtime overall.
 
-**Insights + PlanetScale Boost**
-
-While not directly related to monitoring, it's worth mentioning that Insights integrates directly with [PlanetScale Boost](/docs/concepts/query-caching-with-planetscale-boost), an optional feature that can be used with databases on our platform to exponentially improve query performance by adding a query cache in front of your database to serve the most requested data from in-memory data.
-
 ### PlanetScale Connect
 
 PlanetScale Connect is a feature provided to our databases that allows you to extract data from the database and safely load it into remote destinations for analytics or ETL purposes. Using Connect with our supported destinations can enable you to further process the data in any way your organization may need. This can help provide detail as to how users are using your application based on the data that's written to your database and assist in driving decisions in the next planning cycle.

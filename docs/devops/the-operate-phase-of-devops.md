@@ -24,10 +24,6 @@ One thing that can be overlooked is the fact that backups are pointless if the d
 
 PlanetScale is built in [Vitess](https://vitess.io), which is an open-source project that enables horizontal scaling for MySQL databases. If you are in the Enterprise tier, you have additional configuration options available to horizontally scale your database, further reducing the load on individual nodes as well as increasing performance and resiliency.
 
-### Query data caching
-
-As this phase is predominantly about infrastructure and making sure the application stays healthy, its worth mentioning [PlanetScale Boost](/docs/concepts/query-caching-with-planetscale-boost), a fully integrated database query cacheing service that can be added to any database in PlanetScale to optimize the performance of queries that are executed frequently. When PlanetScale Boost is enabled for an organization, an additional server is added internally that provides an in-memory data structure where the results of common queries can be returned much quicker than if they were being read by the MySQL database engine. This can significantly reduce the complexity of managing similar infrastructure components by operations teams.
-
 ### Read-only regions
 
 When creating databases or branches, you'll be presented with the option to select which [region](/docs/concepts/regions) you'd like your database created in. After creation, you'll also have the option to create [read-only regions](/docs/concepts/read-only-regions). This adds a replica of your database in a specific geographical location to more quickly serve queries by users in that area. Traditionally this would require operations teams to set up additional data centers linked by VPN tunnels or private ISP networks to securely synchronize data, but this is all handled by PlanetScale without such complexity.

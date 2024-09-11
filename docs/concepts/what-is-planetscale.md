@@ -79,12 +79,6 @@ If you notice your application is running slower than it should or you want to d
 - time per query
 - rows read, affected, and returned
 
-### PlanetScale Boost
-
-[PlanetScale Boost](/docs/concepts/query-caching-with-planetscale-boost) (beta) is our solution to improve the implementation of often cumbersome query caching. With PlanetScale Boost, you can add query caching to your application simply by choosing which queries you want to speed up, allocating a certain amount of storage to them, and clicking a button to implement. All with minimal application changes.
-
-In most caching systems, you would still have to deal with cache invalidation. With PlanetScale Boost, cache invalidation is a thing of the past. We will automatically update the store with any incoming changes to data, so you won't see your cached queries slow down while they repopulate.
-
 ### No downtime import tool
 
 We understand changing database providers can be a pain, from dealing with downtime to complicated dumps and restores and endless compatibility issues.

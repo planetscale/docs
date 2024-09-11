@@ -1,7 +1,7 @@
 ---
 title: 'Upgrading to Scaler Pro - FAQ'
 subtitle: 'Frequently asked questions about upgrading to Scaler Pro.'
-date: '2024-04-12'
+date: '2024-09-11'
 ---
 
 ## Overview
@@ -19,7 +19,6 @@ All existing Scaler plan customers who did not upgrade their database or migrate
 - [What changes with read-only regions?](#what-changes-with-read-only-regions-)
 - [How do I know when to scale up my cluster size?](#how-do-i-know-when-to-scale-up-my-cluster-size-)
 - [How do development branches work on Scaler Pro?](#how-do-development-branches-work-on-scaler-pro-)
-- [What changes with PlanetScale Boost?](#what-changes-with-planetscale-boost-)
 
 ## How do I select a Scaler Pro cluster size?
 
@@ -105,7 +104,3 @@ On the Scaler plan, each database had a limit of 5 development branches at a tim
 With Scaler Pro, each database has 1,440 hours of development branch time included. Anything over that time is billed at ~$0.014 per hour. All branches are only billed for the time that they are used, prorated to the second.
 
 [Learn more about development branch billing](/docs/concepts/planetscale-plans#development-branches).
-
-## What changes with PlanetScale Boost?
-
-There are no billing changes for PlanetScale Boost when upgrading to Scaler Pro.

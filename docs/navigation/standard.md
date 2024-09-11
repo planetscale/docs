@@ -219,32 +219,6 @@
     - label: 'Creating sequence tables'
       slug: '/docs/sharding/sequence-tables'
 
-- label: 'Caching queries'
-  icon: 'cache'
-  items:
-    - label: 'PlanetScale Boost'
-      items:
-        - label: 'Query caching with PlanetScale Boost'
-          slug: '/docs/concepts/query-caching-with-planetscale-boost'
-        - label: 'How to use PlanetScale Boost'
-          slug: '/docs/concepts/how-to-use-planetscale-boost'
-        - label: 'When to use PlanetScale Boost'
-          slug: '/docs/concepts/when-to-use-planetscale-boost'
-        - label: 'Language-specific guides'
-          items:
-            - label: 'Laravel guide'
-              slug: '/docs/tutorials/laravel-boost-guide'
-            - label: 'Ruby on Rails guide'
-              slug: '/docs/tutorials/rails-boost-guide'
-            - label: 'Go guide'
-              slug: '/docs/tutorials/go-boost-guide'
-            - label: 'Prisma guide'
-              slug: '/docs/tutorials/prisma-boost-guide'
-            - label: 'Node.js guide'
-              slug: '/docs/tutorials/node-boost-guide'
-            - label: 'Serverless JavaScript driver guide'
-              slug: '/docs/tutorials/serverless-driver-boost-guide'
-
 - label: 'Security and access'
   icon: 'security'
   items:

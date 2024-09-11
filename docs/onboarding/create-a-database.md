@@ -42,7 +42,6 @@ The tabs from left to right are:
 - **Deploy requests** — How you apply changes to your database schema. More on that in the next article.
 - **Branches** — View the different branches of your database. Again, more on that in the next article.
 - **Insights** — Provides statistics on database operations that may be affecting performance.
-- **Boost** — PlanetScale Boost is a real-time query cache that automatically handles cache invalidation for you with one line of code.
 - **Console** — Lets you run MySQL commands against branches.
 - **Backups** — Shows you backup schedule and all backups for this database across production and development branches.
 - **Settings** — Lets you tweak various aspects of your database like who has access to it, beta feature opt-ins, and plan management.
