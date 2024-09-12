@@ -1,11 +1,9 @@
 ---
 title: 'Sharding with PlanetScale'
-subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL database with our sharding solution.'
+subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL database with our sharding solution built on top of Vitess and MySQL.'
 label: 'Enterprise'
-date: '2023-08-29'
+date: '2024-09-12'
 ---
-
-With Vitess under the hood, we're able to offer an elegant horizontal scaling solution via sharding — with minimal application changes.
 
 {% callout %}
 Sharding is available on our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
@@ -13,25 +11,39 @@ Sharding is available on our [Enterprise plan](/docs/concepts/planetscale-plans#
 
 ## Sharding with PlanetScale
 
-PlanetScale allows you to break up a monolithic database and partition the data across several databases. This [reduces the load on a single database](/blog/one-million-queries-per-second-with-mysql) by distributing it across several. Sharding can easily become a convoluted and hard-to-manage scenario, but because of our underlying architecture, we're able to keep this sharding logic largely out of the application. So, from the application's perspective, there only exists one database.
+PlanetScale allows you to break up a large monolithic database and spread the data out across multiple servers.
+This [reduces the load on a single database](/blog/one-million-queries-per-second-with-mysql) by distributing it across many.
+PlanetScale achieves this by building our product on top of [Vitess](https://vitess.io/), which provides a transparent [sharding solution](/sharding) for MySQL databases.
 
 ### Sharding without application changes
 
-Part of the elegance of our solution lies in the fact that we require minimal application changes to shard your MySQL database. Often, when it comes time to start thinking about sharding your database, we see people decide to start writing the logic directly into their application. This can become problematic as data and traffic patterns change. It leaves you constantly having to modify the logic in your application as new problems arise.
+Sharding is a proven database architecture used by many organizations to help them scale up when database demand grows.
+When reaching this point, many organizations choose to scale and shard their database manually.
+This typically involves adding a bunch of sharding-specific logic to the application layer and/or creating a whole new proxy component to manage the shards.
+In addition to this, managing a large fleet of disparate database servers is a significant operational challenge.
 
-PlanetScale is able to solve this by abstracting this logic from the application layer.
+When using PlanetScale, customers can keep sharding logic out of their applications and let us take the burden of infrastructure management.
+This is because Vitess allows you to create sharded databases and have them appear to the application layer as a single, unified database.
+This means simpler application architecture, allowing your developers to worry less about the database and more on their work.
 
-Essentially, when you're at the point where you've maxed out your vertical scaling efforts and you know you need to shard your database, PlanetScale can allow you to do so _without_ the burden of rearchitecting your entire application.
+PlanetScale abstracts away all of this complexity using the **VTGate** layer of Vitess.
+The VTGates act as the entryway into a Vitess database cluster.
+They handle incoming connections and route queries to the appropriate MySQL instances.
+
+When you're at the point where you've maxed out your vertical scaling efforts and you know you need to shard your database, PlanetScale allows you to do so _without_ the burden of rearchitecting your entire application.
 
 ## How does our sharding process work?
 
 When it comes time to shard your database, you'll work closely with our Technical Solutions team to identify the best [sharding scheme](https://vitess.io/docs/reference/features/sharding/#sharding-scheme) for your database.
 
-PlanetScale uses an explicit sharding system, which means we have to tell Vitess which sharding strategy to use for every table. The underlying work involves some conversations to first understand what your application does and the current state of your database. Once we have this complete view of your application, our next objective is to identify a sharding key.
+PlanetScale uses an explicit sharding system.
+This means that, if you are going to horizontally shard your data, we have to tell Vitess which sharding strategy to use for each sharded table.
+This involves some conversations to understand what your application does and the size, schema, and queries of your database.
+Once we have this complete view of your application, our next objective is to identify a sharding key.
 
-### Choosing a sharding key
-
-The sharding key, or [Primary Vindex](https://vitess.io/docs/reference/features/vindexes), controls how a column value maps to a [keyspace ID](https://vitess.io/docs/concepts/keyspace). Each shard will cover a range of keyspace ID values, so this mapping is used to identify which shard a row is in.
+The sharding key, or [Primary Vindex](https://vitess.io/docs/reference/features/vindexes) is what determines how the rows of your sharded tables will be distributed across servers.
+For each table you want to shard, we must choose which column to use for the Vindex, and what [type of vindex](https://vitess.io/docs/reference/features/vindexes/#predefined-vindexes) to use with it.
+Each shard will cover a range of keyspace ID values, so this mapping is used to identify which shard a row is in.
 
 To determine a Primary Vindex, our team will analyze your schema and query patterns. We generally will ask you for the following information:
 
@@ -39,7 +51,7 @@ To determine a Primary Vindex, our team will analyze your schema and query patte
 2. Some indication of the size of each table in your database. We can typically gather this information by looking at `AUTO_INCREMENT` values, but may require additional context in some cases.
 3. Information about your common query patterns — typically your most frequently used 50-100 queries.
 
-Using this holistic view of your database, we can work to determine a good candidate for the Primary Vindex. During this analysis, we also begin to determine which tables should be sharded, whether you'll require secondary vindexes ([Lookup Vindexes](https://vitess.io/docs/reference/features/vindexes/#functional-and-lookup-vindex)), the strategy for tables that don't contain our chosen Primary Vindex, and more.
+Using this holistic view of your database, we can work to determine a good candidate for the Primary Vindex. During this analysis, we also begin to determine which tables should be sharded, whether you'll require secondary Vindexes ([Lookup Vindexes](https://vitess.io/docs/reference/features/vindexes/#functional-and-lookup-vindex)), the strategy for tables that don't contain our chosen Primary Vindex, and more.
 
 While no sharding strategy can ever optimize for _all_ query patterns, this deep analysis makes the strategy as efficient as possible for the majority of queries, especially the most frequently used queries.
 
@@ -53,7 +65,7 @@ We generally recommend sharding when you're running into issues with:
 - Hitting vertical limits with **write throughput**
 - Hitting replica limits with **read throughput**
 
-We also often see customers running into other infrastructure challenges before they really see their application performance impacted by large amounts of data. As your data grows, you may find your backups are becoming unreliable and time-consuming. Or you may have no way to test those large backups.
+We often see customers running into other infrastructure challenges before they really see their application performance impacted by large amounts of data. As your data grows, you may find your backups are becoming unreliable and time-consuming. Or you may have no way to test those large backups.
 
 If it feels like some things are starting to break down in your infrastructure, but you aren't sure if sharding is the solution, we can still help you identify if it's the correct strategy for scaling your database.
 
