@@ -16,12 +16,12 @@ Learn more about the API and how to use it in the [PlanetScale API documentation
 
 Some examples of what you can do with the PlanetScale API:
 
-- Automatically [create and delete database branches](https://api-docs.planetscale.com/reference/create-a-branch) from CI/CD pipelines or data migration tooling
+- Automatically [create and delete database branches](https://api-docs.planetscale.com/reference/create_branch) from CI/CD pipelines or data migration tooling
 - Programmatically build out new environments that connect to PlanetScale database branches for testing
 - Get information about a PlanetScale user, database, branch, organization, and deploy request
-- [Check the status of deploy requests](https://api-docs.planetscale.com/reference/get-a-deploy-request) in the deploy queue
-- Automate [creating and deleting database connection strings](https://api-docs.planetscale.com/reference/create-a-password) for internal users or tools
-- [Create, update, approve, deploy, and delete deploy requests](https://api-docs.planetscale.com/reference/create-a-deploy-request) programmatically from tooling outside of PlanetScale
+- [Check the status of deploy requests](https://api-docs.planetscale.com/reference/get_deploy_request) in the deploy queue
+- Automate [creating and deleting database connection strings](https://api-docs.planetscale.com/reference/create_password) for internal users or tools
+- [Create, update, approve, deploy, and delete deploy requests](https://api-docs.planetscale.com/reference/create_deploy_request) programmatically from tooling outside of PlanetScale
 
 Anywhere that can programmatically use an HTTP API can be integrated with PlanetScale. This includes CLI tools, build scripts, desktop applications, and more.
 

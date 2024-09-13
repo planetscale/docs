@@ -45,7 +45,7 @@ If there is an event you want to use that is not included in this list, please [
 
 The branch has a new anomaly event in PlanetScale Insights.
 
-The `branch.anomaly` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get-a-branch) API endpoint. The link includes a detailed description of each field in the API reference.
+The `branch.anomaly` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get_branch) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -124,7 +124,7 @@ The `branch.anomaly` event uses the same response body as a `200` response from 
 
 The branch is created and ready to connect.
 
-The `branch.ready` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get-a-branch) API endpoint. The link includes a detailed description of each field in the API reference.
+The `branch.ready` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get_branch) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -203,7 +203,7 @@ The `branch.ready` event uses the same response body as a `200` response from th
 
 The branch is now sleeping.
 
-The `branch.sleeping` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get-a-branch) API endpoint. The link includes a detailed description of each field in the API reference.
+The `branch.sleeping` event uses the same response body as a `200` response from the [Get a branch](https://api-docs.planetscale.com/reference/get_branch) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -282,7 +282,7 @@ The `branch.sleeping` event uses the same response body as a `200` response from
 
 The deploy request has been opened.
 
-The `deploy_request.opened` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.opened` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -362,7 +362,7 @@ The `deploy_request.opened` event uses the same response body as a `200` respons
 
 The deploy request has been added to the deploy queue.
 
-The `deploy_request.queued` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.queued` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -462,7 +462,7 @@ The `deploy_request.queued` event uses the same response body as a `200` respons
 
 The deploy request has started running.
 
-The `deploy_request_in_progress` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request_in_progress` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -562,7 +562,7 @@ The `deploy_request_in_progress` event uses the same response body as a `200` re
 
 The deploy request has stopped due to an error.
 
-The `deploy_request.errored` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.errored` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -672,7 +672,7 @@ The `deploy_request.errored` event uses the same response body as a `200` respon
 
 The deploy request is ready to apply the schema and is waiting on the user to confirm.
 
-The `deploy_request.pending_cutover` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.pending_cutover` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 **Example:**
 
@@ -785,7 +785,7 @@ The `deploy_request.pending_cutover` event uses the same response body as a `200
 
 The deploy request has finished applying the schema.
 
-The `deploy_request.schema_applied` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.schema_applied` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 ```json
 {
@@ -918,7 +918,7 @@ The `deploy_request.schema_applied` event uses the same response body as a `200`
 
 The deploy request has been reverted.
 
-The `deploy_request.reverted` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.reverted` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 ```json
 {
@@ -1051,7 +1051,7 @@ The `deploy_request.reverted` event uses the same response body as a `200` respo
 
 The deploy request has been closed.
 
-The `deploy_request.closed` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get-a-deploy-request) API endpoint. The link includes a detailed description of each field in the API reference.
+The `deploy_request.closed` event uses the same response body as a `200` response from the [Get a deploy request](https://api-docs.planetscale.com/reference/get_deploy_request) API endpoint. The link includes a detailed description of each field in the API reference.
 
 ```json
 {
