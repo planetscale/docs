@@ -1,7 +1,7 @@
 ---
 title: 'Datadog integration'
 subtitle: 'Push usage and performance metrics about your PlanetScale databases to Datadog.'
-date: '2024-08-28'
+date: '2024-09-16'
 meta:
   title: 'Monitor with Datadog'
   description: 'Push metrics to Datadog to better understand your database usage and performance'
@@ -32,6 +32,7 @@ Once configured, PlanetScale collects the following metrics from every branch in
 | planetscale.connections                  | gauge           | Number of active connections to a database branch. _Shown as connection._                           |
 | planetscale.primary.cpu_usage            | gauge           | Percentage of CPU utilized on a database branch's primary. _Shown as percent._                      |
 | planetscale.primary.memory_usage         | gauge           | Percentage of memory utilized on a database branch's primary. _Shown as percent._                   |
+| planetscale.queries.latency              | gauge           | Query times in the p50, p95, p99 and p999 percentiles. _Shown as second._                           |
 | planetscale.replication_lag              | gauge           | Replication lag in seconds between a database branch's primary and each replica. _Shown as second._ |
 | planetscale.rows_read                    | count           | Number of rows read from a database branch. _Shown as row._                                         |
 | planetscale.rows_written                 | count           | Number of rows written to a database branch. _Shown as row._                                        |
