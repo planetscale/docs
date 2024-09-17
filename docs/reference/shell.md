@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale CLI commands: shell'
 subtitle: 'Use the PlanetScale CLI “shell” command to open a secure MySQL shell instance to your database from your terminal.'
-date: '2022-08-01'
+date: '2024-09-17'
 meta:
   title: 'CLI reference: shell'
 ---
@@ -80,3 +80,25 @@ DATABASE_NAME/BRANCH_NAME > exit;
 ```
 
 Type `exit` to exit the shell.
+
+### Import an existing .sql file using the `shell` command
+
+**Command:**
+
+The following example assumes you have already ran the `pscale shell` command and you have the shell open to run a MySQL command.
+
+To import an existing `.sql` file you may have available you would want to use the MySQL `source` command and provide it the path to your file:
+
+```bash
+DATABASE_NAME/BRANCH_NAME > source <YOUR_DUMP_FILE>.sql;
+```
+
+**Output:**
+
+Your file should be imported as expected.
+
+{% callout type="note" %}
+When importing `.sql` dump files there are a few caveats to be aware of as sometimes the `.sql` file may have everything wrapped in a `START TRANSACTION;` / `COMMIT;` transaction which will result in the import timing out if it takes more than 20 seconds to complete due to our 20 second transaction timeout limit so you will want to make sure those are removed prior to beginning an import of the file.
+
+Additionally, if your current schema requires our [foreign key constraints](/docs/concepts/foreign-key-constraints) support you may need to ensure it has been enabled within your database Settings area first before proceeding with your import.
+{% /callout %}
