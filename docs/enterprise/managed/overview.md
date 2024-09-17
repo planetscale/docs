@@ -35,7 +35,7 @@ Single-tenancy is one of many benefits when it comes to PlanetScale Managed. Sti
 - Deployment to additional regions
 - [PCI compliance](/blog/planetscale-managed-is-now-pci-compliant) (AWS only)
 - Additional [support options](/docs/support/support-overview#enterprise)
-- Available on [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-luy3krhkpjne4) (AWS only). Your PlanetScale purchase through the AWS Marketplace and the resources you use on PlanetScale will qualify against your EDP commitment.
+- Available on [AWS Marketplace](https://aws.amazon.com/marketplace/pp/prodview-luy3krhkpjne4). Your PlanetScale purchase through the AWS Marketplace and the resources you use on PlanetScale will qualify against your EDP commitment.
 
 ## How do I get PlanetScale Managed?
 
