@@ -5,7 +5,7 @@ date: '2024-09-20'
 ---
 
 {% callout %}
-You can create sharded keyspaces on PlanetScale on the Scaler Pro plan via the cluster configuration page in your dashboard or through the CLI, however, you can only currently shard new tables.
+You can create sharded keyspaces on PlanetScale on the Scaler Pro plan via the [cluster configuration page](/docs/concepts/cluster-configuration) in your dashboard, however, you can only currently shard new tables.
 
 If you have existing tables that need sharding, or if you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
 {% /callout %}

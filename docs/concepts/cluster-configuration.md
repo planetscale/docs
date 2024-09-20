@@ -53,7 +53,7 @@ To create a new [keyspace](/docs/sharding/keyspaces):
 
 ## Modify the VSchema of a keyspace via cluster configuration tab
 
-**Note**: You can modify the VSchema on your development branch either in the cluster configuration tab, using the []`ALTER VSCHEMA` command](/docs/sharding/vschema#modifying-vschema), or with the pscale CLI using [`pscale keyspace vschema update`](/docs/reference/keyspace).
+**Note**: You can modify the VSchema on your development branch either in the cluster configuration tab, using the [`ALTER VSCHEMA` command](/docs/sharding/vschema#modifying-vschema), or with the pscale CLI using [`pscale keyspace vschema update`](/docs/reference/keyspace).
 
 Once you have created your keyspace, you will see a new tab: **VSchema**. The VSchema contains information about how the keyspace is sharded, sequence tables, and other Vitess schema information. The VSchema tab allows you to configure the Vschema for your new keyspace or modify it for existing keyspaces.
 
