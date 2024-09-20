@@ -1,12 +1,13 @@
 ---
 title: 'Sharding with PlanetScale'
-subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL database with our sharding solution built on top of Vitess and MySQL.'
-label: 'Enterprise'
-date: '2024-09-12'
+subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL database with our sharding solution.'
+date: '2024-09-20'
 ---
 
 {% callout %}
-Sharding is available on our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
+You can create sharded keyspaces on PlanetScale on the Scaler Pro plan via the cluster configuration page in your dashboard or through the CLI, however, you can only currently shard new tables.
+
+If you have existing tables that need sharding, or if you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
 {% /callout %}
 
 ## Sharding with PlanetScale
@@ -57,11 +58,11 @@ While no sharding strategy can ever optimize for _all_ query patterns, this deep
 
 And, again, this is all done without requiring you to rearchitect your application.
 
-## When should you consider sharding your database
+## When should you consider sharding a table
 
 We generally recommend sharding when you're running into issues with:
 
-- Application performance due to **data size** (this can vary widely, but when your database exceeds 250 GB, sharding may be something to explore)
+- Application performance due to **data size** (this can vary widely, but when your database exceeds 250 GB or a particular table becomes especially large, sharding may be something to explore)
 - Hitting vertical limits with **write throughput**
 - Hitting replica limits with **read throughput**
 

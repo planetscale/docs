@@ -202,6 +202,8 @@
   items:
     - label: 'Cluster sizing'
       slug: '/docs/concepts/cluster-sizing'
+    - label: 'Cluster configuration'
+      slug: '/docs/concepts/cluster-configuration'
     - label: 'Replicas'
       slug: '/docs/concepts/replicas'
     - label: 'Read-only regions'
@@ -214,8 +216,14 @@
   items:
     - label: 'Sharding with PlanetScale'
       slug: '/docs/sharding/overview'
-    - label: 'View and update VSchema'
+    - label: 'Sharding quickstart'
+      slug: '/docs/sharding/sharding-quickstart'
+    - label: 'VSchema'
       slug: '/docs/sharding/vschema'
+    - label: 'Vindexes'
+      slug: '/docs/sharding/vindexes'
+    - label: 'Keyspaces'
+      slug: '/docs/sharding/keyspaces'
     - label: 'Creating sequence tables'
       slug: '/docs/sharding/sequence-tables'
 
@@ -306,6 +314,8 @@
               slug: '/docs/reference/data-imports'
             - label: 'deploy-request'
               slug: '/docs/reference/deploy-request'
+            - label: 'keyspace'
+              slug: '/docs/reference/keyspace'
             - label: 'org'
               slug: '/docs/reference/org'
             - label: 'password'
