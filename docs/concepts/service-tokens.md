@@ -36,13 +36,18 @@ For a full list of organization access permissions, see the [API documentation f
 
 ### Add database permissions
 
-In order to perform operations specific to a database, permissions need to be assigned per-database. To do this, locate the section titled **Database access** and click **"Add database access"** to open the **Database access permissions** modal.
+In order to perform operations specific to a database, permissions can be assigned per-database. To do this, locate the section titled **Database access** and click **"Add database access"** to open the **Database access permissions** modal.
 
 Select the database you want to grant access to and check the box next to each permission option you need to grant. Once you are done, click **"Save permissions"**.
 
 For a full list of database access permissions, see the [API documentation for service tokens](https://api-docs.planetscale.com/reference/service-tokens#database-access-permissions).
 
 ![The Database access permissions modal.](/assets/docs/concepts/service-tokens/db-access-permissions-2.png)
+
+### Add permissions for all databases
+
+Organization admins can grant database permissions to all current and future databases. This is available in the **Permissions for all databases** section.
+Any permission added to all databases will not be able to be disabled on an individual basis.
 
 ## Service tokens and deploy requests approvals
 
