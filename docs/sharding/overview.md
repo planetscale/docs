@@ -35,7 +35,8 @@ When you're at the point where you've maxed out your vertical scaling efforts an
 
 ## How does our sharding process work?
 
-When it comes time to shard your database, you'll work closely with our Technical Solutions team to identify the best [sharding scheme](https://vitess.io/docs/reference/features/sharding/#sharding-scheme) for your database.
+When it comes time to shard your database, we recommend following our [sharding quickstart](/docs/sharding/sharding-quickstart) guide. You may also
+contact our [Technical Solutions team](/contact) to identify the best [sharding scheme](https://vitess.io/docs/reference/features/sharding/#sharding-scheme) for your database.
 
 PlanetScale uses an explicit sharding system.
 This means that, if you are going to horizontally shard your data, we have to tell Vitess which sharding strategy to use for each sharded table.

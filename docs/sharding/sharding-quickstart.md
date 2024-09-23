@@ -86,7 +86,7 @@ CREATE TABLE user(
 ```sql
 CREATE TABLE exercise_log(
   log_id BIGINT UNSIGNED AUTO_INCREMENT,
-  user_id BIGINT,
+  user_id BIGINT UNSIGNED,
   reps SMALLINT,
   created_at DATETIME,
   edited_at DATETIME,
@@ -97,8 +97,9 @@ CREATE TABLE exercise_log(
 );
 ```
 
-However, we need to get rid of the `AUTO_INCREMENT`s in favor of [sequence tables](/docs/sharding/sequence-tables) in order to get this horizontally sharded.
+However, we need to replace the `AUTO_INCREMENT`s in favor of [sequence tables](/docs/sharding/sequence-tables) in order to horizontally shard the tables.
 To do this, we'll first create the tables in the sharded keyspace with the `AUTO_INCREMENT`s removed.
+
 Connect to your PlanetScale database and run the following:
 
 ```sql

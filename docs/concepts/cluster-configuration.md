@@ -44,7 +44,9 @@ To create a new [keyspace](/docs/sharding/keyspaces):
 5. Enter the keyspace name. For example, if your existing unsharded keyspace is named `books`, you may create a sharded keyspace named `books-sharded`.
 6. Select whether you want to keep it unsharded, or, if not, select the number of shards you to exist in this keyspace. In most cases, you will be adding a new sharded keyspace. Adding a new unsharded keyspace is not a common use case.
 
-**Note**: The cost of adding this additional keyspace largely depends on the number of shards you choose, the cluster size, and if you'd like to add additional replicas.
+{% callout type="note" %}
+The cost of adding this additional keyspace largely depends on the number of shards you choose, the cluster size, and if you'd like to add additional replicas.
+{% /callout %}
 
 7. Choose the cluster sizes you would like to use for this keyspace. Keep in mind, if you are creating a sharded keyspace, this will spin up multiple clusters of the selected size. For example, if you are creating 4 shards and choose the `PS-80` cluster size, we will create 4 `PS-80`s, each with 1 primary and 2 replicas.
 8. Select the number of _additional_ replicas, if any, that you'd like to add to each cluster. Each cluster comes with 2 replicas by default, so any number you choose will be in addition to those 2.
@@ -53,7 +55,9 @@ To create a new [keyspace](/docs/sharding/keyspaces):
 
 ## Modify the VSchema of a keyspace via cluster configuration tab
 
-**Note**: You can modify the VSchema on your development branch either in the cluster configuration tab, using the [`ALTER VSCHEMA` command](/docs/sharding/vschema#modifying-vschema), or with the pscale CLI using [`pscale keyspace vschema update`](/docs/reference/keyspace).
+{% callout type="note" %}
+You can modify the VSchema on your development branch either in the cluster configuration tab, using the [`ALTER VSCHEMA` command](/docs/sharding/vschema#modifying-vschema), or with the pscale CLI using [`pscale keyspace vschema update`](/docs/reference/keyspace).
+{% /callout %}
 
 Once you have created your keyspace, you will see a new tab: **VSchema**. The VSchema contains information about how the keyspace is sharded, sequence tables, and other Vitess schema information. The VSchema tab allows you to configure the Vschema for your new keyspace or modify it for existing keyspaces.
 
