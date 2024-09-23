@@ -42,7 +42,7 @@ To create a new [keyspace](/docs/sharding/keyspaces):
 3. You should see the existing unsharded keyspace for your database here.
 4. Click "New keyspace".
 5. Enter the keyspace name. For example, if your existing unsharded keyspace is named `books`, you may create a sharded keyspace named `books-sharded`.
-6. Select whether you want to keep it unsharded, or, if not, select the number of shards you to exist in this keyspace. In most cases, you will be adding a new sharded keyspace. Adding a new unsharded keyspace is not a common use case.
+6. Select whether you want to keep it unsharded, or, if not, select the number of shards you want to exist in this keyspace. In most cases, you will be adding a new sharded keyspace. Adding a new unsharded keyspace is not a common use case.
 
 {% callout type="note" %}
 The cost of adding this additional keyspace largely depends on the number of shards you choose, the cluster size, and if you'd like to add additional replicas.
