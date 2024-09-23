@@ -2,7 +2,7 @@
 title: 'PlanetScale Managed overview'
 subtitle: 'Deploy PlanetScale in your Amazon Web Services or Google Cloud Platform account with our PlanetScale Managed plan.'
 label: 'Enterprise'
-date: '2023-11-08'
+date: '2024-09-23'
 ---
 
 ## What is PlanetScale Managed?
@@ -30,7 +30,7 @@ Read more on how PlanetScale Managed works inside either cloud provider:
 
 Single-tenancy is one of many benefits when it comes to PlanetScale Managed. Still, with this PlanetScale Enterprise service, you also get:
 
-- [Database sharding](/docs/sharding/overview) available
+- Assistance with [horizontal sharding](/docs/sharding/overview)
 - Option to sign BAAs for [HIPAA compliance](/blog/planetscale-and-hipaa)
 - Deployment to additional regions
 - [PCI compliance](/blog/planetscale-managed-is-now-pci-compliant) (AWS only)

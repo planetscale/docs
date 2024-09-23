@@ -1,7 +1,7 @@
 ---
 title: 'The Operate phase of the DevOps cycle'
 subtitle: 'Where the operations team performs tasks to keep the application online.'
-date: '2023-03-13'
+date: '2024-09-23'
 ---
 
 Now that everything is deployed into production and confirmed working, the operations team's main focus is keeping everything online. Ideally, this is done with a system that will monitor application load to detect spikes in usage and automatically scale resources up to keep up with the traffic. This can be accomplished with platforms like EC2 in AWS, but also on-premise with Kubernetes.
@@ -22,7 +22,7 @@ One thing that can be overlooked is the fact that backups are pointless if the d
 
 ### Horizontal scaling
 
-PlanetScale is built in [Vitess](https://vitess.io), which is an open-source project that enables horizontal scaling for MySQL databases. If you are in the Enterprise tier, you have additional configuration options available to horizontally scale your database, further reducing the load on individual nodes as well as increasing performance and resiliency.
+PlanetScale is built in [Vitess](https://vitess.io), which is an open-source project that enables horizontal scaling for MySQL databases. [Sharding](/docs/concepts/cluster-configuration), available on our Scaler Pro plan, further reducing the load on individual nodes as well as increasing performance and resiliency.
 
 ### Read-only regions
 

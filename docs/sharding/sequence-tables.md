@@ -2,12 +2,8 @@
 title: 'Sequence Tables'
 subtitle: 'Learn how to create sequence tables on a sharded PlanetScale database.'
 label: 'Enterprise'
-date: '2024-08-29'
+date: '2024-09-23'
 ---
-
-{% callout %}
-This feature is only available on our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan). If you'd like more information about how we can help you shard your MySQL database, [get in touch](/contact).
-{% /callout %}
 
 In MySQL, it is common to have an integer primary key that uses the `AUTO_INCREMENT` feature for assigning IDs.
 However, if you have a horizontally-sharded table, you will not be able to use `AUTO_INCREMENT` for your ID.

@@ -1,7 +1,7 @@
 ---
 title: 'Sharding with PlanetScale'
 subtitle: 'Learn how PlanetScale can help you horizontally scale your MySQL database with our sharding solution.'
-date: '2024-09-20'
+date: '2024-09-23'
 ---
 
 {% callout %}
@@ -35,8 +35,7 @@ When you're at the point where you've maxed out your vertical scaling efforts an
 
 ## How does our sharding process work?
 
-When it comes time to shard your database, we recommend following our [sharding quickstart](/docs/sharding/sharding-quickstart) guide. You may also
-contact our [Technical Solutions team](/contact) to identify the best [sharding scheme](https://vitess.io/docs/reference/features/sharding/#sharding-scheme) for your database.
+When it comes time to shard your database, we recommend following our [sharding quickstart](/docs/sharding/sharding-quickstart) guide. If you need assistance identifying the best [sharding scheme](https://vitess.io/docs/reference/features/sharding/#sharding-scheme) for your database, or are interested in expert-level support, our [Enterprise plan](/enterprise) may be a better option for you. [Get in touch](/contact) for more information.
 
 PlanetScale uses an explicit sharding system.
 This means that, if you are going to horizontally shard your data, we have to tell Vitess which sharding strategy to use for each sharded table.

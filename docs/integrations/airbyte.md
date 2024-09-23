@@ -1,7 +1,7 @@
 ---
 title: 'Airbyte integration'
 subtitle: 'Extract, load, and transform your PlanetScale data with Airbyte.'
-date: '2023-10-27'
+date: '2024-09-23'
 meta:
   title: 'Connect with Airbyte ELT'
 ---
@@ -70,7 +70,7 @@ You're now ready to connect your PlanetScale database to Airbyte.
      ![Airbyte - PlanetScale source setup](/assets/docs/integrations/airbyte/db-info.png)
 7. You can also provide some optional values:
    - **Replicas**: Select whether or not you want to collect data from replica nodes.
-   - **Shards**: Sharding is only supported on our Enterprise plan. Please [reach out to us](/contact) for more information.
+   - **Shards**: Map your shards.
    - **Starting GTIDs**: Start replication from a specific GTID per keyspace shard.
      ![Airbyte - PlanetScale optional setup](/assets/docs/integrations/airbyte/optional.png)
      You can see the [PlanetScale airbyte-source README](https://github.com/planetscale/airbyte-source/blob/main/README.md) for more details on these options.

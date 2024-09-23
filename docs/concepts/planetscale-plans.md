@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-09-11'
+date: '2024-09-23'
 ---
 
 ## Overview
@@ -43,29 +43,29 @@ Cluster size options are capped at `PS-400` until you have a successfully paid $
 
 On top of processing and memory, all **Scaler Pro** cluster sizes share the following:
 
-|                                                             | **Scaler Pro**                                           |
-| ----------------------------------------------------------- | -------------------------------------------------------- |
-| **Storage/month**                                           | 10 GB included; $0.50 per instance per additional 1 GB\* |
-| **Row reads/month**                                         | _Unmetered_                                              |
-| **Row writes/month**                                        | _Unmetered_                                              |
-| **Available cluster sizes**                                 | 17                                                       |
-| **Availability zones**                                      | 3                                                        |
-| **Production branches**                                     | 1 included\*\*                                           |
-| **Development branches**                                    | ~1,440 hours included (2× hours of current month)        |
-| **Concurrent Connections**                                  | _Unmetered_                                              |
-| **Query Insights retention**                                | 7 days                                                   |
-| **Horizontal sharding**                                     | Not included                                             |
-| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant                                             |
-| **Read-only regions**                                       | Available as an add-on                                   |
-| **Web console**                                             | Included                                                 |
-| **PlanetScale CLI**                                         | Included                                                 |
-| **SSO**                                                     | Available as an add-on\*\*\*                             |
-| **Audit log retention**                                     | 6 months                                                 |
-| **Private connections**                                     | [Configurable](/docs/concepts/private-connections)       |
-| **BAAs**                                                    | Available for an additional fee                          |
-| **Automatic backups**                                       | Every 12 hours                                           |
-| **Support**                                                 | Standard, upgrade available\*\*\*                        |
-| [**Data Branching®**](/docs/concepts/data-branching)       | Included                                                 |
+|                                                             | **Scaler Pro**                                                     |
+| ----------------------------------------------------------- | ------------------------------------------------------------------ |
+| **Storage/month**                                           | 10 GB included; $0.50 per instance per additional 1 GB\*           |
+| **Row reads/month**                                         | _Unmetered_                                                        |
+| **Row writes/month**                                        | _Unmetered_                                                        |
+| **Available cluster sizes**                                 | 17                                                                 |
+| **Availability zones**                                      | 3                                                                  |
+| **Production branches**                                     | 1 included\*\*                                                     |
+| **Development branches**                                    | ~1,440 hours included (2× hours of current month)                  |
+| **Concurrent Connections**                                  | _Unmetered_                                                        |
+| **Query Insights retention**                                | 7 days                                                             |
+| **Horizontal sharding**                                     | [Supported for _new_ tables](/docs/concepts/cluster-configuration) |
+| [**Deployment options**](/docs/concepts/deployment-options) | Multi-tenant                                                       |
+| **Read-only regions**                                       | Available as an add-on                                             |
+| **Web console**                                             | Included                                                           |
+| **PlanetScale CLI**                                         | Included                                                           |
+| **SSO**                                                     | Available as an add-on\*\*\*                                       |
+| **Audit log retention**                                     | 6 months                                                           |
+| **Private connections**                                     | [Configurable](/docs/concepts/private-connections)                 |
+| **BAAs**                                                    | Available for an additional fee                                    |
+| **Automatic backups**                                       | Every 12 hours                                                     |
+| **Support**                                                 | Standard, upgrade available\*\*\*                                  |
+| [**Data Branching®**](/docs/concepts/data-branching)       | Included                                                           |
 
 \* Production branch storage is billed at $1.50 (1 primary + 2 replicas) and development branch storage is billed at $0.50 (1 primary).
 
@@ -150,7 +150,9 @@ When you choose to change cluster size, we upgrade each of your replicas one by 
 
 ## PlanetScale Enterprise plan
 
-PlanetScale's Enterprise Plan is great for users that want to scale farther, shard horizontally, and run PlanetScale in a dedicated AWS/GCP account. We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
+PlanetScale's Enterprise Plan is great for large-scale businesses who require the enterprise-level SLAs, want expert assistance through enterprise support, and would prefer to run in your own AWS or GCP account.
+
+We offer many different deployment options, all of which come with the same set of standard features. The table below covers those shared features, as well as the different options that vary depending on your chosen deployment.
 
 |                                                        | PlanetScale Enterprise                        | **[PlanetScale Managed](/docs/enterprise/managed/overview)**                                                                                                                                                                      |
 | ------------------------------------------------------ | --------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -168,13 +170,12 @@ If you’re not sure whether your use case requires an Enterprise plan, we’re 
 
 In general, if you need any of the following, Enterprise may be the best solution for you:
 
-- Resource-based pricing
-- Unlimited connections
-- Elegant sharding solution
-- Enhanced support &mdash; our expert team becomes an extension of your own
+- Enhanced support &mdash; our expert team becomes an extension of your own. Additional options for technical account management, Slack-based support, and phone escalation.
+- You need additional support to horizontally shard and migrate your database(s) to PlanetScale
 - You need your database deployed in a single-tenant environment
 - You need to keep your data in **your own** AWS or GCP account
 - You need a PCI DSS certified service provider
+- Mission-critical [response times](/docs/support/support-overview#initial-response-times) including continuous support coverage
 - Any other customizations — Our Enterprise plans offer a lot of flexibility, so if you have a requirement that’s not listed here, it’s best to [reach out](/contact) and we can see how we can help
 
 ## Plan add-ons
