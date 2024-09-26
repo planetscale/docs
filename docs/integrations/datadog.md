@@ -1,7 +1,7 @@
 ---
 title: 'Datadog integration'
 subtitle: 'Push usage and performance metrics about your PlanetScale databases to Datadog.'
-date: '2024-09-16'
+date: '2024-09-26'
 meta:
   title: 'Monitor with Datadog'
   description: 'Push metrics to Datadog to better understand your database usage and performance'
@@ -44,6 +44,9 @@ Once configured, PlanetScale collects the following metrics from every branch in
 | planetscale.tables.rows_updated          | count           | Number of rows updated in a database branch, by table. _Shown as row._                              |
 | planetscale.tables.storage               | gauge           | Total bytes stored in a database branch, by table. _Shown as byte._                                 |
 | planetscale.vtgate.errors                | count           | Number of errors encountered by a database branch's vtgate. _Shown as error._                       |
+| planetscale.vttablet.mem_util.max        | gauge           | Maximum memory utilization of a database branch's vttablet. _Shown as percent._                     |
+| planetscale.vttablet.mem_util.avg        | gauge           | Average memory utilization of a database branch's vttablet. _Shown as percent._                     |
+| planetscale.vttablet.iops                | gauge           | Number of IOPS performed by a database branch's vttablet. _Shown as operation._                     |
 
 ## Billing
 
