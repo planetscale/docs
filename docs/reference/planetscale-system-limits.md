@@ -10,6 +10,10 @@ Database schemas are limited to a total of `2048` tables, including views.
 
 Individual tables are limited to a maximum of `1017` columns each.
 
+## Disk limits
+
+By default, the database disk size for Scaler Pro customers is limited to 4 TB. This includes user data as well as system data required to run database operations.
+
 ## Connection lifetime limits
 
 Database client connections that are held open longer than `24 hours` may be terminated unexpectedly. We recommend that long running database connections are closed and reconnected at least once per day.
