@@ -72,7 +72,7 @@ Let's consider the following `exercise_log` table and determine which column we 
 +-------------+-----------------+------+-----+---------+----------------+
 ```
 
-Each exercise_log`row has an auto incrementing`log_id`.
+Each `exercise_log` row has an auto incrementing `log_id`.
 Each row will also have other IDs acting as foreign keys to other tables:
 
 {% callout %}
