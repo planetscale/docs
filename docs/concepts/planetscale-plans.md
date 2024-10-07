@@ -1,7 +1,7 @@
 ---
 title: 'PlanetScale plans'
 subtitle: 'Learn about the different products and plans we offer: Scaler Pro and Enterprise'
-date: '2024-09-23'
+date: '2024-10-07'
 ---
 
 ## Overview
@@ -192,12 +192,16 @@ You can also [schedule additional backups yourself](/docs/concepts/back-up-and-r
 
 ## Discounts
 
-For all plans, we offer two types of discounts:
+We offer two types of discounts:
 
-- **Consumption commitment** &mdash; Save 2.5% if you agree to an annual consumption commitment
+- **Consumption commitment** &mdash; Save 2.5% if you agree to an annual consumption commitment.
 - **Upfront payment** &mdash; Save an extra 10% if you pay your annual bill upfront.
 
 You have the option to combine these two discounts for a total of 12.5% off your bill if you commit to an annual consumption commitment dollar amount **and** pay for the year upfront.
+
+{% callout %}
+To be eligible for either of these discounts, you must commit to a minimum of $5,000 per year.
+{% /callout %}
 
 If you're interested in either of these discounts, please fill out our [contact form](/contact) and let us know which discount you're interested in, along with the following information:
 
