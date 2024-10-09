@@ -23,7 +23,6 @@ We are committed to providing the following support options.
 - Access to support engineers via email and [web ticketing](https://support.planetscale.com/hc/en-us)
 - Enhanced response times including Urgent and High Priority coverage
 - [Business Response Times](#initial-response-times)
-- Business Support [upgrades](/contact) start at $1,000/month
 
 ## Enterprise
 
@@ -32,7 +31,10 @@ We are committed to providing the following support options.
 - Additional options for technical account management, Slack-based support, and phone escalation
 - Mission-critical response times including continuous support coverage
 - [Enterprise Response Times](#initial-response-times)
-- [Contact Sales](/contact) for pricing information
+
+{% callout %}
+Contact Sales for Business and Enterprise support pricing.
+{% /callout %}
 
 ## Initial response times
 
