@@ -1,12 +1,12 @@
 ---
 title: 'Connecting to PlanetScale privately on GCP'
 subtitle: 'How to connect to PlanetScale privately on GCP via Private Service Connect.'
-date: '2024-05-13'
+date: '2024-10-10'
 ---
 
 ## Connecting to PlanetScale privately via GCP Private Service Connect
 
-When your compliance mandates that your connections do not route through the public Internet, PlanetScale provides private connection endpoints to GCP regions via [GCP Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect). Private connections are included on Scaler Pro plans. There is no additional charge on PlanetScale's end, but this may impact your GCP bill.
+When your compliance mandates that your connections do not route through the public Internet, PlanetScale provides private connection endpoints to GCP regions via [GCP Private Service Connect](https://cloud.google.com/vpc/docs/private-service-connect). GCP Private Service Connect is a form of _VPC peering_ that keeps your traffic within Google Cloud. Private connections are included on Scaler Pro plans. There is no additional charge on PlanetScale's end, but this may impact your GCP bill.
 
 Below is a list of instructions to set up your VPC network to utilize a Private Service Connect endpoint when communicating with PlanetScale databases.
 
@@ -95,3 +95,5 @@ Welcome to PlanetScale.
 By default, PlanetScale provides connection strings based on the `connect.psdb.cloud` domain name. To access your databases over the private endpoint change your connection string to match the `<Endpoint-Name>.<Domain-Name>` pattern.
 
 For example, a connection string such as `gcp-us-central1.connect.psdb.cloud` would be changed to `edge.gcp-us-central1.private-connect.psdb.cloud` assuming `edge` was the Endpoint Name chosen during creation of the endpoint.
+
+With this configured, you can leverage VPC peering to communicate between your GCP account and PlanetScale.

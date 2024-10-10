@@ -1,12 +1,12 @@
 ---
 title: 'Connecting to PlanetScale privately on AWS'
 subtitle: 'How to connect to PlanetScale privately on AWS via PrivateLink.'
-date: '2024-05-06'
+date: '2024-10-10'
 ---
 
 ## Connecting to PlanetScale privately via AWS PrivateLink
 
-When your compliance mandates that your connections do not route through the public Internet, PlanetScale provides private connection endpoints to AWS regions via [AWS PrivateLink](https://aws.amazon.com/privatelink/). Private connections are included on Scaler Pro plans. There is no additional charge on PlanetScale's end, but this may impact your AWS bill.
+When your compliance mandates that your connections do not route through the public Internet, PlanetScale provides private connection endpoints to AWS regions via [AWS PrivateLink](https://aws.amazon.com/privatelink/). AWS PrivateLink is a form of _VPC peering_ that does not send your traffic over the public internet. Private connections are included on Scaler Pro plans. There is no additional charge on PlanetScale's end, but this may impact your AWS bill.
 
 Below is a list of instructions to set up your Virtual Private Cloud (VPC) to utilize a VPC endpoint when communicating with PlanetScale databases.
 
@@ -104,8 +104,6 @@ Below is a list of instructions to set up your Virtual Private Cloud (VPC) to ut
 
 6. Click the "Additional settings" dropdown arrow to reveal the "DNS name" configuration, and select the "Enable DNS name" checkbox.
 
-![enable_dns_name](/assets/docs/multi/aws/privatelink/enable_dns_name.png)
-
 7. Choose the security group of your choice to control what can send traffic to the PlanetScale service endpoint.
 
 8. Click "Create endpoint" and verify that the VPC endpoint's status reports "Available" after a few minutes.
@@ -118,9 +116,7 @@ Below is a list of instructions to set up your Virtual Private Cloud (VPC) to ut
 Some PlanetScale regions are named differently than AWS Provider regions. We will refer to the PlanetScale region as `<planetscale-region>` for the rest of this document.
 {% /callout %}
 
-2. Confirm that the Private DNS Names reads: `<planetscale-region>.private-connect.psdb.cloud`. In the below example, we have configured our own VPC endpoint for `us-east`.
-
-![private_dns](/assets/docs/multi/aws/privatelink/private_dns.png)
+2. Confirm that the Private DNS Names reads: `<planetscale-region>.private-connect.psdb.cloud`.
 
 3. Log into any EC2 instance in the configured VPC and run `dig +short <planetscale-region>.private-connect.psdb.cloud` to confirm that DNS resolution is producing IP Addresses in the range of your VPC's CIDR.
 
@@ -142,3 +138,5 @@ Welcome to PlanetScale.
 By default, PlanetScale provides users with a connection string that reads `<planetscale-region>.connect.psdb.cloud`.
 
 To utilize your newly configured VPC endpoint, prepend `private-` to the `connect` subdomain as shown above, yielding a connection string that reads `<planetscale-region>.private-connect.psdb.cloud`.
+
+With this configured, you can leverage VPC peering to communicate between your AWS account and PlanetScale.
