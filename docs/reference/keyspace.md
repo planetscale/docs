@@ -22,20 +22,26 @@ pscale keyspace <SUB-COMMAND> <FLAG>
 
 ### Available sub-commands
 
-| **Sub-command**                                                | **Sub-command flags** | **Description**                                                          |
-| -------------------------------------------------------------- | --------------------- | ------------------------------------------------------------------------ |
-| `list <DATABASE_NAME> <BRANCH_NAME>` `                         |                       | List all keyspaces within a database branch.                             |
-| `show  <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`          |                       | Show a specific keyspace within a database branch.                       |
-| `vschema show <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`   |                       | Show the VSchema for a sharded keyspace. Empty on non-sharded keyspaces. |
-| `vschema update <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>` | `--vschema <FILE>`\*  | Update a VSchema of a keyspace.                                          |
+| **Sub-command**                                                | **Sub-command flags**                                                            | **Description**                                                          |
+| -------------------------------------------------------------- | -------------------------------------------------------------------------------- | ------------------------------------------------------------------------ |
+| `create <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`         | `--cluster-size <SIZE>`\*, `--additional-replicas <NUMBER>`, `--shards <NUMBER>` | Create a new keyspace within a database branch.                          |
+| `list <DATABASE_NAME> <BRANCH_NAME>` `                         |                                                                                  | List all keyspaces within a database branch.                             |
+| `show  <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`          |                                                                                  | Show a specific keyspace within a database branch.                       |
+| `resize <DATABASE_NAME <BRANCH_NAME> <KEYSPACE_NAME>`          | `--cluster-size <SIZE>`, `--additional-replicas <NUMBER>`                        | Resize a keyspace.                                                       |
+| `resize cancel <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`  |                                                                                  | Cancel an ongoing keyspace resize.                                       |
+| `resize status <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`  |                                                                                  | Show the status of the keyspace's last resize                            |
+| `vschema show <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>`   |                                                                                  | Show the VSchema for a sharded keyspace. Empty on non-sharded keyspaces. |
+| `vschema update <DATABASE_NAME> <BRANCH_NAME> <KEYSPACE_NAME>` | `--vschema <FILE>`\*                                                             | Update a VSchema of a keyspace.                                          |
 
 > \* _Flag is required_
 
 #### Sub-command flag descriptions
 
-| **Sub-command flag** | **Description**                                   | **Applicable sub-commands** |
-| -------------------- | ------------------------------------------------- | --------------------------- |
-| `--vschema <FILE>`   | `<FILE>` is the path to the updated VSchema file. | `vschema update`            |
+| **Sub-command flag**             | **Description**                                                                                                  | **Applicable sub-commands** |
+| -------------------------------- | ---------------------------------------------------------------------------------------------------------------- | --------------------------- |
+| `--additional-replicas <NUMBER>` | `<NUMBER>` is the number of replicas to add to the keyspace. By default, production branches include 2 replicas. | `create`, `resize`          |
+| `--cluster-size <SIZE>`          | `<SIZE>` is the size of the database cluster.                                                                    | `create`, `resize`          |
+| `--vschema <FILE>`               | `<FILE>` is the path to the updated VSchema file.                                                                | `vschema update`            |
 
 ### Available flags
 
