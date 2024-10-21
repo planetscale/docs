@@ -227,6 +227,20 @@
     - label: 'Creating sequence tables'
       slug: '/docs/sharding/sequence-tables'
 
+- label: 'Vectors'
+  icon: 'vectors'
+  items:
+    - label: 'Vectors overview'
+      slug: '/docs/vectors/overview'
+    - label: 'Concepts and terminology'
+      slug: '/docs/vectors/terminology-and-concepts'
+    - label: 'Use cases'
+      slug: '/docs/vectors/use-cases'
+    - label: 'Using with an ORM'
+      slug: '/docs/vectors/using-with-an-orm'
+    - label: 'Reference'
+      slug: '/docs/vectors/reference'
+
 - label: 'Security and access'
   icon: 'security'
   items:
