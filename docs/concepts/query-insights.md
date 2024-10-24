@@ -102,7 +102,7 @@ This query overviews table shows the same data for all graph tabs except for [An
 
 ### Available query statistics
 
-You can customize the metrics that show up on the Queries list by clicking the "Columns" dropdown.
+You can customize the metrics that show up on the Queries list by select columns in the "View options" dropdown.
 
 - **Keyspace** — The keyspace(s) being queried or modified.
 - **Table** — The table(s) being queried or modified.
@@ -118,6 +118,8 @@ You can customize the metrics that show up on the Queries list by clicking the "
 - **Last run** — The last time a query was run.
 
 You can also sort the columns for quick analysis by clicking on the title at the top of each column.
+
+If `Show sparklines` is selected, numeric columns in the queries table show a time series graph of the value within the selected time period.
 
 ### Query filtering
 
