@@ -114,7 +114,7 @@ You can use `pscale password create` to generate credentials for your database b
     PLANETSCALE_SERVICE_TOKEN_ID: ${{ secrets.PLANETSCALE_SERVICE_TOKEN_ID }}
     PLANETSCALE_SERVICE_TOKEN: ${{ secrets.PLANETSCALE_SERVICE_TOKEN }}
   run: |
-    response=$(pscale password create ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} -f json --org ${{ secrets.PLANETSCALE_ORG_NAME }})
+    response=$(pscale password create ${{ secrets.PLANETSCALE_DATABASE_NAME }} ${{ env.PSCALE_BRANCH_NAME }} "" -f json --org ${{ secrets.PLANETSCALE_ORG_NAME }})
 
     id=$(echo "$response" | jq -r '.id')
     host=$(echo "$response" | jq -r '.access_host_url')
