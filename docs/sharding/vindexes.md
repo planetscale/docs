@@ -113,7 +113,7 @@ Queries are more performant when performed on a single shard. In other words, cr
 
 Secondary indexes are optional, but may be created to help speed up lookups for queries in your workload.
 
-Consider the case where we want to look at sequences of the log that happened for all user at a specific gym.
+Consider the case where we want to look at sequences of the log that happened for all users at a specific gym.
 Such a query would look something like this:
 
 ```sql
