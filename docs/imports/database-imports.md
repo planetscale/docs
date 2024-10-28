@@ -22,14 +22,8 @@ To import an existing database into PlanetScale:
 
 1. Head to your PlanetScale dashboard and click on "**New database**" > "**Import database**," which will bring you to the **Import Setup page**.
 2. Give your imported database a name and [select a region](/docs/concepts/regions) from the dropdown.
-3. Add a credit card to your organization. You will only be charged if your import requires a Scaler Pro plan (for imports that use over 5 GB of storage), and we will ask you to confirm before proceeding.
-4. We recommend using the same name as the database you're importing from to avoid updating any database name references throughout your application code. If you'd prefer to use a different database name, make sure to update your app where applicable once you fully switch over to PlanetScale.
-
-   {% callout %}
-   Importing a database will **not** count towards your `read` or `write` usage.
-   {% /callout %}
-
-5. Fill in the following connection values with information from your existing hosted database:
+3. We recommend using the same name as the database you're importing from to avoid updating any database name references throughout your application code. If you'd prefer to use a different database name, make sure to update your app where applicable once you fully switch over to PlanetScale.
+4. Fill in the following connection values with information from your existing hosted database:
 
    - **Host name** — The address where the database is hosted.
    - **Port** — The port where your database is hosted. The default MySQL port is `3306`.
@@ -42,16 +36,16 @@ To import an existing database into PlanetScale:
    database you're importing.
    {% /callout %}
 
-6. You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with a password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
+5. You'll have the option to **Authenticate with password** or **Authenticate with mTLS**. To authenticate with a password, type in the password for the username you entered. Make sure the user has `read` and `write` access to this database.
 
    For the "Authenticate with mTLS option," you'll need to provide the following:
 
    - **SSL client certificate** — Certificate to authenticate PlanetScale with your database server.
    - **SSL client key** — This is the private key for the client certificate
 
-7. From here, you can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
+6. From here, you can proceed to [testing the connection](#test-the-connection) or click "**Show advanced settings**" for more options.
 
-8. (Optional) Under Advanced settings, you have the option to enter the following:
+7. (Optional) Under Advanced settings, you have the option to enter the following:
 
    - **SSL server name override**
    - **SSL CA certificate chain** — If your database server provides a certificate with a non-trusted root CA, please provide the full CA certificate chain here.
@@ -66,15 +60,9 @@ To import an existing database into PlanetScale:
 If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support for your database.
 {% /callout %}
 
-2. If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to start migrating your data to PlanetScale.
+2. If the connection is successful, click “**Begin database import**” to start migrating your data to PlanetScale.
 
 Or, if the connection fails, you'll get an error message in the dashboard. Double-check your connection information or see our [Troubleshooting section](#troubleshooting-connectivity-issues) for more information.
-
-### Importing large databases
-
-If you're importing a large database (that uses over 5 GB of storage) and have not added billing information to your Organization, you will receive a prompt to upgrade your plan. You can use the **Add new card** button to add a credit card and upgrade your account.
-
-Once you've successfully upgraded your plan, you should be able to continue importing your external database into PlanetScale.
 
 ## Foreign key constraints
 

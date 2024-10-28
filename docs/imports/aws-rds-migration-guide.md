@@ -89,7 +89,7 @@ The “**Connect to database**” button will update with the connection status.
 If your database uses foreign key constraints, we will detect them after successfully connecting to your external database and automatically enable foreign key constraint support for your database.
 {% /callout %}
 
-If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Begin database import**” to migrate your data to PlanetScale.
+If the connection is successful, click “**Begin database import**” to migrate your data to PlanetScale.
 
 {% callout type="warning" %}
 If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.

@@ -101,7 +101,7 @@ If your database uses foreign key constraints, we will detect them after success
 
 ![The box showing you are successfully connected, ready to import rows, and have foreign key constraints](/assets/docs/imports/amazon-aurora-migration-guide/successfully-connected-box.jpg)
 
-If the connection is successful and plan upgrades are complete (if the database is over 5 GB), click “**Continue import**” to migrate your data to PlanetScale.
+If the connection is successful, click “**Continue import**” to migrate your data to PlanetScale.
 
 {% callout type="warning" %}
 If you receive an error, check the [Troubleshooting](#troubleshooting) section for information on correcting common configuration issues.
