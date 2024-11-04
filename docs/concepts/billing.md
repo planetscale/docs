@@ -74,6 +74,10 @@ You will see your coupon reflected in your monthly invoice. Go to "Settings" > "
 
 ![PlanetScale dashboard - Example coupon factored into invoice](/assets/docs/concepts/billing/coupons-in-invoices.png)
 
-## Why do I see a pre-authorized charge on my card?
+## Canceling a Scaler Pro plan
+
+Deleting a database will end its Scaler Pro plan and prorate the plan fee on your current invoice. You can delete a database from its settings page.
+
+## Why do I see a pre-authorization charge on my card?
 
 If you added a new billing method to your account or created a new database afterwards, you may see a temporary hold on your credit card. This is a pre-authorization that we use to verify that your card is valid, but you will not be charged the amount. This pre-authorization is automatically cancelled after verification, but it may take a few days for your bank to update your account statement to show this cancellation.
