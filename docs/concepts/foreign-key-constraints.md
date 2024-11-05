@@ -1,7 +1,7 @@
 ---
 title: 'Foreign key constraints'
 subtitle: 'Learn more about using foreign key constraints in PlanetScale.'
-date: '2024-03-18'
+date: '2024-11-05'
 ---
 
 ## What is a foreign key constraint?
@@ -81,22 +81,6 @@ For example:
 
 ```
 REPLACE INTO tbl SELECT * FROM tbl2;
-```
-
-#### `UPDATE` or `DELETE` with a `LIMIT` statement
-
-For example:
-
-```
-UPDATE tbl SET col = 3 LIMIT 1;
-```
-
-#### `UPDATE` or `DELETE` with multiple tables statement
-
-For example:
-
-```
-DELETE t1, t2 FROM t1 INNER JOIN t2 INNER JOIN t3 WHERE t1.id=t2.id AND t2.id=t3.id;
 ```
 
 #### `UPDATE` for a foreign key column statement and referencing the column being updated in the same `UPDATE` statement
