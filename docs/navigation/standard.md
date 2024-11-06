@@ -368,6 +368,8 @@
           slug: '/docs/integrations/hightouch'
         - label: 'Stitch'
           slug: '/docs/integrations/stitch'
+        - label: 'Debezium'
+          slug: '/docs/integrations/debezium'
 
 - label: 'PlanetScale for Enterprises'
   icon: 'enterprise'
