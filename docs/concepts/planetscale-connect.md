@@ -10,7 +10,7 @@ PlanetScale Connect is one of the underlying mechanisms we use to transfer data 
 
 We currently support the following connectors:
 
-{% grid columns=3 %}
+{% grid columns=4 %}
 {% cell href="/docs/integrations/airbyte" title="Airbyte" imgPath="/assets/logos/airbyte.png" /%}
 {% cell href="/docs/integrations/fivetran" title="Fivetran" imgPath="/assets/logos/fivetran.png" /%}
 {% cell href="/docs/integrations/hightouch" title="Hightouch" imgPath="/assets/logos/hightouch.png" /%}
