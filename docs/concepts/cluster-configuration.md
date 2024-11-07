@@ -24,7 +24,7 @@ These are advanced configuration settings that expose some of the underlying Vit
 This documentation will cover how to use everything in this cluster configuration page. For a full walkthrough with an example of setting up a sharded keyspace, refer to the [Sharding quickstart](/docs/sharding/sharding-quickstart).
 
 {% callout type="note" %}
-harded keyspaces are not currently supported on databases that have foreign key constraints enabled.
+Sharded keyspaces are not currently supported on databases that have foreign key constraints enabled.
 {% /callout %}
 
 If you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
