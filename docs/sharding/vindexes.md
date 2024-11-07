@@ -1,13 +1,13 @@
 ---
 title: 'Vindexes'
 subtitle: 'Vindexes determine how the rows of your database will be horizontally sharded.'
-date: '2024-09-20'
+date: '2024-11-07'
 ---
 
 {% callout %}
-You can create sharded keyspaces on PlanetScale on the Scaler Pro plan via the cluster configuration page in your dashboard or through the CLI, however, you can only currently shard new tables.
+You can create sharded keyspaces on any plan by adding a new sharded keyspace using the [cluster configuration page](/docs/concepts/cluster-configuration) and running an [unsharded to sharded workflow](/docs/sharding/sharding-quickstart) in your dashboard.
 
-If you have existing tables that need sharding, or if you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
+If you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
 {% /callout %}
 
 When configuring a horizontally [sharded](/sharding) keyspace, one of the most important decisions to make is _how_ to distribute the data across shards.

@@ -1,7 +1,7 @@
 ---
 title: 'Cluster configuration'
 subtitle: 'Create and manage sharded and unsharded keyspaces for your database.'
-date: '2024-09-20'
+date: '2024-11-07'
 ---
 
 {% callout type="warning" %}
@@ -23,15 +23,11 @@ These are advanced configuration settings that expose some of the underlying Vit
 
 This documentation will cover how to use everything in this cluster configuration page. For a full walkthrough with an example of setting up a sharded keyspace, refer to the [Sharding quickstart](/docs/sharding/sharding-quickstart).
 
-## Limitations
+{% callout type="note" %}
+harded keyspaces are not currently supported on databases that have foreign key constraints enabled.
+{% /callout %}
 
-Before you adjust any cluster configuration settings, it is important that you read through the following limitations:
-
-- This feature can currently only be used to shard **new** tables.
-- If you are an existing PlanetScale customer with already sharded tables, you can use the Cluster configuration settings to adjust the instance size, number of replicas, and VSchema for **already sharded tables**.
-- Sharded keyspaces are not currently supported on databases that have foreign key constraints enabled.
-
-If you have existing tables that need sharding, or if you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
+If you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.
 
 ## Create a keyspace
 
@@ -41,8 +37,8 @@ To create a new [keyspace](/docs/sharding/keyspaces):
 2. Click "Cluster configuration" in the left nav.
 3. You should see the existing unsharded keyspace for your database here.
 4. Click "New keyspace".
-5. Enter the keyspace name. For example, if your existing unsharded keyspace is named `books`, you may create a sharded keyspace named `books-sharded`.
-6. Select whether you want to keep it unsharded, or, if not, select the number of shards you want to exist in this keyspace. In most cases, you will be adding a new sharded keyspace. Adding a new unsharded keyspace is not a common use case.
+5. Enter the keyspace name. For example, if your existing unsharded keyspace is named `metal`, you may create a sharded keyspace named `metal-sharded`.
+6. Select whether you want to keep it unsharded, or, if not, select the number of shards you want to exist in this keyspace. In most cases, you will be adding a new sharded keyspace. Adding a new unsharded keyspace is not a common use case, but is an option if you're looking to do [vertical sharding](/learn/courses/database-scaling/sharding/vertical-sharding).
 
 {% callout type="note" %}
 The cost of adding this additional keyspace largely depends on the number of shards you choose, the cluster size, and if you'd like to add additional replicas.

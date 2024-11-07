@@ -62,6 +62,8 @@ Copy the `DATABASE_URL` string from the `.env` tab and paste it into your own `.
 DATABASE_URL='mysql://<USERNAME>:<PASSWORD>@<HOST>/<DATABASE_NAME>?sslaccept=strict'
 ```
 
+For `DATABASE_NAME`, you can use your PlanetScale database name directly if you have a _single unsharded keyspace_. If you have a sharded keyspace, you'll need to use `@primary`. This will automatically direct incoming queries to the correct keyspace/shard. For more information, see the [Targeting the correct keyspace documentation](/docs/sharding/targeting-correct-keyspace).
+
 Your PlanetScale database should now be connected to your application.
 
 ## Add the schema and data

@@ -42,5 +42,6 @@ When you choose to change cluster size, we upgrade each of your replicas one by 
 
 ## Sharding
 
-If you are an Enterprise customer, another way you can scale your database is with **sharding**.
-Check out our [sharding documentation](/docs/sharding/overview) for more information.
+You can create sharded keyspaces on any plan by adding a new sharded keyspace using the [cluster configuration page](/docs/concepts/cluster-configuration) and running an [unsharded to sharded workflow](/docs/sharding/sharding-quickstart) in your dashboard.
+
+If you would like additional support from our expert team, our [Enterprise plan](/docs/concepts/planetscale-plans#planetscale-enterprise-plan) may be a good fit. [Get in touch](/contact) for a quick assessment.

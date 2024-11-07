@@ -102,6 +102,8 @@ development:
   sslca: "/etc/ssl/cert.pem"
 ```
 
+For `database` (database name), you can use your PlanetScale database name directly if you have a _single unsharded keyspace_. If you have a sharded keyspace, you'll need to use `@primary`. This will automatically direct incoming queries to the correct keyspace/shard. For more information, see the [Targeting the correct keyspace documentation](/docs/sharding/targeting-correct-keyspace).
+
 The correct `sslca` path depends on your operating system and distribution. See [CA root configuration](/docs/concepts/secure-connections#ca-root-configuration) for more information.
 
 {% callout %}

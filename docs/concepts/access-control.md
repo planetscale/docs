@@ -58,6 +58,7 @@ The following table describes permissions assigned at the organization level for
 | Connect to production branches         | Create passwords or use pscale shell for production branches                   |        | ✔            |
 | Delete production branches             | Delete a production database branch                                            |        | ✔            |
 | Promote branches                       | Promote a branch to production                                                 |        | ✔            |
+| Modify VSchema                         | Edit the VSchema of a keyspace                                                 |        | ✔            |
 | Manage databases                       | Delete, update settings, or import a database                                  |        | ✔            |
 | Manage beta features                   | Opt-in or opt-out of a beta feature                                            |        | ✔            |
 | Create production service token grants | Create a service token grant to connect or delete a production database branch |        | ✔            |

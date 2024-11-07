@@ -50,8 +50,8 @@ CREATE TABLE `users` (
 Then, add a record to it with:
 
 ```sql
-INSERT INTO `users` (id, email, first_name, last_name)
-VALUES  (1, 'hp@example.com', 'Harry', 'Potter');
+INSERT INTO `users` (email, first_name, last_name)
+VALUES  ('jp@example.com', 'Jean', 'Pixy');
 ```
 
 You can verify it was added with:
@@ -64,7 +64,7 @@ select * from users;
 +----+----------------+------------+-----------+
 | id | email          | first_name | last_name |
 +----+----------------+------------+-----------+
-|  1 | hp@example.com | Harry      | Potter    |
+|  1 | jp@example.com | Jean       | Pixy      |
 +----+----------------+------------+-----------+
 ```
 

@@ -113,6 +113,8 @@ if ($mysqli->connect_error) {
 }
 ```
 
+For `dbName`, you can use your PlanetScale database name directly if you have a _single unsharded keyspace_. If you have a sharded keyspace, you'll need to use `@primary`. This will automatically direct incoming queries to the correct keyspace/shard. For more information, see the [Targeting the correct keyspace documentation](/docs/sharding/targeting-correct-keyspace).
+
 ### Option 1: Connect with username and password (Recommended)
 
 If you're not using the CLI, you can get the exact values to copy/paste from your PlanetScale dashboard. In the dashboard, select the branch you want to connect to from the infrastructure card (we're using `main`), click "**Connect**", and select "**PHP**" from the language dropdown. Copy these credentials, and then skip to step 2 to fill them in.

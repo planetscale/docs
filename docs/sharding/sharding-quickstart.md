@@ -1,485 +1,228 @@
 ---
-title: 'Sharding quickstart'
+title: 'Workflow: Unsharded to sharded keyspace'
 subtitle: 'A complete walkthrough for how to create a sharded keyspace and how to set up your Vindexes and VSchema'
-date: '2024-09-20'
+label: 'Beta feature'
+date: '2024-11-07'
 ---
 
-This page provides a detailed walkthrough for how to shard on PlanetScale.
-If you follow along, you'll learn how to:
+This tutorial covers how to shard **existing tables** in your PlanetScale database. This is done using the unsharded to sharded keyspace [workflow](/docs/concepts/workflows). If you are creating a new table that you want in a sharded keyspace, follow the instructions in the [Sharding new tables doc](/docs/sharding/sharding-new-tables).
 
-- Create a sharded [keyspace](/docs/sharding/keyspaces) through the PlanetScale app
-- Apply a schema to the keyspace
-- Set up your primary Vindexes so that Vitess knows how to shard your data
-- Set up a sequence table for ID generation
-- Set up a lookup Vindex
-- Run queries on your sharded database
+Before you begin, we recommend the following reading:
 
-These are advanced configuration settings that expose some of the underlying Vitess configuration of your cluster.
+- [Workflows overview](/docs/concepts/workflows)
+- [What is a keyspace?](/docs/sharding/overview)
+- [Vindexes](/docs/sharding/vindexes)
+- [Avoiding cross-shard queries](/docs/sharding/avoiding-cross-shard-queries)
+
+{% callout type="note" %}
+Sharded keyspaces are not supported on databases with foreign key constraints enabled.
+{% /callout %}
 
 {% callout type="warning" %}
+These are advanced configuration settings that expose some of the underlying Vitess configuration of your cluster.
 Misconfiguration can cause availability issues. We recommend thoroughly reading through the documentation in the [Sharding section](/docs/sharding/overview) of the docs prior to making any changes. If you have any questions, please [reach out to our support team](https://support.planetscale.com).
 {% /callout %}
 
-## Limitations
+Throughout this guide, we will refer to the source keyspace and target keyspace, which are defined as follows:
 
-Before you start, it is important that you read through the following limitations:
+- **Source keyspace** &mdash; The original unsharded keyspace from which you are moving the tables you wish to shard.
+- **Target keyspace** &mdash; The new sharded keyspace that you are moving the selected tables to.
 
-- This feature can currently only be used to shard **new** tables.
-- If you are an existing PlanetScale customer with already sharded tables, you can use the Cluster Configuration page to adjust the instance size, number of replicas, and Vschema for **already sharded tables**.
-- Sharded keyspaces are not currently supported on databases that have foreign key constraints enabled.
+If you prefer video content, you can watch the video on sharding tables with PlanetScale here:
 
-Created sharded keyspaces for **existing tables** is not yet supported. If you have an existing database that you'd like to shard, [get in touch](/contact).
+{% youtube title="Tutorial: Horizontal sharding with PlanetScale" url="https://www.youtube.com/watch?v=m5eW34nfNtQ" /%}
 
-## Creating a sharded keyspace
+## Pre-sharding checklist
 
-This walkthrough assumes you have already set up an organization with the database whose keyspace you intend to shard. This guide uses a database named `musclemaker`.
-This single database should already have the default unsharded keyspace of the same name.
+There is a small amount of upfront work that needs to happen prior to sharding your table(s).
+Planetscale handles some of these steps for you automatically.
+How many steps get automatically handled depends on the Vitess version that is powering your database.
+Which vitess version you are on depends on how long your database has existed and what features you have enabled.
+If you're curious, see the
+For a full list of steps, see the [pre-sharding checklist](/docs/sharding/pre-sharding-checklist).
 
-To add a sharded keyspace, navigate to the [**Cluster configuration** page](/docs/concepts/cluster-configuration).
+The rest of the work that you need to do yourself is documented below.
 
-![Keyspace configuration main page](/assets/docs/sharding/quick-start/keyspace-configuration.png)
+### 1. Decide which table(s) you want to shard
 
-First, click **New keyspace**. You should be presented with the following creation menu:
+First and foremost, decide which table(s) you want to shard. Some common signals that a table may benefit from sharding include:
 
-![Create new keyspace](/assets/docs/sharding/quick-start/create-sharded.png)
+- The table has become very large (>100 GB) and query performance has degraded due to this
+- Schema changes to the table take several minutes or hours
+- You expect the table to grow quickly and want to shard it before it becomes a problem
 
-Name the keyspace `musclemaker-sharded` and select the desired number of shards.
-In this example, we'll be using 4.
-If desired, you can change the size and number of replicas per-shard.
-For this example we'll keep them small.
-When ready, click **Create keyspace**.
-You will see a message letting you know that the keyspace is initializing. This may take a few minutes.
+### 2. Identify tables you frequently `JOIN`
 
-![Keyspace not ready](/assets/docs/sharding/quick-start/not-ready.png)
+Once you know the tables that you are going to move to a sharded keyspace, you also need to think about which other tables you frequently join with the tables you are going to shard. We recommend that tables you frequently join together all live in the same keyspace.
 
-After it's created, go back to the dashboard.
-You should see two tabs, one for each keyspace.
-Click on the sharded keyspace, and you can see that four shards were created.
-PlanetScale automatically gave each the correct name with the corresponding keyspace ID ranges that the shards are responsible for.
+As an example, if you have a `exercise_logs` table that has become extremely large and continues to grow, you may decide to move this to a sharded keyspace. Perhaps this table is frequently joined it with the `users` table. In this scenario, we recommend moving both the `exercise_logs` and `users` tables to the new sharded keyspace and sharding both tables.
 
-![The dashboard with two keyspaces](/assets/docs/sharding/quick-start/dashboard.png)
+The goal here is to avoid cross-keyspace or cross-shard queries. For more information about this, see the [Avoiding cross-shard queries](/docs/sharding/avoiding-cross-shard-queries) documentation.
 
-## Creating the schema
+### 3. Create a sharded keyspace
 
-Now it is time to create the schema.
-We'll use a simplified schema with only two tables: `user` and `exercise_log`.
-If we are coming from an unsharded environment, our schema may have looked like this previously:
+Next, you need to set up the sharded keyspace.
 
-### user
+1. Go to the "**Cluster configuration**" tab in the left nav in the PlanetScale dashboard.
+2. Click "**New keyspace**".
+3. Enter the keyspace name (for example, `metal-sharded`).
+4. Select the **shard count** and choose the **cluster size** for this keyspace. Keep in mind, creating a sharded keyspace will use the selected size for _each_ shard. For example, if you are creating 4 shards and choose the `PS-80` cluster size, we will create 4 `PS-80`s, each with 1 primary and 2 replicas.
+5. Select the number of _additional_ replicas, if any, that you'd like to add to each cluster. Each cluster comes with 2 replicas by default, so any number you choose will be in addition to those 2.
+6. Review the new monthly cost for this keyspace below. This is in addition to your existing unsharded keyspace, as well as any other keyspaces you add.
+7. Once satisfied, click "**Create keyspace**".
 
-```sql
-CREATE TABLE user(
-  user_id BIGINT UNSIGNED AUTO_INCREMENT,
-  username VARCHAR(128),
-  first_name VARCHAR(128),
-  last_name VARCHAR(128),
-  email VARCHAR(128),
-  pro BOOL,
-  active BOOL,
-  created_at DATETIME,
-  PRIMARY KEY(user_id)
-);
-```
+### 4. Choose your Vindexes
 
-### exercise_log
+When configuring a sharded keyspace, you must think about _how_ to distribute the data across shards. This is done by selecting a [Vindex](/docs/sharding/vindexes) (Vitess index) for each table.
+
+A Vindex provides a way to map incoming rows of data to the appropriate shard in your keyspace. Similar to how every MySQL table must have a primary key, every sharded table must additionally have a **primary Vindex**.
+
+The primary Vindex is the Vindex that determines which shard each row of data will reside on. For more information about choosing a Vindex, see the [Vindexes documentation](/docs/sharding/vindexes). You can also see an example in the [Avoiding cross-shard queries](/docs/sharding/avoiding-cross-shard-queries) documentation.
+
+To specify the vindex for the tables you want to shard:
+
+1. Create a new branch.
+2. Once on your new branch, switch to your sharded keyspace. You can do this in the PlanetScale console if preferred by clicking "Console" in the left nav. Continuing the previous example, we'll switch to the new `metal-sharded` keyspace:
 
 ```sql
-CREATE TABLE exercise_log(
-  log_id BIGINT UNSIGNED AUTO_INCREMENT,
-  user_id BIGINT UNSIGNED,
-  reps SMALLINT,
-  created_at DATETIME,
-  edited_at DATETIME,
-  deleted_at DATETIME,
-  name VARCHAR(64),
-  notes VARCHAR(1024),
-  PRIMARY KEY(log_id)
-);
+use `metal-sharded`;
 ```
 
-However, we need to replace the `AUTO_INCREMENT`s in favor of [sequence tables](/docs/sharding/sequence-tables) in order to horizontally shard the tables.
-To do this, we'll first create the tables in the sharded keyspace with the `AUTO_INCREMENT`s removed.
+3. Alter the VSchema (Vitess schema) of the tables you have chosen to shard to add your chosen Vindex. VSchema is provided to Vitess in JSON. We need to update the VSchema of both our keyspaces in order to:
 
-Connect to your PlanetScale database and run the following:
+- Let Vitess know that it should use the sequence tables for generating incrementing IDs
+- Let Vitess know how incoming rows should be sharded using Vindexes
+
+For example, let's say we are sharding a table called `exercise_logs`, and we determined `user_id` to be the best option. We are also using the predefined [`hash` Vindex function](https://vitess.io/docs/reference/features/vindexes/#predefined-vindexes), which is a common choice.
 
 ```sql
-USE `musclemaker-sharded`;
-CREATE TABLE user(
-  user_id BIGINT UNSIGNED,
-  username VARCHAR(128),
-  first_name VARCHAR(128),
-  last_name VARCHAR(128),
-  email VARCHAR(128),
-  pro BOOL,
-  active BOOL,
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY(user_id)
-);
-CREATE TABLE exercise_log(
-  log_id BIGINT UNSIGNED,
-  user_id BIGINT UNSIGNED,
-  reps SMALLINT,
-  name VARCHAR(64),
-  notes VARCHAR(1024),
-  created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-  edited_at DATETIME,
-  deleted_at DATETIME,
-  PRIMARY KEY(log_id)
-);
+ALTER vschema ON exercise_logs add vindex hash(user_id) using hash;
+ALTER vschema ON users add vindex hash(id) using hash;
 ```
 
-Next, we need to create sequence tables for sequential ID generation.
-Switch over to the unsharded keyspace and create the two tables:
+### 5. Deploy the changes to production
 
-```sql
-USE `musclemaker`;
-CREATE TABLE user_seq (
-  id BIGINT NOT NULL,
-  next_id BIGINT DEFAULT NULL,
-  cache BIGINT DEFAULT NULL,
-  PRIMARY KEY (id)
-) COMMENT 'vitess_sequence';
-CREATE TABLE exercise_log_seq (
-  id BIGINT NOT NULL,
-  next_id BIGINT DEFAULT NULL,
-  cache BIGINT DEFAULT NULL,
-  PRIMARY KEY (id)
-) COMMENT 'vitess_sequence';
+Once you're finished with these pre-sharding steps, you can go ahead and deploy the changes to production.
+
+1. Click "Branches".
+2. Select the branch that has your keyspace updates.
+3. Select the sharded keyspace in the dropdown. You should see a diff that shows edits to your VSchema.
+4. Click "Create deploy request".
+5. If everything looks good, deploy your changes.
+
+If you go back to your Cluster configuration tab, click your sharded keyspace, and click the VSchema tab, you'll see those changes reflected there.
+
+## Sharding with the unsharded to sharded workflow
+
+Alright, now that the prep work is done, it's time to shard the tables you chose to move to your sharded keyspace.
+
+You must have [Safe Migrations](/docs/concepts/safe-migrations) enabled on your production branch to use Workflows. If it's not enabled, go do that first.
+
+### Step 1 &mdash; Set up the workflow
+
+1. Click "**Workflows**" in the left nav.
+2. Click "**New workflow**".
+3. Give your workflow a name, such as "Shard users and exercise_log".
+
+We are now going to move the tables, data included, from the original keyspace to the sharded one that you created in the pre-sharding checklist.
+Make sure the "**Source keyspace**" dropdown shows your original unsharded keyspace and the "**Destination keyspace**" shows the new sharded keyspace you made.
+
+5. Under Source keyspace, check the tables you want to move to the new keyspace to shard. Remember, these should match the ones you already prepped to move earlier.
+6. Once you select the tables that you want to move to the sharded keyspace, you'll see the destination keyspace update to show how the data will be replicated across the number of shards you chose for that keyspace during cluster configuration.
+7. Click "**Validate**".
+8. You will see a validation checklist that lets you know if all of the work from the pre-sharding checklist has been completed. If something is missing, you will not be able to proceed with the workflow. Please revisit the [pre-sharding checklist](/docs/sharding/pre-sharding-checklist) and fix any issues, and don't hesitate to [reach out to support](https://support.planetscale.com) if you get stuck.
+9. Once all validations have passed, click "Create workflow" to start the process of moving the sharded tables to the new keyspace.
+
+### Step 2 - Copying phase
+
+As soon as you click "Create workflow", we begin the copying phase. During this phase, Vitess is copying rows of the table(s) you've selected from your source keyspace to your target keyspace. This uses a combination of `SELECT * FROM TABLE` and binlog-based replication.
+
+There are no active steps for you here besides monitoring the logs at the bottom of the screen in case of errors.
+
+### Step 3 - Verify data consistency
+
+Once the initial data has been copied over, you'll see this message:
+
+> The source keyspace is currently serving all traffic. Before switching traffic, we need to verify data consistency across keyspaces.
+
+Click "Verify data" to verify the consistency of data between the keyspaces. This step may take a few minutes. Once it's complete, you should see "Data verified", meaning you can proceed to the next step.
+
+### Step 4 - Running phase
+
+Assuming there were no errors in the previous stage, you will have automatically entered the running phase &mdash; pure binlog-based replication. This also means replication lag was low enough for VReplication to advance into this phase. You should also see `State Changed: running` in the logs below.
+
+During this phase, the following happens:
+
+- Your source keyspace is still serving all primary and replica traffic for the tables you're moving over.
+- All existing data that is going to the target keyspace has been copied over.
+- VReplication is also replicating all new incoming writes to the tables in the target keyspace.
+
+Again, you should check the logs below to ensure there are no errors and to better understand the ongoing workflow process. There are no active steps to take during this phase. If the logs do not show any errors, you can proceed to the next step.
+
+### Step 5 - Switch traffic to target keyspace
+
+You are now able to switch the traffic over so that traffic to the sharded tables is served from the target keyspace instead of the source keyspace.
+
+You have two options here:
+
+1. Switch both primary and replica traffic.
+2. Switch just replica traffic.
+
+If you want to test the replica traffic only first, you can select "**Switch replica traffic only**" from the dropdown, and then click the button. Otherwise, click "**Switch primary and replica traffic**".
+
+### Step 5 - Check traffic in your application
+
+You should now go check out your production application that uses this database to make sure everything is running as expected.
+
+If you selected to only switch replica traffic in the previous step and data that is being served from replicas in your production application looks good, you can click "**Switch primary traffic**" when you're ready. Again, go to your production application to make sure everything is working as expected.
+
+During this phase, you can also go to your "**Insights**" tab in the dashboard to see markers showing where your workflow started and transitioned into different states. If something looks off where you see a marker, it is worth investigating.
+
+You might notice during this phase that you also have the option to "**Undo traffic switch**". So if you do notice an issue once you switched to serve traffic from the target keyspace, you can click this button to revert back to serving traffic from the source keyspace. Remember, both keyspaces have a copy of the same data for the targeted tables, as described in the Running phase above.
+
+### Step 6 - Update your application code to serve from `@primary`
+
+Once you switched to have traffic serve from your target sharded keyspace in step 4, we applied [schema routing rules](https://vitess.io/docs/reference/features/schema-routing-rules/). Routing rules are responsible for routing traffic to the correct keyspace and/or shard.
+
+The configuration code in your application likely says something like `database_name = your_database_name`, where `your_database_name` is your original unsharded keyspace. This was fine when you only had one keyspace, but now that you have multiple keyspaces, your application won't know that the other ones exist with this current configuration. The automatic routing rules we applied during this workflow appropriately point incoming queries from your unsharded keyspace to the sharded keyspace, where necessary.
+
+However, when you complete the cutover in the next step, **we will remove these routing rules**. That means if your application is still configured to explicitly send traffic to your original unsharded keyspace, `database_name = your_database_name`, we will not know how to correctly route the queries that have been moved to the sharded keyspace.
+
+The fix for this is simple: update your application to route traffic to your primary instance. You can do that by setting database name to `@primary`.
+
+For example, in Rails, it would look like this:
+
+```yml
+# database.yml
+production:
+  <<: *default
+  username: <%= Rails.application.credentials.planetscale&.fetch(:username) %>
+  password: <%= Rails.application.credentials.planetscale&.fetch(:password) %>
+  database: "@primary"
+  host: <%= Rails.application.credentials.planetscale&.fetch(:host) %>
+  ssl_mode: verify_identity
 ```
 
-We'll go ahead and insert exactly 1 row into each of these tables to tell Vitess how to handle ID generation.
-For more information, see the [Vitess Sequences docs](https://vitess.io/docs/user-guides/vschema-guide/sequences/).
+You can safely update and deploy this application code before completing the workflow. When you only have one keyspace, `@primary` will automatically route queries to that keyspace. Likewise, if you have queries that you specifically send to replicas or read-only regions, you can use `@replica` for those to have them automatically routed to the correct keyspace/shard.
 
-```sql
-USE `musclemaker`;
-INSERT INTO user_seq VALUES (0, 1, 1000);
-INSERT INTO exercise_log_seq VALUES (0, 1, 1000);
-```
+For more framework-specific examples, see [Targeting the correct keyspace documentation](/docs/sharding/targeting-correct-keyspace).
 
-## Creating VSchema
+Once you deploy this code change, double check that everything in your production application is working correctly.
 
-In addition to the MySQL schema, each sharded keyspace should have additional [Vitess-specific schema](https://vitess.io/docs/reference/features/vschema/) (VSchema) that tells Vitess about the sequence tables, how to shard, and other keyspace metadata.
-VSchema can be added using either `ALTER VSCHEMA` commands or via the **Cluster configuration** page.
-For this walkthrough, we'll use the latter.
+### Step 7 - Complete the workflow
 
-Navigate back to the **Cluster configuration** page, select the **musclemaker** keyspace, and then navigate to the **VSchema** tab.
+Again, before you proceed with this step, **it is extremely important that you complete step 6**. This requires changes to your application code.
 
-![Change VSchema from the cluster configuration page](/assets/docs/sharding/quick-start/cluster-configuration-vschema.png)
+Please note, up until now, you've had the option to click "Cancel workflow" in the top right corner. Once you click "Complete workflow" in this step, there is no going back. You will have the option to reinstate the routing rules if it appears your queries aren't being routed directly, but you cannot swap the tables back to the source keyspace.
 
-VSchema is provided to Vitess in JSON.
-We need to update the VSchema of both our keyspaces in order to:
+Once you have updated your application to use `@primary` and you are sure you want to proceed with this operation, you can click "**Complete workflow**". You also have the option to Reverse the traffic again here if you need more time to test. This will switch you back to serving from the source keyspace (see step 4).
 
-1. Let Vitess know that it should use the sequence tables for generating incrementing IDs
-2. Let Vitess know _how_ incoming rows should be sharded using Vindexes
+### Step 8 - Check that your production application is working as expected
 
-To let Vitess know about the sequence tables, we first need to update the VSchema of the unsharded `musclemaker` keyspace.
-Set the VSchema to the following:
+Finally, check your production application to make sure everything is working as expected. You can check your [Insights](/docs/concepts/query-insights) tab to see if queries are being properly routed to your new keyspace. Insights will also show you any errors, query performance issues, and more.
 
-```json
-{
-  "tables": {
-    "user_seq": {
-      "type": "sequence"
-    },
-    "exercise_log_seq": {
-      "type": "sequence"
-    }
-  }
-}
-```
+If you realize there are issues, such as queries not being correctly served to the new keyspace, you can click "My application has errors", and we will temporarily restore the routing rules. Refer to step 6 to ensure you're correctly targeting `@primary`. Once your application is updated, click "**I have updated my application**".
 
-Click **Save changes**.
-This VSchema lets Vitess know that these two tables are to be used for sequence generation.
+Once everything looks good, click "**My application is working**", and the workflow will complete.
 
-Next, switch the the VSchema editing view for `musclemaker-sharded`.
-We need to let this keyspace know about the sequence tables, and tell them to use the `xxhash` Vindex function.
-Set the VSchema to the following:
-
-```json
-{
-  "sharded": true,
-  "vindexes": {
-    "xxhash": {
-      "type": "xxhash"
-    }
-  },
-  "tables": {
-    "user": {
-      "column_vindexes": [
-        {
-          "column": "user_id",
-          "name": "xxhash"
-        }
-      ],
-      "auto_increment": {
-        "column": "user_id",
-        "sequence": "`musclemaker`.user_seq"
-      }
-    },
-    "exercise_log": {
-      "column_vindexes": [
-        {
-          "column": "user_id",
-          "name": "xxhash"
-        }
-      ],
-      "auto_increment": {
-        "column": "log_id",
-        "sequence": "`musclemaker`.exercise_log_seq"
-      }
-    }
-  }
-}
-```
-
-Notice a few things:
-
-- We've added a `vindex` of type `xxhash`.
-  For all tables that use this Vindex, it will take the shard key column, hash it, and use the result as the keyspace ID, which determines which shard to send it to.
-- We added the `tables` field with a field for each table.
-  - In each, we specified a `column_vindexes` field and configured it to hash on the `user_id` using the `xxhash` Vindex.
-  - In each, we also added the `auto_increment` field and told it to use the corresponding sequence tables in `musclemaker` for ID generation.
-
-Hit **Save changes**.
-
-## Inserting data
-
-Next, let's insert some sample data.
-Go ahead and execute these queries on the database:
-
-```sql
-USE `musclemaker-sharded`;
-INSERT INTO user (username, first_name, last_name, email, pro, active) VALUES
-  ('jj17', 'John', 'James', 'jj@gmail.com', 0, 0),
-  ('cBarkley4', 'Charles', 'Barkley', 'barkley@planetscale.com', 0, 1),
-  ('samCool', 'Samantha', 'Cool', 'coolio@yahoo.net', 1, 0),
-  ('bb4700.1', 'Brandi', 'Banks', 'bb@proton.com', 1, 1),
-  ('anthonyie', 'Anthony', 'Broski', 'abro@gmail.com', 1, 0),
-  ('jonez', 'Edwin', 'Jones', 'jonez@planetscale.com', 1, 0),
-  ('cramTheGainz', 'Charles', 'Cramer', 'g@yahoo.net', 1, 0),
-  ('zeWorkout', 'Zach', 'Williams', 'zw@proton.com', 1, 1),
-  ('drake', 'Drake', 'Cam', 'dc@yahoo.net', 0, 0),
-  ('carmen', 'Carmen', 'W', 'carmel@proton.com', 0, 0);
-INSERT INTO exercise_log(user_id, reps, name) VALUES
-  (1, 10, 'pushup'),
-  (1, 10, 'situp'),
-  (2, 10, 'burpee'),
-  (2,  7, 'squat'),
-  (3, 10, 'bench'),
-  (3, 12, 'curl'),
-  (4,  8, 'deadlift'),
-  (4, 10, 'pullup'),
-  (5,  6, 'bench'),
-  (5, 10, 'pushups'),
-  (6, 11, 'squat'),
-  (6, 15, 'shrug'),
-  (7, 10, 'squat'),
-  (7,  9, 'deadlift'),
-  (8, 10, 'curl'),
-  (8, 10, 'row'),
-  (9, 10, 'pullup'),
-  (9,  9, 'deadlift'),
-  (10, 4, 'plank'),
-  (10, 10, 'row');
-```
-
-You can confirm that the rows were inserted and behave as a single, unified table by running:
-
-```sql
-USE `musclemaker-sharded`;
-SELECT * FROM user;
-SELECT * FROM exercise_log;
-```
-
-You can look at which rows ended up on each shard by running:
-
-```sql
-USE `musclemaker-sharded/-40`;
-SELECT * FROM user;
-SELECT * FROM exercise_log;
-
-USE `musclemaker-sharded/40-80`;
-SELECT * FROM user;
-SELECT * FROM exercise_log;
-
-USE `musclemaker-sharded/80-c0`;
-SELECT * FROM user;
-SELECT * FROM exercise_log;
-
-USE `musclemaker-sharded/c0-`;
-SELECT * FROM user;
-SELECT * FROM exercise_log;
-```
-
-## Adding a lookup Vindex
-
-What if we want to execute queries that don't use the primary Vindex in the `WHERE` clause?
-For example:
-
-```sql
-SELECT *
-FROM user
-  WHERE username = 'cBarkley4';
-```
-
-This would be unable to leverage the primary Vindex to narrow down which shards to look at, and therefore would have to scatter the query to all four shards.
-Instead we can create a secondary lookup Vindex, which will allow it to send a query like this only to the appropriate shard.
-Create the following lookup table:
-
-```sql
-USE `musclemaker-sharded`
-CREATE TABLE username_lookup(
-  username VARCHAR(128) NOT NULL PRIMARY KEY,
-  keyspace_id varbinary(64)
-);
-```
-
-We also need to update the VSchema for the `musclemaker-sharded` to set a Vindex for this lookup table.
-Add the following snippet of VSchema to the `tables` section of the `musclemaker-sharded` keyspace:
-
-```json
-"username_lookup": {
-  "column_vindexes": [
-    {
-      "column": "username",
-      "name": "xxhash"
-    }
-}
-```
-
-We then need to populate it with the correct usernames and keyspace IDs.
-We can find the keyspace ID for a `user_id` with `xxhash` by running a query like:
-
-```sql
-select keyspace_id from xxhash where id = 1;
-```
-
-If we run this for IDs 1-10, we can determine which keyspace IDs to insert.
-The insertions into this table should look like this:
-
-```sql
-INSERT INTO username_lookup (username, keyspace_id) VALUES
-  ('jj17', 0xD46405367612B4B7),
-  ('cBarkley4', 0x8B59801662B52160),
-  ('samCool', 0xA42C16F52A7C1626),
-  ('bb4700.1', 0x896BA42C32143991),
-  ('anthonyie', 0xED48B60574B4816A),
-  ('jonez', 0xF77C5A6468BD2E12),
-  ('cramTheGainz', 0xB77A0DA0B6524A18),
-  ('zeWorkout', 0x64C8AA7CBB6246AD),
-  ('drake', 0x9A02EE413EED351D),
-  ('carmen', 0x177FB0A30E55484B);
-```
-
-Run that, then go back to the VSchema editing view for `musclemaker-sharded` and add the following to the `vindexes` section:
-
-```json
-"username_to_keyspace_id": {
-  "type": "lookup_unique",
-  "params": {
-    "from": "username",
-    "table": "`musclemaker-sharded`.username_lookup",
-    "to": "keyspace_id"
-  },
-  "owner": "user"
-},
-```
-
-Also add this to the `column_vindexes` for the `user` table:
-
-```json
-{
-  "column": "username",
-  "name": "username_to_keyspace_id"
-}
-```
-
-Hit **Save changes**.
-You can now run queries like:
-
-```sql
-SELECT *
-FROM user
-  WHERE username = 'cBarkley4';
-```
-
-A secondary lookup Vindex should help performance of such `SELECT` queries if we had a large data set.
-
-## Final VSchema
-
-For reference, here is the final VSchema for our two keyspaces.
-
-### musclemaker
-
-```json
-{
-  "tables": {
-    "exercise_log_seq": {
-      "type": "sequence"
-    },
-    "user_seq": {
-      "type": "sequence"
-    }
-  }
-}
-```
-
-### musclemaker-sharded
-
-```json
-{
-  "sharded": true,
-  "vindexes": {
-    "username_to_keyspace_id": {
-      "type": "lookup_unique",
-      "params": {
-        "from": "username",
-        "table": "`musclemaker-sharded`.username_lookup",
-        "to": "keyspace_id"
-      },
-      "owner": "user"
-    },
-    "xxhash": {
-      "type": "xxhash"
-    }
-  },
-  "tables": {
-    "exercise_log": {
-      "column_vindexes": [
-        {
-          "column": "user_id",
-          "name": "xxhash"
-        }
-      ],
-      "auto_increment": {
-        "column": "log_id",
-        "sequence": "`musclemaker`.exercise_log_seq"
-      }
-    },
-    "user": {
-      "column_vindexes": [
-        {
-          "column": "user_id",
-          "name": "xxhash"
-        },
-        {
-          "column": "username",
-          "name": "username_to_keyspace_id"
-        }
-      ],
-      "auto_increment": {
-        "column": "user_id",
-        "sequence": "`musclemaker`.user_seq"
-      }
-    },
-    "username_lookup": {
-      "column_vindexes": [
-        {
-          "column": "username",
-          "name": "xxhash"
-        }
-      ]
-    }
-  }
-}
-```
+That's it! The tables you selected at the beginning are now being served by the sharded keyspace.
