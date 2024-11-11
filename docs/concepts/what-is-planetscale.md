@@ -62,7 +62,7 @@ PlanetScale allows you to break up a monolithic database and partition the data 
 
 Another scenario that companies with massive databases often run into is connection limits due to MySQL. With PlanetScale, we can support [nearly infinite connections](/blog/one-million-connections). Vitess offers built-in [connection pooling](https://vitess.io/docs/reference/features/connection-pools/), and we've built our own [edge infrastructure](/blog/introducing-the-planetscale-serverless-driver-for-javascript) into PlanetScale to ensure connection limits are never an issue.
 
-We generally recommend exploring horizontal sharding when your database exceeds 250 GB of data and you are beginning to feel some of the [pains associated with large scale](/blog/how-to-scale-your-database-and-when-to-shard-mysql). [Sharding](/docs/concepts/cluster-configuration) is offered on our Scaler Pro plan. If you need assistance with with setting up horizontal sharding, migrating to PlanetScale, or want enterprise-level SLAs, we offer this through our [Enterprise plan](/enterprise) option. [Please reach out](/contact) for more information.
+We generally recommend exploring horizontal sharding when your database exceeds 250 GB of data and you are beginning to feel some of the [pains associated with large scale](/blog/how-to-scale-your-database-and-when-to-shard-mysql). [Sharding](/docs/concepts/cluster-configuration) is offered on our Scaler Pro plan. If you need assistance with setting up horizontal sharding, migrating to PlanetScale, or want enterprise-level SLAs, we offer this through our [Enterprise plan](/enterprise) option. [Please reach out](/contact) for more information.
 
 ### Insights
 
